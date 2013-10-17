@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        table {
+            display: inline-table;
+        }
+
+        td {
+            text-align: center;
+        }
+
+    </style>
+    <script src="globi-dist.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        window.onload = function () {
+            var california = { nw_lat: 41.574361, nw_lng: -125.533448, se_lat: 32.750323, se_lng: -114.744873};
+            var options = { location: california, width: 1000, height: 500, sourceTaxa: ['Animalia'], targetTaxa: ['Insecta', 'Aves'] };
+
+            // event emitter (ee) object is returned for client to respond to events
+            var ee = globi.addInteractionGraph(options);
+
+            // interaction data is received and has been rendered
+            ee.on('ready', function () {
+                ee.appendGraphTo(document.querySelector('#interaction_graph'));
+                ee.appendLegendTo(document.querySelector('#interaction_graph_legend'));
+            });
+
+            // specific interactions have been selected by user
+            ee.on('select', function (interactions) {
+                // use d3 to render interaction data into html div elements
+                globi.d3.selectAll('#selected-interactions').selectAll('div')
+                        .data(interactions)
+                        .enter().append('div').text(function (d) {
+                            // use interaction data to do something meaningful
+                            return '[' + d.source.name + ' (' + d.source.id + ')]-[:'
+                                    + d.type
+                                    + ']->[' + d.target.name + ' (' + d.target.id + ')]';
+                        });
+            });
+
+            ee.on('deselect', function () {
+                // remove previously rendered interaction information
+                globi.d3.selectAll('#selected-interactions').selectAll('div').remove();
+            });
+
+        };
+
+    </script>
+</head>
+<body>
+<p>Welcome to GloBI's Proof of Concept - Bipartite graph representation source (e.g. predator) and target (e.g. prey)
+    taxa.</p>
+<table>
+    <tr>
+        <td>
+            <span class="chart" id="interaction_graph"/>
+        </td>
+        <td>
+            <span id="interaction_graph_legend"/>
+        </td>
+    </tr>
+    <td width='1000'>
+        <b>selected interactions</b>
+        <span id="selected-interactions"/>
+    </td>
+    </tr>
+    <tr>
+        <td>
+
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-eol-globi.github.io
-===================
+jhpoelen.github.io
+==================
 
-Explore EOL's Global Biotic Interactions
+trying github pages
