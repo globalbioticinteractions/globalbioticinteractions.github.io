@@ -69,9 +69,14 @@
 							var numberOfInteractions = resp.data[0][1];
 							var distinctSourceTaxa = resp.data[0][2];
 							var distinctTargetTaxa = resp.data[0][3];
-							elem.innerHTML = 'GloBI contains ' + numberOfStudies + ' studies with ' + numberOfInteractions + ' interactions between ' + distinctSourceTaxa +' source and ' + distinctTargetTaxa + ' target distinct taxa.';
-							var statsDiv = document.getElementById('stats');
-							statsDiv.appendChild(elem);
+							var interDiv = document.getElementById('interactions');
+							interDiv.innerHTML = '<b>interactions</b> (' + numberOfInteractions + ' total)';
+							var srcTaxa = document.getElementById('sourceTaxa');
+							srcTaxa.innerHTML = '<b>source taxa</b> (' + distinctSourceTaxa + ' unique)';
+							var tgtTaxa = document.getElementById('targetTaxa');
+							tgtTaxa.innerHTML = '<b>target taxa</b> (' + distinctTargetTaxa + ' unique)';
+							var references = document.getElementById('references');
+							references.innerHTML = '<b>references</b> (' + numberOfStudies + ')';
 						}
 					};
 					req.send(null);
@@ -107,6 +112,6 @@
 	</head>
 	<body>
 		<a href="bipartite-graph.html">bipartite graph</a>
-		<table id="contributors" class="table"><tr id="stats"></tr><tr><th><b>interactions</b></th><th><b>source taxa</b></th><th><b>target taxa</b></th><th><b>reference</b></th></tr></table>
+		<table id="contributors" class="table"><tr><th id="interactions"></th><th id="sourceTaxa"></th><th id="targetTaxa"></th><th id="references"></th></tr></table>
 	</body>
 </html>
