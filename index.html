@@ -1,3 +1,81 @@
+<!DOCTYPE html>
 <html>
-	<body><a href="bipartite-graph.html">bipartite graph</a></body>
+	<head>
+		<meta charset="utf-8">
+		<script type="text/javascript" charset="utf-8">
+			var createReq = function() {
+				var req;
+				if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+      				req = new XMLHttpRequest();
+   				} else if (window.ActiveXObject) { // IE
+      				try {
+        			req = new ActiveXObject("Msxml2.XMLHTTP");
+      				} catch (e) {
+        				try {
+          					req = new ActiveXObject("Microsoft.XMLHTTP");
+        				} catch (e) {};
+      				};
+    			}
+
+				return req;
+			};
+
+			window.onload = function() {
+				loadStats();
+				loadContributors();
+			};
+
+			var loadStats = function() {
+				var req = createReq();
+				if (req) {
+					req.open('GET','http://trophicgraph.com:8080/info',true);
+					req.onreadystatechange = function() {
+						if (req.readyState === 4 && req.status === 200) {
+							var resp = JSON.parse(req.responseText);
+							var elem = document.createElement('p');
+							var numberOfStudies = resp.data[0][0];
+							var numberOfInteractions = resp.data[0][1];
+							var distinctSourceTaxa = resp.data[0][2];
+							var distinctTargetTaxa = resp.data[0][3];
+							elem.innerHTML = 'GloBI contains ' + numberOfStudies + ' studies with ' + numberOfInteractions + ' interactions between ' + distinctSourceTaxa +' source and ' + distinctTargetTaxa + ' target distinct taxa.';
+							var statsDiv = document.getElementById('stats');
+							statsDiv.appendChild(elem);
+						}
+					};
+					req.send(null);
+				}
+			};
+
+			var loadContributors = function() {
+				var req = createReq();
+				if (req) {
+					req.open('GET','http://trophicgraph.com:8080/contributors',true);
+					req.onreadystatechange = function() {
+						if (req.readyState === 4 && req.status === 200) {
+							console.log(req.responseText);
+							var resp = JSON.parse(req.responseText);
+							var contribs = [];
+							for (var i=0; i<resp.data.length; i++) {
+								var row = resp.data[i];
+								contribs[i] = { name: row[3], title: row[2], totalInteractions: row[4], totalSourceTaxa: row[5], totalTargetTaxa: row[6]};
+							}
+							var table = document.getElementById('contributors');
+							for (var i=0; i < contribs.length; i++) {
+								var row = document.createElement('tr');
+								var contrib = contribs[i];
+								row.innerHTML = '<td>' + contrib.totalInteractions + '</td><td>' + contrib.totalSourceTaxa + '</td><td>' + contrib.totalTargetTaxa + '</td><td>' + contrib.name + ' ' + contrib.title + '</td>';
+								table.appendChild(row);
+							}	
+						}
+					}
+					req.send(null);	
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<a href="bipartite-graph.html">bipartite graph</a>
+		<div id="stats"></div>
+		<table id="contributors"><tr><th># interactions</th><th># source taxa</th><th># target taxa</th><th>reference</th></tr></table>
+	</body>
 </html>
