@@ -14,9 +14,12 @@
                     .autocomplete( {
                         source: function( request, response ) {
                             jQuery.ajax({
-                                url: baseUrl + encodeURIComponent( request.term ),
+                                url: baseUrl + encodeURIComponent( request.term )
                             } ).done( function( resp ) {
                                 var data = resp.data;
+                                data = jQuery.grep( data, function( item ) {
+                                    return item[ 0 ].toLowerCase().indexOf( request.term ) !== -1;
+                                } );
                                 response(
                                     jQuery.map( data, function( item ) {
                                         return {
