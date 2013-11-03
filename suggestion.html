@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Taxon search by suggestions</title>
+		<meta charset="utf-8">
+        <link href="vendor/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
+        <script type="text/javascript" src="vendor/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="vendor/jquery-ui-1.10.3.custom.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+            var baseUrl = 'http://trophicgraph.com:8080/findCloseMatchesForTaxon/';
+
+            jQuery( function() {
+                $( '#taxon-name' )
+                    .autocomplete( {
+                        source: function( request, response ) {
+                            jQuery.ajax({
+                                url: baseUrl + encodeURIComponent( request.term ),
+                            } ).done( function( resp ) {
+                                var data = resp.data;
+                                response(
+                                    jQuery.map( data, function( item ) {
+                                        return {
+                                            label: item[ 0 ],
+                                            value: item[ 0 ].toLowerCase()
+                                        }
+                                    } )
+                                );
+                            } );
+                        }
+                    } );
+            } );
+		</script>
+	</head>
+	<body>
+        <form action="#">
+            <label for="taxon-name">Taxon name</label>
+            <input id="taxon-name" type="text" />
+        </form>
+	</body>
+</html>
