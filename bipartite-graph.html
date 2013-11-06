@@ -17,7 +17,7 @@
 
         window.onload = function () {
             var california = { nw_lat: 41.574361, nw_lng: -125.533448, se_lat: 32.750323, se_lng: -114.744873};
-            var options = { location: california, width: 1000, height: 500, sourceTaxa: ['Animalia'], targetTaxa: ['Insecta', 'Aves'] };
+            var options = { location: california, width: 1000, height: 500 };
 
             // event emitter (ee) object is returned for client to respond to events
             var ee = globi.addInteractionGraph(options);

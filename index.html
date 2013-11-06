@@ -34,16 +34,17 @@
 			}
 		</style>
 		<script type="text/javascript" charset="utf-8">
+			var httpPrefix = 'http://trophicgraph.com:8080/'
 			var createReq = function() {
 				var req;
 				if (window.XMLHttpRequest) { // Mozilla, Safari, ...
       				req = new XMLHttpRequest();
    				} else if (window.ActiveXObject) { // IE
       				try {
-        			req = new ActiveXObject("Msxml2.XMLHTTP");
+        			req = new ActiveXObject('Msxml2.XMLHTTP');
       				} catch (e) {
         				try {
-          					req = new ActiveXObject("Microsoft.XMLHTTP");
+          					req = new ActiveXObject('Microsoft.XMLHTTP');
         				} catch (e) {};
       				};
     			}
@@ -51,15 +52,18 @@
 				return req;
 			};
 
+			window.ready = function() {
+			};
+
 			window.onload = function() {
 				loadStats();
 				loadContributors();
 			};
-
+			
 			var loadStats = function() {
 				var req = createReq();
 				if (req) {
-					req.open('GET','http://trophicgraph.com:8080/info',true);
+					req.open('GET',httpPrefix + '/info',true);
 					req.onreadystatechange = function() {
 						if (req.readyState === 4 && req.status === 200) {
 							var resp = JSON.parse(req.responseText);
@@ -86,7 +90,7 @@
 			var loadContributors = function() {
 				var req = createReq();
 				if (req) {
-					req.open('GET','http://trophicgraph.com:8080/contributors',true);
+					req.open('GET', httpPrefix + '/contributors',true);
 					req.onreadystatechange = function() {
 						if (req.readyState === 4 && req.status === 200) {
 							console.log(req.responseText);
