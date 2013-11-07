@@ -1,121 +1,90 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<style type="text/css">
-			.table {
-    			border: 1px solid #DFDFDF;
-    			background-color: #F9F9F9;
-    			width: 100%;
-    			-moz-border-radius: 3px;
-    			-webkit-border-radius: 3px;
-    			border-radius: 3px;
-    			font-family: Arial,"Bitstream Vera Sans",Helvetica,Verdana,sans-serif;
-    			color: #333;
-			}
-			.table td, .table th {
-    			border-top-color: white;
-    			border-bottom: 1px solid #DFDFDF;
-    			color: #555;
-			}
-			.table th {
-    			text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
-    			font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
-    			font-weight: normal;
-    			padding: 7px 7px 8px;
-    			text-align: left;
-    			line-height: 1.3em;
-    			font-size: 14px;
-			}
-			.table td, .table p {
-    			font-size: 12px;
-    			padding: 4px 7px 2px;
-    			vertical-align: top;	
-			}
-		</style>
-		<script type="text/javascript" charset="utf-8">
-			var httpPrefix = 'http://trophicgraph.com:8080/'
-			var createReq = function() {
-				var req;
-				if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-      				req = new XMLHttpRequest();
-   				} else if (window.ActiveXObject) { // IE
-      				try {
-        			req = new ActiveXObject('Msxml2.XMLHTTP');
-      				} catch (e) {
-        				try {
-          					req = new ActiveXObject('Microsoft.XMLHTTP');
-        				} catch (e) {};
-      				};
-    			}
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        .table {
+            border: 1px solid #DFDFDF;
+            background-color: #F9F9F9;
+            width: 100%;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            font-family: Arial, "Bitstream Vera Sans", Helvetica, Verdana, sans-serif;
+            color: #333;
+        }
 
-				return req;
-			};
+        .table td, .table th {
+            border-top-color: white;
+            border-bottom: 1px solid #DFDFDF;
+            color: #555;
+        }
 
-			window.ready = function() {
-			};
+        .table th {
+            text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
+            font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
+            font-weight: normal;
+            padding: 7px 7px 8px;
+            text-align: left;
+            line-height: 1.3em;
+            font-size: 14px;
+        }
 
-			window.onload = function() {
-				loadStats();
-				loadContributors();
-			};
-			
-			var loadStats = function() {
-				var req = createReq();
-				if (req) {
-					req.open('GET',httpPrefix + '/info',true);
-					req.onreadystatechange = function() {
-						if (req.readyState === 4 && req.status === 200) {
-							var resp = JSON.parse(req.responseText);
-							var elem = document.createElement('th');
-							elem.setAttribute('colspan','4');
-							var numberOfStudies = resp.data[0][0];
-							var numberOfInteractions = resp.data[0][1];
-							var distinctSourceTaxa = resp.data[0][2];
-							var distinctTargetTaxa = resp.data[0][3];
-							var interDiv = document.getElementById('interactions');
-							interDiv.innerHTML = '(' + numberOfInteractions + ' total)';
-							var srcTaxa = document.getElementById('sourceTaxa');
-							srcTaxa.innerHTML = '(' + distinctSourceTaxa + ' unique)';
-							var tgtTaxa = document.getElementById('targetTaxa');
-							tgtTaxa.innerHTML = '(' + distinctTargetTaxa + ' unique)';
-							var references = document.getElementById('references');
-							references.innerHTML = '(' + numberOfStudies + ' total)';
-						}
-					};
-					req.send(null);
-				}
-			};
+        .table td, .table p {
+            font-size: 12px;
+            padding: 4px 7px 2px;
+            vertical-align: top;
+        }
+    </style>
+    <script src="globi-dist.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        window.onload = function () {
+            loadStats();
+            loadContributors();
+        };
 
-			var loadContributors = function() {
-				var req = createReq();
-				if (req) {
-					req.open('GET', httpPrefix + '/contributors',true);
-					req.onreadystatechange = function() {
-						if (req.readyState === 4 && req.status === 200) {
-							console.log(req.responseText);
-							var resp = JSON.parse(req.responseText);
-							var contribs = [];
-							for (var i=0; i<resp.data.length; i++) {
-								var row = resp.data[i];
-								contribs[i] = { name: row[3], title: row[2], totalInteractions: row[4], totalSourceTaxa: row[5], totalTargetTaxa: row[6]};
-							}
-							var table = document.getElementById('contributors');
-							for (var i=0; i < contribs.length; i++) {
-								var row = document.createElement('tr');
-								var contrib = contribs[i];
-								row.innerHTML = '<td>' + contrib.totalInteractions + '</td><td>' + contrib.totalSourceTaxa + '</td><td>' + contrib.totalTargetTaxa + '</td><td>' + contrib.name + ' ' + contrib.title + '</td>';
-								table.appendChild(row);
-							}	
-						}
-					}
-					req.send(null);	
-				}
-			};
-		</script>
-	</head>
-	<body>
-		<a href="bipartite-graph.html">bipartite graph</a>
-		<table id="contributors" class="table"><tr><th width='10%'><b>interactions</b></th><th width='10%'><b>source taxa</b></th><th width='10%'><b>target taxa</b></th><th width='70%'><b>references</b></th></tr><tr><th id="interactions"></th><th id="sourceTaxa"></th><th id="targetTaxa"></th><th id="references"></th></tr></table>
-	</body>
+        var loadStats = function () {
+            globi.globiData.findStats({}, function (stats) {
+                var elem = document.createElement('th');
+                elem.setAttribute('colspan', '4');
+                var interDiv = document.getElementById('interactions');
+                interDiv.innerHTML = '(' + stats.totalInteractions + ' total)';
+                var srcTaxa = document.getElementById('sourceTaxa');
+                srcTaxa.innerHTML = '(' + stats.totalSourceTaxa + ' unique)';
+                var tgtTaxa = document.getElementById('targetTaxa');
+                tgtTaxa.innerHTML = '(' + stats.totalTargetTaxa + ' unique)';
+                var references = document.getElementById('references');
+                references.innerHTML = '(' + stats.numberOfStudies + ' total)';
+            });
+        };
+
+        var loadContributors = function () {
+            globi.globiData.findStudyStats({}, function (studyStatList) {
+                var table = document.getElementById('contributors');
+                studyStatList.forEach(function (element) {
+                    var row = document.createElement('tr');
+                    row.innerHTML = '<td>' + element.totalInteractions + '</td><td>' + element.totalSourceTaxa + '</td><td>' + element.totalTargetTaxa + '</td><td>' + element.reference + '</td>';
+                    table.appendChild(row);
+                });
+            });
+        };
+    </script>
+</head>
+<body>
+<a href="bipartite-graph.html">bipartite graph</a>
+<table id="contributors" class="table">
+    <tr>
+        <th width='10%'><b>interactions</b></th>
+        <th width='10%'><b>source taxa</b></th>
+        <th width='10%'><b>target taxa</b></th>
+        <th width='70%'><b>references</b></th>
+    </tr>
+    <tr>
+        <th id="interactions"></th>
+        <th id="sourceTaxa"></th>
+        <th id="targetTaxa"></th>
+        <th id="references"></th>
+    </tr>
+</table>
+</body>
 </html>
