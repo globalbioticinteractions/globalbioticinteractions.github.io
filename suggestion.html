@@ -62,7 +62,7 @@
                 } );
 
                 if ( commonNames[ languageCode ] ) {
-                    return commonNames[ languageCode ];
+                    return commonNames[ languageCode ] + ' ';
                 }
                 else {
                     return '';
@@ -83,7 +83,7 @@
                                 response(
                                     jQuery.map( data, function( item ) {
                                         return {
-                                            label: '<div class="scientific-name" style="font-style: italic;">' + item[ 0 ] + '</div><div class="common-name" style="font-size: 11px;">' + filterForCommonName( item[ 1 ], 'en' ) + '</div>',
+                                            label: '<div><span class="common-name">' + filterForCommonName( item[ 1 ], 'en' ) + '</span><span class="scientific-name" style="font-style: italic;">(' + item[ 0 ] + ')</span></div>',
                                             value: item[ 0 ].toLowerCase()
                                         }
                                     } )
