@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>jQuery UI Autocomplete - Default functionality</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+    <script src="globi-dist.js" charset="utf-8"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#tags").autocomplete({
+                source: function (request, response) {
+                    globi.globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
+                        var suggestions = [];
+                        closeMatches.forEach(function (closeMatch, index) {
+                            var englishName;
+                            closeMatch.commonNames.forEach(function (element) {
+                                if (element.lang === 'en') {
+                                    englishName = element.name;
+                                }
+                            });
+                            var suggestion  = closeMatch.scientificName;
+                            if (englishName !== undefined) {
+                                 suggestion = englishName + ' (' + suggestion + ')';
+                            }
+                            suggestions[index] = suggestion;
+                        });
+                        response(suggestions);
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="ui-widget">
+    <label for="tags">Select taxon: </label>
+    <input id="tags"/>
+</div>
+</body>
+</html>
