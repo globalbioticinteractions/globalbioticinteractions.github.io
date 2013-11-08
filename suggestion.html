@@ -1,105 +1,43 @@
-<!DOCTYPE html>
-<html>
-	<head>
-        <title>Taxon search by suggestions</title>
-		<meta charset="utf-8">
-        <link href="vendor/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
-        <script type="text/javascript" src="vendor/jquery-2.0.3.min.js"></script>
-        <script type="text/javascript" src="vendor/jquery-ui-1.10.3.custom.min.js"></script>
-        <script type="text/javascript">
-            ( function( $ ) {
-                var proto = $.ui.autocomplete.prototype,
-                    initSource = proto._initSource;
-
-                function filter( array, term ) {
-                    var matcher = new RegExp( $.ui.autocomplete.escapeRegex( term ), 'i' );
-                    return $.grep( array, function( value ) {
-                        return matcher.test( $( '<div>' ).html( value.label || value.value || value ).text() );
-                    } );
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Find a relevant taxon by scientific, taxon rank or common name</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+    <script src="globi-dist.js" charset="utf-8"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#tags").autocomplete({
+                source: function (request, response) {
+                    globi.globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
+                        var suggestions = [];
+                        closeMatches.forEach(function (closeMatch, index) {
+                            var englishName;
+                            closeMatch.commonNames.forEach(function (element) {
+                                if (element.lang === 'en') {
+                                    englishName = element.name;
+                                }
+                            });
+                            var suggestion  = closeMatch.scientificName;
+                            if (englishName !== undefined) {
+                                suggestion = englishName + ' (' + suggestion + ')';
+                            }
+                            suggestions[index] = suggestion;
+                        });
+                        response(suggestions);
+                    });
                 }
-
-                $.extend( proto, {
-                    _initSource: function() {
-                        if ( this.options.html && $.isArray( this.options.source ) ) {
-                            this.source = function( request, response ) {
-                                response( filter( this.options.source, request.term ) );
-                            };
-                        }
-                        else {
-                            initSource.call( this );
-                        }
-                    },
-
-                    _renderItem: function( ul, item ) {
-                        return $( '<li></li>' )
-                                .data( 'item.autocomplete', item )
-                                .append( $( '<a></a>' )[ this.options.html ? 'html' : 'text' ]( item.label ) )
-                                .appendTo( ul );
-                    }
-                } );
-            } )( jQuery );
-        </script>
-		<script type="text/javascript" charset="utf-8">
-            var baseUrl = 'http://trophicgraph.com:8080/findCloseMatchesForTaxon/';
-
-            function filterForCommonName( content, languageCode ) {
-                if ( !content.length ) {
-                    return '';
-                }
-                var commonNames = {}, item;
-                content = content.split( '|' );
-
-                content.forEach( function( item ) {
-                    item = item.trim().split( '@' );
-                    if ( item[ 0 ].length ) {
-                        if ( item.length > 1 ) {
-                            commonNames[ item[ 1 ].trim() ] = item[ 0 ].trim();
-                        }
-                        else if ( item.length === 1 ) {
-                            commonNames[ languageCode ] = item[ 0 ].trim();
-                        }
-                    }
-                } );
-
-                if ( commonNames[ languageCode ] ) {
-                    return commonNames[ languageCode ] + ' ';
-                }
-                else {
-                    return '';
-                }
-            }
-
-            jQuery( function() {
-                $( '#taxon-name' )
-                    .autocomplete( {
-                        source: function( request, response ) {
-                            jQuery.ajax( {
-                                url: baseUrl + encodeURIComponent( request.term )
-                            } ).done( function( resp ) {
-                                var data = resp.data;
-                                data = jQuery.grep( data, function( item ) {
-                                    return item[ 0 ].toLowerCase().indexOf( request.term ) !== -1;
-                                } );
-                                response(
-                                    jQuery.map( data, function( item ) {
-                                        return {
-                                            label: '<div><span class="common-name">' + filterForCommonName( item[ 1 ], 'en' ) + '</span><span class="scientific-name" style="font-style: italic;">(' + item[ 0 ] + ')</span></div>',
-                                            value: item[ 0 ].toLowerCase()
-                                        }
-                                    } )
-                                );
-                            } );
-                        },
-                        minLength: 3,
-                        html: true
-                    } );
-            } );
-		</script>
-	</head>
-	<body>
-        <form action="#">
-            <label for="taxon-name">Taxon name</label>
-            <input id="taxon-name" type="text" />
-        </form>
-	</body>
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="ui-widget">
+    <label for="tags">Select taxon: </label>
+    <input id="tags"/>
+</div>
+</body>
 </html>
