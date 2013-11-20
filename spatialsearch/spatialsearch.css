@@ -1,7 +1,21 @@
-#map {
+#page {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#spatialsearch-index #map {
     position: absolute;
     top: 0;
     left:0;
     bottom:0;
     right:0;
+}
+
+#spatialsearch-location #map {
+    height: 300px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
 }

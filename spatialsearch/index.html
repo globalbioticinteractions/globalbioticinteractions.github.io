@@ -14,7 +14,7 @@
 
             jQuery.ajax( { url: './locations.json' } ).done( function( locations ) {
                 if ( locations ) {
-                    for ( index in locations ) {
+                    for ( var index in locations ) {
                         if ( locations.hasOwnProperty( index ) ) {
                             var location = locations[ index ],
                                 content = createLocationContent( location );
@@ -32,7 +32,7 @@
         } );
     </script>
 </head>
-<body>
+<body id="spatialsearch-index">
     <div id="map"></div>
 </body>
 </html>
