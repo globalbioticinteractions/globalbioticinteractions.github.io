@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spatial Search (Map)</title>
+    <link rel="stylesheet" href="spatialsearch.css"/>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="../vendor/markerclusterer.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!--script src="globi-dist.js"></script-->
+    <script src="spatialsearch.js"></script>
+    <script>
+        jQuery( function() {
+            var map = initializeMap(), markers = [], markerClusterer = null;
+
+            jQuery.ajax( { url: './locations.json' } ).done( function( locations ) {
+                if ( locations ) {
+                    for ( index in locations ) {
+                        if ( locations.hasOwnProperty( index ) ) {
+                            var location = locations[ index ],
+                                content = createLocationContent( location );
+                            markers.push( placeMarker( content, location, map ) );
+                        }
+                    }
+                    if ( markerClusterer === null ) {
+                        markerClusterer = new MarkerClusterer( map, markers, { gridSize: 40, maxZoom: 0 } );
+                    }
+                    else {
+                        markerClusterer.redraw();
+                    }
+                }
+            } );
+        } );
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>
