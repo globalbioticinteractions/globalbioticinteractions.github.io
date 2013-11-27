@@ -8,6 +8,10 @@ function initializeMap( location, zoom ) {
     } );
 }
 
+function initializeMarkerClusterer( map, markers ) {
+    return new MarkerClusterer( map, markers, { gridSize: 40, maxZoom: 0 } );
+}
+
 function createLocationContent( location ) {
     return [
         '<div>',
@@ -87,32 +91,30 @@ function showSpecimensList( specimens ) {
     jQuery( '<div style="text-align:left; font-weight: bold;">' + specimens.length +  ' Specimen' + ( specimens.length > 1 ? 's' : '' ) + '</div>' ).appendTo( $contentNode );
 
     for ( var i = 0, specimen; specimen = specimens[ i ]; i++ ) {
-        if ( specimen.species !== 'no:match' ) {
-            itemHtml = '<div class="result_list_item row" >';
+        itemHtml = '<div class="result_list_item row" >';
 
-            if ( specimen.thumbnailUrl ) {
-                itemHtml += [
-                    '<div id="' + specimen.externalId + '" class="span1">',
-                        '<img src="' + specimen.thumbnailUrl + '" /><br/>',
-                    '</div>'
-                ].join( '' );
-            }
-            else {
-                itemHtml += '<div id="' + specimen.externalId + ':' + i + '" class="span1"></div>';
-            }
-            itemHtml += '</div>';
-
+        if ( specimen.thumbnailUrl ) {
             itemHtml += [
-                '<div class="span5">',
-                '<a href="' + specimen.taxonUri + '" target="_NEW_EOL">' + specimen.species + '</a>',
-    //                <% if specimen.length_in_mm %>
-    //                / <span>Length:</span> <%= specimen.length_in_mm %> mm <br/>
-    //                    <% end %>
+                '<div id="' + specimen.externalId + '" class="span1">',
+                    '<img src="' + specimen.thumbnailUrl + '" /><br/>',
                 '</div>'
-            ].join( '' )
-
-            jQuery( itemHtml ).appendTo( $contentNode );
+            ].join( '' );
         }
+        else {
+            itemHtml += '<div id="' + specimen.externalId + ':' + i + '" class="span1"></div>';
+        }
+        itemHtml += '</div>';
+
+        itemHtml += [
+            '<div class="span5">',
+            '<a href="' + specimen.taxonUri + '" target="_NEW_EOL">' + specimen.species + '</a>',
+//                <% if specimen.length_in_mm %>
+//                / <span>Length:</span> <%= specimen.length_in_mm %> mm <br/>
+//                    <% end %>
+            '</div>'
+        ].join( '' )
+
+        jQuery( itemHtml ).appendTo( $contentNode );
     }
 }
 
@@ -148,5 +150,5 @@ function getUrlParameters() {
         var pair = vars[ i ].split( "=" );
         hash[ pair[ 0 ] ] = pair[ 1 ]
     }
-    return hash
+    return hash;
 }

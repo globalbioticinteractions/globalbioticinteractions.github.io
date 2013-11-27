@@ -8,9 +8,13 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <!--script src="globi-dist.js"></script-->
     <script src="spatialsearch.js"></script>
+    <script src="areapicker.js"></script>
     <script>
         jQuery( function() {
-            var map = initializeMap(), markers = [], markerClusterer = null;
+            var map = initializeMap(),
+                markers = [],
+                markerClusterer = null,
+                areapicker = new AreaPicker( map );
 
             jQuery.ajax( { url: './locations.json' } ).done( function( locations ) {
                 if ( locations ) {
@@ -21,12 +25,7 @@
                             markers.push( placeMarker( content, location, map ) );
                         }
                     }
-                    if ( markerClusterer === null ) {
-                        markerClusterer = new MarkerClusterer( map, markers, { gridSize: 40, maxZoom: 0 } );
-                    }
-                    else {
-                        markerClusterer.redraw();
-                    }
+                    markerClusterer = initializeMarkerClusterer( map, markers );
                 }
             } );
         } );
