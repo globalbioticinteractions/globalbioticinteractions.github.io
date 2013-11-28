@@ -11,17 +11,26 @@ var AreaPicker = function( map ) {
     this.isCreated_ = false;
 
     this.control_ = new AreaPickerControl( this );
+    this.info_ = new AreaPickerInfo( this );
 };
 
 AreaPicker.prototype.create = function() {
-    if ( !this.isCreated_ ) {
-        this.rectangle_ = new google.maps.Rectangle( {
-            bounds: this.bounds_,
+    var me = this;
+    if ( !me.isCreated_ ) {
+        me.rectangle_ = new google.maps.Rectangle( {
+            bounds: me.bounds_,
             editable: true,
             draggable: true,
             zIndex: 10
         } );
-        this.isCreated_ = true;
+
+        google.maps.event.addListener( me.rectangle_, 'bounds_changed', function() {
+            me.bounds_ = me.rectangle_.getBounds();
+
+            me.info_.show( me.bounds_ );
+        } );
+
+        me.isCreated_ = true;
     }
 };
 
@@ -30,11 +39,13 @@ AreaPicker.prototype.show = function() {
         this.create();
     }
     this.rectangle_.setMap( this.map );
+    this.info_.show( this.bounds_ );
 };
 
 AreaPicker.prototype.hide = function() {
     if ( this.isCreated_ ) {
         this.rectangle_.setMap( null );
+        this.info_.hide();
     }
 };
 
@@ -83,4 +94,53 @@ AreaPickerControl.prototype.applyStyles = function() {
     this.container_.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.4)';
     this.container_.style.cursor = 'pointer';
     this.container_.innerHTML = '<img src="icon_area.png" />';
+};
+
+function AreaPickerInfo( associatedPicker ) {
+    this.infoWindow = null;
+    this.associatedPicker_ = associatedPicker;
+
+    this.create();
+}
+
+AreaPickerInfo.prototype.create = function() {
+    this.infoWindow = new google.maps.InfoWindow( { content: '' } );
+};
+
+AreaPickerInfo.prototype.show = function( bounds ) {
+    this.hide();
+    this.setContent( bounds );
+    this.infoWindow.setPosition( bounds.getCenter() );
+    this.infoWindow.open( this.associatedPicker_.map );
+};
+
+AreaPickerInfo.prototype.hide = function() {
+    this.infoWindow.close();
+};
+
+AreaPickerInfo.prototype.setContent = function( bounds ) {
+    var contentString = this.createContent_( bounds );
+    this.infoWindow.setContent( contentString );
+};
+
+AreaPickerInfo.prototype.createContent_ = function( bounds ) {
+    var eolBounds ={
+        nw_lat: bounds.getNorthEast().lat(),
+        nw_lng: bounds.getSouthWest().lng(),
+        se_lat: bounds.getSouthWest().lat(),
+        se_lng: bounds.getNorthEast().lng()
+    };
+    return [
+        '<div>',
+            '<a href="#?',
+                'nw_lat=' + eolBounds.nw_lat,
+                '&nw_lng=' + eolBounds.nw_lng,
+                '&se_lat=' + eolBounds.se_lat,
+                '&se_lng=' + eolBounds.se_lng,
+            '">',
+            '<span>show interactions</span>',
+            '</a>',
+            '<br />',
+        '</div>'
+    ].join( '' );
 };
