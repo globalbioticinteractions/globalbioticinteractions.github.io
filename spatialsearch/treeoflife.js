@@ -1,4 +1,4 @@
-var tree = d3.layout.tree().size( [ 1000, 1280 ]);
+var tree = d3.layout.tree().size( [ 700, 1280 ]);
 
 var diagonal = d3.svg.diagonal()
     .projection( function( d ) { return [ d.y, d.x ]; } );
@@ -8,7 +8,7 @@ jQuery( function() {
     var rawData, root, nodeId = 0;
     var drawingArea = d3.select( '#tree_container' ).append( 'svg:svg' )
                 .attr( 'width', 1280 )
-                .attr( 'height', 1000 )
+                .attr( 'height', 700 )
             .append( 'svg:g' )
                 .attr( 'transform', 'translate(60, 0)' );
 
@@ -69,10 +69,7 @@ jQuery( function() {
 
 // Parse JSON data into tree compatible structure (End)
 
-
-        json = structureObject;
-
-        root = json;
+        root = structureObject;
         root.x0 = 350;
         root.y0 = 0;
 
@@ -83,13 +80,13 @@ jQuery( function() {
             }
         }
 
-        root.children.forEach( toggleAll );
+        //root.children.forEach( toggleAll );
 
         update( root );
     } );
 
     function update( source ) {
-        var duration = 50;
+        var duration = 500;
 
         var nodes = tree.nodes( root ).reverse();
 
@@ -108,6 +105,7 @@ jQuery( function() {
         var newNode = node.enter().append( 'svg:g' )
                         .attr( 'class', 'node' )
                         .attr( 'id', function( d ) { return d.id; } )
+                        .attr( 'data-eol-id', function( d ) { return d.eol_id } )
                         .attr( 'transform', function( d ) { return 'translate(' + source.y0 + ',' + source.x0 + ')'; } )
                         .on( 'click', function( d ) { toggle( d ); update( d ) } );
 
