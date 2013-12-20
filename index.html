@@ -67,7 +67,7 @@
                         var prefix = '<span class="' + selectedItem.label + '">' + selectedItem.label + '</span> eat ';
                         var message = textElem.innerHTML = '. . . plenty of things, and perhaps you can make this result even better by <a href="http://github.com/jhpoelen/eol-globi-data/wiki">submitting new dataset!</a></p>';
                         if (counter == 0) {
-                            message =  '<p class="interaction">. . . nothing that we know of.  Perhaps you should <a href="http://github.com/jhpoelen/eol-globi-data/wiki">submit new dataset!</a></p>';
+                            message =  '. . . nothing that we know of.  Perhaps you should <a href="http://github.com/jhpoelen/eol-globi-data/wiki">submit new dataset!</a>';
                         }
                         textElem.innerHTML = prefix + message;
                         document.getElementById('info').appendChild(textElem);
