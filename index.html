@@ -79,8 +79,12 @@
                                     label = taxonInfo.commonName + ' (' + label + ')';
                                 }
                                 var label = '<td>' + label + '</td>';
-                                if (taxonInfo.thumbnailURL) {
-                                    label = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>' + '<img src="' + taxonInfo.thumbnailURL + '"/></td></tr><caption align="bottom">' + label + '</caption></table></a>';
+                                if (taxonInfo.infoURL) {
+                                    label = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>';
+                                    if (taxonInfo.thumbnailURL) {
+                                        label += '<img src="' + taxonInfo.thumbnailURL + '"/>';
+                                    }
+                                    label += '</td></tr><caption align="bottom">' + label + '</caption></table></a>';
                                 }
                                 $('.' + taxonInfo.scientificName).html(label);
                             });
