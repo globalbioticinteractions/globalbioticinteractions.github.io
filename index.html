@@ -56,7 +56,7 @@
                             }
 
                             var td = document.createElement('td');
-                            td.setAttribute('class', interaction.target.name);
+                            td.setAttribute('class', interaction.target.name.replace(/\W/, '_'));
                             td.innerHTML = interaction.target.name;
                             row.appendChild(td);
                             distinctNames[interaction.target.name] = interaction.target.id;
@@ -80,13 +80,14 @@
                                 }
                                 var label = '<td>' + label + '</td>';
                                 if (taxonInfo.infoURL) {
-                                    label = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>';
+                                    var link = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>';
+                                    var image = '';
                                     if (taxonInfo.thumbnailURL) {
-                                        label += '<img src="' + taxonInfo.thumbnailURL + '"/>';
+                                        image = '<img src="' + taxonInfo.thumbnailURL + '"/>';
                                     }
-                                    label += '</td></tr><caption align="bottom">' + label + '</caption></table></a>';
+                                    label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table></a>';
                                 }
-                                $('.' + taxonInfo.scientificName).html(label);
+                                $('.' + taxonInfo.scientificName.replace(/\W/, '_')).html(label);
                             });
                         });
 
