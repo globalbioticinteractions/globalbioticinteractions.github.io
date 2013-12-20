@@ -1,91 +1,108 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <style type="text/css">
-        .table {
-            border: 1px solid #DFDFDF;
-            background-color: #F9F9F9;
-            width: 100%;
-            -moz-border-radius: 3px;
-            -webkit-border-radius: 3px;
-            border-radius: 3px;
-            font-family: Arial, "Bitstream Vera Sans", Helvetica, Verdana, sans-serif;
-            color: #333;
-        }
-
-        .table td, .table th {
-            border-top-color: white;
-            border-bottom: 1px solid #DFDFDF;
-            color: #555;
-        }
-
-        .table th {
-            text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
-            font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
-            font-weight: normal;
-            padding: 7px 7px 8px;
-            text-align: left;
-            line-height: 1.3em;
-            font-size: 14px;
-        }
-
-        .table td, .table p {
-            font-size: 12px;
-            padding: 4px 7px 2px;
-            vertical-align: top;
-        }
-    </style>
-    <!-- note that eol-globi-data-js is used through eol-globi-js, if the ui widgets are not needed, then globi-data-js should be used directly -->
+    <meta charset="utf-8"/>
+    <title>Find a relevant taxon by scientific, taxon rank or common name</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <script src="globi-dist.js" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8">
-        window.onload = function () {
-            loadStats();
-            loadContributors();
-        };
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
 
-        var loadStats = function () {
-            globi.globiData.findStats({}, function (stats) {
-                var elem = document.createElement('th');
-                elem.setAttribute('colspan', '4');
-                var interDiv = document.getElementById('interactions');
-                interDiv.innerHTML = '(' + stats.totalInteractions + ' total)';
-                var srcTaxa = document.getElementById('sourceTaxa');
-                srcTaxa.innerHTML = '(' + stats.totalSourceTaxa + ' unique)';
-                var tgtTaxa = document.getElementById('targetTaxa');
-                tgtTaxa.innerHTML = '(' + stats.totalTargetTaxa + ' unique)';
-                var references = document.getElementById('references');
-                references.innerHTML = '(' + stats.numberOfStudies + ' total)';
-            });
-        };
+            var labelForTaxon = function (taxon) {
+                var englishName;
+                if (taxon.commonNames) {
+                    taxon.commonNames.forEach(function (element) {
+                        if (element.lang === 'en') {
+                            englishName = element.name;
+                        }
+                    });
+                }
+                var suggestion = taxon.scientificName;
+                if (englishName !== undefined) {
+                    suggestion = englishName + ' (' + suggestion + ')';
+                }
+                return suggestion;
+            };
 
-        var loadContributors = function () {
-            globi.globiData.findStudyStats({}, function (studyStatList) {
-                var table = document.getElementById('contributors');
-                studyStatList.forEach(function (element) {
-                    var row = document.createElement('tr');
-                    row.innerHTML = '<td>' + element.totalInteractions + '</td><td>' + element.totalSourceTaxa + '</td><td>' + element.totalTargetTaxa + '</td><td>' + element.reference + '</td>';
-                    table.appendChild(row);
-                });
+            $(".tags").autocomplete({
+                minLength: 3,
+                source: function (request, response) {
+                    globi.globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
+                        var suggestions = [];
+                        closeMatches.forEach(function (closeMatch, index) {
+                            suggestions[index] = {
+                                label: labelForTaxon(closeMatch),
+                                value: closeMatch.scientificName
+                            };
+                        });
+                        response(suggestions);
+                    });
+                },
+                select: function (event, ui) {
+                    var selectedItem = ui.item;
+                    var search = {sourceTaxonScientificName: selectedItem.value, interactionType: 'preysOn'};
+                    var callback = function (interactions) {
+                        var resultDiv = document.getElementById('result');
+                        $('.interaction').remove();
+                        var distinctNames = {};
+                        var counter = 0;
+                        interactions.forEach(function (interaction) {
+                            if (counter % 4 == 0) {
+                                row = document.createElement('tr');
+                                row.setAttribute('class', 'interaction');
+                                resultDiv.appendChild(row);
+                            }
+
+                            var td = document.createElement('td');
+                            td.setAttribute('class', interaction.target.name);
+                            td.innerHTML = interaction.target.name;
+                            row.appendChild(td);
+                            distinctNames[interaction.target.name] = interaction.target.id;
+                            counter += 1;
+                        });
+                        var textElem = document.createElement('p')
+                        textElem.setAttribute('class', 'interaction');
+                        var prefix = '<span class="' + selectedItem.label + '">' + selectedItem.label + '</span> eat ';
+                        var message = textElem.innerHTML = '. . . plenty of things, and perhaps you can make this result even better by <a href="http://github.com/jhpoelen/eol-globi-data/wiki">submitting new dataset!</a></p>';
+                        if (counter == 0) {
+                            message =  '<p class="interaction">. . . nothing that we know of.  Perhaps you should <a href="http://github.com/jhpoelen/eol-globi-data/wiki">submit new dataset!</a></p>';
+                        }
+                        textElem.innerHTML = prefix + message;
+                        document.getElementById('info').appendChild(textElem);
+
+                        Object.keys(distinctNames).forEach(function (name) {
+                            globi.globiData.findTaxonInfo(name, function (taxonInfo) {
+                                var label = taxonInfo.scientificName;
+                                if (taxonInfo.commonName !== null) {
+                                    label = taxonInfo.commonName + ' (' + label + ')';
+                                }
+                                var label = '<td>' + label + '</td>';
+                                if (taxonInfo.thumbnailURL) {
+                                    label = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>' + '<img src="' + taxonInfo.thumbnailURL + '"/></td></tr><caption align="bottom">' + label + '</caption></table></a>';
+                                }
+                                $('.' + taxonInfo.scientificName).html(label);
+                            });
+                        });
+
+                    };
+                    globi.globiData.findSpeciesInteractions(search, callback);
+
+                }
             });
-        };
+        });
     </script>
 </head>
 <body>
-<a href="bipartite-graph.html">bipartite graph</a> | <a href="spatialsearch/">Spatial search</a>
-<table id="contributors" class="table">
-    <tr>
-        <th width='10%'><b>interactions</b></th>
-        <th width='10%'><b>source taxa</b></th>
-        <th width='10%'><b>target taxa</b></th>
-        <th width='70%'><b>references</b></th>
-    </tr>
-    <tr>
-        <th id="interactions"></th>
-        <th id="sourceTaxa"></th>
-        <th id="targetTaxa"></th>
-        <th id="references"></th>
-    </tr>
-</table>
+<a href="bipartite-graph.html">bipartite graph</a> | <a href="spatialsearch/">spatial search</a> | <a href="references.html">references</a>
+<div class="ui-widget">
+    <p>What do
+    <td><input class="tags" autocomplete="off"/></td>
+    eat?</p>
+    <div id="info"></div>
+    <table id="result">
+    </table>
+</div>
 </body>
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        .table {
+            border: 1px solid #DFDFDF;
+            background-color: #F9F9F9;
+            width: 100%;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            font-family: Arial, "Bitstream Vera Sans", Helvetica, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .table td, .table th {
+            border-top-color: white;
+            border-bottom: 1px solid #DFDFDF;
+            color: #555;
+        }
+
+        .table th {
+            text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
+            font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
+            font-weight: normal;
+            padding: 7px 7px 8px;
+            text-align: left;
+            line-height: 1.3em;
+            font-size: 14px;
+        }
+
+        .table td, .table p {
+            font-size: 12px;
+            padding: 4px 7px 2px;
+            vertical-align: top;
+        }
+    </style>
+    <!-- note that eol-globi-data-js is used through eol-globi-js, if the ui widgets are not needed, then globi-data-js should be used directly -->
+    <script src="globi-dist.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        window.onload = function () {
+            loadStats();
+            loadContributors();
+        };
+
+        var loadStats = function () {
+            globi.globiData.findStats({}, function (stats) {
+                var elem = document.createElement('th');
+                elem.setAttribute('colspan', '4');
+                var interDiv = document.getElementById('interactions');
+                interDiv.innerHTML = '(' + stats.totalInteractions + ' total)';
+                var srcTaxa = document.getElementById('sourceTaxa');
+                srcTaxa.innerHTML = '(' + stats.totalSourceTaxa + ' unique)';
+                var tgtTaxa = document.getElementById('targetTaxa');
+                tgtTaxa.innerHTML = '(' + stats.totalTargetTaxa + ' unique)';
+                var references = document.getElementById('references');
+                references.innerHTML = '(' + stats.numberOfStudies + ' total)';
+            });
+        };
+
+        var loadContributors = function () {
+            globi.globiData.findStudyStats({}, function (studyStatList) {
+                var table = document.getElementById('contributors');
+                studyStatList.forEach(function (element) {
+                    var row = document.createElement('tr');
+                    row.innerHTML = '<td>' + element.totalInteractions + '</td><td>' + element.totalSourceTaxa + '</td><td>' + element.totalTargetTaxa + '</td><td>' + element.reference + '</td>';
+                    table.appendChild(row);
+                });
+            });
+        };
+    </script>
+</head>
+<body>
+<a href="bipartite-graph.html">bipartite graph</a> | <a href="spatialsearch/">spatial search</a> | <a href="index.html">home</a>
+<table id="contributors" class="table">
+    <tr>
+        <th width='10%'><b>interactions</b></th>
+        <th width='10%'><b>source taxa</b></th>
+        <th width='10%'><b>target taxa</b></th>
+        <th width='70%'><b>references</b></th>
+    </tr>
+    <tr>
+        <th id="interactions"></th>
+        <th id="sourceTaxa"></th>
+        <th id="targetTaxa"></th>
+        <th id="references"></th>
+    </tr>
+</table>
+</body>
+</html>
