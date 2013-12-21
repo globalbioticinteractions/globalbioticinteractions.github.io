@@ -78,7 +78,7 @@
                             globi.globiData.findTaxonInfo(name, function (taxonInfo) {
                                 var label = taxonInfo.scientificName;
                                 if (taxonInfo.commonName !== null) {
-                                    label = taxonInfo.commonName + ' (' + label + ')';
+                                    label = taxonInfo.commonName + '<br>(' + label + ')';
                                 }
                                 var label = '<td>' + label + '</td>';
                                 if (taxonInfo.infoURL) {
