@@ -49,25 +49,27 @@
                         var distinctNames = {};
                         var counter = 0;
                         interactions.forEach(function (interaction) {
-                            if (counter % 4 == 0) {
-                                row = document.createElement('tr');
-                                row.setAttribute('class', 'interaction');
-                                resultDiv.appendChild(row);
-                            }
+                            if (distinctNames[interaction.target.name] !== interaction.target.name) {
+                                if (counter % 4 == 0) {
+                                    row = document.createElement('tr');
+                                    row.setAttribute('class', 'interaction');
+                                    resultDiv.appendChild(row);
+                                }
 
-                            var td = document.createElement('td');
-                            td.setAttribute('class', interaction.target.name.replace(/\W/, '_'));
-                            td.innerHTML = interaction.target.name;
-                            row.appendChild(td);
-                            distinctNames[interaction.target.name] = interaction.target.id;
-                            counter += 1;
+                                var td = document.createElement('td');
+                                td.setAttribute('class', interaction.target.name.replace(/\W/, '_'));
+                                td.innerHTML = interaction.target.name;
+                                row.appendChild(td);
+                                distinctNames[interaction.target.name] = interaction.target.name;
+                                counter += 1;
+                            }
                         });
                         var textElem = document.createElement('p')
                         textElem.setAttribute('class', 'interaction');
                         var prefix = '<span class="' + selectedItem.label + '">' + selectedItem.label + '</span> eat ';
                         var message = textElem.innerHTML = '. . . plenty of things, and perhaps you can make this result even better by <a href="http://github.com/jhpoelen/eol-globi-data/wiki">submitting new dataset!</a></p>';
                         if (counter == 0) {
-                            message =  '. . . nothing that we know of.  Perhaps you should <a href="http://github.com/jhpoelen/eol-globi-data/wiki">submit new dataset!</a>';
+                            message = '. . . nothing that we know of.  Perhaps you should <a href="http://github.com/jhpoelen/eol-globi-data/wiki">submit new dataset!</a>';
                         }
                         textElem.innerHTML = prefix + message;
                         document.getElementById('info').appendChild(textElem);
@@ -100,7 +102,9 @@
     </script>
 </head>
 <body>
-<a href="bipartite-graph.html">bipartite graph</a> | <a href="spatialsearch/">spatial search</a> | <a href="references.html">references</a>
+<a href="bipartite-graph.html">bipartite graph</a> | <a href="spatialsearch/">spatial search</a> | <a
+        href="references.html">references</a>
+
 <div class="ui-widget">
     <p>What do
     <td><input class="tags" autocomplete="off"/></td>
