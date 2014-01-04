@@ -9313,7 +9313,7 @@ globiData.findStudyStats = function (search, callback) {
                 var row = resp.data[i];
                 var reference = row[2];
                 var name = row[3];
-                if (name.length > 0) {
+                if (name && name.length > 0) {
                     reference = name + ' ' + reference;
                 }
                 studyStats[i] = { reference: reference, totalInteractions: row[4], totalSourceTaxa: row[5], totalTargetTaxa: row[6]};
