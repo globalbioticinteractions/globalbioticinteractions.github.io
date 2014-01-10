@@ -9353,7 +9353,8 @@ globiData.findStats = function (search, callback) {
             var stats = {numberOfStudies: resp.data[0][0],
                 totalInteractions: resp.data[0][1],
                 totalSourceTaxa: resp.data[0][2],
-                totalTargetTaxa: resp.data[0][3]};
+                totalTargetTaxa: resp.data[0][3],
+                numberOfDistinctSources: resp.data[0][4]};
             callback(stats);
         }
     };
