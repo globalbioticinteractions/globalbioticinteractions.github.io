@@ -64,7 +64,7 @@
                 var table = document.getElementById('contributors');
                 studyStatList.forEach(function (element) {
                     var row = document.createElement('tr');
-                    row.innerHTML = '<td>' + element.totalInteractions + '</td><td>' + element.totalSourceTaxa + '</td><td>' + element.totalTargetTaxa + '</td><td>' + element.reference + '</td>';
+                    row.innerHTML = '<td>' + element.totalInteractions + '</td><td>' + element.totalSourceTaxa + '</td><td>' + element.totalTargetTaxa + '</td><td>' + element.reference + '</td><td>' + element.source + '</td>';
                     table.appendChild(row);
                 });
             });
@@ -78,13 +78,15 @@
         <th width='10%'><b>interactions</b></th>
         <th width='10%'><b>source taxa</b></th>
         <th width='10%'><b>target taxa</b></th>
-        <th width='70%'><b>references</b></th>
+        <th width='70%'><b>reference</b></th>
+        <th width='70%'><b>source</b></th>
     </tr>
     <tr>
         <th id="interactions"></th>
         <th id="sourceTaxa"></th>
         <th id="targetTaxa"></th>
         <th id="references"></th>
+        <th id="sources"></th>
     </tr>
 </table>
 </body>
