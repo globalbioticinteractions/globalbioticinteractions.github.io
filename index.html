@@ -9,7 +9,6 @@
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
     <script>
         $(function () {
-
             var labelForTaxon = function (taxon) {
                 var englishName;
                 if (taxon.commonNames) {
@@ -76,7 +75,10 @@
 
                         Object.keys(distinctNames).forEach(function (name) {
                             globi.globiData.findTaxonInfo(name, function (taxonInfo) {
-                                var label = taxonInfo.scientificName;
+                                var label = name;
+								if (taxonInfo.scientificName) {
+									label = taxonInfo.scientificName;
+								} 
                                 if (taxonInfo.commonName !== null) {
                                     label = taxonInfo.commonName + '<br>(' + label + ')';
                                 }
@@ -89,25 +91,24 @@
                                     }
                                     label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table></a>';
                                 }
-                                $('.' + taxonInfo.scientificName.replace(/\W/, '_')).html(label);
+                                $('.' + name.replace(/\W/, '_')).html(label);
                             });
                         });
 
                     };
                     globi.globiData.findSpeciesInteractions(search, callback);
-
                 }
             });
         });
     </script>
 </head>
-<body>
+<body onload="document.getElementById('PredatorNameInputField').focus();">
 <a href="bipartite-graph.html">bipartite graph</a> | <a href="spatialsearch/">spatial search</a> | <a
         href="references.html">references</a>
 
 <div class="ui-widget">
     <p>What do
-    <td><input class="tags" autocomplete="off"/></td>
+    <td><input id="PredatorNameInputField" class="tags" autocomplete="off"/></td>
     eat?</p>
     <div id="info"></div>
     <table id="result">
