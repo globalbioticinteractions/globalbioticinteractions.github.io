@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <style type="text/css">
         .table {
             border: 1px solid #DFDFDF;
@@ -30,7 +31,7 @@
             font-size: 14px;
         }
 
-        .table td, .table p {
+        .table td, .table p, .table div {
             font-size: 12px;
             padding: 4px 7px 2px;
             vertical-align: top;
@@ -66,7 +67,7 @@
                 var table = document.getElementById('contributors');
                 studyStatList.forEach(function (element) {
                     var row = document.createElement('tr');
-                    row.innerHTML = '<td>' + element.totalInteractions + '</td><td>' + element.totalSourceTaxa + '</td><td>' + element.totalTargetTaxa + '</td><td>' + element.reference + '</td><td>' + element.source + '</td>';
+                    row.innerHTML = '<td>' + element.reference + '</td><td>' + element.totalInteractions + '</td><td>' + element.totalSourceTaxa + '</td><td>' + element.totalTargetTaxa + '</td><td>' + element.source + '</td>';
                     table.appendChild(row);
                 });
             });
@@ -74,20 +75,23 @@
     </script>
 </head>
 <body>
-<a href="index.html">home</a>
+<div class="ui-widget">
+<a href="http://globalbioticinteractions.wordpress.com    ">blog</a> | <a href="https://github.com/jhpoelen/eol-globi-data/issues/new">feedback</a> | <a href="index.html">what do ... eat?</a>
+</div>
+<br/>
 <table id="contributors" class="table">
     <tr>
+        <th width='60%'><b>reference</b></th>
         <th width='10%'><b>interactions</b></th>
         <th width='10%'><b>source taxa</b></th>
         <th width='10%'><b>target taxa</b></th>
-        <th width='70%'><b>reference</b></th>
-        <th width='70%'><b>source</b></th>
+        <th width='10%'><b>source</b></th>
     </tr>
     <tr>
+        <th id="references"></th>
         <th id="interactions"></th>
         <th id="sourceTaxa"></th>
         <th id="targetTaxa"></th>
-        <th id="references"></th>
         <th id="sources"></th>
     </tr>
 </table>
