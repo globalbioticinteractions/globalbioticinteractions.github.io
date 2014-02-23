@@ -1,77 +1,83 @@
-var tree = d3.layout.tree().size( [ 700, 1280 ]);
+var parseToStructure = function( rawData ) {
+    var source, sourcePath, sourcePathLength,
+        structureObject = { name: 'tree of life', children: [] }, structureStepper,
+        stepperStart,
+        j, l, part, stepFound, stepIndex, temp;
+
+    structureStepper = structureObject.children;
+    stepperStart = structureObject.children;
+
+    for ( var i = 0, rawDatum; rawDatum = rawData[ i ]; i++ ) {
+
+        for ( var fieldIndex = 0, fields = [ 'source', 'target' ]; fieldIndex < fields.length; fieldIndex++ ) {
+            source = rawDatum[ fields[ fieldIndex ] ];
+
+            if ( source[ 'id' ] !== 'no:match' ) {
+                sourcePath = source[ 'path' ].split( ' | ' );
+                sourcePathLength = sourcePath.length;
+
+                for ( j = 0; j < sourcePathLength; j++ ) {
+                    part = sourcePath[ j ];
+
+                    stepFound = false;
+                    for ( l = 0; l < structureStepper.length; l++ ) {
+                        if ( structureStepper[ l ][ 'name' ] === part ) {
+                            stepFound = true;
+                            stepIndex = l;
+                            break;
+                        }
+                    }
+
+                    if ( !stepFound ) {
+                        temp = { name: part, children: [] };
+                        if ( j == ( sourcePathLength - 1 ) ) {
+                            temp.eol_id = source[ 'id' ];
+                        }
+
+                        structureStepper.push( temp );
+                        structureStepper = temp.children;
+                    }
+                    else {
+                        structureStepper = structureStepper[ stepIndex ][ 'children' ];
+                    }
+                }
+
+                structureStepper = stepperStart;
+            }
+
+        }
+
+    }
+
+    return structureObject;
+};
+
+var canvasWidth = 2560;
+
+var tree = d3.layout.tree().size( [ 700, canvasWidth ]);
 
 var diagonal = d3.svg.diagonal()
     .projection( function( d ) { return [ d.y, d.x ]; } );
 
 jQuery( function() {
 
-    var rawData, root, nodeId = 0;
+    var rootSource, rootTarget, nodeId = 0;
     var drawingArea = d3.select( '#tree_container' ).append( 'svg:svg' )
-                .attr( 'width', 1280 )
-                .attr( 'height', 700 )
-            .append( 'svg:g' )
-                .attr( 'transform', 'translate(60, 0)' );
-
-    var source, sourcePath, sourcePathLength,
-        structureObject = { name: 'tree of life', children: [] }, structureStepper = {},
-        stepperStart = {},
-        j, l, part, stepFound, stepIndex, temp;
+                .attr( 'width', canvasWidth )
+                .attr( 'height', 700 );
+    drawingArea.append( 'svg:g' )
+        .attr( 'transform', 'translate(60, 0)' );
+    drawingArea.append( 'svg:g' )
+        .attr( 'transform', 'translate(60, 0)' );
 
     d3.json( 'interaction.json', function( json ) {
+        rootSource = parseToStructure( json );
+        rootSource.x0 = 350;
+        rootSource.y0 = 0;
 
-        rawData = json;
-
-// Parse JSON data into tree compatible structure (Start)
-        structureStepper = structureObject.children;
-        stepperStart = structureObject.children;
-
-        for ( var i = 0, rawDatum; rawDatum = rawData[ i ]; i++ ) {
-
-            for ( var fieldIndex = 0, fields = [ 'source', 'target' ]; fieldIndex < fields.length; fieldIndex++ ) {
-                source = rawDatum[ fields[ fieldIndex ] ];
-
-                if ( source[ 'id' ] !== 'no:match' ) {
-                    sourcePath = source[ 'path' ].split( ' | ' );
-                    sourcePathLength = sourcePath.length;
-
-                    for ( j = 0; j < sourcePathLength; j++ ) {
-                        part = sourcePath[ j ];
-
-                        stepFound = false;
-                        for ( l = 0; l < structureStepper.length; l++ ) {
-                            if ( structureStepper[ l ][ 'name' ] === part ) {
-                                stepFound = true;
-                                stepIndex = l;
-                                break;
-                            }
-                        }
-
-                        if ( !stepFound ) {
-                            temp = { name: part, children: [] };
-                            if ( j == ( sourcePathLength - 1 ) ) {
-                                temp.eol_id = source[ 'id' ];
-                            }
-
-                            structureStepper.push( temp );
-                            structureStepper = temp.children;
-                        }
-                        else {
-                            structureStepper = structureStepper[ stepIndex ][ 'children' ];
-                        }
-                    }
-
-                    structureStepper = stepperStart;
-                }
-
-            }
-
-        }
-
-// Parse JSON data into tree compatible structure (End)
-
-        root = structureObject;
-        root.x0 = 350;
-        root.y0 = 0;
+        rootTarget = parseToStructure( json );
+        rootTarget.x0 = 350;
+        rootTarget.y0 = 0;
 
         function toggleAll( d ) {
             if ( d.children ) {
@@ -80,18 +86,38 @@ jQuery( function() {
             }
         }
 
-        //root.children.forEach( toggleAll );
+        rootTarget.children.forEach( toggleAll );
+        rootSource.children.forEach( toggleAll );
 
-        update( root );
+        update( rootSource, 'source' );
+        update( rootTarget, 'target' );
+
+
     } );
 
-    function update( source ) {
-        var duration = 500;
+    function update( source, type ) {
+        var duration = 500, nodes;
 
-        var nodes = tree.nodes( root ).reverse();
+        switch ( type ) {
+            case 'target':
+                nodes = tree.nodes( rootTarget ).reverse();
+                break;
+            case 'source':
+                nodes = tree.nodes( rootSource ).reverse();
+                break;
+        }
 
         nodes.forEach( function( d ) {
-            d.y = d.depth * 150;
+
+            switch ( type ) {
+                case 'target':
+                    d.y = canvasWidth - ( d.depth + 1 ) * 150;
+                    break;
+                case 'source':
+                    d.y = d.depth * 150;
+                    break;
+            }
+
             // Remove children property for leafes
             if ( d._children && d._children.length === 0 ) {
                 delete d._children;
@@ -99,15 +125,15 @@ jQuery( function() {
             }
         } );
 
-        var node = drawingArea.selectAll( 'g.node' )
+        var node = drawingArea.selectAll( 'g.node.' + type )
                     .data( nodes, function( d ) { return d.id || ( d.id = ++nodeId ); } );
 
         var newNode = node.enter().append( 'svg:g' )
-                        .attr( 'class', 'node' )
+                        .attr( 'class', 'node ' + type )
                         .attr( 'id', function( d ) { return d.id; } )
                         .attr( 'data-eol-id', function( d ) { return d.eol_id } )
                         .attr( 'transform', function( d ) { return 'translate(' + source.y0 + ',' + source.x0 + ')'; } )
-                        .on( 'click', function( d ) { toggle( d ); update( d ) } );
+                        .on( 'click', function( d ) { toggle( d ); update( d, type ) } );
 
         newNode.append( 'svg:circle' )
                 .attr( 'r', 1e-6 )
@@ -143,11 +169,11 @@ jQuery( function() {
         exitNode.select( 'text' )
             .style( 'fill-opacity', 1e-6 );
 
-        var intraLink = drawingArea.selectAll( 'path.link' )
+        var intraLink = drawingArea.selectAll( 'path.link.' + type )
                     .data( tree.links( nodes ), function( d ) { return d.target.id; } );
 
         intraLink.enter().insert( 'svg:path', 'g' )
-            .attr( 'class', 'link' )
+            .attr( 'class', 'link ' + type )
             .attr( 'd', function( d ) {
                 var o = { x: source.x0, y: source.y0 };
                 return diagonal( { source: o, target: o } );
