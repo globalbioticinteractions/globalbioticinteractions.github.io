@@ -1,6 +1,6 @@
 function initializeMap( location, zoom ) {
     location = location || { latitude: 0, longitude: 0 };
-    zoom = zoom || 2;
+    zoom = zoom || 1;
     return new google.maps.Map( document.getElementById( 'map' ), {
         zoom: zoom,
         center: new google.maps.LatLng( location.latitude, location.longitude ),

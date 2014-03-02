@@ -30,8 +30,38 @@
             } );
         } );
     </script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100%;
+            width: 100%;
+        }
+        #map, #tree, #dependency-wheel, #bundle-view {
+            float: left;
+            width: 50%;
+            height: 50%;
+        }
+        #tree {
+            background: #ffffff;
+        }
+        #tree {
+            background: #dddddd;
+        }
+        #dependency-wheel {
+            background: #dddddd;
+        }
+        #bundle-view {
+            background: #bbbbbb;
+        }
+    </style>
 </head>
 <body id="spatialsearch-index">
-    <div id="map"></div>
+    <div id="map">&nbsp;</div>
+    <div id="tree">&nbsp;</div>
+    <div id="dependency-wheel">&nbsp;</div>
+    <div id="bundle-view">&nbsp;</div>
 </body>
 </html>
