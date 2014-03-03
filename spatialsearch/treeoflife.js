@@ -1,3 +1,4 @@
+( function( $ ) {
 var parseToStructure = function( rawData ) {
     var source, sourcePath, sourcePathLength,
         structureObject = { name: 'tree of life', children: [] }, structureStepper,
@@ -63,9 +64,9 @@ var parseToLinks = function( rawData ) {
     }
     return links;
 };
-var canvasWidth = 2560;
+var canvasWidth = 2560, canvasHeight = 700;
 
-var tree = d3.layout.tree().size( [ 700, canvasWidth ]);
+var tree = d3.layout.tree().size( [ canvasHeight, canvasWidth ]);
 
 var diagonal = d3.svg.diagonal()
     .projection( function( d ) { return [ d.y, d.x ]; } );
@@ -75,18 +76,14 @@ var nodeCache = {
     target: {}
 };
 
+var linkCache = [];
 
-var firstStep = true;
-var linkCache = [], interLinks = null;
-
-jQuery( function() {
+$( function() {
 
     var rootSource, rootTarget, nodeId = 0;
     var drawingArea = d3.select( '#tree-container' ).append( 'svg:svg' )
                 .attr( 'width', canvasWidth )
-                .attr( 'height', 700 );
-    drawingArea.append( 'svg:g' )
-        .attr( 'transform', 'translate(60, 0)' );
+                .attr( 'height', canvasHeight );
     drawingArea.append( 'svg:g' )
         .attr( 'transform', 'translate(60, 0)' );
 
@@ -95,11 +92,7 @@ jQuery( function() {
         rootSource = parseToStructure( json );
 
         rootSource.x0 = 350;
-        rootSource.y0 = 0;
-
-//        rootTarget = parseToStructure( json );
-//        rootTarget.x0 = 350;
-//        rootTarget.y0 = 0;
+        rootSource.y0 = 50;
 
         function toggleAll( d ) {
             if ( d.children ) {
@@ -107,16 +100,9 @@ jQuery( function() {
                 toggle( d );
             }
         }
-
-//        rootTarget.children.forEach( toggleAll );
         rootSource.children.forEach( toggleAll );
 
-
         update( rootSource, 'source' );
-
-//        firstStep = false;
-//        update( rootTarget, 'target' );
-
     } );
 
     function update( source, type ) {
@@ -140,7 +126,7 @@ jQuery( function() {
                     d.y = canvasWidth - ( d.depth + 1 ) * 150;
                     break;
                 case 'source':
-                    d.y = d.depth * 150;
+                    d.y = 70 + d.depth * 150;
                     break;
             }
 
@@ -224,21 +210,6 @@ jQuery( function() {
             d.x0 = d.x;
             d.y0 = d.y;
         } );
-
-//        !firstStep && linkCache.forEach( function( cacheItem ) {
-//            if ( interLinks !== null ) {
-//                interLinks.remove();
-//            }
-//
-//            interLinks = drawingArea.insert( 'svg:path', 'g' )
-//                .attr( 'class', 'inter-link' )
-//                .attr( 'd', function( d ) {
-//                    var sourceNode = nodeCache[ 'source' ][ cacheItem[ 'source' ] ];
-//                    var targetNode = nodeCache[ 'target' ][ cacheItem[ 'target' ] ];
-//
-//                    return diagonal( { source: sourceNode, target: targetNode } );
-//                } );
-//        } );
     }
 
     function toggle( d ) {
@@ -250,7 +221,6 @@ jQuery( function() {
             d.children = d._children;
             d._children = null;
         }
-
-        console.log( d );
     }
 } );
+} )( jQuery );
