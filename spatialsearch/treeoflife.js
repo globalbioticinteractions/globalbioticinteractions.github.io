@@ -1,4 +1,4 @@
-( function( $ ) {
+( function( $, public ) {
 var parseToStructure = function( rawData ) {
     var source, sourcePath, sourcePathLength,
         structureObject = { name: 'tree of life', children: [] }, structureStepper,
@@ -78,7 +78,7 @@ var nodeCache = {
 
 var linkCache = [];
 
-$( function() {
+var buildTree = function( dataSetUrl ) {
 
     var rootSource, rootTarget, nodeId = 0;
     var drawingArea = d3.select( '#tree-container' ).append( 'svg:svg' )
@@ -87,7 +87,7 @@ $( function() {
     drawingArea.append( 'svg:g' )
         .attr( 'transform', 'translate(60, 0)' );
 
-    d3.json( 'testinteraction.json', function( json ) {
+    d3.json( dataSetUrl, function( json ) {
         linkCache = parseToLinks( json );
         rootSource = parseToStructure( json );
 
@@ -107,8 +107,6 @@ $( function() {
 
     function update( source, type ) {
         var duration = 500, nodes;
-
-        console.log( source );
 
         switch ( type ) {
             case 'target':
@@ -161,7 +159,7 @@ $( function() {
 
         var updateNode = node.transition()
                             .duration( duration )
-                            .attr( 'transform', function( d ) { d.name === 'Vireo altiloquus' ? console.log( 'u',d.x, d.y ) : '';return 'translate(' + d.y + ',' + d.x + ')'; } );
+                            .attr( 'transform', function( d ) { return 'translate(' + d.y + ',' + d.x + ')'; } );
 
         updateNode.select( 'circle' )
             .attr( 'r', 4.5 )
@@ -172,7 +170,7 @@ $( function() {
 
         var exitNode = node.exit().transition()
                         .duration( duration)
-                        .attr( 'transform', function( d ) { d.x = source.x; d.y = source.y; d.name === 'Vireo altiloquus' ? console.log( 'e', d.x, d.y ) : '';return 'translate(' + source.y + ',' + source.x + ')' } );
+                        .attr( 'transform', function( d ) { d.x = source.x; d.y = source.y; return 'translate(' + source.y + ',' + source.x + ')' } );
 //                        .remove();
 
         exitNode.select( 'circle' )
@@ -222,5 +220,13 @@ $( function() {
             d._children = null;
         }
     }
-} );
-} )( jQuery );
+};
+public.buildTree = buildTree;
+} )( jQuery, window );
+//
+//jQuery( function() {
+//    buildTree( 'http://trophicgraph.com:8080/interaction?type=json.v2&nw_lat=9.882275090474488&nw_lng=-82.64282299999996&se_lat=-24.307052858245683&se_lng=-10.682372999999984' );
+//} );
+
+//http://trophicgraph.com:8080/interaction?type=json.v2&nw_lat=9.882275090474488&nw_lng=-82.64282299999996&se_lat=-24.307052858245683&se_lng=-10.682372999999984
+// http://trophicgraph.com:8080/interaction?type=json.v2&nw_lat=19.311142969053392&nw_lng=-67.48169018749996&se_lat=17.39257971605542&se_lng=-65.19653315624998

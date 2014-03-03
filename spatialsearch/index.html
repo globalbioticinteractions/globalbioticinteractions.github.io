@@ -10,11 +10,20 @@
     <script src="spatialsearch.js"></script>
     <script src="areapicker.js"></script>
     <script>
+        var showAreaInfos = function( element ) {
+            var boundingBox = jQuery( element ).data( 'bounding-box' );
+            jQuery( '#tree-container' ).empty();
+
+            buildTree( 'http://trophicgraph.com:8080/interaction?type=json.v2&' + boundingBox );
+        };
+
         jQuery( function() {
             var map = initializeMap(),
                 markers = [],
                 markerClusterer = null,
                 areapicker = new AreaPicker( map );
+
+
 
             jQuery.ajax( { url: './locations.json' } ).done( function( locations ) {
                 if ( locations ) {
@@ -28,9 +37,11 @@
                     markerClusterer = initializeMarkerClusterer( map, markers );
                 }
             } );
+
+
         } );
     </script>
-    <script type="text/javascript" src="../vendor/d3/d3.js"></script>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript" src="../vendor/d3/d3.layout.js"></script>
     <script type="text/javascript" src="treeoflife.js"></script>
     <style type="text/css">

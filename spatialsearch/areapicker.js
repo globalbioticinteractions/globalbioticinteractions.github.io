@@ -132,7 +132,7 @@ AreaPickerInfo.prototype.createContent_ = function( bounds ) {
     };
     return [
         '<div>',
-            '<a href="#?',
+            '<a onclick="showAreaInfos( this )" id="area-selection" href="#" data-bounding-box="',
                 'nw_lat=' + eolBounds.nw_lat,
                 '&nw_lng=' + eolBounds.nw_lng,
                 '&se_lat=' + eolBounds.se_lat,
