@@ -1,3 +1,4 @@
+( function( $, pub ) {
 var convertJsonForDependencyWheel = function( json ) {
     var taxonNames = {}, j, i = 0, matrix = [], row, column, tempNames = {};
     json.forEach( function( d ) {
@@ -49,3 +50,16 @@ var convertJsonForDependencyWheel = function( json ) {
     };
 };
 
+var _buildDependencyWheel = function( json ) {
+    var chart = d3.chart.dependencyWheel();
+
+    var data = convertJsonForDependencyWheel(json);
+
+    d3.select('#dependency-wheel-container')
+        .datum(data)
+        .call(chart);
+
+}
+
+    pub.buildDependencyWheel = _buildDependencyWheel;
+} )( jQuery, window );

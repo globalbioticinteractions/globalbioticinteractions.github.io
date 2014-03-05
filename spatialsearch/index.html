@@ -10,11 +10,21 @@
     <script src="spatialsearch.js"></script>
     <script src="areapicker.js"></script>
     <script>
+
         var showAreaInfos = function( element ) {
             var boundingBox = jQuery( element ).data( 'bounding-box' );
-            jQuery( '#tree-container' ).empty();
 
-            buildTree( 'http://trophicgraph.com:8080/interaction?type=json.v2&' + boundingBox );
+            jQuery( '#tree-container, #dependency-wheel-container' ).empty();
+
+            var dataSetUrl = 'http://trophicgraph.com:8080/interaction?type=json.v2&' + boundingBox;
+
+            d3.json( dataSetUrl, function( json ) {
+
+                buildTree( json );
+
+                buildDependencyWheel( json );
+
+            } );
         };
 
         jQuery( function() {
@@ -22,8 +32,6 @@
                 markers = [],
                 markerClusterer = null,
                 areapicker = new AreaPicker( map );
-
-
 
             jQuery.ajax( { url: './locations.json' } ).done( function( locations ) {
                 if ( locations ) {
@@ -43,7 +51,9 @@
     </script>
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript" src="../vendor/d3/d3.layout.js"></script>
+    <script type="text/javascript" src="../vendor/d3/d3.dependencyWheel.js"></script>
     <script type="text/javascript" src="treeoflife.js"></script>
+    <script type="text/javascript" src="dependencywheel.js"></script>
     <style type="text/css">
         * {
             margin: 0;
@@ -104,11 +114,20 @@
             stroke-width: 2px;
         }
     </style>
+    <style type="text/css">
+        .empty {
+            background: #f00;
+        }
+
+        .dependencyWheel {
+            font: 10px sans-serif;
+        }
+    </style>
 </head>
 <body id="spatialsearch-index">
     <div id="map">&nbsp;</div>
     <div id="tree" style="zoom: 50%;"><h3>Tree view</h3><div id="tree-container"></div></div>
-    <div id="dependency-wheel"><h3>Dependency wheel</h3><div id="dependency-wheel-container"></div></div>
+    <div id="dependency-wheel" style="zoom: 50%;"><h3>Dependency wheel</h3><div id="dependency-wheel-container"></div></div>
     <div id="bundle"><h3>Bundle view</h3><div id="bundle-container"></div></div>
 </body>
 </html>
