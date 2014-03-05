@@ -1,4 +1,4 @@
-( function( $, public ) {
+( function( $, pub ) {
 var parseToStructure = function( rawData ) {
     var source, sourcePath, sourcePathLength,
         structureObject = { name: 'tree of life', children: [] }, structureStepper,
@@ -78,8 +78,7 @@ var nodeCache = {
 
 var linkCache = [];
 
-var buildTree = function( dataSetUrl ) {
-
+var _buildTree = function( json ) {
     var rootSource, rootTarget, nodeId = 0;
     var drawingArea = d3.select( '#tree-container' ).append( 'svg:svg' )
                 .attr( 'width', canvasWidth )
@@ -87,23 +86,24 @@ var buildTree = function( dataSetUrl ) {
     drawingArea.append( 'svg:g' )
         .attr( 'transform', 'translate(60, 0)' );
 
-    d3.json( dataSetUrl, function( json ) {
-        linkCache = parseToLinks( json );
-        rootSource = parseToStructure( json );
 
-        rootSource.x0 = 350;
-        rootSource.y0 = 50;
 
-        function toggleAll( d ) {
-            if ( d.children ) {
-                d.children.forEach( toggleAll );
-                toggle( d );
-            }
+    linkCache = parseToLinks( json );
+    rootSource = parseToStructure( json );
+
+    rootSource.x0 = 350;
+    rootSource.y0 = 50;
+
+    function toggleAll( d ) {
+        if ( d.children ) {
+            d.children.forEach( toggleAll );
+            toggle( d );
         }
-        rootSource.children.forEach( toggleAll );
+    }
+    rootSource.children.forEach( toggleAll );
 
-        update( rootSource, 'source' );
-    } );
+    update( rootSource, 'source' );
+
 
     function update( source, type ) {
         var duration = 500, nodes;
@@ -221,7 +221,7 @@ var buildTree = function( dataSetUrl ) {
         }
     }
 };
-public.buildTree = buildTree;
+pub.buildTree = _buildTree;
 } )( jQuery, window );
 //
 //jQuery( function() {
