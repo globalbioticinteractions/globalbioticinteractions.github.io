@@ -15,12 +15,23 @@ function initializeMarkerClusterer( map, markers ) {
 function createLocationContent( location ) {
     return [
         '<div>',
-            '<strong>Lat: </strong>' + location.latitude + '<br />',
-            '<strong>Lng: </strong>' + location.longitude + '<br />',
-            '<a href="location.html?lat=' + location.latitude + '&lng=' + location.longitude + '">',
-                '<span>###count### specimens</span>',
-            '</a>' + '<br />',
+            '<a onclick="showAreaInfos( this )" id="location-selection" href="#" data-bounding-box="',
+        'nw_lat=' + location.latitude * 0.9999,
+        '&nw_lng=' + location.longitude * 0.9999,
+        '&se_lat=' + location.latitude * 1.0001,
+        '&se_lng=' + location.longitude * 1.0001,
+        '">',
+        '<span>###count### specimens</span>',
+        '</a>',
+        '<br />',
         '</div>'
+//        '<div>',
+//            '<strong>Lat: </strong>' + location.latitude + '<br />',
+//            '<strong>Lng: </strong>' + location.longitude + '<br />',
+//            '<a href="location.html?lat=' + location.latitude + '&lng=' + location.longitude + '">',
+//                '<span>###count### specimens</span>',
+//            '</a>' + '<br />',
+//        '</div>'
     ].join( '' );
 }
 

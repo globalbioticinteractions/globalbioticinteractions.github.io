@@ -223,10 +223,3 @@ var _buildTree = function( json ) {
 };
 pub.buildTree = _buildTree;
 } )( jQuery, window );
-//
-//jQuery( function() {
-//    buildTree( 'http://trophicgraph.com:8080/interaction?type=json.v2&nw_lat=9.882275090474488&nw_lng=-82.64282299999996&se_lat=-24.307052858245683&se_lng=-10.682372999999984' );
-//} );
-
-//http://trophicgraph.com:8080/interaction?type=json.v2&nw_lat=9.882275090474488&nw_lng=-82.64282299999996&se_lat=-24.307052858245683&se_lng=-10.682372999999984
-// http://trophicgraph.com:8080/interaction?type=json.v2&nw_lat=19.311142969053392&nw_lng=-67.48169018749996&se_lat=17.39257971605542&se_lng=-65.19653315624998
