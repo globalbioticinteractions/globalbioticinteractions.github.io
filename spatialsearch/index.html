@@ -26,7 +26,7 @@
 
                     buildDependencyWheel( json, { height: canvasHeight, width: canvasWidth } );
 
-                    buildBundles( json );
+                    buildBundles( json, { height: canvasHeight, width: canvasWidth } );
                 }
             } );
         };
@@ -134,7 +134,7 @@
     <style>
 
         .bundle-node {
-            font: 10px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
             fill: #333;
         }
 

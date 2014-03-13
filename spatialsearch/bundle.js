@@ -26,8 +26,8 @@
 
 
 
-    var _buildBundles = function( json ) {
-        var diameter = 960,
+    var _buildBundles = function( json, canvasDimension ) {
+        var diameter = canvasDimension.height * 2,
             radius = diameter / 2,
             innerRadius = radius - 120;
 
@@ -45,10 +45,11 @@
             .angle(function(d) { return d.x / 180 * Math.PI; });
 
         var svg = d3.select("#bundle-container").append("svg")
-            .attr("width", diameter)
-            .attr("height", diameter)
+            .attr( 'viewBox', '0 0 ' + canvasDimension.width * 2 + ' ' + canvasDimension.height * 2 )
+//            .attr("width", diameter)
+//            .attr("height", diameter)
             .append("g")
-            .attr("transform", "translate(" + radius + "," + radius + ")");
+            .attr("transform", "translate(" + canvasDimension.width + "," + radius + ")");
 
         var link = svg.append("g").selectAll(".bundl-link"),
             node = svg.append("g").selectAll(".bundl-node");
