@@ -90,8 +90,8 @@ var _buildTree = function( json, canvasDimension ) {
     linkCache = parseToLinks( json );
     rootSource = parseToStructure( json );
 
-//    rootSource.x0 = 700;
-//    rootSource.y0 = 50;
+    rootSource.x0 = 700;
+    rootSource.y0 = 50;
 
     function toggleAll( d ) {
         if ( d.children ) {
