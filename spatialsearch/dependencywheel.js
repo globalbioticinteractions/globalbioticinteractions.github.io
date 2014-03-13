@@ -50,8 +50,10 @@ var convertJsonForDependencyWheel = function( json ) {
     };
 };
 
-var _buildDependencyWheel = function( json ) {
-    var chart = d3.chart.dependencyWheel();
+var _buildDependencyWheel = function( json, canvasDimension ) {
+    var chart = d3.chart.dependencyWheel()
+        .width( canvasDimension.width )
+        .height( canvasDimension.height );
 
     var data = convertJsonForDependencyWheel(json);
 

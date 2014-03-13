@@ -13,7 +13,7 @@
 
         var showAreaInfos = function( element ) {
             var boundingBox = jQuery( element ).data( 'bounding-box' );
-
+            var $panel = jQuery( '#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
 
 
             var dataSetUrl = 'http://trophicgraph.com:8080/interaction?type=json.v2&' + boundingBox;
@@ -22,9 +22,9 @@
                 if ( json.length ) {
 
                     jQuery( '#tree-container, #dependency-wheel-container, #bundle-container' ).empty();
-                    buildTree( json );
+                    buildTree( json, { height: canvasHeight, width: canvasWidth } );
 
-                    buildDependencyWheel( json );
+                    buildDependencyWheel( json, { height: canvasHeight, width: canvasWidth } );
 
                     buildBundles( json );
                 }
@@ -51,6 +51,7 @@
             } );
 
 
+
         } );
     </script>
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
@@ -69,12 +70,12 @@
             height: 100%;
             width: 100%;
         }
-        #map, #tree, #dependency-wheel, #bundle {
-            float: left;
-            width: 50%;
-            height: 50%;
-            overflow: auto;
-        }
+        /*#map, #tree, #dependency-wheel, #bundle {*/
+            /*float: left;*/
+            /*width: 50%;*/
+            /*height: 50%;*/
+            /*overflow: auto;*/
+        /*}*/
         #map {
             background: #b7b7b7;
         }
@@ -104,7 +105,7 @@
         }
 
         .node text {
-            font-size: 10px;
+            font-size: 15px;
             font: Helvetica, "Helvetica Neue", Arial, sans-serif;
         }
 
@@ -126,7 +127,7 @@
         }
 
         .dependencyWheel {
-            font: 10px sans-serif;
+            font: 13px sans-serif;
         }
     </style>
 
@@ -177,11 +178,74 @@
         }
 
     </style>
+
+
+    <style>
+        body {
+            overflow: hidden;
+        }
+        .panel {
+            height: 50%;
+            width: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .panel-top-left {
+            left: 0;
+            top: 0;
+        }
+
+        .panel-top-right {
+            right: 0;
+            top: 0;
+        }
+
+        .panel-bottom-left {
+            left: 0;
+            bottom: 0;
+        }
+
+        .panel-bottom-right {
+            right: 0;
+            bottom: 0;
+        }
+
+        .btn {
+            position: absolute;
+            border: 1px solid #777;
+            border-radius: 3px;
+            width: 15px;
+            height: 15px;
+            background: rgba(238,238,238,.60);
+            margin: 1px;
+            color: #777;
+            padding: 0;
+            font-size: 12px;
+            line-height: 14px;
+            text-align: center;
+        }
+        .btn:hover {
+            background: rgba(204,204,204,.60);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #tree-container {
+            overflow: auto;
+        }
+    </style>
+    <script src="panel.js"></script>
 </head>
 <body id="spatialsearch-index">
-    <div id="map">&nbsp;</div>
-    <div id="tree" style="zoom: 60%;"><h3>Tree view</h3><div id="tree-container"></div></div>
-    <div id="dependency-wheel" style="zoom: 60%;"><h3>Dependency wheel</h3><div id="dependency-wheel-container"></div></div>
-    <div id="bundle" style="zoom: 60%;"><h3>Bundle view</h3><div id="bundle-container"></div></div>
+
+
+    <div class="panel panel-top-left" id="map">&nbsp;</div>
+    <div class="panel panel-top-right" id="tree">
+        <div class="btn" title="maximize / minimize">&#9712;</div>
+        <h3>Tree view</h3><div id="tree-container"></div>
+    </div>
+    <div class="panel panel-bottom-left" id="dependency-wheel"><div class="btn" title="maximize / minimize">&#9712;</div><h3>Dependency wheel</h3><div id="dependency-wheel-container"></div></div>
+    <div class="panel panel-bottom-right" id="bundle"><div class="btn" title="maximize / minimize">&#9712;</div><h3>Bundle view</h3><div id="bundle-container"></div></div>
 </body>
 </html>

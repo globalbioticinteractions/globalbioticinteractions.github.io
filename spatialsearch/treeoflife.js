@@ -64,9 +64,7 @@ var parseToLinks = function( rawData ) {
     }
     return links;
 };
-var canvasWidth = 2560, canvasHeight = 700;
 
-var tree = d3.layout.tree().size( [ canvasHeight, canvasWidth ]);
 
 var diagonal = d3.svg.diagonal()
     .projection( function( d ) { return [ d.y, d.x ]; } );
@@ -78,21 +76,22 @@ var nodeCache = {
 
 var linkCache = [];
 
-var _buildTree = function( json ) {
+var _buildTree = function( json, canvasDimension ) {
+    var canvasWidth = canvasDimension.width, canvasHeight = canvasDimension.height;
+
+    var tree = d3.layout.tree().size( [ canvasHeight * 2, canvasHeight * 2 ]);
+
     var rootSource, rootTarget, nodeId = 0;
     var drawingArea = d3.select( '#tree-container' ).append( 'svg:svg' )
-                .attr( 'width', canvasWidth )
-                .attr( 'height', canvasHeight );
-    drawingArea.append( 'svg:g' )
-        .attr( 'transform', 'translate(60, 0)' );
-
-
+//                .attr( 'width', canvasWidth * 2 )
+//                .attr( 'height', canvasHeight * 2 );
+        .attr( 'viewBox', '0 0 ' + canvasWidth * 2 + ' ' + canvasHeight * 2 );
 
     linkCache = parseToLinks( json );
     rootSource = parseToStructure( json );
 
-    rootSource.x0 = 350;
-    rootSource.y0 = 50;
+//    rootSource.x0 = 700;
+//    rootSource.y0 = 50;
 
     function toggleAll( d ) {
         if ( d.children ) {
@@ -121,10 +120,10 @@ var _buildTree = function( json ) {
 
             switch ( type ) {
                 case 'target':
-                    d.y = canvasWidth - ( d.depth + 1 ) * 150;
+                    d.y = canvasWidth - ( d.depth + 1 ) * 200;
                     break;
                 case 'source':
-                    d.y = 70 + d.depth * 150;
+                    d.y = 100 + d.depth * 200;
                     break;
             }
 

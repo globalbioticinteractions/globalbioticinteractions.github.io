@@ -1,9 +1,10 @@
 d3.chart = d3.chart || {};
 
-d3.chart.dependencyWheel = function( options ) {
+d3.chart.dependencyWheel = function() {
 
-    var width = 1000;
-    var margin = 150;
+    var width = 1200;
+    var height = 800;
+    var margin = 100;
     var padding = 0.02;
 
     function chart( selection ) {
@@ -12,7 +13,7 @@ d3.chart.dependencyWheel = function( options ) {
 
             var matrix = data.matrix,
                 nodeNames = data.names,
-                radius = width / 2 - margin;
+                radius = height - margin;
 
             var chord = d3.layout.chord()
                     .padding( padding )
@@ -21,11 +22,12 @@ d3.chart.dependencyWheel = function( options ) {
             var svg = d3.select( this ).selectAll( 'svg' ).data( [ data ] );
 
             var gElement = svg.enter().append( 'svg:svg' )
-                    .attr( 'width', width )
-                    .attr( 'height', width )
+//                    .attr( 'width', width )
+//                    .attr( 'height', width )
+                    .attr( 'viewBox', '0 0 ' + width * 2 + ' ' + height * 2 )
                     .attr( 'class', 'dependencyWheel' )
                 .append( 'g' )
-                    .attr( 'transform', 'translate(' + ( width / 2 ) + ',' + ( width / 2 ) + ')' );
+                    .attr( 'transform', 'translate(' + ( width ) + ',' + ( height ) + ')' );
 
             var arc = d3.svg.arc()
                     .innerRadius( radius )
@@ -124,6 +126,14 @@ d3.chart.dependencyWheel = function( options ) {
             return width;
         }
         width = value;
+        return chart;
+    };
+
+    chart.height = function( value ) {
+        if ( !arguments.length ) {
+            return height;
+        }
+        height = value;
         return chart;
     };
 
