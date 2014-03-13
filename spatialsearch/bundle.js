@@ -13,6 +13,11 @@
                 path = currentTarget.path.split( ' | ' ).join( '.' );
                 parsedData[ currentSource.id ].preys.push( path );
             }
+
+            if ( currentTarget.id && currentTarget.id !== 'no:match' && !parsedData[ currentTarget.id ] ) {
+                path = currentTarget.path.split( ' | ' ).join( '.' );
+                parsedData[ currentTarget.id ] = { name: path, path: path, eolId: currentTarget.id, preys: [] };
+            }
         } );
 
         for ( var id in parsedData ) {
@@ -46,8 +51,6 @@
 
         var svg = d3.select("#bundle-container").append("svg")
             .attr( 'viewBox', '0 0 ' + canvasDimension.width * 2 + ' ' + canvasDimension.height * 2 )
-//            .attr("width", diameter)
-//            .attr("height", diameter)
             .append("g")
             .attr("transform", "translate(" + canvasDimension.width + "," + radius + ")");
 
@@ -110,9 +113,6 @@
                 .classed("node--source", false);
         }
 
-        d3.select(self.frameElement).style("height", diameter + "px");
-
-        // Lazily construct the package hierarchy from class names.
         function taxonHierarchy(classes) {
             var map = {};var j = 0;
 
