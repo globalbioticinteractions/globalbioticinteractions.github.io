@@ -70,11 +70,13 @@ AreaPickerControl.prototype.create = function() {
     google.maps.event.addDomListener( me.container_, 'click', function( event ) {
         me.isActive_ = !me.isActive_;
         if ( me.isActive_ ) {
-            me.container_.style.backgroundColor = '#aaa';
+            me.container_.style.backgroundColor = '#f7f7f7';
+            me.container_.innerHTML = 'Hide Area Picker';
             me.associatedPicker_.show();
         }
         else {
             me.container_.style.backgroundColor = '#fff';
+            me.container_.innerHTML = 'Show Area Picker';
             me.associatedPicker_.hide();
         }
     } );
@@ -83,17 +85,18 @@ AreaPickerControl.prototype.create = function() {
 };
 
 AreaPickerControl.prototype.applyStyles = function() {
-    this.container_.style.margin = '3px';
+    this.container_.style.margin = '5px';
     this.container_.style.paddingLeft = '5px';
-    this.container_.style.paddingTop = '3px';
-    this.container_.style.paddingBottom = '3px';
+    this.container_.style.paddingRight = '5px';
+    this.container_.style.paddingTop = '1px';
+    this.container_.style.paddingBottom = '1px';
     this.container_.style.backgroundColor = '#fff';
-    this.container_.style.border = '1px solid #000';
-    this.container_.style.width = '35px';
-    this.container_.style.height = '21px';
-    this.container_.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.4)';
+    this.container_.style.border = '1px solid rgba(0, 0, 0, 0.14902)';
+    this.container_.style.width = '90px';
+    this.container_.style.textAlign = 'center';
+    this.container_.style.boxShadow = 'rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px';
     this.container_.style.cursor = 'pointer';
-    this.container_.innerHTML = '<img src="icon_area.png" />';
+    this.container_.innerHTML = 'Show Area Picker';
 };
 
 function AreaPickerInfo( associatedPicker ) {
