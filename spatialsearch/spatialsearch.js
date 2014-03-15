@@ -1,3 +1,5 @@
+var infoWindow;
+
 function initializeMap( location, zoom ) {
     location = location || { latitude: 0, longitude: 0 };
     zoom = zoom || 1;
@@ -30,8 +32,8 @@ function createLocationContent( location ) {
 
 function placeMarker( content, location, map ) {
     var latLng = new google.maps.LatLng( location.latitude, location.longitude ),
-        marker = new google.maps.Marker( { position: latLng, map: map } ),
-        infoWindow = new google.maps.InfoWindow( { content: content } );
+        marker = new google.maps.Marker( { position: latLng, map: map } );
+    infoWindow = new google.maps.InfoWindow( { content: content } );
 
     google.maps.event.addListener( marker, 'click', function() {
 
