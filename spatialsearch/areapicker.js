@@ -79,7 +79,7 @@ AreaPickerControl.prototype.create = function() {
         }
     } );
 
-    this.associatedPicker_.map.controls[ google.maps.ControlPosition.RIGHT_CENTER ].push( me.container_ );
+    this.associatedPicker_.map.controls[ google.maps.ControlPosition.TOP_CENTER ].push( me.container_ );
 };
 
 AreaPickerControl.prototype.applyStyles = function() {
