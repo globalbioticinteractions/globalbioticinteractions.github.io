@@ -21,17 +21,10 @@ function createLocationContent( location ) {
         '&se_lat=' + location.latitude * 1.0001,
         '&se_lng=' + location.longitude * 1.0001,
         '">',
-        '<span>###count### specimens</span>',
+        '<span>Show interactions</span>',
         '</a>',
         '<br />',
         '</div>'
-//        '<div>',
-//            '<strong>Lat: </strong>' + location.latitude + '<br />',
-//            '<strong>Lng: </strong>' + location.longitude + '<br />',
-//            '<a href="location.html?lat=' + location.latitude + '&lng=' + location.longitude + '">',
-//                '<span>###count### specimens</span>',
-//            '</a>' + '<br />',
-//        '</div>'
     ].join( '' );
 }
 
@@ -44,13 +37,13 @@ function placeMarker( content, location, map ) {
 
         // @TODO: put this request to eol-globi-data-js and build an api call for only the count (it takes too long)
 
-        jQuery.ajax( getSpecimensRequestObject( location ) )
-            .done( function( response ) {
-                if ( response.data ) {
-                    infoWindow.content = infoWindow.content.replace( '###count###', response.data.length )
+//        jQuery.ajax( getSpecimensRequestObject( location ) )
+//            .done( function( response ) {
+//                if ( response.data ) {
+//                    infoWindow.content = infoWindow.content.replace( '###count###', response.data.length )
                     infoWindow.open( map, marker );
-                }
-            } );
+//                }
+//            } );
     } );
 
     return marker;
