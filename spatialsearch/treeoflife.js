@@ -83,9 +83,9 @@ var _buildTree = function( json, canvasDimension ) {
 
     var rootSource, rootTarget, nodeId = 0;
     var drawingArea = d3.select( '#tree-container' ).append( 'svg:svg' )
-//                .attr( 'width', canvasWidth * 2 )
-//                .attr( 'height', canvasHeight * 2 );
-        .attr( 'viewBox', '0 0 ' + canvasWidth * 2 + ' ' + canvasHeight * 2 );
+                .attr( 'width', canvasWidth * 2 )
+                .attr( 'height', canvasHeight * 2 );
+        //.attr( 'viewBox', '0 0 ' + canvasWidth * 2 + ' ' + canvasHeight * 2 );
 
     linkCache = parseToLinks( json );
     rootSource = parseToStructure( json );
