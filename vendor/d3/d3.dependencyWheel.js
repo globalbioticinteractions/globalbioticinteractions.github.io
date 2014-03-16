@@ -4,7 +4,7 @@ d3.chart.dependencyWheel = function() {
 
     var width = 1200;
     var height = 800;
-    var margin = 100;
+    var margin = 130;
     var padding = 0.02;
 
     function chart( selection ) {
@@ -22,12 +22,13 @@ d3.chart.dependencyWheel = function() {
             var svg = d3.select( this ).selectAll( 'svg' ).data( [ data ] );
 
             var gElement = svg.enter().append( 'svg:svg' )
-//                    .attr( 'width', width )
-//                    .attr( 'height', width )
-                    .attr( 'viewBox', '0 0 ' + width * 2 + ' ' + height * 2 )
+                    .attr( 'width', height * 2 )
+                    .attr( 'height', height * 2 )
+                    .attr( 'viewBox', '0 0 ' + height * 2 + ' ' + height * 2 )
                     .attr( 'class', 'dependencyWheel' )
+                    .attr( 'zoomAndPan', 'magnify' )
                 .append( 'g' )
-                    .attr( 'transform', 'translate(' + ( width ) + ',' + ( height ) + ')' );
+                    .attr( 'transform', 'translate(' + ( height ) + ',' + ( height ) + ')' );
 
             var arc = d3.svg.arc()
                     .innerRadius( radius )
@@ -88,13 +89,13 @@ d3.chart.dependencyWheel = function() {
                     .attr( 'transform', function( d ) {
                         return 'rotate(' + rotation + ')';
                     } );
-
+            g.on( 'mouseover', fade( 0.1 ) )
+                .on( 'mouseout', fade( 1 ) );
             g.append( 'svg:path' )
                 .style( 'fill', fill )
                 .style( 'stroke', fill )
                 .attr( 'd', arc )
-                .on( 'mouseover', fade( 0.1 ) )
-                .on( 'mouseout', fade( 1 ) );
+                .attr( 'data-index', function( d ) { return 'path-' + d.index; } );
 
             g.append( 'svg:text' )
                 .each( function( d ) { d.angle = ( d.startAngle + d.endAngle ) / 2; } )
@@ -105,7 +106,9 @@ d3.chart.dependencyWheel = function() {
                         'translate(' + ( radius + 26 ) + ')' +
                         ( d.angle > Math.PI ? 'rotate(180)' : '' );
                 } )
-                .text( function( d ) { return nodeNames[ d.index ]; } );
+                .text( function( d ) { return nodeNames[ d.index ].length > 20 ? nodeNames[ d.index ].substring( 0, 19 ) + '...' : nodeNames[ d.index ]; } )
+                .attr( 'style', 'cursor: pointer;' )
+                .append("title").text( function( d ) { return nodeNames[ d.index ]; } );
 
             gElement.selectAll( 'path.chord' )
                 .data( chord.chords )
