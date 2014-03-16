@@ -50,9 +50,12 @@
             .angle(function(d) { return d.x / 180 * Math.PI; });
 
         var svg = d3.select("#bundle-container").append("svg")
+            .attr( 'width', canvasDimension.width * 2 )
+            .attr( 'height', canvasDimension.height * 2 )
             .attr( 'viewBox', '0 0 ' + canvasDimension.width * 2 + ' ' + canvasDimension.height * 2 )
+            .attr( 'zoomAndPan', 'magnify' )
             .append("g")
-            .attr("transform", "translate(" + canvasDimension.width + "," + radius + ")");
+            .attr("transform", "translate(" + ( canvasDimension.width / 2 + 100 ) + "," + radius + ")");
 
         var link = svg.append("g").selectAll(".bundl-link"),
             node = svg.append("g").selectAll(".bundl-node");
@@ -81,7 +84,7 @@
                 .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")" + (d.x < 180 ? "" : "rotate(180)"); })
                 .style("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
                 .style("cursor", "pointer")
-                .text(function(d) { return d.key; })
+                .text( function( d ) { return d.key.length > 20 ? d.key.substring( 0, 19 ) + '...' : d.key; } )
                 .on("mouseover", mouseovered)
                 .on("mouseout", mouseouted)
                 .append("title").text( function( d ) { return d.eolId + ' ' + d.path} )

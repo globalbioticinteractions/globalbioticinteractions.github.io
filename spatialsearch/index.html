@@ -15,7 +15,7 @@
             var boundingBox = jQuery( element ).data( 'bounding-box' );
             var $panel = jQuery( '#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
 
-            
+
             var dataSetUrl = 'http://trophicgraph.com:8080/interaction?type=json.v2&' + boundingBox;
 
             d3.json( dataSetUrl, function( json ) {
@@ -134,7 +134,7 @@
     <style>
 
         .bundle-node {
-            font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font: 10px "Helvetica Neue", Helvetica, Arial, sans-serif;
             fill: #333;
         }
 
