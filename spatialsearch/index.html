@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Spatial Search (Map)</title>
+    <title>Spatial Search</title>
     <link rel="stylesheet" href="spatialsearch.css"/>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="../vendor/markerclusterer.js"></script>
@@ -15,7 +15,7 @@
             var boundingBox = jQuery( element ).data( 'bounding-box' );
             var $panel = jQuery( '#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
 
-
+            
             var dataSetUrl = 'http://trophicgraph.com:8080/interaction?type=json.v2&' + boundingBox;
 
             d3.json( dataSetUrl, function( json ) {
@@ -127,7 +127,7 @@
         }
 
         .dependencyWheel {
-            font: 13px sans-serif;
+            font: 10px sans-serif;
         }
     </style>
 
@@ -189,6 +189,7 @@
             width: 50%;
             position: absolute;
             z-index: 1;
+            overflow: auto;
         }
 
         .panel-top-left {
@@ -212,7 +213,7 @@
         }
 
         .btn {
-            position: absolute;
+            position: fixed;
             border: 1px solid #777;
             border-radius: 3px;
             width: 15px;
