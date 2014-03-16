@@ -17,7 +17,7 @@
 
 
             var dataSetUrl = 'http://trophicgraph.com:8080/interaction?type=json.v2&' + boundingBox;
-
+console.log( dataSetUrl );
             d3.json( dataSetUrl, function( json ) {
                 if ( json.length ) {
 
@@ -37,11 +37,12 @@
                 markerClusterer = null,
                 areapicker = new AreaPicker( map );
 
-            jQuery.ajax( { url: './locations.json' } ).done( function( locations ) {
+            d3.json( 'http://trophicgraph.com:8080/locations', function( locations ) {
                 if ( locations ) {
+                    locations = locations.data;
                     for ( var index in locations ) {
                         if ( locations.hasOwnProperty( index ) ) {
-                            var location = locations[ index ],
+                            var location = { latitude: locations[ index ][ 0 ], longitude: locations[ index ][ 1 ] },
                                 content = createLocationContent( location );
                             markers.push( placeMarker( content, location, map ) );
                         }
@@ -49,8 +50,6 @@
                     markerClusterer = initializeMarkerClusterer( map, markers );
                 }
             } );
-
-
 
         } );
     </script>
