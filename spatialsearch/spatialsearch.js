@@ -18,10 +18,12 @@ function createLocationContent( location ) {
     return [
         '<div>',
             '<a onclick="showAreaInfos( this )" id="location-selection" href="#" data-bounding-box="',
-        'nw_lat=' + location.latitude * 0.9999,
-        '&nw_lng=' + location.longitude * 0.9999,
-        '&se_lat=' + location.latitude * 1.0001,
-        '&se_lng=' + location.longitude * 1.0001,
+//        'nw_lat=' + location.latitude * 0.9999,
+//        '&nw_lng=' + location.longitude * 0.9999,
+//        '&se_lat=' + location.latitude * 1.0001,
+//        '&se_lng=' + location.longitude * 1.0001,
+
+        'bbox=' + location.latitude * 0.9999 + ',' + location.longitude * 0.9999 + ',' + location.latitude * 1.0001 + ',' + location.longitude * 1.0001,
         '">',
         '<span>Show interactions</span>',
         '</a>',
