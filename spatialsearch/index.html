@@ -41,7 +41,7 @@ console.log( dataSetUrl );
                 markerClusterer = null,
                 areapicker = new AreaPicker( map );
 
-            var spinner = spin('spinner-map');
+            var spinner = spin();
             d3.json( 'http://trophicgraph.com:8080/locations', function( locations ) {
 				if ( locations ) {
                     locations = locations.data;
@@ -59,8 +59,8 @@ console.log( dataSetUrl );
 
         } );
 
-		var spin = function(id = 'spinner') {
-			var target = document.getElementById(id);
+		var spin = function() {
+			var target = document.getElementById('spinner');
 			return new Spinner().spin(target);
 		}
     </script>
