@@ -133,14 +133,21 @@ AreaPickerInfo.prototype.createContent_ = function( bounds ) {
         se_lat: bounds.getSouthWest().lat(),
         se_lng: bounds.getNorthEast().lng()
     };
+    var tempCoord;
+    if ( eolBounds.nw_lng > eolBounds.se_lng ) {
+        tempCoord = eolBounds.nw_lng;
+        eolBounds.nw_lng = eolBounds.se_lng;
+        eolBounds.se_lng = tempCoord;
+    }
+    if ( eolBounds.nw_lat > eolBounds.se_lat ) {
+        tempCoord = eolBounds.nw_lat;
+        eolBounds.nw_lat = eolBounds.se_lat;
+        eolBounds.se_lat = tempCoord;
+    }
     return [
         '<div>',
             '<a onclick="showAreaInfos( this )" id="area-selection" href="#" data-bounding-box="',
-//                'nw_lat=' + eolBounds.nw_lat,
-//                '&nw_lng=' + eolBounds.nw_lng,
-//                '&se_lat=' + eolBounds.se_lat,
-//                '&se_lng=' + eolBounds.se_lng,
-        'bbox=' + eolBounds.nw_lat + ',' + eolBounds.nw_lng + ',' + eolBounds.se_lat + ',' + eolBounds.se_lng,
+            'bbox=' + eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat,
             '">',
             '<span>show interactions</span>',
             '</a>',
