@@ -107,7 +107,7 @@ function AreaPickerInfo( associatedPicker ) {
 }
 
 AreaPickerInfo.prototype.create = function() {
-    this.infoWindow = new google.maps.InfoWindow( { content: '' } );
+    this.infoWindow = new google.maps.InfoWindow( { content: '', maxWidth: 200} );
 };
 
 AreaPickerInfo.prototype.show = function( bounds ) {

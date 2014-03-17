@@ -21,22 +21,12 @@ function createLocationContent( location ) {
 function placeMarker( content, location, map ) {
     var latLng = new google.maps.LatLng( location.latitude, location.longitude ),
         marker = new google.maps.Marker( { position: latLng, map: map } ),
-    infoWindow = new google.maps.InfoWindow( { content: content } );
+    infoWindow = new google.maps.InfoWindow( { content: content, maxWidth: 200 } );
 
     google.maps.event.addListener( marker, 'click', function() {
-
-        // @TODO: put this request to eol-globi-data-js and build an api call for only the count (it takes too long)
-
-//        jQuery.ajax( getSpecimensRequestObject( location ) )
-//            .done( function( response ) {
-//                if ( response.data ) {
-//                    infoWindow.content = infoWindow.content.replace( '###count###', response.data.length )
         currentInfoWindow && currentInfoWindow.close();
         currentInfoWindow = infoWindow;
         currentInfoWindow.open( map, marker );
-//                    infoWindow.open( map, marker );
-//                }
-//            } );
     } );
 
     return marker;
