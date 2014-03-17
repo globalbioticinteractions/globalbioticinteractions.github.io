@@ -14,6 +14,6 @@ var buildMenu = function() {
    	appendMenuItem('wiki', 'http://github.com/jhpoelen/eol-globi-data/wiki');
     appendMenuItem('feedback', 'http://github.com/jhpoelen/eol-globi-data/issues/new');
     appendMenuItem('what do ... eat', '/index.html');
-    appendMenuItem('where do ... eat', '/spatialsearch/index.html');
+    appendMenuItem('interaction browser', '/spatialsearch/index.html');
     appendMenuItem('references', '/references.html');
 }
