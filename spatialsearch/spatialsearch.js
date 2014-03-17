@@ -15,24 +15,7 @@ function initializeMarkerClusterer( map, markers ) {
 }
 
 function createLocationContent( location ) {
-    var longitude = {
-        west: location.longitude < 1 ? location.longitude * 1.0001 : location.longitude * 0.9999,
-        east: location.longitude < 1 ? location.longitude * 0.9999 : location.longitude * 1.0001
-    };
-    var latitude = {
-        north: location.latitude < 1 ? location.latitude * 1.0001 : location.latitude * 0.9999,
-        south: location.latitude < 1 ? location.latitude * 0.9999 : location.latitude * 1.0001
-    };
-    return [
-        '<div>',
-            '<a onclick="showAreaInfos( this )" id="location-selection" href="#" data-bounding-box="',
-                'bbox=' + longitude.west + ',' + latitude.north + ',' + longitude.east + ',' + latitude.south,
-            '">',
-        '<span>show interactions</span>',
-        '</a>',
-        '<br />',
-        '</div>'
-    ].join( '' );
+    return locationInfoBox('lng=' + location.longitude + '&lat=' + location.latitude);
 }
 
 function placeMarker( content, location, map ) {

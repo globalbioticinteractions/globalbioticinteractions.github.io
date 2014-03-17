@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>GloBI Interaction Browser</title>
+    <meta charset="UTF-8"></meta>
     <link rel="stylesheet" href="spatialsearch.css"/>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="../vendor/markerclusterer.js"></script>
@@ -13,15 +14,52 @@
 	<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
     <script>
 
+        function infoBoxText(idString, locationParams) {
+            var dotURL = createInteractionURL(locationParams, 'dot');
+            var jsonURL = createInteractionURL(locationParams, 'json.v2');
+            var csvURL = createInteractionURL(locationParams, 'csv');
+            return [
+                '<div>',
+                '<a onclick="showAreaInfos( this )" id="',
+                idString,
+                '", href="#" data-bounding-box="',
+                locationParams,
+                '">',
+                '<span>show</span></a> interactions<br/>get ',
+                '<a href="',
+                csvURL,
+                '">csv</a>, ',
+                '<a href="',
+                jsonURL,
+                '">json</a>, or ',
+                '<a href="',
+                dotURL,
+                '">dot</a> file',
+                '</div>'
+            ].join('');
+        }
+
+        function areaInfoBox(locationParams) {
+            return infoBoxText('area-selection', locationParams);
+
+        }
+
+        var locationInfoBox = function(locationParams) {
+            return infoBoxText('location-selection', locationParams);
+        }
+
+        var createInteractionURL = function(locationParams, type) {
+            return 'http://trophicgraph.com:8080/interaction?type=' + type + '&' + locationParams;
+        }
+
         var showAreaInfos = function( element ) {
             var boundingBox = jQuery( element ).data( 'bounding-box' );
             var $panel = jQuery( '#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
-
-
-            var dataSetUrl = 'http://trophicgraph.com:8080/interaction?type=json.v2&' + boundingBox;
-console.log( dataSetUrl );
+            var dataSetUrl = createInteractionURL(boundingBox, 'json.v2')
+            console.log( dataSetUrl );
 			var spinner = spin();
             d3.json( dataSetUrl, function( json ) {
+                spinner.stop();
                 if ( json.length ) {
 
                     jQuery( '#tree-container, #dependency-wheel-container, #bundle-container' ).empty();
@@ -31,7 +69,6 @@ console.log( dataSetUrl );
 
                     buildBundles( json, { height: canvasHeight, width: canvasWidth } );
                 }
-				spinner.stop();
             } );
         };
 

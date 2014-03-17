@@ -144,14 +144,6 @@ AreaPickerInfo.prototype.createContent_ = function( bounds ) {
         eolBounds.nw_lat = eolBounds.se_lat;
         eolBounds.se_lat = tempCoord;
     }
-    return [
-        '<div>',
-            '<a onclick="showAreaInfos( this )" id="area-selection" href="#" data-bounding-box="',
-            'bbox=' + eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat,
-            '">',
-            '<span>show interactions</span>',
-            '</a>',
-            '<br />',
-        '</div>'
-    ].join( '' );
+    var locationParams = 'bbox=' + eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat;
+    return areaInfoBox(locationParams);
 };
