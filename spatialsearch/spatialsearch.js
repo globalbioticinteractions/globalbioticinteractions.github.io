@@ -28,7 +28,7 @@ function createLocationContent( location ) {
             '<a onclick="showAreaInfos( this )" id="location-selection" href="#" data-bounding-box="',
                 'bbox=' + longitude.west + ',' + latitude.north + ',' + longitude.east + ',' + latitude.south,
             '">',
-        '<span>Show interactions</span>',
+        '<span>show interactions</span>',
         '</a>',
         '<br />',
         '</div>'

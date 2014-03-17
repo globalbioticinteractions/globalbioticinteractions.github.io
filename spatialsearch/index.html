@@ -10,6 +10,7 @@
     <script src="spatialsearch.js"></script>
     <script src="areapicker.js"></script>
     <script src="../menu.js"></script>
+	<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
     <script>
 
         var showAreaInfos = function( element ) {
@@ -19,6 +20,7 @@
 
             var dataSetUrl = 'http://trophicgraph.com:8080/interaction?type=json.v2&' + boundingBox;
 console.log( dataSetUrl );
+			var spinner = spin();
             d3.json( dataSetUrl, function( json ) {
                 if ( json.length ) {
 
@@ -29,6 +31,7 @@ console.log( dataSetUrl );
 
                     buildBundles( json, { height: canvasHeight, width: canvasWidth } );
                 }
+				spinner.stop();
             } );
         };
 
@@ -38,8 +41,9 @@ console.log( dataSetUrl );
                 markerClusterer = null,
                 areapicker = new AreaPicker( map );
 
+            var spinner = spin('spinner-map');
             d3.json( 'http://trophicgraph.com:8080/locations', function( locations ) {
-                if ( locations ) {
+				if ( locations ) {
                     locations = locations.data;
                     for ( var index in locations ) {
                         if ( locations.hasOwnProperty( index ) ) {
@@ -50,9 +54,15 @@ console.log( dataSetUrl );
                     }
                     markerClusterer = initializeMarkerClusterer( map, markers );
                 }
+				spinner.stop();
             } );
 
         } );
+
+		var spin = function(id = 'spinner') {
+			var target = document.getElementById(id);
+			return new Spinner().spin(target);
+		}
     </script>
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
     <!--<script type="text/javascript" src="../vendor/d3/d3.layout.js"></script>-->
@@ -246,13 +256,20 @@ console.log( dataSetUrl );
 <body id="spatialsearch-index" onload="buildMenu();">
     <div id="menu"></div>
     <div id="panels">
-    <div class="panel panel-top-left" id="map">&nbsp;</div>
-    <div class="panel panel-top-right" id="tree">
-        <div class="btn" title="maximize / minimize">&#9712;</div>
-        <!--h3>Tree view</h3--><div id="tree-container"></div>
-    </div>
-    <div class="panel panel-bottom-left" id="dependency-wheel"><div class="btn" title="maximize / minimize">&#9712;</div><!--h3>Dependency wheel</h3--><div id="dependency-wheel-container"></div></div>
-    <div class="panel panel-bottom-right" id="bundle"><div class="btn" title="maximize / minimize">&#9712;</div><!--h3>Bundle view</h3--><div id="bundle-container"></div></div>
+		<div id="spinner"></div>
+    	<div class="panel panel-top-left" id="map">
+			&nbsp;
+		</div>
+    	<div class="panel panel-top-right" id="tree">
+        	<div class="btn" title="maximize / minimize">&#9712;</div>
+        	<!--h3>Tree view</h3--><div id="tree-container"></div>
+    	</div>
+    	<div class="panel panel-bottom-left" id="dependency-wheel">
+			<div class="btn" title="maximize / minimize">&#9712;</div><!--h3>Dependency wheel</h3--><div id="dependency-wheel-container"></div>
+		</div>
+    	<div class="panel panel-bottom-right" id="bundle">
+			<div class="btn" title="maximize / minimize">&#9712;</div><!--h3>Bundle view</h3--><div id="bundle-container"></div>
+		</div>
     </div>
 </body>
 </html>
