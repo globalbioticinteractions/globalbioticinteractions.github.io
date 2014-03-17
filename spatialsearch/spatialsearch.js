@@ -1,4 +1,4 @@
-var infoWindow;
+var currentInfoWindow;
 
 function initializeMap( location, zoom ) {
     location = location || { latitude: 0, longitude: 0 };
@@ -15,16 +15,19 @@ function initializeMarkerClusterer( map, markers ) {
 }
 
 function createLocationContent( location ) {
+    var longitude = {
+        west: location.longitude < 1 ? location.longitude * 1.0001 : location.longitude * 0.9999,
+        east: location.longitude < 1 ? location.longitude * 0.9999 : location.longitude * 1.0001
+    };
+    var latitude = {
+        north: location.latitude < 1 ? location.latitude * 1.0001 : location.latitude * 0.9999,
+        south: location.latitude < 1 ? location.latitude * 0.9999 : location.latitude * 1.0001
+    };
     return [
         '<div>',
             '<a onclick="showAreaInfos( this )" id="location-selection" href="#" data-bounding-box="',
-//        'nw_lat=' + location.latitude * 0.9999,
-//        '&nw_lng=' + location.longitude * 0.9999,
-//        '&se_lat=' + location.latitude * 1.0001,
-//        '&se_lng=' + location.longitude * 1.0001,
-
-        'bbox=' + location.latitude * 0.9999 + ',' + location.longitude * 0.9999 + ',' + location.latitude * 1.0001 + ',' + location.longitude * 1.0001,
-        '">',
+                'bbox=' + longitude.west + ',' + latitude.north + ',' + longitude.east + ',' + latitude.south,
+            '">',
         '<span>Show interactions</span>',
         '</a>',
         '<br />',
@@ -34,7 +37,7 @@ function createLocationContent( location ) {
 
 function placeMarker( content, location, map ) {
     var latLng = new google.maps.LatLng( location.latitude, location.longitude ),
-        marker = new google.maps.Marker( { position: latLng, map: map } );
+        marker = new google.maps.Marker( { position: latLng, map: map } ),
     infoWindow = new google.maps.InfoWindow( { content: content } );
 
     google.maps.event.addListener( marker, 'click', function() {
@@ -45,7 +48,10 @@ function placeMarker( content, location, map ) {
 //            .done( function( response ) {
 //                if ( response.data ) {
 //                    infoWindow.content = infoWindow.content.replace( '###count###', response.data.length )
-                    infoWindow.open( map, marker );
+        currentInfoWindow && currentInfoWindow.close();
+        currentInfoWindow = infoWindow;
+        currentInfoWindow.open( map, marker );
+//                    infoWindow.open( map, marker );
 //                }
 //            } );
     } );
