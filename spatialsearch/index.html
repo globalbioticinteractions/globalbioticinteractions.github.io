@@ -9,6 +9,7 @@
     <!--script src="globi-dist.js"></script-->
     <script src="spatialsearch.js"></script>
     <script src="areapicker.js"></script>
+    <script src="../menu.js"></script>
     <script>
 
         var showAreaInfos = function( element ) {
@@ -183,6 +184,11 @@ console.log( dataSetUrl );
         body {
             overflow: hidden;
         }
+        #panels {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
         .panel {
             height: 50%;
             width: 50%;
@@ -237,9 +243,9 @@ console.log( dataSetUrl );
     </style>
     <script src="panel.js"></script>
 </head>
-<body id="spatialsearch-index">
-
-
+<body id="spatialsearch-index" onload="buildMenu();">
+    <div id="menu"></div>
+    <div id="panels">
     <div class="panel panel-top-left" id="map">&nbsp;</div>
     <div class="panel panel-top-right" id="tree">
         <div class="btn" title="maximize / minimize">&#9712;</div>
@@ -247,5 +253,6 @@ console.log( dataSetUrl );
     </div>
     <div class="panel panel-bottom-left" id="dependency-wheel"><div class="btn" title="maximize / minimize">&#9712;</div><!--h3>Dependency wheel</h3--><div id="dependency-wheel-container"></div></div>
     <div class="panel panel-bottom-right" id="bundle"><div class="btn" title="maximize / minimize">&#9712;</div><!--h3>Bundle view</h3--><div id="bundle-container"></div></div>
+    </div>
 </body>
 </html>
