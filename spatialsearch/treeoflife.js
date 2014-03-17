@@ -79,13 +79,13 @@ var linkCache = [];
 var _buildTree = function( json, canvasDimension ) {
     var canvasWidth = canvasDimension.width, canvasHeight = canvasDimension.height;
 
-    var tree = d3.layout.tree().size( [ canvasHeight * 2, canvasHeight * 2 ]);
+    var tree = d3.layout.tree().size( [ canvasHeight * 2, canvasWidth * 2 ]);
 
     var rootSource, rootTarget, nodeId = 0;
     var drawingArea = d3.select( '#tree-container' ).append( 'svg:svg' )
-                .attr( 'width', canvasWidth * 2 )
-                .attr( 'height', canvasHeight * 2 );
-        //.attr( 'viewBox', '0 0 ' + canvasWidth * 2 + ' ' + canvasHeight * 2 );
+//                .attr( 'width', canvasWidth * 2 )
+//                .attr( 'height', canvasHeight * 2 );
+        .attr( 'viewBox', '0 0 ' + canvasWidth * 2 + ' ' + canvasHeight * 2 );
 
     linkCache = parseToLinks( json );
     rootSource = parseToStructure( json );
@@ -120,10 +120,10 @@ var _buildTree = function( json, canvasDimension ) {
 
             switch ( type ) {
                 case 'target':
-                    d.y = canvasWidth - ( d.depth + 1 ) * 200;
+                    d.y = canvasWidth - ( d.depth + 1 ) * 150;
                     break;
                 case 'source':
-                    d.y = 100 + d.depth * 200;
+                    d.y = 100 + d.depth * 150;
                     break;
             }
 
