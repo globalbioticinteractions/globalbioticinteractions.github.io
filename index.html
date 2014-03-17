@@ -5,6 +5,7 @@
     <title>Global Biotic Interactions (GloBI)</title>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <script src="globi-dist.js" charset="utf-8"></script>
+    <script src="menu.js" charset="utf-8"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
     <script>
@@ -100,11 +101,16 @@
                 }
             });
         });
+
+	var init = function() {
+		document.getElementById('PredatorNameInputField').focus();
+		buildMenu();
+	}
     </script>
 </head>
-<body onload="document.getElementById('PredatorNameInputField').focus();">
+<body onload="init()">
 <div class="ui-widget">
-	<a href="http://globalbioticinteractions.wordpress.com">blog</a> | <a href="https://github.com/jhpoelen/eol-globi-data/wiki">wiki</a> | <a href="https://github.com/jhpoelen/eol-globi-data/issues/new">feedback</a> |	<a href="references.html">references</a> 
+	<div id="menu"></div>
     <p>What do
     <td><input id="PredatorNameInputField" class="tags" autocomplete="off" placeholder="name of organism"/></td>
     eat?</p>

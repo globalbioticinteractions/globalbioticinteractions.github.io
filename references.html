@@ -40,6 +40,7 @@
     </style>
     <!-- note that eol-globi-data-js is used through eol-globi-js, if the ui widgets are not needed, then globi-data-js should be used directly -->
     <script src="globi-dist.js" charset="utf-8"></script>
+    <script src="menu.js" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
         window.onload = function () {
             loadStats();
@@ -75,9 +76,9 @@
         };
     </script>
 </head>
-<body>
+<body onload="buildMenu()">
 <div class="ui-widget">
-<a href="http://globalbioticinteractions.wordpress.com">blog</a> | <a href="https://github.com/jhpoelen/eol-globi-data/wiki">wiki</a> | <a href="https://github.com/jhpoelen/eol-globi-data/issues/new">feedback</a> | <a href="index.html">what do ... eat?</a>
+<div id="menu"></div>
 </div>
 <br/>
 <table id="contributors" class="table">
