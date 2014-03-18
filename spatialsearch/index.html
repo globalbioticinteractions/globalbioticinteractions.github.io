@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>GloBI Interaction Browser</title>
-    <meta charset="UTF-8"></meta>
+    <meta charset="UTF-8" />
     <link rel="stylesheet" href="spatialsearch.css"/>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="../vendor/markerclusterer.js"></script>
@@ -13,7 +13,7 @@
     <script src="../menu.js"></script>
 	<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
     <script>
-
+        var treeSpinner, wheelSpinner, bundleSpinner, mapSpinner;
         function infoBoxText(idString, locationParams) {
             var dotURL = createInteractionURL(locationParams, 'dot');
             var jsonURL = createInteractionURL(locationParams, 'json.v2');
@@ -46,39 +46,43 @@
 
         var locationInfoBox = function(locationParams) {
             return infoBoxText('location-selection', locationParams);
-        }
+        };
 
         var createInteractionURL = function(locationParams, type) {
             return 'http://trophicgraph.com:8080/interaction?type=' + type + '&' + locationParams;
-        }
+        };
 
         var showAreaInfos = function( element ) {
             var boundingBox = jQuery( element ).data( 'bounding-box' );
             var $panel = jQuery( '#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
             var dataSetUrl = createInteractionURL(boundingBox, 'json.v2')
             console.log( dataSetUrl );
-			var spinner = spin();
+            treeSpinner = SpinnerFactory( 'tree-container' );
+            wheelSpinner = SpinnerFactory( 'dependency-wheel-container' );
+            bundleSpinner = SpinnerFactory( 'bundle-container' );
             d3.json( dataSetUrl, function( json ) {
-                spinner.stop();
                 if ( json.length ) {
 
                     jQuery( '#tree-container, #dependency-wheel-container, #bundle-container' ).empty();
+                    treeSpinner.spin(); wheelSpinner.spin(); bundleSpinner.spin();
                     buildTree( json, { height: canvasHeight, width: canvasWidth } );
-
+                    treeSpinner.stop();
                     buildDependencyWheel( json, { height: canvasHeight, width: canvasWidth } );
-
+                    wheelSpinner.stop();
                     buildBundles( json, { height: canvasHeight, width: canvasWidth } );
+                    bundleSpinner.stop();
                 }
             } );
         };
 
         jQuery( function() {
+
+
             var map = initializeMap(),
                 markers = [],
                 markerClusterer = null,
                 areapicker = new AreaPicker( map );
-
-            var spinner = spin();
+            mapSpinner = SpinnerFactory( 'map' );
             d3.json( 'http://trophicgraph.com:8080/locations', function( locations ) {
 				if ( locations ) {
                     locations = locations.data;
@@ -91,15 +95,31 @@
                     }
                     markerClusterer = initializeMarkerClusterer( map, markers );
                 }
-				spinner.stop();
+                mapSpinner.stop();
             } );
 
         } );
 
-		var spin = function() {
-			var target = document.getElementById('spinner');
-			return new Spinner().spin(target);
-		}
+        var SpinnerOptions = {
+            lines: 13, // The number of lines to draw
+            length: 10, // The length of each line
+            width: 5, // The line thickness
+            radius: 20, // The radius of the inner circle
+            corners: 1, // Corner roundness (0..1)
+            rotate: 0, // The rotation offset
+            direction: 1, // 1: clockwise, -1: counterclockwise
+            color: '#a0a0a0', // #rgb or #rrggbb or array of colors
+            speed: 1, // Rounds per second
+            trail: 60, // Afterglow percentage
+            hwaccel: false, // Whether to use hardware acceleration
+            className: 'spinner', // The CSS class to assign to the spinner
+            zIndex: 2e9 // The z-index (defaults to 2000000000)
+        };
+
+        var SpinnerFactory = function( id ) {
+            var target = document.getElementById( id );
+            return new Spinner( SpinnerOptions ).spin( target );
+        };
     </script>
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
     <!--<script type="text/javascript" src="../vendor/d3/d3.layout.js"></script>-->
@@ -293,7 +313,6 @@
 <body id="spatialsearch-index" onload="buildMenu();">
     <div id="menu"></div>
     <div id="panels">
-		<div id="spinner"></div>
     	<div class="panel panel-top-left" id="map">
 			&nbsp;
 		</div>
