@@ -132,7 +132,7 @@ function createTaxonUrl( specimen ) {
 function getUrlParameters() {
     var query = window.location.search.substring( 1 ),
         vars = query.split( "&" ),
-        hash = [];
+        hash = {};
     for ( var i=0; i < vars.length; i++ ) {
         var pair = vars[ i ].split( "=" );
         hash[ pair[ 0 ] ] = pair[ 1 ]

@@ -49,6 +49,10 @@ AreaPicker.prototype.hide = function() {
     }
 };
 
+AreaPicker.prototype.setBounds = function( bounds ) {
+    this.bounds_ = bounds;
+    return this;
+};
 
 
 function AreaPickerControl( associatedPicker ) {
@@ -97,6 +101,13 @@ AreaPickerControl.prototype.applyStyles = function() {
     this.container_.style.boxShadow = 'rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px';
     this.container_.style.cursor = 'pointer';
     this.container_.innerHTML = 'Show Area Picker';
+};
+
+AreaPickerControl.prototype.setActive = function() {
+    var me = this;
+    me.isActive_ = true;
+    me.container_.style.backgroundColor = '#f7f7f7';
+    me.container_.innerHTML = 'Hide Area Picker';
 };
 
 function AreaPickerInfo( associatedPicker ) {

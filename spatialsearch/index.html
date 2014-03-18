@@ -35,7 +35,8 @@
                 '<a href="',
                 dotURL,
                 '">dot</a> file',
-                '</div>'
+                '</div>',
+                    '<div><strong>share: </strong><input type="text" value="' + window.location.origin + window.location.pathname + '?' + locationParams + '"></div><br />'
             ].join('');
         }
 
@@ -76,7 +77,9 @@
         };
 
         jQuery( function() {
-
+            var urlParameters = getUrlParameters();
+            var bbox = urlParameters[ 'bbox' ] ? urlParameters[ 'bbox' ].split( ',' ) : false;
+            var lat = urlParameters[ 'lat' ] || false, lng = urlParameters[ 'lng' ] || false;
 
             var map = initializeMap(),
                 markers = [],
@@ -96,8 +99,22 @@
                     markerClusterer = initializeMarkerClusterer( map, markers );
                 }
                 mapSpinner.stop();
-            } );
+                if ( lat && lng ) {
+                    bbox = [];
+                    bbox[ 0 ] = lng >= 0 ? lng * 0.9999 : lng * 1.0001;
+                    bbox[ 1 ] = lat >= 0 ? lat * 0.9999 : lat * 1.0001;
+                    bbox[ 2 ] = lng >= 0 ? lng * 1.0001 : lng * 0.9999;
+                    bbox[ 3 ] = lat >= 0 ? lat * 1.0001 : lat * 0.9999;
+                }
+                if ( bbox ) {
+                    areapicker.setBounds( new google.maps.LatLngBounds(
+                            new google.maps.LatLng( bbox[ 1 ], bbox[ 0 ] ),
+                            new google.maps.LatLng( bbox[ 3 ], bbox[ 2 ] )
+                    ) ).show();
+                    areapicker.control_.setActive();
+                }
 
+            } );
         } );
 
         var SpinnerOptions = {
