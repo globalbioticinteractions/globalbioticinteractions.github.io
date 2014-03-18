@@ -101,17 +101,19 @@
                 mapSpinner.stop();
                 if ( lat && lng ) {
                     bbox = [];
-                    bbox[ 0 ] = lng >= 0 ? lng * 0.9999 : lng * 1.0001;
-                    bbox[ 1 ] = lat >= 0 ? lat * 0.9999 : lat * 1.0001;
-                    bbox[ 2 ] = lng >= 0 ? lng * 1.0001 : lng * 0.9999;
-                    bbox[ 3 ] = lat >= 0 ? lat * 1.0001 : lat * 0.9999;
+                    bbox[ 0 ] = lng >= 0 ? lng * 0.99 : lng * 1.01;
+                    bbox[ 1 ] = lat >= 0 ? lat * 0.99 : lat * 1.01;
+                    bbox[ 2 ] = lng >= 0 ? lng * 1.01 : lng * 0.99;
+                    bbox[ 3 ] = lat >= 0 ? lat * 1.01 : lat * 0.99;
                 }
                 if ( bbox ) {
-                    areapicker.setBounds( new google.maps.LatLngBounds(
+                    var bounds = new google.maps.LatLngBounds(
                             new google.maps.LatLng( bbox[ 1 ], bbox[ 0 ] ),
                             new google.maps.LatLng( bbox[ 3 ], bbox[ 2 ] )
-                    ) ).show();
+                    );
+                    areapicker.setBounds( bounds ).show();
                     areapicker.control_.setActive();
+                    map.panToBounds( bounds );
                 }
 
             } );
