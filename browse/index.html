@@ -101,9 +101,9 @@ console.log( dataSetUrl );
                 mapSpinner.stop();
                 if ( lat && lng ) {
                     bbox = [];
-                    bbox[ 0 ] = lng >= 0 ? lng * 0.99 : lng * 1.01;
+                    bbox[ 0 ] = lng >= 0 ? lng * 0.96 : lng * 1.04;
                     bbox[ 1 ] = lat >= 0 ? lat * 0.99 : lat * 1.01;
-                    bbox[ 2 ] = lng >= 0 ? lng * 1.01 : lng * 0.99;
+                    bbox[ 2 ] = lng >= 0 ? lng * 1.04 : lng * 0.96;
                     bbox[ 3 ] = lat >= 0 ? lat * 1.01 : lat * 0.99;
                 }
                 if ( bbox ) {
