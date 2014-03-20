@@ -327,6 +327,19 @@ console.log( dataSetUrl );
         #tree-container {
             overflow: auto;
         }
+        #welcome {
+            font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+            padding: 50px;
+            text-align: center;
+        }
+        #welcome h1 {
+            font-size: 21px;
+            margin-bottom: 25px;
+        }
+        #welcome p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
     </style>
     <script src="panel.js"></script>
 </head>
@@ -338,7 +351,15 @@ console.log( dataSetUrl );
 		</div>
     	<div class="panel panel-top-right" id="tree">
         	<div class="btn" title="maximize / minimize">&#9712;</div>
-        	<!--h3>Tree view</h3--><div id="tree-container"></div>
+        	<!--h3>Tree view</h3--><div id="tree-container">
+            <div id="welcome">
+                <h1>Welcome to the GloBI Interaction Browser!</h1>
+                <p>Please click on a marker or select an area to display species interactions!</p>
+                <p>
+                    <a target="_blank" href="http://globalbioticinteractions.wordpress.com">Learn more about GloBI</a>
+                </p>
+            </div>
+        	</div>
     	</div>
     	<div class="panel panel-bottom-left" id="dependency-wheel">
 			<div class="btn" title="maximize / minimize">&#9712;</div><!--h3>Dependency wheel</h3--><div id="dependency-wheel-container"></div>
