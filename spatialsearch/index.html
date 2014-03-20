@@ -57,7 +57,7 @@
             var boundingBox = jQuery( element ).data( 'bounding-box' );
             var $panel = jQuery( '#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
             var dataSetUrl = createInteractionURL(boundingBox, 'json.v2')
-            console.log( dataSetUrl );
+console.log( dataSetUrl );
             treeSpinner = SpinnerFactory( 'tree-container' );
             wheelSpinner = SpinnerFactory( 'dependency-wheel-container' );
             bundleSpinner = SpinnerFactory( 'bundle-container' );
@@ -114,6 +114,7 @@
                     areapicker.setBounds( bounds ).show();
                     areapicker.control_.setActive();
                     map.panToBounds( bounds );
+                    jQuery( '#area-selection' ).trigger( 'click' );;
                 }
 
             } );
