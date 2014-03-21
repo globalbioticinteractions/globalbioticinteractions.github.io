@@ -10,6 +10,7 @@ var buildMenu = function() {
         menu.appendChild(menuItem);
         return menu;
     }
+    appendMenuItem('about', '/about.html');
     appendMenuItem('blog', 'http://globalbioticinteractions.wordpress.com');
    	appendMenuItem('wiki', 'http://github.com/jhpoelen/eol-globi-data/wiki');
     appendMenuItem('feedback', 'http://github.com/jhpoelen/eol-globi-data/issues/new');
