@@ -13,7 +13,7 @@ var buildMenu = function() {
     appendMenuItem('about', '/about.html');
     appendMenuItem('blog', 'http://globalbioticinteractions.wordpress.com');
    	appendMenuItem('wiki', 'http://github.com/jhpoelen/eol-globi-data/wiki');
-    appendMenuItem('feedback', 'http://github.com/jhpoelen/eol-globi-data/issues/new');
+    appendMenuItem('feedback', '/feedback.html');
     appendMenuItem('what do ... eat', '/index.html');
     appendMenuItem('interaction browser', '/browse/index.html');
     appendMenuItem('references', '/references.html');
