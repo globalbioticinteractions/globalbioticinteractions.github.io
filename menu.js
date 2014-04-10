@@ -24,6 +24,6 @@ var buildMenu = function() {
 	appendSeparator();
 	var forkMe = document.createElement('a');
 	forkMe.setAttribute('href', 'https://github.com/eol-globi/eol-globi.github.io/');
-	forkMe.innerHTML = '<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub">';
+	forkMe.innerHTML = '<img style="z-index: 2; position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub">';
 	document.body.appendChild(forkMe);
 }
