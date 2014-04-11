@@ -73,6 +73,8 @@
                     row.innerHTML = '<td>' + element.reference + '</td><td>' + element.totalInteractions + '</td><td>' + element.totalSourceTaxa + '</td><td>' + element.totalTargetTaxa + '</td><td>' + element.source + '</td>';
                     table.appendChild(row);
                 });
+				var loadingRow = document.getElementById('loading');
+				loadingRow.parentElement.removeChild(loadingRow);
             });
         };
     </script>
@@ -97,6 +99,9 @@
         <th id="targetTaxa"></th>
         <th id="sources"></th>
     </tr>
+	<tr id='loading'>
+		<td>retrieving references...</td>
+	</tr>
 </table>
 </body>
 </html>
