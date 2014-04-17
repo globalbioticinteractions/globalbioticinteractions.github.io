@@ -9199,7 +9199,7 @@ module.exports = d3;
 var nodeXHR = require("xmlhttprequest");
 var globiData = {};
 
-var urlPrefix = 'http://trophicgraph.com:8080';
+var urlPrefix = 'http://trophicgraph.com';
 
 globiData.urlForFindCloseTaxonMatches = function (name) {
     return urlPrefix + '/findCloseMatchesForTaxon/' + encodeURIComponent(name);

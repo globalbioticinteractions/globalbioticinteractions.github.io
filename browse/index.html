@@ -50,7 +50,7 @@
         };
 
         var createInteractionURL = function(locationParams, type) {
-            return 'http://trophicgraph.com:8080/interaction?type=' + type + '&' + locationParams;
+            return 'http://trophicgraph.com/interaction?type=' + type + '&' + locationParams;
         };
 
         var showAreaInfos = function( element ) {
@@ -86,7 +86,7 @@ console.log( dataSetUrl );
                 markerClusterer = null,
                 areapicker = new AreaPicker( map );
             mapSpinner = SpinnerFactory( 'map' );
-            d3.json( 'http://trophicgraph.com:8080/locations', function( locations ) {
+            d3.json( 'http://trophicgraph.com/locations', function( locations ) {
 				if ( locations ) {
                     locations = locations.data;
                     for ( var index in locations ) {
