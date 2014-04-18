@@ -15,6 +15,7 @@ var buildMenu = function() {
         return menu;
     }
     appendMenuItem('about', '/about.html');
+    appendMenuItem('api', 'https://github.com/jhpoelen/eol-globi-data/wiki/rest');
     appendMenuItem('blog', 'http://globalbioticinteractions.wordpress.com');
    	appendMenuItem('wiki', 'http://github.com/jhpoelen/eol-globi-data/wiki');
     appendMenuItem('feedback', '/feedback.html');

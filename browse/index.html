@@ -13,6 +13,9 @@
     <script src="../menu.js"></script>
 	<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
     <script>
+		var urlPrefix = function() {
+			return 'http://api.globalbioticinteractions.org';
+		}
         var treeSpinner, wheelSpinner, bundleSpinner, mapSpinner;
         function infoBoxText(idString, locationParams) {
             var dotURL = createInteractionURL(locationParams, 'dot');
@@ -50,7 +53,7 @@
         };
 
         var createInteractionURL = function(locationParams, type) {
-            return 'http://trophicgraph.com/interaction?type=' + type + '&' + locationParams;
+            return urlPrefix() + '/interaction?type=' + type + '&' + locationParams;
         };
 
         var showAreaInfos = function( element ) {
@@ -86,7 +89,7 @@ console.log( dataSetUrl );
                 markerClusterer = null,
                 areapicker = new AreaPicker( map );
             mapSpinner = SpinnerFactory( 'map' );
-            d3.json( 'http://trophicgraph.com/locations', function( locations ) {
+            d3.json( urlPrefix() + '/locations', function( locations ) {
 				if ( locations ) {
                     locations = locations.data;
                     for ( var index in locations ) {
