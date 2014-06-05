@@ -29,7 +29,7 @@ var buildMenu = function() {
    	appendMenuItem('Wiki', 'http://github.com/jhpoelen/eol-globi-data/wiki');
     appendMenuItem('Feedback', '/feedback.html');
     appendMenuItem('What do ... eat?', '/index.html');
-    appendMenuItem('Interaction Browser', '/browse/index.html');
+    appendMenuItem('Browse', '/browse/index.html');
     appendMenuItem('References', '/references.html');
 	appendSeparator();
 	var forkMe = document.createElement('a');
