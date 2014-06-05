@@ -1,17 +1,25 @@
 
 var buildMenu = function() {
 	var menu = document.getElementById('menu');
+	if (menu == null) {
+		menu = document.createElement('ul');
+		menu.setAttribute('class', 'menu');
+		menu.setAttribute('id', 'menu');
+		document.body.insertBefore(menu, document.body.firstChild);
+    }
 
 	var appendSeparator = function() {
-		menu.appendChild(document.createTextNode(' | '));
+		//menu.appendChild(document.createTextNode(' | '));
 	}
 
 	var appendMenuItem = function(text, url) {
+		var listItem = document.createElement('li');
     	var menuItem = document.createElement('a');
        	menuItem.setAttribute('href', url);
         menuItem.innerHTML = text;
 		appendSeparator();
-        menu.appendChild(menuItem);
+		listItem.appendChild(menuItem);
+        menu.appendChild(listItem);
         return menu;
     }
     appendMenuItem('about', '/about.html');

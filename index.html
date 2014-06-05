@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Global Biotic Interactions (GloBI)</title>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+    <title>Global Biotic Interactions</title>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+	<link rel="stylesheet" href="globi.css"/>
     <script src="globi-dist.js" charset="utf-8"></script>
     <script src="menu.js" charset="utf-8"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -26,7 +27,7 @@
                 return suggestion;
             };
 
-            $(".tags").autocomplete({
+            $(".suggest").autocomplete({
                 minLength: 3,
                 source: function (request, response) {
                     globi.globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
@@ -110,9 +111,8 @@
 </head>
 <body onload="init()">
 <div class="ui-widget">
-	<div id="menu"></div>
     <p>What do
-    <td><input id="PredatorNameInputField" class="tags" autocomplete="off" placeholder="name of organism"/></td>
+    <td><input id="PredatorNameInputField" class="suggest" autocomplete="off" placeholder="name of organism"/></td>
     eat?</p>
     <div id="info"></div>
     <table id="result">
