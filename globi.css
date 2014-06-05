@@ -1,0 +1,88 @@
+body {
+   font-family: Arial, "Bitstream Vera Sans", Helvetica, Verdana, sans-serif;
+   font-size: 13px;
+}
+
+.menu,
+.menu ul,
+.menu li,
+.menu a {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.menu {
+    height: 3.3em;
+    width: 600.0em;
+  
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+ 
+.menu li {
+    position: relative;
+    list-style: none;
+    float: left;
+    display: block;
+    height: 40px;
+}
+
+.menu li a {
+    display: block;
+    padding: 0 14px;
+    margin: 6px 0;
+    line-height: 28px;
+    text-decoration: none;
+ 
+    border-left: 1px solid #393942;
+    border-right: 1px solid #4f5058;
+ 
+    font-weight: bold;
+    color: rgba(0,0,0,1.0);
+ 
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+}
+ 
+.menu li:first-child a { border-left: none; }
+.menu li:last-child a { border-right: none; }
+ 
+.menu li:hover > a { color: rgba(0,0,255,.9); }
+
+.table {
+  border: 1px solid #DFDFDF;
+  background-color: #F9F9F9;
+  width: 100%;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #333;
+}
+
+.table td, .table th {
+  border-top-color: white;
+  border-bottom: 1px solid #DFDFDF;
+  color: #555;
+}
+
+.table th {
+  text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
+  font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
+  font-weight: normal;
+  padding: 7px 7px 8px;
+  text-align: left;
+  line-height: 1.3em;
+  font-size: 14px;
+}
+
+.table td, .table p, .table div {
+  font-size: 12px;
+  padding: 4px 7px 2px;
+  vertical-align: top;
+}
