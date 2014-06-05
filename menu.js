@@ -22,14 +22,15 @@ var buildMenu = function() {
         menu.appendChild(listItem);
         return menu;
     }
-    appendMenuItem('about', '/about.html');
-    appendMenuItem('api', 'https://github.com/jhpoelen/eol-globi-data/wiki/api');
-    appendMenuItem('blog', 'http://globalbioticinteractions.wordpress.com');
-   	appendMenuItem('wiki', 'http://github.com/jhpoelen/eol-globi-data/wiki');
-    appendMenuItem('feedback', '/feedback.html');
-    appendMenuItem('what do ... eat', '/index.html');
-    appendMenuItem('interaction browser', '/browse/index.html');
-    appendMenuItem('references', '/references.html');
+    appendMenuItem('Global Biotic Interactions', '/index.html');
+    appendMenuItem('About', '/about.html');
+    appendMenuItem('API', 'https://github.com/jhpoelen/eol-globi-data/wiki/api');
+    appendMenuItem('Blog', 'http://globalbioticinteractions.wordpress.com');
+   	appendMenuItem('Wiki', 'http://github.com/jhpoelen/eol-globi-data/wiki');
+    appendMenuItem('Feedback', '/feedback.html');
+    appendMenuItem('What do ... eat?', '/index.html');
+    appendMenuItem('Interaction Browser', '/browse/index.html');
+    appendMenuItem('References', '/references.html');
 	appendSeparator();
 	var forkMe = document.createElement('a');
 	forkMe.setAttribute('href', 'https://github.com/eol-globi/eol-globi.github.io/');
