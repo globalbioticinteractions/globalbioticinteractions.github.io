@@ -9418,6 +9418,7 @@ globiData.findCloseTaxonMatches = function (name, callback) {
             var closeMatches = [];
             data.forEach(function (element, index) {
                 var commonNamesString = element[1];
+				commonNamesString = commonNamesString == null ? "" : commonNamesString;
                 var commonNamesSplit = commonNamesString.split('|');
                 var commonNames = [];
                 var taxonHierarchy = [];
