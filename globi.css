@@ -15,7 +15,7 @@ body {
 
 .menu {
     height: 3.3em;
-    width: 600.0em;
+    width: auto;
   
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -27,7 +27,7 @@ body {
     list-style: none;
     float: left;
     display: block;
-    height: 40px;
+    height: 3.0em;
 }
 
 .menu li a {
