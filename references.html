@@ -35,9 +35,10 @@
             globi.globiData.findStudyStats({}, function (studyStatList) {
                 var table = document.getElementById('contributors');
                 studyStatList.forEach(function (element) {
-                    var row = document.createElement('tr');
-                    row.innerHTML = '<td>' + element.reference + '</td><td>' + element.totalInteractions + '</td><td>' + element.totalSourceTaxa + '</td><td>' + element.totalTargetTaxa + '</td><td>' + element.source + '</td>';
-                    table.appendChild(row);
+                  var row = document.createElement('tr');
+                  var link = (typeof element.doi === 'undefined') ? '' : ' <a href="' + element.doi + '">doi</a>';
+                  row.innerHTML = '<td>' + element.reference + link + '</td><td>' + element.totalInteractions + '</td><td>' + element.totalSourceTaxa + '</td><td>' + element.totalTargetTaxa + '</td><td>' + element.source + '</td>';
+                  table.appendChild(row);
                 });
 				var prePopulatedRows = [].slice.call(document.getElementsByClassName('pre'));
 				prePopulatedRows.forEach(function(element) {
