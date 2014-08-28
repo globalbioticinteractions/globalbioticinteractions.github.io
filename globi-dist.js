@@ -9322,22 +9322,28 @@ globiData.findStudyStats = function (search, callback) {
                     	reference = name + ' ' + reference;
                 	}
 				}
-                var stats = { reference: reference, totalInteractions: row[4], totalSourceTaxa: row[5], totalTargetTaxa: row[6]};
+        var stats = { reference: reference, totalInteractions: row[4], totalSourceTaxa: row[5], totalTargetTaxa: row[6]};
 				var doi = row[9];
 				if (doi && doi.length > 0) {
-					stats.doi = row[9];
+					stats.doi = doi;
 				}
 
 				var source = row[10];
 				if (source && source.length > 0) {
-					stats.source = row[10];
+					stats.source = source;
 				}
-				studyStats[i] = stats;
-            }
-            callback(studyStats);
+
+        var externalId = row[11];
+        if (externalId && externalId.length > 0 && externalId.match('^((http)|(https))\://') !== null) {
+          stats.url = externalId;
         }
-    };
-    req.send(null);
+				
+        studyStats[i] = stats;
+      }
+      callback(studyStats);
+    }
+  };
+  req.send(null);
 }
 
 globiData.findStats = function (search, callback) {
