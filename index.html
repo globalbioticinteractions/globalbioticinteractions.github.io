@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8"/>
     <title>Global Biotic Interactions</title>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
-	<link rel="stylesheet" href="globi.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+    <link rel="stylesheet" href="globi.css"/>
     <script src="globi-dist.js" charset="utf-8"></script>
     <script src="menu.js" charset="utf-8"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -27,6 +27,68 @@
                 return suggestion;
             };
 
+            var searchForInteractions = function () {
+                var selectedItem = $('#PredatorNameInputField');
+                var sourceTaxonName = selectedItem.val();
+                var interactionType = $('#interactionType :selected').val()
+                var search =  {sourceTaxonScientificName: sourceTaxonName, interactionType: interactionType };
+                var callback = function (interactions) {
+                    var resultDiv = document.getElementById('result');
+                    $('.interaction').remove();
+                    var distinctNames = {};
+                    var counter = 0;
+                    interactions.forEach(function (interaction) {
+                        if (distinctNames[interaction.target.name] !== interaction.target.name) {
+                            if (counter % 4 == 0) {
+                                row = document.createElement('tr');
+                                row.setAttribute('class', 'interaction');
+                                resultDiv.appendChild(row);
+                            }
+
+                            var td = document.createElement('td');
+                            td.setAttribute('class', interaction.target.name.replace(/\W/, '_'));
+                            td.innerHTML = interaction.target.name;
+                            row.appendChild(td);
+                            distinctNames[interaction.target.name] = interaction.target.name;
+                            counter += 1;
+                        }
+                    });
+                    var textElem = document.createElement('p')
+                    textElem.setAttribute('class', 'interaction');
+                    var prefix = '<span class="' + sourceTaxonName + '">' + sourceTaxonName + '</span> ' + $('#interactionType :selected').text();
+                    var message = textElem.innerHTML = '... plenty of things!';
+                    if (counter == 0) {
+                        message = '... nothing that we know of.';
+                    }
+                    textElem.innerHTML = prefix + message;
+                    document.getElementById('info').appendChild(textElem);
+
+                    Object.keys(distinctNames).forEach(function (name) {
+                        globi.globiData.findTaxonInfo(name, function (taxonInfo) {
+                            var label = name;
+                            if (taxonInfo.scientificName) {
+                                label = taxonInfo.scientificName;
+                            }
+                            if (taxonInfo.commonName !== null) {
+                                label = taxonInfo.commonName + '<br>(' + label + ')';
+                            }
+                            var label = '<td>' + label + '</td>';
+                            if (taxonInfo.infoURL) {
+                                var link = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>';
+                                var image = '';
+                                if (taxonInfo.thumbnailURL) {
+                                    image = '<img src="' + taxonInfo.thumbnailURL + '"/>';
+                                }
+                                label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table></a>';
+                            }
+                            $('.' + name.replace(/\W/, '_')).html(label);
+                        });
+                    });
+
+                };
+                globi.globiData.findSpeciesInteractions(search, callback);
+            };
+
             $(".suggest").autocomplete({
                 minLength: 3,
                 source: function (request, response) {
@@ -42,83 +104,37 @@
                     });
                 },
                 select: function (event, ui) {
-                  var selectedItem = $('#PredatorNameInputField');
-                  var sourceTaxonName = selectedItem.val();
-                    var interactionType = $('#interactionType :selected').val()
-                    var search = {sourceTaxonScientificName: sourceTaxonName, interactionType: interactionType };
-                    var callback = function (interactions) {
-                        var resultDiv = document.getElementById('result');
-                        $('.interaction').remove();
-                        var distinctNames = {};
-                        var counter = 0;
-                        interactions.forEach(function (interaction) {
-                            if (distinctNames[interaction.target.name] !== interaction.target.name) {
-                                if (counter % 4 == 0) {
-                                    row = document.createElement('tr');
-                                    row.setAttribute('class', 'interaction');
-                                    resultDiv.appendChild(row);
-                                }
-
-                                var td = document.createElement('td');
-                                td.setAttribute('class', interaction.target.name.replace(/\W/, '_'));
-                                td.innerHTML = interaction.target.name;
-                                row.appendChild(td);
-                                distinctNames[interaction.target.name] = interaction.target.name;
-                                counter += 1;
-                            }
-                        });
-                        var textElem = document.createElement('p')
-                        textElem.setAttribute('class', 'interaction');
-                        var prefix = '<span class="' + selectedItem.label + '">' + selectedItem.label + '</span> ' + $('#interactionType :selected').text();
-                        var message = textElem.innerHTML = '... plenty of things!';
-                        if (counter == 0) {
-                            message = '... nothing that we know of.';
-                        }
-                        textElem.innerHTML = prefix + message;
-                        document.getElementById('info').appendChild(textElem);
-
-                        Object.keys(distinctNames).forEach(function (name) {
-                            globi.globiData.findTaxonInfo(name, function (taxonInfo) {
-                                var label = name;
-								if (taxonInfo.scientificName) {
-									label = taxonInfo.scientificName;
-								} 
-                                if (taxonInfo.commonName !== null) {
-                                    label = taxonInfo.commonName + '<br>(' + label + ')';
-                                }
-                                var label = '<td>' + label + '</td>';
-                                if (taxonInfo.infoURL) {
-                                    var link = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>';
-                                    var image = '';
-                                    if (taxonInfo.thumbnailURL) {
-                                        image = '<img src="' + taxonInfo.thumbnailURL + '"/>';
-                                    }
-                                    label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table></a>';
-                                }
-                                $('.' + name.replace(/\W/, '_')).html(label);
-                            });
-                        });
-
-                    };
-                    globi.globiData.findSpeciesInteractions(search, callback);
+                    searchForInteractions();
                 }
             });
+
+            $("#interactionType").change(
+                    function (event, ui) {
+                        searchForInteractions();
+                    });
         });
 
-	var init = function() {
-		document.getElementById('PredatorNameInputField').focus();
-		buildMenu();
-	}
+        var init = function () {
+            document.getElementById('PredatorNameInputField').focus();
+            buildMenu();
+        }
     </script>
 </head>
 <body onload="init()">
 <div class="ui-widget">
     <p>What do
-    <td><input id="PredatorNameInputField" class="suggest" autocomplete="off" placeholder="name of organism"/></td>
-    <td><select id="interactionType"><option value="preysOn">eat</option><option value="preyedUponBy">get eaten by</option><option value="hostOf">host</option><option value="parasiteOf">parasitize</option><option value="pollinates">pollinate</option><option value="pollinatedBy">get pollinated by</option></select>?</p>
-    <div id="info"></div>
-    <table id="result">
-    </table>
+    <input id="PredatorNameInputField" class="suggest" autocomplete="off" placeholder="name of organism"/>
+    <select id="interactionType">
+        <option value="preysOn">eat</option>
+        <option value="preyedUponBy">get eaten by</option>
+        <option value="hostOf">host</option>
+        <option value="parasiteOf">parasitize</option>
+        <option value="pollinates">pollinate</option>
+        <option value="pollinatedBy">get pollinated by</option>
+    </select>?</p>
+        <div id="info"></div>
+        <table id="result">
+        </table>
 </div>
 </body>
 </html>
