@@ -42,8 +42,10 @@
                     });
                 },
                 select: function (event, ui) {
-                    var selectedItem = ui.item;
-                    var search = {sourceTaxonScientificName: selectedItem.value, interactionType: 'preysOn'};
+                  var selectedItem = $('#PredatorNameInputField');
+                  var sourceTaxonName = selectedItem.val();
+                    var interactionType = $('#interactionType :selected').val()
+                    var search = {sourceTaxonScientificName: sourceTaxonName, interactionType: interactionType };
                     var callback = function (interactions) {
                         var resultDiv = document.getElementById('result');
                         $('.interaction').remove();
@@ -67,7 +69,7 @@
                         });
                         var textElem = document.createElement('p')
                         textElem.setAttribute('class', 'interaction');
-                        var prefix = '<span class="' + selectedItem.label + '">' + selectedItem.label + '</span> eat ';
+                        var prefix = '<span class="' + selectedItem.label + '">' + selectedItem.label + '</span> ' + $('#interactionType :selected').text();
                         var message = textElem.innerHTML = '... plenty of things!';
                         if (counter == 0) {
                             message = '... nothing that we know of.';
@@ -113,7 +115,7 @@
 <div class="ui-widget">
     <p>What do
     <td><input id="PredatorNameInputField" class="suggest" autocomplete="off" placeholder="name of organism"/></td>
-    eat?</p>
+    <td><select id="interactionType"><option value="preysOn">eat</option><option value="preyedUponBy">get eaten by</option><option value="hostOf">host</option><option value="parasiteOf">parasitize</option><option value="pollinates">pollinate</option><option value="pollinatedBy">get pollinated by</option></select>?</p>
     <div id="info"></div>
     <table id="result">
     </table>
