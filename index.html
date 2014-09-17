@@ -60,7 +60,8 @@
                     if (counter == 0) {
                         message = '... nothing that we know of.';
                     }
-                    textElem.innerHTML = prefix + message;
+
+                    textElem.innerHTML = prefix + message + ' Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.';
                     document.getElementById('info').appendChild(textElem);
 
                     Object.keys(distinctNames).forEach(function (name) {
