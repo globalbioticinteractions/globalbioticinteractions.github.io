@@ -5,7 +5,7 @@
     <title>Global Biotic Interactions</title>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" href="globi.css"/>
-    <script src="globi-dist.js" charset="utf-8"></script>
+    <script src="globi-data-dist.js" charset="utf-8"></script>
     <script src="menu.js" charset="utf-8"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
@@ -65,7 +65,7 @@
                     document.getElementById('info').appendChild(textElem);
 
                     Object.keys(distinctNames).forEach(function (name) {
-                        globi.globiData.findTaxonInfo(name, function (taxonInfo) {
+                        globiData.findTaxonInfo(name, function (taxonInfo) {
                             var label = name;
                             if (taxonInfo.scientificName) {
                                 label = taxonInfo.scientificName;
@@ -87,13 +87,13 @@
                     });
 
                 };
-                globi.globiData.findSpeciesInteractions(search, callback);
+                globiData.findSpeciesInteractions(search, callback);
             };
 
             $(".suggest").autocomplete({
                 minLength: 3,
                 source: function (request, response) {
-                    globi.globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
+                    globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
                         var suggestions = [];
                         closeMatches.forEach(function (closeMatch, index) {
                             suggestions[index] = {
