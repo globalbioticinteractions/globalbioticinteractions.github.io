@@ -238,7 +238,9 @@ globiData.findCloseTaxonMatches = function (name, callback) {
                         commonNames[index] = { name: commonName[0].trim(), lang: commonName[1].trim()};
                     }
                 });
-                var path = element[2].split('|');
+                var pathString = element[2];
+                pathString = pathString == null ? "" : pathString;
+                var path = pathString.split('|');
                 path.forEach(function (taxon, index) {
                     taxonHierarchy[index] = taxon.trim();
                 });
