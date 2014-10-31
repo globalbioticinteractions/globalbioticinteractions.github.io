@@ -28,8 +28,8 @@
             };
 
             var searchForInteractions = function () {
-                var selectedItem = $('#PredatorNameInputField');
-                var sourceTaxonName = selectedItem.val();
+                var sourceTaxonName = globiData.currentSelection.value;
+                var sourceTaxonLabel = globiData.currentSelection.label;
                 var interactionType = $('#interactionType :selected').val()
                 var search =  {sourceTaxonScientificName: sourceTaxonName, interactionType: interactionType };
                 var callback = function (interactions) {
@@ -55,7 +55,7 @@
                     });
                     var textElem = document.createElement('p')
                     textElem.setAttribute('class', 'interaction');
-                    var prefix = '<span class="' + sourceTaxonName + '">' + sourceTaxonName + '</span> ' + $('#interactionType :selected').text();
+                    var prefix = '<span class="' + sourceTaxonName + '">' + sourceTaxonLabel + '</span> ' + $('#interactionType :selected').text();
                     var message = textElem.innerHTML = '... plenty of things!';
                     if (counter == 0) {
                         message = '... nothing that we know of.';
@@ -105,6 +105,7 @@
                     });
                 },
                 select: function (event, ui) {
+                  globiData.currentSelection = { value: ui.item.value, label: ui.item.label };
                     searchForInteractions();
                 }
             });
