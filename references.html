@@ -23,12 +23,10 @@
         $(document).ready(function () {
             $('#contributors').DataTable({
                 paging: true,
-                scrollY: 400,
                 orderClasses: false,
                 ajax: function (data, callback, settings) {
                     var rows = [];
                     globiData.findStudyStats({}, function (studyStatList) {
-                        console.log('finding stuff...')
                         studyStatList.forEach(function (element) {
                             var row = [];
                             var link = (typeof element.url === 'undefined') ? '' : ' <a href="' + element.url + '" title="' + element.reference + '">link</a>';
