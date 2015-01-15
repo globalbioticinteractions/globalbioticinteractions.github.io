@@ -25,7 +25,11 @@
                     suggestion = englishName + ' (' + suggestion + ')';
                 }
                 return suggestion;
-            };
+              };
+
+            var className = function(someString) {
+              return someString.replace(/\W/g, '_');
+            }
 
             var searchForInteractions = function () {
                 var sourceTaxonName = globiData.currentSelection.value;
@@ -46,7 +50,7 @@
                             }
 
                             var td = document.createElement('td');
-                            td.setAttribute('class', interaction.target.name.replace(/\W/, '_'));
+                            td.setAttribute('class', className(interaction.target.name));
                             td.innerHTML = interaction.target.name;
                             row.appendChild(td);
                             distinctNames[interaction.target.name] = interaction.target.name;
@@ -66,7 +70,7 @@
 
                     Object.keys(distinctNames).forEach(function (name) {
                         globiData.findTaxonInfo(name, function (taxonInfo) {
-                            var label = name;
+                          var label = name;
                             if (taxonInfo.scientificName) {
                                 label = taxonInfo.scientificName;
                             }
@@ -82,7 +86,7 @@
                                 }
                                 label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table></a>';
                             }
-                            $('.' + name.replace(/\W/, '_')).html(label);
+                            $('.' + className(name)).html(label);
                         });
                     });
 
