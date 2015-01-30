@@ -7,7 +7,7 @@ var urlPrefix = 'http://api.globalbioticinteractions.org';
 
 globiData.urlForFindCloseTaxonMatches = function (name) {
     return urlPrefix + '/findCloseMatchesForTaxon/' + encodeURIComponent(name);
-}
+};
 
 globiData.urlForTaxonInteractionQuery = function (search) {
     var uri = urlPrefix;
@@ -27,7 +27,7 @@ globiData.urlForTaxonInteractionQuery = function (search) {
             locationQuery += elem + '=' + location[elem] + '&';
         }
         return locationQuery;
-    }
+    };
 
     uri = uri + '?type=json.v2';
     if (search.location) {
@@ -42,7 +42,6 @@ globiData.urlForTaxonInteractionQuery = function (search) {
             }
             uri = uri + taxonQuery;
         }
-
     }
 
     addTaxonQuery(search.sourceTaxa, 'sourceTaxon');
@@ -52,7 +51,7 @@ globiData.urlForTaxonInteractionQuery = function (search) {
 };
 
 globiData.urlForTaxonImageQuery = function (scientificName) {
-    return urlPrefix + '/imagesForName/' + encodeURIComponent(scientificName);
+    return urlPrefix + '/imagesForName?name=' + encodeURIComponent(scientificName);
 };
 
 globiData.urlForTaxonImagesQuery = function(scientificNames) {
@@ -63,7 +62,7 @@ globiData.urlForTaxonImagesQuery = function(scientificNames) {
 		}
 	}
 	return urlPrefix + '/imagesForNames' + nameQuery;
-}
+};
 
 var createReq = function () {
     var req;
@@ -92,7 +91,7 @@ globiData.findSources = function (callback) {
         if (req.readyState === 4 && req.status === 200) {
             var result = JSON.parse(req.responseText);
             var sources = [];
-            var data = result['data'];
+            var data = result.data;
             data.forEach(function (element, index) {
                 sources[index] = element[0];
             });
@@ -138,7 +137,7 @@ globiData.findStudyStats = function (search, callback) {
 				}
 
         var externalId = row[11];
-        if (externalId && externalId.length > 0 && externalId.match('^((http)|(https))\://') !== null) {
+        if (externalId && externalId.length > 0 && externalId.match('^((http)|(https))://') !== null) {
           stats.url = externalId;
         }
 				
@@ -148,7 +147,7 @@ globiData.findStudyStats = function (search, callback) {
     }
   };
   req.send(null);
-}
+};
 
 globiData.findStats = function (search, callback) {
     var req = createReq();
@@ -169,52 +168,47 @@ globiData.findStats = function (search, callback) {
         }
     };
     req.send(null);
-}
+};
+
+globiData.sendRequest = function(req, callback) {
+  req.onreadystatechange = function() {
+    if (req.readyState === 4 && req.status === 200) {
+      callback(JSON.parse(req.responseText));
+    }
+  };
+  req.send(null);
+};
 
 globiData.findInteractionTypes = function (callback) {
     var req = createReq();
     req.open('GET', urlPrefix + '/interactionTypes', true);
-    req.onreadystatechange = function () {
-        if (req.readyState === 4 && req.status === 200) {
-            callback(JSON.parse(req.responseText));
-        }
-    };
-    req.send(null);
-}
+    globiData.sendRequest(req, callback);
+};
+
 
 globiData.findSpeciesInteractions = function (search, callback) {
     var uri = globiData.urlForTaxonInteractionQuery(search);
     var req = createReq();
     req.open('GET', uri, true);
-    req.onreadystatechange = function () {
-        if (req.readyState === 4 && req.status === 200) {
-            callback(JSON.parse(req.responseText));
-        }
-    };
-    req.send(null);
+    globiData.sendRequest(req, callback);
 };
 
 
 globiData.findTaxonInfo = function (scientificName, callback) {
 	var uri = globiData.urlForTaxonImageQuery(scientificName);	
 	globiData.get(uri, callback);
-}
+};
 
 globiData.findTaxaInfo = function (scientificNames, callback) {
 	var uri = globiData.urlForTaxonImagesQuery(scientificNames);
 	console.log(uri);	
 	globiData.get(uri, callback);
-}
+};
 
 globiData.get = function (uri, callback) {
     var req = createReq();
     req.open('GET', uri, true);
-    req.onreadystatechange = function () {
-        if (req.readyState === 4 && req.status === 200) {
-            callback(JSON.parse(req.responseText));
-        }
-    };
-    req.send(null);
+    globiData.sendRequest(req, callback);
 };
 
 globiData.findCloseTaxonMatches = function (name, callback) {
@@ -227,19 +221,10 @@ globiData.findCloseTaxonMatches = function (name, callback) {
             var data = response.data;
             var closeMatches = [];
             data.forEach(function (element, index) {
-                var commonNamesString = element[1];
-				commonNamesString = commonNamesString == null ? "" : commonNamesString;
-                var commonNamesSplit = commonNamesString.split('|');
-                var commonNames = [];
                 var taxonHierarchy = [];
-                commonNamesSplit.forEach(function (element, index) {
-                    var commonName = element.split('@');
-                    if (commonName.length > 1) {
-                        commonNames[index] = { name: commonName[0].trim(), lang: commonName[1].trim()};
-                    }
-                });
+                var commonNames = globiData.mapCommonNameList(element[1]);
                 var pathString = element[2];
-                pathString = pathString == null ? "" : pathString;
+                pathString = pathString === null ? "" : pathString;
                 var path = pathString.split('|');
                 path.forEach(function (taxon, index) {
                     taxonHierarchy[index] = taxon.trim();
@@ -251,6 +236,35 @@ globiData.findCloseTaxonMatches = function (name, callback) {
         }
     };
     req.send(null);
+};
+
+/**
+ * Transforms a common name list string into a map
+ * f.x.:
+ *  "foo @en | bar @de" => {en: "foo", de: "bar"}
+ *
+ * @param {string} pipedCommonNameList
+ * @param {boolean} [override]
+ * @returns {Object.<string, string>}
+ */
+globiData.mapCommonNameList = function(pipedCommonNameList, override) {
+    override = typeof override !== 'undefined' ? !!override : true;
+    pipedCommonNameList = typeof pipedCommonNameList !== 'string' ? '' : pipedCommonNameList;
+    var commonNameMap = { count: 0 };
+    var splittedByPipeList = pipedCommonNameList.split('|').map(function(item) { return item.trim(); } );
+    splittedByPipeList.forEach(function(item) {
+        if (typeof item !== 'undefined') {
+            var splittedByAtItemParts = item.split('@').map(function(item) { return item.trim(); } );
+            if (typeof splittedByAtItemParts[1] !== 'undefined') {
+                if( override || typeof commonNameMap[splittedByAtItemParts[1]] === 'undefined') {
+                    if (typeof commonNameMap[splittedByAtItemParts[1]] === 'undefined') commonNameMap.count++;
+                    commonNameMap[splittedByAtItemParts[1]] = splittedByAtItemParts[0];
+                }
+            }
+        }
+    });
+
+    return commonNameMap;
 };
 
 module.exports = globiData;
