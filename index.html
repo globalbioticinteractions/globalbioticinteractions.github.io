@@ -14,11 +14,7 @@
             var labelForTaxon = function (taxon) {
                 var englishName;
                 if (taxon.commonNames) {
-                    taxon.commonNames.forEach(function (element) {
-                        if (element.lang === 'en') {
-                            englishName = element.name;
-                        }
-                    });
+                    englishName = taxon.commonNames['en'];
                 }
                 var suggestion = taxon.scientificName;
                 if (englishName !== undefined) {
