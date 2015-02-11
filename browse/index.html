@@ -5,17 +5,39 @@
     <meta charset="UTF-8" />
 	<link rel="stylesheet" href="../globi.css"/>
 	<link rel="stylesheet" href="spatialsearch.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="https://rawgit.com/jhpoelen/eol-globi-js/master/globi-dist.js"></script>
+    <script>
+        var $ = jQuery = globi.jQuery;
+    </script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="../vendor/markerclusterer.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
     <script src="spatialsearch.js"></script>
     <script src="areapicker.js"></script>
     <script src="../menu.js"></script>
 	<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+    <style>
+        table.interactions-result {
+            margin-top: 10px;
+            border-collapse: collapse;
+            font-size: 11px;
+        }
+        table.interactions-result .odd {
+            background-color: #e7e7e7;
+        }
+        table.interactions-result .odd {
+            background-color: #d7d7d7;
+        }
+        table.interactions-result td {
+            padding: 2px 5px;
+        }
+    </style>
     <script>
 		var urlPrefix = function() {
 			return 'http://api.globalbioticinteractions.org';
-		}
+		};
         var treeSpinner, wheelSpinner, bundleSpinner, mapSpinner;
         function infoBoxText(idString, locationParams) {
             var dotURL = createInteractionURL(locationParams, 'dot');
@@ -59,18 +81,26 @@
         var showAreaInfos = function( element ) {
             var boundingBox = jQuery( element ).data( 'bounding-box' );
             var $panel = jQuery( '#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
-            var dataSetUrl = createInteractionURL(boundingBox, 'json.v2')
-console.log( dataSetUrl );
+            var dataSetUrl = createInteractionURL(boundingBox, 'json.v2');
+
             treeSpinner = SpinnerFactory( 'tree-container' );
             wheelSpinner = SpinnerFactory( 'dependency-wheel-container' );
             bundleSpinner = SpinnerFactory( 'bundle-container' );
+            var $treeContainer = jQuery('#tree-container');
+            if ($treeContainer.data('plugin_interactions')) {
+                $treeContainer.data('plugin_interactions').update(boundingBox);
+                console.log('yes');
+            } else {
+                console.log('no');
+                $treeContainer.interactions({bboxString: boundingBox});
+            }
+            treeSpinner.stop();
+
             d3.json( dataSetUrl, function( json ) {
                 if ( json.length ) {
-
-                    jQuery( '#tree-container, #dependency-wheel-container, #bundle-container' ).empty();
+                    jQuery( '#dependency-wheel-container, #bundle-container' ).empty();
                     treeSpinner.spin(); wheelSpinner.spin(); bundleSpinner.spin();
-                    buildTree( json, { height: canvasHeight, width: canvasWidth } );
-                    treeSpinner.stop();
+//                    buildTree( json, { height: canvasHeight, width: canvasWidth } );
                     buildDependencyWheel( json, { height: canvasHeight, width: canvasWidth } );
                     wheelSpinner.stop();
                     buildBundles( json, { height: canvasHeight, width: canvasWidth } );
