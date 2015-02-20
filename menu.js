@@ -19,12 +19,9 @@ var buildMenu = function() {
     
   appendMenuItem('Global Biotic Interactions', '/index.html');
   appendMenuItem('About', '/about.html');
-  appendMenuItem('API', 'https://github.com/jhpoelen/eol-globi-data/wiki/api');
   appendMenuItem('Data', 'https://github.com/jhpoelen/eol-globi-data/wiki#accessing-species-interaction-data');
   appendMenuItem('Blog', 'http://globalbioticinteractions.wordpress.com');
-  appendMenuItem('Wiki', 'http://github.com/jhpoelen/eol-globi-data/wiki');
   appendMenuItem('Feedback', '/feedback.html');
-  appendMenuItem('What do ... eat?', '/index.html');
   appendMenuItem('Browse', '/browse/index.html');
   appendMenuItem('References', '/references.html');
 }
