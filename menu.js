@@ -19,7 +19,7 @@ var buildMenu = function() {
     
   appendMenuItem('Global Biotic Interactions', '/index.html');
   appendMenuItem('About', '/about.html');
-  appendMenuItem('Data', 'https://github.com/jhpoelen/eol-globi-data/wiki#accessing-species-interaction-data');
+  appendMenuItem('Data Access', 'https://github.com/jhpoelen/eol-globi-data/wiki#accessing-species-interaction-data');
   appendMenuItem('Blog', 'http://globalbioticinteractions.wordpress.com');
   appendMenuItem('Browse', '/browse/index.html');
   appendMenuItem('References', '/references.html');
