@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="globi.css"/>
     <script src="https://rawgit.com/jhpoelen/eol-globi-data-js/master/globi-data-dist.js"></script>
     <script src="menu.js"></script>
+    <script src="query-string.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
     <script>
@@ -21,17 +22,19 @@
                     suggestion = englishName + ' (' + suggestion + ')';
                 }
                 return suggestion;
-              };
+            };
 
-            var className = function(someString) {
-              return someString.replace(/\W/g, '_');
+            var className = function (someString) {
+                return someString.replace(/\W/g, '_');
             }
 
             var searchForInteractions = function () {
                 var sourceTaxonName = globiData.currentSelection.value;
                 var sourceTaxonLabel = globiData.currentSelection.label;
                 var interactionType = $('#interactionType :selected').val()
-                var search =  {sourceTaxonScientificName: sourceTaxonName, interactionType: interactionType };
+                document.location.hash = queryString.stringify({ sourceTaxon: sourceTaxonName, interactionType: interactionType })
+
+                var search = {sourceTaxonScientificName: sourceTaxonName, interactionType: interactionType };
                 var callback = function (interactions) {
                     var resultDiv = document.getElementById('result');
                     $('.interaction').remove();
@@ -66,7 +69,7 @@
 
                     Object.keys(distinctNames).forEach(function (name) {
                         globiData.findTaxonInfo(name, function (taxonInfo) {
-                          var label = name;
+                            var label = name;
                             if (taxonInfo.scientificName) {
                                 label = taxonInfo.scientificName;
                             }
@@ -105,19 +108,29 @@
                     });
                 },
                 select: function (event, ui) {
-                  globiData.currentSelection = { value: ui.item.value, label: ui.item.label };
+                    globiData.currentSelection = { value: ui.item.value, label: ui.item.label };
                     searchForInteractions();
                 }
             });
 
-            $("#interactionType").change(
-                    function (event, ui) {
-                        searchForInteractions();
-                    });
+            $("#PredatorNameInputField").change(function (event, ui) {
+                searchForInteractions();
+            });
+
+            $("#interactionType").change(function (event, ui) {
+                searchForInteractions();
+            });
         });
 
         var init = function () {
-            document.getElementById('PredatorNameInputField').focus();
+            var params = queryString.parse(document.location.hash);
+            console.log(params);
+            if (params.sourceTaxon) {
+                globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
+                $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
+                $('#PredatorNameInputField').val(params.sourceTaxon).change();
+            }
+            $('#PredatorNameInputField').focus();
             buildMenu();
         }
     </script>
@@ -125,20 +138,21 @@
 <body onload="init()">
 <div class="ui-widget">
     <p>What do
-    <input id="PredatorNameInputField" class="suggest" autocomplete="off" placeholder="name of organism"/>
-    <select id="interactionType">
-        <option value="preysOn">eat</option>
-        <option value="preyedUponBy">get eaten by</option>
-        <option value="parasiteOf">parasitize</option>
-        <option value="hasParasite">get parasitized by</option>
-        <option value="pollinates">pollinate</option>
-        <option value="pollinatedBy">get pollinated by</option>
-        <option value="pathogenOf">infect</option>
-        <option value="hasPathogen">get infected by</option>
-    </select>?</p>
-        <div id="info"></div>
-        <table id="result">
-        </table>
+        <input id="PredatorNameInputField" class="suggest" autocomplete="off" placeholder="name of organism"/>
+        <select id="interactionType">
+            <option value="preysOn">eat</option>
+            <option value="preyedUponBy">get eaten by</option>
+            <option value="parasiteOf">parasitize</option>
+            <option value="hasParasite">get parasitized by</option>
+            <option value="pollinates">pollinate</option>
+            <option value="pollinatedBy">get pollinated by</option>
+            <option value="pathogenOf">infect</option>
+            <option value="hasPathogen">get infected by</option>
+        </select>?
+    </p>
+    <div id="info"></div>
+    <table id="result">
+    </table>
 </div>
 </body>
 </html>
