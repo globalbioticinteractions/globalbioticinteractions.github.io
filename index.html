@@ -34,37 +34,37 @@
                 var interactionType = $('#interactionType :selected').val()
                 document.location.hash = queryString.stringify({ sourceTaxon: sourceTaxonName, interactionType: interactionType })
 
-                var search = {sourceTaxonScientificName: sourceTaxonName, interactionType: interactionType };
+                var search = {sourceTaxa: [sourceTaxonName], interactionType: interactionType, fields: ['source_taxon_name', 'target_taxon_name', 'interaction_type'] };
                 var callback = function (interactions) {
                     var resultDiv = document.getElementById('result');
                     $('.interaction').remove();
                     var distinctNames = {};
                     var counter = 0;
                     interactions.forEach(function (interaction) {
-                        if (distinctNames[interaction.target.name] !== interaction.target.name) {
+                        if (distinctNames[interaction.target_taxon_name] !== interaction.target_taxon_name) {
                             if (counter % 4 == 0) {
                                 row = document.createElement('tr');
                                 row.setAttribute('class', 'interaction');
                                 resultDiv.appendChild(row);
                             }
-
                             var td = document.createElement('td');
-                            td.setAttribute('class', className(interaction.target.name));
-                            td.innerHTML = interaction.target.name;
+                            td.setAttribute('class', className(interaction.target_taxon_name));
+                            td.innerHTML = interaction.target_taxon_name;
                             row.appendChild(td);
-                            distinctNames[interaction.target.name] = interaction.target.name;
+                            distinctNames[interaction.target_taxon_name] = interaction.target_taxon_name;
+                            distinctNames[interaction.source_taxon_name] = interaction.source_taxon_name;
                             counter += 1;
                         }
                     });
                     var textElem = document.createElement('p')
                     textElem.setAttribute('class', 'interaction');
-                    var prefix = '<span class="' + sourceTaxonName + '">' + sourceTaxonLabel + '</span> ' + $('#interactionType :selected').text();
+                    var prefix = '<span class="' + className(sourceTaxonName) + '">' + sourceTaxonLabel + '</span> ';
                     var message = textElem.innerHTML = '... plenty of things!';
                     if (counter == 0) {
                         message = '... nothing that we know of.';
                     }
 
-                    textElem.innerHTML = prefix + message + ' Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.';
+                    textElem.innerHTML = '<table><tr><td>' + prefix + '<td>' + $('#interactionType :selected').text() + message + '<td>Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.</tr></table>';
                     document.getElementById('info').appendChild(textElem);
 
                     Object.keys(distinctNames).forEach(function (name) {
