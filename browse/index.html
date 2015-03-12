@@ -4,6 +4,7 @@
     <title>Global Biotic Interactions | Browse</title>
     <meta charset="UTF-8" />
 	<link rel="stylesheet" href="../globi.css"/>
+    <link rel="stylesheet" href="../css/widget.css"/>
 	<link rel="stylesheet" href="spatialsearch.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -89,12 +90,13 @@
             wheelSpinner = SpinnerFactory( 'dependency-wheel-container' );
             bundleSpinner = SpinnerFactory( 'bundle-container' );
             var $treeContainer = jQuery('#tree-container');
+            var bboxParts = boundingBox.split('=');
+            boundingBox = bboxParts.length === 2 ? bboxParts[1] : bboxParts[0];
             if ($treeContainer.data('plugin_interactions')) {
                 $treeContainer.data('plugin_interactions').update(boundingBox);
-                console.log('yes');
             } else {
-                console.log('no');
                 $treeContainer.interactions({bboxString: boundingBox});
+                console.log(boundingBox);
             }
             treeSpinner.stop();
 

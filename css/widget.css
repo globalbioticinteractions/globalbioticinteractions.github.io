@@ -1,0 +1,94 @@
+#widget td,
+#tree-container td {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#widget table,
+#tree-container table {
+    border-collapse: collapse;
+}
+
+#selector-head td {
+    vertical-align: middle;
+}
+
+#target-selector-cell, #source-selector-cell{
+    padding-top: 10px;
+}
+
+#widget ul.token-input-list,
+#tree-container ul.token-input-list {
+    width: 210px;
+}
+
+.result-row {
+    border: 1px solid #eee;
+    background: #ddd;
+    cursor: auto !important;
+}
+.result-row .result-source,
+.result-row .result-target,
+.result-row .result-type {
+    padding: 10px;
+    height: 70px;
+    overflow: hidden;
+}
+
+.result-row .target-label,
+.result-row .source-label,
+.result-row .interactiontype-label {
+    font-size: 0.7em;
+}
+.result-row .target-label,
+.result-row .source-label {
+    color: #777;
+}
+
+.result-row .scientific-name {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #222;
+    padding-bottom: 5px;
+}
+
+.result-row .taxon-image {
+    height: 50px;
+}
+
+.result-row .common-name {
+    font-size: 0.9em;
+    color: #444;
+}
+
+.result-row  .more-info {
+    font-size: 0.7em;
+    text-align: right;
+}
+
+.interactions-result .source-cell, .interactions-result .result-source,
+.interactions-result .target-cell, .interactions-result .result-target {
+    width: 200px;
+    vertical-align: top;
+}
+.interactions-result .type-cell, .interactions-result .result-type {
+    width: 100px;
+    vertical-align: top;
+}
+
+.interactions-result .with-result {
+    display: none;
+}
+
+.interactions-result tr {
+    cursor: pointer;
+    font-size: 0.7em;
+}
+
+.interactions-result tr td {
+    padding: 1px 10px;
+    color: #777;
+}
+
+.interactions-result tr:hover {
+    background-color: #e7e7e7;
+}
