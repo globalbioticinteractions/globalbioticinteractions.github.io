@@ -124,22 +124,25 @@
                         var distinctInteraction = distinctInteractions[distinctInteractionKey];
                         var search = { sourceTaxa: [distinctInteraction.source_taxon_name], targetTaxa: [distinctInteraction.target_taxon_name]
                             , interactionType: distinctInteraction.interaction_type
-                            , includeObservations: 'true', fields: ['study_citation', 'study_url'] };
+                            , includeObservations: 'true', fields: ['study_citation', 'study_url', 'study_source_citation'] };
                         globiData.findSpeciesInteractions(search, function(distinctInteractionResults) {
                             distinctInteractionResults.forEach(function(distinctInteractionResult) {
                                 var studyId = className(distinctInteractionKey + distinctInteractionResult.study_citation);
                                 if ($('#' + studyId).length == 0) {
                                     var citationElem = document.createElement('li');
                                     citationElem.setAttribute('id', studyId);
-                                    var textElem = document.createElement('span');
+                                    var textElem = document.createElement('b');
                                     textElem.textContent = distinctInteractionResult.study_citation + ' ';
                                     citationElem.appendChild(textElem);
-                                    if (distinctInteractionResult.study_url !== undefined) {
+                                    if (distinctInteractionResult.study_url !== undefined && distinctInteractionResult.study_url != null) {
                                         var linkElem = document.createElement('a');
                                         linkElem.setAttribute('href', distinctInteractionResult.study_url);
                                         linkElem.textContent = 'link';
                                         citationElem.appendChild(linkElem);
                                     }
+                                    var sourceElem = document.createElement('span');
+                                    sourceElem.textContent = ' Source: ' + distinctInteractionResult.study_source_citation;
+                                    citationElem.appendChild(sourceElem);
                                     $('.' + className(distinctInteractionKey)).append(citationElem);
                                 }
                             });
