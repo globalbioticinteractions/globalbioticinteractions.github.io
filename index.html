@@ -29,30 +29,47 @@
             }
 
             var searchForInteractions = function () {
-                var sourceTaxonName = globiData.currentSelection.value;
-                var sourceTaxonLabel = globiData.currentSelection.label;
-                var interactionType = $('#interactionType :selected').val()
-                document.location.hash = queryString.stringify({ sourceTaxon: sourceTaxonName, interactionType: interactionType })
+                var sourceTaxonName = $('#taxonInputField').val();
+                var sourceTaxonLabel = sourceTaxonName;
+                var interactionType = $('#interactionType').find(":selected").val();
+                var studyQuery = $('#studySearchField').val();
+                document.location.hash = queryString.stringify({ sourceTaxon: sourceTaxonName, interactionType: interactionType, accordingTo: studyQuery })
 
-                var search = {sourceTaxa: [sourceTaxonName], interactionType: interactionType, fields: ['source_taxon_name', 'target_taxon_name', 'interaction_type'] };
+                var search = {sourceTaxa: [sourceTaxonName], interactionType: interactionType, accordingTo: studyQuery, fields: ['source_taxon_name', 'target_taxon_name', 'interaction_type'] };
                 var callback = function (interactions) {
                     var resultDiv = document.getElementById('result');
                     $('.interaction').remove();
                     var distinctNames = {};
+                    var distinctInteractions = {};
                     var counter = 0;
                     interactions.forEach(function (interaction) {
                         if (distinctNames[interaction.target_taxon_name] !== interaction.target_taxon_name) {
-                            if (counter % 4 == 0) {
-                                row = document.createElement('tr');
-                                row.setAttribute('class', 'interaction');
-                                resultDiv.appendChild(row);
-                            }
+                            row = document.createElement('tr');
+                            row.setAttribute('class', 'interaction');
+                            resultDiv.appendChild(row);
                             var td = document.createElement('td');
+                            td.setAttribute('class', className(interaction.source_taxon_name));
+                            td.innerHTML = interaction.source_taxon_name;
+                            row.appendChild(td);
+                            td = document.createElement('td');
+                            div = document.createElement('div');
+                            div.setAttribute('class', className(interaction.interaction_type));
+                            div.textContent = interaction.interaction_type;
+                            td.appendChild(div);
+                            row.appendChild(td);
+                            td = document.createElement('td');
                             td.setAttribute('class', className(interaction.target_taxon_name));
                             td.innerHTML = interaction.target_taxon_name;
                             row.appendChild(td);
+
+                            var citationKey = (interaction.source_taxon_name + interaction.interaction_type + interaction.target_taxon_name);
+                            td = document.createElement('td');
+                            td.setAttribute('class', className(citationKey));
+                            row.appendChild(td);
                             distinctNames[interaction.target_taxon_name] = interaction.target_taxon_name;
                             distinctNames[interaction.source_taxon_name] = interaction.source_taxon_name;
+
+                            distinctInteractions[citationKey] = interaction;
                             counter += 1;
                         }
                       });
@@ -60,13 +77,25 @@
                     
                     var textElem = document.createElement('p')
                     textElem.setAttribute('class', 'interaction');
+                    if (sourceTaxonLabel.length == 0) {
+                        sourceTaxonLabel = 'organisms';
+                    }
                     var prefix = '<span class="' + className(sourceTaxonName) + '">' + sourceTaxonLabel + '</span> ';
-                    var message = '... plenty of things!';
+                    var message = '... plenty of things';
+                    if (studyQuery.length > 0) {
+                        message = message + ' according to ' + studyQuery;
+                    }
+                    message = message + '!';
                     if (counter == 0) {
-                        message = '... nothing that we know of.';
+                        message = '... nothing ';
+                        if (studyQuery.length > 0) {
+                            message = message + ' according to ' + studyQuery + '.';
+                        } else {
+                            message = message + ' that we are aware of.';
+                        }
                     }
 
-                    textElem.innerHTML = prefix + $('#interactionType :selected').text() + message + ' Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.';
+                    textElem.innerHTML = prefix + $('#interactionType :selected').text() + message + '<p>Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.</p>';
                     document.getElementById('info').appendChild(textElem);
 
                     Object.keys(distinctNames).forEach(function (name) {
@@ -91,6 +120,32 @@
                         });
                     });
 
+                    Object.keys(distinctInteractions).forEach(function(distinctInteractionKey) {
+                        var distinctInteraction = distinctInteractions[distinctInteractionKey];
+                        var search = { sourceTaxa: [distinctInteraction.source_taxon_name], targetTaxa: [distinctInteraction.target_taxon_name]
+                            , interactionType: distinctInteraction.interaction_type
+                            , includeObservations: 'true', fields: ['study_citation', 'study_url'] };
+                        globiData.findSpeciesInteractions(search, function(distinctInteractionResults) {
+                            distinctInteractionResults.forEach(function(distinctInteractionResult) {
+                                var studyId = className(distinctInteractionKey + distinctInteractionResult.study_citation);
+                                if ($('#' + studyId).length == 0) {
+                                    var citationElem = document.createElement('li');
+                                    citationElem.setAttribute('id', studyId);
+                                    var textElem = document.createElement('span');
+                                    textElem.textContent = distinctInteractionResult.study_citation + ' ';
+                                    citationElem.appendChild(textElem);
+                                    if (distinctInteractionResult.study_url !== undefined) {
+                                        var linkElem = document.createElement('a');
+                                        linkElem.setAttribute('href', distinctInteractionResult.study_url);
+                                        linkElem.textContent = 'link';
+                                        citationElem.appendChild(linkElem);
+                                    }
+                                    $('.' + className(distinctInteractionKey)).append(citationElem);
+                                }
+                            });
+                        });
+                    });
+
                 };
                 globiData.findSpeciesInteractions(search, callback);
             };
@@ -110,28 +165,40 @@
                     });
                 },
                 select: function (event, ui) {
-                    globiData.currentSelection = { value: ui.item.value, label: ui.item.label };
                     searchForInteractions();
                 }
             });
 
-            $("#PredatorNameInputField").change(function (event, ui) {
+            var onEnter = function(e, ui) {
+                if(e.keyCode == 13)
+                {
+                    searchForInteractions();
+                }
+            };
+            $("#taxonInputField").change(function (event, ui) {
                 searchForInteractions();
             });
+            $("#taxonInputField").keyup(onEnter);
 
             $("#interactionType").change(function (event, ui) {
                 searchForInteractions();
             });
+            $("#studySearchField").keyup(onEnter);
         });
 
         var init = function () {
             var params = queryString.parse(document.location.hash);
+            globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
+            $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
+            $('#studySearchField').val(params.accordingTo);
+            $('#taxonInputField').val(params.sourceTaxon);
+
             if (params.sourceTaxon) {
-                globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
-                $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
-                $('#PredatorNameInputField').val(params.sourceTaxon).change();
+                $('#taxonInputField').change();
+            } else if (params.accordingTo) {
+                $('#taxonInputField').change();
             }
-            $('#PredatorNameInputField').focus();
+            $('#taxonInputField').focus();
             buildMenu();
         }
     </script>
@@ -139,10 +206,12 @@
 <body onload="init()">
 <div class="ui-widget">
     <p>What do
-        <input id="PredatorNameInputField" class="suggest" autocomplete="off" placeholder="name of organism"/>
+        <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="organisms"/>
         <select id="interactionType">
-            <option value="preysOn">eat</option>
-            <option value="preyedUponBy">get eaten by</option>
+            <option value="eats">eat</option>
+            <option value="eatenBy">get eaten by</option>
+            <option value="preysOn">preys on</option>
+            <option value="preyedUponBy">get preyed on by</option>
             <option value="parasiteOf">parasitize</option>
             <option value="hasParasite">get parasitized by</option>
             <option value="pollinates">pollinate</option>
@@ -152,7 +221,7 @@
             <option value="vectorOf">spread</option>
             <option value="hasVector">get spread by</option>
             <option value="interactsWith">interact with</option>
-        </select>?
+        </select> according to <input id="studySearchField" autocomplete="off" placeholder="any study or source"/>?
     </p>
     <div id="info"></div>
     <table id="result">
