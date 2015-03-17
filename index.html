@@ -131,15 +131,15 @@
                                 if ($('#' + studyId).length == 0) {
                                     var citationElem = document.createElement('li');
                                     citationElem.setAttribute('id', studyId);
+                                    var textElem = document.createElement('b');
+                                    textElem.textContent = distinctInteractionResult.study_citation + ' ';
+                                    citationElem.appendChild(textElem);
                                     if (distinctInteractionResult.study_url !== undefined && distinctInteractionResult.study_url != null) {
                                         var linkElem = document.createElement('a');
                                         linkElem.setAttribute('href', distinctInteractionResult.study_url);
                                         linkElem.textContent = 'link';
                                         citationElem.appendChild(linkElem);
                                     }
-                                    var textElem = document.createElement('b');
-                                    textElem.textContent = distinctInteractionResult.study_citation + ' ';
-                                    citationElem.appendChild(textElem);
                                     var sourceElem = document.createElement('span');
                                     sourceElem.textContent = ' Provider: ' + distinctInteractionResult.study_source_citation;
                                     citationElem.appendChild(sourceElem);
