@@ -1,11 +1,19 @@
 #widget td,
-#tree-container td {
+#widget th,
+#tree-container td,
+#tree-container th {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #widget table,
 #tree-container table {
     border-collapse: collapse;
+}
+
+#widget th,
+#tree-container th {
+    text-align: left;
+    padding: 0 5px;
 }
 
 #selector-head td {
