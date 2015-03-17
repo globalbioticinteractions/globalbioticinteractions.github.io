@@ -88,7 +88,6 @@
 }
 
 .interactions-result tr {
-    cursor: pointer;
     font-size: 0.7em;
 }
 
@@ -97,6 +96,16 @@
     color: #777;
 }
 
-.interactions-result tr:hover {
+.interactions-result tr.interaction-result:hover {
     background-color: #e7e7e7;
+    cursor: pointer;
+}
+
+.interactions-result th.download {
+    padding-bottom: 10px !important;
+}
+
+.interactions-result th.download a {
+    text-decoration: none;
+    color: #77e;
 }
