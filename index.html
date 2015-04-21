@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Global Biotic Interactions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" href="globi.css"/>
     <script src="https://rawgit.com/jhpoelen/eol-globi-data-js/master/globi-data-dist.js"></script>
@@ -34,18 +35,22 @@
                 var interactionType = $('#interactionType').find(":selected").val();
                 var studyQuery = $('#studySearchField').val();
                 var searchHash = {};
+                var search = {};
+                var search = { fields: ['source_taxon_name', 'target_taxon_name', 'interaction_type'] };
                 if (sourceTaxonName.length > 0) {
-                    searchHash.sourceTaxon = sourceTaxonName;
+                  searchHash.sourceTaxon = sourceTaxonName;
+                  search.sourceTaxa = [sourceTaxonName];
                 }
                 if (interactionType.length > 0) {
-                    searchHash.interactionType = interactionType;
+                  searchHash.interactionType = interactionType;
+                  search.interactionType = interactionType;
                 }
                 if (studyQuery.length > 0) {
-                    searchHash.accordingTo = studyQuery;
+                  searchHash.accordingTo = studyQuery;
+                  search.accordingTo = studyQuery;
                 }
                 document.location.hash = queryString.stringify(searchHash)
 
-                var search = {sourceTaxa: [sourceTaxonName], interactionType: interactionType, accordingTo: studyQuery, fields: ['source_taxon_name', 'target_taxon_name', 'interaction_type'] };
                 var callback = function (interactions) {
                     var resultDiv = document.getElementById('result');
                     $('.interaction').remove();
