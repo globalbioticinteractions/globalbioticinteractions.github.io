@@ -86,22 +86,23 @@
         var showAreaInfos = function( element ) {
             var boundingBox = jQuery( element ).data( 'bounding-box' );
             var $panel = jQuery( '#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
-            var dataSetUrl = createInteractionURL(boundingBox, 'json.v2');
 
             treeSpinner = SpinnerFactory( 'tree-container' );
             wheelSpinner = SpinnerFactory( 'dependency-wheel-container' );
             bundleSpinner = SpinnerFactory( 'bundle-container' );
             var $treeContainer = jQuery('#tree-container');
             var bboxParts = boundingBox.split('=');
-            boundingBox = bboxParts.length === 2 ? bboxParts[1] : bboxParts[0];
-            if ($treeContainer.data('plugin_interactions')) {
-                $treeContainer.data('plugin_interactions').update(boundingBox);
-            } else {
-                $treeContainer.interactions({bboxString: boundingBox});
-                console.log(boundingBox);
+            if (bboxParts.length === 2) {
+                if ($treeContainer.data('plugin_interactions')) {
+                    $treeContainer.data('plugin_interactions').update(bboxParts[1]);
+                } else {
+                    $treeContainer.interactions({bboxString: bboxParts[1]});
+                }
             }
             treeSpinner.stop();
 
+            var dataSetUrl = createInteractionURL(boundingBox, 'json.v2');
+            console.log(dataSetUrl);
             d3.json( dataSetUrl, function( json ) {
                 if ( json.length ) {
                     jQuery( '#dependency-wheel-container, #bundle-container' ).empty();
