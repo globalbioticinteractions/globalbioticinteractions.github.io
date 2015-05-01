@@ -30,8 +30,8 @@
                     globiData.findStudyStats({}, function (studyStatList) {
                         studyStatList.forEach(function (element) {
                             var row = [];
-                            var link = (typeof element.url === 'undefined') ? '' : ' <a href="' + element.url + '" title="' + element.reference + '">link</a>';
-                            link = (typeof element.doi === 'undefined') ? link : ' <a href="' + element.doi.replace(/^doi:/, 'https://dx.doi.org/') + '" title="' + element.reference + '">doi</a>';
+                            var link = (typeof element.url === 'undefined') ? '' : ' <a href="' + element.url + '" title="' + element.citation + '">link</a>';
+                            link = (typeof element.doi === 'undefined') ? link : ' <a href="' + element.doi.replace(/^doi:/, 'https://dx.doi.org/') + '" title="' + element.citation + '">doi</a>';
                             row[0] = element.citation + link;
                             row[1] = element.totalInteractions;
                             row[2] = element.totalTaxa;
@@ -51,8 +51,8 @@
                 interDiv.innerHTML = '(' + stats.totalInteractions + ' total)';
                 var tgtTaxa = document.getElementById('distinctTaxa');
                 tgtTaxa.innerHTML = '(' + stats.totalTaxa + ' unique)';
-                var references = document.getElementById('references');
-                references.innerHTML = '(' + stats.numberOfStudies + ' total)';
+                var studies = document.getElementById('studies');
+                studies.innerHTML = '(' + stats.numberOfStudies + ' total)';
                 var references = document.getElementById('sources');
                 references.innerHTML = '(' + stats.numberOfDistinctSources + ' total)';
             });
@@ -65,14 +65,14 @@
 <table id="contributors">
     <thead>
     <tr>
-        <th width='40%'><b>reference</b></th>
+        <th width='40%'><b>study</b></th>
         <th width='10%'><b>interactions</b></th>
         <th width='10%'><b>distinct taxa</b></th>
         <th width='30%'><b>source</b></th>
     </tr>
 
     <tr>
-        <th id="references">(...)</th>
+        <th id="studies">(...)</th>
         <th id="interactions">(...)</th>
         <th id="distinctTaxa">(...)</th>
         <th id="sources">(...)</th>
