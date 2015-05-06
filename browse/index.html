@@ -48,6 +48,11 @@
     };
     var treeSpinner, wheelSpinner, bundleSpinner, mapSpinner;
     function infoBoxText(idString, locationParams) {
+        var params = $.extend(locationParams, {includeObservations: true,
+            fields: ['source_taxon_path', 'source_taxon_path_ids'
+                , 'interaction_type'
+                , 'target_taxon_path', 'target_taxon_path_ids'
+                , 'study_citation', 'study_source_citation']})
         var dotURL = createInteractionURL(locationParams, 'dot');
         var jsonURL = createInteractionURL(locationParams, 'json.v2');
         var csvURL = createInteractionURL(locationParams, 'csv');
