@@ -155,6 +155,6 @@ AreaPickerInfo.prototype.createContent_ = function( bounds ) {
         eolBounds.nw_lat = eolBounds.se_lat;
         eolBounds.se_lat = tempCoord;
     }
-    var locationParams = 'bbox=' + eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat;
+    var locationParams = {bbox: eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat };
     return areaInfoBox(locationParams);
 };

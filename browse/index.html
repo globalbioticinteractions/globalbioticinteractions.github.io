@@ -1,411 +1,425 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Global Biotic Interactions | Browse</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Biotic Interactions | Browse</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="../globi.css"/>
-    <link rel="stylesheet" href="../css/widget.css"/>
-	<link rel="stylesheet" href="spatialsearch.css"/>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script src="https://rawgit.com/jhpoelen/eol-globi-js/master/globi-dist.js"></script>
-    <script>
-        var $ = jQuery = globi.jQuery;
-    </script>
-    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="../vendor/jquery.tokeninput/token-input.css">
-    <script src="../vendor/jquery.tokeninput/jquery.tokeninput.js"></script>
-    <script src="../vendor/markerclusterer.js"></script>
-    <!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
-    <script src="spatialsearch.js"></script>
-    <script src="areapicker.js"></script>
-    <script src="../menu.js"></script>
-	<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
-    <style>
-        table.interactions-result {
-            margin-top: 10px;
-            border-collapse: collapse;
-            font-size: 11px;
+<link rel="stylesheet" href="../globi.css"/>
+<link rel="stylesheet" href="../css/widget.css"/>
+<link rel="stylesheet" href="spatialsearch.css"/>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="https://rawgit.com/jhpoelen/eol-globi-js/master/globi-dist.js"></script>
+<script>
+    var $ = jQuery = globi.jQuery;
+    var d3 = globi.d3;
+</script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="../vendor/jquery.tokeninput/token-input.css">
+<script src="../vendor/jquery.tokeninput/jquery.tokeninput.js"></script>
+<script src="../vendor/markerclusterer.js"></script>
+<script src="spatialsearch.js"></script>
+<script src="areapicker.js"></script>
+<script src="../menu.js"></script>
+<script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+<style>
+    table.interactions-result {
+        margin-top: 10px;
+        border-collapse: collapse;
+        font-size: 11px;
+    }
+
+    table.interactions-result .odd {
+        background-color: #e7e7e7;
+    }
+
+    table.interactions-result .odd {
+        background-color: #d7d7d7;
+    }
+
+    table.interactions-result td {
+        padding: 2px 5px;
+    }
+</style>
+<script>
+    var urlPrefix = function () {
+        return 'http://api.globalbioticinteractions.org';
+    };
+    var treeSpinner, wheelSpinner, bundleSpinner, mapSpinner;
+    function infoBoxText(idString, locationParams) {
+        var dotURL = createInteractionURL(locationParams, 'dot');
+        var jsonURL = createInteractionURL(locationParams, 'json.v2');
+        var csvURL = createInteractionURL(locationParams, 'csv');
+        return [
+            "<div><a onclick='showAreaInfos( this )' id='",
+            idString,
+            "'", "href='#' data-spatial-selection='",
+            JSON.stringify(locationParams),
+            "'>",
+            '<span>show</span></a> interactions<br/>get ',
+            '<a href="',
+            csvURL,
+            '">csv</a>, ',
+            '<a href="',
+            jsonURL,
+            '">json</a>, or ',
+            '<a href="',
+            dotURL,
+            '">dot</a> file',
+            '</div>',
+            '<div><strong>share: </strong><input type="text" value="' + globi.globiData.addQueryParams(window.location.origin + window.location.pathname + '?', locationParams) + '"></div><br />'
+        ].join('');
+    }
+
+    function areaInfoBox(locationParams) {
+        return infoBoxText('area-selection', locationParams);
+
+    }
+
+    var locationInfoBox = function (locationParams) {
+        return infoBoxText('location-selection', locationParams);
+    };
+
+    var createInteractionURL = function (locationParams, type) {
+        return globi.globiData.addQueryParams(urlPrefix() + '/interaction?type=' + type, locationParams);
+    };
+
+    var showAreaInfos = function (element) {
+        var spatialSelection = jQuery(element).data('spatial-selection');
+        var $panel = jQuery('#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
+
+        treeSpinner = SpinnerFactory('tree-container');
+        wheelSpinner = SpinnerFactory('dependency-wheel-container');
+        bundleSpinner = SpinnerFactory('bundle-container');
+        var $treeContainer = jQuery('#tree-container');
+        if ($treeContainer.data('plugin_interactions')) {
+            $treeContainer.data('plugin_interactions').update(spatialSelection);
+        } else {
+            $treeContainer.interactions(spatialSelection);
         }
-        table.interactions-result .odd {
-            background-color: #e7e7e7;
-        }
-        table.interactions-result .odd {
-            background-color: #d7d7d7;
-        }
-        table.interactions-result td {
-            padding: 2px 5px;
-        }
-    </style>
-    <script>
-		var urlPrefix = function() {
-			return 'http://api.globalbioticinteractions.org';
-		};
-        var treeSpinner, wheelSpinner, bundleSpinner, mapSpinner;
-        function infoBoxText(idString, locationParams) {
-            var dotURL = createInteractionURL(locationParams, 'dot');
-            var jsonURL = createInteractionURL(locationParams, 'json.v2');
-            var csvURL = createInteractionURL(locationParams, 'csv');
-            return [
-                '<div>',
-                '<a onclick="showAreaInfos( this )" id="',
-                idString,
-                '", href="#" data-bounding-box="',
-                locationParams,
-                '">',
-                '<span>show</span></a> interactions<br/>get ',
-                '<a href="',
-                csvURL,
-                '">csv</a>, ',
-                '<a href="',
-                jsonURL,
-                '">json</a>, or ',
-                '<a href="',
-                dotURL,
-                '">dot</a> file',
-                '</div>',
-                    '<div><strong>share: </strong><input type="text" value="' + window.location.origin + window.location.pathname + '?' + locationParams + '"></div><br />'
-            ].join('');
-        }
+        treeSpinner.stop();
 
-        function areaInfoBox(locationParams) {
-            return infoBoxText('area-selection', locationParams);
-
-        }
-
-        var locationInfoBox = function(locationParams) {
-            return infoBoxText('location-selection', locationParams);
-        };
-
-        var createInteractionURL = function(locationParams, type) {
-            return urlPrefix() + '/interaction?type=' + type + '&' + locationParams;
-        };
-
-        var showAreaInfos = function( element ) {
-            var boundingBox = jQuery( element ).data( 'bounding-box' );
-            var $panel = jQuery( '#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
-
-            treeSpinner = SpinnerFactory( 'tree-container' );
-            wheelSpinner = SpinnerFactory( 'dependency-wheel-container' );
-            bundleSpinner = SpinnerFactory( 'bundle-container' );
-            var $treeContainer = jQuery('#tree-container');
-            var bboxParts = boundingBox.split('=');
-            if (bboxParts.length === 2) {
-                if ($treeContainer.data('plugin_interactions')) {
-                    $treeContainer.data('plugin_interactions').update(bboxParts[1]);
-                } else {
-                    $treeContainer.interactions({bboxString: bboxParts[1]});
-                }
-            }
-            treeSpinner.stop();
-
-            var dataSetUrl = createInteractionURL(boundingBox, 'json.v2');
-            console.log(dataSetUrl);
-            d3.json( dataSetUrl, function( json ) {
-                if ( json.length ) {
-                    jQuery( '#dependency-wheel-container, #bundle-container' ).empty();
-                    treeSpinner.spin(); wheelSpinner.spin(); bundleSpinner.spin();
+        var dataSetUrl = createInteractionURL(spatialSelection, 'json.v2');
+        d3.json(dataSetUrl, function (json) {
+            if (json.length) {
+                jQuery('#dependency-wheel-container, #bundle-container').empty();
+                treeSpinner.spin();
+                wheelSpinner.spin();
+                bundleSpinner.spin();
 //                    buildTree( json, { height: canvasHeight, width: canvasWidth } );
-                    buildDependencyWheel( json, { height: canvasHeight, width: canvasWidth } );
-                    wheelSpinner.stop();
-                    buildBundles( json, { height: canvasHeight, width: canvasWidth } );
-                    bundleSpinner.stop();
-                }
-            } );
-        };
+                buildDependencyWheel(json, { height: canvasHeight, width: canvasWidth });
+                wheelSpinner.stop();
+                buildBundles(json, { height: canvasHeight, width: canvasWidth });
+                bundleSpinner.stop();
+            }
+        });
+    };
 
-        jQuery( function() {
-            var urlParameters = getUrlParameters();
-            var bbox = urlParameters[ 'bbox' ] ? urlParameters[ 'bbox' ].split( ',' ) : false;
-            var lat = urlParameters[ 'lat' ] || false, lng = urlParameters[ 'lng' ] || false;
+    jQuery(function () {
+        var urlParameters = getUrlParameters();
+        var bbox = urlParameters[ 'bbox' ] ? urlParameters[ 'bbox' ].split(',') : false;
+        var lat = urlParameters[ 'lat' ] || false, lng = urlParameters[ 'lng' ] || false;
 
-            var map = initializeMap(),
+        var map = initializeMap(),
                 markers = [],
                 markerClusterer = null,
-                areapicker = new AreaPicker( map );
-            mapSpinner = SpinnerFactory( 'map' );
-            d3.json( urlPrefix() + '/locations', function( locations ) {
-				if ( locations ) {
-                    locations = locations.data;
-                    for ( var index in locations ) {
-                        if ( locations.hasOwnProperty( index ) ) {
-                            var location = { latitude: locations[ index ][ 0 ], longitude: locations[ index ][ 1 ] },
-                                content = createLocationContent( location );
-                            markers.push( placeMarker( content, location, map ) );
-                        }
+                areapicker = new AreaPicker(map);
+        mapSpinner = SpinnerFactory('map');
+        d3.json(urlPrefix() + '/locations', function (locations) {
+            if (locations) {
+                locations = locations.data;
+                for (var index in locations) {
+                    if (locations.hasOwnProperty(index)) {
+                        var location = { latitude: locations[ index ][ 0 ], longitude: locations[ index ][ 1 ] },
+                                content = createLocationContent(location);
+                        markers.push(placeMarker(content, location, map));
                     }
-                    markerClusterer = initializeMarkerClusterer( map, markers );
                 }
-                mapSpinner.stop();
-                if ( lat && lng ) {
-                    bbox = [];
-                    bbox[ 0 ] = lng >= 0 ? lng * 0.96 : lng * 1.04;
-                    bbox[ 1 ] = lat >= 0 ? lat * 0.99 : lat * 1.01;
-                    bbox[ 2 ] = lng >= 0 ? lng * 1.04 : lng * 0.96;
-                    bbox[ 3 ] = lat >= 0 ? lat * 1.01 : lat * 0.99;
-                }
-                if ( bbox ) {
-                    var bounds = new google.maps.LatLngBounds(
-                            new google.maps.LatLng( bbox[ 1 ], bbox[ 0 ] ),
-                            new google.maps.LatLng( bbox[ 3 ], bbox[ 2 ] )
-                    );
-                    areapicker.setBounds( bounds ).show();
-                    areapicker.control_.setActive();
-                    map.panToBounds( bounds );
-                    jQuery( '#area-selection' ).trigger( 'click' );;
-                }
+                markerClusterer = initializeMarkerClusterer(map, markers);
+            }
+            mapSpinner.stop();
+            if (lat && lng) {
+                bbox = [];
+                bbox[ 0 ] = lng >= 0 ? lng * 0.96 : lng * 1.04;
+                bbox[ 1 ] = lat >= 0 ? lat * 0.99 : lat * 1.01;
+                bbox[ 2 ] = lng >= 0 ? lng * 1.04 : lng * 0.96;
+                bbox[ 3 ] = lat >= 0 ? lat * 1.01 : lat * 0.99;
+            }
+            if (bbox) {
+                var bounds = new google.maps.LatLngBounds(
+                        new google.maps.LatLng(bbox[ 1 ], bbox[ 0 ]),
+                        new google.maps.LatLng(bbox[ 3 ], bbox[ 2 ])
+                );
+                areapicker.setBounds(bounds).show();
+                areapicker.control_.setActive();
+                map.panToBounds(bounds);
+                jQuery('#area-selection').trigger('click');
+                ;
+            }
 
-            } );
-        } );
+        });
+    });
 
-        var SpinnerOptions = {
-            lines: 13, // The number of lines to draw
-            length: 10, // The length of each line
-            width: 5, // The line thickness
-            radius: 20, // The radius of the inner circle
-            corners: 1, // Corner roundness (0..1)
-            rotate: 0, // The rotation offset
-            direction: 1, // 1: clockwise, -1: counterclockwise
-            color: '#a0a0a0', // #rgb or #rrggbb or array of colors
-            speed: 1, // Rounds per second
-            trail: 60, // Afterglow percentage
-            hwaccel: false, // Whether to use hardware acceleration
-            className: 'spinner', // The CSS class to assign to the spinner
-            zIndex: 2e9 // The z-index (defaults to 2000000000)
-        };
+    var SpinnerOptions = {
+        lines: 13, // The number of lines to draw
+        length: 10, // The length of each line
+        width: 5, // The line thickness
+        radius: 20, // The radius of the inner circle
+        corners: 1, // Corner roundness (0..1)
+        rotate: 0, // The rotation offset
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        color: '#a0a0a0', // #rgb or #rrggbb or array of colors
+        speed: 1, // Rounds per second
+        trail: 60, // Afterglow percentage
+        hwaccel: false, // Whether to use hardware acceleration
+        className: 'spinner', // The CSS class to assign to the spinner
+        zIndex: 2e9 // The z-index (defaults to 2000000000)
+    };
 
-        var SpinnerFactory = function( id ) {
-            var target = document.getElementById( id );
-            return new Spinner( SpinnerOptions ).spin( target );
-        };
-    </script>
-    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-    <!--<script type="text/javascript" src="../vendor/d3/d3.layout.js"></script>-->
-    <script type="text/javascript" src="../vendor/d3/d3.dependencyWheel.js"></script>
-    <script type="text/javascript" src="treeoflife.js"></script>
-    <script type="text/javascript" src="dependencywheel.js"></script>
-    <script type="text/javascript" src="bundle.js"></script>
+    var SpinnerFactory = function (id) {
+        var target = document.getElementById(id);
+        return new Spinner(SpinnerOptions).spin(target);
+    };
+</script>
+<script type="text/javascript" src="../vendor/d3/d3.dependencyWheel.js"></script>
+<script type="text/javascript" src="treeoflife.js"></script>
+<script type="text/javascript" src="dependencywheel.js"></script>
+<script type="text/javascript" src="bundle.js"></script>
 
-    <style type="text/css">
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        body, html {
-            height: 100%;
-            width: 100%;
-        }
-        /*#map, #tree, #dependency-wheel, #bundle {*/
-            /*float: left;*/
-            /*width: 50%;*/
-            /*height: 50%;*/
-            /*overflow: auto;*/
-        /*}*/
-        #map {
-            background: #b7b7b7;
-        }
-        #tree {
-            background: #dfdfdf;
-        }
-        #dependency-wheel {
-            background: #dfdfdf;
-        }
-        #bundle {
-            background: #b7b7b7;
-        }
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-        #tree h3, #dependency-wheel h3, #bundle h3 {
-            color: #cfcfcf;
-            text-align: center;
-            font-family: monospace;
-            font-size: 1.5em;
-        }
-    </style>
-    <style type="text/css">
-        .node circle {
-            cursor: pointer;
-            fill: #fff;
-            stroke: seagreen;
-            stroke-width: 1.5px;
-        }
+    body, html {
+        height: 100%;
+        width: 100%;
+    }
 
-        .node text {
-            font-size: 15px;
-            font: Helvetica, "Helvetica Neue", Arial, sans-serif;
-        }
+    /*#map, #tree, #dependency-wheel, #bundle {*/
+    /*float: left;*/
+    /*width: 50%;*/
+    /*height: 50%;*/
+    /*overflow: auto;*/
+    /*}*/
+    #map {
+        background: #b7b7b7;
+    }
 
-        path.link {
-            fill: none;
-            stroke: #eee;
-            stroke-width: 1.5px;
-        }
+    #tree {
+        background: #dfdfdf;
+    }
 
-        path.inter-link {
-            fill: none;
-            stroke: #f00;
-            stroke-width: 2px;
-        }
-    </style>
-    <style type="text/css">
-        .empty {
-            background: #f00;
-        }
+    #dependency-wheel {
+        background: #dfdfdf;
+    }
 
-        .dependencyWheel {
-            font: 10px sans-serif;
-        }
-    </style>
+    #bundle {
+        background: #b7b7b7;
+    }
 
-    <style>
+    #tree h3, #dependency-wheel h3, #bundle h3 {
+        color: #cfcfcf;
+        text-align: center;
+        font-family: monospace;
+        font-size: 1.5em;
+    }
+</style>
+<style type="text/css">
+    .node circle {
+        cursor: pointer;
+        fill: #fff;
+        stroke: seagreen;
+        stroke-width: 1.5px;
+    }
 
-        .bundle-node {
-            font: 10px "Helvetica Neue", Helvetica, Arial, sans-serif;
-            fill: #333;
-        }
+    .node text {
+        font-size: 15px;
+        font: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    }
 
-        .bundle-node:hover {
-            fill: #000;
-        }
+    path.link {
+        fill: none;
+        stroke: #eee;
+        stroke-width: 1.5px;
+    }
 
-        .bundl-link {
-            stroke: lightgreen;
-            stroke-opacity: .4;
-            fill: none;
-            pointer-events: none;
-        }
+    path.inter-link {
+        fill: none;
+        stroke: #f00;
+        stroke-width: 2px;
+    }
+</style>
+<style type="text/css">
+    .empty {
+        background: #f00;
+    }
 
-        .bundle-node:hover,
-        .node--source,
-        .node--target {
-            font-weight: 400;
-        }
+    .dependencyWheel {
+        font: 10px sans-serif;
+    }
+</style>
 
-        .node--source {
-            fill: #2ca02c;
-        }
+<style>
 
-        .node--target {
-            fill: #d62728;
-        }
+    .bundle-node {
+        font: 10px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        fill: #333;
+    }
 
-        .link--source,
-        .link--target {
-            stroke-opacity: 1;
-            stroke-width: 2px;
-        }
+    .bundle-node:hover {
+        fill: #000;
+    }
 
-        .link--source {
-            stroke: #d62728;
-        }
+    .bundl-link {
+        stroke: lightgreen;
+        stroke-opacity: .4;
+        fill: none;
+        pointer-events: none;
+    }
 
-        .link--target {
-            stroke: #2ca02c;
-        }
+    .bundle-node:hover,
+    .node--source,
+    .node--target {
+        font-weight: 400;
+    }
 
-    </style>
+    .node--source {
+        fill: #2ca02c;
+    }
+
+    .node--target {
+        fill: #d62728;
+    }
+
+    .link--source,
+    .link--target {
+        stroke-opacity: 1;
+        stroke-width: 2px;
+    }
+
+    .link--source {
+        stroke: #d62728;
+    }
+
+    .link--target {
+        stroke: #2ca02c;
+    }
+
+</style>
 
 
-    <style>
-        body {
-            overflow: hidden;
-        }
-        #panels {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-        }
-        .panel {
-            height: 50%;
-            width: 50%;
-            position: absolute;
-            z-index: 1;
-            overflow: auto;
-        }
+<style>
+    body {
+        overflow: hidden;
+    }
 
-        .panel-top-left {
-            left: 0;
-            top: 0;
-        }
+    #panels {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
 
-        .panel-top-right {
-            right: 0;
-            top: 0;
-        }
+    .panel {
+        height: 50%;
+        width: 50%;
+        position: absolute;
+        z-index: 1;
+        overflow: auto;
+    }
 
-        .panel-bottom-left {
-            left: 0;
-            bottom: 0;
-        }
+    .panel-top-left {
+        left: 0;
+        top: 0;
+    }
 
-        .panel-bottom-right {
-            right: 0;
-            bottom: 0;
-        }
+    .panel-top-right {
+        right: 0;
+        top: 0;
+    }
 
-        .btn {
-            position: fixed;
-            border: 1px solid #777;
-            border-radius: 3px;
-            width: 15px;
-            height: 15px;
-            background: rgba(238,238,238,.60);
-            margin: 1px;
-            color: #777;
-            padding: 0;
-            font-size: 12px;
-            line-height: 14px;
-            text-align: center;
-        }
-        .btn:hover {
-            background: rgba(204,204,204,.60);
-            cursor: pointer;
-            font-size: 16px;
-        }
+    .panel-bottom-left {
+        left: 0;
+        bottom: 0;
+    }
 
-        #tree-container {
-            overflow: auto;
-        }
-        #welcome {
-            font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-            padding: 50px;
-            text-align: center;
-        }
-        #welcome h1 {
-            font-size: 21px;
-            margin-bottom: 25px;
-        }
-        #welcome p {
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-    </style>
-    <script src="panel.js"></script>
+    .panel-bottom-right {
+        right: 0;
+        bottom: 0;
+    }
+
+    .btn {
+        position: fixed;
+        border: 1px solid #777;
+        border-radius: 3px;
+        width: 15px;
+        height: 15px;
+        background: rgba(238, 238, 238, .60);
+        margin: 1px;
+        color: #777;
+        padding: 0;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+    }
+
+    .btn:hover {
+        background: rgba(204, 204, 204, .60);
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #tree-container {
+        overflow: auto;
+    }
+
+    #welcome {
+        font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+        padding: 50px;
+        text-align: center;
+    }
+
+    #welcome h1 {
+        font-size: 21px;
+        margin-bottom: 25px;
+    }
+
+    #welcome p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+</style>
+<script src="panel.js"></script>
 </head>
 <body id="spatialsearch-index" onload="buildMenu();">
-    <div id="panels">
-    	<div class="panel panel-top-left" id="map">
-			&nbsp;
-		</div>
-    	<div class="panel panel-top-right" id="tree">
-        	<div class="btn" title="maximize / minimize">&#9712;</div>
-        	<!--h3>Tree view</h3--><div id="tree-container">
+<div id="panels">
+    <div class="panel panel-top-left" id="map">
+        &nbsp;
+    </div>
+    <div class="panel panel-top-right" id="tree">
+        <div class="btn" title="maximize / minimize">&#9712;</div>
+        <div id="tree-container">
             <div id="welcome">
                 <h1>Welcome to the GloBI Interaction Browser!</h1>
+
                 <p>Please click on a marker or select an area to display species interactions!</p>
+
                 <p>
                     <a target="_blank" href="http://blog.globalbioticinteractions.org">Learn more about GloBI</a>
                 </p>
             </div>
-        	</div>
-    	</div>
-    	<div class="panel panel-bottom-left" id="dependency-wheel">
-			<div class="btn" title="maximize / minimize">&#9712;</div><!--h3>Dependency wheel</h3--><div id="dependency-wheel-container"></div>
-		</div>
-    	<div class="panel panel-bottom-right" id="bundle">
-			<div class="btn" title="maximize / minimize">&#9712;</div><!--h3>Bundle view</h3--><div id="bundle-container"></div>
-		</div>
+        </div>
     </div>
+    <div class="panel panel-bottom-left" id="dependency-wheel">
+        <div class="btn" title="maximize / minimize">&#9712;</div>
+        <div id="dependency-wheel-container"></div>
+    </div>
+    <div class="panel panel-bottom-right" id="bundle">
+        <div class="btn" title="maximize / minimize">&#9712;</div>
+        <div id="bundle-container"></div>
+    </div>
+</div>
 </body>
 </html>

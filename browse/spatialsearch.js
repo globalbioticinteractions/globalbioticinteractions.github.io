@@ -15,7 +15,7 @@ function initializeMarkerClusterer( map, markers ) {
 }
 
 function createLocationContent( location ) {
-    return locationInfoBox('lng=' + location.longitude + '&lat=' + location.latitude);
+    return locationInfoBox({location: {lng: location.longitude, lat: location.latitude }});
 }
 
 function placeMarker( content, location, map ) {
