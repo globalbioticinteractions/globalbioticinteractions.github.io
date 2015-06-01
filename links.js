@@ -8,20 +8,25 @@ function appendLinkElem(parentElem, study) {
     if (study.url) {
         var linkElem = document.createElement('a');
         linkElem.setAttribute('href', study.url);
+        linkElem.setAttribute('title', study.citation);
         linkElem.textContent = 'link';
         parentElem.appendChild(linkElem);
     }
 }
 
-function createShowRef(element) {
-    var accordingTo = element.url || element.citation;
-    return ' <a href="/#interactionType=interactsWith&accordingTo=' + encodeURIComponent(accordingTo) + '">show</a>';
+function showRefTitle(study) {
+    return 'show interactions related to: ' + study.citation;
+}
+function createShowRef(study) {
+    var accordingTo = study.url || study.citation;
+    return ' <a href="/#interactionType=interactsWith&accordingTo=' + encodeURIComponent(accordingTo) + '" title="' + showRefTitle(study) + '">show</a>';
 }
 
 function appendShowElem(parentElem, study) {
     var accordingTo = study.url || study.citation;
     var elem = document.createElement('a');
     elem.setAttribute('href', '/#interactionType=interactsWith&accordingTo=' + encodeURIComponent(accordingTo));
+    elem.setAttribute('title', showRefTitle(study));
     elem.setAttribute('target', '_blank');
     elem.textContent = 'show';
     parentElem.appendChild(elem);
