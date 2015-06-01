@@ -22,6 +22,7 @@ function appendShowElem(parentElem, study) {
     var accordingTo = (study.url === undefined) ? study.citation : encodeURIComponent(study.url);
     var elem = document.createElement('a');
     elem.setAttribute('href', '/#interactionType=interactsWith&accordingTo=' + accordingTo);
+    elem.setAttribute('target', '_blank' + accordingTo);
     elem.textContent = 'show';
     parentElem.appendChild(elem);
 }
