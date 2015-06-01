@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="globi.css"/>
     <script src="https://rawgit.com/jhpoelen/eol-globi-data-js/master/globi-data-dist.js"></script>
     <script src="menu.js"></script>
+    <script src="links.js"></script>
     <script src="query-string.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
@@ -35,7 +36,6 @@
                 var interactionType = $('#interactionType').find(":selected").val();
                 var studyQuery = $('#studySearchField').val();
                 var searchHash = {};
-                var search = {};
                 var search = { fields: ['source_taxon_name', 'target_taxon_name', 'interaction_type'] };
                 if (sourceTaxonName.length > 0) {
                   searchHash.sourceTaxon = sourceTaxonName;
@@ -147,16 +147,20 @@
                                     var citationElem = document.createElement('li');
                                     citationElem.setAttribute('id', studyId);
                                     var textElem = document.createElement('b');
-                                    textElem.textContent = distinctInteractionResult.study_citation + ' ';
+                                    var study = {citation: distinctInteractionResult.study_citation,
+                                        url: distinctInteractionResult.study_url,
+                                        source: distinctInteractionResult.study_source_citation};
+
+                                    textElem.textContent = study.citation + ' ';
                                     citationElem.appendChild(textElem);
-                                    if (distinctInteractionResult.study_url !== undefined && distinctInteractionResult.study_url != null) {
-                                        var linkElem = document.createElement('a');
-                                        linkElem.setAttribute('href', distinctInteractionResult.study_url);
-                                        linkElem.textContent = 'link';
-                                        citationElem.appendChild(linkElem);
-                                    }
+                                    appendLinkElem(citationElem, study);
+                                    var span = document.createElement('span');
+                                    span.textContent = ' ';
+                                    citationElem.appendChild(span);
+                                    appendShowElem(citationElem, study);
+
                                     var sourceElem = document.createElement('span');
-                                    sourceElem.textContent = ' Provider: ' + distinctInteractionResult.study_source_citation;
+                                    sourceElem.textContent = ' Provider: ' + study.source;
                                     citationElem.appendChild(sourceElem);
                                     $('.' + className(distinctInteractionKey)).append(citationElem);
                                 }
@@ -206,8 +210,6 @@
 
         var init = function () {
             var params = queryString.parse(document.location.hash);
-            console.log(JSON.stringify(document.location.hash));
-            console.log(JSON.stringify(params));
             globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
             $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
             $('#studySearchField').val(params.accordingTo);

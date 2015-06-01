@@ -26,3 +26,5 @@ var buildMenu = function() {
   appendMenuItem('Contribute', 'https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F');
   appendMenuItem('Feedback', '/feedback.html');
 }
+
+

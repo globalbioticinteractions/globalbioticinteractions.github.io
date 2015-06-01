@@ -16,6 +16,7 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
     <script src="https://rawgit.com/jhpoelen/eol-globi-data-js/master/globi-data-dist.js"></script>
     <script src="menu.js"></script>
+    <script src="links.js"></script>
     <script type="text/javascript">
         window.onload = function () {
             buildMenu();
@@ -28,17 +29,6 @@
                 ajax: function (data, callback, settings) {
                     var rows = [];
                     globiData.findStudyStats({}, function (studyStatList) {
-                        function createLinkRef(element) {
-                            var link = (typeof element.url === 'undefined') ? '' : ' <a href="' + element.url + '" title="' + element.citation + '">ref</a>';
-                            link = (typeof element.doi === 'undefined') ? link : ' <a href="' + element.doi.replace(/^doi:/, 'https://dx.doi.org/') + '" title="' + element.citation + '">doi</a>';
-                            return link;
-                        }
-
-                        function createShowRef(element) {
-                            var accordingTo = (element.url === undefined) ? element.citation : encodeURIComponent(element.url);
-                            return ' <a href="/#interactionType=interactsWith&accordingTo=' + accordingTo  + '">show</a>';
-                        }
-
                         studyStatList.forEach(function (element) {
                             var row = [];
                             row[0] = element.citation + createLinkRef(element) + createShowRef(element);
