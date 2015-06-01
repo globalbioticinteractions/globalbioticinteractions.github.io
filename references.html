@@ -35,7 +35,8 @@
                         }
 
                         function createShowRef(element) {
-                            return (typeof element.url === 'undefined') ? '' : ' <a href="/#interactionType=interactsWith&accordingTo=' + encodeURIComponent(element.url) + '">show</a>';
+                            var accordingTo = (element.url === undefined) ? element.citation : encodeURIComponent(element.url);
+                            return ' <a href="/#interactionType=interactsWith&accordingTo=' + accordingTo  + '">show</a>';
                         }
 
                         studyStatList.forEach(function (element) {
