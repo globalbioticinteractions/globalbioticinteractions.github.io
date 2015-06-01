@@ -206,6 +206,8 @@
 
         var init = function () {
             var params = queryString.parse(document.location.hash);
+            console.log(JSON.stringify(document.location.hash));
+            console.log(JSON.stringify(params));
             globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
             $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
             $('#studySearchField').val(params.accordingTo);

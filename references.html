@@ -28,11 +28,19 @@
                 ajax: function (data, callback, settings) {
                     var rows = [];
                     globiData.findStudyStats({}, function (studyStatList) {
+                        function createLinkRef(element) {
+                            var link = (typeof element.url === 'undefined') ? '' : ' <a href="' + element.url + '" title="' + element.citation + '">ref</a>';
+                            link = (typeof element.doi === 'undefined') ? link : ' <a href="' + element.doi.replace(/^doi:/, 'https://dx.doi.org/') + '" title="' + element.citation + '">doi</a>';
+                            return link;
+                        }
+
+                        function createShowRef(element) {
+                            return (typeof element.url === 'undefined') ? '' : ' <a href="/#interactionType=interactsWith&accordingTo=' + encodeURIComponent(element.url) + '">show</a>';
+                        }
+
                         studyStatList.forEach(function (element) {
                             var row = [];
-                            var link = (typeof element.url === 'undefined') ? '' : ' <a href="' + element.url + '" title="' + element.citation + '">link</a>';
-                            link = (typeof element.doi === 'undefined') ? link : ' <a href="' + element.doi.replace(/^doi:/, 'https://dx.doi.org/') + '" title="' + element.citation + '">doi</a>';
-                            row[0] = element.citation + link;
+                            row[0] = element.citation + createLinkRef(element) + createShowRef(element);
                             row[1] = element.totalInteractions;
                             row[2] = element.totalTaxa;
                             row[3] = element.source;
