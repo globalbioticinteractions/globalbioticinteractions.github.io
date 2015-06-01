@@ -14,15 +14,15 @@ function appendLinkElem(parentElem, study) {
 }
 
 function createShowRef(element) {
-    var accordingTo = element.url ? encodeURIComponent(element.url) : element.citation;
-    return ' <a href="/#interactionType=interactsWith&accordingTo=' + accordingTo + '">show</a>';
+    var accordingTo = element.url || element.citation;
+    return ' <a href="/#interactionType=interactsWith&accordingTo=' + encodeURIComponent(accordingTo) + '">show</a>';
 }
 
 function appendShowElem(parentElem, study) {
-    var accordingTo = study.url ? encodeURIComponent(study.url) : study.citation;
+    var accordingTo = study.url || study.citation;
     var elem = document.createElement('a');
-    elem.setAttribute('href', '/#interactionType=interactsWith&accordingTo=' + accordingTo);
-    elem.setAttribute('target', '_blank' + accordingTo);
+    elem.setAttribute('href', '/#interactionType=interactsWith&accordingTo=' + encodeURIComponent(accordingTo));
+    elem.setAttribute('target', '_blank');
     elem.textContent = 'show';
     parentElem.appendChild(elem);
 }
