@@ -1,11 +1,11 @@
 function createLinkRef(element) {
-    var link = (typeof element.url === 'undefined') ? '' : ' <a href="' + element.url + '" title="' + element.citation + '">ref</a>';
-    link = (typeof element.doi === 'undefined') ? link : ' <a href="' + element.doi.replace(/^doi:/, 'https://dx.doi.org/') + '" title="' + element.citation + '">doi</a>';
+    var link = element.url ? ' <a href="' + element.url + '" title="' + element.citation + '">ref</a>' : '';
+    link = element.doi ? ' <a href="' + element.doi.replace(/^doi:/, 'https://dx.doi.org/') + '" title="' + element.citation + '">doi</a>' : link;
     return link;
 }
 
 function appendLinkElem(parentElem, study) {
-    if (study.url !== undefined && study.url != null) {
+    if (study.url) {
         var linkElem = document.createElement('a');
         linkElem.setAttribute('href', study.url);
         linkElem.textContent = 'link';
@@ -14,12 +14,12 @@ function appendLinkElem(parentElem, study) {
 }
 
 function createShowRef(element) {
-    var accordingTo = (element.url === undefined) ? element.citation : encodeURIComponent(element.url);
+    var accordingTo = element.url ? encodeURIComponent(element.url) : element.citation;
     return ' <a href="/#interactionType=interactsWith&accordingTo=' + accordingTo + '">show</a>';
 }
 
 function appendShowElem(parentElem, study) {
-    var accordingTo = (study.url === undefined) ? study.citation : encodeURIComponent(study.url);
+    var accordingTo = study.url ? encodeURIComponent(study.url) : study.citation;
     var elem = document.createElement('a');
     elem.setAttribute('href', '/#interactionType=interactsWith&accordingTo=' + accordingTo);
     elem.setAttribute('target', '_blank' + accordingTo);
