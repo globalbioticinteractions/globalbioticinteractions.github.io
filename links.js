@@ -17,16 +17,20 @@ function appendLinkElem(parentElem, study) {
 function showRefTitle(study) {
     return 'show interactions related to: ' + study.citation;
 }
-function createShowRef(study) {
+
+function accordingTo(study) {
     // chop off http(s) from prefix of citation to avoid being used as a url lookup
     var accordingTo = study.url || study.citation.replace(/^\W*http([s])*:\/\//, '');
-    return ' <a href="/#interactionType=interactsWith&accordingTo=' + encodeURIComponent(accordingTo) + '" title="' + showRefTitle(study) + '">show</a>';
+    return encodeURIComponent(accordingTo);
+}
+
+function createShowRef(study) {
+    return ' <a href="/#interactionType=interactsWith&accordingTo=' + accordingTo(study) + '" title="' + showRefTitle(study) + '">show</a>';
 }
 
 function appendShowElem(parentElem, study) {
-    var accordingTo = study.url || study.citation;
     var elem = document.createElement('a');
-    elem.setAttribute('href', '/#interactionType=interactsWith&accordingTo=' + encodeURIComponent(accordingTo));
+    elem.setAttribute('href', '/#interactionType=interactsWith&accordingTo=' + accordingTo(study));
     elem.setAttribute('title', showRefTitle(study));
     elem.setAttribute('target', '_blank');
     elem.textContent = 'show';
