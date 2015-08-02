@@ -6,10 +6,13 @@ d3.chart.dependencyWheel = function() {
     var height = 800;
     var margin = 130;
     var padding = 0.02;
+    var dataMap = {};
+    var svg;
 
     function chart( selection ) {
 
         selection.each( function( data ) {
+            dataMap = data.names;
 
             var matrix = data.matrix,
                 nodeNames = data.names,
@@ -19,7 +22,7 @@ d3.chart.dependencyWheel = function() {
                     .padding( padding )
                     .sortSubgroups( d3.descending );
 
-            var svg = d3.select( this ).selectAll( 'svg' ).data( [ data ] );
+            svg = d3.select( this ).selectAll( 'svg' ).data( [ data ] );
 
             var gElement = svg.enter().append( 'svg:svg' )
                     .attr( 'width', height * 2 )
@@ -38,43 +41,11 @@ d3.chart.dependencyWheel = function() {
                 if ( d.index === 0 ) {
                     return '#ccc';
                 }
-                return 'hsl(' + parseInt( ( ( nodeNames[ d.index ][ 0 ].charCodeAt() - 97 ) / 26 ) * 360, 10 ) + ',90%,70%)';
+                return 'hsl(' + parseInt( ( ( nodeNames[ d.index ]['name'][ 0 ].charCodeAt() - 97 ) / 26 ) * 360, 10 ) + ',90%,70%)';
             };
 
             var fade = function( opacity ) {
-
-                return function( g, i ) {
-
-                    svg.selectAll( '.chord' )
-                        .filter( function( d ) {
-                            return d.source.index !== i && d.target.index !== i;
-                        } )
-                        .transition()
-                        .style( 'opacity', opacity );
-                    var groups = [];
-                    svg.selectAll( '.chord' )
-                        .filter( function( d ) {
-                            if ( d.source.index === i ) {
-                                groups.push( d.target.index );
-                            }
-                            if ( d.target.index === i ) {
-                                groups.push( d.source.index );
-                            }
-                        } );
-                    groups.push( i );
-                    var length = groups.length;
-                    svg.selectAll( '.group' )
-                        .filter( function( d ) {
-                            for ( var i = 0; i < length; i++ ) {
-                                if ( groups[ i ] === d.index ) {
-                                    return false;
-                                }
-                            }
-                            return true;
-                        } )
-                        .transition()
-                        .style( 'opacity', opacity );
-                };
+                return chart.fade(opacity);
             };
 
             chord.matrix( matrix );
@@ -88,7 +59,8 @@ d3.chart.dependencyWheel = function() {
                     .attr( 'class', 'group' )
                     .attr( 'transform', function( d ) {
                         return 'rotate(' + rotation + ')';
-                    } );
+                    } )
+                .attr('id', function(d) { return nodeNames[ d.index ]['id']});
             g.on( 'mouseover', fade( 0.1 ) )
                 .on( 'mouseout', fade( 1 ) );
             g.append( 'svg:path' )
@@ -106,9 +78,9 @@ d3.chart.dependencyWheel = function() {
                         'translate(' + ( radius + 26 ) + ')' +
                         ( d.angle > Math.PI ? 'rotate(180)' : '' );
                 } )
-                .text( function( d ) { return nodeNames[ d.index ].length > 20 ? nodeNames[ d.index ].substring( 0, 19 ) + '...' : nodeNames[ d.index ]; } )
+                .text( function( d ) { return nodeNames[ d.index ]['name'].length > 20 ? nodeNames[ d.index ]['name'].substring( 0, 19 ) + '...' : nodeNames[ d.index ]['name']; } )
                 .attr( 'style', 'cursor: pointer;' )
-                .append("title").text( function( d ) { return nodeNames[ d.index ]; } );
+                .append("title").text( function( d ) { return nodeNames[ d.index ]['name']; } );
 
             gElement.selectAll( 'path.chord' )
                 .data( chord.chords )
@@ -123,6 +95,46 @@ d3.chart.dependencyWheel = function() {
                 .style( 'opacity', 1 );
         } );
     }
+
+    chart.fade = function( opacity, node ) {
+        if (!node) {
+            return protoFunc;
+        } else {
+            protoFunc('', node.index);
+        }
+
+        function protoFunc(g, i) {
+            svg.selectAll('.chord')
+                .filter(function (d) {
+                    return d.source.index !== i && d.target.index !== i;
+                })
+                .transition()
+                .style('opacity', opacity);
+            var groups = [];
+            svg.selectAll('.chord')
+                .filter(function (d) {
+                    if (d.source.index === i) {
+                        groups.push(d.target.index);
+                    }
+                    if (d.target.index === i) {
+                        groups.push(d.source.index);
+                    }
+                });
+            groups.push(i);
+            var length = groups.length;
+            svg.selectAll('.group')
+                .filter(function (d) {
+                    for (var i = 0; i < length; i++) {
+                        if (groups[i] === d.index) {
+                            return false;
+                        }
+                    }
+                    return true;
+                })
+                .transition()
+                .style('opacity', opacity);
+        }
+    };
 
     chart.width = function( value ) {
         if ( !arguments.length ) {
@@ -154,6 +166,10 @@ d3.chart.dependencyWheel = function() {
         }
         padding = value;
         return chart;
+    };
+
+    chart.dataMap = function() {
+        return dataMap;
     };
 
     return chart;
