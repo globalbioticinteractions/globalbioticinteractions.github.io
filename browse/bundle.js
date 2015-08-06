@@ -4,17 +4,17 @@
         data.forEach( function( d ) {
             currentSource = d.source; currentTarget = d.target;
 
-            if ( currentSource.id && currentSource.id !== 'no:match' && !parsedData[ currentSource.id ] ) {
+            if ( currentSource.id && currentSource.id !== 'no:match' && currentSource.path !== undefined && !parsedData[ currentSource.id ] ) {
                 path = currentSource.path.split( ' | ' ).join( '.' );
                 parsedData[ currentSource.id ] = { name: path, path: path, eolId: currentSource.id, preys: [] };
             }
 
-            if ( parsedData[ currentSource.id ] && currentTarget.id !== 'no:match' ) {
-                path = currentTarget.path.split( ' | ' ).join( '.' );
+            if ( parsedData[ currentSource.id ] && currentTarget.id !== 'no:match' && currentTarget.path !== undefined ) {
+                path = currentTarget !== undefined || currentTarget.path.split( ' | ' ).join( '.' );
                 parsedData[ currentSource.id ].preys.push( path );
             }
 
-            if ( currentTarget.id && currentTarget.id !== 'no:match' && !parsedData[ currentTarget.id ] ) {
+            if ( currentTarget.id && currentTarget.id !== 'no:match' && currentTarget.path !== undefined && !parsedData[ currentTarget.id ] ) {
                 path = currentTarget.path.split( ' | ' ).join( '.' );
                 parsedData[ currentTarget.id ] = { name: path, path: path, eolId: currentTarget.id, preys: [] };
             }
