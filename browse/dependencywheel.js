@@ -1,7 +1,6 @@
 ( function( $, pub ) {
-var chart;
 var convertJsonForDependencyWheel = function( json ) {
-    var taxonNames = {}, j, i = 0, matrix = [], row, column, tempNames = [];
+    var taxonNames = {}, j, i = 0, matrix = [], row, column, tempNames = {};
     json.forEach( function( d ) {
         if ( ( d[ 'source' ][ 'id' ] !== 'no:match' ) && d[ 'target' ][ 'id' ] !== 'no:match' ) {
             if ( typeof taxonNames[ d[ 'source' ][ 'id' ] ] === 'undefined' ) {
@@ -9,22 +8,14 @@ var convertJsonForDependencyWheel = function( json ) {
                     name: d[ 'source' ][ 'name' ],
                     index: i++
                 };
-                tempNames[ i - 1 ] = {
-                    id: d[ 'source' ][ 'id' ].replace(':', '_'),
-                    name: d[ 'source' ][ 'name' ],
-                    index: i - 1
-                };
+                tempNames[ i - 1 ] = d[ 'source' ][ 'name' ];
             }
             if ( typeof taxonNames[ d[ 'target' ][ 'id' ] ] === 'undefined' ) {
                 taxonNames[ d[ 'target' ][ 'id' ] ] = {
                     name: d[ 'target' ][ 'name' ],
                     index: i++
                 };
-                tempNames[ i - 1 ] = {
-                    id: d[ 'target' ][ 'id' ].replace(':', '_'),
-                    name: d[ 'target' ][ 'name' ],
-                    index: i - 1
-                };
+                tempNames[ i - 1 ] = d[ 'target' ][ 'name' ];
             }
         }
     } );
@@ -51,6 +42,8 @@ var convertJsonForDependencyWheel = function( json ) {
         }
     } );
 
+
+
     return {
         names: tempNames,
         matrix: matrix
@@ -58,7 +51,7 @@ var convertJsonForDependencyWheel = function( json ) {
 };
 
 var _buildDependencyWheel = function( json, canvasDimension ) {
-    chart = d3.chart.dependencyWheel()
+    var chart = d3.chart.dependencyWheel()
         .width( canvasDimension.width )
         .height( canvasDimension.height );
 
@@ -67,20 +60,8 @@ var _buildDependencyWheel = function( json, canvasDimension ) {
     d3.select('#dependency-wheel-container')
         .datum(data)
         .call(chart);
-};
 
-    var highlightDWPath = function(path) {
-        if (!path || !path['link_id']) {
-            return;
-        }
-        var nodes = path['link_id'].split('---');
-        var sourceNode = chart.dataMap().filter(function(value) {
-            return value['id'] === nodes[0];
-        });
-
-        chart.fade(0.1, sourceNode[0]);
-    };
+}
 
     pub.buildDependencyWheel = _buildDependencyWheel;
-    pub.highlightDW = highlightDWPath;
 } )( jQuery, window );
