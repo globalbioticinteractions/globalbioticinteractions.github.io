@@ -46,7 +46,7 @@
     var urlPrefix = function () {
         return 'http://api.globalbioticinteractions.org';
     };
-    var treeSpinner, wheelSpinner, hairballSpinner, mapSpinner;
+    var treeSpinner, wheelSpinner, bundleSpinner, mapSpinner;
     function infoBoxText(idString, locationParams) {
         var downloadParams = $.extend({}, locationParams, {includeObservations: true,
             fields: ['source_taxon_path', 'source_taxon_path_ids'
@@ -96,7 +96,7 @@
 
         treeSpinner = SpinnerFactory('tree-container');
         wheelSpinner = SpinnerFactory('dependency-wheel-container');
-        hairballSpinner = SpinnerFactory('bundle-container');
+        bundleSpinner = SpinnerFactory('bundle-container');
         var $treeContainer = jQuery('#tree-container');
         if ($treeContainer.data('plugin_interactions')) {
             $treeContainer.data('plugin_interactions').update(spatialSelection);
@@ -108,14 +108,15 @@
         var dataSetUrl = createInteractionURL(spatialSelection, 'json.v2');
         d3.json(dataSetUrl, function (json) {
             if (json.length) {
-                jQuery('#dependency-wheel-container, #hairball-container').empty();
+                jQuery('#dependency-wheel-container, #bundle-container').empty();
                 treeSpinner.spin();
                 wheelSpinner.spin();
-                hairballSpinner.spin();
+                bundleSpinner.spin();
+//                    buildTree( json, { height: canvasHeight, width: canvasWidth } );
                 buildDependencyWheel(json, { height: canvasHeight, width: canvasWidth });
                 wheelSpinner.stop();
-                buildHairball(json, { height: canvasHeight, width: canvasWidth });
-                hairballSpinner.stop();
+                buildBundles(json, { height: canvasHeight, width: canvasWidth });
+                bundleSpinner.stop();
             }
         });
     };
@@ -159,6 +160,7 @@
                 areapicker.control_.setActive();
                 map.panToBounds(bounds);
                 jQuery('#area-selection').trigger('click');
+                ;
             }
 
         });
@@ -188,7 +190,7 @@
 <script type="text/javascript" src="../vendor/d3/d3.dependencyWheel.js"></script>
 <script type="text/javascript" src="treeoflife.js"></script>
 <script type="text/javascript" src="dependencywheel.js"></script>
-<script type="text/javascript" src="hairball.js"></script>
+<script type="text/javascript" src="bundle.js"></script>
 
 <style type="text/css">
     * {
@@ -201,6 +203,12 @@
         width: 100%;
     }
 
+    /*#map, #tree, #dependency-wheel, #bundle {*/
+    /*float: left;*/
+    /*width: 50%;*/
+    /*height: 50%;*/
+    /*overflow: auto;*/
+    /*}*/
     #map {
         background: #b7b7b7;
     }
@@ -213,15 +221,40 @@
         background: #dfdfdf;
     }
 
-    #hairball {
+    #bundle {
         background: #b7b7b7;
     }
 
-    #tree h3, #dependency-wheel h3, #hairball h3 {
+    #tree h3, #dependency-wheel h3, #bundle h3 {
         color: #cfcfcf;
         text-align: center;
         font-family: monospace;
         font-size: 1.5em;
+    }
+</style>
+<style type="text/css">
+    .node circle {
+        cursor: pointer;
+        fill: #fff;
+        stroke: seagreen;
+        stroke-width: 1.5px;
+    }
+
+    .node text {
+        font-size: 15px;
+        font: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    path.link {
+        fill: none;
+        stroke: #eee;
+        stroke-width: 1.5px;
+    }
+
+    path.inter-link {
+        fill: none;
+        stroke: #f00;
+        stroke-width: 2px;
     }
 </style>
 <style type="text/css">
@@ -233,6 +266,55 @@
         font: 10px sans-serif;
     }
 </style>
+
+<style>
+
+    .bundle-node {
+        font: 10px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        fill: #333;
+    }
+
+    .bundle-node:hover {
+        fill: #000;
+    }
+
+    .bundl-link {
+        stroke: lightgreen;
+        stroke-opacity: .4;
+        fill: none;
+        pointer-events: none;
+    }
+
+    .bundle-node:hover,
+    .node--source,
+    .node--target {
+        font-weight: 400;
+    }
+
+    .node--source {
+        fill: #2ca02c;
+    }
+
+    .node--target {
+        fill: #d62728;
+    }
+
+    .link--source,
+    .link--target {
+        stroke-opacity: 1;
+        stroke-width: 2px;
+    }
+
+    .link--source {
+        stroke: #d62728;
+    }
+
+    .link--target {
+        stroke: #2ca02c;
+    }
+
+</style>
+
 
 <style>
     body {
@@ -314,23 +396,6 @@
         margin-bottom: 10px;
     }
 </style>
-<style>
-
-    #hairball line.link {
-        stroke: #888;
-    }
-
-    #hairball line.link:hover,
-    #hairball .node:hover {
-        cursor: pointer;
-    }
-
-    #hairball .node text {
-        fill: #333;
-        font-family: sans-serif;
-        font-size: 0.8em;
-    }
-</style>
 <script src="panel.js"></script>
 </head>
 <body id="spatialsearch-index" onload="buildMenu();">
@@ -356,9 +421,9 @@
         <div class="btn" title="maximize / minimize">&#9712;</div>
         <div id="dependency-wheel-container"></div>
     </div>
-    <div class="panel panel-bottom-right" id="hairball">
+    <div class="panel panel-bottom-right" id="bundle">
         <div class="btn" title="maximize / minimize">&#9712;</div>
-        <div id="hairball-container"></div>
+        <div id="bundle-container"></div>
     </div>
 </div>
 </body>
