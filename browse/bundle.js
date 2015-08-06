@@ -10,7 +10,7 @@
             }
 
             if ( parsedData[ currentSource.id ] && currentTarget.id !== 'no:match' && currentTarget.path !== undefined ) {
-                path = currentTarget !== undefined || currentTarget.path.split( ' | ' ).join( '.' );
+                path = currentTarget.path.split( ' | ' ).join( '.' );
                 parsedData[ currentSource.id ].preys.push( path );
             }
 
