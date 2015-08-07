@@ -31,7 +31,7 @@ parseToStructure = function( data ) {
 };
 
 // to enable testing testling/npm framework without converting all to npm module
-if (typeof variable !== 'undefined') {
+if (typeof module !== 'undefined') {
     transform.parseToStructure = parseToStructure;
     module.exports = transform;
 }
