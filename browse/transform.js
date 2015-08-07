@@ -5,15 +5,20 @@ parseToStructure = function (data) {
     var returnData = [];
     var path;
     data.forEach(function (d) {
-        function addNode(source) {
-            if (source.id && source.id !== 'no:match' && source.path !== undefined && !parsedData[ source.id ]) {
-                path = source.path.split(' | ').join('.');
-                parsedData[ source.id ] = { name: path, path: path, eolId: source.id, preys: [] };
+
+        function isResolved(taxonNode) {
+            return taxonNode.id && taxonNode.id !== 'no:match' && taxonNode.path !== undefined;
+        }
+
+        function addNode(taxonNode) {
+            if (isResolved(taxonNode) && !parsedData[ taxonNode.id ]) {
+                path = taxonNode.path.split(' | ').join('.');
+                parsedData[ taxonNode.id ] = { name: path, path: path, eolId: taxonNode.id, preys: [] };
             }
         }
 
         function linkNodes(source, target) {
-            if (parsedData[ source.id ] && target.id !== 'no:match' && target.path !== undefined) {
+            if (parsedData[ source.id ] && isResolved(target)) {
                 path = target.path.split(' | ').join('.');
                 parsedData[ source.id ].preys.push(path);
             }
