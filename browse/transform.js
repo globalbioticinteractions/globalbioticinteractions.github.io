@@ -2,8 +2,7 @@ var transform = {};
 
 parseToStructure = function (data) {
     var parsedData = {};
-    var returnData = [];
-    var path;
+
     data.forEach(function (d) {
 
         function isResolved(taxonNode) {
@@ -12,14 +11,14 @@ parseToStructure = function (data) {
 
         function addNode(taxonNode) {
             if (isResolved(taxonNode) && !parsedData[ taxonNode.id ]) {
-                path = taxonNode.path.split(' | ').join('.');
+                var path = taxonNode.path.split(' | ').join('.');
                 parsedData[ taxonNode.id ] = { name: path, path: path, eolId: taxonNode.id, preys: [] };
             }
         }
 
         function linkNodes(source, target) {
             if (parsedData[ source.id ] && isResolved(target)) {
-                path = target.path.split(' | ').join('.');
+                var path = target.path.split(' | ').join('.');
                 parsedData[ source.id ].preys.push(path);
             }
         }
@@ -29,6 +28,7 @@ parseToStructure = function (data) {
         linkNodes(d.source, d.target);
     });
 
+    var returnData = [];
     for (var id in parsedData) {
         if (parsedData.hasOwnProperty(id)) {
             returnData.push(parsedData[ id ]);

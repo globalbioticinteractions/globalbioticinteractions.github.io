@@ -61,8 +61,8 @@
                 .each(function(n) { n.target = n.source = false; });
 
             link
-                .classed("link--target", function(l) { if (l.target === d) return l.source.source = true; })
-                .classed("link--source", function(l) { if (l.source === d) return l.target.target = true; })
+                .classed("link--target", function(l) { return l.target === d; })
+                .classed("link--source", function(l) { return l.source === d; })
                 .filter(function(l) { return l.target === d || l.source === d; })
                 .each(function() { this.parentNode.appendChild(this); });
 
