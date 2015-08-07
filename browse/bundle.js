@@ -1,36 +1,4 @@
 ( function( pub ) {
-    var parseToStructure = function( data ) {
-        var parsedData = {}, currentSource, currentTarget, returnData = [], path;
-        data.forEach( function( d ) {
-            currentSource = d.source; currentTarget = d.target;
-
-            if ( currentSource.id && currentSource.id !== 'no:match' && currentSource.path !== undefined && !parsedData[ currentSource.id ] ) {
-                path = currentSource.path.split( ' | ' ).join( '.' );
-                parsedData[ currentSource.id ] = { name: path, path: path, eolId: currentSource.id, preys: [] };
-            }
-
-            if ( parsedData[ currentSource.id ] && currentTarget.id !== 'no:match' && currentTarget.path !== undefined ) {
-                path = currentTarget.path.split( ' | ' ).join( '.' );
-                parsedData[ currentSource.id ].preys.push( path );
-            }
-
-            if ( currentTarget.id && currentTarget.id !== 'no:match' && currentTarget.path !== undefined && !parsedData[ currentTarget.id ] ) {
-                path = currentTarget.path.split( ' | ' ).join( '.' );
-                parsedData[ currentTarget.id ] = { name: path, path: path, eolId: currentTarget.id, preys: [] };
-            }
-        } );
-
-        for ( var id in parsedData ) {
-            if ( parsedData.hasOwnProperty( id ) ) {
-                returnData.push( parsedData[ id ] );
-            }
-        }
-
-        return returnData;
-    };
-
-
-
     var _buildBundles = function( json, canvasDimension ) {
         var diameter = canvasDimension.height * 2,
             radius = diameter / 2,
@@ -61,8 +29,6 @@
             node = svg.append("g").selectAll(".bundl-node");
 
 
-//        d3.json("bundleinteraction.json", function(error, classes) {
-
             classes = parseToStructure( json );
 
             var nodes = cluster.nodes(taxonHierarchy(classes) ),
@@ -89,7 +55,6 @@
                 .on("mouseout", mouseouted)
                 .append("title").text( function( d ) { return d.eolId + ' ' + d.path} )
             ;
-//        });
 
         function mouseovered(d) {
             node

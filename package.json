@@ -1,0 +1,39 @@
+{
+    "name": "globi-web",
+    "version": "0.0.1",
+    "description": "GloBI Website",
+    "main": "index.js",
+    "directories": {
+        "test": "test"
+    },
+
+    "devDependencies": {
+        "tape": "~1.0.4"
+    },
+
+    "testling": {
+        "files": "test/*.js"
+    },
+
+    "scripts": {
+        "test": "testling"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/globalbioticinteractions/globalbioticinteractions.github.io.git"
+    },
+    "keywords": [
+        "global",
+        "biotic",
+        "interactions",
+        "species",
+        "interactions",
+        "bioinformatics"
+    ],
+    "author": "Jorrit Poelen",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues"
+    },
+    "homepage": "https://github.com/globalbioticinteractions/globalbioticinteractions.github.io#readme"
+}
