@@ -65,9 +65,29 @@ function taxonHierarchy(classes) {
     return map[""];
 }
 
+// Return a list of preys for the given array of nodes.
+function taxonPreys(nodes) {
+    var map = {};
+    // Compute a map from name to node.
+    nodes.forEach(function (d) {
+        map[d.name] = d;
+    });
+    // For each import, construct a link from the source to target node.
+    var preys = [];
+    nodes.forEach(function (d) {
+        if (d.preys) d.preys.forEach(function (i) {
+            if (map[ i ]) {
+                preys.push({source: map[d.name], target: map[i]});
+            }
+        });
+    });
+    return preys;
+}
+
 // to enable testing testling/npm framework without converting all to npm module
 if (typeof module !== 'undefined') {
     transform.parseToStructure = parseToStructure;
     transform.taxonHierarchy = taxonHierarchy;
+    transform.taxonPreys = taxonPreys;
     module.exports = transform;
 }
