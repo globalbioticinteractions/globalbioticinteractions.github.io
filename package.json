@@ -7,7 +7,8 @@
     },
 
     "dependencies": {
-      "globi-bundle" : "node_modules/globi-bundle"
+      "globi-bundle" : "node_modules/globi-bundle",
+      "globi-wheel" : "node_modules/globi-wheel"
     },
 
     "devDependencies": {

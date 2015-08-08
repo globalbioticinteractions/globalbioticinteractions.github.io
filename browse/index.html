@@ -113,8 +113,13 @@
                 wheelSpinner.spin();
                 bundleSpinner.spin();
                 var canvasDimension = { height: canvasHeight, width: canvasWidth };
-                buildDependencyWheel(json, canvasDimension);
-                wheelSpinner.stop();
+
+                var wheel = globiWeb.wheel({ json: json, canvasDimension: canvasDimension });
+                wheel.appendTo('#dependency-wheel-container');
+                wheel.on('append', function (target) {
+                    wheelSpinner.stop();
+                });
+
                 var bundle = globiWeb.bundle({ json: json, canvasDimension: canvasDimension });
                 bundle.appendTo('#bundle-container');
                 bundle.on('append', function (target) {
@@ -191,9 +196,7 @@
         return new Spinner(SpinnerOptions).spin(target);
     };
 </script>
-<script type="text/javascript" src="../vendor/d3/d3.dependencyWheel.js"></script>
 <script type="text/javascript" src="treeoflife.js"></script>
-<script type="text/javascript" src="dependencywheel.js"></script>
 <script type="text/javascript" src="../static/globi-web.js"></script>
 
 <style type="text/css">

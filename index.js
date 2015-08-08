@@ -1,7 +1,4 @@
-var globiBundle = require('globi-bundle');
-
-var globiWeb = {
-    bundle: globiBundle
-}
-
-module.exports = globiWeb;
+module.exports = {
+    bundle: require('globi-bundle'),
+    wheel: require('globi-wheel')
+};

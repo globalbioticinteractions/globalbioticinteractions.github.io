@@ -1,7 +1,7 @@
 var GloBIBundle = require('globi-bundle');
 var test = require('tape');
 
-test('check append to body single interaction', function (t) {
+test('check append bundle to body single interaction', function (t) {
     t.plan(4);
     t.notOk(document.querySelector(".bundle-node"));
     var data = [ { source: { name: "taxon1", path: "taxonpath1", id: "id1" },
@@ -17,7 +17,7 @@ test('check append to body single interaction', function (t) {
     w.appendTo(document.body);
 });
 
-test('check append to body no data', function (t) {
+test('check append bundle to body no data', function (t) {
     t.plan(2);
     var w = GloBIBundle({ json: [], canvasDimension: { height: 123, width: 1234}});
     t.equal(w.opts.canvasDimension.height, 123);
