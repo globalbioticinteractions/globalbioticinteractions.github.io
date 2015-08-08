@@ -1,5 +1,5 @@
 var globi = require('../');
-var transform = require('../browse/transform.js')
+var transform = require('../node_modules/globi-bundle/transform.js');
 var test = require('tape');
 
 test('collect prey from nodes', function (t) {
