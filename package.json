@@ -2,13 +2,17 @@
     "name": "globi-web",
     "version": "0.0.1",
     "description": "GloBI Website",
-    "main": "index.js",
     "directories": {
         "test": "test"
     },
 
+    "dependencies": {
+      "globi-bundle" : "node_modules/globi-bundle"
+    },
+
     "devDependencies": {
-        "tape": "~1.0.4"
+        "tape": "~1.0.4",
+        "browserify": "latest"
     },
 
     "testling": {
@@ -16,7 +20,8 @@
     },
 
     "scripts": {
-        "test": "testling"
+        "test": "testling",
+        "test-browser": "browserify test/*.js test/browser/*.js | testling"
     },
     "repository": {
         "type": "git",

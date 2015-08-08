@@ -1,1 +1,1 @@
-// this file is empty on purpose
+require('globi-bundle');
