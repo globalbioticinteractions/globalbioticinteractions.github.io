@@ -51,13 +51,13 @@ var convertJsonForDependencyWheel = function( json ) {
 };
 
 var _buildDependencyWheel = function( json, canvasDimension ) {
-    var chart = d3.chart.dependencyWheel()
+    var chart = globi.d3.chart.dependencyWheel()
         .width( canvasDimension.width )
         .height( canvasDimension.height );
 
     var data = convertJsonForDependencyWheel(json);
 
-    d3.select('#dependency-wheel-container')
+    globi.d3.select('#dependency-wheel-container')
         .datum(data)
         .call(chart);
 

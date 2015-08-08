@@ -112,11 +112,15 @@
                 treeSpinner.spin();
                 wheelSpinner.spin();
                 bundleSpinner.spin();
-//                    buildTree( json, { height: canvasHeight, width: canvasWidth } );
-                buildDependencyWheel(json, { height: canvasHeight, width: canvasWidth });
+                var canvasDimension = { height: canvasHeight, width: canvasWidth };
+                buildDependencyWheel(json, canvasDimension);
                 wheelSpinner.stop();
-                buildBundles(json, { height: canvasHeight, width: canvasWidth });
-                bundleSpinner.stop();
+                var bundle = globiWeb.bundle({ json: json, canvasDimension: canvasDimension });
+                bundle.appendTo('#bundle-container');
+                bundle.on('append', function (target) {
+                    bundleSpinner.stop();
+                });
+
             }
         });
     };
@@ -190,9 +194,7 @@
 <script type="text/javascript" src="../vendor/d3/d3.dependencyWheel.js"></script>
 <script type="text/javascript" src="treeoflife.js"></script>
 <script type="text/javascript" src="dependencywheel.js"></script>
-<script type="text/javascript" src="../node_modules/globi-bundle/transform.js"></script>
-<script type="text/javascript" src="../node_modules/globi-bundle/build.js"></script>
-<script type="text/javascript" src="bundle.js"></script>
+<script type="text/javascript" src="../static/globi-web.js"></script>
 
 <style type="text/css">
     * {

@@ -1,5 +1,5 @@
 var globi = require('../');
-var transform = require('../node_modules/globi-bundle/transform.js');
+var transform = require('../node_modules/globi-bundle/lib/transform.js');
 var test = require('tape');
 
 test('hierarchy for two nodes', function (t) {

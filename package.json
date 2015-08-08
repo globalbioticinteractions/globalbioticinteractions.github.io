@@ -11,8 +11,7 @@
     },
 
     "devDependencies": {
-        "tape": "~1.0.4",
-        "browserify": "latest"
+        "tape": "~1.0.4"
     },
 
     "testling": {
@@ -21,7 +20,9 @@
 
     "scripts": {
         "test": "testling",
-        "test-browser": "browserify test/*.js test/browser/*.js | testling"
+        "test-browser": "browserify test/*.js test/browser/*.js | testling",
+        "build": "browserify index.js --standalone globi-web -o static/globi-web.js",
+        "watch": "watchify index.js --standalone globi-web -o static/globi-web.js --debug --verbose"
     },
     "repository": {
         "type": "git",
@@ -40,5 +41,5 @@
     "bugs": {
         "url": "https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues"
     },
-    "homepage": "https://github.com/globalbioticinteractions/globalbioticinteractions.github.io#readme"
+    "homepage": "http://globalbioticinteractions.org"
 }
