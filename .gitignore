@@ -1,5 +1,6 @@
 .idea/
 .DS_Store
+**/node_modules/*
 node_modules/*
 !node_modules/globi-bundle
 !node_modules/globi-wheel

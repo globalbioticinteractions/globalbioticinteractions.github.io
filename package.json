@@ -7,10 +7,8 @@
     },
 
     "dependencies": {
-      "globi-bundle" : "./node_modules/globi-bundle",
-      "globi-wheel" : "./node_modules/globi-wheel",
-      "inherits" : "~2.0.1",
-      "d3" : "3.5.6"
+      "globi-bundle" : "0.0.1",
+      "globi-wheel" : "0.0.1"
     },
 
     "devDependencies": {
@@ -22,6 +20,7 @@
     },
 
     "scripts": {
+        "preinstall": "npm install node_modules/globi-bundle node_modules/globi-wheel node_modules/globi-force",
         "test": "testling",
         "test-browser": "browserify test/*.js test/browser/*.js | testling",
         "build": "browserify index.js --standalone globi-web -o static/globi-web.js",
