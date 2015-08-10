@@ -8,7 +8,9 @@
 
     "dependencies": {
       "globi-bundle" : "./node_modules/globi-bundle",
-      "globi-wheel" : "./node_modules/globi-wheel"
+      "globi-wheel" : "./node_modules/globi-wheel",
+      "inherits" : "~2.0.1",
+      "d3" : "3.5.6"
     },
 
     "devDependencies": {
