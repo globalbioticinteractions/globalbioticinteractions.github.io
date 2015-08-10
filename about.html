@@ -4,58 +4,149 @@
     <meta charset="utf-8"/>
     <title>Global Biotic Interactions | About</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style> 
-		#logos {
-			height:20%;
-		}
-		img {
-			height:100px;
-			display: block;
-			margin-left: auto; 
-    		margin-right: auto;
-		}
+    <style>
+        #logos {
+            height: 20%;
+        }
+
+        img {
+            height: 100px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
-      
+
     <link rel="stylesheet" href="globi.css"/>
     <script src="menu.js" charset="utf-8"></script>
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-    
+
 </head>
 <body onload="buildMenu();">
 <div class="ui-widget">
     <h3>What is GloBI?</h3>
-	<p>Global Biotic Interactions (GloBI) provides an infrastructure and data service that aggregates or combines existing biotic interaction datasets to provide easy access to biotic interaction data. Actually, some pages (<a href="references.html">here</a>, <a href="index.html">here</a> and <a href="browse/index.html">here</a>) of this <a href="https://github.com/eol-globi/eol-globi.github.io">website</a> are built on top of that infrastructure. The infrastructure software itself is available on <a href="https://github.com/jhpoelen/eol-globi-data">github</a> and the data is available in <a href="https://github.com/jhpoelen/eol-globi-data/wiki#accessing-species-interaction-data">various ways</a>. Like videos? Then you might like this <a href="http://vimeo.com/89373303">2 minute GloBI introduction video</a>. 
+
+    <p>Global Biotic Interactions (GloBI) provides an infrastructure and data service that aggregates or combines
+        existing biotic interaction datasets to provide easy access to biotic interaction data. Actually, some pages (<a
+                href="references.html">here</a>, <a href="index.html">here</a> and <a href="browse/index.html">here</a>)
+        of this <a href="https://github.com/eol-globi/eol-globi.github.io">website</a> are built on top of that
+        infrastructure. The infrastructure software itself is available on <a
+                href="https://github.com/jhpoelen/eol-globi-data">github</a> and the data is available in <a
+                href="https://github.com/jhpoelen/eol-globi-data/wiki#accessing-species-interaction-data">various
+            ways</a>. Like videos? Then you might like this <a href="http://vimeo.com/89373303">2 minute GloBI
+            introduction video</a>.
+
     <h3>Why GloBI?</h3>
-    <p><i>“Biodiversity researchers have focused on diversity at the cost of ignoring the networks of interactions between organisms that characterize ecosystems.”</i> - <a href="http://dx.doi.org/10.1038/446029a">Kevin McCann, 2007</a></p>
-    <p><i>“An essential element of a truly inclusionary and democratic approach to science is to share data through publicly accessible data sets.”</i> - <a href="http://dx.doi.org/10.1093/biosci/biu169">Soranno et al., 2014</a>
-    </p> <p>Now that folks have mapped the <a href="https://en.wikipedia.org/wiki/Human_Genome_Project">human genome</a>, put <a href="https://en.wikipedia.org/wiki/Neil_Armstrong">a man on the moon</a>, isn't it time to provide easy access to how, when and where organisms interact with each other so that we can better understand and better preserve our ecosystems? Perhaps GloBI can become the <a href="http://www.openstreetmap.org">OpenStreetMap</a> of ecology: a global map that shows how organisms rely on each other . . . </p> 
-<p>By providing an infrastructure to capture and share interaction data, individual biologists can focus on gathering new interaction data and analyzing existing datasets without having to spend resources on (re-) building a cyberinfrastructure to do so. 
-</p>
-	<h3>Who makes GloBI possible?</h3>
-  <p>GloBI is made possible by a community of software engineers, bioinformaticists and biologists. Software engineers such as <a href="http://linkedin.com/in/jhpoelen">Jorrit Poelen</a>, <a href="https://github.com/coding46">Göran Bodenschatz</a>, and <a href="https://github.com/reiz">Robert Reiz</a> collaborate with bioinformaticists like <a href="http://www.mendeley.com/profiles/chris-mungall/">Chris Mungall</a> and biologists like <a href="http://ccs.tamucc.edu/people/dr-james-d-simons/">Jim Simons</a>, <a href="http://ronininstitute.org/research-scholars/anne-thessen/">Anne Thessen</a>, and <a href="http://brianhayden.org">Brian Hayden</a> to capture, provide access to and use interaction data that is provided by <a href="/references.html">biologists and citizen scientists around the world</a>. GloBI is funded by EOL's <a href="http://eol.org/info/485">Rubenstein Fellowship Program</a>.</p>
-<h3>How to share data through GloBI?</h3>
-<p>GloBI exists because of people like yourself who share their interaction data, or refer to existing datasets that are not yet <a href="references.html">included in GloBI</a>. Do you have some interaction data you'd like to access through GloBI? Please read <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F"> this</a>.
-	<h3>GloBI in the wild</h3>
-  <p>The <a href="http://eol.org">Encyclopedia of Life</a> (see <a href="http://blog.globalbioticinteractions.org/2014/01/24/what-parasites-do-atlantic-croaker-host-find-it-on-the-encyclopedia-of-life/">blog post</a>) and <a href="http://gomexsi.tamucc.edu">Gulf of Mexico Species Interaction Database</a> (see <a href="http://blog.globalbioticinteractions.org/2013/09/17/want-to-explore-marine-foodwebs-in-the-gulf-of-mexico-visit-gomexsi/">blog post</a>) are currently using GloBI's data services. We also built some web apps on top of our data services: <a href="/references.html">list references and data sources</a>, <a href="/index.html">figure out who eats what</a> and <a href="/browse">browse interactions around the globe</a>.</p> 
-  <p>The <a href="http://r-project.org">R</a> community uses <a href="https://cran.r-project.org/web/packages/rglobi/index.html">rGloBI</a> (part of <a href="http://ropensci.org">rOpenSci</a>) to access interaction data (see <a href="http://timotheepoisot.fr/2015/05/10/hungry-caterpillars/">Hungry Caterpillars</a> for example). Also, students of <a href="http://iu.edu">Indiana University's</a> <a href="http://ivmooc.cns.iu.edu/">Information Visualization MOOC</a> created a <a href="http://dx.doi.org/10.6084/m9.figshare.1297762">Food-Web Map of the World</a> (class of 2014) and an <a href="http://danielabar.github.io/globi-proto">interactive ecosystem explorer</a> (class of 2015) (<a href="http://dx.doi.org/10.6084/m9.figshare.1414252">poster</a>, <a href="http://dx.doi.org/10.6084/m9.figshare.1414253">paper</a>) using GloBI data.</p>
-  Some more mentions include <a href="http://www.bigbio.com.mx/bigbio/articulos/global-biotic-interactions-globi-bichos-vemos-relaciones-si-sabemos/">Global Biotic Interactions (GloBI). Bichos vemos, relaciones sí sabemos.</a></li>, <a href="http://aprendizajedistancia.blogspot.com/2015/05/datos-global-biotic-interactions.html">Datos: Global Biotic Interactions</a> and <a href="http://nbviewer.ipython.org/github/Py4Life/TAU2015/blob/master/minilecture_API_globi.ipynb">Py4Life's mini-lecture using Python and GloBI</a> as part of <a href="http://py4life.github.io/TAU2015/">Python Programming for Biologist course at Tel-Aviv University</a>. 
-<h3>How to cite GloBI?</h3>
-<p>Jorrit H. Poelen, James D. Simons and Chris J. Mungall. (2014). Global Biotic Interactions: An open infrastructure to share and analyze species-interaction datasets. <em>Ecological Informatics</em>. <a href="http://dx.doi.org/10.1016/j.ecoinf.2014.08.005">http://dx.doi.org/10.1016/j.ecoinf.2014.08.005</a>
-<h3>Who cited GloBI?</h3>
-<ul>
-  <li>Foulger, R.E. et al., 2015. Representing virus-host interactions and other multi-organism processes in the Gene Ontology. <em>BMC Microbiol</em>, 15(1). Available at: <a href="http://dx.doi.org/10.1186/s12866-015-0481-x">http://dx.doi.org/10.1186/s12866-015-0481-x</a>.</li>
-  <li>Poisot, T. et al., 2015. mangal - making ecological network analysis simple. <em>Ecography</em>. Available at: <a href="http://dx.doi.org/10.1111/ecog.00976">http://dx.doi.org/10.1111/ecog.00976</a>.</li>
-  <li>Poisot, T. et al., 2015. Synthetic datasets and community tools for the rapid testing of ecological hypotheses. Available at: <a href="http://dx.doi.org/10.1101/021402">http://dx.doi.org/10.1101/021402</a>.</li>
-  <li>Soranno, P.A. et al., 2015. Building a multi-scaled geospatial temporal ecology database from disparate data sources: fostering open science and data reuse. <em>GigaSci</em>, 4(1). Available at: <a href="http://dx.doi.org/10.1186/s13742-015-0067-4">http://dx.doi.org/10.1186/s13742-015-0067-4</a>.</li>
-  <li>Szoboszlai, A.I. et al., 2015. Forage species in predator diets: Synthesis of data from the California Current. <em>Ecological Informatics</em>. Available at: <a href="http://dx.doi.org/10.1016/j.ecoinf.2015.07.003">http://dx.doi.org/10.1016/j.ecoinf.2015.07.003</a>.</li></ul>
+
+    <p><i>“Biodiversity researchers have focused on diversity at the cost of ignoring the networks of interactions
+        between organisms that characterize ecosystems.”</i> - <a href="http://dx.doi.org/10.1038/446029a">Kevin McCann,
+        2007</a></p>
+
+    <p><i>“An essential element of a truly inclusionary and democratic approach to science is to share data through
+        publicly accessible data sets.”</i> - <a href="http://dx.doi.org/10.1093/biosci/biu169">Soranno et al., 2014</a>
+    </p>
+
+    <p>Now that folks have mapped the <a href="https://en.wikipedia.org/wiki/Human_Genome_Project">human genome</a>, put
+        <a href="https://en.wikipedia.org/wiki/Neil_Armstrong">a man on the moon</a>, isn't it time to provide easy
+        access to how, when and where organisms interact with each other so that we can better understand and better
+        preserve our ecosystems? Perhaps GloBI can become the <a href="http://www.openstreetmap.org">OpenStreetMap</a>
+        of ecology: a global map that shows how organisms rely on each other . . . </p>
+
+    <p>By providing an infrastructure to capture and share interaction data, individual biologists can focus on
+        gathering new interaction data and analyzing existing datasets without having to spend resources on (re-)
+        building a cyberinfrastructure to do so.
+    </p>
+
+    <h3>Who makes GloBI possible?</h3>
+
+    <p>GloBI is made possible by a community of software engineers, bioinformaticists and biologists. Software engineers
+        such as <a href="http://linkedin.com/in/jhpoelen">Jorrit Poelen</a>, <a href="https://github.com/coding46">Göran
+            Bodenschatz</a>, and <a href="https://github.com/reiz">Robert Reiz</a> collaborate with bioinformaticists
+        like <a href="http://www.mendeley.com/profiles/chris-mungall/">Chris Mungall</a> and biologists like <a
+                href="http://ccs.tamucc.edu/people/dr-james-d-simons/">Jim Simons</a>, <a
+                href="http://ronininstitute.org/research-scholars/anne-thessen/">Anne Thessen</a>, and <a
+                href="http://brianhayden.org">Brian Hayden</a> to capture, provide access to and use interaction data
+        that is provided by <a href="/references.html">biologists and citizen scientists around the world</a>. GloBI is
+        funded by EOL's <a href="http://eol.org/info/485">Rubenstein Fellowship Program</a>.</p>
+
+    <h3>How to share data through GloBI?</h3>
+
+    <p>GloBI exists because of people like yourself who share their interaction data, or refer to existing datasets that
+        are not yet <a href="references.html">included in GloBI</a>. Do you have some interaction data you'd like to
+        access through GloBI? Please read <a
+                href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">
+            this</a>.
+
+    <h3>GloBI in the wild</h3>
+
+    <p>The <a href="http://eol.org">Encyclopedia of Life</a> (see <a
+            href="http://blog.globalbioticinteractions.org/2014/01/24/what-parasites-do-atlantic-croaker-host-find-it-on-the-encyclopedia-of-life/">blog
+        post</a>) and <a href="http://gomexsi.tamucc.edu">Gulf of Mexico Species Interaction Database</a> (see <a
+            href="http://blog.globalbioticinteractions.org/2013/09/17/want-to-explore-marine-foodwebs-in-the-gulf-of-mexico-visit-gomexsi/">blog
+        post</a>) are currently using GloBI's data services. We also built some web apps on top of our data services: <a
+            href="/references.html">list references and data sources</a>, <a href="/index.html">figure out who eats
+        what</a> and <a href="/browse">browse interactions around the globe</a>.</p>
+
+    <p>The <a href="http://r-project.org">R</a> community uses <a
+            href="https://cran.r-project.org/web/packages/rglobi/index.html">rGloBI</a> (part of <a
+            href="http://ropensci.org">rOpenSci</a>) to access interaction data (see <a
+            href="http://timotheepoisot.fr/2015/05/10/hungry-caterpillars/">Hungry Caterpillars</a> for example). Also,
+        students of <a href="http://iu.edu">Indiana University's</a> <a href="http://ivmooc.cns.iu.edu/">Information
+            Visualization MOOC</a> created a <a href="http://dx.doi.org/10.6084/m9.figshare.1297762">Food-Web Map of the
+            World</a> (class of 2014) and an <a href="http://danielabar.github.io/globi-proto">interactive ecosystem
+            explorer</a> (class of 2015) (<a href="http://dx.doi.org/10.6084/m9.figshare.1414252">poster</a>, <a
+                href="http://dx.doi.org/10.6084/m9.figshare.1414253">paper</a>) using GloBI data.</p>
+    Some more mentions include <a
+        href="http://www.bigbio.com.mx/bigbio/articulos/global-biotic-interactions-globi-bichos-vemos-relaciones-si-sabemos/">Global
+    Biotic Interactions (GloBI). Bichos vemos, relaciones sí sabemos.</a></li>, <a
+        href="http://aprendizajedistancia.blogspot.com/2015/05/datos-global-biotic-interactions.html">Datos: Global
+    Biotic Interactions</a> and <a
+        href="http://nbviewer.ipython.org/github/Py4Life/TAU2015/blob/master/minilecture_API_globi.ipynb">Py4Life's
+    mini-lecture using Python and GloBI</a> as part of <a href="http://py4life.github.io/TAU2015/">Python Programming
+    for Biologist course at Tel-Aviv University</a>.
+    <h3>How to cite GloBI?</h3>
+
+    <p>Jorrit H. Poelen, James D. Simons and Chris J. Mungall. (2014). Global Biotic Interactions: An open
+        infrastructure to share and analyze species-interaction datasets. <em>Ecological Informatics</em>. <a
+                href="http://dx.doi.org/10.1016/j.ecoinf.2014.08.005">http://dx.doi.org/10.1016/j.ecoinf.2014.08.005</a>
+
+    <h3>Who cited GloBI?</h3>
+    <ul>
+        <li>Kissling, W.D. et al., 2015. Towards global interoperability for supporting biodiversity research on
+            essential biodiversity variables (EBVs). <em>Biodiversity</em>, pp.1–9. Available at:
+            <a href="http://dx.doi.org/10.1080/14888386.2015.1068709">http://dx.doi.org/10.1080/14888386.2015.1068709</a>.
+        </li>
+        <li>Foulger, R.E. et al., 2015. Representing virus-host interactions and other multi-organism processes in the
+            Gene Ontology. <em>BMC Microbiol</em>, 15(1). Available at: <a
+                    href="http://dx.doi.org/10.1186/s12866-015-0481-x">http://dx.doi.org/10.1186/s12866-015-0481-x</a>.
+        </li>
+        <li>Poisot, T. et al., 2015. mangal - making ecological network analysis simple. <em>Ecography</em>. Available
+            at: <a href="http://dx.doi.org/10.1111/ecog.00976">http://dx.doi.org/10.1111/ecog.00976</a>.
+        </li>
+        <li>Poisot, T. et al., 2015. Synthetic datasets and community tools for the rapid testing of ecological
+            hypotheses. Available at: <a href="http://dx.doi.org/10.1101/021402">http://dx.doi.org/10.1101/021402</a>.
+        </li>
+        <li>Soranno, P.A. et al., 2015. Building a multi-scaled geospatial temporal ecology database from disparate data
+            sources: fostering open science and data reuse. <em>GigaSci</em>, 4(1). Available at: <a
+                    href="http://dx.doi.org/10.1186/s13742-015-0067-4">http://dx.doi.org/10.1186/s13742-015-0067-4</a>.
+        </li>
+        <li>Szoboszlai, A.I. et al., 2015. Forage species in predator diets: Synthesis of data from the California
+            Current. <em>Ecological Informatics</em>. Available at: <a
+                    href="http://dx.doi.org/10.1016/j.ecoinf.2015.07.003">http://dx.doi.org/10.1016/j.ecoinf.2015.07.003</a>.
+        </li>
+    </ul>
 </div>
 <br/><br/>
 <table>
-<tr><td width="60%">
-<a href="http://eol.org"><img src="img/EOL_logo_globeHIGHRES.jpg"></img></a>
-</td><td><a href="http://gomexsi.tamucc.edu"><img src="img/gomexsi-logo.png"></img></a>
-</td></tr></table>
+    <tr>
+        <td width="60%">
+            <a href="http://eol.org"><img src="img/EOL_logo_globeHIGHRES.jpg"></img></a>
+        </td>
+        <td><a href="http://gomexsi.tamucc.edu"><img src="img/gomexsi-logo.png"></img></a>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
