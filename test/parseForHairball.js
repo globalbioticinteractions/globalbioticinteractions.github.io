@@ -1,5 +1,5 @@
 var globi = require('../');
-var transform = require('../node_modules/globi-force/lib/transform.js');
+var transform = require('../node_modules/globi-hairball/lib/transform.js');
 var test = require('tape');
 
 test('single interaction two taxa', function (t) {

@@ -196,6 +196,7 @@
     };
 </script>
 <script type="text/javascript" src="treeoflife.js"></script>
+<!--<link rel="stylesheet" href="./node_modules/globi-bundle/style.css"/>-->
 <script type="text/javascript" src="../static/globi-web.js"></script>
 
 <style type="text/css">
@@ -209,12 +210,6 @@
         width: 100%;
     }
 
-    /*#map, #tree, #dependency-wheel, #bundle {*/
-    /*float: left;*/
-    /*width: 50%;*/
-    /*height: 50%;*/
-    /*overflow: auto;*/
-    /*}*/
     #map {
         background: #b7b7b7;
     }
@@ -239,87 +234,9 @@
     }
 </style>
 <style type="text/css">
-    .node circle {
-        cursor: pointer;
-        fill: #fff;
-        stroke: seagreen;
-        stroke-width: 1.5px;
-    }
-
-    .node text {
-        font-size: 15px;
-        font: Helvetica, "Helvetica Neue", Arial, sans-serif;
-    }
-
-    path.link {
-        fill: none;
-        stroke: #eee;
-        stroke-width: 1.5px;
-    }
-
-    path.inter-link {
-        fill: none;
-        stroke: #f00;
-        stroke-width: 2px;
-    }
-</style>
-<style type="text/css">
-    .empty {
-        background: #f00;
-    }
-
-    .dependencyWheel {
-        font: 10px sans-serif;
-    }
-</style>
-
-<style>
-
-    .bundle-node {
-        font: 10px "Helvetica Neue", Helvetica, Arial, sans-serif;
-        fill: #333;
-    }
-
-    .bundle-node:hover {
-        fill: #000;
-    }
-
-    .bundl-link {
-        stroke: lightgreen;
-        stroke-opacity: .4;
-        fill: none;
-        pointer-events: none;
-    }
-
-    .bundle-node:hover,
-    .node--source,
-    .node--target {
-        font-weight: 400;
-    }
-
-    .node--source {
-        fill: #2ca02c;
-    }
-
-    .node--target {
-        fill: #d62728;
-    }
-
-    .link--source,
-    .link--target {
-        stroke-opacity: 1;
-        stroke-width: 2px;
-    }
-
-    .link--source {
-        stroke: #d62728;
-    }
-
-    .link--target {
-        stroke: #2ca02c;
-    }
 
 </style>
+
 
 
 <style>

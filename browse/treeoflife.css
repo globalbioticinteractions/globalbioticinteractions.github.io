@@ -1,0 +1,23 @@
+.node circle {
+    cursor: pointer;
+    fill: #fff;
+    stroke: seagreen;
+    stroke-width: 1.5px;
+}
+
+.node text {
+    font-size: 15px;
+    font: Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+
+path.link {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 1.5px;
+}
+
+path.inter-link {
+    fill: none;
+    stroke: #f00;
+    stroke-width: 2px;
+}
