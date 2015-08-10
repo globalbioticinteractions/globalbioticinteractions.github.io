@@ -108,24 +108,25 @@
         var dataSetUrl = createInteractionURL(spatialSelection, 'json.v2');
         d3.json(dataSetUrl, function (json) {
             if (json.length) {
-                jQuery('#dependency-wheel-container, #bundle-container').empty();
-                treeSpinner.spin();
-                wheelSpinner.spin();
-                bundleSpinner.spin();
-                var canvasDimension = { height: canvasHeight, width: canvasWidth };
+                var widgets = [
+                    {factory: globiWeb.wheel, target: '#dependency-wheel-container', spinner: wheelSpinner},
+                    {factory: globiWeb.bundle, target: '#bundle-container', spinner: bundleSpinner}
+                ];
 
-                var wheel = globiWeb.wheel({ json: json, canvasDimension: canvasDimension });
-                wheel.appendTo('#dependency-wheel-container');
-                wheel.on('append', function (target) {
-                    wheelSpinner.stop();
+                widgets.forEach(function (w) {
+                    jQuery(w.target).empty();
+                    w.spinner.spin();
                 });
 
-                var bundle = globiWeb.bundle({ json: json, canvasDimension: canvasDimension });
-                bundle.appendTo('#bundle-container');
-                bundle.on('append', function (target) {
-                    bundleSpinner.stop();
-                });
+                widgets.forEach(function (w) {
+                    var canvasDimension = { height: canvasHeight, width: canvasWidth };
+                    var widget = w.factory({ json: json, canvasDimension: canvasDimension })
+                    widget.appendTo(w.target);
+                    widget.on('append', function (target) {
+                        w.spinner.stop();
+                    });
 
+                });
             }
         });
     };
@@ -236,7 +237,6 @@
 <style type="text/css">
 
 </style>
-
 
 
 <style>
