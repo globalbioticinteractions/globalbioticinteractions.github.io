@@ -1,14 +1,177 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Global Biotic Interactions | Browse</title>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Biotic Interactions | Browse</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="../globi.css"/>
-<link rel="stylesheet" href="../css/widget.css"/>
-<link rel="stylesheet" href="spatialsearch.css"/>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="../globi.css"/>
+    <link rel="stylesheet" href="../css/widget.css"/>
+    <link rel="stylesheet" href="spatialsearch.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <style>
+        table.interactions-result {
+            margin-top: 10px;
+            border-collapse: collapse;
+            font-size: 11px;
+        }
+
+        table.interactions-result .odd {
+            background-color: #e7e7e7;
+        }
+
+        table.interactions-result .odd {
+            background-color: #d7d7d7;
+        }
+
+        table.interactions-result td {
+            padding: 2px 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="../vendor/jquery.tokeninput/token-input.css">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+        }
+
+        #map {
+            background: #b7b7b7;
+        }
+
+        #tree {
+            background: #dfdfdf;
+        }
+
+        #dependency-wheel {
+            background: #dfdfdf;
+        }
+
+        #bundle {
+            background: #b7b7b7;
+        }
+
+        #tree h3, #dependency-wheel h3, #bundle h3 {
+            color: #cfcfcf;
+            text-align: center;
+            font-family: monospace;
+            font-size: 1.5em;
+        }
+    </style>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        #panels {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        .panel {
+            height: 50%;
+            width: 50%;
+            position: absolute;
+            z-index: 1;
+            overflow: auto;
+        }
+
+        .panel-top-left {
+            left: 0;
+            top: 0;
+        }
+
+        .panel-top-right {
+            right: 0;
+            top: 0;
+        }
+
+        .panel-bottom-left {
+            left: 0;
+            bottom: 0;
+        }
+
+        .panel-bottom-right {
+            right: 0;
+            bottom: 0;
+        }
+
+        .btn {
+            position: fixed;
+            border: 1px solid #777;
+            border-radius: 3px;
+            width: 15px;
+            height: 15px;
+            background: rgba(238, 238, 238, .60);
+            margin: 1px;
+            color: #777;
+            padding: 0;
+            font-size: 12px;
+            line-height: 14px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: rgba(204, 204, 204, .60);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #tree-container {
+            overflow: auto;
+        }
+
+        #welcome {
+            font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+            padding: 50px;
+            text-align: center;
+        }
+
+        #welcome h1 {
+            font-size: 21px;
+            margin-bottom: 25px;
+        }
+
+        #welcome p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="panels">
+    <div class="panel panel-top-left" id="map">
+        &nbsp;
+    </div>
+    <div class="panel panel-top-right" id="tree">
+        <div class="btn" title="maximize / minimize">&#9712;</div>
+        <div id="tree-container">
+            <div id="welcome">
+                <h1>Welcome to the GloBI Interaction Browser!</h1>
+
+                <p>Please click on a marker or select an area to display species interactions!</p>
+
+                <p>
+                    <a target="_blank" href="http://blog.globalbioticinteractions.org">Learn more about GloBI</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-bottom-left" id="dependency-wheel">
+        <div class="btn" title="maximize / minimize">&#9712;</div>
+        <div id="dependency-wheel-container"></div>
+    </div>
+    <div class="panel panel-bottom-right" id="bundle">
+        <div class="btn" title="maximize / minimize">&#9712;</div>
+        <div id="bundle-container"></div>
+    </div>
+</div>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script src="https://rawgit.com/jhpoelen/eol-globi-js/master/globi-dist.js"></script>
 <script>
@@ -16,32 +179,12 @@
     var d3 = globi.d3;
 </script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<link rel="stylesheet" href="../vendor/jquery.tokeninput/token-input.css">
 <script src="../vendor/jquery.tokeninput/jquery.tokeninput.js"></script>
 <script src="../vendor/markerclusterer.js"></script>
 <script src="spatialsearch.js"></script>
 <script src="areapicker.js"></script>
 <script src="../menu.js"></script>
 <script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
-<style>
-    table.interactions-result {
-        margin-top: 10px;
-        border-collapse: collapse;
-        font-size: 11px;
-    }
-
-    table.interactions-result .odd {
-        background-color: #e7e7e7;
-    }
-
-    table.interactions-result .odd {
-        background-color: #d7d7d7;
-    }
-
-    table.interactions-result td {
-        padding: 2px 5px;
-    }
-</style>
 <script>
     var urlPrefix = function () {
         return 'http://api.globalbioticinteractions.org';
@@ -197,157 +340,10 @@
     };
 </script>
 <script type="text/javascript" src="treeoflife.js"></script>
-<!--<link rel="stylesheet" href="./node_modules/globi-bundle/style.css"/>-->
 <script type="text/javascript" src="../static/globi-web.js"></script>
-
-<style type="text/css">
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    body, html {
-        height: 100%;
-        width: 100%;
-    }
-
-    #map {
-        background: #b7b7b7;
-    }
-
-    #tree {
-        background: #dfdfdf;
-    }
-
-    #dependency-wheel {
-        background: #dfdfdf;
-    }
-
-    #bundle {
-        background: #b7b7b7;
-    }
-
-    #tree h3, #dependency-wheel h3, #bundle h3 {
-        color: #cfcfcf;
-        text-align: center;
-        font-family: monospace;
-        font-size: 1.5em;
-    }
-</style>
-<style type="text/css">
-
-</style>
-
-
-<style>
-    body {
-        overflow: hidden;
-    }
-
-    #panels {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-    }
-
-    .panel {
-        height: 50%;
-        width: 50%;
-        position: absolute;
-        z-index: 1;
-        overflow: auto;
-    }
-
-    .panel-top-left {
-        left: 0;
-        top: 0;
-    }
-
-    .panel-top-right {
-        right: 0;
-        top: 0;
-    }
-
-    .panel-bottom-left {
-        left: 0;
-        bottom: 0;
-    }
-
-    .panel-bottom-right {
-        right: 0;
-        bottom: 0;
-    }
-
-    .btn {
-        position: fixed;
-        border: 1px solid #777;
-        border-radius: 3px;
-        width: 15px;
-        height: 15px;
-        background: rgba(238, 238, 238, .60);
-        margin: 1px;
-        color: #777;
-        padding: 0;
-        font-size: 12px;
-        line-height: 14px;
-        text-align: center;
-    }
-
-    .btn:hover {
-        background: rgba(204, 204, 204, .60);
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    #tree-container {
-        overflow: auto;
-    }
-
-    #welcome {
-        font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-        padding: 50px;
-        text-align: center;
-    }
-
-    #welcome h1 {
-        font-size: 21px;
-        margin-bottom: 25px;
-    }
-
-    #welcome p {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-</style>
 <script src="panel.js"></script>
-</head>
-<body id="spatialsearch-index" onload="buildMenu();">
-<div id="panels">
-    <div class="panel panel-top-left" id="map">
-        &nbsp;
-    </div>
-    <div class="panel panel-top-right" id="tree">
-        <div class="btn" title="maximize / minimize">&#9712;</div>
-        <div id="tree-container">
-            <div id="welcome">
-                <h1>Welcome to the GloBI Interaction Browser!</h1>
-
-                <p>Please click on a marker or select an area to display species interactions!</p>
-
-                <p>
-                    <a target="_blank" href="http://blog.globalbioticinteractions.org">Learn more about GloBI</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-bottom-left" id="dependency-wheel">
-        <div class="btn" title="maximize / minimize">&#9712;</div>
-        <div id="dependency-wheel-container"></div>
-    </div>
-    <div class="panel panel-bottom-right" id="bundle">
-        <div class="btn" title="maximize / minimize">&#9712;</div>
-        <div id="bundle-container"></div>
-    </div>
-</div>
+<script>
+    buildMenu();
+</script>
 </body>
 </html>
