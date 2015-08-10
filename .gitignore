@@ -3,3 +3,4 @@
 node_modules/*
 !node_modules/globi-bundle
 !node_modules/globi-wheel
+!node_modules/globi-force
