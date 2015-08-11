@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="globi.css"/>
 
 </head>
-<body>
+<body onload="init()">
 <div class="ui-widget">
     <p>What do
         <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="organisms"/>
@@ -229,12 +229,12 @@ $(function () {
             searchForInteractions();
         }
     };
-    $("#taxonInputField").change(function (event, ui) {
+    $("#taxonInputField").change(function () {
         searchForInteractions();
     });
     $("#taxonInputField").keyup(onEnter);
 
-    $("#interactionType").change(function (event, ui) {
+    $("#interactionType").change(function () {
         searchForInteractions();
     });
     $("#studySearchField").keyup(onEnter);
@@ -247,15 +247,11 @@ var init = function () {
     $('#studySearchField').val(params.accordingTo);
     $('#taxonInputField').val(params.sourceTaxon);
 
-    if (params.sourceTaxon) {
-        $('#taxonInputField').change();
-    } else if (params.accordingTo) {
+    if (params.sourceTaxon || params.accordingTo) {
         $('#taxonInputField').change();
     }
     $('#taxonInputField').focus();
 }
-
-init();
 </script>
 </body>
 </html>
