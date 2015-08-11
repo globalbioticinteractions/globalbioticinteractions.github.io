@@ -12,6 +12,7 @@
     },
 
     "dependencies": {
+        "spin.js": "~2.3.2",
         "globi-bundle": "0.0.1",
         "globi-wheel": "0.0.1",
         "globi-hairball": "0.0.1",
