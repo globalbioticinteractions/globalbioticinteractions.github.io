@@ -1,5 +1,5 @@
 var globi = require('globi');
-var $ = require('jquery');
+var $ = globi.jQuery;
 require('jquery-ui');
 var MarkerClusterer = require('node-js-marker-clusterer');
 

@@ -38,12 +38,15 @@
 <script>
     buildMenu();
 </script>
-<script src="https://rawgit.com/jhpoelen/eol-globi-data-js/master/globi-data-dist.js"></script>
+
+<script src="static/globi-web-min.js"></script>
+<script>
+    var $ = globiWeb.globi.jQuery;
+    var globiData = globiWeb.globi.globiData;
+</script>
 
 <script src="links.js"></script>
 <script src="query-string.js"></script>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 <script>
 $(function () {
     var labelForTaxon = function (taxon) {
