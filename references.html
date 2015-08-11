@@ -7,56 +7,6 @@
     <link rel="stylesheet" href="globi.css"/>
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/css/jquery.dataTables.min.css">
-
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/js/jquery.js"></script>
-
-    <!-- DataTables -->
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://rawgit.com/jhpoelen/eol-globi-data-js/master/globi-data-dist.js"></script>
-    <script src="menu.js"></script>
-    <script src="links.js"></script>
-    <script type="text/javascript">
-        window.onload = function () {
-            buildMenu();
-            loadStats();
-        };
-        $(document).ready(function () {
-            $('#contributors').DataTable({
-                paging: true,
-                orderClasses: false,
-                ajax: function (data, callback, settings) {
-                    var rows = [];
-                    globiData.findStudyStats({}, function (studyStatList) {
-                        studyStatList.forEach(function (element) {
-                            var row = [];
-                            row[0] = element.citation + createLinkRef(element) + createShowRef(element);
-                            row[1] = element.totalInteractions;
-                            row[2] = element.totalTaxa;
-                            row[3] = element.source;
-                            rows[rows.length] = row;
-                        });
-                        callback({ data: rows });
-                    });
-                }});
-        });
-
-        var loadStats = function () {
-            globiData.findStats({}, function (stats) {
-                var elem = document.createElement('th');
-                elem.setAttribute('colspan', '4');
-                var interDiv = document.getElementById('interactions');
-                interDiv.innerHTML = '(' + stats.totalInteractions + ' total)';
-                var tgtTaxa = document.getElementById('distinctTaxa');
-                tgtTaxa.innerHTML = '(' + stats.totalTaxa + ' unique)';
-                var studies = document.getElementById('studies');
-                studies.innerHTML = '(' + stats.numberOfStudies + ' total)';
-                var references = document.getElementById('sources');
-                references.innerHTML = '(' + stats.numberOfDistinctSources + ' total)';
-            });
-        };
-    </script>
 </head>
 <body>
 <div style="text-align: right"><a href="http://api.globalbioticinteractions.org/reports/studies.csv">studies.csv</a> | <a href="http://api.globalbioticinteractions.org/reports/sources.csv">sources.csv</a></div>
@@ -80,5 +30,53 @@
     <tbody>
     </tbody>
 </table>
+<!-- jQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/js/jquery.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
+<script src="https://rawgit.com/jhpoelen/eol-globi-data-js/master/globi-data-dist.js"></script>
+<script src="menu.js"></script>
+<script src="links.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#contributors').DataTable({
+            paging: true,
+            orderClasses: false,
+            ajax: function (data, callback, settings) {
+                var rows = [];
+                globiData.findStudyStats({}, function (studyStatList) {
+                    studyStatList.forEach(function (element) {
+                        var row = [];
+                        row[0] = element.citation + createLinkRef(element) + createShowRef(element);
+                        row[1] = element.totalInteractions;
+                        row[2] = element.totalTaxa;
+                        row[3] = element.source;
+                        rows[rows.length] = row;
+                    });
+                    callback({ data: rows });
+                });
+            }});
+    });
+
+    var loadStats = function () {
+        globiData.findStats({}, function (stats) {
+            var elem = document.createElement('th');
+            elem.setAttribute('colspan', '4');
+            var interDiv = document.getElementById('interactions');
+            interDiv.innerHTML = '(' + stats.totalInteractions + ' total)';
+            var tgtTaxa = document.getElementById('distinctTaxa');
+            tgtTaxa.innerHTML = '(' + stats.totalTaxa + ' unique)';
+            var studies = document.getElementById('studies');
+            studies.innerHTML = '(' + stats.numberOfStudies + ' total)';
+            var references = document.getElementById('sources');
+            references.innerHTML = '(' + stats.numberOfDistinctSources + ' total)';
+        });
+    };
+
+    buildMenu();
+    loadStats();
+</script>
 </body>
 </html>

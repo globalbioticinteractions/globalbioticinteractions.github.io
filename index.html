@@ -6,226 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" href="globi.css"/>
-    <script src="https://rawgit.com/jhpoelen/eol-globi-data-js/master/globi-data-dist.js"></script>
-    <script src="menu.js"></script>
-    <script src="links.js"></script>
-    <script src="query-string.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-    <script>
-        $(function () {
-            var labelForTaxon = function (taxon) {
-                var englishName;
-                if (taxon.commonNames) {
-                    englishName = taxon.commonNames['en'];
-                }
-                var suggestion = taxon.scientificName;
-                if (englishName !== undefined) {
-                    suggestion = englishName + ' (' + suggestion + ')';
-                }
-                return suggestion;
-            };
 
-            var className = function (someString) {
-                return someString.replace(/\W/g, '_');
-            }
-
-            var searchForInteractions = function () {
-                var sourceTaxonName = $('#taxonInputField').val();
-                var sourceTaxonLabel = sourceTaxonName;
-                var interactionType = $('#interactionType').find(":selected").val();
-                var studyQuery = $('#studySearchField').val();
-                var searchHash = {};
-                var search = { fields: ['source_taxon_name', 'target_taxon_name', 'interaction_type'] };
-                if (sourceTaxonName.length > 0) {
-                  searchHash.sourceTaxon = sourceTaxonName;
-                  search.sourceTaxa = [sourceTaxonName];
-                }
-                if (interactionType.length > 0) {
-                  searchHash.interactionType = interactionType;
-                  search.interactionType = interactionType;
-                }
-                if (studyQuery.length > 0) {
-                  searchHash.accordingTo = studyQuery;
-                  search.accordingTo = studyQuery;
-                }
-                document.location.hash = queryString.stringify(searchHash)
-
-                var callback = function (interactions) {
-                    var resultDiv = document.getElementById('result');
-                    $('.interaction').remove();
-                    var distinctNames = {};
-                    var distinctInteractions = {};
-                    var counter = 0;
-                    interactions.forEach(function (interaction) {
-                        if (distinctNames[interaction.target_taxon_name] !== interaction.target_taxon_name) {
-                            row = document.createElement('tr');
-                            row.setAttribute('class', 'interaction');
-                            resultDiv.appendChild(row);
-                            var td = document.createElement('td');
-                            td.setAttribute('class', className(interaction.source_taxon_name));
-                            td.innerHTML = interaction.source_taxon_name;
-                            row.appendChild(td);
-                            td = document.createElement('td');
-                            div = document.createElement('div');
-                            div.setAttribute('class', className(interaction.interaction_type));
-                            div.textContent = interaction.interaction_type;
-                            td.appendChild(div);
-                            row.appendChild(td);
-                            td = document.createElement('td');
-                            td.setAttribute('class', className(interaction.target_taxon_name));
-                            td.innerHTML = interaction.target_taxon_name;
-                            row.appendChild(td);
-
-                            var citationKey = (interaction.source_taxon_name + interaction.interaction_type + interaction.target_taxon_name);
-                            td = document.createElement('td');
-                            td.setAttribute('class', className(citationKey));
-                            row.appendChild(td);
-                            distinctNames[interaction.target_taxon_name] = interaction.target_taxon_name;
-                            distinctNames[interaction.source_taxon_name] = interaction.source_taxon_name;
-
-                            distinctInteractions[citationKey] = interaction;
-                            counter += 1;
-                        }
-                      });
-                    distinctNames[sourceTaxonName] = sourceTaxonName;
-                    
-                    var textElem = document.createElement('p')
-                    textElem.setAttribute('class', 'interaction');
-                    if (sourceTaxonLabel.length == 0) {
-                        sourceTaxonLabel = 'organisms';
-                    }
-                    var prefix = '<span class="' + className(sourceTaxonName) + '">' + sourceTaxonLabel + '</span> ';
-                    var message = '... plenty of things';
-                    if (studyQuery.length > 0) {
-                        message = message + ' according to ' + studyQuery;
-                    }
-                    message = message + '!';
-                    if (counter == 0) {
-                        message = '... nothing ';
-                        if (studyQuery.length > 0) {
-                            message = message + ' according to ' + studyQuery + '.';
-                        } else {
-                            message = message + ' that we are aware of.';
-                        }
-                    }
-
-                    textElem.innerHTML = prefix + $('#interactionType :selected').text() + message + '<p>Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.</p>';
-                    document.getElementById('info').appendChild(textElem);
-
-                    Object.keys(distinctNames).forEach(function (name) {
-                        globiData.findTaxonInfo(name, function (taxonInfo) {
-                            var label = name;
-                            if (taxonInfo.scientificName) {
-                                label = taxonInfo.scientificName;
-                            }
-                            if (taxonInfo.commonName !== null) {
-                                label = taxonInfo.commonName + '<br>(' + label + ')';
-                            }
-                            var label = '<td>' + label + '</td>';
-                            if (taxonInfo.infoURL) {
-                                var link = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>';
-                                var image = '';
-                                if (taxonInfo.thumbnailURL) {
-                                    image = '<img src="' + taxonInfo.thumbnailURL + '"/>';
-                                }
-                                label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table></a>';
-                            }
-                            $('.' + className(name)).html(label);
-                        });
-                    });
-
-                    Object.keys(distinctInteractions).forEach(function(distinctInteractionKey) {
-                        var distinctInteraction = distinctInteractions[distinctInteractionKey];
-                        var search = { sourceTaxa: [distinctInteraction.source_taxon_name], targetTaxa: [distinctInteraction.target_taxon_name]
-                            , interactionType: distinctInteraction.interaction_type
-                            , includeObservations: 'true', exactNameMatchOnly: 'true', fields: ['study_citation', 'study_url', 'study_source_citation'] };
-                        globiData.findSpeciesInteractions(search, function(distinctInteractionResults) {
-                            distinctInteractionResults.forEach(function(distinctInteractionResult) {
-                                var studyId = className(distinctInteractionKey + distinctInteractionResult.study_citation);
-                                if ($('#' + studyId).length == 0) {
-                                    var citationElem = document.createElement('li');
-                                    citationElem.setAttribute('id', studyId);
-                                    var textElem = document.createElement('b');
-                                    var study = {citation: distinctInteractionResult.study_citation,
-                                        url: distinctInteractionResult.study_url,
-                                        source: distinctInteractionResult.study_source_citation};
-
-                                    textElem.textContent = study.citation + ' ';
-                                    citationElem.appendChild(textElem);
-                                    appendLinkElem(citationElem, study);
-                                    var span = document.createElement('span');
-                                    span.textContent = ' ';
-                                    citationElem.appendChild(span);
-                                    appendShowElem(citationElem, study);
-
-                                    var sourceElem = document.createElement('span');
-                                    sourceElem.textContent = ' Provider: ' + study.source;
-                                    citationElem.appendChild(sourceElem);
-                                    $('.' + className(distinctInteractionKey)).append(citationElem);
-                                }
-                            });
-                        });
-                    });
-
-                };
-                globiData.findSpeciesInteractions(search, callback);
-            };
-
-            $(".suggest").autocomplete({
-                minLength: 3,
-                source: function (request, response) {
-                    globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
-                        var suggestions = [];
-                        closeMatches.forEach(function (closeMatch, index) {
-                            suggestions[index] = {
-                                label: labelForTaxon(closeMatch),
-                                value: closeMatch.scientificName
-                            };
-                        });
-                        response(suggestions);
-                    });
-                },
-                select: function (event, ui) {
-                    searchForInteractions();
-                }
-            });
-
-            var onEnter = function(e, ui) {
-                if(e.keyCode == 13)
-                {
-                    searchForInteractions();
-                }
-            };
-            $("#taxonInputField").change(function (event, ui) {
-                searchForInteractions();
-            });
-            $("#taxonInputField").keyup(onEnter);
-
-            $("#interactionType").change(function (event, ui) {
-                searchForInteractions();
-            });
-            $("#studySearchField").keyup(onEnter);
-        });
-
-        var init = function () {
-            var params = queryString.parse(document.location.hash);
-            globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
-            $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
-            $('#studySearchField').val(params.accordingTo);
-            $('#taxonInputField').val(params.sourceTaxon);
-
-            if (params.sourceTaxon) {
-                $('#taxonInputField').change();
-            } else if (params.accordingTo) {
-                $('#taxonInputField').change();
-            }
-            $('#taxonInputField').focus();
-            buildMenu();
-        }
-    </script>
 </head>
-<body onload="init()">
+<body>
 <div class="ui-widget">
     <p>What do
         <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="organisms"/>
@@ -251,5 +34,222 @@
     <table id="result">
     </table>
 </div>
+<script src="https://rawgit.com/jhpoelen/eol-globi-data-js/master/globi-data-dist.js"></script>
+<script src="menu.js"></script>
+<script src="links.js"></script>
+<script src="query-string.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script>
+$(function () {
+    var labelForTaxon = function (taxon) {
+        var englishName;
+        if (taxon.commonNames) {
+            englishName = taxon.commonNames['en'];
+        }
+        var suggestion = taxon.scientificName;
+        if (englishName !== undefined) {
+            suggestion = englishName + ' (' + suggestion + ')';
+        }
+        return suggestion;
+    };
+
+    var className = function (someString) {
+        return someString.replace(/\W/g, '_');
+    }
+
+    var searchForInteractions = function () {
+        var sourceTaxonName = $('#taxonInputField').val();
+        var sourceTaxonLabel = sourceTaxonName;
+        var interactionType = $('#interactionType').find(":selected").val();
+        var studyQuery = $('#studySearchField').val();
+        var searchHash = {};
+        var search = { fields: ['source_taxon_name', 'target_taxon_name', 'interaction_type'] };
+        if (sourceTaxonName.length > 0) {
+            searchHash.sourceTaxon = sourceTaxonName;
+            search.sourceTaxa = [sourceTaxonName];
+        }
+        if (interactionType.length > 0) {
+            searchHash.interactionType = interactionType;
+            search.interactionType = interactionType;
+        }
+        if (studyQuery.length > 0) {
+            searchHash.accordingTo = studyQuery;
+            search.accordingTo = studyQuery;
+        }
+        document.location.hash = queryString.stringify(searchHash)
+
+        var callback = function (interactions) {
+            var resultDiv = document.getElementById('result');
+            $('.interaction').remove();
+            var distinctNames = {};
+            var distinctInteractions = {};
+            var counter = 0;
+            interactions.forEach(function (interaction) {
+                if (distinctNames[interaction.target_taxon_name] !== interaction.target_taxon_name) {
+                    row = document.createElement('tr');
+                    row.setAttribute('class', 'interaction');
+                    resultDiv.appendChild(row);
+                    var td = document.createElement('td');
+                    td.setAttribute('class', className(interaction.source_taxon_name));
+                    td.innerHTML = interaction.source_taxon_name;
+                    row.appendChild(td);
+                    td = document.createElement('td');
+                    div = document.createElement('div');
+                    div.setAttribute('class', className(interaction.interaction_type));
+                    div.textContent = interaction.interaction_type;
+                    td.appendChild(div);
+                    row.appendChild(td);
+                    td = document.createElement('td');
+                    td.setAttribute('class', className(interaction.target_taxon_name));
+                    td.innerHTML = interaction.target_taxon_name;
+                    row.appendChild(td);
+
+                    var citationKey = (interaction.source_taxon_name + interaction.interaction_type + interaction.target_taxon_name);
+                    td = document.createElement('td');
+                    td.setAttribute('class', className(citationKey));
+                    row.appendChild(td);
+                    distinctNames[interaction.target_taxon_name] = interaction.target_taxon_name;
+                    distinctNames[interaction.source_taxon_name] = interaction.source_taxon_name;
+
+                    distinctInteractions[citationKey] = interaction;
+                    counter += 1;
+                }
+            });
+            distinctNames[sourceTaxonName] = sourceTaxonName;
+
+            var textElem = document.createElement('p')
+            textElem.setAttribute('class', 'interaction');
+            if (sourceTaxonLabel.length == 0) {
+                sourceTaxonLabel = 'organisms';
+            }
+            var prefix = '<span class="' + className(sourceTaxonName) + '">' + sourceTaxonLabel + '</span> ';
+            var message = '... plenty of things';
+            if (studyQuery.length > 0) {
+                message = message + ' according to ' + studyQuery;
+            }
+            message = message + '!';
+            if (counter == 0) {
+                message = '... nothing ';
+                if (studyQuery.length > 0) {
+                    message = message + ' according to ' + studyQuery + '.';
+                } else {
+                    message = message + ' that we are aware of.';
+                }
+            }
+
+            textElem.innerHTML = prefix + $('#interactionType :selected').text() + message + '<p>Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.</p>';
+            document.getElementById('info').appendChild(textElem);
+
+            Object.keys(distinctNames).forEach(function (name) {
+                globiData.findTaxonInfo(name, function (taxonInfo) {
+                    var label = name;
+                    if (taxonInfo.scientificName) {
+                        label = taxonInfo.scientificName;
+                    }
+                    if (taxonInfo.commonName !== null) {
+                        label = taxonInfo.commonName + '<br>(' + label + ')';
+                    }
+                    var label = '<td>' + label + '</td>';
+                    if (taxonInfo.infoURL) {
+                        var link = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>';
+                        var image = '';
+                        if (taxonInfo.thumbnailURL) {
+                            image = '<img src="' + taxonInfo.thumbnailURL + '"/>';
+                        }
+                        label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table></a>';
+                    }
+                    $('.' + className(name)).html(label);
+                });
+            });
+
+            Object.keys(distinctInteractions).forEach(function (distinctInteractionKey) {
+                var distinctInteraction = distinctInteractions[distinctInteractionKey];
+                var search = { sourceTaxa: [distinctInteraction.source_taxon_name], targetTaxa: [distinctInteraction.target_taxon_name], interactionType: distinctInteraction.interaction_type, includeObservations: 'true', exactNameMatchOnly: 'true', fields: ['study_citation', 'study_url', 'study_source_citation'] };
+                globiData.findSpeciesInteractions(search, function (distinctInteractionResults) {
+                    distinctInteractionResults.forEach(function (distinctInteractionResult) {
+                        var studyId = className(distinctInteractionKey + distinctInteractionResult.study_citation);
+                        if ($('#' + studyId).length == 0) {
+                            var citationElem = document.createElement('li');
+                            citationElem.setAttribute('id', studyId);
+                            var textElem = document.createElement('b');
+                            var study = {citation: distinctInteractionResult.study_citation,
+                                url: distinctInteractionResult.study_url,
+                                source: distinctInteractionResult.study_source_citation};
+
+                            textElem.textContent = study.citation + ' ';
+                            citationElem.appendChild(textElem);
+                            appendLinkElem(citationElem, study);
+                            var span = document.createElement('span');
+                            span.textContent = ' ';
+                            citationElem.appendChild(span);
+                            appendShowElem(citationElem, study);
+
+                            var sourceElem = document.createElement('span');
+                            sourceElem.textContent = ' Provider: ' + study.source;
+                            citationElem.appendChild(sourceElem);
+                            $('.' + className(distinctInteractionKey)).append(citationElem);
+                        }
+                    });
+                });
+            });
+
+        };
+        globiData.findSpeciesInteractions(search, callback);
+    };
+
+    $(".suggest").autocomplete({
+        minLength: 3,
+        source: function (request, response) {
+            globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
+                var suggestions = [];
+                closeMatches.forEach(function (closeMatch, index) {
+                    suggestions[index] = {
+                        label: labelForTaxon(closeMatch),
+                        value: closeMatch.scientificName
+                    };
+                });
+                response(suggestions);
+            });
+        },
+        select: function (event, ui) {
+            searchForInteractions();
+        }
+    });
+
+    var onEnter = function (e, ui) {
+        if (e.keyCode == 13) {
+            searchForInteractions();
+        }
+    };
+    $("#taxonInputField").change(function (event, ui) {
+        searchForInteractions();
+    });
+    $("#taxonInputField").keyup(onEnter);
+
+    $("#interactionType").change(function (event, ui) {
+        searchForInteractions();
+    });
+    $("#studySearchField").keyup(onEnter);
+});
+
+var init = function () {
+    buildMenu();
+    var params = queryString.parse(document.location.hash);
+    globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
+    $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
+    $('#studySearchField').val(params.accordingTo);
+    $('#taxonInputField').val(params.sourceTaxon);
+
+    if (params.sourceTaxon) {
+        $('#taxonInputField').change();
+    } else if (params.accordingTo) {
+        $('#taxonInputField').change();
+    }
+    $('#taxonInputField').focus();
+}
+
+init();
+</script>
 </body>
 </html>
