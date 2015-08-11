@@ -18,6 +18,7 @@
         "globi": "~0.0.51",
         "spin.js": "~2.3.2",
         "node-js-marker-clusterer": "~1.0.0",
+        "jquery": "2.1.4",
         "jquery-ui": "1.10.5"
     },
 
@@ -35,6 +36,7 @@
         "preinstall": "npm install node_modules/globi-bundle node_modules/globi-wheel node_modules/globi-hairball",
         "test": "testling",
         "test-browser": "browserify -t brfs test/*.js test/browser/*.js | testling",
+        "build-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs > static/globi-web-min.js",
         "build": "browserify -t brfs index.js --standalone globi-web -o static/globi-web.js",
         "watch": "watchify index.js --standalone globi-web -o static/globi-web.js --debug --verbose"
     },

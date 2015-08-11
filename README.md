@@ -15,6 +15,7 @@ This website is (partly) built using [npm](https://npmjs.org), [browserify](http
 ```
 npm install -g watcherify
 npm install -g browserify
+npm install -g uglify-js
 ```
 
 ## building
