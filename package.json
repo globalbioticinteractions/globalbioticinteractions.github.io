@@ -12,9 +12,11 @@
     },
 
     "dependencies": {
-      "globi-bundle" : "0.0.1",
-      "globi-wheel" : "0.0.1",
-      "globi-hairball" : "0.0.1"
+        "globi-bundle": "0.0.1",
+        "globi-wheel": "0.0.1",
+        "globi-hairball": "0.0.1",
+        "globi": "~0.0.51",
+        "jquery-ui": "1.10.5"
     },
 
     "devDependencies": {

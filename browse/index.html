@@ -176,13 +176,13 @@
 <script>
     buildMenu();
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script src="https://rawgit.com/jhpoelen/eol-globi-js/master/globi-dist.js"></script>
+<script type="text/javascript" src="../static/globi-web.js"></script>
 <script>
-    var $ = jQuery = globi.jQuery;
-    var d3 = globi.d3;
+    var $ = jQuery = globiWeb.globi.jQuery;
+    var d3 = globiWeb.globi.d3;
+    var globiData = globiWeb.globi.globiData;
 </script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script src="../vendor/jquery.tokeninput/jquery.tokeninput.js"></script>
 <script src="../vendor/markerclusterer.js"></script>
 <script src="spatialsearch.js"></script>
@@ -219,7 +219,7 @@
             dotURL,
             '">dot</a> file',
             '</div>',
-            '<div><strong>share: </strong><input type="text" value="' + globi.globiData.addQueryParams(window.location.origin + window.location.pathname + '?', locationParams) + '"></div><br />'
+            '<div><strong>share: </strong><input type="text" value="' + globiData.addQueryParams(window.location.origin + window.location.pathname + '?', locationParams) + '"></div><br />'
         ].join('');
     }
 
@@ -233,7 +233,7 @@
     };
 
     var createInteractionURL = function (locationParams, type) {
-        return globi.globiData.addQueryParams(urlPrefix() + '/interaction?type=' + type, locationParams);
+        return globiData.addQueryParams(urlPrefix() + '/interaction?type=' + type, locationParams);
     };
 
     var showAreaInfos = function (element) {
@@ -343,7 +343,6 @@
     };
 </script>
 <script type="text/javascript" src="treeoflife.js"></script>
-<script type="text/javascript" src="../static/globi-web.js"></script>
 <script src="panel.js"></script>
 </body>
 </html>
