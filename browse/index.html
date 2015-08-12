@@ -114,7 +114,7 @@
     var showAreaInfos = function (element) {
         var spatialSelection = jQuery(element).data('spatial-selection');
         spatialSelectionChanged(spatialSelection);
-    }
+    };
 
     var spatialSelectionChanged = function (spatialSelection) {
         treeSpinner = SpinnerFactory(panels.topRightContainer);
@@ -144,9 +144,9 @@
                     w.spinner.spin();
                 });
 
-                var panel = document.querySelector(panels.topLeft);
-                var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
                 widgets.forEach(function (w) {
+                    var panel = document.querySelector(w.target).parentElement;
+                    var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
                     var widget = w.factory({ json: json, canvasDimension: canvasDimension });
                     widget.appendTo(w.target);
                     widget.on('append', function (target) {
