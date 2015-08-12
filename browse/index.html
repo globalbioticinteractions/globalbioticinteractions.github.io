@@ -67,7 +67,7 @@
     var urlPrefix = function () {
         return 'http://api.globalbioticinteractions.org';
     };
-    var treeSpinner, wheelSpinner, bundleSpinner, mapSpinner;
+    var treeSpinner, wheelSpinner, bundleSpinner;
     function infoBoxText(idString, locationParams) {
         var downloadParams = $.extend({}, locationParams, {includeObservations: true,
             fields: ['source_taxon_path', 'source_taxon_path_ids'
@@ -113,8 +113,10 @@
 
     var showAreaInfos = function (element) {
         var spatialSelection = jQuery(element).data('spatial-selection');
-        var $panel = jQuery(panels.topLeft), canvasHeight = $panel.height(), canvasWidth = $panel.width();
+        spatialSelectionChanged(spatialSelection);
+    }
 
+    var spatialSelectionChanged = function (spatialSelection) {
         treeSpinner = SpinnerFactory(panels.topRightContainer);
         wheelSpinner = SpinnerFactory(panels.bottomLeftContainer);
         bundleSpinner = SpinnerFactory(panels.bottomRightContainer);
@@ -135,12 +137,16 @@
                 ];
 
                 widgets.forEach(function (w) {
-                    jQuery(w.target).empty();
+                    var oldWidgetContainer = document.querySelector(w.target);
+                    while (oldWidgetContainer.firstChild) {
+                        oldWidgetContainer.removeChild(oldWidgetContainer.firstChild);
+                    }
                     w.spinner.spin();
                 });
 
+                var panel = document.querySelector(panels.topLeft);
+                var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
                 widgets.forEach(function (w) {
-                    var canvasDimension = { height: canvasHeight, width: canvasWidth };
                     var widget = w.factory({ json: json, canvasDimension: canvasDimension });
                     widget.appendTo(w.target);
                     widget.on('append', function (target) {
@@ -153,17 +159,20 @@
     };
 
     jQuery(function () {
-        var urlParameters = getUrlParameters();
-        var bbox = urlParameters[ 'bbox' ] ? urlParameters[ 'bbox' ].split(',') : false;
-        var lat = urlParameters[ 'lat' ] || false, lng = urlParameters[ 'lng' ] || false;
-
         var map = initializeMap(panels.topLeft);
-        var markers = [];
-        var markerClusterer = null;
+        var mapSpinner = SpinnerFactory(panels.topLeft);
         var areapicker = new AreaPicker(map);
-        mapSpinner = SpinnerFactory(panels.topLeft);
+        var params = searchParams(window.location.search);
+        if (params.bbox) {
+            areapicker.setBounds(toLatLngBounds(params.bbox)).show();
+            areapicker.control_.setActive();
+            map.panToBounds(areapicker.bounds_);
+            spatialSelectionChanged(boundsToLocationParams(areapicker.bounds_));
+        }
+
         d3.json(urlPrefix() + '/locations', function (locations) {
             if (locations) {
+                var markers = [];
                 locations = locations.data;
                 for (var index in locations) {
                     if (locations.hasOwnProperty(index)) {
@@ -172,27 +181,9 @@
                         markers.push(placeMarker(content, location, map));
                     }
                 }
-                markerClusterer = initializeMarkerClusterer(map, markers);
+                initializeMarkerClusterer(map, markers);
             }
             mapSpinner.stop();
-            if (lat && lng) {
-                bbox = [];
-                bbox[ 0 ] = lng >= 0 ? lng * 0.96 : lng * 1.04;
-                bbox[ 1 ] = lat >= 0 ? lat * 0.99 : lat * 1.01;
-                bbox[ 2 ] = lng >= 0 ? lng * 1.04 : lng * 0.96;
-                bbox[ 3 ] = lat >= 0 ? lat * 1.01 : lat * 0.99;
-            }
-            if (bbox) {
-                var bounds = new google.maps.LatLngBounds(
-                        new google.maps.LatLng(bbox[ 1 ], bbox[ 0 ]),
-                        new google.maps.LatLng(bbox[ 3 ], bbox[ 2 ])
-                );
-                areapicker.setBounds(bounds).show();
-                areapicker.control_.setActive();
-                map.panToBounds(bounds);
-                jQuery('#area-selection').trigger('click');
-            }
-
         });
     });
 
