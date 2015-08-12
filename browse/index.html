@@ -112,8 +112,7 @@
     };
 
     var showAreaInfos = function (element) {
-        var spatialSelection = jQuery(element).data('spatial-selection');
-        spatialSelectionChanged(spatialSelection);
+        spatialSelectionChanged(element.dataset.spatialSelection);
     };
 
     var spatialSelectionChanged = function (spatialSelection) {
