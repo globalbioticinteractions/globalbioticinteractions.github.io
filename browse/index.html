@@ -63,49 +63,12 @@
 <script src="../node_modules/globi-search/lib/jquery.tokeninput.js"></script>
 <script src="../node_modules/globi-map/lib/spatialsearch.js"></script>
 <script src="../node_modules/globi-map/lib/areapicker.js"></script>
+<script src="../node_modules/globi-map/lib/infobox.js"></script>
 <script>
     var urlPrefix = function () {
         return 'http://api.globalbioticinteractions.org';
     };
     var treeSpinner, wheelSpinner, bundleSpinner;
-    function infoBoxText(idString, locationParams) {
-        var downloadParams = $.extend({}, locationParams, {includeObservations: true,
-            fields: ['source_taxon_path', 'source_taxon_path_ids'
-                , 'interaction_type'
-                , 'target_taxon_path', 'target_taxon_path_ids'
-                , 'study_citation', 'study_source_citation']})
-        var dotURL = createInteractionURL(downloadParams, 'dot');
-        var jsonURL = createInteractionURL(downloadParams, 'json.v2');
-        var csvURL = createInteractionURL(downloadParams, 'csv');
-        return [
-            "<div><a onclick='showAreaInfos( this )' id='",
-            idString,
-            "'", "href='#' data-spatial-selection='",
-            JSON.stringify(locationParams),
-            "'>",
-            '<span>show</span></a> interactions<br/>get ',
-            '<a href="',
-            csvURL,
-            '">csv</a>, ',
-            '<a href="',
-            jsonURL,
-            '">json</a>, or ',
-            '<a href="',
-            dotURL,
-            '">dot</a> file',
-            '</div>',
-            '<div><strong>share: </strong><input type="text" value="' + globiData.addQueryParams(window.location.origin + window.location.pathname + '?', locationParams) + '"></div><br />'
-        ].join('');
-    }
-
-    function areaInfoBox(locationParams) {
-        return infoBoxText('area-selection', locationParams);
-
-    }
-
-    var locationInfoBox = function (locationParams) {
-        return infoBoxText('location-selection', locationParams);
-    };
 
     var createInteractionURL = function (locationParams, type) {
         return globiData.addQueryParams(urlPrefix() + '/interaction?type=' + type, locationParams);
