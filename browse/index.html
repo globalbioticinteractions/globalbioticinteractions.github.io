@@ -39,6 +39,7 @@
             height: 100%;
             width: 100%;
         }
+
         body {
             overflow: hidden;
         }
@@ -56,6 +57,13 @@
     var globiData = globiWeb.globi.globiData;
     var Spinner = globiWeb.Spinner;
     var panels = globiWeb.panels();
+    var topLeft = '#map';
+    var topRight = '#tree';
+    var topRightContainer = '#tree-container';
+    var bottomLeft = '#dependencyWheel';
+    var bottomLeftContainer = '#dependency-wheel-container';
+    var bottomRight = '#bundle';
+    var bottomRightContainer = '#bundle-container';
     panels.appendTo(document.body);
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script>
@@ -112,12 +120,12 @@
 
     var showAreaInfos = function (element) {
         var spatialSelection = jQuery(element).data('spatial-selection');
-        var $panel = jQuery('#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
+        var $panel = jQuery(topLeft), canvasHeight = $panel.height(), canvasWidth = $panel.width();
 
-        treeSpinner = SpinnerFactory('#tree-container');
-        wheelSpinner = SpinnerFactory('#dependency-wheel-container');
-        bundleSpinner = SpinnerFactory('#bundle-container');
-        var $treeContainer = jQuery('#tree-container');
+        treeSpinner = SpinnerFactory(topRightContainer);
+        wheelSpinner = SpinnerFactory(bottomLeftContainer);
+        bundleSpinner = SpinnerFactory(bottomRightContainer);
+        var $treeContainer = jQuery(topRightContainer);
         if ($treeContainer.data('plugin_interactions')) {
             $treeContainer.data('plugin_interactions').update(spatialSelection);
         } else {
@@ -129,8 +137,8 @@
         d3.json(dataSetUrl, function (json) {
             if (json.length) {
                 var widgets = [
-                    {factory: globiWeb.wheel, target: '#dependency-wheel-container', spinner: wheelSpinner},
-                    {factory: globiWeb.bundle, target: '#bundle-container', spinner: bundleSpinner}
+                    {factory: globiWeb.wheel, target: bottomLeftContainer, spinner: wheelSpinner},
+                    {factory: globiWeb.bundle, target: bottomRightContainer, spinner: bundleSpinner}
                 ];
 
                 widgets.forEach(function (w) {
@@ -156,11 +164,11 @@
         var bbox = urlParameters[ 'bbox' ] ? urlParameters[ 'bbox' ].split(',') : false;
         var lat = urlParameters[ 'lat' ] || false, lng = urlParameters[ 'lng' ] || false;
 
-        var map = initializeMap('#map'),
-                markers = [],
-                markerClusterer = null,
-                areapicker = new AreaPicker(map);
-        mapSpinner = SpinnerFactory('#map');
+        var map = initializeMap(topLeft);
+        var markers = [];
+        var markerClusterer = null;
+        var areapicker = new AreaPicker(map);
+        mapSpinner = SpinnerFactory(topLeft);
         d3.json(urlPrefix() + '/locations', function (locations) {
             if (locations) {
                 locations = locations.data;
