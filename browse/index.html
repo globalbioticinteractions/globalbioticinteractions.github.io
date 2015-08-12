@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../globi.css"/>
     <link rel="stylesheet" href="../node_modules/globi-search/style.css"/>
-    <link rel="stylesheet" href="spatialsearch.css"/>
+    <link rel="stylesheet" href="../node_modules/globi-map/spatialsearch.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <style>
         table.interactions-result {
@@ -61,8 +61,8 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script>
 <script src="../node_modules/globi-search/lib/jquery.tokeninput.js"></script>
-<script src="spatialsearch.js"></script>
-<script src="areapicker.js"></script>
+<script src="../node_modules/globi-map/lib/spatialsearch.js"></script>
+<script src="../node_modules/globi-map/lib/areapicker.js"></script>
 <script>
     var urlPrefix = function () {
         return 'http://api.globalbioticinteractions.org';
@@ -141,7 +141,7 @@
 
                 widgets.forEach(function (w) {
                     var canvasDimension = { height: canvasHeight, width: canvasWidth };
-                    var widget = w.factory({ json: json, canvasDimension: canvasDimension })
+                    var widget = w.factory({ json: json, canvasDimension: canvasDimension });
                     widget.appendTo(w.target);
                     widget.on('append', function (target) {
                         w.spinner.stop();
