@@ -6,12 +6,13 @@ var MarkerClusterer = require('node-js-marker-clusterer');
 
 module.exports = {
     bundle: require('globi-bundle'),
+    panel: require('globi-panel'),
     Spinner: require('spin.js'),
     hairball: require('globi-hairball'),
     wheel: require('globi-wheel'),
     globi: globi
 };
-},{"globi":58,"globi-bundle":43,"globi-hairball":48,"globi-wheel":53,"jquery-ui":63,"node-js-marker-clusterer":65,"spin.js":66}],2:[function(require,module,exports){
+},{"globi":60,"globi-bundle":43,"globi-hairball":48,"globi-panel":53,"globi-wheel":55,"jquery-ui":65,"node-js-marker-clusterer":67,"spin.js":68}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
 arguments[4][2][0].apply(exports,arguments)
@@ -16844,6 +16845,26 @@ arguments[4][10][0].apply(exports,arguments)
 },{"dup":10}],52:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
 },{"dup":47}],53:[function(require,module,exports){
+var css = ".panel {\n    height: 50%;\n    width: 50%;\n    position: absolute;\n    z-index: 1;\n    overflow: auto;\n}\n\n.panel-top-left {\n    left: 0;\n    top: 0;\n}\n\n.panel-top-right {\n    right: 0;\n    top: 0;\n}\n\n.panel-bottom-left {\n    left: 0;\n    bottom: 0;\n}\n\n.panel-bottom-right {\n    right: 0;\n    bottom: 0;\n}\n\n.btn {\n    position: fixed;\n    border: 1px solid #777;\n    border-radius: 3px;\n    width: 15px;\n    height: 15px;\n    background: rgba(238, 238, 238, .60);\n    margin: 1px;\n    color: #777;\n    padding: 0;\n    font-size: 12px;\n    line-height: 14px;\n    text-align: center;\n}\n\n.btn:hover {\n    background: rgba(204, 204, 204, .60);\n    cursor: pointer;\n    font-size: 16px;\n}\n\n.min {\n    animation-duration: 1s;\n    animation-name: minimize;\n    height: 50%;\n    width: 50%;\n    z-index: 1;\n}\n\n.max {\n    animation-duration: 1s;\n    animation-name: maximize;\n    height: 100%;\n    width: 100%;\n    z-index: 2;\n}\n\n@keyframes maximize {\n    from {\n        height: 50%;\n        width: 50%;\n    }\n    to {\n        height: 100%;\n        width: 100%;\n    }\n}\n\n@keyframes minimize {\n    from {\n        height: 100%;\n        width: 100%;\n    }\n\n    to {\n        height: 50%;\n        width: 50%;\n    }\n}";
+require('insert-css')(css);
+
+module.exports = function() {
+    var buttons = document.querySelectorAll('.btn');
+    for (var i = 0; i < buttons.length; ++i) {
+        var button = buttons[i];
+        button.addEventListener('click', function() {
+            var minMax = ['min','max'];
+            if (this.parentElement.classList.contains('max')) {
+                minMax = minMax.reverse();
+            }
+            this.parentElement.classList.remove(minMax[0]);
+            this.parentElement.classList.add(minMax[1]);
+        });
+    }
+};
+},{"insert-css":54}],54:[function(require,module,exports){
+arguments[4][47][0].apply(exports,arguments)
+},{"dup":47}],55:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -17057,7 +17078,7 @@ var dependencyWheel = function () {
 
 
 
-},{"./lib/transform.js":54,"d3":55,"events":8,"inherits":56,"insert-css":57}],54:[function(require,module,exports){
+},{"./lib/transform.js":56,"d3":57,"events":8,"inherits":58,"insert-css":59}],56:[function(require,module,exports){
 module.exports = {
     convertJsonForDependencyWheel: convertJsonForDependencyWheel
 };
@@ -17111,13 +17132,13 @@ function convertJsonForDependencyWheel(json) {
         matrix: matrix
     };
 };
-},{}],55:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],56:[function(require,module,exports){
+},{"dup":45}],58:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],57:[function(require,module,exports){
+},{"dup":10}],59:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"dup":47}],58:[function(require,module,exports){
+},{"dup":47}],60:[function(require,module,exports){
 var d3 = require('d3');
 var globiData = require('globi-data');
 var EventEmitter = require('events').EventEmitter;
@@ -18498,7 +18519,7 @@ globi.ResponseMapper = function() {
 
 module.exports = globi;
 
-},{"d3":60,"events":8,"globi-data":61,"jquery":64}],59:[function(require,module,exports){
+},{"d3":62,"events":8,"globi-data":63,"jquery":66}],61:[function(require,module,exports){
 d3 = function() {
   var d3 = {
     version: "3.2.8"
@@ -27309,12 +27330,12 @@ d3 = function() {
   });
   return d3;
 }();
-},{}],60:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 require("./d3");
 module.exports = d3;
 (function () { delete this.d3; })(); // unset global
 
-},{"./d3":59}],61:[function(require,module,exports){
+},{"./d3":61}],63:[function(require,module,exports){
 var nodeXHR = require("xmlhttprequest");
 var globiData = {};
 
@@ -27650,7 +27671,7 @@ globiData.findThumbnailById = function (search, callback) {
 
 module.exports = globiData;
 
-},{"xmlhttprequest":62}],62:[function(require,module,exports){
+},{"xmlhttprequest":64}],64:[function(require,module,exports){
 (function (process,Buffer){
 /**
  * Wrapper for built-in http.js to emulate the browser XMLHttpRequest object.
@@ -28253,7 +28274,7 @@ exports.XMLHttpRequest = function() {
 };
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],63:[function(require,module,exports){
+},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],65:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*! jQuery UI - v1.10.3 - 2013-05-03
@@ -43260,7 +43281,7 @@ $.widget( "ui.tooltip", {
 
 }( jQuery ) );
 
-},{"jquery":64}],64:[function(require,module,exports){
+},{"jquery":66}],66:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -52472,7 +52493,7 @@ return jQuery;
 
 }));
 
-},{}],65:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 (function (global){
 /**
  * Npm version of markerClusterer works great with browserify and google maps for commonjs
@@ -53772,7 +53793,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 module.exports = MarkerClusterer;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],66:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 /**
  * Copyright (c) 2011-2014 Felix Gnass
  * Licensed under the MIT license

@@ -74,55 +74,6 @@
             position: absolute;
         }
 
-        .panel {
-            height: 50%;
-            width: 50%;
-            position: absolute;
-            z-index: 1;
-            overflow: auto;
-        }
-
-        .panel-top-left {
-            left: 0;
-            top: 0;
-        }
-
-        .panel-top-right {
-            right: 0;
-            top: 0;
-        }
-
-        .panel-bottom-left {
-            left: 0;
-            bottom: 0;
-        }
-
-        .panel-bottom-right {
-            right: 0;
-            bottom: 0;
-        }
-
-        .btn {
-            position: fixed;
-            border: 1px solid #777;
-            border-radius: 3px;
-            width: 15px;
-            height: 15px;
-            background: rgba(238, 238, 238, .60);
-            margin: 1px;
-            color: #777;
-            padding: 0;
-            font-size: 12px;
-            line-height: 14px;
-            text-align: center;
-        }
-
-        .btn:hover {
-            background: rgba(204, 204, 204, .60);
-            cursor: pointer;
-            font-size: 16px;
-        }
-
         #tree-container {
             overflow: auto;
         }
@@ -146,10 +97,10 @@
 </head>
 <body>
 <div id="panels">
-    <div class="panel panel-top-left" id="map">
+    <div class="panel panel-top-left min" id="map">
         &nbsp;
     </div>
-    <div class="panel panel-top-right" id="tree">
+    <div class="panel panel-top-right min" id="tree">
         <div class="btn" title="maximize / minimize">&#9712;</div>
         <div id="tree-container">
             <div id="welcome">
@@ -163,11 +114,11 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-bottom-left" id="dependency-wheel">
+    <div class="panel panel-bottom-left min" id="dependency-wheel">
         <div class="btn" title="maximize / minimize">&#9712;</div>
         <div id="dependency-wheel-container"></div>
     </div>
-    <div class="panel panel-bottom-right" id="bundle">
+    <div class="panel panel-bottom-right min" id="bundle">
         <div class="btn" title="maximize / minimize">&#9712;</div>
         <div id="bundle-container"></div>
     </div>
@@ -182,6 +133,7 @@
     var d3 = globiWeb.globi.d3;
     var globiData = globiWeb.globi.globiData;
     var Spinner = globiWeb.Spinner;
+    globiWeb.panel();
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script>
 <script src="../node_modules/globi-search/lib/jquery.tokeninput.js"></script>
@@ -341,6 +293,5 @@
         return new Spinner(SpinnerOptions).spin(target);
     };
 </script>
-<script src="panel.js"></script>
 </body>
 </html>
