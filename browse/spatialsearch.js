@@ -1,9 +1,9 @@
 var currentInfoWindow;
 
-function initializeMap( location, zoom ) {
+function initializeMap( target, location, zoom ) {
     location = location || { latitude: 0, longitude: 0 };
     zoom = zoom || 1;
-    return new google.maps.Map( document.getElementById( 'map' ), {
+    return new google.maps.Map( document.querySelector(target), {
         zoom: zoom,
         center: new google.maps.LatLng( location.latitude, location.longitude ),
         mapTypeId: google.maps.MapTypeId.ROADMAP

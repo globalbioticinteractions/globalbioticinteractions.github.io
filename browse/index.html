@@ -114,9 +114,9 @@
         var spatialSelection = jQuery(element).data('spatial-selection');
         var $panel = jQuery('#map'), canvasHeight = $panel.height(), canvasWidth = $panel.width();
 
-        treeSpinner = SpinnerFactory('tree-container');
-        wheelSpinner = SpinnerFactory('dependency-wheel-container');
-        bundleSpinner = SpinnerFactory('bundle-container');
+        treeSpinner = SpinnerFactory('#tree-container');
+        wheelSpinner = SpinnerFactory('#dependency-wheel-container');
+        bundleSpinner = SpinnerFactory('#bundle-container');
         var $treeContainer = jQuery('#tree-container');
         if ($treeContainer.data('plugin_interactions')) {
             $treeContainer.data('plugin_interactions').update(spatialSelection);
@@ -156,11 +156,11 @@
         var bbox = urlParameters[ 'bbox' ] ? urlParameters[ 'bbox' ].split(',') : false;
         var lat = urlParameters[ 'lat' ] || false, lng = urlParameters[ 'lng' ] || false;
 
-        var map = initializeMap(),
+        var map = initializeMap('#map'),
                 markers = [],
                 markerClusterer = null,
                 areapicker = new AreaPicker(map);
-        mapSpinner = SpinnerFactory('map');
+        mapSpinner = SpinnerFactory('#map');
         d3.json(urlPrefix() + '/locations', function (locations) {
             if (locations) {
                 locations = locations.data;
@@ -211,9 +211,8 @@
         zIndex: 2e9 // The z-index (defaults to 2000000000)
     };
 
-    var SpinnerFactory = function (id) {
-        var target = document.getElementById(id);
-        return new Spinner(SpinnerOptions).spin(target);
+    var SpinnerFactory = function (target) {
+        return new Spinner(SpinnerOptions).spin(document.querySelector(target));
     };
 </script>
 </body>
