@@ -5,7 +5,7 @@ var MarkerClusterer = require('node-js-marker-clusterer');
 
 module.exports = {
     bundle: require('globi-bundle'),
-    panel: require('globi-panel'),
+    panels: require('globi-panels'),
     Spinner: require('spin.js'),
     hairball: require('globi-hairball'),
     wheel: require('globi-wheel'),

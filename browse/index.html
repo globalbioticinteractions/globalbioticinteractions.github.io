@@ -39,90 +39,12 @@
             height: 100%;
             width: 100%;
         }
-
-        #map {
-            background: #b7b7b7;
-        }
-
-        #tree {
-            background: #dfdfdf;
-        }
-
-        #dependency-wheel {
-            background: #dfdfdf;
-        }
-
-        #bundle {
-            background: #b7b7b7;
-        }
-
-        #tree h3, #dependency-wheel h3, #bundle h3 {
-            color: #cfcfcf;
-            text-align: center;
-            font-family: monospace;
-            font-size: 1.5em;
-        }
-    </style>
-    <style>
         body {
             overflow: hidden;
-        }
-
-        #panels {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-        }
-
-        #tree-container {
-            overflow: auto;
-        }
-
-        #welcome {
-            font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
-            padding: 50px;
-            text-align: center;
-        }
-
-        #welcome h1 {
-            font-size: 21px;
-            margin-bottom: 25px;
-        }
-
-        #welcome p {
-            font-size: 14px;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-<div id="panels">
-    <div class="panel panel-top-left min" id="map">
-        &nbsp;
-    </div>
-    <div class="panel panel-top-right min" id="tree">
-        <div class="btn" title="maximize / minimize">&#9712;</div>
-        <div id="tree-container">
-            <div id="welcome">
-                <h1>Welcome to the GloBI Interaction Browser!</h1>
-
-                <p>Please click on a marker or select an area to display species interactions!</p>
-
-                <p>
-                    <a target="_blank" href="http://blog.globalbioticinteractions.org">Learn more about GloBI</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-bottom-left min" id="dependency-wheel">
-        <div class="btn" title="maximize / minimize">&#9712;</div>
-        <div id="dependency-wheel-container"></div>
-    </div>
-    <div class="panel panel-bottom-right min" id="bundle">
-        <div class="btn" title="maximize / minimize">&#9712;</div>
-        <div id="bundle-container"></div>
-    </div>
-</div>
 <script src="../menu.js"></script>
 <script>
     buildMenu();
@@ -133,7 +55,8 @@
     var d3 = globiWeb.globi.d3;
     var globiData = globiWeb.globi.globiData;
     var Spinner = globiWeb.Spinner;
-    globiWeb.panel();
+    var panels = globiWeb.panels();
+    panels.appendTo(document.body);
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script>
 <script src="../node_modules/globi-search/lib/jquery.tokeninput.js"></script>

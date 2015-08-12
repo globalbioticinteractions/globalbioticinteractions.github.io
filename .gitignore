@@ -6,3 +6,4 @@ node_modules/*
 !node_modules/globi-wheel
 !node_modules/globi-hairball
 !node_modules/globi-search
+!node_modules/globi-panels

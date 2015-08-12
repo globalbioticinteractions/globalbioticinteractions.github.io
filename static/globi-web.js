@@ -6,13 +6,13 @@ var MarkerClusterer = require('node-js-marker-clusterer');
 
 module.exports = {
     bundle: require('globi-bundle'),
-    panel: require('globi-panel'),
+    panels: require('globi-panels'),
     Spinner: require('spin.js'),
     hairball: require('globi-hairball'),
     wheel: require('globi-wheel'),
     globi: globi
 };
-},{"globi":60,"globi-bundle":43,"globi-hairball":48,"globi-panel":53,"globi-wheel":55,"jquery-ui":65,"node-js-marker-clusterer":67,"spin.js":68}],2:[function(require,module,exports){
+},{"globi":62,"globi-bundle":43,"globi-hairball":48,"globi-panels":53,"globi-wheel":57,"jquery-ui":67,"node-js-marker-clusterer":69,"spin.js":70}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
 arguments[4][2][0].apply(exports,arguments)
@@ -16845,15 +16845,38 @@ arguments[4][10][0].apply(exports,arguments)
 },{"dup":10}],52:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
 },{"dup":47}],53:[function(require,module,exports){
-var css = ".panel {\n    height: 50%;\n    width: 50%;\n    position: absolute;\n    z-index: 1;\n    overflow: auto;\n}\n\n.panel-top-left {\n    left: 0;\n    top: 0;\n}\n\n.panel-top-right {\n    right: 0;\n    top: 0;\n}\n\n.panel-bottom-left {\n    left: 0;\n    bottom: 0;\n}\n\n.panel-bottom-right {\n    right: 0;\n    bottom: 0;\n}\n\n.btn {\n    position: fixed;\n    border: 1px solid #777;\n    border-radius: 3px;\n    width: 15px;\n    height: 15px;\n    background: rgba(238, 238, 238, .60);\n    margin: 1px;\n    color: #777;\n    padding: 0;\n    font-size: 12px;\n    line-height: 14px;\n    text-align: center;\n}\n\n.btn:hover {\n    background: rgba(204, 204, 204, .60);\n    cursor: pointer;\n    font-size: 16px;\n}\n\n.min {\n    animation-duration: 1s;\n    animation-name: minimize;\n    height: 50%;\n    width: 50%;\n    z-index: 1;\n}\n\n.max {\n    animation-duration: 1s;\n    animation-name: maximize;\n    height: 100%;\n    width: 100%;\n    z-index: 2;\n}\n\n@keyframes maximize {\n    from {\n        height: 50%;\n        width: 50%;\n    }\n    to {\n        height: 100%;\n        width: 100%;\n    }\n}\n\n@keyframes minimize {\n    from {\n        height: 100%;\n        width: 100%;\n    }\n\n    to {\n        height: 50%;\n        width: 50%;\n    }\n}";
-require('insert-css')(css);
 
-module.exports = function() {
-    var buttons = document.querySelectorAll('.btn');
+var insertCss = require('insert-css');
+var domify = require('domify');
+var inherits = require('inherits');
+var EventEmitter = require('events').EventEmitter;
+
+inherits(Panels, EventEmitter);
+module.exports = Panels;
+
+function Panels(opts) {
+    if (!(this instanceof Panels)) return new Panels(opts);
+    this.opts = opts;
+}
+
+Panels.prototype.appendTo = function (target) {
+    if (typeof target === 'string') target = document.querySelector(target);
+    var css = "#panels {\n    height: 100%;\n    width: 100%;\n    position: absolute;\n}\n\n.panel {\n    height: 50%;\n    width: 50%;\n    position: absolute;\n    z-index: 1;\n    overflow: auto;\n}\n\n.panel-top-left {\n    left: 0;\n    top: 0;\n}\n\n.panel-top-right {\n    right: 0;\n    top: 0;\n}\n\n.panel-bottom-left {\n    left: 0;\n    bottom: 0;\n}\n\n.panel-bottom-right {\n    right: 0;\n    bottom: 0;\n}\n\n.btn {\n    position: fixed;\n    border: 1px solid #777;\n    border-radius: 3px;\n    width: 15px;\n    height: 15px;\n    background: rgba(238, 238, 238, .60);\n    margin: 1px;\n    color: #777;\n    padding: 0;\n    font-size: 12px;\n    line-height: 14px;\n    text-align: center;\n}\n\n.btn:hover {\n    background: rgba(204, 204, 204, .60);\n    cursor: pointer;\n    font-size: 16px;\n}\n\n.min {\n    animation-duration: 1s;\n    animation-name: minimize;\n    height: 50%;\n    width: 50%;\n    z-index: 1;\n}\n\n.max {\n    animation-duration: 1s;\n    animation-name: maximize;\n    height: 100%;\n    width: 100%;\n    z-index: 2;\n}\n\n@keyframes maximize {\n    from {\n        height: 50%;\n        width: 50%;\n    }\n    to {\n        height: 100%;\n        width: 100%;\n    }\n}\n\n@keyframes minimize {\n    from {\n        height: 100%;\n        width: 100%;\n    }\n\n    to {\n        height: 50%;\n        width: 50%;\n    }\n}\n\n#map {\n    background: #b7b7b7;\n}\n\n#tree {\n    background: #dfdfdf;\n}\n\n#dependency-wheel {\n    background: #dfdfdf;\n}\n\n#bundle {\n    background: #b7b7b7;\n}\n\n#tree h3, #dependency-wheel h3, #bundle h3 {\n    color: #cfcfcf;\n    text-align: center;\n    font-family: monospace;\n    font-size: 1.5em;\n}\n\n#tree-container {\n    overflow: auto;\n}\n\n#welcome {\n    font-family: Helvetica, \"Helvetica Neue\", Arial, sans-serif;\n    padding: 50px;\n    text-align: center;\n}\n\n#welcome h1 {\n    font-size: 21px;\n    margin-bottom: 25px;\n}\n\n#welcome p {\n    font-size: 14px;\n    margin-bottom: 10px;\n}";
+    insertCss(css);
+    var html = "<div id=\"panels\">\n    <div class=\"panel panel-top-left min\" id=\"map\">\n        &nbsp;\n    </div>\n    <div class=\"panel panel-top-right min\" id=\"tree\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"tree-container\">\n            <div id=\"welcome\">\n                <h1>Welcome to the GloBI Interaction Browser!</h1>\n\n                <p>Please click on a marker or select an area to display species interactions!</p>\n\n                <p>\n                    <a target=\"_blank\" href=\"http://blog.globalbioticinteractions.org\">Learn more about GloBI</a>\n                </p>\n            </div>\n        </div>\n    </div>\n    <div class=\"panel panel-bottom-left min\" id=\"dependency-wheel\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"dependency-wheel-container\"></div>\n    </div>\n    <div class=\"panel panel-bottom-right min\" id=\"bundle\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"bundle-container\"></div>\n    </div>\n</div>";
+    var element = domify(html);
+    addButtonClickHandlers(element);
+    target.appendChild(element);
+    this.emit('append', target);
+}
+
+
+function addButtonClickHandlers(target) {
+    var buttons = target.querySelectorAll('.btn');
     for (var i = 0; i < buttons.length; ++i) {
         var button = buttons[i];
-        button.addEventListener('click', function() {
-            var minMax = ['min','max'];
+        button.addEventListener('click', function () {
+            var minMax = ['min', 'max'];
             if (this.parentElement.classList.contains('max')) {
                 minMax = minMax.reverse();
             }
@@ -16861,10 +16884,122 @@ module.exports = function() {
             this.parentElement.classList.add(minMax[1]);
         });
     }
+}
+},{"domify":54,"events":8,"inherits":55,"insert-css":56}],54:[function(require,module,exports){
+
+/**
+ * Expose `parse`.
+ */
+
+module.exports = parse;
+
+/**
+ * Tests for browser support.
+ */
+
+var div = document.createElement('div');
+// Setup
+div.innerHTML = '  <link/><table></table><a href="/a">a</a><input type="checkbox"/>';
+// Make sure that link elements get serialized correctly by innerHTML
+// This requires a wrapper element in IE
+var innerHTMLBug = !div.getElementsByTagName('link').length;
+div = undefined;
+
+/**
+ * Wrap map from jquery.
+ */
+
+var map = {
+  legend: [1, '<fieldset>', '</fieldset>'],
+  tr: [2, '<table><tbody>', '</tbody></table>'],
+  col: [2, '<table><tbody></tbody><colgroup>', '</colgroup></table>'],
+  // for script/link/style tags to work in IE6-8, you have to wrap
+  // in a div with a non-whitespace character in front, ha!
+  _default: innerHTMLBug ? [1, 'X<div>', '</div>'] : [0, '', '']
 };
-},{"insert-css":54}],54:[function(require,module,exports){
+
+map.td =
+map.th = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
+
+map.option =
+map.optgroup = [1, '<select multiple="multiple">', '</select>'];
+
+map.thead =
+map.tbody =
+map.colgroup =
+map.caption =
+map.tfoot = [1, '<table>', '</table>'];
+
+map.polyline =
+map.ellipse =
+map.polygon =
+map.circle =
+map.text =
+map.line =
+map.path =
+map.rect =
+map.g = [1, '<svg xmlns="http://www.w3.org/2000/svg" version="1.1">','</svg>'];
+
+/**
+ * Parse `html` and return a DOM Node instance, which could be a TextNode,
+ * HTML DOM Node of some kind (<div> for example), or a DocumentFragment
+ * instance, depending on the contents of the `html` string.
+ *
+ * @param {String} html - HTML string to "domify"
+ * @param {Document} doc - The `document` instance to create the Node for
+ * @return {DOMNode} the TextNode, DOM Node, or DocumentFragment instance
+ * @api private
+ */
+
+function parse(html, doc) {
+  if ('string' != typeof html) throw new TypeError('String expected');
+
+  // default to the global `document` object
+  if (!doc) doc = document;
+
+  // tag name
+  var m = /<([\w:]+)/.exec(html);
+  if (!m) return doc.createTextNode(html);
+
+  html = html.replace(/^\s+|\s+$/g, ''); // Remove leading/trailing whitespace
+
+  var tag = m[1];
+
+  // body support
+  if (tag == 'body') {
+    var el = doc.createElement('html');
+    el.innerHTML = html;
+    return el.removeChild(el.lastChild);
+  }
+
+  // wrap map
+  var wrap = map[tag] || map._default;
+  var depth = wrap[0];
+  var prefix = wrap[1];
+  var suffix = wrap[2];
+  var el = doc.createElement('div');
+  el.innerHTML = prefix + html + suffix;
+  while (depth--) el = el.lastChild;
+
+  // one element
+  if (el.firstChild == el.lastChild) {
+    return el.removeChild(el.firstChild);
+  }
+
+  // several elements
+  var fragment = doc.createDocumentFragment();
+  while (el.firstChild) {
+    fragment.appendChild(el.removeChild(el.firstChild));
+  }
+
+  return fragment;
+}
+
+},{}],55:[function(require,module,exports){
+arguments[4][10][0].apply(exports,arguments)
+},{"dup":10}],56:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"dup":47}],55:[function(require,module,exports){
+},{"dup":47}],57:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -17078,7 +17213,7 @@ var dependencyWheel = function () {
 
 
 
-},{"./lib/transform.js":56,"d3":57,"events":8,"inherits":58,"insert-css":59}],56:[function(require,module,exports){
+},{"./lib/transform.js":58,"d3":59,"events":8,"inherits":60,"insert-css":61}],58:[function(require,module,exports){
 module.exports = {
     convertJsonForDependencyWheel: convertJsonForDependencyWheel
 };
@@ -17132,13 +17267,13 @@ function convertJsonForDependencyWheel(json) {
         matrix: matrix
     };
 };
-},{}],57:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],58:[function(require,module,exports){
+},{"dup":45}],60:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],59:[function(require,module,exports){
+},{"dup":10}],61:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"dup":47}],60:[function(require,module,exports){
+},{"dup":47}],62:[function(require,module,exports){
 var d3 = require('d3');
 var globiData = require('globi-data');
 var EventEmitter = require('events').EventEmitter;
@@ -18519,7 +18654,7 @@ globi.ResponseMapper = function() {
 
 module.exports = globi;
 
-},{"d3":62,"events":8,"globi-data":63,"jquery":66}],61:[function(require,module,exports){
+},{"d3":64,"events":8,"globi-data":65,"jquery":68}],63:[function(require,module,exports){
 d3 = function() {
   var d3 = {
     version: "3.2.8"
@@ -27330,12 +27465,12 @@ d3 = function() {
   });
   return d3;
 }();
-},{}],62:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 require("./d3");
 module.exports = d3;
 (function () { delete this.d3; })(); // unset global
 
-},{"./d3":61}],63:[function(require,module,exports){
+},{"./d3":63}],65:[function(require,module,exports){
 var nodeXHR = require("xmlhttprequest");
 var globiData = {};
 
@@ -27671,7 +27806,7 @@ globiData.findThumbnailById = function (search, callback) {
 
 module.exports = globiData;
 
-},{"xmlhttprequest":64}],64:[function(require,module,exports){
+},{"xmlhttprequest":66}],66:[function(require,module,exports){
 (function (process,Buffer){
 /**
  * Wrapper for built-in http.js to emulate the browser XMLHttpRequest object.
@@ -28274,7 +28409,7 @@ exports.XMLHttpRequest = function() {
 };
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],65:[function(require,module,exports){
+},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],67:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*! jQuery UI - v1.10.3 - 2013-05-03
@@ -43281,7 +43416,7 @@ $.widget( "ui.tooltip", {
 
 }( jQuery ) );
 
-},{"jquery":66}],66:[function(require,module,exports){
+},{"jquery":68}],68:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -52493,7 +52628,7 @@ return jQuery;
 
 }));
 
-},{}],67:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 (function (global){
 /**
  * Npm version of markerClusterer works great with browserify and google maps for commonjs
@@ -53793,7 +53928,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 module.exports = MarkerClusterer;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],68:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 /**
  * Copyright (c) 2011-2014 Felix Gnass
  * Licensed under the MIT license
