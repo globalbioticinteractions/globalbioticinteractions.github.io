@@ -58,6 +58,11 @@
     var Spinner = globiWeb.Spinner;
     var panels = globiWeb.panels();
     panels.appendTo(document.body);
+    globiWeb.widgets = [
+        {factory: globiWeb.wheel, target: panels.bottomLeftContainer},
+        {factory: globiWeb.bundle, target: panels.bottomRightContainer}
+    ];
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script>
 <script src="../node_modules/globi-search/lib/jquery.tokeninput.js"></script>
@@ -75,13 +80,11 @@
     };
 
     var showAreaInfos = function (element) {
-        spatialSelectionChanged(element.dataset.spatialSelection);
+        spatialSelectionChanged(JSON.parse(element.dataset.spatialSelection));
     };
 
-    var spatialSelectionChanged = function (spatialSelection) {
+    function appendTaxonSearch(panels, spatialSelection) {
         treeSpinner = SpinnerFactory(panels.topRightContainer);
-        wheelSpinner = SpinnerFactory(panels.bottomLeftContainer);
-        bundleSpinner = SpinnerFactory(panels.bottomRightContainer);
         var $treeContainer = jQuery(panels.topRightContainer);
         if ($treeContainer.data('plugin_interactions')) {
             $treeContainer.data('plugin_interactions').update(spatialSelection);
@@ -89,36 +92,38 @@
             $treeContainer.interactions(spatialSelection);
         }
         treeSpinner.stop();
+    }
+
+    function appendWidgets(json) {
+        globiWeb.widgets.forEach(function (w) {
+            var panel = document.querySelector(w.target).parentElement;
+            var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
+            var widget = w.factory({ json: json, canvasDimension: canvasDimension });
+            widget.on('append', function (target) {
+                w.spinner.stop();
+            });
+            widget.appendTo(w.target);
+        });
+    }
+    function spatialSelectionChanged(spatialSelection) {
+        appendTaxonSearch(panels, spatialSelection);
+
+        globiWeb.widgets.forEach(function (w) {
+            var oldWidgetContainer = document.querySelector(w.target);
+            while (oldWidgetContainer.firstChild) {
+                oldWidgetContainer.removeChild(oldWidgetContainer.firstChild);
+            }
+            w.spinner = SpinnerFactory(w.target);
+        });
+
 
         var dataSetUrl = createInteractionURL(spatialSelection, 'json.v2');
         d3.json(dataSetUrl, function (json) {
             if (json.length) {
-                var widgets = [
-                    {factory: globiWeb.wheel, target: panels.bottomLeftContainer, spinner: wheelSpinner},
-                    {factory: globiWeb.bundle, target: panels.bottomRightContainer, spinner: bundleSpinner}
-                ];
-
-                widgets.forEach(function (w) {
-                    var oldWidgetContainer = document.querySelector(w.target);
-                    while (oldWidgetContainer.firstChild) {
-                        oldWidgetContainer.removeChild(oldWidgetContainer.firstChild);
-                    }
-                    w.spinner.spin();
-                });
-
-                widgets.forEach(function (w) {
-                    var panel = document.querySelector(w.target).parentElement;
-                    var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
-                    var widget = w.factory({ json: json, canvasDimension: canvasDimension });
-                    widget.appendTo(w.target);
-                    widget.on('append', function (target) {
-                        w.spinner.stop();
-                    });
-
-                });
+                appendWidgets(json);
             }
         });
-    };
+    }
 
     jQuery(function () {
         var map = initializeMap(panels.topLeft);
