@@ -15,7 +15,8 @@
         "globi": "~0.0.51",
         "spin.js": "~2.3.2",
         "node-js-marker-clusterer": "~1.0.0",
-        "jquery-ui": "1.10.5"
+        "jquery-ui": "1.10.5",
+        "jquery": "^2.1.4"
     },
 
     "devDependencies": {

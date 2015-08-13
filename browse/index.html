@@ -79,11 +79,12 @@
 
     globiWeb.widgets = [
         {factory: globiWeb.wheel, target: panels.bottomLeftContainer},
-        {factory: globiWeb.bundle, target: panels.bottomRightContainer}
+        {factory: globiWeb.bundle, target: panels.bottomRightContainer},
+        {factory: globiWeb.search, target: panels.topRightContainer}
     ];
 
 </script>
-<script src="../node_modules/globi-search/lib/jquery.tokeninput.js"></script>
+<!--<script src="../node_modules/globi-search/lib/jquery.tokeninput.js"></script>-->
 <script>
     var urlPrefix = function () {
         return 'http://api.globalbioticinteractions.org';
@@ -98,22 +99,11 @@
         spatialSelectionChanged(JSON.parse(element.dataset.spatialSelection));
     };
 
-    function appendTaxonSearch(panels, spatialSelection) {
-        treeSpinner = appendSpinner(panels.topRightContainer);
-        var $treeContainer = jQuery(panels.topRightContainer);
-        if ($treeContainer.data('plugin_interactions')) {
-            $treeContainer.data('plugin_interactions').update(spatialSelection);
-        } else {
-            $treeContainer.interactions(spatialSelection);
-        }
-        treeSpinner.stop();
-    }
-
-    function appendWidgets(json) {
-        globiWeb.widgets.forEach(function (w) {
+    function appendWidgets(json, spatialSelection) {
+        globiWeb.widgets.forEach(function (w, index) {
             var panel = document.querySelector(w.target).parentElement;
             var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
-            var widget = w.factory({ json: json, canvasDimension: canvasDimension });
+            var widget = w.factory({ json: json, canvasDimension: canvasDimension, spatialSelection: spatialSelection });
             widget.on('append', function (target) {
                 w.spinner.stop();
             });
@@ -122,8 +112,6 @@
     }
 
     function spatialSelectionChanged(spatialSelection) {
-        appendTaxonSearch(panels, spatialSelection);
-
         globiWeb.widgets.forEach(function (w) {
             var oldWidgetContainer = document.querySelector(w.target);
             while (oldWidgetContainer.firstChild) {
@@ -132,11 +120,11 @@
             w.spinner = appendSpinner(w.target);
         });
 
-
         var dataSetUrl = createInteractionURL(spatialSelection, 'json.v2');
+
         d3.json(dataSetUrl, function (json) {
             if (json.length) {
-                appendWidgets(json);
+                appendWidgets(json, spatialSelection);
             }
         });
     }
