@@ -128,8 +128,6 @@
         });
     }
 
-    var mapSpinner = appendSpinner(panels.topLeft);
-
     function appendMap() {
         addMap(panels.topLeft);
     }
@@ -138,7 +136,7 @@
         var params = searchParams(window.location.search);
         var spatialSelector = globiWeb.spatialSelector(params);
         spatialSelector.on('append', function (target) {
-            mapSpinner.stop();
+
         });
         spatialSelector.on('change', function(target) {
             spatialSelectionChanged(target);
