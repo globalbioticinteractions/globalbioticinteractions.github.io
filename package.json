@@ -30,7 +30,7 @@
     },
 
     "scripts": {
-        "preinstall": "npm cache clean && npm install ./node_modules/globi-*",
+        "_preinstall": "npm cache clean && npm install ./node_modules/globi-*",
         "test": "browserify -t brfs test/*.js test/browser/*.js node_modules/globi-*/test/*.js node_modules/globi-*/test/browser/*.js | testling",
         "build-js-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs -mc > static/globi-web-min.js",
         "build-js": "browserify -t brfs index.js --standalone globi-web -o static/globi-web.js",
