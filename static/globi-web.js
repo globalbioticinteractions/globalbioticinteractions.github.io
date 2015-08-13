@@ -10,9 +10,10 @@ module.exports = {
     Spinner: require('spin.js'),
     hairball: require('globi-hairball'),
     wheel: require('globi-wheel'),
+    spatialSelector: require('globi-spatial-selector'),
     globi: globi
 };
-},{"globi":62,"globi-bundle":43,"globi-hairball":48,"globi-panels":53,"globi-wheel":57,"jquery-ui":67,"node-js-marker-clusterer":69,"spin.js":70}],2:[function(require,module,exports){
+},{"globi":67,"globi-bundle":43,"globi-hairball":48,"globi-panels":53,"globi-spatial-selector":57,"globi-wheel":62,"jquery-ui":72,"node-js-marker-clusterer":74,"spin.js":75}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
 arguments[4][2][0].apply(exports,arguments)
@@ -17012,6 +17013,325 @@ arguments[4][47][0].apply(exports,arguments)
 var insertCss = require('insert-css');
 var inherits = require('inherits');
 var EventEmitter = require('events').EventEmitter;
+var AreaPicker = require('./lib/areapicker.js');
+var infobox = require('./lib/infobox.js');
+
+inherits(SpatialSelector, EventEmitter);
+module.exports = SpatialSelector;
+
+var currentInfoWindow;
+
+function SpatialSelector(opts) {
+    if (!(this instanceof SpatialSelector)) return new SpatialSelector(opts);
+    this.opts = opts;
+};
+
+
+SpatialSelector.prototype.appendTo = function (target) {
+    if (typeof target === 'string') target = document.querySelector(target);
+    var css = "#page {\n    width: 800px;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n#spatialsearch-index #globi-panel-top-left {\n    /*position: absolute;*/\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n}\n\n#spatialsearch-location #globi-panel-top-left {\n    height: 300px;\n    width: auto;\n    margin: 0;\n    padding: 0;\n    margin-bottom: 30px;\n}";
+    insertCss(css);
+
+    this.appendMap(target, this.opts);
+    this.emit('append', target);
+};
+
+SpatialSelector.prototype.appendMarkersTo = function (json, map) {
+    var markers = [];
+    var locations = json.data;
+    for (var index in locations) {
+        if (locations.hasOwnProperty(index)) {
+            var location = { latitude: locations[ index ][ 0 ], longitude: locations[ index ][ 1 ] },
+                content = createLocationContent(location);
+            markers.push(placeMarker(content, location, map));
+        }
+    }
+    initializeMarkerClusterer(map, markers);
+};
+
+SpatialSelector.prototype.appendAreaPicker = function (map, params, google) {
+    var picker = new AreaPicker(map, google);
+    if (params.bbox) {
+        picker.setBounds(toLatLngBounds(params.bbox, google)).show();
+        picker.control_.setActive();
+        map.panToBounds(picker.bounds_);
+        this.emit('change', boundsToLocationParams(picker.bounds_));
+    }
+    return picker;
+};
+
+function toLatLngBounds(bbox, google) {
+    return new google.maps.LatLngBounds(
+        new google.maps.LatLng(bbox[ 1 ], bbox[ 0 ]),
+        new google.maps.LatLng(bbox[ 3 ], bbox[ 2 ])
+    );
+}
+
+SpatialSelector.prototype.appendMap = function (target, params) {
+    var me = this;
+    var google = window.google;
+    var location = location || { latitude: 0, longitude: 0 };
+    var zoom = zoom || 1;
+    var options = {
+        zoom: zoom,
+        center: new google.maps.LatLng(location.latitude, location.longitude),
+        mapTypeId: google.maps.MapTypeId.ROADMAP};
+    var map = new google.maps.Map(target, options);
+    me.appendAreaPicker(map, params, google);
+    d3.json(urlPrefix() + '/locations', function (json) {
+        if (json) {
+            me.appendMarkersTo(json, map);
+        }
+    });
+};
+
+function initializeMarkerClusterer(map, markers) {
+    return new MarkerClusterer(map, markers, { gridSize: 40, maxZoom: 0 });
+}
+
+function createLocationContent(location) {
+    return infobox.locationInfoBox({location: {lng: location.longitude, lat: location.latitude }});
+}
+
+function placeMarker(content, location, map) {
+    var latLng = new google.maps.LatLng(location.latitude, location.longitude),
+        marker = new google.maps.Marker({ position: latLng, map: map }),
+        infoWindow = new google.maps.InfoWindow({ content: content, maxWidth: 200 });
+
+    google.maps.event.addListener(marker, 'click', function () {
+        currentInfoWindow && currentInfoWindow.close();
+        currentInfoWindow = infoWindow;
+        currentInfoWindow.open(map, marker);
+    });
+
+    return marker;
+}
+},{"./lib/areapicker.js":58,"./lib/infobox.js":59,"events":8,"inherits":60,"insert-css":61}],58:[function(require,module,exports){
+var infobox = require('./infobox.js');
+
+module.exports = AreaPicker;
+
+function AreaPicker(map, google) {
+    var testCoords = { "nw_lat": 41.574361, "nw_lng": -125.533448, "se_lat": 32.750323, "se_lng": -114.744873 };
+
+    this.bounds_ = new google.maps.LatLngBounds(
+        new google.maps.LatLng(testCoords.se_lat, testCoords.nw_lng), // California
+        new google.maps.LatLng(testCoords.nw_lat, testCoords.se_lng)
+    );
+
+    this.rectangle_ = null;
+    this.map = map;
+    this.isCreated_ = false;
+    this.google = google;
+
+    this.control_ = new AreaPickerControl(this, google);
+    this.info_ = new AreaPickerInfo(this, google);
+}
+
+AreaPicker.prototype.create = function () {
+    var me = this;
+    if (!me.isCreated_) {
+        me.rectangle_ = new me.google.maps.Rectangle({
+            bounds: me.bounds_,
+            editable: true,
+            draggable: true,
+            zIndex: 10
+        });
+
+        me.google.maps.event.addListener(me.rectangle_, 'bounds_changed', function () {
+            me.bounds_ = me.rectangle_.getBounds();
+
+            me.info_.show(me.bounds_);
+        });
+
+        me.isCreated_ = true;
+    }
+};
+
+AreaPicker.prototype.show = function () {
+    if (!this.isCreated_) {
+        this.create(this.google);
+    }
+    this.rectangle_.setMap(this.map);
+    this.info_.show(this.bounds_);
+};
+
+AreaPicker.prototype.hide = function () {
+    if (this.isCreated_) {
+        this.rectangle_.setMap(null);
+        this.info_.hide();
+    }
+};
+
+AreaPicker.prototype.setBounds = function (bounds) {
+    this.bounds_ = bounds;
+    return this;
+};
+
+
+function AreaPickerControl(associatedPicker, google) {
+    this.associatedPicker_ = associatedPicker;
+    this.isActive_ = false;
+    this.container_ = null;
+    this.google = google;
+    this.create();
+
+}
+
+AreaPickerControl.prototype.create = function () {
+    var me = this;
+    me.container_ = document.createElement('div');
+    me.container_.title = 'Toggle Area Picker';
+    me.container_.index = 1;
+
+    me.applyStyles();
+
+    this.google.maps.event.addDomListener(me.container_, 'click', function (event) {
+        me.isActive_ = !me.isActive_;
+        if (me.isActive_) {
+            me.container_.style.backgroundColor = '#f7f7f7';
+            me.container_.innerHTML = 'Hide Area Picker';
+            me.associatedPicker_.show(me.google);
+        }
+        else {
+            me.container_.style.backgroundColor = '#fff';
+            me.container_.innerHTML = 'Show Area Picker';
+            me.associatedPicker_.hide();
+        }
+    });
+
+    this.associatedPicker_.map.controls[ this.google.maps.ControlPosition.TOP_CENTER ].push(me.container_);
+};
+
+AreaPickerControl.prototype.applyStyles = function () {
+    this.container_.style.margin = '5px';
+    this.container_.style.paddingLeft = '5px';
+    this.container_.style.paddingRight = '5px';
+    this.container_.style.paddingTop = '1px';
+    this.container_.style.paddingBottom = '1px';
+    this.container_.style.backgroundColor = '#fff';
+    this.container_.style.border = '1px solid rgba(0, 0, 0, 0.14902)';
+    this.container_.style.width = '90px';
+    this.container_.style.textAlign = 'center';
+    this.container_.style.boxShadow = 'rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px';
+    this.container_.style.cursor = 'pointer';
+    this.container_.innerHTML = 'Show Area Picker';
+};
+
+AreaPickerControl.prototype.setActive = function () {
+    var me = this;
+    me.isActive_ = true;
+    me.container_.style.backgroundColor = '#f7f7f7';
+    me.container_.innerHTML = 'Hide Area Picker';
+};
+
+function AreaPickerInfo(associatedPicker, google) {
+    this.infoWindow = null;
+    this.associatedPicker_ = associatedPicker;
+    this.google = google;
+    this.create();
+}
+
+AreaPickerInfo.prototype.create = function () {
+    this.infoWindow = new this.google.maps.InfoWindow({ content: '', maxWidth: 200});
+};
+
+AreaPickerInfo.prototype.show = function (bounds) {
+    this.hide();
+    this.setContent(bounds);
+    this.infoWindow.setPosition(bounds.getCenter());
+    this.infoWindow.open(this.associatedPicker_.map);
+};
+
+AreaPickerInfo.prototype.hide = function () {
+    this.infoWindow.close();
+};
+
+AreaPickerInfo.prototype.setContent = function (bounds) {
+    var contentString = this.createContent_(bounds);
+    this.infoWindow.setContent(contentString);
+};
+
+function boundsToLocationParams(bounds) {
+    var eolBounds = {
+        nw_lat: bounds.getNorthEast().lat(),
+        nw_lng: bounds.getSouthWest().lng(),
+        se_lat: bounds.getSouthWest().lat(),
+        se_lng: bounds.getNorthEast().lng()
+    };
+    var tempCoord;
+    if (eolBounds.nw_lng > eolBounds.se_lng) {
+        tempCoord = eolBounds.nw_lng;
+        eolBounds.nw_lng = eolBounds.se_lng;
+        eolBounds.se_lng = tempCoord;
+    }
+    if (eolBounds.nw_lat > eolBounds.se_lat) {
+        tempCoord = eolBounds.nw_lat;
+        eolBounds.nw_lat = eolBounds.se_lat;
+        eolBounds.se_lat = tempCoord;
+    }
+    return {bbox: eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat };
+}
+AreaPickerInfo.prototype.createContent_ = function (bounds) {
+    return infobox.areaInfoBox(boundsToLocationParams(bounds));
+};
+},{"./infobox.js":59}],59:[function(require,module,exports){
+module.exports = {
+    areaInfoBox: areaInfoBox,
+    locationInfoBox: locationInfoBox
+}
+
+function infoBoxText(idString, locationParams) {
+    var downloadParams = $.extend({}, locationParams, {includeObservations: true,
+        fields: ['source_taxon_path', 'source_taxon_path_ids'
+            , 'interaction_type'
+            , 'target_taxon_path', 'target_taxon_path_ids'
+            , 'study_citation', 'study_source_citation']})
+    var dotURL = createInteractionURL(downloadParams, 'dot');
+    var jsonURL = createInteractionURL(downloadParams, 'json.v2');
+    var csvURL = createInteractionURL(downloadParams, 'csv');
+    var host = window.location.origin;
+    if (host === 'null') {
+        host = 'file://';
+    }
+    return [
+        "<div><a onclick='showAreaInfos( this )' id='",
+        idString,
+        "'", "href='#' data-spatial-selection='",
+        JSON.stringify(locationParams),
+        "'>",
+        '<span>show</span></a> interactions<br/>get ',
+        '<a href="',
+        csvURL,
+        '">csv</a>, ',
+        '<a href="',
+        jsonURL,
+        '">json</a>, or ',
+        '<a href="',
+        dotURL,
+        '">dot</a> file',
+        '</div>',
+        '<div><strong>share: </strong><input type="text" value="' + globiData.addQueryParams(host + window.location.pathname + '?', locationParams) + '"></div><br />'
+    ].join('');
+}
+
+function areaInfoBox(locationParams) {
+    return infoBoxText('area-selection', locationParams);
+
+}
+
+function locationInfoBox(locationParams) {
+    return infoBoxText('location-selection', locationParams);
+};
+},{}],60:[function(require,module,exports){
+arguments[4][10][0].apply(exports,arguments)
+},{"dup":10}],61:[function(require,module,exports){
+arguments[4][47][0].apply(exports,arguments)
+},{"dup":47}],62:[function(require,module,exports){
+
+var insertCss = require('insert-css');
+var inherits = require('inherits');
+var EventEmitter = require('events').EventEmitter;
 var d3 = require('d3');
 var transform = require('./lib/transform.js');
 
@@ -17221,7 +17541,7 @@ var dependencyWheel = function () {
 
 
 
-},{"./lib/transform.js":58,"d3":59,"events":8,"inherits":60,"insert-css":61}],58:[function(require,module,exports){
+},{"./lib/transform.js":63,"d3":64,"events":8,"inherits":65,"insert-css":66}],63:[function(require,module,exports){
 module.exports = {
     convertJsonForDependencyWheel: convertJsonForDependencyWheel
 };
@@ -17275,13 +17595,13 @@ function convertJsonForDependencyWheel(json) {
         matrix: matrix
     };
 };
-},{}],59:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],60:[function(require,module,exports){
+},{"dup":45}],65:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],61:[function(require,module,exports){
+},{"dup":10}],66:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"dup":47}],62:[function(require,module,exports){
+},{"dup":47}],67:[function(require,module,exports){
 var d3 = require('d3');
 var globiData = require('globi-data');
 var EventEmitter = require('events').EventEmitter;
@@ -18662,7 +18982,7 @@ globi.ResponseMapper = function() {
 
 module.exports = globi;
 
-},{"d3":64,"events":8,"globi-data":65,"jquery":68}],63:[function(require,module,exports){
+},{"d3":69,"events":8,"globi-data":70,"jquery":73}],68:[function(require,module,exports){
 d3 = function() {
   var d3 = {
     version: "3.2.8"
@@ -27473,12 +27793,12 @@ d3 = function() {
   });
   return d3;
 }();
-},{}],64:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 require("./d3");
 module.exports = d3;
 (function () { delete this.d3; })(); // unset global
 
-},{"./d3":63}],65:[function(require,module,exports){
+},{"./d3":68}],70:[function(require,module,exports){
 var nodeXHR = require("xmlhttprequest");
 var globiData = {};
 
@@ -27814,7 +28134,7 @@ globiData.findThumbnailById = function (search, callback) {
 
 module.exports = globiData;
 
-},{"xmlhttprequest":66}],66:[function(require,module,exports){
+},{"xmlhttprequest":71}],71:[function(require,module,exports){
 (function (process,Buffer){
 /**
  * Wrapper for built-in http.js to emulate the browser XMLHttpRequest object.
@@ -28417,7 +28737,7 @@ exports.XMLHttpRequest = function() {
 };
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],67:[function(require,module,exports){
+},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],72:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*! jQuery UI - v1.10.3 - 2013-05-03
@@ -43424,7 +43744,7 @@ $.widget( "ui.tooltip", {
 
 }( jQuery ) );
 
-},{"jquery":68}],68:[function(require,module,exports){
+},{"jquery":73}],73:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -52636,7 +52956,7 @@ return jQuery;
 
 }));
 
-},{}],69:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 (function (global){
 /**
  * Npm version of markerClusterer works great with browserify and google maps for commonjs
@@ -53936,7 +54256,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 module.exports = MarkerClusterer;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],70:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 /**
  * Copyright (c) 2011-2014 Felix Gnass
  * Licensed under the MIT license

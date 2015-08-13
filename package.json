@@ -34,7 +34,7 @@
         "build-js-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs -mc > static/globi-web-min.js",
         "build-js": "browserify -t brfs index.js --standalone globi-web -o static/globi-web.js",
         "build": "npm run build-js & npm run build-js-min",
-        "watch": "watchify index.js --standalone globi-web --debug --verbose -o 'uglifyjs -mc > static/globi-web-min.js'"
+        "watch": "watchify index.js --standalone globi-web --debug --verbose -o static/globi-web-min.js"
     },
     "repository": {
         "type": "git",

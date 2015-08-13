@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="../globi.css"/>
     <link rel="stylesheet" href="../node_modules/globi-search/style.css"/>
-    <link rel="stylesheet" href="../node_modules/globi-map/spatialsearch.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <style>
         table.interactions-result {
@@ -50,6 +49,7 @@
 <script>
     buildMenu();
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?&sensor=false&callback=appendMap"></script>
 <script src="../static/globi-web-min.js"></script>
 <script>
     var $ = jQuery = globiWeb.globi.jQuery;
@@ -84,11 +84,7 @@
     ];
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script>
 <script src="../node_modules/globi-search/lib/jquery.tokeninput.js"></script>
-<script src="../node_modules/globi-map/lib/spatialsearch.js"></script>
-<script src="../node_modules/globi-map/lib/areapicker.js"></script>
-<script src="../node_modules/globi-map/lib/infobox.js"></script>
 <script>
     var urlPrefix = function () {
         return 'http://api.globalbioticinteractions.org';
@@ -146,45 +142,51 @@
         });
     }
 
-    appendMap(panels.topLeft);
+    var mapSpinner = appendSpinner(panels.topLeft);
 
-    function appendMarkersTo(json, map) {
-        var markers = [];
-        var locations = json.data;
-        for (var index in locations) {
-            if (locations.hasOwnProperty(index)) {
-                var location = { latitude: locations[ index ][ 0 ], longitude: locations[ index ][ 1 ] },
-                        content = createLocationContent(location);
-                markers.push(placeMarker(content, location, map));
-            }
-        }
-        initializeMarkerClusterer(map, markers);
+    function appendMap() {
+        addMap(panels.topLeft);
     }
 
-    function appendAreaPicker(map, params) {
-        var picker = new AreaPicker(map);
-        if (params.bbox) {
-            picker.setBounds(toLatLngBounds(params.bbox)).show();
-            picker.control_.setActive();
-            map.panToBounds(picker.bounds_);
-            spatialSelectionChanged(boundsToLocationParams(picker.bounds_));
-        }
-        return picker;
-    }
-
-    function appendMap(target) {
-        var map = initializeMap(target);
-        var mapSpinner = appendSpinner(target);
+    function addMap(target) {
         var params = searchParams(window.location.search);
-        var areapicker = appendAreaPicker(map, params);
-
-        d3.json(urlPrefix() + '/locations', function (json) {
-            if (json) {
-                appendMarkersTo(json, map);
-            }
+        var spatialSelector = globiWeb.spatialSelector(params);
+        spatialSelector.on('append', function (target) {
             mapSpinner.stop();
         });
+        spatialSelector.on('change', function(target) {
+            spatialSelectionChanged(target);
+        });
+        spatialSelector.appendTo(target);
     }
+
+    function searchParams(urlSearchString) {
+        function getUrlParameters(searchString) {
+            var query = searchString.substring( 1 ),
+                    vars = query.split( "&" ),
+                    hash = {};
+            for ( var i=0; i < vars.length; i++ ) {
+                var pair = vars[ i ].split( "=" );
+                hash[ pair[ 0 ] ] = pair[ 1 ]
+            }
+            return hash;
+        }
+
+        var urlParameters = getUrlParameters(urlSearchString);
+
+        var bbox = urlParameters[ 'bbox' ] ? urlParameters[ 'bbox' ].split(',') : false;
+        var lat = urlParameters[ 'lat' ] || false;
+        var lng = urlParameters[ 'lng' ] || false;
+        if (lat && lng) {
+            bbox = [];
+            bbox[ 0 ] = lng >= 0 ? lng * 0.96 : lng * 1.04;
+            bbox[ 1 ] = lat >= 0 ? lat * 0.99 : lat * 1.01;
+            bbox[ 2 ] = lng >= 0 ? lng * 1.04 : lng * 0.96;
+            bbox[ 3 ] = lat >= 0 ? lat * 1.01 : lat * 0.99;
+        }
+        return { bbox: bbox, lat: lat, lng: lng};
+    }
+
 </script>
 </body>
 </html>

@@ -9,5 +9,6 @@ module.exports = {
     Spinner: require('spin.js'),
     hairball: require('globi-hairball'),
     wheel: require('globi-wheel'),
+    spatialSelector: require('globi-spatial-selector'),
     globi: globi
 };
