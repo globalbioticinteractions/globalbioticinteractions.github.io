@@ -17028,12 +17028,15 @@ function SpatialSelector(opts) {
 
 
 SpatialSelector.prototype.appendTo = function (target) {
-    if (typeof target === 'string') target = document.querySelector(target);
-    var css = "#page {\n    width: 800px;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n#spatialsearch-index #globi-panel-top-left {\n    /*position: absolute;*/\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n}\n\n#spatialsearch-location #globi-panel-top-left {\n    height: 300px;\n    width: auto;\n    margin: 0;\n    padding: 0;\n    margin-bottom: 30px;\n}";
-    insertCss(css);
-
-    this.appendMap(target, this.opts);
-    this.emit('append', target);
+    if (window.google) {
+        if (typeof target === 'string') target = document.querySelector(target);
+        var css = "#page {\n    width: 800px;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n#spatialsearch-index #globi-panel-top-left {\n    /*position: absolute;*/\n    top: 0;\n    left:0;\n    bottom:0;\n    right:0;\n}\n\n#spatialsearch-location #globi-panel-top-left {\n    height: 300px;\n    width: auto;\n    margin: 0;\n    padding: 0;\n    margin-bottom: 30px;\n}";
+        insertCss(css);
+        this.appendMap(target, this.opts);
+        this.emit('append', target);
+    } else {
+        this.emit('error', target);
+    }
 };
 
 SpatialSelector.prototype.appendMarkersTo = function (json, map) {
