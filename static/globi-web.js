@@ -1,8 +1,25 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.globiWeb = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var globi = require('globi');
+var extend = require('extend');
+var inherits = require('inherits');
+var EventEmitter = require('events').EventEmitter;
 var $ = globi.jQuery;
+
 require('jquery-ui');
 var MarkerClusterer = require('node-js-marker-clusterer');
+
+inherits(SearchContext, EventEmitter);
+
+function SearchContext(context) {
+    if (!(this instanceof SearchContext)) return new SearchContext(context);
+    this.context = extend({ bbox: '-125.53344800000002,32.750323,-114.74487299999998,41.574361' }, context);
+}
+
+SearchContext.prototype.update = function(context) {
+    this.context = extend(this.context, context)
+    this.emit('change', this.context);
+};
+
 
 module.exports = {
     bundle: require('globi-bundle'),
@@ -12,9 +29,12 @@ module.exports = {
     wheel: require('globi-wheel'),
     spatialSelector: require('globi-spatial-selector'),
     globi: globi,
-    search: require('globi-search')
+    search: require('globi-search'),
+    searchContext: SearchContext
 };
-},{"globi":82,"globi-bundle":45,"globi-hairball":50,"globi-panels":55,"globi-search":59,"globi-spatial-selector":71,"globi-wheel":77,"jquery-ui":87,"node-js-marker-clusterer":89,"spin.js":90}],2:[function(require,module,exports){
+
+
+},{"events":8,"extend":45,"globi":83,"globi-bundle":46,"globi-hairball":51,"globi-panels":56,"globi-search":60,"globi-spatial-selector":72,"globi-wheel":78,"inherits":88,"jquery-ui":89,"node-js-marker-clusterer":91,"spin.js":92}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
 arguments[4][2][0].apply(exports,arguments)
@@ -644,20 +664,84 @@ function base64Slice (buf, start, end) {
 }
 
 function utf8Slice (buf, start, end) {
-  var res = ''
-  var tmp = ''
   end = Math.min(buf.length, end)
+  var firstByte
+  var secondByte
+  var thirdByte
+  var fourthByte
+  var bytesPerSequence
+  var tempCodePoint
+  var codePoint
+  var res = []
+  var i = start
 
-  for (var i = start; i < end; i++) {
-    if (buf[i] <= 0x7F) {
-      res += decodeUtf8Char(tmp) + String.fromCharCode(buf[i])
-      tmp = ''
+  for (; i < end; i += bytesPerSequence) {
+    firstByte = buf[i]
+    codePoint = 0xFFFD
+
+    if (firstByte > 0xEF) {
+      bytesPerSequence = 4
+    } else if (firstByte > 0xDF) {
+      bytesPerSequence = 3
+    } else if (firstByte > 0xBF) {
+      bytesPerSequence = 2
     } else {
-      tmp += '%' + buf[i].toString(16)
+      bytesPerSequence = 1
     }
+
+    if (i + bytesPerSequence <= end) {
+      switch (bytesPerSequence) {
+        case 1:
+          if (firstByte < 0x80) {
+            codePoint = firstByte
+          }
+          break
+        case 2:
+          secondByte = buf[i + 1]
+          if ((secondByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0x1F) << 0x6 | (secondByte & 0x3F)
+            if (tempCodePoint > 0x7F) {
+              codePoint = tempCodePoint
+            }
+          }
+          break
+        case 3:
+          secondByte = buf[i + 1]
+          thirdByte = buf[i + 2]
+          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0xF) << 0xC | (secondByte & 0x3F) << 0x6 | (thirdByte & 0x3F)
+            if (tempCodePoint > 0x7FF && (tempCodePoint < 0xD800 || tempCodePoint > 0xDFFF)) {
+              codePoint = tempCodePoint
+            }
+          }
+          break
+        case 4:
+          secondByte = buf[i + 1]
+          thirdByte = buf[i + 2]
+          fourthByte = buf[i + 3]
+          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80 && (fourthByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0xF) << 0x12 | (secondByte & 0x3F) << 0xC | (thirdByte & 0x3F) << 0x6 | (fourthByte & 0x3F)
+            if (tempCodePoint > 0xFFFF && tempCodePoint < 0x110000) {
+              codePoint = tempCodePoint
+            }
+          }
+      }
+    }
+
+    if (codePoint === 0xFFFD) {
+      // we generated an invalid codePoint so make sure to only advance by 1 byte
+      bytesPerSequence = 1
+    } else if (codePoint > 0xFFFF) {
+      // encode to utf16 (surrogate pair dance)
+      codePoint -= 0x10000
+      res.push(codePoint >>> 10 & 0x3FF | 0xD800)
+      codePoint = 0xDC00 | codePoint & 0x3FF
+    }
+
+    res.push(codePoint)
   }
 
-  return res + decodeUtf8Char(tmp)
+  return String.fromCharCode.apply(String, res)
 }
 
 function asciiSlice (buf, start, end) {
@@ -1363,47 +1447,48 @@ function utf8ToBytes (string, units) {
   var length = string.length
   var leadSurrogate = null
   var bytes = []
-  var i = 0
 
-  for (; i < length; i++) {
+  for (var i = 0; i < length; i++) {
     codePoint = string.charCodeAt(i)
 
     // is surrogate component
     if (codePoint > 0xD7FF && codePoint < 0xE000) {
       // last char was a lead
-      if (leadSurrogate) {
-        // 2 leads in a row
-        if (codePoint < 0xDC00) {
-          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
-          leadSurrogate = codePoint
-          continue
-        } else {
-          // valid surrogate pair
-          codePoint = leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00 | 0x10000
-          leadSurrogate = null
-        }
-      } else {
+      if (!leadSurrogate) {
         // no lead yet
-
         if (codePoint > 0xDBFF) {
           // unexpected trail
           if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
           continue
+
         } else if (i + 1 === length) {
           // unpaired lead
           if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
           continue
-        } else {
-          // valid lead
-          leadSurrogate = codePoint
-          continue
         }
+
+        // valid lead
+        leadSurrogate = codePoint
+
+        continue
       }
+
+      // 2 leads in a row
+      if (codePoint < 0xDC00) {
+        if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+        leadSurrogate = codePoint
+        continue
+      }
+
+      // valid surrogate pair
+      codePoint = leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00 | 0x10000
+
     } else if (leadSurrogate) {
       // valid bmp char, but last char was a lead
       if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
-      leadSurrogate = null
     }
+
+    leadSurrogate = null
 
     // encode utf8
     if (codePoint < 0x80) {
@@ -1422,7 +1507,7 @@ function utf8ToBytes (string, units) {
         codePoint >> 0x6 & 0x3F | 0x80,
         codePoint & 0x3F | 0x80
       )
-    } else if (codePoint < 0x200000) {
+    } else if (codePoint < 0x110000) {
       if ((units -= 4) < 0) break
       bytes.push(
         codePoint >> 0x12 | 0xF0,
@@ -1473,14 +1558,6 @@ function blitBuffer (src, dst, offset, length) {
     dst[i + offset] = src[i]
   }
   return i
-}
-
-function decodeUtf8Char (str) {
-  try {
-    return decodeURIComponent(str)
-  } catch (err) {
-    return String.fromCharCode(0xFFFD) // UTF 8 invalid char
-  }
 }
 
 },{"base64-js":5,"ieee754":6,"is-array":7}],5:[function(require,module,exports){
@@ -7348,6 +7425,94 @@ function extend() {
 }
 
 },{}],45:[function(require,module,exports){
+'use strict';
+
+var hasOwn = Object.prototype.hasOwnProperty;
+var toStr = Object.prototype.toString;
+
+var isArray = function isArray(arr) {
+	if (typeof Array.isArray === 'function') {
+		return Array.isArray(arr);
+	}
+
+	return toStr.call(arr) === '[object Array]';
+};
+
+var isPlainObject = function isPlainObject(obj) {
+	if (!obj || toStr.call(obj) !== '[object Object]') {
+		return false;
+	}
+
+	var hasOwnConstructor = hasOwn.call(obj, 'constructor');
+	var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+	// Not own constructor property must be Object
+	if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
+		return false;
+	}
+
+	// Own properties are enumerated firstly, so to speed up,
+	// if last one is own, then all properties are own.
+	var key;
+	for (key in obj) {/**/}
+
+	return typeof key === 'undefined' || hasOwn.call(obj, key);
+};
+
+module.exports = function extend() {
+	var options, name, src, copy, copyIsArray, clone,
+		target = arguments[0],
+		i = 1,
+		length = arguments.length,
+		deep = false;
+
+	// Handle a deep copy situation
+	if (typeof target === 'boolean') {
+		deep = target;
+		target = arguments[1] || {};
+		// skip the boolean and the target
+		i = 2;
+	} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
+		target = {};
+	}
+
+	for (; i < length; ++i) {
+		options = arguments[i];
+		// Only deal with non-null/undefined values
+		if (options != null) {
+			// Extend the base object
+			for (name in options) {
+				src = target[name];
+				copy = options[name];
+
+				// Prevent never-ending loop
+				if (target !== copy) {
+					// Recurse if we're merging plain objects or arrays
+					if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
+						if (copyIsArray) {
+							copyIsArray = false;
+							clone = src && isArray(src) ? src : [];
+						} else {
+							clone = src && isPlainObject(src) ? src : {};
+						}
+
+						// Never move original objects, clone them
+						target[name] = extend(deep, clone, copy);
+
+					// Don't bring in undefined values
+					} else if (typeof copy !== 'undefined') {
+						target[name] = copy;
+					}
+				}
+			}
+		}
+	}
+
+	// Return the modified object
+	return target;
+};
+
+
+},{}],46:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -7493,7 +7658,7 @@ var _buildBundles = function (target, json, canvasDimension) {
 };
 
 
-},{"./lib/transform.js":46,"d3":47,"events":8,"inherits":48,"insert-css":49}],46:[function(require,module,exports){
+},{"./lib/transform.js":47,"d3":48,"events":8,"inherits":49,"insert-css":50}],47:[function(require,module,exports){
 module.exports = {
     parseToStructure: parseToStructure,
     taxonHierarchy: taxonHierarchy,
@@ -7583,7 +7748,7 @@ function taxonPreys(nodes) {
     });
     return preys;
 }
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 !function() {
   var d3 = {
     version: "3.5.6"
@@ -17088,9 +17253,9 @@ function taxonPreys(nodes) {
   if (typeof define === "function" && define.amd) define(d3); else if (typeof module === "object" && module.exports) module.exports = d3;
   this.d3 = d3;
 }();
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],49:[function(require,module,exports){
+},{"dup":10}],50:[function(require,module,exports){
 var inserted = {};
 
 module.exports = function (css, options) {
@@ -17114,7 +17279,7 @@ module.exports = function (css, options) {
     }
 };
 
-},{}],50:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -17382,7 +17547,7 @@ function toggleNode(node, forcedStatus) {
 }
 
 
-},{"./lib/transform.js":51,"d3":52,"events":8,"inherits":53,"insert-css":54}],51:[function(require,module,exports){
+},{"./lib/transform.js":52,"d3":53,"events":8,"inherits":54,"insert-css":55}],52:[function(require,module,exports){
 module.exports = {
     parseInteractions: parseInteractions
 };
@@ -17437,13 +17602,13 @@ function parseInteractions(data) {
     }
     return { nodes: nodes, links: links};
 }
-},{}],52:[function(require,module,exports){
-arguments[4][47][0].apply(exports,arguments)
-},{"dup":47}],53:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
+arguments[4][48][0].apply(exports,arguments)
+},{"dup":48}],54:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],54:[function(require,module,exports){
-arguments[4][49][0].apply(exports,arguments)
-},{"dup":49}],55:[function(require,module,exports){
+},{"dup":10}],55:[function(require,module,exports){
+arguments[4][50][0].apply(exports,arguments)
+},{"dup":50}],56:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var domify = require('domify');
@@ -17492,7 +17657,7 @@ function addButtonClickHandlers(target) {
         });
     }
 }
-},{"domify":56,"events":8,"inherits":57,"insert-css":58}],56:[function(require,module,exports){
+},{"domify":57,"events":8,"inherits":58,"insert-css":59}],57:[function(require,module,exports){
 
 /**
  * Expose `parse`.
@@ -17602,13 +17767,13 @@ function parse(html, doc) {
   return fragment;
 }
 
-},{}],57:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],58:[function(require,module,exports){
-arguments[4][49][0].apply(exports,arguments)
-},{"dup":49}],59:[function(require,module,exports){
+},{"dup":10}],59:[function(require,module,exports){
+arguments[4][50][0].apply(exports,arguments)
+},{"dup":50}],60:[function(require,module,exports){
 module.exports = require('./lib/GlobiSearch.js');
-},{"./lib/GlobiSearch.js":61}],60:[function(require,module,exports){
+},{"./lib/GlobiSearch.js":62}],61:[function(require,module,exports){
 var globi = require('globi');
 var globiData = require('globi-data');
 var forEach = require('foreach');
@@ -17650,7 +17815,7 @@ DataParser.process = function(data) {
 }
 
 module.exports = DataParser;
-},{"foreach":68,"globi":82,"globi-data":69}],61:[function(require,module,exports){
+},{"foreach":69,"globi":83,"globi-data":70}],62:[function(require,module,exports){
 var jQuery = require('jquery');
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
@@ -18001,13 +18166,13 @@ function fillTemplate(data) {
 }
 
 module.exports = Plugin;
-},{"./Mediator.js":62,"./SearchResult.js":63,"./TaxonSelector.js":64,"./TypeSelector.js":65,"events":8,"extend":67,"foreach":68,"globi":82,"globi-data":69,"jquery":88,"util":43}],62:[function(require,module,exports){
+},{"./Mediator.js":63,"./SearchResult.js":64,"./TaxonSelector.js":65,"./TypeSelector.js":66,"events":8,"extend":68,"foreach":69,"globi":83,"globi-data":70,"jquery":90,"util":43}],63:[function(require,module,exports){
 var EventEmitter = require('events').EventEmitter,
-    PubSub = new EventEmitter();
+PubSub = new EventEmitter();
 
-exports.PubSub = PubSub;
+module.exports.PubSub = PubSub;
 
-},{"events":8}],63:[function(require,module,exports){
+},{"events":8}],64:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var PubSub = require('./Mediator.js').PubSub;
@@ -18190,7 +18355,7 @@ function createElement(elementName, id, classes) {
 }
 
 module.exports = SearchResult;
-},{"./Mediator.js":62,"events":8,"extend":67,"foreach":68,"util":43}],64:[function(require,module,exports){
+},{"./Mediator.js":63,"events":8,"extend":68,"foreach":69,"util":43}],65:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var PubSub = require('./Mediator.js').PubSub;
@@ -18318,7 +18483,7 @@ function createElement(elementName, id, classes) {
 module.exports = TaxonSelector;
 
 
-},{"./DataParser.js":60,"./Mediator.js":62,"./jquery.tokeninput":66,"events":8,"extend":67,"foreach":68,"jquery":88,"util":43}],65:[function(require,module,exports){
+},{"./DataParser.js":61,"./Mediator.js":63,"./jquery.tokeninput":67,"events":8,"extend":68,"foreach":69,"jquery":90,"util":43}],66:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var PubSub = require('./Mediator.js').PubSub;
@@ -18475,7 +18640,7 @@ function proxy(fn, context) {
 
 
 module.exports = TypeSelector;
-},{"./Mediator.js":62,"events":8,"extend":67,"foreach":68,"util":43}],66:[function(require,module,exports){
+},{"./Mediator.js":63,"events":8,"extend":68,"foreach":69,"util":43}],67:[function(require,module,exports){
 var jQuery = require('jquery');
 /*
  * jQuery Plugin: Tokenizing Autocomplete Text Entry
@@ -19586,97 +19751,11 @@ var jQuery = require('jquery');
 
 }(jQuery));
 
-},{"jquery":88}],67:[function(require,module,exports){
-'use strict';
-
-var hasOwn = Object.prototype.hasOwnProperty;
-var toStr = Object.prototype.toString;
-
-var isArray = function isArray(arr) {
-	if (typeof Array.isArray === 'function') {
-		return Array.isArray(arr);
-	}
-
-	return toStr.call(arr) === '[object Array]';
-};
-
-var isPlainObject = function isPlainObject(obj) {
-	if (!obj || toStr.call(obj) !== '[object Object]') {
-		return false;
-	}
-
-	var hasOwnConstructor = hasOwn.call(obj, 'constructor');
-	var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
-	// Not own constructor property must be Object
-	if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
-		return false;
-	}
-
-	// Own properties are enumerated firstly, so to speed up,
-	// if last one is own, then all properties are own.
-	var key;
-	for (key in obj) {/**/}
-
-	return typeof key === 'undefined' || hasOwn.call(obj, key);
-};
-
-module.exports = function extend() {
-	var options, name, src, copy, copyIsArray, clone,
-		target = arguments[0],
-		i = 1,
-		length = arguments.length,
-		deep = false;
-
-	// Handle a deep copy situation
-	if (typeof target === 'boolean') {
-		deep = target;
-		target = arguments[1] || {};
-		// skip the boolean and the target
-		i = 2;
-	} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
-		target = {};
-	}
-
-	for (; i < length; ++i) {
-		options = arguments[i];
-		// Only deal with non-null/undefined values
-		if (options != null) {
-			// Extend the base object
-			for (name in options) {
-				src = target[name];
-				copy = options[name];
-
-				// Prevent never-ending loop
-				if (target !== copy) {
-					// Recurse if we're merging plain objects or arrays
-					if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
-						if (copyIsArray) {
-							copyIsArray = false;
-							clone = src && isArray(src) ? src : [];
-						} else {
-							clone = src && isPlainObject(src) ? src : {};
-						}
-
-						// Never move original objects, clone them
-						target[name] = extend(deep, clone, copy);
-
-					// Don't bring in undefined values
-					} else if (typeof copy !== 'undefined') {
-						target[name] = copy;
-					}
-				}
-			}
-		}
-	}
-
-	// Return the modified object
-	return target;
-};
-
-
-},{}],68:[function(require,module,exports){
+},{"jquery":90}],68:[function(require,module,exports){
+arguments[4][45][0].apply(exports,arguments)
+},{"dup":45}],69:[function(require,module,exports){
 arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],69:[function(require,module,exports){
+},{"dup":36}],70:[function(require,module,exports){
 var nodeXHR = require("xmlhttprequest");
 var globiData = {};
 
@@ -20012,7 +20091,7 @@ globiData.findThumbnailById = function (search, callback) {
 
 module.exports = globiData;
 
-},{"xmlhttprequest":70}],70:[function(require,module,exports){
+},{"xmlhttprequest":71}],71:[function(require,module,exports){
 (function (process,Buffer){
 /**
  * Wrapper for built-in http.js to emulate the browser XMLHttpRequest object.
@@ -20615,7 +20694,7 @@ exports.XMLHttpRequest = function() {
 };
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],71:[function(require,module,exports){
+},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],72:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -20717,7 +20796,7 @@ function placeMarker(content, location, map) {
 
     return marker;
 }
-},{"./lib/areapicker.js":72,"./lib/boundsToBBox.js":73,"./lib/infobox.js":74,"events":8,"inherits":75,"insert-css":76}],72:[function(require,module,exports){
+},{"./lib/areapicker.js":73,"./lib/boundsToBBox.js":74,"./lib/infobox.js":75,"events":8,"inherits":76,"insert-css":77}],73:[function(require,module,exports){
 var infobox = require('./infobox.js');
 var boundsToBBox = require('./boundsToBBox.js');
 
@@ -20867,7 +20946,7 @@ AreaPickerInfo.prototype.setContent = function (bounds) {
 AreaPickerInfo.prototype.createContent_ = function (bounds) {
     return infobox.areaInfoBox(boundsToBBox(bounds));
 };
-},{"./boundsToBBox.js":73,"./infobox.js":74}],73:[function(require,module,exports){
+},{"./boundsToBBox.js":74,"./infobox.js":75}],74:[function(require,module,exports){
 module.exports = boundsToBBox;
 
 function boundsToBBox(bounds) {
@@ -20890,7 +20969,7 @@ function boundsToBBox(bounds) {
     }
     return {bbox: eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat };
 }
-},{}],74:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 module.exports = {
     areaInfoBox: areaInfoBox,
     locationInfoBox: locationInfoBox
@@ -20938,11 +21017,11 @@ function areaInfoBox(locationParams) {
 function locationInfoBox(locationParams) {
     return infoBoxText('location-selection', locationParams);
 };
-},{}],75:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],76:[function(require,module,exports){
-arguments[4][49][0].apply(exports,arguments)
-},{"dup":49}],77:[function(require,module,exports){
+},{"dup":10}],77:[function(require,module,exports){
+arguments[4][50][0].apply(exports,arguments)
+},{"dup":50}],78:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -21156,7 +21235,7 @@ var dependencyWheel = function () {
 
 
 
-},{"./lib/transform.js":78,"d3":79,"events":8,"inherits":80,"insert-css":81}],78:[function(require,module,exports){
+},{"./lib/transform.js":79,"d3":80,"events":8,"inherits":81,"insert-css":82}],79:[function(require,module,exports){
 module.exports = {
     convertJsonForDependencyWheel: convertJsonForDependencyWheel
 };
@@ -21210,13 +21289,13 @@ function convertJsonForDependencyWheel(json) {
         matrix: matrix
     };
 };
-},{}],79:[function(require,module,exports){
-arguments[4][47][0].apply(exports,arguments)
-},{"dup":47}],80:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
+arguments[4][48][0].apply(exports,arguments)
+},{"dup":48}],81:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],81:[function(require,module,exports){
-arguments[4][49][0].apply(exports,arguments)
-},{"dup":49}],82:[function(require,module,exports){
+},{"dup":10}],82:[function(require,module,exports){
+arguments[4][50][0].apply(exports,arguments)
+},{"dup":50}],83:[function(require,module,exports){
 var d3 = require('d3');
 var globiData = require('globi-data');
 var EventEmitter = require('events').EventEmitter;
@@ -22031,7 +22110,7 @@ globi.ResponseMapper = function() {
 
 module.exports = globi;
 
-},{"d3":84,"events":8,"globi-data":85,"jquery":88}],83:[function(require,module,exports){
+},{"d3":85,"events":8,"globi-data":86,"jquery":90}],84:[function(require,module,exports){
 d3 = function() {
   var d3 = {
     version: "3.2.8"
@@ -30842,16 +30921,18 @@ d3 = function() {
   });
   return d3;
 }();
-},{}],84:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 require("./d3");
 module.exports = d3;
 (function () { delete this.d3; })(); // unset global
 
-},{"./d3":83}],85:[function(require,module,exports){
-arguments[4][69][0].apply(exports,arguments)
-},{"dup":69,"xmlhttprequest":86}],86:[function(require,module,exports){
+},{"./d3":84}],86:[function(require,module,exports){
 arguments[4][70][0].apply(exports,arguments)
-},{"_process":12,"buffer":4,"child_process":2,"dup":70,"fs":2,"http":31,"https":9,"url":41}],87:[function(require,module,exports){
+},{"dup":70,"xmlhttprequest":87}],87:[function(require,module,exports){
+arguments[4][71][0].apply(exports,arguments)
+},{"_process":12,"buffer":4,"child_process":2,"dup":71,"fs":2,"http":31,"https":9,"url":41}],88:[function(require,module,exports){
+arguments[4][10][0].apply(exports,arguments)
+},{"dup":10}],89:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*! jQuery UI - v1.10.3 - 2013-05-03
@@ -45858,7 +45939,7 @@ $.widget( "ui.tooltip", {
 
 }( jQuery ) );
 
-},{"jquery":88}],88:[function(require,module,exports){
+},{"jquery":90}],90:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -55070,7 +55151,7 @@ return jQuery;
 
 }));
 
-},{}],89:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 (function (global){
 /**
  * Npm version of markerClusterer works great with browserify and google maps for commonjs
@@ -56370,7 +56451,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 module.exports = MarkerClusterer;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],90:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 /**
  * Copyright (c) 2011-2014 Felix Gnass
  * Licensed under the MIT license

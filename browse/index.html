@@ -55,6 +55,8 @@
     var d3 = globiWeb.globi.d3;
     var globiData = globiWeb.globi.globiData;
     var Spinner = globiWeb.Spinner;
+
+
     function appendSpinner(target) {
         var SpinnerOptions = {
             lines: 13, // The number of lines to draw
@@ -83,8 +85,25 @@
         {factory: globiWeb.search, target: panels.topRightContainer}
     ];
 
-</script>
-<script>
+    var searchContext = globiWeb.searchContext();
+    searchContext.on('change', function(context) {
+        globiWeb.widgets.forEach(function (w) {
+            var oldWidgetContainer = document.querySelector(w.target);
+            while (oldWidgetContainer.firstChild) {
+                oldWidgetContainer.removeChild(oldWidgetContainer.firstChild);
+            }
+            w.spinner = appendSpinner(w.target);
+        });
+
+        var dataSetUrl = createInteractionURL(context, 'json.v2');
+
+        d3.json(dataSetUrl, function (json) {
+            if (json.length) {
+                appendWidgets(json, context);
+            }
+        });
+    });
+
     var urlPrefix = function () {
         return 'http://api.globalbioticinteractions.org';
     };
@@ -111,21 +130,7 @@
     }
 
     function spatialSelectionChanged(spatialSelection) {
-        globiWeb.widgets.forEach(function (w) {
-            var oldWidgetContainer = document.querySelector(w.target);
-            while (oldWidgetContainer.firstChild) {
-                oldWidgetContainer.removeChild(oldWidgetContainer.firstChild);
-            }
-            w.spinner = appendSpinner(w.target);
-        });
-
-        var dataSetUrl = createInteractionURL(spatialSelection, 'json.v2');
-
-        d3.json(dataSetUrl, function (json) {
-            if (json.length) {
-                appendWidgets(json, spatialSelection);
-            }
-        });
+        searchContext.update(spatialSelection);
     }
 
     function appendMap() {
