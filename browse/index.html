@@ -56,8 +56,28 @@
     var d3 = globiWeb.globi.d3;
     var globiData = globiWeb.globi.globiData;
     var Spinner = globiWeb.Spinner;
+    function appendSpinner(target) {
+        var SpinnerOptions = {
+            lines: 13, // The number of lines to draw
+            length: 10, // The length of each line
+            width: 5, // The line thickness
+            radius: 20, // The radius of the inner circle
+            corners: 1, // Corner roundness (0..1)
+            rotate: 0, // The rotation offset
+            direction: 1, // 1: clockwise, -1: counterclockwise
+            color: '#a0a0a0', // #rgb or #rrggbb or array of colors
+            speed: 1, // Rounds per second
+            trail: 60, // Afterglow percentage
+            hwaccel: false, // Whether to use hardware acceleration
+            className: 'spinner', // The CSS class to assign to the spinner
+            zIndex: 2e9 // The z-index (defaults to 2000000000)
+        };
+        return new Spinner(SpinnerOptions).spin(document.querySelector(target));
+    }
+
     var panels = globiWeb.panels();
     panels.appendTo(document.body);
+
     globiWeb.widgets = [
         {factory: globiWeb.wheel, target: panels.bottomLeftContainer},
         {factory: globiWeb.bundle, target: panels.bottomRightContainer}
@@ -84,7 +104,7 @@
     };
 
     function appendTaxonSearch(panels, spatialSelection) {
-        treeSpinner = SpinnerFactory(panels.topRightContainer);
+        treeSpinner = appendSpinner(panels.topRightContainer);
         var $treeContainer = jQuery(panels.topRightContainer);
         if ($treeContainer.data('plugin_interactions')) {
             $treeContainer.data('plugin_interactions').update(spatialSelection);
@@ -105,6 +125,7 @@
             widget.appendTo(w.target);
         });
     }
+
     function spatialSelectionChanged(spatialSelection) {
         appendTaxonSearch(panels, spatialSelection);
 
@@ -113,7 +134,7 @@
             while (oldWidgetContainer.firstChild) {
                 oldWidgetContainer.removeChild(oldWidgetContainer.firstChild);
             }
-            w.spinner = SpinnerFactory(w.target);
+            w.spinner = appendSpinner(w.target);
         });
 
 
@@ -125,54 +146,45 @@
         });
     }
 
-    jQuery(function () {
-        var map = initializeMap(panels.topLeft);
-        var mapSpinner = SpinnerFactory(panels.topLeft);
-        var areapicker = new AreaPicker(map);
-        var params = searchParams(window.location.search);
-        if (params.bbox) {
-            areapicker.setBounds(toLatLngBounds(params.bbox)).show();
-            areapicker.control_.setActive();
-            map.panToBounds(areapicker.bounds_);
-            spatialSelectionChanged(boundsToLocationParams(areapicker.bounds_));
-        }
+    appendMap(panels.topLeft);
 
-        d3.json(urlPrefix() + '/locations', function (locations) {
-            if (locations) {
-                var markers = [];
-                locations = locations.data;
-                for (var index in locations) {
-                    if (locations.hasOwnProperty(index)) {
-                        var location = { latitude: locations[ index ][ 0 ], longitude: locations[ index ][ 1 ] },
-                                content = createLocationContent(location);
-                        markers.push(placeMarker(content, location, map));
-                    }
-                }
-                initializeMarkerClusterer(map, markers);
+    function appendMarkersTo(json, map) {
+        var markers = [];
+        var locations = json.data;
+        for (var index in locations) {
+            if (locations.hasOwnProperty(index)) {
+                var location = { latitude: locations[ index ][ 0 ], longitude: locations[ index ][ 1 ] },
+                        content = createLocationContent(location);
+                markers.push(placeMarker(content, location, map));
+            }
+        }
+        initializeMarkerClusterer(map, markers);
+    }
+
+    function appendAreaPicker(map, params) {
+        var picker = new AreaPicker(map);
+        if (params.bbox) {
+            picker.setBounds(toLatLngBounds(params.bbox)).show();
+            picker.control_.setActive();
+            map.panToBounds(picker.bounds_);
+            spatialSelectionChanged(boundsToLocationParams(picker.bounds_));
+        }
+        return picker;
+    }
+
+    function appendMap(target) {
+        var map = initializeMap(target);
+        var mapSpinner = appendSpinner(target);
+        var params = searchParams(window.location.search);
+        var areapicker = appendAreaPicker(map, params);
+
+        d3.json(urlPrefix() + '/locations', function (json) {
+            if (json) {
+                appendMarkersTo(json, map);
             }
             mapSpinner.stop();
         });
-    });
-
-    var SpinnerOptions = {
-        lines: 13, // The number of lines to draw
-        length: 10, // The length of each line
-        width: 5, // The line thickness
-        radius: 20, // The radius of the inner circle
-        corners: 1, // Corner roundness (0..1)
-        rotate: 0, // The rotation offset
-        direction: 1, // 1: clockwise, -1: counterclockwise
-        color: '#a0a0a0', // #rgb or #rrggbb or array of colors
-        speed: 1, // Rounds per second
-        trail: 60, // Afterglow percentage
-        hwaccel: false, // Whether to use hardware acceleration
-        className: 'spinner', // The CSS class to assign to the spinner
-        zIndex: 2e9 // The z-index (defaults to 2000000000)
-    };
-
-    var SpinnerFactory = function (target) {
-        return new Spinner(SpinnerOptions).spin(document.querySelector(target));
-    };
+    }
 </script>
 </body>
 </html>
