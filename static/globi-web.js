@@ -17766,11 +17766,15 @@ var ItemData = {
 
 var fetchingItemData = false;
 
+var uuid = 0;
+
 function Plugin(settings) {
     if (!(this instanceof Plugin)) {
         return new Plugin(settings);
     }
+    this.settings = extend({
 
+    }, settings);
     this.init();
 }
 
@@ -17785,6 +17789,12 @@ extend(Plugin.prototype, {
 
         me.buildUi();
         me.events();
+        me.uuid = ++uuid;
+        State = {
+            source: null,
+            type: null,
+            target: null
+        };
     },
 
     appendTo: function(target) {
@@ -17792,6 +17802,7 @@ extend(Plugin.prototype, {
         if (typeof target === 'string') target = document.querySelector(target);
 
         target.appendChild(me.el);
+        this.emit('append', target);
     },
 
     events: function() {
@@ -17939,22 +17950,28 @@ extend(Plugin.prototype, {
 
     taxonSelected: function(event) {
         var me = this;
-        State[event['emitter']] = event['data'];
-        me.emit('globisearch:partialstatechange');
+        if (me.uuid === uuid) {
+            State[event['emitter']] = event['data'];
+            me.emit('globisearch:partialstatechange');
+        }
     },
 
     typeSelected: function(event) {
         var me = this;
-        State['type'] = event['data'];
-        me.emit('globisearch:partialstatechange');
+        if (me.uuid === uuid) {
+            State['type'] = event['data'];
+            me.emit('globisearch:partialstatechange');
+        }
     },
 
     partialStateChanged: function() {
         var me = this;
-        if ((State['type'] !== null) &&
-            ((State['source'] !== null) || (State['target'] !== null))
-        ) {
-            me.emit('globisearch:searchchange', State);
+        if (me.uuid === uuid) {
+            if ((State['type'] !== null) &&
+                ((State['source'] !== null) || (State['target'] !== null))
+            ) {
+                me.emit('globisearch:searchchange', State);
+            }
         }
     },
 
@@ -17971,7 +17988,7 @@ extend(Plugin.prototype, {
         searchHash.interactionType = state['type'];
 
         url = globiData.urlForTaxonInteractionQuery(searchHash);
-        DataFetcher.settings.url = url;
+        DataFetcher.settings.url = url + '&bbox=' + me.settings.spatialSelection.bbox;
 
         DataFetcher.fetch(function(data) {
             searchHash.resultType = 'csv';
