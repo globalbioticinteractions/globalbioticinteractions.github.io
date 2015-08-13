@@ -13,7 +13,7 @@ module.exports = {
     spatialSelector: require('globi-spatial-selector'),
     globi: globi
 };
-},{"globi":67,"globi-bundle":43,"globi-hairball":48,"globi-panels":53,"globi-spatial-selector":57,"globi-wheel":62,"jquery-ui":72,"node-js-marker-clusterer":74,"spin.js":75}],2:[function(require,module,exports){
+},{"globi":68,"globi-bundle":43,"globi-hairball":48,"globi-panels":53,"globi-spatial-selector":57,"globi-wheel":63,"jquery-ui":73,"node-js-marker-clusterer":75,"spin.js":76}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
 arguments[4][2][0].apply(exports,arguments)
@@ -17015,6 +17015,7 @@ var inherits = require('inherits');
 var EventEmitter = require('events').EventEmitter;
 var AreaPicker = require('./lib/areapicker.js');
 var infobox = require('./lib/infobox.js');
+var boundsToBBox = require('./lib/boundsToBBox.js');
 
 inherits(SpatialSelector, EventEmitter);
 module.exports = SpatialSelector;
@@ -17058,7 +17059,7 @@ SpatialSelector.prototype.appendAreaPicker = function (map, params, google) {
         picker.setBounds(toLatLngBounds(params.bbox, google)).show();
         picker.control_.setActive();
         map.panToBounds(picker.bounds_);
-        this.emit('change', boundsToLocationParams(picker.bounds_));
+        this.emit('change', boundsToBBox(picker.bounds_));
     }
     return picker;
 };
@@ -17109,8 +17110,9 @@ function placeMarker(content, location, map) {
 
     return marker;
 }
-},{"./lib/areapicker.js":58,"./lib/infobox.js":59,"events":8,"inherits":60,"insert-css":61}],58:[function(require,module,exports){
+},{"./lib/areapicker.js":58,"./lib/boundsToBBox.js":59,"./lib/infobox.js":60,"events":8,"inherits":61,"insert-css":62}],58:[function(require,module,exports){
 var infobox = require('./infobox.js');
+var boundsToBBox = require('./boundsToBBox.js');
 
 module.exports = AreaPicker;
 
@@ -17255,7 +17257,13 @@ AreaPickerInfo.prototype.setContent = function (bounds) {
     this.infoWindow.setContent(contentString);
 };
 
-function boundsToLocationParams(bounds) {
+AreaPickerInfo.prototype.createContent_ = function (bounds) {
+    return infobox.areaInfoBox(boundsToBBox(bounds));
+};
+},{"./boundsToBBox.js":59,"./infobox.js":60}],59:[function(require,module,exports){
+module.exports = boundsToBBox;
+
+function boundsToBBox(bounds) {
     var eolBounds = {
         nw_lat: bounds.getNorthEast().lat(),
         nw_lng: bounds.getSouthWest().lng(),
@@ -17275,10 +17283,7 @@ function boundsToLocationParams(bounds) {
     }
     return {bbox: eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat };
 }
-AreaPickerInfo.prototype.createContent_ = function (bounds) {
-    return infobox.areaInfoBox(boundsToLocationParams(bounds));
-};
-},{"./infobox.js":59}],59:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 module.exports = {
     areaInfoBox: areaInfoBox,
     locationInfoBox: locationInfoBox
@@ -17326,11 +17331,11 @@ function areaInfoBox(locationParams) {
 function locationInfoBox(locationParams) {
     return infoBoxText('location-selection', locationParams);
 };
-},{}],60:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],61:[function(require,module,exports){
+},{"dup":10}],62:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"dup":47}],62:[function(require,module,exports){
+},{"dup":47}],63:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -17544,7 +17549,7 @@ var dependencyWheel = function () {
 
 
 
-},{"./lib/transform.js":63,"d3":64,"events":8,"inherits":65,"insert-css":66}],63:[function(require,module,exports){
+},{"./lib/transform.js":64,"d3":65,"events":8,"inherits":66,"insert-css":67}],64:[function(require,module,exports){
 module.exports = {
     convertJsonForDependencyWheel: convertJsonForDependencyWheel
 };
@@ -17598,13 +17603,13 @@ function convertJsonForDependencyWheel(json) {
         matrix: matrix
     };
 };
-},{}],64:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],65:[function(require,module,exports){
+},{"dup":45}],66:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],66:[function(require,module,exports){
+},{"dup":10}],67:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"dup":47}],67:[function(require,module,exports){
+},{"dup":47}],68:[function(require,module,exports){
 var d3 = require('d3');
 var globiData = require('globi-data');
 var EventEmitter = require('events').EventEmitter;
@@ -18985,7 +18990,7 @@ globi.ResponseMapper = function() {
 
 module.exports = globi;
 
-},{"d3":69,"events":8,"globi-data":70,"jquery":73}],68:[function(require,module,exports){
+},{"d3":70,"events":8,"globi-data":71,"jquery":74}],69:[function(require,module,exports){
 d3 = function() {
   var d3 = {
     version: "3.2.8"
@@ -27796,12 +27801,12 @@ d3 = function() {
   });
   return d3;
 }();
-},{}],69:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 require("./d3");
 module.exports = d3;
 (function () { delete this.d3; })(); // unset global
 
-},{"./d3":68}],70:[function(require,module,exports){
+},{"./d3":69}],71:[function(require,module,exports){
 var nodeXHR = require("xmlhttprequest");
 var globiData = {};
 
@@ -28137,7 +28142,7 @@ globiData.findThumbnailById = function (search, callback) {
 
 module.exports = globiData;
 
-},{"xmlhttprequest":71}],71:[function(require,module,exports){
+},{"xmlhttprequest":72}],72:[function(require,module,exports){
 (function (process,Buffer){
 /**
  * Wrapper for built-in http.js to emulate the browser XMLHttpRequest object.
@@ -28740,7 +28745,7 @@ exports.XMLHttpRequest = function() {
 };
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],72:[function(require,module,exports){
+},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],73:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*! jQuery UI - v1.10.3 - 2013-05-03
@@ -43747,7 +43752,7 @@ $.widget( "ui.tooltip", {
 
 }( jQuery ) );
 
-},{"jquery":73}],73:[function(require,module,exports){
+},{"jquery":74}],74:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -52959,7 +52964,7 @@ return jQuery;
 
 }));
 
-},{}],74:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 (function (global){
 /**
  * Npm version of markerClusterer works great with browserify and google maps for commonjs
@@ -54259,7 +54264,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 module.exports = MarkerClusterer;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],75:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 /**
  * Copyright (c) 2011-2014 Felix Gnass
  * Licensed under the MIT license
