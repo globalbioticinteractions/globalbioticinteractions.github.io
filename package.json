@@ -20,7 +20,7 @@
     "spin.js": "~2.3.2"
   },
   "devDependencies": {
-    "tape": "~1.0.4",
+    "tape": "~4.1.0",
     "browserify": "~11.0.1",
     "brfs": "~1.4.0"
   },
