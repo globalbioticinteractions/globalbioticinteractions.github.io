@@ -1,25 +1,9 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.globiWeb = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var globi = require('globi');
-var extend = require('extend');
-var inherits = require('inherits');
-var EventEmitter = require('events').EventEmitter;
 var $ = globi.jQuery;
 
 require('jquery-ui');
 var MarkerClusterer = require('node-js-marker-clusterer');
-
-inherits(SearchContext, EventEmitter);
-
-function SearchContext(context) {
-    if (!(this instanceof SearchContext)) return new SearchContext(context);
-    this.context = extend({ bbox: '-125.53344800000002,32.750323,-114.74487299999998,41.574361' }, context);
-}
-
-SearchContext.prototype.update = function(context) {
-    this.context = extend(this.context, context)
-    this.emit('change', this.context);
-};
-
 
 module.exports = {
     bundle: require('globi-bundle'),
@@ -30,15 +14,34 @@ module.exports = {
     spatialSelector: require('globi-spatial-selector'),
     globi: globi,
     search: require('globi-search'),
-    searchContext: SearchContext
+    searchContext: require('./lib/searchContext.js')
 };
 
 
-},{"events":8,"extend":45,"globi":83,"globi-bundle":46,"globi-hairball":51,"globi-panels":56,"globi-search":60,"globi-spatial-selector":72,"globi-wheel":78,"inherits":88,"jquery-ui":89,"node-js-marker-clusterer":91,"spin.js":92}],2:[function(require,module,exports){
+},{"./lib/searchContext.js":2,"globi":77,"globi-bundle":46,"globi-hairball":50,"globi-panels":54,"globi-search":57,"globi-spatial-selector":68,"globi-wheel":73,"jquery-ui":83,"node-js-marker-clusterer":85,"spin.js":86}],2:[function(require,module,exports){
+var extend = require('extend');
+var inherits = require('inherits');
+var EventEmitter = require('events').EventEmitter;
 
-},{}],3:[function(require,module,exports){
-arguments[4][2][0].apply(exports,arguments)
-},{"dup":2}],4:[function(require,module,exports){
+module.exports = SearchContext;
+
+inherits(SearchContext, EventEmitter);
+
+function SearchContext(context) {
+    if (!(this instanceof SearchContext)) return new SearchContext(context);
+    this.context = extend({ bbox: '-125.53,32.75,-114.74,41.57' }, context);
+}
+
+SearchContext.prototype.update = function(context) {
+    this.context = extend(this.context, context);
+    this.emit('change', this.context);
+};
+
+},{"events":9,"extend":45,"inherits":82}],3:[function(require,module,exports){
+
+},{}],4:[function(require,module,exports){
+arguments[4][3][0].apply(exports,arguments)
+},{"dup":3}],5:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -1560,7 +1563,7 @@ function blitBuffer (src, dst, offset, length) {
   return i
 }
 
-},{"base64-js":5,"ieee754":6,"is-array":7}],5:[function(require,module,exports){
+},{"base64-js":6,"ieee754":7,"is-array":8}],6:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -1686,7 +1689,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -1772,7 +1775,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 
 /**
  * isArray
@@ -1807,7 +1810,7 @@ module.exports = isArray || function (val) {
   return !! val && '[object Array]' == str.call(val);
 };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -2110,7 +2113,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var http = require('http');
 
 var https = module.exports;
@@ -2125,32 +2128,7 @@ https.request = function (params, cb) {
     return http.request.call(this, params, cb);
 }
 
-},{"http":31}],10:[function(require,module,exports){
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
-}
-
-},{}],11:[function(require,module,exports){
+},{"http":31}],11:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
@@ -3047,7 +3025,7 @@ function forEach (xs, f) {
   }
 }
 
-},{"./_stream_readable":20,"./_stream_writable":22,"core-util-is":23,"inherits":10,"process-nextick-args":24}],19:[function(require,module,exports){
+},{"./_stream_readable":20,"./_stream_writable":22,"core-util-is":23,"inherits":82,"process-nextick-args":24}],19:[function(require,module,exports){
 // a passthrough stream.
 // basically just the most minimal sort of Transform stream.
 // Every written chunk gets output as-is.
@@ -3076,7 +3054,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./_stream_transform":21,"core-util-is":23,"inherits":10}],20:[function(require,module,exports){
+},{"./_stream_transform":21,"core-util-is":23,"inherits":82}],20:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -4039,7 +4017,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":18,"_process":12,"buffer":4,"core-util-is":23,"events":8,"inherits":10,"isarray":11,"process-nextick-args":24,"string_decoder/":40,"util":3}],21:[function(require,module,exports){
+},{"./_stream_duplex":18,"_process":12,"buffer":5,"core-util-is":23,"events":9,"inherits":82,"isarray":11,"process-nextick-args":24,"string_decoder/":40,"util":4}],21:[function(require,module,exports){
 // a transform stream is a readable/writable stream where you do
 // something with the data.  Sometimes it's called a "filter",
 // but that's not a great name for it, since that implies a thing where
@@ -4238,7 +4216,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":18,"core-util-is":23,"inherits":10}],22:[function(require,module,exports){
+},{"./_stream_duplex":18,"core-util-is":23,"inherits":82}],22:[function(require,module,exports){
 // A bit simpler than readable streams.
 // Implement an async ._write(chunk, cb), and it'll handle all
 // the drain event emission and buffering.
@@ -4760,7 +4738,7 @@ function endWritable(stream, state, cb) {
   state.ended = true;
 }
 
-},{"./_stream_duplex":18,"buffer":4,"core-util-is":23,"events":8,"inherits":10,"process-nextick-args":24,"util-deprecate":25}],23:[function(require,module,exports){
+},{"./_stream_duplex":18,"buffer":5,"core-util-is":23,"events":9,"inherits":82,"process-nextick-args":24,"util-deprecate":25}],23:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -4870,7 +4848,7 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 }).call(this,require("buffer").Buffer)
-},{"buffer":4}],24:[function(require,module,exports){
+},{"buffer":5}],24:[function(require,module,exports){
 (function (process){
 'use strict';
 module.exports = nextTick;
@@ -5105,7 +5083,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":8,"inherits":10,"readable-stream/duplex.js":17,"readable-stream/passthrough.js":26,"readable-stream/readable.js":27,"readable-stream/transform.js":28,"readable-stream/writable.js":29}],31:[function(require,module,exports){
+},{"events":9,"inherits":82,"readable-stream/duplex.js":17,"readable-stream/passthrough.js":26,"readable-stream/readable.js":27,"readable-stream/transform.js":28,"readable-stream/writable.js":29}],31:[function(require,module,exports){
 var ClientRequest = require('./lib/request')
 var extend = require('xtend')
 var statusCodes = require('builtin-status-codes')
@@ -5497,7 +5475,7 @@ var unsafeHeaders = [
 ]
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./capability":32,"./response":34,"_process":12,"buffer":4,"foreach":36,"indexof":37,"inherits":10,"object-keys":38,"stream":30}],34:[function(require,module,exports){
+},{"./capability":32,"./response":34,"_process":12,"buffer":5,"foreach":36,"indexof":37,"inherits":82,"object-keys":38,"stream":30}],34:[function(require,module,exports){
 (function (process,Buffer){
 var capability = require('./capability')
 var foreach = require('foreach')
@@ -5674,7 +5652,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./capability":32,"_process":12,"buffer":4,"foreach":36,"inherits":10,"stream":30}],35:[function(require,module,exports){
+},{"./capability":32,"_process":12,"buffer":5,"foreach":36,"inherits":82,"stream":30}],35:[function(require,module,exports){
 module.exports = {
   "100": "Continue",
   "101": "Switching Protocols",
@@ -6099,7 +6077,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":4}],41:[function(require,module,exports){
+},{"buffer":5}],41:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -7405,7 +7383,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":42,"_process":12,"inherits":10}],44:[function(require,module,exports){
+},{"./support/isBuffer":42,"_process":12,"inherits":82}],44:[function(require,module,exports){
 module.exports = extend
 
 function extend() {
@@ -7519,23 +7497,36 @@ var inherits = require('inherits');
 var EventEmitter = require('events').EventEmitter;
 var d3 = require('d3');
 var transform = require('./lib/transform.js');
+var PubSub = require('../globi-search/lib/Mediator.js').PubSub;
 
 inherits(GloBIBundle, EventEmitter);
 module.exports = GloBIBundle;
 
 function GloBIBundle (opts) {
+    var me = this;
     if (!(this instanceof GloBIBundle)) return new GloBIBundle(opts);
     this.opts = opts;
+
+    PubSub.on('globisearch:resultsetchanged', function(json) {
+        me.opts.json = json;
+        me.draw();
+    });
 }
 
 GloBIBundle.prototype.appendTo = function (target) {
     if (typeof target === 'string') target = document.querySelector(target);
     if (this.opts.json && this.opts.json.length > 0) {
+        this.opts.target = target;
         var css = ".bundle-node {\n    font: 10px \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    fill: #333;\n}\n\n.bundle-node:hover {\n    fill: #000;\n}\n\n.bundl-link {\n    stroke: lightgreen;\n    stroke-opacity: .4;\n    fill: none;\n    pointer-events: none;\n}\n\n.bundle-node:hover,\n.node--source,\n.node--target {\n    font-weight: 400;\n}\n\n.node--source {\n    fill: #2ca02c;\n}\n\n.node--target {\n    fill: #d62728;\n}\n\n.link--source,\n.link--target {\n    stroke-opacity: 1;\n    stroke-width: 2px;\n}\n\n.link--source {\n    stroke: #d62728;\n}\n\n.link--target {\n    stroke: #2ca02c;\n}\n";
         insertCss(css);
-        _buildBundles(target, this.opts.json, this.opts.canvasDimension)
+        this.draw();
     }
-    this.emit('append', target);
+    this.emit('append', this.opts.target);
+};
+
+GloBIBundle.prototype.draw = function() {
+    this.opts.target.innerHTML ='';
+    _buildBundles(this.opts.target, this.opts.json, this.opts.canvasDimension)
 };
 
 var _buildBundles = function (target, json, canvasDimension) {
@@ -7658,7 +7649,7 @@ var _buildBundles = function (target, json, canvasDimension) {
 };
 
 
-},{"./lib/transform.js":47,"d3":48,"events":8,"inherits":49,"insert-css":50}],47:[function(require,module,exports){
+},{"../globi-search/lib/Mediator.js":60,"./lib/transform.js":47,"d3":48,"events":9,"inherits":82,"insert-css":49}],47:[function(require,module,exports){
 module.exports = {
     parseToStructure: parseToStructure,
     taxonHierarchy: taxonHierarchy,
@@ -17254,8 +17245,6 @@ function taxonPreys(nodes) {
   this.d3 = d3;
 }();
 },{}],49:[function(require,module,exports){
-arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],50:[function(require,module,exports){
 var inserted = {};
 
 module.exports = function (css, options) {
@@ -17279,30 +17268,44 @@ module.exports = function (css, options) {
     }
 };
 
-},{}],51:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
 var EventEmitter = require('events').EventEmitter;
 var d3 = require('d3');
 var transform = require('./lib/transform.js');
+var PubSub = require('../globi-search/lib/Mediator.js').PubSub;
 
 inherits(GloBIHairball, EventEmitter);
 module.exports = GloBIHairball;
 
 function GloBIHairball(opts) {
+    var me = this;
     if (!(this instanceof GloBIHairball)) return new GloBIHairball(opts);
     this.opts = opts;
+
+    PubSub.on('globisearch:resultsetchanged', function(json) {
+        me.opts.json = json;
+        me.draw();
+    });
 }
 
 GloBIHairball.prototype.appendTo = function (target) {
     if (typeof target === 'string') target = document.querySelector(target);
     if (this.opts.json && this.opts.json.length > 0) {
+        this.opts.target = target;
         var css = "#hairball line.link {\n    stroke: #888;\n}\n#hairball line.link:hover,\n#hairball .node:hover {\n    cursor: pointer;\n}\n#hairball .node text {\n    fill: #333;\n    font-family: sans-serif;\n    font-size: 0.8em;\n}";
         insertCss(css);
-        init(target, this.opts.json, this.opts.canvasDimension);
+        this.draw();
     }
     this.emit('append', target);
+};
+
+
+GloBIHairball.prototype.draw = function() {
+    this.opts.target.innerHTML ='';
+    init(target, this.opts.json, this.opts.canvasDimension);
 };
 
 d3.selection.prototype.moveToFront = function () {
@@ -17547,7 +17550,7 @@ function toggleNode(node, forcedStatus) {
 }
 
 
-},{"./lib/transform.js":52,"d3":53,"events":8,"inherits":54,"insert-css":55}],52:[function(require,module,exports){
+},{"../globi-search/lib/Mediator.js":60,"./lib/transform.js":51,"d3":52,"events":9,"inherits":82,"insert-css":53}],51:[function(require,module,exports){
 module.exports = {
     parseInteractions: parseInteractions
 };
@@ -17602,13 +17605,11 @@ function parseInteractions(data) {
     }
     return { nodes: nodes, links: links};
 }
-},{}],53:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 arguments[4][48][0].apply(exports,arguments)
-},{"dup":48}],54:[function(require,module,exports){
-arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],55:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],56:[function(require,module,exports){
+},{"dup":48}],53:[function(require,module,exports){
+arguments[4][49][0].apply(exports,arguments)
+},{"dup":49}],54:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var domify = require('domify');
@@ -17657,7 +17658,7 @@ function addButtonClickHandlers(target) {
         });
     }
 }
-},{"domify":57,"events":8,"inherits":58,"insert-css":59}],57:[function(require,module,exports){
+},{"domify":55,"events":9,"inherits":82,"insert-css":56}],55:[function(require,module,exports){
 
 /**
  * Expose `parse`.
@@ -17767,13 +17768,11 @@ function parse(html, doc) {
   return fragment;
 }
 
-},{}],58:[function(require,module,exports){
-arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],59:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],60:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
+arguments[4][49][0].apply(exports,arguments)
+},{"dup":49}],57:[function(require,module,exports){
 module.exports = require('./lib/GlobiSearch.js');
-},{"./lib/GlobiSearch.js":62}],61:[function(require,module,exports){
+},{"./lib/GlobiSearch.js":59}],58:[function(require,module,exports){
 var globi = require('globi');
 var globiData = require('globi-data');
 var forEach = require('foreach');
@@ -17815,7 +17814,7 @@ DataParser.process = function(data) {
 }
 
 module.exports = DataParser;
-},{"foreach":69,"globi":83,"globi-data":70}],62:[function(require,module,exports){
+},{"foreach":65,"globi":77,"globi-data":66}],59:[function(require,module,exports){
 var jQuery = require('jquery');
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
@@ -18077,6 +18076,9 @@ extend(Plugin.prototype, {
         DataFetcher.settings.url = url + '&bbox=' + me.settings.spatialSelection.bbox;
 
         DataFetcher.fetch(function(data) {
+            data = globi.ResponseMapper(data)();
+            PubSub.emit('globisearch:resultsetchanged', mapData(data));
+            data = processDataForResultList(data);
             searchHash.resultType = 'csv';
             searchHash.includeObservations = true;
             searchHash.fields = ['source_taxon_id', 'source_taxon_name', 'source_taxon_path', 'source_taxon_path_ids',
@@ -18088,7 +18090,6 @@ extend(Plugin.prototype, {
                 , 'study_citation', 'study_url', 'study_source_citation'];
 
             downloadUrl = globiData.urlForTaxonInteractionQuery(searchHash);
-            data = processDataForResultList(globi.ResponseMapper(data)());
             me.searchResult.clear();
             me.searchResult.showList(data, downloadUrl);
         });
@@ -18165,14 +18166,35 @@ function fillTemplate(data) {
     ].join('');
 }
 
+/**
+ * @TODO Move to transformation package
+ */
+function mapData(data) {
+    var result = [];
+    forEach(data, function(item) {
+        item['source'] = {
+            id: item['source_taxon_external_id'],
+            name: item['source_taxon_name'],
+            path: item['source_taxon_path']
+        };
+        item['target'] = {
+            id: item['target_taxon_external_id'],
+            name: item['target_taxon_name'],
+            path: item['target_taxon_path']
+        };
+        result.push(item);
+    });
+    return result;
+};
+
 module.exports = Plugin;
-},{"./Mediator.js":63,"./SearchResult.js":64,"./TaxonSelector.js":65,"./TypeSelector.js":66,"events":8,"extend":68,"foreach":69,"globi":83,"globi-data":70,"jquery":90,"util":43}],63:[function(require,module,exports){
+},{"./Mediator.js":60,"./SearchResult.js":61,"./TaxonSelector.js":62,"./TypeSelector.js":63,"events":9,"extend":45,"foreach":65,"globi":77,"globi-data":66,"jquery":84,"util":43}],60:[function(require,module,exports){
 var EventEmitter = require('events').EventEmitter,
 PubSub = new EventEmitter();
 
 module.exports.PubSub = PubSub;
 
-},{"events":8}],64:[function(require,module,exports){
+},{"events":9}],61:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var PubSub = require('./Mediator.js').PubSub;
@@ -18355,7 +18377,7 @@ function createElement(elementName, id, classes) {
 }
 
 module.exports = SearchResult;
-},{"./Mediator.js":63,"events":8,"extend":68,"foreach":69,"util":43}],65:[function(require,module,exports){
+},{"./Mediator.js":60,"events":9,"extend":45,"foreach":65,"util":43}],62:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var PubSub = require('./Mediator.js').PubSub;
@@ -18483,7 +18505,7 @@ function createElement(elementName, id, classes) {
 module.exports = TaxonSelector;
 
 
-},{"./DataParser.js":61,"./Mediator.js":63,"./jquery.tokeninput":67,"events":8,"extend":68,"foreach":69,"jquery":90,"util":43}],66:[function(require,module,exports){
+},{"./DataParser.js":58,"./Mediator.js":60,"./jquery.tokeninput":64,"events":9,"extend":45,"foreach":65,"jquery":84,"util":43}],63:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var PubSub = require('./Mediator.js').PubSub;
@@ -18640,7 +18662,7 @@ function proxy(fn, context) {
 
 
 module.exports = TypeSelector;
-},{"./Mediator.js":63,"events":8,"extend":68,"foreach":69,"util":43}],67:[function(require,module,exports){
+},{"./Mediator.js":60,"events":9,"extend":45,"foreach":65,"util":43}],64:[function(require,module,exports){
 var jQuery = require('jquery');
 /*
  * jQuery Plugin: Tokenizing Autocomplete Text Entry
@@ -19751,11 +19773,9 @@ var jQuery = require('jquery');
 
 }(jQuery));
 
-},{"jquery":90}],68:[function(require,module,exports){
-arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],69:[function(require,module,exports){
+},{"jquery":84}],65:[function(require,module,exports){
 arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],70:[function(require,module,exports){
+},{"dup":36}],66:[function(require,module,exports){
 var nodeXHR = require("xmlhttprequest");
 var globiData = {};
 
@@ -20091,7 +20111,7 @@ globiData.findThumbnailById = function (search, callback) {
 
 module.exports = globiData;
 
-},{"xmlhttprequest":71}],71:[function(require,module,exports){
+},{"xmlhttprequest":67}],67:[function(require,module,exports){
 (function (process,Buffer){
 /**
  * Wrapper for built-in http.js to emulate the browser XMLHttpRequest object.
@@ -20694,7 +20714,7 @@ exports.XMLHttpRequest = function() {
 };
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":12,"buffer":4,"child_process":2,"fs":2,"http":31,"https":9,"url":41}],72:[function(require,module,exports){
+},{"_process":12,"buffer":5,"child_process":3,"fs":3,"http":31,"https":10,"url":41}],68:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -20796,7 +20816,7 @@ function placeMarker(content, location, map) {
 
     return marker;
 }
-},{"./lib/areapicker.js":73,"./lib/boundsToBBox.js":74,"./lib/infobox.js":75,"events":8,"inherits":76,"insert-css":77}],73:[function(require,module,exports){
+},{"./lib/areapicker.js":69,"./lib/boundsToBBox.js":70,"./lib/infobox.js":71,"events":9,"inherits":82,"insert-css":72}],69:[function(require,module,exports){
 var infobox = require('./infobox.js');
 var boundsToBBox = require('./boundsToBBox.js');
 
@@ -20946,7 +20966,7 @@ AreaPickerInfo.prototype.setContent = function (bounds) {
 AreaPickerInfo.prototype.createContent_ = function (bounds) {
     return infobox.areaInfoBox(boundsToBBox(bounds));
 };
-},{"./boundsToBBox.js":74,"./infobox.js":75}],74:[function(require,module,exports){
+},{"./boundsToBBox.js":70,"./infobox.js":71}],70:[function(require,module,exports){
 module.exports = boundsToBBox;
 
 function boundsToBBox(bounds) {
@@ -20969,7 +20989,7 @@ function boundsToBBox(bounds) {
     }
     return {bbox: eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat };
 }
-},{}],75:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 module.exports = {
     areaInfoBox: areaInfoBox,
     locationInfoBox: locationInfoBox
@@ -21017,34 +21037,46 @@ function areaInfoBox(locationParams) {
 function locationInfoBox(locationParams) {
     return infoBoxText('location-selection', locationParams);
 };
-},{}],76:[function(require,module,exports){
-arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],77:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],78:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
+arguments[4][49][0].apply(exports,arguments)
+},{"dup":49}],73:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
 var EventEmitter = require('events').EventEmitter;
 var d3 = require('d3');
 var transform = require('./lib/transform.js');
+var PubSub = require('../globi-search/lib/Mediator.js').PubSub;
 
 inherits(GloBIWheel, EventEmitter);
 module.exports = GloBIWheel;
 
 function GloBIWheel(opts) {
+    var me = this;
     if (!(this instanceof GloBIWheel)) return new GloBIWheel(opts);
     this.opts = opts;
+
+    PubSub.on('globisearch:resultsetchanged', function(json) {
+        me.opts.json = json;
+        me.draw();
+    });
 }
 
 GloBIWheel.prototype.appendTo = function (target) {
     if (typeof target === 'string') target = document.querySelector(target);
     if (this.opts.json && this.opts.json.length > 0) {
+        this.opts.target = target;
         var css = ".empty {\n    background: #f00;\n}\n\n.dependencyWheel {\n    font: 10px sans-serif;\n}";
         insertCss(css);
-        _buildDependencyWheel(target, this.opts.json, this.opts.canvasDimension)
+        this.draw();
     }
     this.emit('append', target);
+};
+
+
+GloBIWheel.prototype.draw = function() {
+    this.opts.target.innerHTML ='';
+    _buildDependencyWheel(this.opts.target, this.opts.json, this.opts.canvasDimension)
 };
 
 var _buildDependencyWheel = function (target, json, canvasDimension) {
@@ -21235,7 +21267,7 @@ var dependencyWheel = function () {
 
 
 
-},{"./lib/transform.js":79,"d3":80,"events":8,"inherits":81,"insert-css":82}],79:[function(require,module,exports){
+},{"../globi-search/lib/Mediator.js":60,"./lib/transform.js":74,"d3":75,"events":9,"inherits":82,"insert-css":76}],74:[function(require,module,exports){
 module.exports = {
     convertJsonForDependencyWheel: convertJsonForDependencyWheel
 };
@@ -21289,13 +21321,11 @@ function convertJsonForDependencyWheel(json) {
         matrix: matrix
     };
 };
-},{}],80:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 arguments[4][48][0].apply(exports,arguments)
-},{"dup":48}],81:[function(require,module,exports){
-arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],82:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],83:[function(require,module,exports){
+},{"dup":48}],76:[function(require,module,exports){
+arguments[4][49][0].apply(exports,arguments)
+},{"dup":49}],77:[function(require,module,exports){
 var d3 = require('d3');
 var globiData = require('globi-data');
 var EventEmitter = require('events').EventEmitter;
@@ -22110,7 +22140,7 @@ globi.ResponseMapper = function() {
 
 module.exports = globi;
 
-},{"d3":85,"events":8,"globi-data":86,"jquery":90}],84:[function(require,module,exports){
+},{"d3":79,"events":9,"globi-data":80,"jquery":84}],78:[function(require,module,exports){
 d3 = function() {
   var d3 = {
     version: "3.2.8"
@@ -30921,18 +30951,41 @@ d3 = function() {
   });
   return d3;
 }();
-},{}],85:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 require("./d3");
 module.exports = d3;
 (function () { delete this.d3; })(); // unset global
 
-},{"./d3":84}],86:[function(require,module,exports){
-arguments[4][70][0].apply(exports,arguments)
-},{"dup":70,"xmlhttprequest":87}],87:[function(require,module,exports){
-arguments[4][71][0].apply(exports,arguments)
-},{"_process":12,"buffer":4,"child_process":2,"dup":71,"fs":2,"http":31,"https":9,"url":41}],88:[function(require,module,exports){
-arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],89:[function(require,module,exports){
+},{"./d3":78}],80:[function(require,module,exports){
+arguments[4][66][0].apply(exports,arguments)
+},{"dup":66,"xmlhttprequest":81}],81:[function(require,module,exports){
+arguments[4][67][0].apply(exports,arguments)
+},{"_process":12,"buffer":5,"child_process":3,"dup":67,"fs":3,"http":31,"https":10,"url":41}],82:[function(require,module,exports){
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+},{}],83:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*! jQuery UI - v1.10.3 - 2013-05-03
@@ -45939,7 +45992,7 @@ $.widget( "ui.tooltip", {
 
 }( jQuery ) );
 
-},{"jquery":90}],90:[function(require,module,exports){
+},{"jquery":84}],84:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -55151,7 +55204,7 @@ return jQuery;
 
 }));
 
-},{}],91:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 (function (global){
 /**
  * Npm version of markerClusterer works great with browserify and google maps for commonjs
@@ -56451,7 +56504,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 module.exports = MarkerClusterer;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],92:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 /**
  * Copyright (c) 2011-2014 Felix Gnass
  * Licensed under the MIT license
