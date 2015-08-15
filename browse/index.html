@@ -28,7 +28,7 @@
 <script>
     buildMenu();
 </script>
-<script src="../static/globi-web.js"></script>
+<script src="../static/globi-web-min.js"></script>
 <script>
     var $ = jQuery = globiWeb.globi.jQuery;
     var d3 = globiWeb.globi.d3;
@@ -82,15 +82,6 @@
             }
         });
     });
-
-    globiWeb.PubSub.PubSub.on('globisearch:resultsetchanged', function(json) {
-        globiWeb.widgets.forEach(function (w) {
-            w.opts.json = json;
-            this.opts.target.innerHTML ='';
-            w.draw();
-        });
-    });
-
 
     var urlPrefix = function () {
         return 'http://api.globalbioticinteractions.org';
