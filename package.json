@@ -30,10 +30,10 @@
   "scripts": {
     "preinstall": "npm install node_modules/globi-*",
     "test": "browserify test/*.js test/browser/*.js node_modules/globi-*/test/*.js node_modules/globi-*/test/browser/*.js | testling",
-    "build-js-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs -mc > static/globi-web-min.js",
-    "build-js": "browserify -t brfs index.js --standalone globi-web -o static/globi-web.js",
+    "build-js-min": "browserify index.js --standalone globi-web | uglifyjs -mc > static/globi-web-min.js",
+    "build-js": "browserify index.js --standalone globi-web -o static/globi-web.js",
     "build": "npm run build-js & npm run build-js-min",
-    "watch": "watchify index.js --standalone globi-web --debug --verbose -o static/globi-web-min.js"
+    "watch": "watchify index.js --standalone globi-web --debug --verbose -o static/globi-web.js"
   },
   "repository": {
     "type": "git",
