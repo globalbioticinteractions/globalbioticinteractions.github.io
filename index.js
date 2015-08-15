@@ -13,6 +13,7 @@ module.exports = {
     spatialSelector: require('globi-spatial-selector'),
     globi: globi,
     search: require('globi-search'),
-    searchContext: require('./lib/searchContext.js')
+    searchContext: require('./lib/searchContext.js'),
+    PubSub: require('./node_modules/globi-search/lib/Mediator.js')
 };
 
