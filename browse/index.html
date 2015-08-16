@@ -121,7 +121,7 @@
         globiWeb.widgets.forEach(function (w, index) {
             var panel = document.querySelector(w.target).parentElement;
             var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
-            var widget = w.factory({ json: json, canvasDimension: canvasDimension, context: context });
+            var widget = w.factory({ searchContext: searchContext, json: json, canvasDimension: canvasDimension, context: context });
             widget.on('append', function (target) {
                 w.spinner.stop();
             });
@@ -130,6 +130,7 @@
     }
 
     function spatialSelectionChanged(spatialSelection) {
+        searchContext.updateSearchParameter('bbox', spatialSelection.bbox);
         searchContext.update(spatialSelection);
     }
 
