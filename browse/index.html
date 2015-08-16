@@ -117,11 +117,11 @@
         spatialSelectionChanged(JSON.parse(element.dataset.spatialSelection));
     };
 
-    function appendWidgets(json, spatialSelection) {
+    function appendWidgets(json, context) {
         globiWeb.widgets.forEach(function (w, index) {
             var panel = document.querySelector(w.target).parentElement;
             var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
-            var widget = w.factory({ json: json, canvasDimension: canvasDimension, spatialSelection: spatialSelection });
+            var widget = w.factory({ json: json, canvasDimension: canvasDimension, context: context });
             widget.on('append', function (target) {
                 w.spinner.stop();
             });
