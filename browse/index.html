@@ -79,10 +79,18 @@
     var panels = globiWeb.panels();
     panels.appendTo(document.body);
 
+
+    var helpHtml = '<div id="welcome">' +
+            '<h1>Welcome to the GloBI Interaction Browser!</h1>' +
+            '<p>Please click on a marker or select an area to display species interactions!</p>' +
+            '<p><a target="_blank" href="http://blog.globalbioticinteractions.org">Learn more about GloBI</a>' +
+            '</p></div>';
+    document.body.querySelector(panels.topLeftContainer).innerHTML = helpHtml;
+
     globiWeb.widgets = [
         {factory: globiWeb.hairball, target: panels.bottomLeftContainer},
         {factory: globiWeb.bundle, target: panels.bottomRightContainer},
-        {factory: globiWeb.search, target: panels.topRightContainer}
+        {factory: globiWeb.search, target: panels.topLeftContainer}
     ];
 
     var searchContext = globiWeb.searchContext();
@@ -135,7 +143,7 @@
     }
 
     function appendMap() {
-        addMap(panels.topLeft);
+        addMap(panels.topRight);
     }
 
     function addMap(target) {
