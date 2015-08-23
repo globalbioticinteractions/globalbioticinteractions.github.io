@@ -46,8 +46,11 @@ extend(DataContext.prototype, {
     },
 
     updateParameters: function(parameters) {
-        this.resolveUrl(parameters);
-        this.fetch();
+        if (this.searchContext.isAbleToFetch('dataContext::updateParameters')) {
+            this.searchContext.lockFetching('dataContext::updateParameters');
+            this.resolveUrl(parameters);
+            this.fetch();
+        }
     },
 
     fetch: function() {
@@ -147,6 +150,10 @@ extend(SearchContext.prototype, {
             'bbox': INITIAL_BBOX
         };
         this.dataContext = new DataContext(this);
+
+        this.state = {
+            ableTofetch: true
+        };
     },
 
     update: function(context) {
@@ -174,6 +181,22 @@ extend(SearchContext.prototype, {
         if (name === 'targetTaxon') {
             this.searchParameters['targetTaxa'] = value === null ? null : [value];
         }
+    },
+
+    lockFetching: function() {
+        //console.log(Date.now(), 'lock --- ', arguments[0]);
+        this.state.ableTofetch = false;
+    },
+
+    unlockFetching: function() {
+        //console.log(Date.now(), 'unlock --- ', arguments[0]);
+        this.state.ableTofetch = true;
+
+    },
+
+    isAbleToFetch: function() {
+        //console.log(Date.now(), 'check --- ', arguments[0]);
+        return this.state.ableTofetch;
     }
 });
 
@@ -18338,8 +18361,6 @@ var ItemData = {
     }
 };
 
-var fetchingItemData = false;
-
 var FilterElementContainer = null;
 
 function Plugin(settings) {
@@ -18350,6 +18371,9 @@ function Plugin(settings) {
         filterContainer: null,
         resultContainer: null
     }, settings);
+
+    this.searchContext = this.settings.searchContext;
+    delete this.settings.searchContext;
 
     this.init();
 }
@@ -18379,15 +18403,15 @@ extend(Plugin.prototype, {
 
     events: function() {
         var me = this;
-        me.settings.searchContext.on('taxonselector:selected', proxy(me.taxonSelected, me));
-        me.settings.searchContext.on('typeselector:selected', proxy(me.typeSelected, me));
-        me.settings.searchContext.on('searchresult:itemselected', proxy(me.itemSelected, me));
-        me.settings.searchContext.on('globisearch:resultsetchanged', proxy(me.showResult, me));
+        me.searchContext.on('taxonselector:selected', proxy(me.taxonSelected, me));
+        me.searchContext.on('typeselector:selected', proxy(me.typeSelected, me));
+        me.searchContext.on('searchresult:itemselected', proxy(me.itemSelected, me));
+        me.searchContext.on('globisearch:resultsetchanged', proxy(me.showResult, me));
     },
 
     showResult: function(data) {
         var me = this;
-        searchHash = me.settings.searchContext.searchParameters;
+        var searchHash = me.searchContext.searchParameters;
         searchHash.resultType = 'csv';
         searchHash.includeObservations = true;
         searchHash.fields = ['source_taxon_id', 'source_taxon_name', 'source_taxon_path', 'source_taxon_path_ids',
@@ -18399,7 +18423,7 @@ extend(Plugin.prototype, {
             , 'study_citation', 'study_url', 'study_source_citation'];
 
         downloadUrl = globiData.urlForTaxonInteractionQuery(searchHash);
-        me.settings.searchContext.emit('searchfilter:showresults', processDataForResultList(data), downloadUrl);
+        me.searchContext.emit('searchfilter:showresults', processDataForResultList(data), downloadUrl);
     },
 
     update: function(data) {
@@ -18409,18 +18433,18 @@ extend(Plugin.prototype, {
     buildUi: function() {
         var me = this;
         var table = createElement('table', 'search-row'),
-            row = createElement('table'),
+            row = createElement('tr'),
             td;
 
         me.filterElement = createElement('div', 'search-filter');
 
-        td = createElement('td'); td.appendChild(me.createSourceSelector().el)
+        td = createElement('td', 'source-taxon-selector-cell'); td.appendChild(me.createSourceSelector().el)
         row.appendChild(td);
 
-        td = createElement('td'); td.appendChild(me.createTypeSelector().el);
+        td = createElement('td', 'type-selector-cell'); td.appendChild(me.createTypeSelector().el);
         row.appendChild(td);
 
-        td = createElement('td'); td.appendChild(me.createTargetSelector().el);
+        td = createElement('td', 'target-taxon-selector-cell'); td.appendChild(me.createTargetSelector().el);
         row.appendChild(td);
 
         table.appendChild(row);
@@ -18434,7 +18458,7 @@ extend(Plugin.prototype, {
         this.typeSelector = new TypeSelector({
             idPrefix: 'source',
             type: 'interactiontype',
-            searchContext: me.settings.searchContext
+            searchContext: me.searchContext
         });
 
         this.typeSelector.disable();
@@ -18447,7 +18471,7 @@ extend(Plugin.prototype, {
         this.sourceSelector = new TaxonSelector({
             idPrefix: 'source',
             type: 'source',
-            searchContext: me.settings.searchContext
+            searchContext: me.searchContext
         });
         return this.sourceSelector;
     },
@@ -18457,7 +18481,7 @@ extend(Plugin.prototype, {
         this.targetSelector = new TaxonSelector({
             idPrefix: 'target',
             type: 'target',
-            searchContext: me.settings.searchContext
+            searchContext: me.searchContext
         });
         return this.targetSelector;
     },
@@ -18465,7 +18489,7 @@ extend(Plugin.prototype, {
     createSearchResult: function() {
         var me = this;
         this.searchResult = new SearchResult({
-            searchContext: me.settings.searchContext
+            searchContext: me.searchContext
         });
 
         return this.searchResult;
@@ -18490,8 +18514,8 @@ extend(Plugin.prototype, {
 
     itemSelected: function(data) {
         var me = this;
-        if (!fetchingItemData) {
-            fetchingItemData = true;
+        if (me.searchContext.isAbleToFetch('GlobiSearch::itemselected')) {
+            me.searchContext.lockFetching('GlobiSearch::itemselected');
             if (data['source'] && data['source']['name']) {
                 globiData.findTaxonInfo(data['source']['name'], function(sourceData) {
                     me.populateItemData(sourceData, data['source']['id'], 'source');
@@ -18534,9 +18558,8 @@ extend(Plugin.prototype, {
                 break;
         }
         if (ItemData['source'].set && ItemData['target'].set && ItemData['link'].set) {
-            me.settings.searchContext.emit('searchfilter:showitem', ItemData);
+            me.searchContext.emit('searchfilter:showitem', ItemData);
             ItemData = { source: {set: false}, target: {set: false}, link: {set: false} };
-            fetchingItemData = false;
         }
     },
 
@@ -18546,12 +18569,12 @@ extend(Plugin.prototype, {
 
     taxonSelected: function(event) {
         var me = this;
-        this.settings.searchContext.updateSearchParameter(event['emitter'] + 'Taxon', event['data']);
+        this.searchContext.updateSearchParameter(event['emitter'] + 'Taxon', event['data']);
     },
 
     typeSelected: function(event) {
         var me = this;
-        this.settings.searchContext.updateSearchParameter('interactionType', event['data']);
+        this.searchContext.updateSearchParameter('interactionType', event['data']);
     },
 });
 
@@ -18618,10 +18641,13 @@ function fillTemplate(data) {
         infoURL = data['infoURL'] ? data['infoURL'] : '';
 
     return [
-        '<div class="scientific-name">' + scientificName + '</div>',
-        '<div class="taxon-image"><a target="_blank" href="' + infoURL + '"><img height="50px" src="' + thumbnailURL + '" /></a></div>',
-        '<div class="common-name">' + commonName + '</div>',
-        '<div class="more-info"><a target="_blank" href="' + infoURL + '">more info</a></div>'
+        '<a target="_blank" href="' + infoURL + '">',
+            '<div class="source-data">',
+                '<div class="scientific-name">' + scientificName + '</div>',
+                '<div class="taxon-image"><img height="75px" src="' + thumbnailURL + '" /></div>',
+                '<div class="common-name">' + commonName + '</div>',
+            '</div>',
+        '</a>'
     ].join('');
 }
 
@@ -18674,8 +18700,6 @@ var extend = require('extend');
 
 inherits(SearchResult, EventEmitter);
 
-var infoBoxIsProcessing = false;
-
 function SearchResult(settings) {
     if (!(this instanceof SearchResult)) { return new SearchResult(settings); }
 
@@ -18699,9 +18723,7 @@ extend(SearchResult.prototype, {
         var me = this;
         me.events();
 
-        var div = createElement('div', 'search-wrapper');
-        me.el = createElement('div', 'result-list');
-        div.appendChild(me.el);
+        me.el = createElement('div', false, ['table-wrapper']);
     },
 
     events: function() {
@@ -18715,7 +18737,10 @@ extend(SearchResult.prototype, {
         var me = this;
         if (typeof target === 'string') target = document.querySelector(target);
 
-        target.appendChild(me.el);
+        var div = createElement('div', 'result-list');
+        div.appendChild(me.el);
+        target.appendChild(div);
+
         me.emit('append', target);
     },
 
@@ -18725,25 +18750,6 @@ extend(SearchResult.prototype, {
         me.el.innerHTML = '';
     },
 
-    /**
-     * [
-     *  {
-     *      source: {
-     *          id: sourceId,
-     *          name: sourceName,
-     *      },
-     *      target: {
-     *          id: sourceId,
-     *          name: sourceName,
-     *      },
-     *      link: {
-     *          id: interactionId,
-     *          name: interactionName
-     *      }
-     *  }
-     * ]
-     * @param data
-     */
     showList: function(data, downloadlink) {
         var me = this;
         me.clear();
@@ -18772,7 +18778,7 @@ extend(SearchResult.prototype, {
             });
 
             tableHead.innerHTML = [
-                '<tr><th></th><th class="download"><a href="', downloadlink, '">', 'Download data</a></th><th></th></tr>',
+                '<tr><th class="source-cell"></th><th class="download"><a href="', downloadlink, '" class="link">', 'Download data</a></th><th class="target-cell"></th></tr>',
                 '<tr><th>', me.statistics['sources'].length, ' source(s)</th><th>', me.statistics['interactions'].length, ' interaction(s)</th><th>', me.statistics['targets'].length, ' target(s)</th></tr>',
             ].join('');
 
@@ -18783,62 +18789,42 @@ extend(SearchResult.prototype, {
         } else {
             me.el.innerHTML = 'Empty resultset';
         }
+        me.searchContext.unlockFetching('SearchResult::showList');
     },
 
-    /**
-     * {
-     *      source: {
-     *          id: sourceId,
-     *          name: sourceName,
-     *          data: htmlString,
-     *          label: string
-     *      },
-     *      target: {
-     *          id: sourceId,
-     *          name: sourceName,
-     *          data: htmlString,
-     *          label: string
-     *      },
-     *      link: {
-     *          id: interactionId,
-     *          name: interactionName,
-     *          data: htmlString,
-     *          label: string
-     *      }
-     *  }
-     * @param data
-     */
     showItem: function(item) {
-        if (!infoBoxIsProcessing) {
-            infoBoxIsProcessing = true;
-            var me = this, itemId, infoBox, activeRow;
+        var me = this, itemId, infoBox, activeRow;
 
-            activeRow = document.getElementsByClassName('active-row');
-            if (activeRow.length > 0) {
-                activeRow[0].classList.remove('active-row');
-            }
-
-            itemId = [item['source'].id, item['link'].id, item['target'].id].join('---');
-
-            infoBox = document.getElementById('info-box');
-            if (infoBox) {
-                infoBox.parentNode.removeChild(infoBox);
-            }
-
-            infoBox = createElement('tr', 'info-box', ['result-row']);
-            infoBox.innerHTML = [
-                '<td class="result-source"><div class="source-label">' + item['source'].label + '</div><div class="source-data">' + item['source'].data + '</div></td>',
-                '<td class="result-link"><div class="link-label">' + item['link'].label + '</div><div class="link-data">' + item['link'].data + '</div></td>',
-                '<td class="result-target"><div class="target-label">' + item['target'].label + '</div><div class="target-data">' + item['target'].data + '</div></td>',
-            ].join('');
-
-            activeRow = document.getElementById(itemId);
-            console.log(itemId);
-            activeRow.parentNode.insertBefore(infoBox, activeRow);
-            activeRow.classList.add('active-row');
-
-            infoBoxIsProcessing = false;
+        activeRow = document.getElementsByClassName('active-row');
+        if (activeRow.length > 0) {
+            activeRow[0].classList.remove('active-row');
         }
+
+        itemId = [item['source'].id, item['link'].id, item['target'].id].join('---');
+
+        infoBox = document.getElementById('info-box');
+        if (infoBox) {
+            infoBox.parentNode.removeChild(infoBox);
+        }
+
+        infoBox = createElement('tr', 'info-box', ['result-row']);
+        infoBox.innerHTML = [
+            '<td class="result-source">',
+                '<div class="source-label">' + item['source'].label + '</div>',
+                item['source'].data,
+            '</td>',
+            '<td class="result-link"><div class="link-label">' + item['link'].label + '</div><div class="link-data">' + item['link'].data + '</div></td>',
+            '<td class="result-target">',
+                '<div class="target-label">' + item['target'].label + '</div>',
+                item['target'].data,
+            '</td>',
+        ].join('');
+
+        activeRow = document.getElementById(itemId);
+        activeRow.parentNode.insertBefore(infoBox, activeRow);
+        activeRow.classList.add('active-row');
+
+        me.searchContext.unlockFetching('SearchResult::showItem');
     },
 
     itemClicked: function(data) {
