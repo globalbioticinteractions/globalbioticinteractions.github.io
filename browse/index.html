@@ -51,8 +51,6 @@
 </script>
 <script src="../static/globi-web-min.js"></script>
 <script>
-    var $ = jQuery = globiWeb.globi.jQuery;
-    var d3 = globiWeb.globi.d3;
     var globiData = globiWeb.globi.globiData;
     var Spinner = globiWeb.Spinner;
 
@@ -90,10 +88,14 @@
     globiWeb.widgets = [
         {factory: globiWeb.hairball, target: panels.bottomLeftContainer},
         {factory: globiWeb.bundle, target: panels.bottomRightContainer},
-        {factory: globiWeb.search, target: panels.topLeftContainer}
+        {factory: globiWeb.searchResult, target: panels.topLeftContainer}
     ];
 
     var searchContext = globiWeb.searchContext();
+    var search = globiWeb.search({searchContext: searchContext});
+
+    search.appendTo('#taxon-filter');
+
     searchContext.on('change', function(context) {
         globiWeb.widgets.forEach(function (w) {
             var oldWidgetContainer = document.querySelector(w.target);
@@ -102,14 +104,8 @@
             }
             w.spinner = appendSpinner(w.target);
         });
+        appendWidgets( context);
 
-        var dataSetUrl = createInteractionURL(context, 'json.v2');
-
-        d3.json(dataSetUrl, function (json) {
-            if (json.length) {
-                appendWidgets(json, context);
-            }
-        });
     });
 
     var urlPrefix = function () {
@@ -125,11 +121,11 @@
         spatialSelectionChanged(JSON.parse(element.dataset.spatialSelection));
     };
 
-    function appendWidgets(json, context) {
+    function appendWidgets() {
         globiWeb.widgets.forEach(function (w, index) {
             var panel = document.querySelector(w.target).parentElement;
             var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
-            var widget = w.factory({ searchContext: searchContext, json: json, canvasDimension: canvasDimension, context: context });
+            var widget = w.factory({ searchContext: searchContext, canvasDimension: canvasDimension });
             widget.on('append', function (target) {
                 w.spinner.stop();
             });
@@ -139,7 +135,7 @@
 
     function spatialSelectionChanged(spatialSelection) {
         searchContext.updateSearchParameter('bbox', spatialSelection.bbox);
-        searchContext.update(spatialSelection);
+//        searchContext.update(spatialSelection);
     }
 
     function appendMap() {

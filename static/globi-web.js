@@ -1,6 +1,5 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.globiWeb = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var globi = require('globi');
-var $ = globi.jQuery;
 
 require('jquery-ui');
 var MarkerClusterer = require('node-js-marker-clusterer');
@@ -14,22 +13,122 @@ module.exports = {
     spatialSelector: require('globi-spatial-selector'),
     globi: globi,
     search: require('globi-search'),
+    searchResult: require('globi-search').Result,
     searchContext: require('./lib/searchContext.js')
 };
 
 
-},{"./lib/searchContext.js":2,"globi":76,"globi-bundle":47,"globi-hairball":51,"globi-panels":55,"globi-search":58,"globi-spatial-selector":67,"globi-wheel":72,"jquery-ui":82,"node-js-marker-clusterer":84,"spin.js":85}],2:[function(require,module,exports){
+},{"./lib/searchContext.js":3,"globi":75,"globi-bundle":49,"globi-hairball":52,"globi-panels":55,"globi-search":58,"globi-spatial-selector":67,"globi-wheel":72,"jquery-ui":81,"node-js-marker-clusterer":83,"spin.js":84}],2:[function(require,module,exports){
+var extend = require('extend');
+var globi = require('globi');
+var globiData = globi.globiData;
+
+module.exports = DataContext;
+
+function DataContext(searchContext) {
+    if (!(this instanceof DataContext)) return new DataContext(searchContext);
+    this.searchContext = searchContext || { on: function() {} };
+    this.url = '';
+    this.fetcher = null;
+
+    this.init();
+    this.events();
+}
+
+extend(DataContext.prototype, {
+    init: function() {
+        this.fetcher = new globi.PaginatedDataFetcher({ url: this.url });
+    },
+
+    events: function() {
+        var me = this;
+        this.searchContext.on('searchcontext:searchparameterchange', proxy(me.updateParameters, me));
+    },
+
+    updateParameters: function(parameters) {
+        this.resolveUrl(parameters);
+        this.fetch();
+    },
+
+    fetch: function() {
+        var me = this;
+        this.fetcher.settings.url = this.url;
+        this.fetcher.fetch(function(data) {
+            data = mapData(globi.ResponseMapper(data)());
+            me.searchContext.emit('globisearch:resultsetchanged', data);
+        });
+    },
+
+    resolveUrl: function(parameters, options) {
+        var fieldOptions = [
+            'source_taxon_external_id',
+            'source_taxon_name',
+            'source_taxon_path',
+            'source_taxon_path_ids',
+            'target_taxon_external_id',
+            'target_taxon_name',
+            'target_taxon_path',
+            'target_taxon_path_ids',
+            'interaction_type'
+        ];
+        parameters['resultType'] = 'json';
+        parameters['sourceTaxa'] = parameters['sourceTaxon'] ? [parameters['sourceTaxon']] : null;
+        parameters['targetTaxa'] = parameters['targetTaxon'] ? [parameters['targetTaxon']] : null;
+        var url = globiData.urlForTaxonInteractionQuery(parameters);
+        for (var key in options) {
+            if (options.hasOwnProperty(key)) {
+                url = url + '&' + key + '=' + options[key];
+            }
+        }
+        fieldOptions.forEach(function(fieldName) {
+            url = url + '&field=' + fieldName;
+        });
+        this.url = url;
+    }
+});
+
+/**
+ * @TODO Move to transformation package
+ */
+function mapData(data) {
+    var result = [];
+    data.forEach(function(item) {
+        item['source'] = {
+            id: item['source_taxon_external_id'],
+            name: item['source_taxon_name'],
+            path: item['source_taxon_path']
+        };
+        item['target'] = {
+            id: item['target_taxon_external_id'],
+            name: item['target_taxon_name'],
+            path: item['target_taxon_path']
+        };
+        item['link'] = {
+            id: item['interaction_type']
+        };
+        result.push(item);
+    });
+    return result;
+}
+
+function proxy(fn, context) {
+    return function() {
+        return fn.apply(context, arguments);
+    };
+}
+},{"extend":48,"globi":75}],3:[function(require,module,exports){
 var assert = require('assert');
 var extend = require('extend');
 var inherits = require('inherits');
 var EventEmitter = require('events').EventEmitter;
+var DataContext = require('./dataContext');
 
 module.exports = SearchContext;
 
 inherits(SearchContext, EventEmitter);
 
 // a mock @TODO remove after SearchContext implementation
-var INITIAL_BBOX = '-125.53,32.75,-114.74,41.57';
+var INITIAL_BBOX = '';
 
 function SearchContext(context) {
     if (!(this instanceof SearchContext)) return new SearchContext(context);
@@ -47,6 +146,7 @@ extend(SearchContext.prototype, {
             'targetTaxon': null,
             'bbox': INITIAL_BBOX
         };
+        this.dataContext = new DataContext(this);
     },
 
     update: function(context) {
@@ -61,15 +161,25 @@ extend(SearchContext.prototype, {
         assert.equal(true, this.searchParameters.hasOwnProperty(parameterName),
             'SearchContext: unknown search parameterName ' + parameterName);
 
-        this.searchParameters[parameterName] = value || null;
+        this.setParameter(parameterName, value || null);
         this.emit('searchcontext:searchparameterchange', this.searchParameters);
+        this.emit('change', this.context);
+    },
+
+    setParameter: function(name, value) {
+        this.searchParameters[name] = value;
+        if (name === 'sourceTaxon') {
+            this.searchParameters['sourceTaxa'] = value === null ? null : [value];
+        }
+        if (name === 'targetTaxon') {
+            this.searchParameters['targetTaxa'] = value === null ? null : [value];
+        }
     }
 });
 
+},{"./dataContext":2,"assert":5,"events":11,"extend":48,"inherits":80}],4:[function(require,module,exports){
 
-},{"assert":4,"events":10,"extend":46,"inherits":81}],3:[function(require,module,exports){
-
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 // http://wiki.commonjs.org/wiki/Unit_Testing/1.0
 //
 // THIS IS NOT TESTED NOR LIKELY TO WORK OUTSIDE V8!
@@ -430,9 +540,9 @@ var objectKeys = Object.keys || function (obj) {
   return keys;
 };
 
-},{"util/":44}],5:[function(require,module,exports){
-arguments[4][3][0].apply(exports,arguments)
-},{"dup":3}],6:[function(require,module,exports){
+},{"util/":45}],6:[function(require,module,exports){
+arguments[4][4][0].apply(exports,arguments)
+},{"dup":4}],7:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -1954,7 +2064,7 @@ function blitBuffer (src, dst, offset, length) {
   return i
 }
 
-},{"base64-js":7,"ieee754":8,"is-array":9}],7:[function(require,module,exports){
+},{"base64-js":8,"ieee754":9,"is-array":10}],8:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -2080,7 +2190,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -2166,7 +2276,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 
 /**
  * isArray
@@ -2201,7 +2311,7 @@ module.exports = isArray || function (val) {
   return !! val && '[object Array]' == str.call(val);
 };
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -2504,7 +2614,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var http = require('http');
 
 var https = module.exports;
@@ -2519,12 +2629,12 @@ https.request = function (params, cb) {
     return http.request.call(this, params, cb);
 }
 
-},{"http":32}],12:[function(require,module,exports){
+},{"http":33}],13:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -2616,7 +2726,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/punycode v1.3.2 by @mathias */
 ;(function(root) {
@@ -3150,7 +3260,7 @@ process.umask = function() { return 0; };
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -3236,7 +3346,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -3323,16 +3433,16 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":15,"./encode":16}],18:[function(require,module,exports){
+},{"./decode":16,"./encode":17}],19:[function(require,module,exports){
 module.exports = require("./lib/_stream_duplex.js")
 
-},{"./lib/_stream_duplex.js":19}],19:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":20}],20:[function(require,module,exports){
 // a duplex stream is just a stream that is both readable and writable.
 // Since JS doesn't have multiple prototypal inheritance, this class
 // prototypally inherits from Readable, and then parasitically from
@@ -3416,7 +3526,7 @@ function forEach (xs, f) {
   }
 }
 
-},{"./_stream_readable":21,"./_stream_writable":23,"core-util-is":24,"inherits":81,"process-nextick-args":25}],20:[function(require,module,exports){
+},{"./_stream_readable":22,"./_stream_writable":24,"core-util-is":25,"inherits":80,"process-nextick-args":26}],21:[function(require,module,exports){
 // a passthrough stream.
 // basically just the most minimal sort of Transform stream.
 // Every written chunk gets output as-is.
@@ -3445,7 +3555,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./_stream_transform":22,"core-util-is":24,"inherits":81}],21:[function(require,module,exports){
+},{"./_stream_transform":23,"core-util-is":25,"inherits":80}],22:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -4408,7 +4518,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":19,"_process":13,"buffer":6,"core-util-is":24,"events":10,"inherits":81,"isarray":12,"process-nextick-args":25,"string_decoder/":41,"util":5}],22:[function(require,module,exports){
+},{"./_stream_duplex":20,"_process":14,"buffer":7,"core-util-is":25,"events":11,"inherits":80,"isarray":13,"process-nextick-args":26,"string_decoder/":42,"util":6}],23:[function(require,module,exports){
 // a transform stream is a readable/writable stream where you do
 // something with the data.  Sometimes it's called a "filter",
 // but that's not a great name for it, since that implies a thing where
@@ -4607,7 +4717,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":19,"core-util-is":24,"inherits":81}],23:[function(require,module,exports){
+},{"./_stream_duplex":20,"core-util-is":25,"inherits":80}],24:[function(require,module,exports){
 // A bit simpler than readable streams.
 // Implement an async ._write(chunk, cb), and it'll handle all
 // the drain event emission and buffering.
@@ -5129,7 +5239,7 @@ function endWritable(stream, state, cb) {
   state.ended = true;
 }
 
-},{"./_stream_duplex":19,"buffer":6,"core-util-is":24,"events":10,"inherits":81,"process-nextick-args":25,"util-deprecate":26}],24:[function(require,module,exports){
+},{"./_stream_duplex":20,"buffer":7,"core-util-is":25,"events":11,"inherits":80,"process-nextick-args":26,"util-deprecate":27}],25:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -5239,7 +5349,7 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 }).call(this,require("buffer").Buffer)
-},{"buffer":6}],25:[function(require,module,exports){
+},{"buffer":7}],26:[function(require,module,exports){
 (function (process){
 'use strict';
 module.exports = nextTick;
@@ -5256,7 +5366,7 @@ function nextTick(fn) {
 }
 
 }).call(this,require('_process'))
-},{"_process":13}],26:[function(require,module,exports){
+},{"_process":14}],27:[function(require,module,exports){
 (function (global){
 
 /**
@@ -5322,10 +5432,10 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = require("./lib/_stream_passthrough.js")
 
-},{"./lib/_stream_passthrough.js":20}],28:[function(require,module,exports){
+},{"./lib/_stream_passthrough.js":21}],29:[function(require,module,exports){
 var Stream = (function (){
   try {
     return require('st' + 'ream'); // hack to fix a circular dependency issue when used with browserify
@@ -5339,13 +5449,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":19,"./lib/_stream_passthrough.js":20,"./lib/_stream_readable.js":21,"./lib/_stream_transform.js":22,"./lib/_stream_writable.js":23}],29:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":20,"./lib/_stream_passthrough.js":21,"./lib/_stream_readable.js":22,"./lib/_stream_transform.js":23,"./lib/_stream_writable.js":24}],30:[function(require,module,exports){
 module.exports = require("./lib/_stream_transform.js")
 
-},{"./lib/_stream_transform.js":22}],30:[function(require,module,exports){
+},{"./lib/_stream_transform.js":23}],31:[function(require,module,exports){
 module.exports = require("./lib/_stream_writable.js")
 
-},{"./lib/_stream_writable.js":23}],31:[function(require,module,exports){
+},{"./lib/_stream_writable.js":24}],32:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -5474,7 +5584,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":10,"inherits":81,"readable-stream/duplex.js":18,"readable-stream/passthrough.js":27,"readable-stream/readable.js":28,"readable-stream/transform.js":29,"readable-stream/writable.js":30}],32:[function(require,module,exports){
+},{"events":11,"inherits":80,"readable-stream/duplex.js":19,"readable-stream/passthrough.js":28,"readable-stream/readable.js":29,"readable-stream/transform.js":30,"readable-stream/writable.js":31}],33:[function(require,module,exports){
 var ClientRequest = require('./lib/request')
 var extend = require('xtend')
 var statusCodes = require('builtin-status-codes')
@@ -5549,7 +5659,7 @@ http.METHODS = [
 	'UNLOCK',
 	'UNSUBSCRIBE'
 ]
-},{"./lib/request":34,"builtin-status-codes":36,"url":42,"xtend":45}],33:[function(require,module,exports){
+},{"./lib/request":35,"builtin-status-codes":37,"url":43,"xtend":46}],34:[function(require,module,exports){
 exports.fetch = isFunction(window.fetch) && isFunction(window.ReadableByteStream)
 
 exports.blobConstructor = false
@@ -5584,7 +5694,7 @@ function isFunction (value) {
 
 xhr = null // Help gc
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 (function (process,Buffer){
 // var Base64 = require('Base64')
 var capability = require('./capability')
@@ -5866,7 +5976,7 @@ var unsafeHeaders = [
 ]
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./capability":33,"./response":35,"_process":13,"buffer":6,"foreach":37,"indexof":38,"inherits":81,"object-keys":39,"stream":31}],35:[function(require,module,exports){
+},{"./capability":34,"./response":36,"_process":14,"buffer":7,"foreach":38,"indexof":39,"inherits":80,"object-keys":40,"stream":32}],36:[function(require,module,exports){
 (function (process,Buffer){
 var capability = require('./capability')
 var foreach = require('foreach')
@@ -6043,7 +6153,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./capability":33,"_process":13,"buffer":6,"foreach":37,"inherits":81,"stream":31}],36:[function(require,module,exports){
+},{"./capability":34,"_process":14,"buffer":7,"foreach":38,"inherits":80,"stream":32}],37:[function(require,module,exports){
 module.exports = {
   "100": "Continue",
   "101": "Switching Protocols",
@@ -6104,7 +6214,7 @@ module.exports = {
   "511": "Network Authentication Required"
 }
 
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 
 var hasOwn = Object.prototype.hasOwnProperty;
 var toString = Object.prototype.toString;
@@ -6128,7 +6238,7 @@ module.exports = function forEach (obj, fn, ctx) {
 };
 
 
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -6139,7 +6249,7 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],39:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 'use strict';
 
 // modified from https://github.com/es-shims/es5-shim
@@ -6226,7 +6336,7 @@ keysShim.shim = function shimObjectKeys() {
 
 module.exports = keysShim;
 
-},{"./isArguments":40}],40:[function(require,module,exports){
+},{"./isArguments":41}],41:[function(require,module,exports){
 'use strict';
 
 var toStr = Object.prototype.toString;
@@ -6245,7 +6355,7 @@ module.exports = function isArguments(value) {
 	return isArgs;
 };
 
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -6468,7 +6578,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":6}],42:[function(require,module,exports){
+},{"buffer":7}],43:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -7177,14 +7287,14 @@ function isNullOrUndefined(arg) {
   return  arg == null;
 }
 
-},{"punycode":14,"querystring":17}],43:[function(require,module,exports){
+},{"punycode":15,"querystring":18}],44:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],44:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -7774,7 +7884,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":43,"_process":13,"inherits":81}],45:[function(require,module,exports){
+},{"./support/isBuffer":44,"_process":14,"inherits":80}],46:[function(require,module,exports){
 module.exports = extend
 
 function extend() {
@@ -7793,361 +7903,7 @@ function extend() {
     return target
 }
 
-},{}],46:[function(require,module,exports){
-'use strict';
-
-var hasOwn = Object.prototype.hasOwnProperty;
-var toStr = Object.prototype.toString;
-
-var isArray = function isArray(arr) {
-	if (typeof Array.isArray === 'function') {
-		return Array.isArray(arr);
-	}
-
-	return toStr.call(arr) === '[object Array]';
-};
-
-var isPlainObject = function isPlainObject(obj) {
-	if (!obj || toStr.call(obj) !== '[object Object]') {
-		return false;
-	}
-
-	var hasOwnConstructor = hasOwn.call(obj, 'constructor');
-	var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
-	// Not own constructor property must be Object
-	if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
-		return false;
-	}
-
-	// Own properties are enumerated firstly, so to speed up,
-	// if last one is own, then all properties are own.
-	var key;
-	for (key in obj) {/**/}
-
-	return typeof key === 'undefined' || hasOwn.call(obj, key);
-};
-
-module.exports = function extend() {
-	var options, name, src, copy, copyIsArray, clone,
-		target = arguments[0],
-		i = 1,
-		length = arguments.length,
-		deep = false;
-
-	// Handle a deep copy situation
-	if (typeof target === 'boolean') {
-		deep = target;
-		target = arguments[1] || {};
-		// skip the boolean and the target
-		i = 2;
-	} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
-		target = {};
-	}
-
-	for (; i < length; ++i) {
-		options = arguments[i];
-		// Only deal with non-null/undefined values
-		if (options != null) {
-			// Extend the base object
-			for (name in options) {
-				src = target[name];
-				copy = options[name];
-
-				// Prevent never-ending loop
-				if (target !== copy) {
-					// Recurse if we're merging plain objects or arrays
-					if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
-						if (copyIsArray) {
-							copyIsArray = false;
-							clone = src && isArray(src) ? src : [];
-						} else {
-							clone = src && isPlainObject(src) ? src : {};
-						}
-
-						// Never move original objects, clone them
-						target[name] = extend(deep, clone, copy);
-
-					// Don't bring in undefined values
-					} else if (typeof copy !== 'undefined') {
-						target[name] = copy;
-					}
-				}
-			}
-		}
-	}
-
-	// Return the modified object
-	return target;
-};
-
-
 },{}],47:[function(require,module,exports){
-
-var insertCss = require('insert-css');
-var inherits = require('inherits');
-var EventEmitter = require('events').EventEmitter;
-var d3 = require('d3');
-var transform = require('./lib/transform.js');
-
-inherits(Bundle, EventEmitter);
-module.exports = Bundle;
-
-function Bundle(settings) {
-    var me = this;
-    if (!(this instanceof Bundle)) return new Bundle(settings);
-    this.settings = settings;
-
-    if (me.settings.searchContext) {
-        me.searchContext = me.settings.searchContext;
-        delete me.settings.searchContext;
-    }
-
-    if (me.searchContext) {
-        me.searchContext.on('globisearch:resultsetchanged', function(json) {
-            me.settings.json = json;
-            me.draw();
-        });
-    }
-}
-
-Bundle.prototype.appendTo = function (target) {
-    if (typeof target === 'string') target = document.querySelector(target);
-    this.settings.target = target;
-    var css = ".bundle-node {\n    font: 10px \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    fill: #333;\n}\n\n.bundle-node:hover {\n    fill: #000;\n}\n\n.bundl-link {\n    stroke: lightgreen;\n    stroke-opacity: .4;\n    fill: none;\n    pointer-events: none;\n}\n\n.bundle-node:hover,\n.node--source,\n.node--target {\n    font-weight: 400;\n}\n\n.node--source {\n    fill: #2ca02c;\n}\n\n.node--target {\n    fill: #d62728;\n}\n\n.link--source,\n.link--target {\n    stroke-opacity: 1;\n    stroke-width: 2px;\n}\n\n.link--source {\n    stroke: #d62728;\n}\n\n.link--target {\n    stroke: #2ca02c;\n}\n";
-    insertCss(css);
-    if (this.settings.json && this.settings.json.length > 0) {
-        this.draw();
-    }
-    this.emit('append', this.settings.target);
-};
-
-Bundle.prototype.draw = function() {
-    this.settings.target.innerHTML ='';
-    this._buildBundles()
-};
-
-Bundle.prototype._buildBundles = function() {
-    var me = this;
-    var target = this.settings.target,
-        json = this.settings.json,
-        canvasDimension = this.settings.canvasDimension;
-    if (json.length === 0) return;
-    var diameter = canvasDimension.height * 2,
-        radius = diameter / 2,
-        innerRadius = radius - 120;
-
-    var cluster = d3.layout.cluster()
-        .size([360, innerRadius])
-        .sort(function (a, b) {
-            return d3.ascending(a.key, b.key);
-        })
-        .value(function (d) {
-            return d.size;
-        });
-
-    var bundle = d3.layout.bundle();
-
-    var line = d3.svg.line.radial()
-        .interpolate("bundle")
-        .tension(0.85)
-        .radius(function (d) {
-            return d.y;
-        })
-        .angle(function (d) {
-            return d.x / 180 * Math.PI;
-        });
-
-    var svg = d3.select(target).append("svg")
-        .attr('width', canvasDimension.width * 2)
-        .attr('height', canvasDimension.height * 2)
-        .attr('viewBox', '0 0 ' + canvasDimension.width * 2 + ' ' + canvasDimension.height * 2)
-        .attr('zoomAndPan', 'magnify')
-        .append("g")
-        .attr("transform", "translate(" + ( canvasDimension.width / 2 + 100 ) + "," + radius + ")");
-
-    var link = svg.append("g").selectAll(".bundl-link"),
-        node = svg.append("g").selectAll(".bundl-node");
-
-
-    var classes = transform.parseToStructure(json);
-
-    var nodes = cluster.nodes(transform.taxonHierarchy(classes));
-    var links = transform.taxonPreys(nodes);
-    link = link
-        .data(bundle(links))
-        .enter().append("path")
-        .each(function (d) {
-            d.source = d[0], d.target = d[d.length - 1];
-        })
-        .attr("class", "bundl-link")
-        .attr("d", line);
-
-    node = node
-        .data(nodes.filter(function (n) {
-            return !n.children;
-        }))
-        .enter().append("text")
-        .attr("class", "bundle-node")
-        .attr("dx", function (d) {
-            return d.x < 180 ? 8 : -8;
-        })
-        .attr("dy", ".31em")
-        .attr("transform", function (d) {
-            return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")" + (d.x < 180 ? "" : "rotate(180)");
-        })
-        .style("text-anchor", function (d) {
-            return d.x < 180 ? "start" : "end";
-        })
-        .style("cursor", "pointer")
-        .text(function (d) {
-            return d.key.length > 20 ? d.key.substring(0, 19) + '...' : d.key;
-        })
-        .on('click', mouseclicked)
-        .on("mouseover", mouseovered)
-        .on("mouseout", mouseouted)
-        .append("title").text(function (d) {
-            return d.eolId + ' ' + d.path
-        })
-    ;
-
-    function mouseovered(d) {
-        node
-            .each(function (n) {
-                n.target = n.source = false;
-            });
-
-        link
-            .classed("link--target", function (l) {
-                return l.target === d;
-            })
-            .classed("link--source", function (l) {
-                return l.source === d;
-            })
-            .filter(function (l) {
-                return l.target === d || l.source === d;
-            })
-            .each(function () {
-                this.parentNode.appendChild(this);
-            });
-
-        node
-            .classed("node--target", function (n) {
-                return n.target;
-            })
-            .classed("node--source", function (n) {
-                return n.source;
-            });
-    }
-
-    function mouseouted(d) {
-        link
-            .classed("link--target", false)
-            .classed("link--source", false);
-
-        node
-            .classed("node--target", false)
-            .classed("node--source", false);
-    }
-
-    function mouseclicked(d) {
-        if (me.searchContext) {
-            me.searchContext.updateSearchParameter('sourceTaxon', d.key)
-        }
-    }
-};
-
-
-},{"./lib/transform.js":48,"d3":49,"events":10,"inherits":81,"insert-css":50}],48:[function(require,module,exports){
-module.exports = {
-    parseToStructure: parseToStructure,
-    taxonHierarchy: taxonHierarchy,
-    taxonPreys: taxonPreys
-};
-
-function parseToStructure(data) {
-    var parsedData = {};
-
-    data.forEach(function (d) {
-
-        function isResolved(taxonNode) {
-            return taxonNode.id && taxonNode.id !== 'no:match' && taxonNode.path !== undefined;
-        }
-
-        function addNode(taxonNode) {
-            if (isResolved(taxonNode) && !parsedData[ taxonNode.id ]) {
-                var path = (taxonNode.path ? taxonNode.path : '').split(' | ').join('.');
-                parsedData[ taxonNode.id ] = { name: path, path: path, eolId: taxonNode.id, preys: [] };
-            }
-        }
-
-        function linkNodes(source, target) {
-            if (parsedData[ source.id ] && isResolved(target)) {
-                var path = (target.path ? target.path : '').split(' | ').join('.');
-                parsedData[ source.id ].preys.push(path);
-            }
-        }
-
-        addNode(d.source);
-        addNode(d.target);
-        linkNodes(d.source, d.target);
-    });
-
-    var returnData = [];
-    for (var id in parsedData) {
-        if (parsedData.hasOwnProperty(id)) {
-            returnData.push(parsedData[ id ]);
-        }
-    }
-
-    return returnData;
-}
-
-function taxonHierarchy(classes) {
-    var map = {};
-    var j = 0;
-
-    function find(name, data) {
-        var node = map[name], i;
-        if (!node) {
-            node = map[name] = data || {name: name, children: []};
-
-            if (name.length) {
-                node.parent = find(name.substring(0, i = name.lastIndexOf(".")));
-                if (!node.parent.children) {
-                    node.parent.children = [];
-                }
-                node.parent.children.push(node);
-                node.key = name.substring(i + 1);
-            }
-        }
-        return node;
-    }
-
-    classes.forEach(function (d) {
-        find(d.name, d);
-    });
-    return map[""];
-}
-
-// Return a list of preys for the given array of nodes.
-function taxonPreys(nodes) {
-    var map = {};
-    // Compute a map from name to node.
-    nodes.forEach(function (d) {
-        map[d.name] = d;
-    });
-    // For each import, construct a link from the source to target node.
-    var preys = [];
-    nodes.forEach(function (d) {
-        if (d.preys) d.preys.forEach(function (i) {
-            if (map[ i ]) {
-                preys.push({source: map[d.name], target: map[i]});
-            }
-        });
-    });
-    return preys;
-}
-},{}],49:[function(require,module,exports){
 !function() {
   var d3 = {
     version: "3.5.6"
@@ -17652,7 +17408,361 @@ function taxonPreys(nodes) {
   if (typeof define === "function" && define.amd) define(d3); else if (typeof module === "object" && module.exports) module.exports = d3;
   this.d3 = d3;
 }();
-},{}],50:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
+'use strict';
+
+var hasOwn = Object.prototype.hasOwnProperty;
+var toStr = Object.prototype.toString;
+
+var isArray = function isArray(arr) {
+	if (typeof Array.isArray === 'function') {
+		return Array.isArray(arr);
+	}
+
+	return toStr.call(arr) === '[object Array]';
+};
+
+var isPlainObject = function isPlainObject(obj) {
+	if (!obj || toStr.call(obj) !== '[object Object]') {
+		return false;
+	}
+
+	var hasOwnConstructor = hasOwn.call(obj, 'constructor');
+	var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+	// Not own constructor property must be Object
+	if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
+		return false;
+	}
+
+	// Own properties are enumerated firstly, so to speed up,
+	// if last one is own, then all properties are own.
+	var key;
+	for (key in obj) {/**/}
+
+	return typeof key === 'undefined' || hasOwn.call(obj, key);
+};
+
+module.exports = function extend() {
+	var options, name, src, copy, copyIsArray, clone,
+		target = arguments[0],
+		i = 1,
+		length = arguments.length,
+		deep = false;
+
+	// Handle a deep copy situation
+	if (typeof target === 'boolean') {
+		deep = target;
+		target = arguments[1] || {};
+		// skip the boolean and the target
+		i = 2;
+	} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
+		target = {};
+	}
+
+	for (; i < length; ++i) {
+		options = arguments[i];
+		// Only deal with non-null/undefined values
+		if (options != null) {
+			// Extend the base object
+			for (name in options) {
+				src = target[name];
+				copy = options[name];
+
+				// Prevent never-ending loop
+				if (target !== copy) {
+					// Recurse if we're merging plain objects or arrays
+					if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
+						if (copyIsArray) {
+							copyIsArray = false;
+							clone = src && isArray(src) ? src : [];
+						} else {
+							clone = src && isPlainObject(src) ? src : {};
+						}
+
+						// Never move original objects, clone them
+						target[name] = extend(deep, clone, copy);
+
+					// Don't bring in undefined values
+					} else if (typeof copy !== 'undefined') {
+						target[name] = copy;
+					}
+				}
+			}
+		}
+	}
+
+	// Return the modified object
+	return target;
+};
+
+
+},{}],49:[function(require,module,exports){
+
+var insertCss = require('insert-css');
+var inherits = require('inherits');
+var EventEmitter = require('events').EventEmitter;
+var d3 = require('d3');
+var transform = require('./lib/transform.js');
+
+inherits(Bundle, EventEmitter);
+module.exports = Bundle;
+
+function Bundle(settings) {
+    var me = this;
+    if (!(this instanceof Bundle)) return new Bundle(settings);
+    this.settings = settings;
+
+    if (me.settings.searchContext) {
+        me.searchContext = me.settings.searchContext;
+        delete me.settings.searchContext;
+    }
+
+    if (me.searchContext) {
+        me.searchContext.on('globisearch:resultsetchanged', function(json) {
+            me.settings.json = json;
+            me.draw();
+        });
+    }
+}
+
+Bundle.prototype.appendTo = function (target) {
+    if (typeof target === 'string') target = document.querySelector(target);
+    this.settings.target = target;
+    var css = ".bundle-node {\n    font: 10px \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    fill: #333;\n}\n\n.bundle-node:hover {\n    fill: #000;\n}\n\n.bundl-link {\n    stroke: lightgreen;\n    stroke-opacity: .4;\n    fill: none;\n    pointer-events: none;\n}\n\n.bundle-node:hover,\n.node--source,\n.node--target {\n    font-weight: 400;\n}\n\n.node--source {\n    fill: #2ca02c;\n}\n\n.node--target {\n    fill: #d62728;\n}\n\n.link--source,\n.link--target {\n    stroke-opacity: 1;\n    stroke-width: 2px;\n}\n\n.link--source {\n    stroke: #d62728;\n}\n\n.link--target {\n    stroke: #2ca02c;\n}\n";
+    insertCss(css);
+    if (this.settings.json && this.settings.json.length > 0) {
+        this.draw();
+    }
+    this.emit('append', this.settings.target);
+};
+
+Bundle.prototype.draw = function() {
+    this.settings.target.innerHTML ='';
+    this._buildBundles()
+};
+
+Bundle.prototype._buildBundles = function() {
+    var me = this;
+    var target = this.settings.target,
+        json = this.settings.json,
+        canvasDimension = this.settings.canvasDimension;
+    if (json.length === 0) return;
+    var diameter = canvasDimension.height * 2,
+        radius = diameter / 2,
+        innerRadius = radius - 120;
+
+    var cluster = d3.layout.cluster()
+        .size([360, innerRadius])
+        .sort(function (a, b) {
+            return d3.ascending(a.key, b.key);
+        })
+        .value(function (d) {
+            return d.size;
+        });
+
+    var bundle = d3.layout.bundle();
+
+    var line = d3.svg.line.radial()
+        .interpolate("bundle")
+        .tension(0.85)
+        .radius(function (d) {
+            return d.y;
+        })
+        .angle(function (d) {
+            return d.x / 180 * Math.PI;
+        });
+
+    var svg = d3.select(target).append("svg")
+        .attr('width', canvasDimension.width * 2)
+        .attr('height', canvasDimension.height * 2)
+        .attr('viewBox', '0 0 ' + canvasDimension.width * 2 + ' ' + canvasDimension.height * 2)
+        .attr('zoomAndPan', 'magnify')
+        .append("g")
+        .attr("transform", "translate(" + ( canvasDimension.width / 2 + 100 ) + "," + radius + ")");
+
+    var link = svg.append("g").selectAll(".bundl-link"),
+        node = svg.append("g").selectAll(".bundl-node");
+
+
+    var classes = transform.parseToStructure(json);
+
+    var nodes = cluster.nodes(transform.taxonHierarchy(classes));
+    var links = transform.taxonPreys(nodes);
+    link = link
+        .data(bundle(links))
+        .enter().append("path")
+        .each(function (d) {
+            d.source = d[0], d.target = d[d.length - 1];
+        })
+        .attr("class", "bundl-link")
+        .attr("d", line);
+
+    node = node
+        .data(nodes.filter(function (n) {
+            return !n.children;
+        }))
+        .enter().append("text")
+        .attr("class", "bundle-node")
+        .attr("dx", function (d) {
+            return d.x < 180 ? 8 : -8;
+        })
+        .attr("dy", ".31em")
+        .attr("transform", function (d) {
+            return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")" + (d.x < 180 ? "" : "rotate(180)");
+        })
+        .style("text-anchor", function (d) {
+            return d.x < 180 ? "start" : "end";
+        })
+        .style("cursor", "pointer")
+        .text(function (d) {
+            return d.key.length > 20 ? d.key.substring(0, 19) + '...' : d.key;
+        })
+        .on('click', mouseclicked)
+        .on("mouseover", mouseovered)
+        .on("mouseout", mouseouted)
+        .append("title").text(function (d) {
+            return d.eolId + ' ' + d.path
+        })
+    ;
+
+    function mouseovered(d) {
+        node
+            .each(function (n) {
+                n.target = n.source = false;
+            });
+
+        link
+            .classed("link--target", function (l) {
+                return l.target === d;
+            })
+            .classed("link--source", function (l) {
+                return l.source === d;
+            })
+            .filter(function (l) {
+                return l.target === d || l.source === d;
+            })
+            .each(function () {
+                this.parentNode.appendChild(this);
+            });
+
+        node
+            .classed("node--target", function (n) {
+                return n.target;
+            })
+            .classed("node--source", function (n) {
+                return n.source;
+            });
+    }
+
+    function mouseouted(d) {
+        link
+            .classed("link--target", false)
+            .classed("link--source", false);
+
+        node
+            .classed("node--target", false)
+            .classed("node--source", false);
+    }
+
+    function mouseclicked(d) {
+        //if (me.searchContext) {
+        //    me.searchContext.updateSearchParameter('sourceTaxon', d.key)
+        //}
+    }
+};
+
+
+},{"./lib/transform.js":50,"d3":47,"events":11,"inherits":80,"insert-css":51}],50:[function(require,module,exports){
+module.exports = {
+    parseToStructure: parseToStructure,
+    taxonHierarchy: taxonHierarchy,
+    taxonPreys: taxonPreys
+};
+
+function parseToStructure(data) {
+    var parsedData = {};
+
+    data.forEach(function (d) {
+
+        function isResolved(taxonNode) {
+            return taxonNode.id && taxonNode.id !== 'no:match' && taxonNode.path !== undefined;
+        }
+
+        function addNode(taxonNode) {
+            if (isResolved(taxonNode) && !parsedData[ taxonNode.id ]) {
+                var path = (taxonNode.path ? taxonNode.path : '').split(' | ').join('.');
+                parsedData[ taxonNode.id ] = { name: path, path: path, eolId: taxonNode.id, preys: [] };
+            }
+        }
+
+        function linkNodes(source, target) {
+            if (parsedData[ source.id ] && isResolved(target)) {
+                var path = (target.path ? target.path : '').split(' | ').join('.');
+                parsedData[ source.id ].preys.push(path);
+            }
+        }
+
+        addNode(d.source);
+        addNode(d.target);
+        linkNodes(d.source, d.target);
+    });
+
+    var returnData = [];
+    for (var id in parsedData) {
+        if (parsedData.hasOwnProperty(id)) {
+            returnData.push(parsedData[ id ]);
+        }
+    }
+
+    return returnData;
+}
+
+function taxonHierarchy(classes) {
+    var map = {};
+    var j = 0;
+
+    function find(name, data) {
+        var node = map[name], i;
+        if (!node) {
+            node = map[name] = data || {name: name, children: []};
+
+            if (name.length) {
+                node.parent = find(name.substring(0, i = name.lastIndexOf(".")));
+                if (!node.parent.children) {
+                    node.parent.children = [];
+                }
+                node.parent.children.push(node);
+                node.key = name.substring(i + 1);
+            }
+        }
+        return node;
+    }
+
+    classes.forEach(function (d) {
+        find(d.name, d);
+    });
+    return map[""];
+}
+
+// Return a list of preys for the given array of nodes.
+function taxonPreys(nodes) {
+    var map = {};
+    // Compute a map from name to node.
+    nodes.forEach(function (d) {
+        map[d.name] = d;
+    });
+    // For each import, construct a link from the source to target node.
+    var preys = [];
+    nodes.forEach(function (d) {
+        if (d.preys) d.preys.forEach(function (i) {
+            if (map[ i ]) {
+                preys.push({source: map[d.name], target: map[i]});
+            }
+        });
+    });
+    return preys;
+}
+},{}],51:[function(require,module,exports){
 var inserted = {};
 
 module.exports = function (css, options) {
@@ -17676,7 +17786,7 @@ module.exports = function (css, options) {
     }
 };
 
-},{}],51:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -17854,7 +17964,7 @@ Hairball.prototype.update = function(links, nodes) {
         .on('mousedown', function () {
             d3.event.stopPropagation();
         })
-        .on('click', function(d) { me.searchContext.updateSearchParameter('sourceTaxon', d['name']); nodeClick();})
+        .on('click', function(d) { nodeClick(); /* me.searchContext.updateSearchParameter('sourceTaxon', d['name']);*/ })
         .on('mouseover', nodeMouseover)
         .on('mouseout', nodeMouseout)
         .attr('opacity', config.opacity.normal)
@@ -17980,7 +18090,7 @@ function toggleNode(node, forcedStatus) {
 }
 
 
-},{"./lib/transform.js":52,"d3":53,"events":10,"inherits":81,"insert-css":54}],52:[function(require,module,exports){
+},{"./lib/transform.js":53,"d3":47,"events":11,"inherits":80,"insert-css":54}],53:[function(require,module,exports){
 module.exports = {
     parseInteractions: parseInteractions
 };
@@ -18035,11 +18145,9 @@ function parseInteractions(data) {
     }
     return { nodes: nodes, links: links};
 }
-},{}],53:[function(require,module,exports){
-arguments[4][49][0].apply(exports,arguments)
-},{"dup":49}],54:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],55:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
+arguments[4][51][0].apply(exports,arguments)
+},{"dup":51}],55:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var domify = require('domify');
@@ -18066,7 +18174,7 @@ Panels.prototype.appendTo = function (target) {
     if (typeof target === 'string') target = document.querySelector(target);
     var css = "#panels {\n    height: 100%;\n    width: 100%;\n    position: absolute;\n}\n\n.panel {\n    height: 50%;\n    width: 50%;\n    position: absolute;\n    z-index: 1;\n    overflow: auto;\n}\n\n.panel-top-left {\n    left: 0;\n    top: 0;\n}\n\n.panel-top-right {\n    right: 0;\n    top: 0;\n}\n\n.panel-bottom-left {\n    left: 0;\n    bottom: 0;\n}\n\n.panel-bottom-right {\n    right: 0;\n    bottom: 0;\n}\n\n.btn {\n    position: fixed;\n    border: 1px solid #777;\n    border-radius: 3px;\n    width: 15px;\n    height: 15px;\n    background: rgba(238, 238, 238, .60);\n    margin: 1px;\n    color: #777;\n    padding: 0;\n    font-size: 12px;\n    line-height: 14px;\n    text-align: center;\n}\n\n.btn:hover {\n    background: rgba(204, 204, 204, .60);\n    cursor: pointer;\n    font-size: 16px;\n}\n\n.min {\n    animation-duration: 1s;\n    animation-name: minimize;\n    height: 50%;\n    width: 50%;\n    z-index: 1;\n}\n\n.max {\n    animation-duration: 1s;\n    animation-name: maximize;\n    height: 100%;\n    width: 100%;\n    z-index: 2;\n}\n\n@keyframes maximize {\n    from {\n        height: 50%;\n        width: 50%;\n    }\n    to {\n        height: 100%;\n        width: 100%;\n    }\n}\n\n@keyframes minimize {\n    from {\n        height: 100%;\n        width: 100%;\n    }\n\n    to {\n        height: 50%;\n        width: 50%;\n    }\n}\n\n#globi-panel-top-left {\n    background: #b7b7b7;\n}\n\n#globi-panel-top-right {\n    background: #dfdfdf;\n}\n\n#globi-panel-bottom-left {\n    background: #dfdfdf;\n}\n\n#globi-panel-bottom-right {\n    background: #b7b7b7;\n}\n\n#globi-panel-top-right h3, #globi-panel-bottom-left h3, #globi-panel-bottom-right h3 {\n    color: #cfcfcf;\n    text-align: center;\n    font-family: monospace;\n    font-size: 1.5em;\n}\n\n#globi-panel-top-right-container {\n    overflow: auto;\n}\n\n#welcome {\n    font-family: Helvetica, \"Helvetica Neue\", Arial, sans-serif;\n    padding: 50px;\n    text-align: center;\n}\n\n#welcome h1 {\n    font-size: 21px;\n    margin-bottom: 25px;\n}\n\n#welcome p {\n    font-size: 14px;\n    margin-bottom: 10px;\n}";
     insertCss(css);
-    var html = "<div id=\"panels\">\n    <div class=\"panel panel-top-left min\" id=\"globi-panel-top-left\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"globi-panel-top-left-container\"></div>\n    </div>\n    <div class=\"panel panel-top-right min\" id=\"globi-panel-top-right\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"globi-panel-top-right-container\">\n            <div id=\"welcome\">\n                <h1>Welcome to the GloBI Interaction Browser!</h1>\n\n                <p>Please click on a marker or select an area to display species interactions!</p>\n\n                <p>\n                    <a target=\"_blank\" href=\"http://blog.globalbioticinteractions.org\">Learn more about GloBI</a>\n                </p>\n            </div>\n        </div>\n    </div>\n    <div class=\"panel panel-bottom-left min\" id=\"globi-panel-bottom-left\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"globi-panel-bottom-left-container\"></div>\n    </div>\n    <div class=\"panel panel-bottom-right min\" id=\"globi-panel-bottom-right\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"globi-panel-bottom-right-container\"></div>\n    </div>\n</div>";
+    var html = "<div id=\"panels\">\n    <div class=\"panel panel-top-left min\" id=\"globi-panel-top-left\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"taxon-filter\"></div>\n        <div id=\"globi-panel-top-left-container\"></div>\n    </div>\n    <div class=\"panel panel-top-right min\" id=\"globi-panel-top-right\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"globi-panel-top-right-container\"></div>\n    </div>\n    <div class=\"panel panel-bottom-left min\" id=\"globi-panel-bottom-left\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"globi-panel-bottom-left-container\"></div>\n    </div>\n    <div class=\"panel panel-bottom-right min\" id=\"globi-panel-bottom-right\">\n        <div class=\"btn\" title=\"maximize / minimize\">&#9712;</div>\n        <div id=\"globi-panel-bottom-right-container\"></div>\n    </div>\n</div>";
     var element = domify(html);
     addButtonClickHandlers(element);
     target.appendChild(element);
@@ -18088,7 +18196,7 @@ function addButtonClickHandlers(target) {
         });
     }
 }
-},{"domify":56,"events":10,"inherits":81,"insert-css":57}],56:[function(require,module,exports){
+},{"domify":56,"events":11,"inherits":80,"insert-css":57}],56:[function(require,module,exports){
 
 /**
  * Expose `parse`.
@@ -18199,8 +18307,8 @@ function parse(html, doc) {
 }
 
 },{}],57:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],58:[function(require,module,exports){
+arguments[4][51][0].apply(exports,arguments)
+},{"dup":51}],58:[function(require,module,exports){
 var jQuery = require('jquery');
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
@@ -18214,17 +18322,10 @@ var SearchResult = require('./lib/SearchResult.js');
 
 module.exports = Plugin;
 
-
 inherits(Plugin, EventEmitter);
 
-var State = {
-    source: null,
-    type: null,
-    target: null
-}
 
-var DataFetcher = new globi.PaginatedDataFetcher({ url: '' });
-
+Plugin.Result = SearchResult;
 var ItemData = {
     source: {
         set: false
@@ -18239,15 +18340,15 @@ var ItemData = {
 
 var fetchingItemData = false;
 
-var uuid = 0;
-
+var FilterElementContainer = null;
 
 function Plugin(settings) {
     if (!(this instanceof Plugin)) {
         return new Plugin(settings);
     }
     this.settings = extend({
-
+        filterContainer: null,
+        resultContainer: null
     }, settings);
 
     this.init();
@@ -18264,29 +18365,41 @@ extend(Plugin.prototype, {
 
         me.buildUi();
         me.events();
-        me.uuid = ++uuid;
-        State = {
-            source: null,
-            type: null,
-            target: null
-        };
     },
 
     appendTo: function(target) {
         var me = this;
         if (typeof target === 'string') target = document.querySelector(target);
 
-        target.appendChild(me.el);
-        this.emit('append', target);
+        if (FilterElementContainer === null) {
+            FilterElementContainer = target.parentNode;
+            target.parentNode.insertBefore(me.filterElement, target);
+        }
     },
 
     events: function() {
         var me = this;
-        me.addListener('globisearch:partialstatechange', me.partialStateChanged);
-        me.addListener('globisearch:searchchange', me.searchChanged);
-        me.settings.searchContext.addListener('taxonselector:selected', proxy(me.taxonSelected, me));
-        me.settings.searchContext.addListener('typeselector:selected', proxy(me.typeSelected, me));
-        me.settings.searchContext.addListener('searchresult:itemselected', proxy(me.itemSelected, me));
+        me.settings.searchContext.on('taxonselector:selected', proxy(me.taxonSelected, me));
+        me.settings.searchContext.on('typeselector:selected', proxy(me.typeSelected, me));
+        me.settings.searchContext.on('searchresult:itemselected', proxy(me.itemSelected, me));
+        me.settings.searchContext.on('globisearch:resultsetchanged', proxy(me.showResult, me));
+    },
+
+    showResult: function(data) {
+        var me = this;
+        searchHash = me.settings.searchContext.searchParameters;
+        searchHash.resultType = 'csv';
+        searchHash.includeObservations = true;
+        searchHash.fields = ['source_taxon_id', 'source_taxon_name', 'source_taxon_path', 'source_taxon_path_ids',
+            'source_specimen_life_stage','source_specimen_physiological_state','source_specimen_body_part'
+            , 'interaction_type'
+            , 'target_taxon_id', 'target_taxon_name', 'target_taxon_path', 'target_taxon_path_ids'
+            , 'target_specimen_life_stage','target_specimen_physiological_state','target_specimen_body_part'
+            , 'latitude', 'longitude'
+            , 'study_citation', 'study_url', 'study_source_citation'];
+
+        downloadUrl = globiData.urlForTaxonInteractionQuery(searchHash);
+        me.settings.searchContext.emit('searchfilter:showresults', processDataForResultList(data), downloadUrl);
     },
 
     update: function(data) {
@@ -18299,7 +18412,7 @@ extend(Plugin.prototype, {
             row = createElement('table'),
             td;
 
-        me.el = createElement('div', 'search-wrapper');
+        me.filterElement = createElement('div', 'search-filter');
 
         td = createElement('td'); td.appendChild(me.createSourceSelector().el)
         row.appendChild(td);
@@ -18311,8 +18424,7 @@ extend(Plugin.prototype, {
         row.appendChild(td);
 
         table.appendChild(row);
-        me.el.appendChild(table);
-        me.el.appendChild(me.createSearchResult().el);
+        me.filterElement.appendChild(table);
 
         me.populateTypeSelector();
     },
@@ -18422,7 +18534,7 @@ extend(Plugin.prototype, {
                 break;
         }
         if (ItemData['source'].set && ItemData['target'].set && ItemData['link'].set) {
-            me.searchResult.showItem(ItemData);
+            me.settings.searchContext.emit('searchfilter:showitem', ItemData);
             ItemData = { source: {set: false}, target: {set: false}, link: {set: false} };
             fetchingItemData = false;
         }
@@ -18434,67 +18546,13 @@ extend(Plugin.prototype, {
 
     taxonSelected: function(event) {
         var me = this;
-        if (me.uuid === uuid) {
-            State[event['emitter']] = event['data'];
-            this.settings.searchContext.updateSearchParameter(event['emitter'] + 'Taxon', event['data']);
-            me.emit('globisearch:partialstatechange');
-        }
+        this.settings.searchContext.updateSearchParameter(event['emitter'] + 'Taxon', event['data']);
     },
 
     typeSelected: function(event) {
         var me = this;
-        if (me.uuid === uuid) {
-            State['type'] = event['data'];
-            this.settings.searchContext.updateSearchParameter('interactionType', event['data']);
-            me.emit('globisearch:partialstatechange');
-        }
+        this.settings.searchContext.updateSearchParameter('interactionType', event['data']);
     },
-
-    partialStateChanged: function() {
-        var me = this;
-        if (me.uuid === uuid) {
-            if ((State['type'] !== null) &&
-                ((State['source'] !== null) || (State['target'] !== null))
-            ) {
-                me.emit('globisearch:searchchange', State);
-            }
-        }
-    },
-
-    searchChanged: function(state) {
-        var me = this, url, downloadUrl;
-        var searchHash = {resultType: 'json'};
-
-        if (state['source'] !== null) {
-            searchHash.sourceTaxa = [state['source']];
-        }
-        if (state['target'] !== null) {
-            searchHash.targetTaxa = [state['target']];
-        }
-        searchHash.interactionType = state['type'];
-
-        url = globiData.urlForTaxonInteractionQuery(searchHash);
-        DataFetcher.settings.url = url + '&bbox=' + me.settings.context.bbox;
-
-        DataFetcher.fetch(function(data) {
-            data = globi.ResponseMapper(data)();
-            me.settings.searchContext.emit('globisearch:resultsetchanged', mapData(data));
-            data = processDataForResultList(data);
-            searchHash.resultType = 'csv';
-            searchHash.includeObservations = true;
-            searchHash.fields = ['source_taxon_id', 'source_taxon_name', 'source_taxon_path', 'source_taxon_path_ids',
-                'source_specimen_life_stage','source_specimen_physiological_state','source_specimen_body_part'
-                , 'interaction_type'
-                , 'target_taxon_id', 'target_taxon_name', 'target_taxon_path', 'target_taxon_path_ids'
-                , 'target_specimen_life_stage','target_specimen_physiological_state','target_specimen_body_part'
-                , 'latitude', 'longitude'
-                , 'study_citation', 'study_url', 'study_source_citation'];
-
-            downloadUrl = globiData.urlForTaxonInteractionQuery(searchHash);
-            me.searchResult.clear();
-            me.searchResult.showList(data, downloadUrl);
-        });
-    }
 });
 
 /**
@@ -18567,30 +18625,7 @@ function fillTemplate(data) {
     ].join('');
 }
 
-/**
- * @TODO Move to transformation package
- */
-function mapData(data) {
-    var result = [];
-    forEach(data, function(item) {
-        item['source'] = {
-            id: item['source_taxon_external_id'],
-            name: item['source_taxon_name'],
-            path: item['source_taxon_path']
-        };
-        item['target'] = {
-            id: item['target_taxon_external_id'],
-            name: item['target_taxon_name'],
-            path: item['target_taxon_path']
-        };
-        result.push(item);
-    });
-    return result;
-};
-
-
-
-},{"./lib/SearchResult.js":60,"./lib/TaxonSelector.js":61,"./lib/TypeSelector.js":62,"events":10,"extend":46,"foreach":64,"globi":76,"globi-data":65,"jquery":83,"util":44}],59:[function(require,module,exports){
+},{"./lib/SearchResult.js":60,"./lib/TaxonSelector.js":61,"./lib/TypeSelector.js":62,"events":11,"extend":48,"foreach":64,"globi":75,"globi-data":65,"jquery":82,"util":45}],59:[function(require,module,exports){
 var globi = require('globi');
 var globiData = require('globi-data');
 var forEach = require('foreach');
@@ -18632,20 +18667,30 @@ DataParser.process = function(data) {
 }
 
 module.exports = DataParser;
-},{"foreach":64,"globi":76,"globi-data":65}],60:[function(require,module,exports){
+},{"foreach":64,"globi":75,"globi-data":65}],60:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var extend = require('extend');
-var forEach = require('foreach');
 
 inherits(SearchResult, EventEmitter);
 
 var infoBoxIsProcessing = false;
 
 function SearchResult(settings) {
-    this.settings = extend({
+    if (!(this instanceof SearchResult)) { return new SearchResult(settings); }
 
+    this.settings = extend({
+        searchContext: { on: function() {} }
     }, settings);
+
+    this.statistics = {
+        interactions: [],
+        sources: [],
+        targets: []
+    };
+
+    this.searchContext = this.settings['searchContext'];
+    delete this.settings['searchContext'];
     this.init();
 }
 
@@ -18653,13 +18698,27 @@ extend(SearchResult.prototype, {
     init: function() {
         var me = this;
         me.events();
+
+        var div = createElement('div', 'search-wrapper');
         me.el = createElement('div', 'result-list');
+        div.appendChild(me.el);
     },
 
     events: function() {
         var me = this;
         me.on('searchresult:itemclick', me.itemClicked);
+        me.searchContext.on('searchfilter:showresults', proxy(me.showList, me));
+        me.searchContext.on('searchfilter:showitem', proxy(me.showItem, me));
     },
+
+    appendTo: function(target) {
+        var me = this;
+        if (typeof target === 'string') target = document.querySelector(target);
+
+        target.appendChild(me.el);
+        me.emit('append', target);
+    },
+
 
     clear: function() {
         var me = this;
@@ -18687,43 +18746,34 @@ extend(SearchResult.prototype, {
      */
     showList: function(data, downloadlink) {
         var me = this;
-
+        me.clear();
+        downloadlink = downloadlink || '';
         if (data.length > 0) {
             var itemId, stats = { sources: [], targets: [], linkCount: 0}, row, th, sourceCell, targetCell, linkCell, odd = false;
             var table = createElement('table', 'result-table');
             var tableHead = createElement('thead');
             var tableBody = createElement('tbody');
-            forEach(data, function(item) {
-                itemId = [item['source'].id, item['link'].id, item['target'].id].join('---');
-                if (stats['sources'].indexOf(item['source'].id) === -1) {
-                    stats['sources'].push(item['source'].id);
-                }
-                if (stats['targets'].indexOf(item['target'].id) === -1) {
-                    stats['targets'].push(item['target'].id);
-                }
-                stats['linkCount']++;
+            var itemIdCache = [];
+            data.forEach(function(item) {
+                itemId = me.stat(item);
+                if (!itemId) return;
 
                 row = createElement('tr', itemId, ['result-item', (odd ? 'odd' : 'even')]);
                 row.addEventListener('click', function() { me.emit('searchresult:itemclick', item); });
 
-                sourceCell = createElement('td', false, ['source-cell']);
-                sourceCell.innerHTML = item['source'].name;
-                targetCell = createElement('td', false, ['target-cell']);
-                targetCell.innerHTML = item['target'].name;
-                linkCell = createElement('td', false, ['link-cell']);
-                linkCell.innerHTML = item['link'].name;
-
-                row.appendChild(sourceCell);
-                row.appendChild(linkCell);
-                row.appendChild(targetCell);
+                row.innerHTML = [
+                    '<td class="source-cell">', item['source'].name, '</td>',
+                    '<td class="link-cell">', item['link'].name, '</td>',
+                    '<td class="target-cell">', item['target'].name, '</td>'
+                ].join('');
 
                 tableBody.appendChild(row);
                 odd = !odd;
             });
 
             tableHead.innerHTML = [
-                '<tr><th></th><th class="download"><a href="' + downloadlink + '">' + 'Download data</a></th><th></th></tr>',
-                '<tr><th>' + stats['sources'].length + ' source(s)</th><th>' + stats['linkCount'] + ' interaction(s)</th><th>' + stats['targets'].length + ' target(s)</th></tr>',
+                '<tr><th></th><th class="download"><a href="', downloadlink, '">', 'Download data</a></th><th></th></tr>',
+                '<tr><th>', me.statistics['sources'].length, ' source(s)</th><th>', me.statistics['interactions'].length, ' interaction(s)</th><th>', me.statistics['targets'].length, ' target(s)</th></tr>',
             ].join('');
 
             table.appendChild(tableHead);
@@ -18783,6 +18833,7 @@ extend(SearchResult.prototype, {
             ].join('');
 
             activeRow = document.getElementById(itemId);
+            console.log(itemId);
             activeRow.parentNode.insertBefore(infoBox, activeRow);
             activeRow.classList.add('active-row');
 
@@ -18792,9 +18843,37 @@ extend(SearchResult.prototype, {
 
     itemClicked: function(data) {
         var me = this;
-        me.settings.searchContext.emit('searchresult:itemselected', data);
-    }
+        me.searchContext.emit('searchresult:itemselected', data);
+    },
+
+    stat: function(item) {
+        var s = this.statistics;
+        var interactionId = [
+            item['source'].id,
+            item['link'].id,
+            item['target'].id
+        ].join('---');
+
+        if (s.interactions.indexOf(interactionId) !== -1) {
+            return false;
+        }
+        s.interactions.push(interactionId);
+
+        if (s.sources.indexOf(item['source'].id) === -1) {
+            s.sources.push(item['source'].id);
+        }
+        if (s.targets.indexOf(item['target'].id) === -1) {
+            s.targets.push(item['target'].id);
+        }
+        return interactionId;
+    },
 });
+
+function proxy(fn, context) {
+    return function() {
+        return fn.apply(context, arguments);
+    };
+}
 
 /**
  * @param elementName
@@ -18814,7 +18893,7 @@ function createElement(elementName, id, classes) {
 }
 
 module.exports = SearchResult;
-},{"events":10,"extend":46,"foreach":64,"util":44}],61:[function(require,module,exports){
+},{"events":11,"extend":48,"util":45}],61:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var DataParser = require('./DataParser.js');
@@ -18941,7 +19020,7 @@ function createElement(elementName, id, classes) {
 module.exports = TaxonSelector;
 
 
-},{"./DataParser.js":59,"./jquery.tokeninput":63,"events":10,"extend":46,"foreach":64,"jquery":83,"util":44}],62:[function(require,module,exports){
+},{"./DataParser.js":59,"./jquery.tokeninput":63,"events":11,"extend":48,"foreach":64,"jquery":82,"util":45}],62:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var extend = require('extend');
@@ -19070,10 +19149,11 @@ extend(TypeSelector.prototype, {
     onChange: function(event) {
         var me = this;
         var value = me.el.value;
-        if (value !== __EMPTY_OPTION_VALUE__) {
-            me.emit('typeselector:change', value);
-            me.settings.searchContext.emit('typeselector:selected', { emitter: me.settings.type, data: value });
+        if (value === __EMPTY_OPTION_VALUE__) {
+            value = null;
         }
+        me.emit('typeselector:change', value);
+        me.settings.searchContext.emit('typeselector:selected', { emitter: me.settings.type, data: value });
     }
 
 });
@@ -19097,7 +19177,7 @@ function proxy(fn, context) {
 
 
 module.exports = TypeSelector;
-},{"events":10,"extend":46,"foreach":64,"util":44}],63:[function(require,module,exports){
+},{"events":11,"extend":48,"foreach":64,"util":45}],63:[function(require,module,exports){
 var jQuery = require('jquery');
 /*
  * jQuery Plugin: Tokenizing Autocomplete Text Entry
@@ -20208,9 +20288,9 @@ var jQuery = require('jquery');
 
 }(jQuery));
 
-},{"jquery":83}],64:[function(require,module,exports){
-arguments[4][37][0].apply(exports,arguments)
-},{"dup":37}],65:[function(require,module,exports){
+},{"jquery":82}],64:[function(require,module,exports){
+arguments[4][38][0].apply(exports,arguments)
+},{"dup":38}],65:[function(require,module,exports){
 var nodeXHR = require("xmlhttprequest");
 var globiData = {};
 
@@ -21149,7 +21229,7 @@ exports.XMLHttpRequest = function() {
 };
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":13,"buffer":6,"child_process":3,"fs":3,"http":32,"https":11,"url":42}],67:[function(require,module,exports){
+},{"_process":14,"buffer":7,"child_process":4,"fs":4,"http":33,"https":12,"url":43}],67:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -21157,6 +21237,7 @@ var EventEmitter = require('events').EventEmitter;
 var AreaPicker = require('./lib/areapicker.js');
 var infobox = require('./lib/infobox.js');
 var boundsToBBox = require('./lib/boundsToBBox.js');
+var d3 = require('globi').d3;
 
 inherits(SpatialSelector, EventEmitter);
 module.exports = SpatialSelector;
@@ -21251,7 +21332,7 @@ function placeMarker(content, location, map) {
 
     return marker;
 }
-},{"./lib/areapicker.js":68,"./lib/boundsToBBox.js":69,"./lib/infobox.js":70,"events":10,"inherits":81,"insert-css":71}],68:[function(require,module,exports){
+},{"./lib/areapicker.js":68,"./lib/boundsToBBox.js":69,"./lib/infobox.js":70,"events":11,"globi":75,"inherits":80,"insert-css":71}],68:[function(require,module,exports){
 var infobox = require('./infobox.js');
 var boundsToBBox = require('./boundsToBBox.js');
 
@@ -21425,13 +21506,15 @@ function boundsToBBox(bounds) {
     return {bbox: eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat };
 }
 },{}],70:[function(require,module,exports){
+var extend = require('extend');
+
 module.exports = {
     areaInfoBox: areaInfoBox,
     locationInfoBox: locationInfoBox
 }
 
 function infoBoxText(idString, locationParams) {
-    var downloadParams = $.extend({}, locationParams, {includeObservations: true,
+    var downloadParams = extend({}, locationParams, {includeObservations: true,
         fields: ['source_taxon_path', 'source_taxon_path_ids'
             , 'interaction_type'
             , 'target_taxon_path', 'target_taxon_path_ids'
@@ -21472,9 +21555,9 @@ function areaInfoBox(locationParams) {
 function locationInfoBox(locationParams) {
     return infoBoxText('location-selection', locationParams);
 };
-},{}],71:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],72:[function(require,module,exports){
+},{"extend":48}],71:[function(require,module,exports){
+arguments[4][51][0].apply(exports,arguments)
+},{"dup":51}],72:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -21712,7 +21795,7 @@ Wheel.prototype.dependencyWheel = function () {
 
 
 
-},{"./lib/transform.js":73,"d3":74,"events":10,"inherits":81,"insert-css":75}],73:[function(require,module,exports){
+},{"./lib/transform.js":73,"d3":47,"events":11,"inherits":80,"insert-css":74}],73:[function(require,module,exports){
 module.exports = {
     convertJsonForDependencyWheel: convertJsonForDependencyWheel
 };
@@ -21767,10 +21850,8 @@ function convertJsonForDependencyWheel(json) {
     };
 };
 },{}],74:[function(require,module,exports){
-arguments[4][49][0].apply(exports,arguments)
-},{"dup":49}],75:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],76:[function(require,module,exports){
+arguments[4][51][0].apply(exports,arguments)
+},{"dup":51}],75:[function(require,module,exports){
 var d3 = require('d3');
 var globiData = require('globi-data');
 var EventEmitter = require('events').EventEmitter;
@@ -22514,7 +22595,7 @@ globi.extend(globi.PaginatedDataFetcher.prototype, {
     fetchChunk: function(offset) {
         var me = this, settings = me.settings;
         var d = globi.Deferred();
-        $.ajax(settings.url + '&limit=' + settings.limit + '&offset=' + offset, {
+        jQuery.ajax(settings.url + '&limit=' + settings.limit + '&offset=' + offset, {
             dataType: 'json'
         }).done(function(response) {
             d.resolve(response);
@@ -22585,7 +22666,7 @@ globi.ResponseMapper = function() {
 
 module.exports = globi;
 
-},{"d3":78,"events":10,"globi-data":79,"jquery":83}],77:[function(require,module,exports){
+},{"d3":77,"events":11,"globi-data":78,"jquery":82}],76:[function(require,module,exports){
 d3 = function() {
   var d3 = {
     version: "3.2.8"
@@ -31396,16 +31477,16 @@ d3 = function() {
   });
   return d3;
 }();
-},{}],78:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 require("./d3");
 module.exports = d3;
 (function () { delete this.d3; })(); // unset global
 
-},{"./d3":77}],79:[function(require,module,exports){
+},{"./d3":76}],78:[function(require,module,exports){
 arguments[4][65][0].apply(exports,arguments)
-},{"dup":65,"xmlhttprequest":80}],80:[function(require,module,exports){
+},{"dup":65,"xmlhttprequest":79}],79:[function(require,module,exports){
 arguments[4][66][0].apply(exports,arguments)
-},{"_process":13,"buffer":6,"child_process":3,"dup":66,"fs":3,"http":32,"https":11,"url":42}],81:[function(require,module,exports){
+},{"_process":14,"buffer":7,"child_process":4,"dup":66,"fs":4,"http":33,"https":12,"url":43}],80:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -31430,7 +31511,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],82:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*! jQuery UI - v1.10.3 - 2013-05-03
@@ -46437,7 +46518,7 @@ $.widget( "ui.tooltip", {
 
 }( jQuery ) );
 
-},{"jquery":83}],83:[function(require,module,exports){
+},{"jquery":82}],82:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -55649,7 +55730,7 @@ return jQuery;
 
 }));
 
-},{}],84:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 (function (global){
 /**
  * Npm version of markerClusterer works great with browserify and google maps for commonjs
@@ -56949,7 +57030,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 module.exports = MarkerClusterer;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],85:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 /**
  * Copyright (c) 2011-2014 Felix Gnass
  * Licensed under the MIT license

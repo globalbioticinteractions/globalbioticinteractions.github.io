@@ -12,6 +12,7 @@ module.exports = {
     spatialSelector: require('globi-spatial-selector'),
     globi: globi,
     search: require('globi-search'),
+    searchResult: require('globi-search').Result,
     searchContext: require('./lib/searchContext.js')
 };
 
