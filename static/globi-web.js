@@ -18792,8 +18792,18 @@ extend(SearchResult.prototype, {
             });
 
             tableHead.innerHTML = [
-                '<tr><th class="source-cell">taxon</th><th class="download"><a href="', downloadlink, '" class="link">', camelCaseToRealWords(me.searchContext.getParameter('interactionType')), '</a></th><th class="target-cell">taxon</th></tr>',
-                '<tr><th>', me.statistics['sources'].length, ' source(s)</th><th>', me.statistics['interactions'].length, ' interaction(s)</th><th>', me.statistics['targets'].length, ' target(s)</th></tr>',
+                '<tr><th></th><th><a href="', downloadlink, '" class="link">', 'Download</a></th><th></th></tr>',
+                '<tr>',
+                    '<th class="source-cell">taxon</th>',
+                    '<th class="download">',
+                        camelCaseToRealWords(me.searchContext.getParameter('interactionType')),
+                    '</th>',
+                    '<th class="target-cell">taxon</th>',
+                '</tr>',
+                '<tr>',
+                    '<th>(', me.statistics['sources'].length, ' distinct)</th>',
+                    '<th>','(', me.statistics['interactions'].length, ' interactions)</th>',
+                    '<th>(', me.statistics['targets'].length, ' distinct)</th></tr>'
             ].join('');
 
             table.appendChild(tableHead);
