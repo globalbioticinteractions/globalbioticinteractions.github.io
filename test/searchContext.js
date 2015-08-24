@@ -2,6 +2,7 @@ var searchContext = require('../lib/searchContext.js');
 var assert = require('assert');
 var test = require('tape');
 var extend = require('extend');
+var interactionTypeStartValue = require('../lib/settings').InteractionTypeAtStart;
 
 var INITIAL_BBOX = '';
 
@@ -11,7 +12,7 @@ test('create it', function (t) {
     t.ok(context);
     t.deepEqual({ bbox: INITIAL_BBOX, foo: 'bar'}, context.context);
     t.deepEqual({
-        'interactionType': null,
+        'interactionType': interactionTypeStartValue,
         'sourceTaxon': null,
         'targetTaxon': null,
         'bbox': INITIAL_BBOX
@@ -37,7 +38,7 @@ test('Update search parameters with unknown search parameter', function(t){
 
 ['interactionType', 'bbox'].forEach(function(searchParameterName) {
     var initialSearchParameters = {
-        'interactionType': null,
+        'interactionType': interactionTypeStartValue,
         'resultType': 'json',
         'sourceTaxa': null,
         'sourceTaxon': null,
@@ -59,7 +60,7 @@ test('Update search parameters with unknown search parameter', function(t){
 
 ['sourceTaxon'].forEach(function(searchParameterName) {
     var initialSearchParameters = {
-        'interactionType': null,
+        'interactionType': interactionTypeStartValue,
         'resultType': 'json',
         'sourceTaxa': ['foo'],
         'sourceTaxon': null,
@@ -81,7 +82,7 @@ test('Update search parameters with unknown search parameter', function(t){
 
 ['targetTaxon'].forEach(function(searchParameterName) {
     var initialSearchParameters = {
-        'interactionType': null,
+        'interactionType': interactionTypeStartValue,
         'resultType': 'json',
         'sourceTaxa': null,
         'sourceTaxon': null,
