@@ -13,6 +13,7 @@ module.exports = {
     globi: globi,
     search: require('globi-search'),
     searchResult: require('globi-search').Result,
-    searchContext: require('./lib/searchContext.js')
+    searchContext: require('./lib/searchContext.js'),
+    dataContext: require('./lib/dataContext.js')
 };
 

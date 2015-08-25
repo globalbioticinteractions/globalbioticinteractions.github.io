@@ -93,11 +93,12 @@
     ];
 
     var searchContext = globiWeb.searchContext();
+    var dataContext = globiWeb.dataContext(searchContext);
     var search = globiWeb.search({searchContext: searchContext});
 
     search.appendTo('#taxon-filter');
 
-    searchContext.on('change', function(context) {
+    searchContext.on('searchcontext:searchparameterchange', function(context) {
         globiWeb.widgets.forEach(function (w) {
             var oldWidgetContainer = document.querySelector(w.target);
             while (oldWidgetContainer.firstChild) {
@@ -105,7 +106,7 @@
             }
             w.spinner = appendSpinner(w.target);
         });
-        appendWidgets( context);
+        appendWidgets();
 
     });
 
@@ -119,7 +120,7 @@
     };
 
     var showAreaInfos = function (element) {
-        spatialSelectionChanged(JSON.parse(element.dataset.spatialSelection));
+        searchContext.update(JSON.parse(element.dataset.spatialSelection));
     };
 
     function appendWidgets() {
@@ -134,11 +135,6 @@
         });
     }
 
-    function spatialSelectionChanged(spatialSelection) {
-        searchContext.updateSearchParameter('bbox', spatialSelection.bbox);
-//        searchContext.update(spatialSelection);
-    }
-
     function appendMap() {
         addMap(panels.topRight);
     }
@@ -146,11 +142,8 @@
     function addMap(target) {
         var params = searchParams(window.location.search);
         var spatialSelector = globiWeb.spatialSelector(params);
-        spatialSelector.on('append', function (target) {
-
-        });
         spatialSelector.on('change', function(target) {
-            spatialSelectionChanged(target);
+            searchContext.updateSearchParameter('bbox', target.bbox);
         });
         spatialSelector.appendTo(target);
     }
