@@ -119,7 +119,6 @@
 
     searchContext.emit('searchcontext:searchparameterchange', searchContext.searchParameters);
 
-
     var treeSpinner, wheelSpinner, bundleSpinner;
 
     var showAreaInfos = function (element) {
@@ -143,41 +142,9 @@
     }
 
     function addMap(target) {
-        var params = searchParams(window.location.search);
-        var spatialSelector = globiWeb.spatialSelector(params);
-        spatialSelector.on('change', function(target) {
-            searchContext.updateSearchParameter('bbox', target.bbox);
-        });
+        var spatialSelector = globiWeb.spatialSelector(searchContext.searchParameters);
         spatialSelector.appendTo(target);
     }
-
-    function searchParams(urlSearchString) {
-        function getUrlParameters(searchString) {
-            var query = searchString.substring( 1 ),
-                    vars = query.split( "&" ),
-                    hash = {};
-            for ( var i=0; i < vars.length; i++ ) {
-                var pair = vars[ i ].split( "=" );
-                hash[ pair[ 0 ] ] = pair[ 1 ]
-            }
-            return hash;
-        }
-
-        var urlParameters = getUrlParameters(urlSearchString);
-
-        var bbox = urlParameters[ 'bbox' ] ? urlParameters[ 'bbox' ].split(',') : false;
-        var lat = urlParameters[ 'lat' ] || false;
-        var lng = urlParameters[ 'lng' ] || false;
-        if (lat && lng) {
-            bbox = [];
-            bbox[ 0 ] = lng >= 0 ? lng * 0.96 : lng * 1.04;
-            bbox[ 1 ] = lat >= 0 ? lat * 0.99 : lat * 1.01;
-            bbox[ 2 ] = lng >= 0 ? lng * 1.04 : lng * 0.96;
-            bbox[ 3 ] = lat >= 0 ? lat * 1.01 : lat * 0.99;
-        }
-        return { bbox: bbox, lat: lat, lng: lng};
-    }
-
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&sensor=false&callback=appendMap"></script>
 </body>

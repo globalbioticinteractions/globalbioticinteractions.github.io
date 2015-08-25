@@ -15,11 +15,12 @@ module.exports = {
     search: require('globi-search'),
     searchResult: require('globi-search').Result,
     searchContext: require('./lib/searchContext.js'),
-    dataContext: require('./lib/dataContext.js')
+    dataContext: require('./lib/dataContext.js'),
+    queryString: require('querystring')
 };
 
 
-},{"./lib/dataContext.js":2,"./lib/searchContext.js":3,"globi":77,"globi-bundle":50,"globi-hairball":54,"globi-panels":58,"globi-search":61,"globi-spatial-selector":68,"globi-wheel":73,"jquery-ui":83,"node-js-marker-clusterer":85,"spin.js":86}],2:[function(require,module,exports){
+},{"./lib/dataContext.js":2,"./lib/searchContext.js":3,"globi":77,"globi-bundle":50,"globi-hairball":54,"globi-panels":58,"globi-search":61,"globi-spatial-selector":68,"globi-wheel":73,"jquery-ui":83,"node-js-marker-clusterer":85,"querystring":18,"spin.js":86}],2:[function(require,module,exports){
 var extend = require('extend');
 var globi = require('globi');
 var globiData = globi.globiData;
@@ -19797,7 +19798,7 @@ extend(Plugin.prototype, {
         me.filterElement = createElement('div', 'search-filter');
 
         td = createElement('td', 'source-taxon-selector-cell');
-        td.appendChild(me.createSourceSelector().el)
+        td.appendChild(me.createSourceSelector().el);
         row.appendChild(td);
 
         td = createElement('td', 'type-selector-cell');
@@ -19831,20 +19832,31 @@ extend(Plugin.prototype, {
 
     createSourceSelector: function () {
         var me = this;
+        var taxa = me.searchContext.searchParameters.sourceTaxon || [];
+        if (!Array.isArray(taxa)) {
+            taxa = [taxa];
+        }
         this.sourceSelector = new TaxonSelector({
             idPrefix: 'source',
             type: 'source',
-            searchContext: me.searchContext
+            searchContext: me.searchContext,
+            preSelectedTaxa: taxa
         });
         return this.sourceSelector;
     },
 
     createTargetSelector: function () {
         var me = this;
+        var taxa = me.searchContext.searchParameters.targetTaxon || [];
+        if (!Array.isArray(taxa)) {
+            taxa = [taxa];
+        }
+
         this.targetSelector = new TaxonSelector({
             idPrefix: 'target',
             type: 'target',
-            searchContext: me.searchContext
+            searchContext: me.searchContext,
+            preSelectedTaxa: taxa
         });
         return this.targetSelector;
     },
@@ -20144,7 +20156,7 @@ extend(SearchResult.prototype, {
             });
 
             var linkRefs = downloadlinks.map(function(link) {
-                return '<a href="' + link.url + '" class="link">' + link.resultType + '</a>';
+                return '<a href="' + link.url + '" class="link" title="download as ' + link.resultType + ' file">' + link.resultType + '</a>';
             }).join(' ');
             tableHead.innerHTML = [
                 '<tr><th></th>',
@@ -20292,6 +20304,7 @@ function TaxonSelector(settings) {
         type: 'taxon',
         url: 'http://api.globalbioticinteractions.org/findCloseMatches',
         queryParam: 'taxonName',
+        preSelectedTaxa: [],
         selected: {
             callback: function() {
                 if (arguments.length > 0) {
@@ -20354,6 +20367,12 @@ extend(TaxonSelector.prototype, {
         var me = this,
             settings = me.settings;
 
+        var prePopulated = me.settings.preSelectedTaxa.map(function(taxon, index) {
+            return { id: index, label: taxon };
+        });
+
+        console.log(prePopulated);
+
         jQuery(this.input).tokenInput(settings['url'],{
             queryParam: settings['queryParam'],
             crossDomain: false,
@@ -20362,8 +20381,9 @@ extend(TaxonSelector.prototype, {
             },
             placeholder: settings['placeholder'],
             hintText: settings['hintText'],
-            propertyToSearch: "label",
+            propertyToSearch: 'label',
             preventDuplicates: true,
+            prePopulate: prePopulated,
             tokenValue: 'value',
             tokenLimit: 1,
             onAdd: function(item) {
@@ -21676,14 +21696,10 @@ var insertCss = require('insert-css');
 var inherits = require('inherits');
 var EventEmitter = require('events').EventEmitter;
 var AreaPicker = require('./lib/areapicker.js');
-var infobox = require('./lib/infobox.js');
-var boundsToBBox = require('./lib/boundsToBBox.js');
 var d3 = require('globi').d3;
 
 inherits(SpatialSelector, EventEmitter);
 module.exports = SpatialSelector;
-
-var currentInfoWindow;
 
 function SpatialSelector(opts) {
     if (!(this instanceof SpatialSelector)) return new SpatialSelector(opts);
@@ -21708,9 +21724,8 @@ SpatialSelector.prototype.appendMarkersTo = function (json, map) {
     var locations = json.data;
     for (var index in locations) {
         if (locations.hasOwnProperty(index)) {
-            var location = { latitude: locations[ index ][ 0 ], longitude: locations[ index ][ 1 ] },
-                content = createLocationContent(location);
-            markers.push(placeMarker(content, location, map));
+            var location = { latitude: locations[ index ][ 0 ], longitude: locations[ index ][ 1 ] };
+            markers.push(placeMarker(location, map));
         }
     }
     initializeMarkerClusterer(map, markers);
@@ -21719,10 +21734,9 @@ SpatialSelector.prototype.appendMarkersTo = function (json, map) {
 SpatialSelector.prototype.appendAreaPicker = function (map, params, google) {
     var picker = new AreaPicker(map, google);
     if (params.bbox) {
-        picker.setBounds(toLatLngBounds(params.bbox, google)).show();
+        picker.setBounds(toLatLngBounds(params.bbox.split(','), google)).show();
         picker.control_.setActive();
         map.panToBounds(picker.bounds_);
-        this.emit('change', boundsToBBox(picker.bounds_));
     }
     return picker;
 };
@@ -21745,7 +21759,7 @@ SpatialSelector.prototype.appendMap = function (target, params) {
         mapTypeId: google.maps.MapTypeId.ROADMAP};
     var map = new google.maps.Map(target, options);
     me.appendAreaPicker(map, params, google);
-    d3.json(urlPrefix() + '/locations', function (json) {
+    d3.json('http://api.globalbioticinteractions.org/locations', function (json) {
         if (json) {
             me.appendMarkersTo(json, map);
         }
@@ -21756,24 +21770,11 @@ function initializeMarkerClusterer(map, markers) {
     return new MarkerClusterer(map, markers, { gridSize: 40, maxZoom: 0 });
 }
 
-function createLocationContent(location) {
-    return infobox.locationInfoBox({location: {lng: location.longitude, lat: location.latitude }});
+function placeMarker(location, map) {
+    var latLng = new google.maps.LatLng(location.latitude, location.longitude);
+    return new google.maps.Marker({ position: latLng, map: map, clickable: false });
 }
-
-function placeMarker(content, location, map) {
-    var latLng = new google.maps.LatLng(location.latitude, location.longitude),
-        marker = new google.maps.Marker({ position: latLng, map: map }),
-        infoWindow = new google.maps.InfoWindow({ content: content, maxWidth: 200 });
-
-    google.maps.event.addListener(marker, 'click', function () {
-        currentInfoWindow && currentInfoWindow.close();
-        currentInfoWindow = infoWindow;
-        currentInfoWindow.open(map, marker);
-    });
-
-    return marker;
-}
-},{"./lib/areapicker.js":69,"./lib/boundsToBBox.js":70,"./lib/infobox.js":71,"events":11,"globi":77,"inherits":82,"insert-css":72}],69:[function(require,module,exports){
+},{"./lib/areapicker.js":69,"events":11,"globi":77,"inherits":82,"insert-css":72}],69:[function(require,module,exports){
 var infobox = require('./infobox.js');
 var boundsToBBox = require('./boundsToBBox.js');
 
@@ -21944,37 +21945,23 @@ function boundsToBBox(bounds) {
         eolBounds.nw_lat = eolBounds.se_lat;
         eolBounds.se_lat = tempCoord;
     }
-    return {bbox: eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat };
+    return {bbox: [eolBounds.nw_lng, eolBounds.nw_lat, eolBounds.se_lng, eolBounds.se_lat].join(',') };
 }
 },{}],71:[function(require,module,exports){
 var extend = require('extend');
 
 module.exports = {
-    areaInfoBox: areaInfoBox,
-    locationInfoBox: locationInfoBox
+    areaInfoBox: areaInfoBox
 }
 
 function infoBoxText(idString, locationParams) {
-    var downloadParams = extend({}, locationParams, {includeObservations: true,
-        fields: ['source_taxon_path', 'source_taxon_path_ids'
-            , 'interaction_type'
-            , 'target_taxon_path', 'target_taxon_path_ids'
-            , 'study_citation', 'study_source_citation']})
-    var dotURL = createInteractionURL(downloadParams, 'dot');
-    var jsonURL = createInteractionURL(downloadParams, 'json.v2');
-    var csvURL = createInteractionURL(downloadParams, 'csv');
-    var host = window.location.origin;
-    if (host === 'null') {
-        host = 'file://';
-    }
     return [
-        "<div><a onclick='showAreaInfos( this )' id='",
+        "<button onclick='showAreaInfos( this )' id='",
         idString,
-        "'", "href='#' data-spatial-selection='",
+        "'", "data-spatial-selection='",
         JSON.stringify(locationParams),
         "'>",
-        '<span>apply selection</span></a>',
-        '</div>'
+        'select</button>'
     ].join('');
 }
 
@@ -21982,10 +21969,6 @@ function areaInfoBox(locationParams) {
     return infoBoxText('area-selection', locationParams);
 
 }
-
-function locationInfoBox(locationParams) {
-    return infoBoxText('location-selection', locationParams);
-};
 },{"extend":49}],72:[function(require,module,exports){
 arguments[4][53][0].apply(exports,arguments)
 },{"dup":53}],73:[function(require,module,exports){
