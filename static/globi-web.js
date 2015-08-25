@@ -19,7 +19,7 @@ module.exports = {
 };
 
 
-},{"./lib/dataContext.js":2,"./lib/searchContext.js":3,"globi":79,"globi-bundle":50,"globi-hairball":54,"globi-panels":58,"globi-search":61,"globi-spatial-selector":70,"globi-wheel":75,"jquery-ui":85,"node-js-marker-clusterer":87,"spin.js":88}],2:[function(require,module,exports){
+},{"./lib/dataContext.js":2,"./lib/searchContext.js":3,"globi":77,"globi-bundle":50,"globi-hairball":54,"globi-panels":58,"globi-search":61,"globi-spatial-selector":68,"globi-wheel":73,"jquery-ui":83,"node-js-marker-clusterer":85,"spin.js":86}],2:[function(require,module,exports){
 var extend = require('extend');
 var globi = require('globi');
 var globiData = globi.globiData;
@@ -76,23 +76,6 @@ extend(DataContext.prototype, {
                 'target_taxon_path',
                 'target_taxon_path_ids',
                 'interaction_type']}, parameters);
-
-        function plurify(singular, plural) {
-            if (parameters[singular]) {
-                var pluralized = {};
-                if (Array.isArray(parameters[singular])) {
-                    pluralized[plural] = parameters[singular];
-                } else {
-                    pluralized[plural] = [parameters[singular]];
-                }
-                parameters = extend(pluralized, parameters);
-            }
-            return parameters;
-        }
-
-        parameters = plurify('sourceTaxon', 'sourceTaxa');
-        parameters = plurify('targetTaxon', 'targetTaxa');
-
         return parameters;
     },
 
@@ -130,7 +113,7 @@ function proxy(fn, context) {
         return fn.apply(context, arguments);
     };
 }
-},{"extend":49,"globi":79}],3:[function(require,module,exports){
+},{"extend":49,"globi":77}],3:[function(require,module,exports){
 var assert = require('assert');
 var extend = require('extend');
 var inherits = require('inherits');
@@ -201,7 +184,7 @@ extend(SearchContext.prototype, {
     }
 });
 
-},{"assert":5,"deep":47,"events":11,"extend":49,"inherits":84}],4:[function(require,module,exports){
+},{"assert":5,"deep":47,"events":11,"extend":49,"inherits":82}],4:[function(require,module,exports){
 
 },{}],5:[function(require,module,exports){
 // http://wiki.commonjs.org/wiki/Unit_Testing/1.0
@@ -3550,7 +3533,7 @@ function forEach (xs, f) {
   }
 }
 
-},{"./_stream_readable":22,"./_stream_writable":24,"core-util-is":25,"inherits":84,"process-nextick-args":26}],21:[function(require,module,exports){
+},{"./_stream_readable":22,"./_stream_writable":24,"core-util-is":25,"inherits":82,"process-nextick-args":26}],21:[function(require,module,exports){
 // a passthrough stream.
 // basically just the most minimal sort of Transform stream.
 // Every written chunk gets output as-is.
@@ -3579,7 +3562,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./_stream_transform":23,"core-util-is":25,"inherits":84}],22:[function(require,module,exports){
+},{"./_stream_transform":23,"core-util-is":25,"inherits":82}],22:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -4542,7 +4525,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":20,"_process":14,"buffer":7,"core-util-is":25,"events":11,"inherits":84,"isarray":13,"process-nextick-args":26,"string_decoder/":42,"util":6}],23:[function(require,module,exports){
+},{"./_stream_duplex":20,"_process":14,"buffer":7,"core-util-is":25,"events":11,"inherits":82,"isarray":13,"process-nextick-args":26,"string_decoder/":42,"util":6}],23:[function(require,module,exports){
 // a transform stream is a readable/writable stream where you do
 // something with the data.  Sometimes it's called a "filter",
 // but that's not a great name for it, since that implies a thing where
@@ -4741,7 +4724,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":20,"core-util-is":25,"inherits":84}],24:[function(require,module,exports){
+},{"./_stream_duplex":20,"core-util-is":25,"inherits":82}],24:[function(require,module,exports){
 // A bit simpler than readable streams.
 // Implement an async ._write(chunk, cb), and it'll handle all
 // the drain event emission and buffering.
@@ -5263,7 +5246,7 @@ function endWritable(stream, state, cb) {
   state.ended = true;
 }
 
-},{"./_stream_duplex":20,"buffer":7,"core-util-is":25,"events":11,"inherits":84,"process-nextick-args":26,"util-deprecate":27}],25:[function(require,module,exports){
+},{"./_stream_duplex":20,"buffer":7,"core-util-is":25,"events":11,"inherits":82,"process-nextick-args":26,"util-deprecate":27}],25:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -5608,7 +5591,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":11,"inherits":84,"readable-stream/duplex.js":19,"readable-stream/passthrough.js":28,"readable-stream/readable.js":29,"readable-stream/transform.js":30,"readable-stream/writable.js":31}],33:[function(require,module,exports){
+},{"events":11,"inherits":82,"readable-stream/duplex.js":19,"readable-stream/passthrough.js":28,"readable-stream/readable.js":29,"readable-stream/transform.js":30,"readable-stream/writable.js":31}],33:[function(require,module,exports){
 var ClientRequest = require('./lib/request')
 var extend = require('xtend')
 var statusCodes = require('builtin-status-codes')
@@ -6000,7 +5983,7 @@ var unsafeHeaders = [
 ]
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./capability":34,"./response":36,"_process":14,"buffer":7,"foreach":38,"indexof":39,"inherits":84,"object-keys":40,"stream":32}],36:[function(require,module,exports){
+},{"./capability":34,"./response":36,"_process":14,"buffer":7,"foreach":38,"indexof":39,"inherits":82,"object-keys":40,"stream":32}],36:[function(require,module,exports){
 (function (process,Buffer){
 var capability = require('./capability')
 var foreach = require('foreach')
@@ -6177,7 +6160,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./capability":34,"_process":14,"buffer":7,"foreach":38,"inherits":84,"stream":32}],37:[function(require,module,exports){
+},{"./capability":34,"_process":14,"buffer":7,"foreach":38,"inherits":82,"stream":32}],37:[function(require,module,exports){
 module.exports = {
   "100": "Continue",
   "101": "Switching Protocols",
@@ -7908,7 +7891,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":44,"_process":14,"inherits":84}],46:[function(require,module,exports){
+},{"./support/isBuffer":44,"_process":14,"inherits":82}],46:[function(require,module,exports){
 module.exports = extend
 
 function extend() {
@@ -9559,7 +9542,7 @@ Bundle.prototype._buildBundles = function() {
 };
 
 
-},{"./lib/transform.js":51,"d3":52,"events":11,"inherits":84,"insert-css":53}],51:[function(require,module,exports){
+},{"./lib/transform.js":51,"d3":52,"events":11,"inherits":82,"insert-css":53}],51:[function(require,module,exports){
 module.exports = {
     parseToStructure: parseToStructure,
     taxonHierarchy: taxonHierarchy,
@@ -19482,7 +19465,7 @@ function toggleNode(node, forcedStatus) {
 }
 
 
-},{"./lib/transform.js":55,"d3":56,"events":11,"inherits":84,"insert-css":57}],55:[function(require,module,exports){
+},{"./lib/transform.js":55,"d3":56,"events":11,"inherits":82,"insert-css":57}],55:[function(require,module,exports){
 module.exports = {
     parseInteractions: parseInteractions
 };
@@ -19590,7 +19573,7 @@ function addButtonClickHandlers(target) {
         });
     }
 }
-},{"domify":59,"events":11,"inherits":84,"insert-css":60}],59:[function(require,module,exports){
+},{"domify":59,"events":11,"inherits":82,"insert-css":60}],59:[function(require,module,exports){
 
 /**
  * Expose `parse`.
@@ -19708,8 +19691,8 @@ var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var extend = require('extend');
 var forEach = require('foreach');
-var globiData = require('globi-data');
 var globi = require('globi');
+var globiData = globi.globiData;
 var TypeSelector = require('./lib/TypeSelector.js');
 var TaxonSelector = require('./lib/TaxonSelector.js');
 var SearchResult = require('./lib/SearchResult.js');
@@ -19792,12 +19775,6 @@ extend(Plugin.prototype, {
                 , 'study_citation', 'study_url', 'study_source_citation']
         };
         var downloadParams = extend({}, me.searchContext.searchParameters, searchHash);
-        if (downloadParams.sourceTaxon) {
-            downloadParams.sourceTaxa = [downloadParams.sourceTaxon];
-        }
-        if (downloadParams.targetTaxon) {
-            downloadParams.targetTaxa = [downloadParams.targetTaxon];
-        }
         var downloadUrl = globiData.urlForTaxonInteractionQuery(downloadParams);
         me.searchContext.emit('searchfilter:showresults', processDataForResultList(data), downloadUrl);
     },
@@ -20035,9 +20012,9 @@ function fillTemplate(data) {
     ].join('');
 }
 
-},{"./lib/SearchResult.js":63,"./lib/TaxonSelector.js":64,"./lib/TypeSelector.js":65,"events":11,"extend":49,"foreach":67,"globi":79,"globi-data":68,"jquery":86,"util":45}],62:[function(require,module,exports){
+},{"./lib/SearchResult.js":63,"./lib/TaxonSelector.js":64,"./lib/TypeSelector.js":65,"events":11,"extend":49,"foreach":67,"globi":77,"jquery":84,"util":45}],62:[function(require,module,exports){
 var globi = require('globi');
-var globiData = require('globi-data');
+var globiData = globi.globiData;
 var forEach = require('foreach');
 
 function DataParser(data) {}
@@ -20077,7 +20054,7 @@ DataParser.process = function(data) {
 }
 
 module.exports = DataParser;
-},{"foreach":67,"globi":79,"globi-data":68}],63:[function(require,module,exports){
+},{"foreach":67,"globi":77}],63:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var extend = require('extend');
@@ -20409,7 +20386,7 @@ function createElement(elementName, id, classes) {
 module.exports = TaxonSelector;
 
 
-},{"./DataParser.js":62,"./jquery.tokeninput":66,"events":11,"extend":49,"foreach":67,"jquery":86,"util":45}],65:[function(require,module,exports){
+},{"./DataParser.js":62,"./jquery.tokeninput":66,"events":11,"extend":49,"foreach":67,"jquery":84,"util":45}],65:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var extend = require('extend');
@@ -21681,948 +21658,9 @@ var jQuery = require('jquery');
 
 }(jQuery));
 
-},{"jquery":86}],67:[function(require,module,exports){
+},{"jquery":84}],67:[function(require,module,exports){
 arguments[4][38][0].apply(exports,arguments)
 },{"dup":38}],68:[function(require,module,exports){
-var nodeXHR = require("xmlhttprequest");
-var globiData = {};
-
-var urlPrefix = 'http://api.globalbioticinteractions.org';
-
-globiData.addQueryParams = function (uri, search) {
-        var locationQuery = function (location) {
-            var locationQuery = '';
-            for (var elem in location) {
-                if (location.hasOwnProperty(elem)) {
-                    locationQuery += '&' + elem + '=' + location[elem];
-                }
-            }
-            return locationQuery;
-        };
-
-        if (search.bbox) {
-            uri = uri + '&bbox=' + search.bbox;
-        }
-
-        if (search.location) {
-            uri = uri + locationQuery(search.location);
-        }
-
-        if (search.includeObservations) {
-            uri = uri + '&includeObservations=true';
-        }
-
-        if (search.exactNameMatchOnly) {
-            uri = uri + '&exactNameMatchOnly=true';
-        }
-
-        if (search.excludeChildTaxa) {
-            uri = uri + '&excludeChildTaxa=true';
-        }
-
-        if (search.accordingTo) {
-            uri = uri + '&accordingTo=' + encodeURIComponent(search.accordingTo);
-        }
-
-        if (search.interactionType) {
-            uri = uri + '&interactionType=' + encodeURIComponent(search.interactionType);
-        }
-
-        function addQueryParamsLocal(taxonNames, elemName) {
-            if (taxonNames) {
-                var taxonQuery = '';
-                for (var name in taxonNames) {
-                    if (taxonNames.hasOwnProperty(name)) {
-                        taxonQuery += '&' + elemName + '=' + encodeURIComponent(taxonNames[name]);
-                    }
-                }
-                uri = uri + taxonQuery;
-            }
-        }
-
-        addQueryParamsLocal(search.sourceTaxa, 'sourceTaxon');
-        addQueryParamsLocal(search.targetTaxa, 'targetTaxon');
-        addQueryParamsLocal(search.fields, 'field');
-
-        if (search.source) {
-            uri = uri + 'source=' + encodeURIComponent(search.source);
-        }
-        return uri;
-    }
-    ;
-
-globiData.urlForFindCloseTaxonMatches = function (name) {
-    return urlPrefix + '/findCloseMatchesForTaxon/' + encodeURIComponent(name);
-};
-
-globiData.urlForTaxonInteractionQuery = function (search) {
-    var uri = urlPrefix;
-
-    if (search.sourceTaxonScientificName) {
-        uri = uri + '/taxon/' + encodeURIComponent(search.sourceTaxonScientificName);
-        if (search.interactionType) {
-            uri = uri + '/' + encodeURIComponent(search.interactionType);
-            delete search.interactionType;
-        }
-        if (search.targetTaxonScientificName) {
-            uri = uri + '/' + encodeURIComponent(search.targetTaxonScientificName);
-        }
-    } else {
-        uri = uri + '/interaction';
-    }
-    var ext = {'csv': '.csv', 'dot': '.dot'}
-    uri = uri + (ext[search.resultType] === undefined ? '' : ext[search.resultType]);
-    uri = uri + '?type=' + (search.resultType ? search.resultType : 'json.v2');
-    return this.addQueryParams(uri, search);
-};
-
-globiData.urlForTaxonImageQuery = function (scientificName) {
-    return urlPrefix + '/imagesForName?name=' + encodeURIComponent(scientificName);
-};
-
-globiData.urlForTaxonImageByIdQuery = function (id) {
-    return urlPrefix + '/images/' + encodeURIComponent(id);
-};
-
-globiData.urlForTaxonImagesQuery = function (scientificNames) {
-    var nameQuery = '?';
-    if (scientificNames) {
-        for (var index in scientificNames) {
-            if (scientificNames.hasOwnProperty(index)) {
-                nameQuery += 'name=' + encodeURIComponent(scientificNames[index]) + '&';
-            }
-        }
-    }
-    return urlPrefix + '/imagesForNames' + nameQuery;
-};
-
-globiData.urlForStudyStats = function (search) {
-    var url = urlPrefix + '/reports/studies';
-    if (search.source) {
-        url = url + '?source=' + encodeURIComponent(search.source);
-    }
-    return url;
-};
-
-var createReq = function () {
-    var req;
-    if (typeof window === 'undefined') {
-        // perhaps running in node.js?
-        req = new nodeXHR.XMLHttpRequest();
-    } else if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-        req = new XMLHttpRequest();
-    } else if ((typeof window !== 'undefined') && window.ActiveXObject) { // IE
-        try {
-            req = new ActiveXObject('Msxml2.XMLHTTP');
-        } catch (e) {
-            try {
-                req = new ActiveXObject('Microsoft.XMLHTTP');
-            } catch (e) {
-            }
-        }
-    }
-    return req;
-};
-
-globiData.findSources = function (callback) {
-    var req = createReq();
-    req.open('GET', urlPrefix + '/reports/sources', true);
-    req.onreadystatechange = function () {
-        if (req.readyState === 4 && req.status === 200) {
-            var result = JSON.parse(req.responseText);
-            var sources = [];
-            var data = result.data;
-            data.forEach(function (element, index) {
-                sources[index] = element[4];
-            });
-            callback(sources);
-        }
-    };
-    req.send(null);
-};
-
-globiData.findStudyStats = function (search, callback) {
-    var req = createReq();
-    var uri = globiData.urlForStudyStats(search);
-    req.open('GET', uri, true);
-
-    req.onreadystatechange = function () {
-        if (req.readyState === 4 && req.status === 200) {
-            var resp = JSON.parse(req.responseText);
-            var studyStats = [];
-            for (var i = 0; i < resp.data.length; i++) {
-                var row = resp.data[i];
-                var stats = { citation: row[0], source: row[3], totalInteractions: row[4], totalTaxa: row[5]};
-                var doi = row[2];
-                if (doi && doi.length > 0) {
-                    stats.doi = doi;
-                }
-
-                var externalId = row[1];
-                if (externalId && externalId.length > 0 && externalId.match('^((http)|(https))://') !== null) {
-                    stats.url = externalId;
-                }
-
-                studyStats[i] = stats;
-            }
-            callback(studyStats);
-        }
-    };
-    req.send(null);
-};
-
-globiData.findStats = function (search, callback) {
-    var req = createReq();
-    var uri = urlPrefix + '/reports/collections';
-    if (search.source) {
-        uri = uri + '?source=' + encodeURIComponent(search.source);
-    }
-    req.open('GET', uri, true);
-    req.onreadystatechange = function () {
-        if (req.readyState === 4 && req.status === 200) {
-            var resp = JSON.parse(req.responseText);
-            var stats = {numberOfStudies: resp.data[0][6],
-                totalInteractions: resp.data[0][4],
-                totalTaxa: resp.data[0][5],
-                numberOfDistinctSources: resp.data[0][7]};
-            callback(stats);
-        }
-    };
-    req.send(null);
-};
-
-globiData.sendRequest = function (req, callback) {
-    req.onreadystatechange = function () {
-        if (req.readyState === 4 && req.status === 200) {
-            if (callback.callback && callback.context) {
-                callback.callback.call(callback.context, JSON.parse(req.responseText));
-            } else {
-                callback(JSON.parse(req.responseText));
-            }
-        }
-    };
-    req.send(null);
-};
-
-globiData.findInteractionTypes = function (search, callback) {
-    if (arguments.length === 1) {
-        callback = search;
-        search = [];
-    }
-
-    search = search.map(function (item) {
-        return 'taxon=' + encodeURIComponent(item);
-    });
-    var urlQuery = search.length > 0 ? '?' + search.join('&') + '&type=json' : '';
-
-    var req = createReq();
-    req.open('GET', urlPrefix + '/interactionTypes' + urlQuery, true);
-    globiData.sendRequest(req, callback);
-};
-
-
-globiData.findSpeciesInteractions = function (search, callback) {
-    var uri = globiData.urlForTaxonInteractionQuery(search);
-    var req = createReq();
-    req.open('GET', uri, true);
-    globiData.sendRequest(req, callback);
-};
-
-
-globiData.findTaxonInfo = function (scientificName, callback) {
-    var uri = globiData.urlForTaxonImageQuery(scientificName);
-    globiData.get(uri, callback);
-};
-
-globiData.findTaxaInfo = function (scientificNames, callback) {
-    var uri = globiData.urlForTaxonImagesQuery(scientificNames);
-    console.log(uri);
-    globiData.get(uri, callback);
-};
-
-globiData.get = function (uri, callback) {
-    var req = createReq();
-    req.open('GET', uri, true);
-    globiData.sendRequest(req, callback);
-};
-
-globiData.findCloseTaxonMatches = function (name, callback) {
-    var uri = globiData.urlForFindCloseTaxonMatches(name);
-    var req = createReq();
-    req.open('GET', uri, true);
-    req.onreadystatechange = function () {
-        if (req.readyState === 4 && req.status === 200) {
-            var response = JSON.parse(req.responseText);
-            var data = response.data;
-            var closeMatches = [];
-            data.forEach(function (element, index) {
-                var taxonHierarchy = [];
-                var commonNames = globiData.mapCommonNameList(element[1]);
-                var pathString = element[2];
-                pathString = pathString === null ? "" : pathString;
-                var path = pathString.split('|');
-                path.forEach(function (taxon, index) {
-                    taxonHierarchy[index] = taxon.trim();
-                });
-                var scientificName = element[0].trim();
-                closeMatches[index] = { scientificName: scientificName, commonNames: commonNames, path: taxonHierarchy};
-            });
-            callback(closeMatches);
-        }
-    };
-    req.send(null);
-};
-
-/**
- * Transforms a common name list string into a map
- * f.x.:
- *  "foo @en | bar @de" => {en: "foo", de: "bar"}
- *
- * @param {string} pipedCommonNameList
- * @param {boolean} [override]
- * @returns {Object.<string, string>}
- */
-globiData.mapCommonNameList = function (pipedCommonNameList, override) {
-    override = typeof override !== 'undefined' ? !!override : true;
-    pipedCommonNameList = typeof pipedCommonNameList !== 'string' ? '' : pipedCommonNameList;
-    var commonNameMap = { count: 0 };
-    var splittedByPipeList = pipedCommonNameList.split('|').map(function (item) {
-        return item.trim();
-    });
-    splittedByPipeList.forEach(function (item) {
-        if (typeof item !== 'undefined') {
-            var splittedByAtItemParts = item.split('@').map(function (item) {
-                return item.trim();
-            });
-            if (typeof splittedByAtItemParts[1] !== 'undefined') {
-                if (override || typeof commonNameMap[splittedByAtItemParts[1]] === 'undefined') {
-                    if (typeof commonNameMap[splittedByAtItemParts[1]] === 'undefined') commonNameMap.count++;
-                    commonNameMap[splittedByAtItemParts[1]] = splittedByAtItemParts[0];
-                }
-            }
-        }
-    });
-
-    return commonNameMap;
-};
-
-globiData.findThumbnailById = function (search, callback) {
-    search = search || {};
-    var uri = globiData.urlForTaxonImageByIdQuery(search);
-    var req = createReq();
-    req.open('GET', uri, true);
-    globiData.sendRequest(req, function (reponseData) {
-        var tumbnailUrl = reponseData.thumbnailURL;
-        callback(tumbnailUrl);
-    });
-};
-
-module.exports = globiData;
-
-},{"xmlhttprequest":69}],69:[function(require,module,exports){
-(function (process,Buffer){
-/**
- * Wrapper for built-in http.js to emulate the browser XMLHttpRequest object.
- *
- * This can be used with JS designed for browsers to improve reuse of code and
- * allow the use of existing libraries.
- *
- * Usage: include("XMLHttpRequest.js") and use XMLHttpRequest per W3C specs.
- *
- * @author Dan DeFelippi <dan@driverdan.com>
- * @contributor David Ellis <d.f.ellis@ieee.org>
- * @license MIT
- */
-
-var Url = require("url")
-  , spawn = require("child_process").spawn
-  , fs = require('fs');
-
-exports.XMLHttpRequest = function() {
-  /**
-   * Private variables
-   */
-  var self = this;
-  var http = require('http');
-  var https = require('https');
-
-  // Holds http.js objects
-  var request;
-  var response;
-
-  // Request settings
-  var settings = {};
-
-  // Disable header blacklist.
-  // Not part of XHR specs.
-  var disableHeaderCheck = false;
-
-  // Set some default headers
-  var defaultHeaders = {
-    "User-Agent": "node-XMLHttpRequest",
-    "Accept": "*/*",
-  };
-
-  var headers = defaultHeaders;
-
-  // These headers are not user setable.
-  // The following are allowed but banned in the spec:
-  // * user-agent
-  var forbiddenRequestHeaders = [
-    "accept-charset",
-    "accept-encoding",
-    "access-control-request-headers",
-    "access-control-request-method",
-    "connection",
-    "content-length",
-    "content-transfer-encoding",
-    "cookie",
-    "cookie2",
-    "date",
-    "expect",
-    "host",
-    "keep-alive",
-    "origin",
-    "referer",
-    "te",
-    "trailer",
-    "transfer-encoding",
-    "upgrade",
-    "via"
-  ];
-
-  // These request methods are not allowed
-  var forbiddenRequestMethods = [
-    "TRACE",
-    "TRACK",
-    "CONNECT"
-  ];
-
-  // Send flag
-  var sendFlag = false;
-  // Error flag, used when errors occur or abort is called
-  var errorFlag = false;
-
-  // Event listeners
-  var listeners = {};
-
-  /**
-   * Constants
-   */
-
-  this.UNSENT = 0;
-  this.OPENED = 1;
-  this.HEADERS_RECEIVED = 2;
-  this.LOADING = 3;
-  this.DONE = 4;
-
-  /**
-   * Public vars
-   */
-
-  // Current state
-  this.readyState = this.UNSENT;
-
-  // default ready state change handler in case one is not set or is set late
-  this.onreadystatechange = null;
-
-  // Result & response
-  this.responseText = "";
-  this.responseXML = "";
-  this.status = null;
-  this.statusText = null;
-
-  /**
-   * Private methods
-   */
-
-  /**
-   * Check if the specified header is allowed.
-   *
-   * @param string header Header to validate
-   * @return boolean False if not allowed, otherwise true
-   */
-  var isAllowedHttpHeader = function(header) {
-    return disableHeaderCheck || (header && forbiddenRequestHeaders.indexOf(header.toLowerCase()) === -1);
-  };
-
-  /**
-   * Check if the specified method is allowed.
-   *
-   * @param string method Request method to validate
-   * @return boolean False if not allowed, otherwise true
-   */
-  var isAllowedHttpMethod = function(method) {
-    return (method && forbiddenRequestMethods.indexOf(method) === -1);
-  };
-
-  /**
-   * Public methods
-   */
-
-  /**
-   * Open the connection. Currently supports local server requests.
-   *
-   * @param string method Connection method (eg GET, POST)
-   * @param string url URL for the connection.
-   * @param boolean async Asynchronous connection. Default is true.
-   * @param string user Username for basic authentication (optional)
-   * @param string password Password for basic authentication (optional)
-   */
-  this.open = function(method, url, async, user, password) {
-    this.abort();
-    errorFlag = false;
-
-    // Check for valid request method
-    if (!isAllowedHttpMethod(method)) {
-      throw "SecurityError: Request method not allowed";
-    }
-
-    settings = {
-      "method": method,
-      "url": url.toString(),
-      "async": (typeof async !== "boolean" ? true : async),
-      "user": user || null,
-      "password": password || null
-    };
-
-    setState(this.OPENED);
-  };
-
-  /**
-   * Disables or enables isAllowedHttpHeader() check the request. Enabled by default.
-   * This does not conform to the W3C spec.
-   *
-   * @param boolean state Enable or disable header checking.
-   */
-  this.setDisableHeaderCheck = function(state) {
-    disableHeaderCheck = state;
-  };
-
-  /**
-   * Sets a header for the request.
-   *
-   * @param string header Header name
-   * @param string value Header value
-   */
-  this.setRequestHeader = function(header, value) {
-    if (this.readyState != this.OPENED) {
-      throw "INVALID_STATE_ERR: setRequestHeader can only be called when state is OPEN";
-    }
-    if (!isAllowedHttpHeader(header)) {
-      console.warn('Refused to set unsafe header "' + header + '"');
-      return;
-    }
-    if (sendFlag) {
-      throw "INVALID_STATE_ERR: send flag is true";
-    }
-    headers[header] = value;
-  };
-
-  /**
-   * Gets a header from the server response.
-   *
-   * @param string header Name of header to get.
-   * @return string Text of the header or null if it doesn't exist.
-   */
-  this.getResponseHeader = function(header) {
-    if (typeof header === "string"
-      && this.readyState > this.OPENED
-      && response.headers[header.toLowerCase()]
-      && !errorFlag
-    ) {
-      return response.headers[header.toLowerCase()];
-    }
-
-    return null;
-  };
-
-  /**
-   * Gets all the response headers.
-   *
-   * @return string A string with all response headers separated by CR+LF
-   */
-  this.getAllResponseHeaders = function() {
-    if (this.readyState < this.HEADERS_RECEIVED || errorFlag) {
-      return "";
-    }
-    var result = "";
-
-    for (var i in response.headers) {
-      // Cookie headers are excluded
-      if (i !== "set-cookie" && i !== "set-cookie2") {
-        result += i + ": " + response.headers[i] + "\r\n";
-      }
-    }
-    return result.substr(0, result.length - 2);
-  };
-
-  /**
-   * Gets a request header
-   *
-   * @param string name Name of header to get
-   * @return string Returns the request header or empty string if not set
-   */
-  this.getRequestHeader = function(name) {
-    // @TODO Make this case insensitive
-    if (typeof name === "string" && headers[name]) {
-      return headers[name];
-    }
-
-    return "";
-  };
-
-  /**
-   * Sends the request to the server.
-   *
-   * @param string data Optional data to send as request body.
-   */
-  this.send = function(data) {
-    if (this.readyState != this.OPENED) {
-      throw "INVALID_STATE_ERR: connection must be opened before send() is called";
-    }
-
-    if (sendFlag) {
-      throw "INVALID_STATE_ERR: send has already been called";
-    }
-
-    var ssl = false, local = false;
-    var url = Url.parse(settings.url);
-    var host;
-    // Determine the server
-    switch (url.protocol) {
-      case 'https:':
-        ssl = true;
-        // SSL & non-SSL both need host, no break here.
-      case 'http:':
-        host = url.hostname;
-        break;
-
-      case 'file:':
-        local = true;
-        break;
-
-      case undefined:
-      case '':
-        host = "localhost";
-        break;
-
-      default:
-        throw "Protocol not supported.";
-    }
-
-    // Load files off the local filesystem (file://)
-    if (local) {
-      if (settings.method !== "GET") {
-        throw "XMLHttpRequest: Only GET method is supported";
-      }
-
-      if (settings.async) {
-        fs.readFile(url.pathname, 'utf8', function(error, data) {
-          if (error) {
-            self.handleError(error);
-          } else {
-            self.status = 200;
-            self.responseText = data;
-            setState(self.DONE);
-          }
-        });
-      } else {
-        try {
-          this.responseText = fs.readFileSync(url.pathname, 'utf8');
-          this.status = 200;
-          setState(self.DONE);
-        } catch(e) {
-          this.handleError(e);
-        }
-      }
-
-      return;
-    }
-
-    // Default to port 80. If accessing localhost on another port be sure
-    // to use http://localhost:port/path
-    var port = url.port || (ssl ? 443 : 80);
-    // Add query string if one is used
-    var uri = url.pathname + (url.search ? url.search : '');
-
-    // Set the Host header or the server may reject the request
-    headers["Host"] = host;
-    if (!((ssl && port === 443) || port === 80)) {
-      headers["Host"] += ':' + url.port;
-    }
-
-    // Set Basic Auth if necessary
-    if (settings.user) {
-      if (typeof settings.password == "undefined") {
-        settings.password = "";
-      }
-      var authBuf = new Buffer(settings.user + ":" + settings.password);
-      headers["Authorization"] = "Basic " + authBuf.toString("base64");
-    }
-
-    // Set content length header
-    if (settings.method === "GET" || settings.method === "HEAD") {
-      data = null;
-    } else if (data) {
-      headers["Content-Length"] = Buffer.isBuffer(data) ? data.length : Buffer.byteLength(data);
-
-      if (!headers["Content-Type"]) {
-        headers["Content-Type"] = "text/plain;charset=UTF-8";
-      }
-    } else if (settings.method === "POST") {
-      // For a post with no data set Content-Length: 0.
-      // This is required by buggy servers that don't meet the specs.
-      headers["Content-Length"] = 0;
-    }
-
-    var options = {
-      host: host,
-      port: port,
-      path: uri,
-      method: settings.method,
-      headers: headers,
-      agent: false
-    };
-
-    // Reset error flag
-    errorFlag = false;
-
-    // Handle async requests
-    if (settings.async) {
-      // Use the proper protocol
-      var doRequest = ssl ? https.request : http.request;
-
-      // Request is being sent, set send flag
-      sendFlag = true;
-
-      // As per spec, this is called here for historical reasons.
-      self.dispatchEvent("readystatechange");
-
-      // Handler for the response
-      function responseHandler(resp) {
-        // Set response var to the response we got back
-        // This is so it remains accessable outside this scope
-        response = resp;
-        // Check for redirect
-        // @TODO Prevent looped redirects
-        if (response.statusCode === 302 || response.statusCode === 303 || response.statusCode === 307) {
-          // Change URL to the redirect location
-          settings.url = response.headers.location;
-          var url = Url.parse(settings.url);
-          // Set host var in case it's used later
-          host = url.hostname;
-          // Options for the new request
-          var newOptions = {
-            hostname: url.hostname,
-            port: url.port,
-            path: url.path,
-            method: response.statusCode === 303 ? 'GET' : settings.method,
-            headers: headers
-          };
-
-          // Issue the new request
-          request = doRequest(newOptions, responseHandler).on('error', errorHandler);
-          request.end();
-          // @TODO Check if an XHR event needs to be fired here
-          return;
-        }
-
-        response.setEncoding("utf8");
-
-        setState(self.HEADERS_RECEIVED);
-        self.status = response.statusCode;
-
-        response.on('data', function(chunk) {
-          // Make sure there's some data
-          if (chunk) {
-            self.responseText += chunk;
-          }
-          // Don't emit state changes if the connection has been aborted.
-          if (sendFlag) {
-            setState(self.LOADING);
-          }
-        });
-
-        response.on('end', function() {
-          if (sendFlag) {
-            // Discard the 'end' event if the connection has been aborted
-            setState(self.DONE);
-            sendFlag = false;
-          }
-        });
-
-        response.on('error', function(error) {
-          self.handleError(error);
-        });
-      }
-
-      // Error handler for the request
-      function errorHandler(error) {
-        self.handleError(error);
-      }
-
-      // Create the request
-      request = doRequest(options, responseHandler).on('error', errorHandler);
-
-      // Node 0.4 and later won't accept empty data. Make sure it's needed.
-      if (data) {
-        request.write(data);
-      }
-
-      request.end();
-
-      self.dispatchEvent("loadstart");
-    } else { // Synchronous
-      // Create a temporary file for communication with the other Node process
-      var contentFile = ".node-xmlhttprequest-content-" + process.pid;
-      var syncFile = ".node-xmlhttprequest-sync-" + process.pid;
-      fs.writeFileSync(syncFile, "", "utf8");
-      // The async request the other Node process executes
-      var execString = "var http = require('http'), https = require('https'), fs = require('fs');"
-        + "var doRequest = http" + (ssl ? "s" : "") + ".request;"
-        + "var options = " + JSON.stringify(options) + ";"
-        + "var responseText = '';"
-        + "var req = doRequest(options, function(response) {"
-        + "response.setEncoding('utf8');"
-        + "response.on('data', function(chunk) {"
-        + "  responseText += chunk;"
-        + "});"
-        + "response.on('end', function() {"
-        + "fs.writeFileSync('" + contentFile + "', 'NODE-XMLHTTPREQUEST-STATUS:' + response.statusCode + ',' + responseText, 'utf8');"
-        + "fs.unlinkSync('" + syncFile + "');"
-        + "});"
-        + "response.on('error', function(error) {"
-        + "fs.writeFileSync('" + contentFile + "', 'NODE-XMLHTTPREQUEST-ERROR:' + JSON.stringify(error), 'utf8');"
-        + "fs.unlinkSync('" + syncFile + "');"
-        + "});"
-        + "}).on('error', function(error) {"
-        + "fs.writeFileSync('" + contentFile + "', 'NODE-XMLHTTPREQUEST-ERROR:' + JSON.stringify(error), 'utf8');"
-        + "fs.unlinkSync('" + syncFile + "');"
-        + "});"
-        + (data ? "req.write('" + data.replace(/'/g, "\\'") + "');":"")
-        + "req.end();";
-      // Start the other Node Process, executing this string
-      var syncProc = spawn(process.argv[0], ["-e", execString]);
-      var statusText;
-      while(fs.existsSync(syncFile)) {
-        // Wait while the sync file is empty
-      }
-      self.responseText = fs.readFileSync(contentFile, 'utf8');
-      // Kill the child process once the file has data
-      syncProc.stdin.end();
-      // Remove the temporary file
-      fs.unlinkSync(contentFile);
-      if (self.responseText.match(/^NODE-XMLHTTPREQUEST-ERROR:/)) {
-        // If the file returned an error, handle it
-        var errorObj = self.responseText.replace(/^NODE-XMLHTTPREQUEST-ERROR:/, "");
-        self.handleError(errorObj);
-      } else {
-        // If the file returned okay, parse its data and move to the DONE state
-        self.status = self.responseText.replace(/^NODE-XMLHTTPREQUEST-STATUS:([0-9]*),.*/, "$1");
-        self.responseText = self.responseText.replace(/^NODE-XMLHTTPREQUEST-STATUS:[0-9]*,(.*)/, "$1");
-        setState(self.DONE);
-      }
-    }
-  };
-
-  /**
-   * Called when an error is encountered to deal with it.
-   */
-  this.handleError = function(error) {
-    this.status = 503;
-    this.statusText = error;
-    this.responseText = error.stack;
-    errorFlag = true;
-    setState(this.DONE);
-  };
-
-  /**
-   * Aborts a request.
-   */
-  this.abort = function() {
-    if (request) {
-      request.abort();
-      request = null;
-    }
-
-    headers = defaultHeaders;
-    this.responseText = "";
-    this.responseXML = "";
-
-    errorFlag = true;
-
-    if (this.readyState !== this.UNSENT
-        && (this.readyState !== this.OPENED || sendFlag)
-        && this.readyState !== this.DONE) {
-      sendFlag = false;
-      setState(this.DONE);
-    }
-    this.readyState = this.UNSENT;
-  };
-
-  /**
-   * Adds an event listener. Preferred method of binding to events.
-   */
-  this.addEventListener = function(event, callback) {
-    if (!(event in listeners)) {
-      listeners[event] = [];
-    }
-    // Currently allows duplicate callbacks. Should it?
-    listeners[event].push(callback);
-  };
-
-  /**
-   * Remove an event callback that has already been bound.
-   * Only works on the matching funciton, cannot be a copy.
-   */
-  this.removeEventListener = function(event, callback) {
-    if (event in listeners) {
-      // Filter will return a new array with the callback removed
-      listeners[event] = listeners[event].filter(function(ev) {
-        return ev !== callback;
-      });
-    }
-  };
-
-  /**
-   * Dispatch any events, including both "on" methods and events attached using addEventListener.
-   */
-  this.dispatchEvent = function(event) {
-    if (typeof self["on" + event] === "function") {
-      self["on" + event]();
-    }
-    if (event in listeners) {
-      for (var i = 0, len = listeners[event].length; i < len; i++) {
-        listeners[event][i].call(self);
-      }
-    }
-  };
-
-  /**
-   * Changes readyState and calls onreadystatechange.
-   *
-   * @param int state New state
-   */
-  var setState = function(state) {
-    if (self.readyState !== state) {
-      self.readyState = state;
-
-      if (settings.async || self.readyState < self.OPENED || self.readyState === self.DONE) {
-        self.dispatchEvent("readystatechange");
-      }
-
-      if (self.readyState === self.DONE && !errorFlag) {
-        self.dispatchEvent("load");
-        // @TODO figure out InspectorInstrumentation::didLoadXHR(cookie)
-        self.dispatchEvent("loadend");
-      }
-    }
-  };
-};
-
-}).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":14,"buffer":7,"child_process":4,"fs":4,"http":33,"https":12,"url":43}],70:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -22725,7 +21763,7 @@ function placeMarker(content, location, map) {
 
     return marker;
 }
-},{"./lib/areapicker.js":71,"./lib/boundsToBBox.js":72,"./lib/infobox.js":73,"events":11,"globi":79,"inherits":84,"insert-css":74}],71:[function(require,module,exports){
+},{"./lib/areapicker.js":69,"./lib/boundsToBBox.js":70,"./lib/infobox.js":71,"events":11,"globi":77,"inherits":82,"insert-css":72}],69:[function(require,module,exports){
 var infobox = require('./infobox.js');
 var boundsToBBox = require('./boundsToBBox.js');
 
@@ -22875,7 +21913,7 @@ AreaPickerInfo.prototype.setContent = function (bounds) {
 AreaPickerInfo.prototype.createContent_ = function (bounds) {
     return infobox.areaInfoBox(boundsToBBox(bounds));
 };
-},{"./boundsToBBox.js":72,"./infobox.js":73}],72:[function(require,module,exports){
+},{"./boundsToBBox.js":70,"./infobox.js":71}],70:[function(require,module,exports){
 module.exports = boundsToBBox;
 
 function boundsToBBox(bounds) {
@@ -22898,7 +21936,7 @@ function boundsToBBox(bounds) {
     }
     return {bbox: eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat };
 }
-},{}],73:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 var extend = require('extend');
 
 module.exports = {
@@ -22948,9 +21986,9 @@ function areaInfoBox(locationParams) {
 function locationInfoBox(locationParams) {
     return infoBoxText('location-selection', locationParams);
 };
-},{"extend":49}],74:[function(require,module,exports){
+},{"extend":49}],72:[function(require,module,exports){
 arguments[4][53][0].apply(exports,arguments)
-},{"dup":53}],75:[function(require,module,exports){
+},{"dup":53}],73:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -23188,7 +22226,7 @@ Wheel.prototype.dependencyWheel = function () {
 
 
 
-},{"./lib/transform.js":76,"d3":77,"events":11,"inherits":84,"insert-css":78}],76:[function(require,module,exports){
+},{"./lib/transform.js":74,"d3":75,"events":11,"inherits":82,"insert-css":76}],74:[function(require,module,exports){
 module.exports = {
     convertJsonForDependencyWheel: convertJsonForDependencyWheel
 };
@@ -23242,11 +22280,11 @@ function convertJsonForDependencyWheel(json) {
         matrix: matrix
     };
 };
-},{}],77:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],78:[function(require,module,exports){
+},{"dup":52}],76:[function(require,module,exports){
 arguments[4][53][0].apply(exports,arguments)
-},{"dup":53}],79:[function(require,module,exports){
+},{"dup":53}],77:[function(require,module,exports){
 var d3 = require('d3');
 var globiData = require('globi-data');
 var EventEmitter = require('events').EventEmitter;
@@ -24068,7 +23106,7 @@ globi.ResponseMapper = function() {
 
 module.exports = globi;
 
-},{"d3":81,"events":11,"globi-data":82,"jquery":86}],80:[function(require,module,exports){
+},{"d3":79,"events":11,"globi-data":80,"jquery":84}],78:[function(require,module,exports){
 d3 = function() {
   var d3 = {
     version: "3.2.8"
@@ -32879,16 +31917,937 @@ d3 = function() {
   });
   return d3;
 }();
-},{}],81:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 require("./d3");
 module.exports = d3;
 (function () { delete this.d3; })(); // unset global
 
-},{"./d3":80}],82:[function(require,module,exports){
-arguments[4][68][0].apply(exports,arguments)
-},{"dup":68,"xmlhttprequest":83}],83:[function(require,module,exports){
-arguments[4][69][0].apply(exports,arguments)
-},{"_process":14,"buffer":7,"child_process":4,"dup":69,"fs":4,"http":33,"https":12,"url":43}],84:[function(require,module,exports){
+},{"./d3":78}],80:[function(require,module,exports){
+var nodeXHR = require('xmlhttprequest');
+var extend = require('extend');
+var querystring = require('querystring');
+var globiData = {};
+
+var urlPrefix = 'http://api.globalbioticinteractions.org';
+
+globiData.addQueryParams = function (uri, search) {
+    function initParams(search) {
+        var alt = extend({}, search);
+        if (search.location) {
+            alt = extend(alt, search.location);
+            delete alt.location;
+        }
+
+        function replaceAndDelete(match, replace) {
+            if (search[match]) {
+                if (!alt[replace]) {
+                    alt[replace] = search[match];
+                }
+                delete alt[match];
+            }
+        }
+
+        replaceAndDelete('sourceTaxa', 'sourceTaxon');
+        replaceAndDelete('targetTaxa', 'targetTaxon');
+        replaceAndDelete('fields', 'field');
+
+        if (search.includeObservations) {
+            alt.includeObservations = true;
+        }
+        if (search.exactNameMatchOnly) {
+            alt.exactNameMatchOnly = true;
+        }
+        if (search.excludeChildTaxa) {
+            alt.excludeChildTaxa = true;
+        }
+        return alt;
+    }
+    var qs = querystring.encode(initParams(search));
+    var altUri = uri;
+    if (qs.length > 0) {
+        altUri = uri + '&' + qs;
+    }
+    return altUri;
+}
+;
+
+globiData.urlForFindCloseTaxonMatches = function (name) {
+    return urlPrefix + '/findCloseMatchesForTaxon/' + encodeURIComponent(name);
+};
+
+globiData.urlForTaxonInteractionQuery = function (search) {
+    var uri = urlPrefix;
+    var searchAlt = extend({}, search);
+
+    if (searchAlt.sourceTaxonScientificName) {
+        uri = uri + '/taxon/' + encodeURIComponent(searchAlt.sourceTaxonScientificName);
+        delete searchAlt.sourceTaxonScientificName;
+        if (searchAlt.interactionType) {
+            uri = uri + '/' + encodeURIComponent(searchAlt.interactionType);
+            delete searchAlt.interactionType;
+        }
+        if (searchAlt.targetTaxonScientificName) {
+            uri = uri + '/' + encodeURIComponent(searchAlt.targetTaxonScientificName);
+            delete searchAlt.targetTaxonScientificName;
+        }
+    } else {
+        uri = uri + '/interaction';
+    }
+    var ext = {'csv': '.csv', 'dot': '.dot'}
+    uri = uri + (ext[searchAlt.resultType] === undefined ? '' : ext[searchAlt.resultType]);
+    uri = uri + '?type=' + (searchAlt.resultType ? searchAlt.resultType : 'json.v2');
+    delete searchAlt.resultType;
+
+    return this.addQueryParams(uri, searchAlt);
+};
+
+globiData.urlForTaxonImageQuery = function (scientificName) {
+    return urlPrefix + '/imagesForName?name=' + encodeURIComponent(scientificName);
+};
+
+globiData.urlForTaxonImageByIdQuery = function (id) {
+    return urlPrefix + '/images/' + encodeURIComponent(id);
+};
+
+globiData.urlForTaxonImagesQuery = function (scientificNames) {
+    var nameQuery = '?';
+    if (scientificNames) {
+        for (var index in scientificNames) {
+            if (scientificNames.hasOwnProperty(index)) {
+                nameQuery += 'name=' + encodeURIComponent(scientificNames[index]) + '&';
+            }
+        }
+    }
+    return urlPrefix + '/imagesForNames' + nameQuery;
+};
+
+globiData.urlForStudyStats = function (search) {
+    var url = urlPrefix + '/reports/studies';
+    if (search.source) {
+        url = url + '?source=' + encodeURIComponent(search.source);
+    }
+    return url;
+};
+
+var createReq = function () {
+    var req;
+    if (typeof window === 'undefined') {
+        // perhaps running in node.js?
+        req = new nodeXHR.XMLHttpRequest();
+    } else if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+        req = new XMLHttpRequest();
+    } else if ((typeof window !== 'undefined') && window.ActiveXObject) { // IE
+        try {
+            req = new ActiveXObject('Msxml2.XMLHTTP');
+        } catch (e) {
+            try {
+                req = new ActiveXObject('Microsoft.XMLHTTP');
+            } catch (e) {
+            }
+        }
+    }
+    return req;
+};
+
+globiData.findSources = function (callback) {
+    var req = createReq();
+    req.open('GET', urlPrefix + '/reports/sources', true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            var result = JSON.parse(req.responseText);
+            var sources = [];
+            var data = result.data;
+            data.forEach(function (element, index) {
+                sources[index] = element[4];
+            });
+            callback(sources);
+        }
+    };
+    req.send(null);
+};
+
+globiData.findStudyStats = function (search, callback) {
+    var req = createReq();
+    var uri = globiData.urlForStudyStats(search);
+    req.open('GET', uri, true);
+
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            var resp = JSON.parse(req.responseText);
+            var studyStats = [];
+            for (var i = 0; i < resp.data.length; i++) {
+                var row = resp.data[i];
+                var stats = { citation: row[0], source: row[3], totalInteractions: row[4], totalTaxa: row[5]};
+                var doi = row[2];
+                if (doi && doi.length > 0) {
+                    stats.doi = doi;
+                }
+
+                var externalId = row[1];
+                if (externalId && externalId.length > 0 && externalId.match('^((http)|(https))://') !== null) {
+                    stats.url = externalId;
+                }
+
+                studyStats[i] = stats;
+            }
+            callback(studyStats);
+        }
+    };
+    req.send(null);
+};
+
+globiData.findStats = function (search, callback) {
+    var req = createReq();
+    var uri = urlPrefix + '/reports/collections';
+    if (search.source) {
+        uri = uri + '?source=' + encodeURIComponent(search.source);
+    }
+    req.open('GET', uri, true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            var resp = JSON.parse(req.responseText);
+            var stats = {numberOfStudies: resp.data[0][6],
+                totalInteractions: resp.data[0][4],
+                totalTaxa: resp.data[0][5],
+                numberOfDistinctSources: resp.data[0][7]};
+            callback(stats);
+        }
+    };
+    req.send(null);
+};
+
+globiData.sendRequest = function (req, callback) {
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            if (callback.callback && callback.context) {
+                callback.callback.call(callback.context, JSON.parse(req.responseText));
+            } else {
+                callback(JSON.parse(req.responseText));
+            }
+        }
+    };
+    req.send(null);
+};
+
+globiData.findInteractionTypes = function (search, callback) {
+    if (arguments.length === 1) {
+        callback = search;
+        search = [];
+    }
+
+    search = search.map(function (item) {
+        return 'taxon=' + encodeURIComponent(item);
+    });
+    var urlQuery = search.length > 0 ? '?' + search.join('&') + '&type=json' : '';
+
+    var req = createReq();
+    req.open('GET', urlPrefix + '/interactionTypes' + urlQuery, true);
+    globiData.sendRequest(req, callback);
+};
+
+
+globiData.findSpeciesInteractions = function (search, callback) {
+    var uri = globiData.urlForTaxonInteractionQuery(search);
+    var req = createReq();
+    req.open('GET', uri, true);
+    globiData.sendRequest(req, callback);
+};
+
+
+globiData.findTaxonInfo = function (scientificName, callback) {
+    var uri = globiData.urlForTaxonImageQuery(scientificName);
+    globiData.get(uri, callback);
+};
+
+globiData.findTaxaInfo = function (scientificNames, callback) {
+    var uri = globiData.urlForTaxonImagesQuery(scientificNames);
+    console.log(uri);
+    globiData.get(uri, callback);
+};
+
+globiData.get = function (uri, callback) {
+    var req = createReq();
+    req.open('GET', uri, true);
+    globiData.sendRequest(req, callback);
+};
+
+globiData.findCloseTaxonMatches = function (name, callback) {
+    var uri = globiData.urlForFindCloseTaxonMatches(name);
+    var req = createReq();
+    req.open('GET', uri, true);
+    req.onreadystatechange = function () {
+        if (req.readyState === 4 && req.status === 200) {
+            var response = JSON.parse(req.responseText);
+            var data = response.data;
+            var closeMatches = [];
+            data.forEach(function (element, index) {
+                var taxonHierarchy = [];
+                var commonNames = globiData.mapCommonNameList(element[1]);
+                var pathString = element[2];
+                pathString = pathString === null ? "" : pathString;
+                var path = pathString.split('|');
+                path.forEach(function (taxon, index) {
+                    taxonHierarchy[index] = taxon.trim();
+                });
+                var scientificName = element[0].trim();
+                closeMatches[index] = { scientificName: scientificName, commonNames: commonNames, path: taxonHierarchy};
+            });
+            callback(closeMatches);
+        }
+    };
+    req.send(null);
+};
+
+/**
+ * Transforms a common name list string into a map
+ * f.x.:
+ *  "foo @en | bar @de" => {en: "foo", de: "bar"}
+ *
+ * @param {string} pipedCommonNameList
+ * @param {boolean} [override]
+ * @returns {Object.<string, string>}
+ */
+globiData.mapCommonNameList = function (pipedCommonNameList, override) {
+    override = typeof override !== 'undefined' ? !!override : true;
+    pipedCommonNameList = typeof pipedCommonNameList !== 'string' ? '' : pipedCommonNameList;
+    var commonNameMap = { count: 0 };
+    var splittedByPipeList = pipedCommonNameList.split('|').map(function (item) {
+        return item.trim();
+    });
+    splittedByPipeList.forEach(function (item) {
+        if (typeof item !== 'undefined') {
+            var splittedByAtItemParts = item.split('@').map(function (item) {
+                return item.trim();
+            });
+            if (typeof splittedByAtItemParts[1] !== 'undefined') {
+                if (override || typeof commonNameMap[splittedByAtItemParts[1]] === 'undefined') {
+                    if (typeof commonNameMap[splittedByAtItemParts[1]] === 'undefined') commonNameMap.count++;
+                    commonNameMap[splittedByAtItemParts[1]] = splittedByAtItemParts[0];
+                }
+            }
+        }
+    });
+
+    return commonNameMap;
+};
+
+globiData.findThumbnailById = function (search, callback) {
+    search = search || {};
+    var uri = globiData.urlForTaxonImageByIdQuery(search);
+    var req = createReq();
+    req.open('GET', uri, true);
+    globiData.sendRequest(req, function (reponseData) {
+        var tumbnailUrl = reponseData.thumbnailURL;
+        callback(tumbnailUrl);
+    });
+};
+
+module.exports = globiData;
+
+},{"extend":49,"querystring":18,"xmlhttprequest":81}],81:[function(require,module,exports){
+(function (process,Buffer){
+/**
+ * Wrapper for built-in http.js to emulate the browser XMLHttpRequest object.
+ *
+ * This can be used with JS designed for browsers to improve reuse of code and
+ * allow the use of existing libraries.
+ *
+ * Usage: include("XMLHttpRequest.js") and use XMLHttpRequest per W3C specs.
+ *
+ * @author Dan DeFelippi <dan@driverdan.com>
+ * @contributor David Ellis <d.f.ellis@ieee.org>
+ * @license MIT
+ */
+
+var Url = require("url")
+  , spawn = require("child_process").spawn
+  , fs = require('fs');
+
+exports.XMLHttpRequest = function() {
+  /**
+   * Private variables
+   */
+  var self = this;
+  var http = require('http');
+  var https = require('https');
+
+  // Holds http.js objects
+  var request;
+  var response;
+
+  // Request settings
+  var settings = {};
+
+  // Disable header blacklist.
+  // Not part of XHR specs.
+  var disableHeaderCheck = false;
+
+  // Set some default headers
+  var defaultHeaders = {
+    "User-Agent": "node-XMLHttpRequest",
+    "Accept": "*/*",
+  };
+
+  var headers = defaultHeaders;
+
+  // These headers are not user setable.
+  // The following are allowed but banned in the spec:
+  // * user-agent
+  var forbiddenRequestHeaders = [
+    "accept-charset",
+    "accept-encoding",
+    "access-control-request-headers",
+    "access-control-request-method",
+    "connection",
+    "content-length",
+    "content-transfer-encoding",
+    "cookie",
+    "cookie2",
+    "date",
+    "expect",
+    "host",
+    "keep-alive",
+    "origin",
+    "referer",
+    "te",
+    "trailer",
+    "transfer-encoding",
+    "upgrade",
+    "via"
+  ];
+
+  // These request methods are not allowed
+  var forbiddenRequestMethods = [
+    "TRACE",
+    "TRACK",
+    "CONNECT"
+  ];
+
+  // Send flag
+  var sendFlag = false;
+  // Error flag, used when errors occur or abort is called
+  var errorFlag = false;
+
+  // Event listeners
+  var listeners = {};
+
+  /**
+   * Constants
+   */
+
+  this.UNSENT = 0;
+  this.OPENED = 1;
+  this.HEADERS_RECEIVED = 2;
+  this.LOADING = 3;
+  this.DONE = 4;
+
+  /**
+   * Public vars
+   */
+
+  // Current state
+  this.readyState = this.UNSENT;
+
+  // default ready state change handler in case one is not set or is set late
+  this.onreadystatechange = null;
+
+  // Result & response
+  this.responseText = "";
+  this.responseXML = "";
+  this.status = null;
+  this.statusText = null;
+
+  /**
+   * Private methods
+   */
+
+  /**
+   * Check if the specified header is allowed.
+   *
+   * @param string header Header to validate
+   * @return boolean False if not allowed, otherwise true
+   */
+  var isAllowedHttpHeader = function(header) {
+    return disableHeaderCheck || (header && forbiddenRequestHeaders.indexOf(header.toLowerCase()) === -1);
+  };
+
+  /**
+   * Check if the specified method is allowed.
+   *
+   * @param string method Request method to validate
+   * @return boolean False if not allowed, otherwise true
+   */
+  var isAllowedHttpMethod = function(method) {
+    return (method && forbiddenRequestMethods.indexOf(method) === -1);
+  };
+
+  /**
+   * Public methods
+   */
+
+  /**
+   * Open the connection. Currently supports local server requests.
+   *
+   * @param string method Connection method (eg GET, POST)
+   * @param string url URL for the connection.
+   * @param boolean async Asynchronous connection. Default is true.
+   * @param string user Username for basic authentication (optional)
+   * @param string password Password for basic authentication (optional)
+   */
+  this.open = function(method, url, async, user, password) {
+    this.abort();
+    errorFlag = false;
+
+    // Check for valid request method
+    if (!isAllowedHttpMethod(method)) {
+      throw "SecurityError: Request method not allowed";
+    }
+
+    settings = {
+      "method": method,
+      "url": url.toString(),
+      "async": (typeof async !== "boolean" ? true : async),
+      "user": user || null,
+      "password": password || null
+    };
+
+    setState(this.OPENED);
+  };
+
+  /**
+   * Disables or enables isAllowedHttpHeader() check the request. Enabled by default.
+   * This does not conform to the W3C spec.
+   *
+   * @param boolean state Enable or disable header checking.
+   */
+  this.setDisableHeaderCheck = function(state) {
+    disableHeaderCheck = state;
+  };
+
+  /**
+   * Sets a header for the request.
+   *
+   * @param string header Header name
+   * @param string value Header value
+   */
+  this.setRequestHeader = function(header, value) {
+    if (this.readyState != this.OPENED) {
+      throw "INVALID_STATE_ERR: setRequestHeader can only be called when state is OPEN";
+    }
+    if (!isAllowedHttpHeader(header)) {
+      console.warn('Refused to set unsafe header "' + header + '"');
+      return;
+    }
+    if (sendFlag) {
+      throw "INVALID_STATE_ERR: send flag is true";
+    }
+    headers[header] = value;
+  };
+
+  /**
+   * Gets a header from the server response.
+   *
+   * @param string header Name of header to get.
+   * @return string Text of the header or null if it doesn't exist.
+   */
+  this.getResponseHeader = function(header) {
+    if (typeof header === "string"
+      && this.readyState > this.OPENED
+      && response.headers[header.toLowerCase()]
+      && !errorFlag
+    ) {
+      return response.headers[header.toLowerCase()];
+    }
+
+    return null;
+  };
+
+  /**
+   * Gets all the response headers.
+   *
+   * @return string A string with all response headers separated by CR+LF
+   */
+  this.getAllResponseHeaders = function() {
+    if (this.readyState < this.HEADERS_RECEIVED || errorFlag) {
+      return "";
+    }
+    var result = "";
+
+    for (var i in response.headers) {
+      // Cookie headers are excluded
+      if (i !== "set-cookie" && i !== "set-cookie2") {
+        result += i + ": " + response.headers[i] + "\r\n";
+      }
+    }
+    return result.substr(0, result.length - 2);
+  };
+
+  /**
+   * Gets a request header
+   *
+   * @param string name Name of header to get
+   * @return string Returns the request header or empty string if not set
+   */
+  this.getRequestHeader = function(name) {
+    // @TODO Make this case insensitive
+    if (typeof name === "string" && headers[name]) {
+      return headers[name];
+    }
+
+    return "";
+  };
+
+  /**
+   * Sends the request to the server.
+   *
+   * @param string data Optional data to send as request body.
+   */
+  this.send = function(data) {
+    if (this.readyState != this.OPENED) {
+      throw "INVALID_STATE_ERR: connection must be opened before send() is called";
+    }
+
+    if (sendFlag) {
+      throw "INVALID_STATE_ERR: send has already been called";
+    }
+
+    var ssl = false, local = false;
+    var url = Url.parse(settings.url);
+    var host;
+    // Determine the server
+    switch (url.protocol) {
+      case 'https:':
+        ssl = true;
+        // SSL & non-SSL both need host, no break here.
+      case 'http:':
+        host = url.hostname;
+        break;
+
+      case 'file:':
+        local = true;
+        break;
+
+      case undefined:
+      case '':
+        host = "localhost";
+        break;
+
+      default:
+        throw "Protocol not supported.";
+    }
+
+    // Load files off the local filesystem (file://)
+    if (local) {
+      if (settings.method !== "GET") {
+        throw "XMLHttpRequest: Only GET method is supported";
+      }
+
+      if (settings.async) {
+        fs.readFile(url.pathname, 'utf8', function(error, data) {
+          if (error) {
+            self.handleError(error);
+          } else {
+            self.status = 200;
+            self.responseText = data;
+            setState(self.DONE);
+          }
+        });
+      } else {
+        try {
+          this.responseText = fs.readFileSync(url.pathname, 'utf8');
+          this.status = 200;
+          setState(self.DONE);
+        } catch(e) {
+          this.handleError(e);
+        }
+      }
+
+      return;
+    }
+
+    // Default to port 80. If accessing localhost on another port be sure
+    // to use http://localhost:port/path
+    var port = url.port || (ssl ? 443 : 80);
+    // Add query string if one is used
+    var uri = url.pathname + (url.search ? url.search : '');
+
+    // Set the Host header or the server may reject the request
+    headers["Host"] = host;
+    if (!((ssl && port === 443) || port === 80)) {
+      headers["Host"] += ':' + url.port;
+    }
+
+    // Set Basic Auth if necessary
+    if (settings.user) {
+      if (typeof settings.password == "undefined") {
+        settings.password = "";
+      }
+      var authBuf = new Buffer(settings.user + ":" + settings.password);
+      headers["Authorization"] = "Basic " + authBuf.toString("base64");
+    }
+
+    // Set content length header
+    if (settings.method === "GET" || settings.method === "HEAD") {
+      data = null;
+    } else if (data) {
+      headers["Content-Length"] = Buffer.isBuffer(data) ? data.length : Buffer.byteLength(data);
+
+      if (!headers["Content-Type"]) {
+        headers["Content-Type"] = "text/plain;charset=UTF-8";
+      }
+    } else if (settings.method === "POST") {
+      // For a post with no data set Content-Length: 0.
+      // This is required by buggy servers that don't meet the specs.
+      headers["Content-Length"] = 0;
+    }
+
+    var options = {
+      host: host,
+      port: port,
+      path: uri,
+      method: settings.method,
+      headers: headers,
+      agent: false
+    };
+
+    // Reset error flag
+    errorFlag = false;
+
+    // Handle async requests
+    if (settings.async) {
+      // Use the proper protocol
+      var doRequest = ssl ? https.request : http.request;
+
+      // Request is being sent, set send flag
+      sendFlag = true;
+
+      // As per spec, this is called here for historical reasons.
+      self.dispatchEvent("readystatechange");
+
+      // Handler for the response
+      function responseHandler(resp) {
+        // Set response var to the response we got back
+        // This is so it remains accessable outside this scope
+        response = resp;
+        // Check for redirect
+        // @TODO Prevent looped redirects
+        if (response.statusCode === 302 || response.statusCode === 303 || response.statusCode === 307) {
+          // Change URL to the redirect location
+          settings.url = response.headers.location;
+          var url = Url.parse(settings.url);
+          // Set host var in case it's used later
+          host = url.hostname;
+          // Options for the new request
+          var newOptions = {
+            hostname: url.hostname,
+            port: url.port,
+            path: url.path,
+            method: response.statusCode === 303 ? 'GET' : settings.method,
+            headers: headers
+          };
+
+          // Issue the new request
+          request = doRequest(newOptions, responseHandler).on('error', errorHandler);
+          request.end();
+          // @TODO Check if an XHR event needs to be fired here
+          return;
+        }
+
+        response.setEncoding("utf8");
+
+        setState(self.HEADERS_RECEIVED);
+        self.status = response.statusCode;
+
+        response.on('data', function(chunk) {
+          // Make sure there's some data
+          if (chunk) {
+            self.responseText += chunk;
+          }
+          // Don't emit state changes if the connection has been aborted.
+          if (sendFlag) {
+            setState(self.LOADING);
+          }
+        });
+
+        response.on('end', function() {
+          if (sendFlag) {
+            // Discard the 'end' event if the connection has been aborted
+            setState(self.DONE);
+            sendFlag = false;
+          }
+        });
+
+        response.on('error', function(error) {
+          self.handleError(error);
+        });
+      }
+
+      // Error handler for the request
+      function errorHandler(error) {
+        self.handleError(error);
+      }
+
+      // Create the request
+      request = doRequest(options, responseHandler).on('error', errorHandler);
+
+      // Node 0.4 and later won't accept empty data. Make sure it's needed.
+      if (data) {
+        request.write(data);
+      }
+
+      request.end();
+
+      self.dispatchEvent("loadstart");
+    } else { // Synchronous
+      // Create a temporary file for communication with the other Node process
+      var contentFile = ".node-xmlhttprequest-content-" + process.pid;
+      var syncFile = ".node-xmlhttprequest-sync-" + process.pid;
+      fs.writeFileSync(syncFile, "", "utf8");
+      // The async request the other Node process executes
+      var execString = "var http = require('http'), https = require('https'), fs = require('fs');"
+        + "var doRequest = http" + (ssl ? "s" : "") + ".request;"
+        + "var options = " + JSON.stringify(options) + ";"
+        + "var responseText = '';"
+        + "var req = doRequest(options, function(response) {"
+        + "response.setEncoding('utf8');"
+        + "response.on('data', function(chunk) {"
+        + "  responseText += chunk;"
+        + "});"
+        + "response.on('end', function() {"
+        + "fs.writeFileSync('" + contentFile + "', 'NODE-XMLHTTPREQUEST-STATUS:' + response.statusCode + ',' + responseText, 'utf8');"
+        + "fs.unlinkSync('" + syncFile + "');"
+        + "});"
+        + "response.on('error', function(error) {"
+        + "fs.writeFileSync('" + contentFile + "', 'NODE-XMLHTTPREQUEST-ERROR:' + JSON.stringify(error), 'utf8');"
+        + "fs.unlinkSync('" + syncFile + "');"
+        + "});"
+        + "}).on('error', function(error) {"
+        + "fs.writeFileSync('" + contentFile + "', 'NODE-XMLHTTPREQUEST-ERROR:' + JSON.stringify(error), 'utf8');"
+        + "fs.unlinkSync('" + syncFile + "');"
+        + "});"
+        + (data ? "req.write('" + data.replace(/'/g, "\\'") + "');":"")
+        + "req.end();";
+      // Start the other Node Process, executing this string
+      var syncProc = spawn(process.argv[0], ["-e", execString]);
+      var statusText;
+      while(fs.existsSync(syncFile)) {
+        // Wait while the sync file is empty
+      }
+      self.responseText = fs.readFileSync(contentFile, 'utf8');
+      // Kill the child process once the file has data
+      syncProc.stdin.end();
+      // Remove the temporary file
+      fs.unlinkSync(contentFile);
+      if (self.responseText.match(/^NODE-XMLHTTPREQUEST-ERROR:/)) {
+        // If the file returned an error, handle it
+        var errorObj = self.responseText.replace(/^NODE-XMLHTTPREQUEST-ERROR:/, "");
+        self.handleError(errorObj);
+      } else {
+        // If the file returned okay, parse its data and move to the DONE state
+        self.status = self.responseText.replace(/^NODE-XMLHTTPREQUEST-STATUS:([0-9]*),.*/, "$1");
+        self.responseText = self.responseText.replace(/^NODE-XMLHTTPREQUEST-STATUS:[0-9]*,(.*)/, "$1");
+        setState(self.DONE);
+      }
+    }
+  };
+
+  /**
+   * Called when an error is encountered to deal with it.
+   */
+  this.handleError = function(error) {
+    this.status = 503;
+    this.statusText = error;
+    this.responseText = error.stack;
+    errorFlag = true;
+    setState(this.DONE);
+  };
+
+  /**
+   * Aborts a request.
+   */
+  this.abort = function() {
+    if (request) {
+      request.abort();
+      request = null;
+    }
+
+    headers = defaultHeaders;
+    this.responseText = "";
+    this.responseXML = "";
+
+    errorFlag = true;
+
+    if (this.readyState !== this.UNSENT
+        && (this.readyState !== this.OPENED || sendFlag)
+        && this.readyState !== this.DONE) {
+      sendFlag = false;
+      setState(this.DONE);
+    }
+    this.readyState = this.UNSENT;
+  };
+
+  /**
+   * Adds an event listener. Preferred method of binding to events.
+   */
+  this.addEventListener = function(event, callback) {
+    if (!(event in listeners)) {
+      listeners[event] = [];
+    }
+    // Currently allows duplicate callbacks. Should it?
+    listeners[event].push(callback);
+  };
+
+  /**
+   * Remove an event callback that has already been bound.
+   * Only works on the matching funciton, cannot be a copy.
+   */
+  this.removeEventListener = function(event, callback) {
+    if (event in listeners) {
+      // Filter will return a new array with the callback removed
+      listeners[event] = listeners[event].filter(function(ev) {
+        return ev !== callback;
+      });
+    }
+  };
+
+  /**
+   * Dispatch any events, including both "on" methods and events attached using addEventListener.
+   */
+  this.dispatchEvent = function(event) {
+    if (typeof self["on" + event] === "function") {
+      self["on" + event]();
+    }
+    if (event in listeners) {
+      for (var i = 0, len = listeners[event].length; i < len; i++) {
+        listeners[event][i].call(self);
+      }
+    }
+  };
+
+  /**
+   * Changes readyState and calls onreadystatechange.
+   *
+   * @param int state New state
+   */
+  var setState = function(state) {
+    if (self.readyState !== state) {
+      self.readyState = state;
+
+      if (settings.async || self.readyState < self.OPENED || self.readyState === self.DONE) {
+        self.dispatchEvent("readystatechange");
+      }
+
+      if (self.readyState === self.DONE && !errorFlag) {
+        self.dispatchEvent("load");
+        // @TODO figure out InspectorInstrumentation::didLoadXHR(cookie)
+        self.dispatchEvent("loadend");
+      }
+    }
+  };
+};
+
+}).call(this,require('_process'),require("buffer").Buffer)
+},{"_process":14,"buffer":7,"child_process":4,"fs":4,"http":33,"https":12,"url":43}],82:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -32913,7 +32872,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],85:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*! jQuery UI - v1.10.3 - 2013-05-03
@@ -47920,7 +47879,7 @@ $.widget( "ui.tooltip", {
 
 }( jQuery ) );
 
-},{"jquery":86}],86:[function(require,module,exports){
+},{"jquery":84}],84:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -57132,7 +57091,7 @@ return jQuery;
 
 }));
 
-},{}],87:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 (function (global){
 /**
  * Npm version of markerClusterer works great with browserify and google maps for commonjs
@@ -58432,7 +58391,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 module.exports = MarkerClusterer;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],88:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 /**
  * Copyright (c) 2011-2014 Felix Gnass
  * Licensed under the MIT license
