@@ -96,9 +96,11 @@
     var dataContext = globiWeb.dataContext(searchContext);
     var search = globiWeb.search({searchContext: searchContext});
 
+
     search.appendTo('#taxon-filter');
 
     searchContext.on('searchcontext:searchparameterchange', function(context) {
+        window.location.hash = globiWeb.queryString.encode(searchContext.searchParameters);
         globiWeb.widgets.forEach(function (w) {
             var oldWidgetContainer = document.querySelector(w.target);
             while (oldWidgetContainer.firstChild) {
@@ -107,8 +109,9 @@
             w.spinner = appendSpinner(w.target);
         });
         appendWidgets();
-
     });
+
+    searchContext.update(globiWeb.queryString.decode(window.location.hash));
 
     var treeSpinner, wheelSpinner, bundleSpinner;
 
