@@ -11,6 +11,7 @@
     ]
   },
   "dependencies": {
+    "deep": "0.0.2",
     "extend": "^3.0.0",
     "globi": "~0.0.55",
     "inherits": "^2.0.1",
