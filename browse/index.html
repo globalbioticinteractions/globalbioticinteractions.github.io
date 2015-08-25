@@ -111,7 +111,11 @@
         appendWidgets();
     });
 
-    searchContext.update(globiWeb.queryString.decode(window.location.hash));
+    var hash = window.location.hash;
+    if (hash && hash.length > 1) {
+        var anchorOnly = hash.substring(1);
+        searchContext.update(globiWeb.queryString.decode(anchorOnly));
+    }
 
     var treeSpinner, wheelSpinner, bundleSpinner;
 
