@@ -19764,7 +19764,6 @@ extend(Plugin.prototype, {
     showResult: function (data) {
         var me = this;
         var searchHash = {
-            resultType: 'csv',
             includeObservations: true,
             field: ['source_taxon_id', 'source_taxon_name', 'source_taxon_path', 'source_taxon_path_ids',
                 'source_specimen_life_stage', 'source_specimen_physiological_state', 'source_specimen_body_part'
@@ -19774,9 +19773,15 @@ extend(Plugin.prototype, {
                 , 'latitude', 'longitude'
                 , 'study_citation', 'study_url', 'study_source_citation']
         };
-        var downloadParams = extend({}, me.searchContext.searchParameters, searchHash);
-        var downloadUrl = globiData.urlForTaxonInteractionQuery(downloadParams);
-        me.searchContext.emit('searchfilter:showresults', processDataForResultList(data), downloadUrl);
+        var downloadUrls = ['csv', 'json', 'dot'].map(function(resultType) {
+            var searchParams = extend({}, me.searchContext.searchParameters, searchHash);
+            searchParams.resultType = resultType;
+            var link = {};
+            link.resultType = resultType;
+            link.url = globiData.urlForTaxonInteractionQuery(searchParams);
+            return link;
+        });
+        me.searchContext.emit('searchfilter:showresults', processDataForResultList(data), downloadUrls);
     },
 
     update: function (data) {
@@ -20111,10 +20116,10 @@ extend(SearchResult.prototype, {
         me.el.innerHTML = '';
     },
 
-    showList: function(data, downloadlink) {
+    showList: function(data, downloadlinks) {
         var me = this;
         me.clear();
-        downloadlink = downloadlink || '';
+        downloadlinks = downloadlinks || [];
         if (data.length > 0) {
             var itemId, stats = { sources: [], targets: [], linkCount: 0}, row, th, sourceCell, targetCell, linkCell, odd = false;
             var table = createElement('table', 'result-table');
@@ -20138,8 +20143,13 @@ extend(SearchResult.prototype, {
                 odd = !odd;
             });
 
+            var linkRefs = downloadlinks.map(function(link) {
+                return '<a href="' + link.url + '" class="link">' + link.resultType + '</a>';
+            }).join(' ');
             tableHead.innerHTML = [
-                '<tr><th></th><th><a href="', downloadlink, '" class="link">', 'Download</a></th><th></th></tr>',
+                '<tr><th></th>',
+                ('<th>' + linkRefs + '</th>'),
+                '<th></th></tr>',
                 '<tr>',
                     '<th class="source-cell">taxon</th>',
                     '<th class="download">',
@@ -21963,18 +21973,8 @@ function infoBoxText(idString, locationParams) {
         "'", "href='#' data-spatial-selection='",
         JSON.stringify(locationParams),
         "'>",
-        '<span>show</span></a> interactions<br/>get ',
-        '<a href="',
-        csvURL,
-        '">csv</a>, ',
-        '<a href="',
-        jsonURL,
-        '">json</a>, or ',
-        '<a href="',
-        dotURL,
-        '">dot</a> file',
-        '</div>',
-        '<div><strong>share: </strong><input type="text" value="' + globiData.addQueryParams(host + window.location.pathname + '?', locationParams) + '"></div><br />'
+        '<span>apply selection</span></a>',
+        '</div>'
     ].join('');
 }
 
