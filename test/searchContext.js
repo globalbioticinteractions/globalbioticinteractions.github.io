@@ -13,24 +13,24 @@ test('create it', function (t) {
     }, context.searchParameters, 'initialize search parameters');
 });
 
-['interactionType', 'bbox'].forEach(function(searchParameterName) {
+['interactionType', 'bbox'].forEach(function (searchParameterName) {
     var initialSearchParameters = {
         interactionType: 'interactsWith',
         resultType: 'json'
     };
     initialSearchParameters[searchParameterName] = 'foo';
 
-    test('Update search parameters with ' + searchParameterName, function(t){
+    test('Update search parameters with ' + searchParameterName, function (t) {
         t.plan(1);
         var context = searchContext();
-        context.on('searchcontext:searchparameterchange', function(searchParameters) {
+        context.on('searchcontext:searchparameterchange', function (searchParameters) {
             t.deepEqual(searchParameters, initialSearchParameters, 'Update Search parameter ' + searchParameterName);
         });
         context.updateSearchParameter(searchParameterName, 'foo');
     });
 });
 
-['sourceTaxa'].forEach(function(searchParameterName) {
+['sourceTaxa'].forEach(function (searchParameterName) {
     var initialSearchParameters = {
         interactionType: 'interactsWith',
         resultType: 'json',
@@ -38,17 +38,17 @@ test('create it', function (t) {
     };
     initialSearchParameters[searchParameterName] = ['fooz'];
 
-    test('Update search parameters with ' + searchParameterName, function(t){
+    test('Update search parameters with ' + searchParameterName, function (t) {
         t.plan(1);
         var context = searchContext();
-        context.on('searchcontext:searchparameterchange', function(searchParameters) {
+        context.on('searchcontext:searchparameterchange', function (searchParameters) {
             t.deepEqual(searchParameters, initialSearchParameters, 'Update Search parameter ' + searchParameterName);
         });
         context.updateSearchParameter(searchParameterName, ['fooz']);
     });
 });
 
-['targetTaxon'].forEach(function(searchParameterName) {
+['targetTaxon'].forEach(function (searchParameterName) {
     var initialSearchParameters = {
         interactionType: 'interactsWith',
         resultType: 'json',
@@ -56,21 +56,21 @@ test('create it', function (t) {
     };
     initialSearchParameters[searchParameterName] = 'foo';
 
-    test('Update search parameters with ' + searchParameterName, function(t){
+    test('Update search parameters with ' + searchParameterName, function (t) {
         t.plan(1);
         var context = searchContext();
-        context.on('searchcontext:searchparameterchange', function(searchParameters) {
+        context.on('searchcontext:searchparameterchange', function (searchParameters) {
             t.deepEqual(searchParameters, initialSearchParameters, 'Update Search parameter ' + searchParameterName);
         });
         context.updateSearchParameter(searchParameterName, 'foo');
     });
 });
 
-test('Update more than one search parameter', function(t){
+test('Update more than one search parameter', function (t) {
     t.plan(1);
     var firstRun = true;
     var context = searchContext();
-    context.on('searchcontext:searchparameterchange', function(searchParameters) {
+    context.on('searchcontext:searchparameterchange', function (searchParameters) {
         if (firstRun) {
             firstRun = false;
             context.updateSearchParameter('sourceTaxa', ['bar']);
@@ -83,4 +83,16 @@ test('Update more than one search parameter', function(t){
         }
     });
     context.updateSearchParameter('interactionType', 'foo');
+});
+
+test('unset search parameter', function (t) {
+    t.plan(1);
+    var context = searchContext({ sourceTaxa: ['bar']});
+    context.on('searchcontext:searchparameterchange', function (searchParameters) {
+        t.deepEqual(searchParameters, {
+            resultType: 'json',
+            sourceTaxa: ['bar']
+        }, 'remove a parameter');
+    });
+    context.updateSearchParameter('interactionType', null);
 });
