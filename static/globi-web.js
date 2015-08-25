@@ -126,7 +126,6 @@ function mapData(data) {
 }
 
 function proxy(fn, context) {
-    console.log('data proxy');
     return function () {
         return fn.apply(context, arguments);
     };
@@ -19792,8 +19791,14 @@ extend(Plugin.prototype, {
                 , 'latitude', 'longitude'
                 , 'study_citation', 'study_url', 'study_source_citation']
         };
-
-        var downloadUrl = globiData.urlForTaxonInteractionQuery(extend(searchHash, me.searchContext.searchParameters));
+        var downloadParams = extend({}, me.searchContext.searchParameters, searchHash);
+        if (downloadParams.sourceTaxon) {
+            downloadParams.sourceTaxa = [downloadParams.sourceTaxon];
+        }
+        if (downloadParams.targetTaxon) {
+            downloadParams.targetTaxa = [downloadParams.targetTaxon];
+        }
+        var downloadUrl = globiData.urlForTaxonInteractionQuery(downloadParams);
         me.searchContext.emit('searchfilter:showresults', processDataForResultList(data), downloadUrl);
     },
 
@@ -20241,7 +20246,7 @@ extend(SearchResult.prototype, {
             s.targets.push(item['target'].id);
         }
         return interactionId;
-    },
+    }
 });
 
 function proxy(fn, context) {
