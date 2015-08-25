@@ -92,10 +92,16 @@
         {factory: globiWeb.searchResult, target: panels.topLeftContainer}
     ];
 
-    var searchContext = globiWeb.searchContext();
+    var searchParameters = {};
+    var hash = window.location.hash;
+    if (hash && hash.length > 1) {
+        var anchorOnly = hash.substring(1);
+        searchParameters = globiWeb.queryString.decode(anchorOnly);
+    }
+
+    var searchContext = globiWeb.searchContext(searchParameters);
     var dataContext = globiWeb.dataContext(searchContext);
     var search = globiWeb.search({searchContext: searchContext});
-
 
     search.appendTo('#taxon-filter');
 
@@ -111,11 +117,8 @@
         appendWidgets();
     });
 
-    var hash = window.location.hash;
-    if (hash && hash.length > 1) {
-        var anchorOnly = hash.substring(1);
-        searchContext.update(globiWeb.queryString.decode(anchorOnly));
-    }
+    searchContext.emit('searchcontext:searchparameterchange', searchContext.searchParameters);
+
 
     var treeSpinner, wheelSpinner, bundleSpinner;
 
