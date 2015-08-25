@@ -110,14 +110,7 @@
 
     });
 
-    var urlPrefix = function () {
-        return 'http://api.globalbioticinteractions.org';
-    };
     var treeSpinner, wheelSpinner, bundleSpinner;
-
-    var createInteractionURL = function (locationParams, type) {
-        return globiData.addQueryParams(urlPrefix() + '/interaction?type=' + type, locationParams);
-    };
 
     var showAreaInfos = function (element) {
         searchContext.update(JSON.parse(element.dataset.spatialSelection));
