@@ -96,3 +96,23 @@ test('unset search parameter', function (t) {
     });
     context.updateSearchParameter('interactionType', null);
 });
+
+test('update search search parameter change only', function (t) {
+    t.plan(1);
+    var context = searchContext({ sourceTaxa: ['bar']});
+    context.on('searchcontext:searchparameterchange', function (searchParameters) {
+        t.notOk('searchParameters');
+    });
+    context.updateSearchParameter('sourceTaxa', ['bar']);
+    t.ok(context.searchParameters.sourceTaxa)
+});
+
+test('update search context change only', function (t) {
+    t.plan(1);
+    var context = searchContext({ sourceTaxa: ['bar']});
+    context.on('searchcontext:searchparameterchange', function (searchParameters) {
+        t.notOk('searchParameters');
+    });
+    context.update({sourceTaxa: ['bar']});
+    t.ok(context.searchParameters.sourceTaxa)
+});

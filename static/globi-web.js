@@ -14,11 +14,12 @@ module.exports = {
     globi: globi,
     search: require('globi-search'),
     searchResult: require('globi-search').Result,
-    searchContext: require('./lib/searchContext.js')
+    searchContext: require('./lib/searchContext.js'),
+    dataContext: require('./lib/dataContext.js')
 };
 
 
-},{"./lib/searchContext.js":3,"globi":76,"globi-bundle":50,"globi-hairball":53,"globi-panels":56,"globi-search":59,"globi-spatial-selector":68,"globi-wheel":73,"jquery-ui":82,"node-js-marker-clusterer":84,"spin.js":85}],2:[function(require,module,exports){
+},{"./lib/dataContext.js":2,"./lib/searchContext.js":3,"globi":79,"globi-bundle":50,"globi-hairball":54,"globi-panels":58,"globi-search":61,"globi-spatial-selector":70,"globi-wheel":75,"jquery-ui":85,"node-js-marker-clusterer":87,"spin.js":88}],2:[function(require,module,exports){
 var extend = require('extend');
 var globi = require('globi');
 var globiData = globi.globiData;
@@ -27,7 +28,8 @@ module.exports = DataContext;
 
 function DataContext(searchContext) {
     if (!(this instanceof DataContext)) return new DataContext(searchContext);
-    this.searchContext = searchContext || { on: function() {} };
+    this.searchContext = searchContext || { on: function () {
+    } };
     this.url = '';
     this.fetcher = null;
 
@@ -36,16 +38,16 @@ function DataContext(searchContext) {
 }
 
 extend(DataContext.prototype, {
-    init: function() {
+    init: function () {
         this.fetcher = new globi.PaginatedDataFetcher({ url: this.url });
     },
 
-    events: function() {
+    events: function () {
         var me = this;
         this.searchContext.on('searchcontext:searchparameterchange', proxy(me.updateParameters, me));
     },
 
-    updateParameters: function(parameters) {
+    updateParameters: function (parameters) {
         if (this.searchContext.isAbleToFetch('dataContext::updateParameters')) {
             this.searchContext.lockFetching('dataContext::updateParameters');
             this.resolveUrl(parameters);
@@ -53,41 +55,49 @@ extend(DataContext.prototype, {
         }
     },
 
-    fetch: function() {
+    fetch: function () {
         var me = this;
         this.fetcher.settings.url = this.url;
-        this.fetcher.fetch(function(data) {
+        this.fetcher.fetch(function (data) {
             data = mapData(globi.ResponseMapper(data)());
             me.searchContext.emit('globisearch:resultsetchanged', data);
-            me.searchContext.unlockFetching('dataContext::updateParameters');
         });
     },
 
-    resolveUrl: function(parameters, options) {
-        var fieldOptions = [
-            'source_taxon_external_id',
-            'source_taxon_name',
-            'source_taxon_path',
-            'source_taxon_path_ids',
-            'target_taxon_external_id',
-            'target_taxon_name',
-            'target_taxon_path',
-            'target_taxon_path_ids',
-            'interaction_type'
-        ];
-        parameters['resultType'] = 'json';
-        parameters['sourceTaxa'] = parameters['sourceTaxon'] ? [parameters['sourceTaxon']] : null;
-        parameters['targetTaxa'] = parameters['targetTaxon'] ? [parameters['targetTaxon']] : null;
-        var url = globiData.urlForTaxonInteractionQuery(parameters);
-        for (var key in options) {
-            if (options.hasOwnProperty(key)) {
-                url = url + '&' + key + '=' + options[key];
+    prepareParameters: function (parameters) {
+        parameters = extend({
+            'field': [
+                'source_taxon_external_id',
+                'source_taxon_name',
+                'source_taxon_path',
+                'source_taxon_path_ids',
+                'target_taxon_external_id',
+                'target_taxon_name',
+                'target_taxon_path',
+                'target_taxon_path_ids',
+                'interaction_type']}, parameters);
+
+        function plurify(singular, plural) {
+            if (parameters[singular]) {
+                var pluralized = {};
+                if (Array.isArray(parameters[singular])) {
+                    pluralized[plural] = parameters[singular];
+                } else {
+                    pluralized[plural] = [parameters[singular]];
+                }
+                parameters = extend(pluralized, parameters);
             }
+            return parameters;
         }
-        fieldOptions.forEach(function(fieldName) {
-            url = url + '&field=' + fieldName;
-        });
-        this.url = url;
+
+        parameters = plurify('sourceTaxon', 'sourceTaxa');
+        parameters = plurify('targetTaxon', 'targetTaxa');
+
+        return parameters;
+    },
+
+    resolveUrl: function (parameters, options) {
+        this.url = globiData.urlForTaxonInteractionQuery(this.prepareParameters(parameters));
     }
 });
 
@@ -96,7 +106,7 @@ extend(DataContext.prototype, {
  */
 function mapData(data) {
     var result = [];
-    data.forEach(function(item) {
+    data.forEach(function (item) {
         item['source'] = {
             id: item['source_taxon_external_id'],
             name: item['source_taxon_name'],
@@ -116,104 +126,85 @@ function mapData(data) {
 }
 
 function proxy(fn, context) {
-    return function() {
+    console.log('data proxy');
+    return function () {
         return fn.apply(context, arguments);
     };
 }
-},{"extend":49,"globi":76}],3:[function(require,module,exports){
+},{"extend":49,"globi":79}],3:[function(require,module,exports){
 var assert = require('assert');
 var extend = require('extend');
 var inherits = require('inherits');
 var EventEmitter = require('events').EventEmitter;
-var DataContext = require('./dataContext');
-var Settings = require('./settings');
+var deep = require('deep');
 module.exports = SearchContext;
 
 inherits(SearchContext, EventEmitter);
 
-// a mock @TODO remove after SearchContext implementation
-var INITIAL_BBOX = '';
-
-function SearchContext(context) {
-    if (!(this instanceof SearchContext)) return new SearchContext(context);
-    this.context = extend({
-        bbox: INITIAL_BBOX
-    }, context);
+function SearchContext(searchParameters) {
+    if (!(this instanceof SearchContext)) return new SearchContext(searchParameters);
+    this.searchParameters = extend({
+        interactionType: 'interactsWith',
+        resultType: 'json'
+    }, searchParameters);
     this.init();
 }
 
 extend(SearchContext.prototype, {
-    init: function() {
-        this.searchParameters = {
-            'interactionType': Settings.InteractionTypeAtStart,
-            'sourceTaxon': null,
-            'targetTaxon': null,
-            'bbox': INITIAL_BBOX
-        };
-        this.dataContext = new DataContext(this);
-
+    init: function () {
         this.state = {
             ableTofetch: true
         };
     },
 
-    update: function(context) {
-        this.context = extend(this.context, context);
-        this.emit('change', this.context);
+    update: function (searchParameters) {
+        var before = extend({}, this.searchParameters);
+        var after = extend({}, this.searchParameters, searchParameters);
+        if (!deep.equals(before, after)) {
+            this.searchParameters = after;
+            this.emit('searchcontext:searchparameterchange', this.searchParameters);
+        }
     },
 
-    /**
-     * @TODO rename/remove after refactoring #update method
-     */
-    updateSearchParameter: function(parameterName, value) {
-        assert.equal(true, this.searchParameters.hasOwnProperty(parameterName),
-            'SearchContext: unknown search parameterName ' + parameterName);
-
-        this.setParameter(parameterName, value || null);
-        this.emit('searchcontext:searchparameterchange', this.searchParameters);
-        this.emit('change', this.context);
+    updateSearchParameter: function (parameterName, value) {
+        var before = extend({}, this.searchParameters);
+        var after = extend({}, this.searchParameters);
+        if (value) {
+            after[parameterName] = value;
+        } else if (after[parameterName]) {
+            delete after[parameterName];
+        }
+        if (!deep.equals(before, after)) {
+            this.searchParameters = after;
+            this.emit('searchcontext:searchparameterchange', this.searchParameters);
+        }
     },
 
-    getParameter: function(key) {
+    getParameter: function (key) {
         return this.searchParameters[key];
     },
 
-    setParameter: function(name, value) {
+    setParameter: function (name, value) {
         this.searchParameters[name] = value;
-        if (name === 'sourceTaxon') {
-            this.searchParameters['sourceTaxa'] = value === null ? null : [value];
-        }
-        if (name === 'targetTaxon') {
-            this.searchParameters['targetTaxa'] = value === null ? null : [value];
-        }
     },
 
-    lockFetching: function() {
-        //console.log(Date.now(), 'lock --- ', arguments[0]);
+    lockFetching: function () {
         this.state.ableTofetch = false;
     },
 
-    unlockFetching: function() {
-        //console.log(Date.now(), 'unlock --- ', arguments[0]);
+    unlockFetching: function () {
         this.state.ableTofetch = true;
 
     },
 
-    isAbleToFetch: function() {
-        //console.log(Date.now(), 'check --- ', arguments[0]);
+    isAbleToFetch: function () {
         return this.state.ableTofetch;
     }
 });
 
-},{"./dataContext":2,"./settings":4,"assert":6,"events":12,"extend":49,"inherits":81}],4:[function(require,module,exports){
-var Settings = {
-    'InteractionTypeAtStart': 'interactsWith'
-};
+},{"assert":5,"deep":47,"events":11,"extend":49,"inherits":84}],4:[function(require,module,exports){
 
-module.exports = Settings;
 },{}],5:[function(require,module,exports){
-
-},{}],6:[function(require,module,exports){
 // http://wiki.commonjs.org/wiki/Unit_Testing/1.0
 //
 // THIS IS NOT TESTED NOR LIKELY TO WORK OUTSIDE V8!
@@ -574,9 +565,9 @@ var objectKeys = Object.keys || function (obj) {
   return keys;
 };
 
-},{"util/":46}],7:[function(require,module,exports){
-arguments[4][5][0].apply(exports,arguments)
-},{"dup":5}],8:[function(require,module,exports){
+},{"util/":45}],6:[function(require,module,exports){
+arguments[4][4][0].apply(exports,arguments)
+},{"dup":4}],7:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -2098,7 +2089,7 @@ function blitBuffer (src, dst, offset, length) {
   return i
 }
 
-},{"base64-js":9,"ieee754":10,"is-array":11}],9:[function(require,module,exports){
+},{"base64-js":8,"ieee754":9,"is-array":10}],8:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -2224,7 +2215,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -2310,7 +2301,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],11:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 
 /**
  * isArray
@@ -2345,7 +2336,7 @@ module.exports = isArray || function (val) {
   return !! val && '[object Array]' == str.call(val);
 };
 
-},{}],12:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -2648,7 +2639,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var http = require('http');
 
 var https = module.exports;
@@ -2663,12 +2654,12 @@ https.request = function (params, cb) {
     return http.request.call(this, params, cb);
 }
 
-},{"http":34}],14:[function(require,module,exports){
+},{"http":33}],13:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -2760,7 +2751,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/punycode v1.3.2 by @mathias */
 ;(function(root) {
@@ -3294,7 +3285,7 @@ process.umask = function() { return 0; };
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -3380,7 +3371,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -3467,16 +3458,16 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":17,"./encode":18}],20:[function(require,module,exports){
+},{"./decode":16,"./encode":17}],19:[function(require,module,exports){
 module.exports = require("./lib/_stream_duplex.js")
 
-},{"./lib/_stream_duplex.js":21}],21:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":20}],20:[function(require,module,exports){
 // a duplex stream is just a stream that is both readable and writable.
 // Since JS doesn't have multiple prototypal inheritance, this class
 // prototypally inherits from Readable, and then parasitically from
@@ -3560,7 +3551,7 @@ function forEach (xs, f) {
   }
 }
 
-},{"./_stream_readable":23,"./_stream_writable":25,"core-util-is":26,"inherits":81,"process-nextick-args":27}],22:[function(require,module,exports){
+},{"./_stream_readable":22,"./_stream_writable":24,"core-util-is":25,"inherits":84,"process-nextick-args":26}],21:[function(require,module,exports){
 // a passthrough stream.
 // basically just the most minimal sort of Transform stream.
 // Every written chunk gets output as-is.
@@ -3589,7 +3580,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./_stream_transform":24,"core-util-is":26,"inherits":81}],23:[function(require,module,exports){
+},{"./_stream_transform":23,"core-util-is":25,"inherits":84}],22:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -4552,7 +4543,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":21,"_process":15,"buffer":8,"core-util-is":26,"events":12,"inherits":81,"isarray":14,"process-nextick-args":27,"string_decoder/":43,"util":7}],24:[function(require,module,exports){
+},{"./_stream_duplex":20,"_process":14,"buffer":7,"core-util-is":25,"events":11,"inherits":84,"isarray":13,"process-nextick-args":26,"string_decoder/":42,"util":6}],23:[function(require,module,exports){
 // a transform stream is a readable/writable stream where you do
 // something with the data.  Sometimes it's called a "filter",
 // but that's not a great name for it, since that implies a thing where
@@ -4751,7 +4742,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":21,"core-util-is":26,"inherits":81}],25:[function(require,module,exports){
+},{"./_stream_duplex":20,"core-util-is":25,"inherits":84}],24:[function(require,module,exports){
 // A bit simpler than readable streams.
 // Implement an async ._write(chunk, cb), and it'll handle all
 // the drain event emission and buffering.
@@ -5273,7 +5264,7 @@ function endWritable(stream, state, cb) {
   state.ended = true;
 }
 
-},{"./_stream_duplex":21,"buffer":8,"core-util-is":26,"events":12,"inherits":81,"process-nextick-args":27,"util-deprecate":28}],26:[function(require,module,exports){
+},{"./_stream_duplex":20,"buffer":7,"core-util-is":25,"events":11,"inherits":84,"process-nextick-args":26,"util-deprecate":27}],25:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -5383,7 +5374,7 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 }).call(this,require("buffer").Buffer)
-},{"buffer":8}],27:[function(require,module,exports){
+},{"buffer":7}],26:[function(require,module,exports){
 (function (process){
 'use strict';
 module.exports = nextTick;
@@ -5400,7 +5391,7 @@ function nextTick(fn) {
 }
 
 }).call(this,require('_process'))
-},{"_process":15}],28:[function(require,module,exports){
+},{"_process":14}],27:[function(require,module,exports){
 (function (global){
 
 /**
@@ -5466,10 +5457,10 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],29:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = require("./lib/_stream_passthrough.js")
 
-},{"./lib/_stream_passthrough.js":22}],30:[function(require,module,exports){
+},{"./lib/_stream_passthrough.js":21}],29:[function(require,module,exports){
 var Stream = (function (){
   try {
     return require('st' + 'ream'); // hack to fix a circular dependency issue when used with browserify
@@ -5483,13 +5474,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":21,"./lib/_stream_passthrough.js":22,"./lib/_stream_readable.js":23,"./lib/_stream_transform.js":24,"./lib/_stream_writable.js":25}],31:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":20,"./lib/_stream_passthrough.js":21,"./lib/_stream_readable.js":22,"./lib/_stream_transform.js":23,"./lib/_stream_writable.js":24}],30:[function(require,module,exports){
 module.exports = require("./lib/_stream_transform.js")
 
-},{"./lib/_stream_transform.js":24}],32:[function(require,module,exports){
+},{"./lib/_stream_transform.js":23}],31:[function(require,module,exports){
 module.exports = require("./lib/_stream_writable.js")
 
-},{"./lib/_stream_writable.js":25}],33:[function(require,module,exports){
+},{"./lib/_stream_writable.js":24}],32:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -5618,7 +5609,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":12,"inherits":81,"readable-stream/duplex.js":20,"readable-stream/passthrough.js":29,"readable-stream/readable.js":30,"readable-stream/transform.js":31,"readable-stream/writable.js":32}],34:[function(require,module,exports){
+},{"events":11,"inherits":84,"readable-stream/duplex.js":19,"readable-stream/passthrough.js":28,"readable-stream/readable.js":29,"readable-stream/transform.js":30,"readable-stream/writable.js":31}],33:[function(require,module,exports){
 var ClientRequest = require('./lib/request')
 var extend = require('xtend')
 var statusCodes = require('builtin-status-codes')
@@ -5693,7 +5684,7 @@ http.METHODS = [
 	'UNLOCK',
 	'UNSUBSCRIBE'
 ]
-},{"./lib/request":36,"builtin-status-codes":38,"url":44,"xtend":47}],35:[function(require,module,exports){
+},{"./lib/request":35,"builtin-status-codes":37,"url":43,"xtend":46}],34:[function(require,module,exports){
 exports.fetch = isFunction(window.fetch) && isFunction(window.ReadableByteStream)
 
 exports.blobConstructor = false
@@ -5728,7 +5719,7 @@ function isFunction (value) {
 
 xhr = null // Help gc
 
-},{}],36:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 (function (process,Buffer){
 // var Base64 = require('Base64')
 var capability = require('./capability')
@@ -6010,7 +6001,7 @@ var unsafeHeaders = [
 ]
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./capability":35,"./response":37,"_process":15,"buffer":8,"foreach":39,"indexof":40,"inherits":81,"object-keys":41,"stream":33}],37:[function(require,module,exports){
+},{"./capability":34,"./response":36,"_process":14,"buffer":7,"foreach":38,"indexof":39,"inherits":84,"object-keys":40,"stream":32}],36:[function(require,module,exports){
 (function (process,Buffer){
 var capability = require('./capability')
 var foreach = require('foreach')
@@ -6187,7 +6178,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./capability":35,"_process":15,"buffer":8,"foreach":39,"inherits":81,"stream":33}],38:[function(require,module,exports){
+},{"./capability":34,"_process":14,"buffer":7,"foreach":38,"inherits":84,"stream":32}],37:[function(require,module,exports){
 module.exports = {
   "100": "Continue",
   "101": "Switching Protocols",
@@ -6248,7 +6239,7 @@ module.exports = {
   "511": "Network Authentication Required"
 }
 
-},{}],39:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 
 var hasOwn = Object.prototype.hasOwnProperty;
 var toString = Object.prototype.toString;
@@ -6272,7 +6263,7 @@ module.exports = function forEach (obj, fn, ctx) {
 };
 
 
-},{}],40:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 
 var indexOf = [].indexOf;
 
@@ -6283,7 +6274,7 @@ module.exports = function(arr, obj){
   }
   return -1;
 };
-},{}],41:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 'use strict';
 
 // modified from https://github.com/es-shims/es5-shim
@@ -6370,7 +6361,7 @@ keysShim.shim = function shimObjectKeys() {
 
 module.exports = keysShim;
 
-},{"./isArguments":42}],42:[function(require,module,exports){
+},{"./isArguments":41}],41:[function(require,module,exports){
 'use strict';
 
 var toStr = Object.prototype.toString;
@@ -6389,7 +6380,7 @@ module.exports = function isArguments(value) {
 	return isArgs;
 };
 
-},{}],43:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -6612,7 +6603,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":8}],44:[function(require,module,exports){
+},{"buffer":7}],43:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -7321,14 +7312,14 @@ function isNullOrUndefined(arg) {
   return  arg == null;
 }
 
-},{"punycode":16,"querystring":19}],45:[function(require,module,exports){
+},{"punycode":15,"querystring":18}],44:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],46:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -7918,7 +7909,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":45,"_process":15,"inherits":81}],47:[function(require,module,exports){
+},{"./support/isBuffer":44,"_process":14,"inherits":84}],46:[function(require,module,exports){
 module.exports = extend
 
 function extend() {
@@ -7937,7 +7928,1729 @@ function extend() {
     return target
 }
 
-},{}],48:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
+// Generated by CoffeeScript 1.6.3
+(function() {
+  var deep, puts, _,
+    __slice = [].slice;
+
+  _ = require('underscore');
+
+  puts = require('util').puts;
+
+  deep = {
+    isPlainObject: function(obj) {
+      if ((obj != null ? obj.constructor : void 0) == null) {
+        return false;
+      }
+      return obj.constructor.name === 'Object';
+    },
+    clone: function(obj) {
+      var clone, k, v, _i, _len;
+      if (_.isArray(obj)) {
+        clone = [];
+        for (_i = 0, _len = obj.length; _i < _len; _i++) {
+          v = obj[_i];
+          clone.push(deep.clone(v));
+        }
+        return clone;
+      } else if (deep.isPlainObject(obj)) {
+        clone = {};
+        for (k in obj) {
+          v = obj[k];
+          clone[k] = deep.clone(v);
+        }
+        return clone;
+      } else {
+        return obj;
+      }
+    },
+    equals: function(a, b) {
+      var i, k, size_a, _i, _ref;
+      if (a === b) {
+        return true;
+      } else if (_.isArray(a)) {
+        if (!(_.isArray(b) && a.length === b.length)) {
+          return false;
+        }
+        for (i = _i = 0, _ref = a.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
+          if (!deep.equals(a[i], b[i])) {
+            return false;
+          }
+        }
+        return true;
+      } else if (deep.isPlainObject(a)) {
+        size_a = _.size(a);
+        if (!(deep.isPlainObject(b) && size_a === _.size(b))) {
+          return false;
+        }
+        for (k in a) {
+          if (!deep.equals(a[k], b[k])) {
+            return false;
+          }
+        }
+        return true;
+      } else {
+        return false;
+      }
+    },
+    extend: function() {
+      var destination, k, source, sources, _i, _len;
+      destination = arguments[0], sources = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      for (_i = 0, _len = sources.length; _i < _len; _i++) {
+        source = sources[_i];
+        for (k in source) {
+          if (deep.isPlainObject(destination[k]) && deep.isPlainObject(source[k])) {
+            deep.extend(destination[k], source[k]);
+          } else {
+            destination[k] = deep.clone(source[k]);
+          }
+        }
+      }
+      return destination;
+    },
+    select: function(root, filter, path) {
+      var elementPath, k, selected, v;
+      if (path == null) {
+        path = [];
+      }
+      selected = [];
+      if (filter(root)) {
+        selected.push({
+          path: path,
+          value: root
+        });
+      } else if (_.isObject(root)) {
+        for (k in root) {
+          v = root[k];
+          elementPath = _.clone(path);
+          elementPath.push(k);
+          selected = selected.concat(deep.select(v, filter, elementPath));
+        }
+      }
+      return selected;
+    },
+    set: function(root, path, value) {
+      var lastPath, pathElement, _i, _len;
+      path = _.clone(path);
+      lastPath = path.pop();
+      for (_i = 0, _len = path.length; _i < _len; _i++) {
+        pathElement = path[_i];
+        root = root[pathElement];
+      }
+      return root[lastPath] = value;
+    },
+    transform: function(obj, filter, transform) {
+      var k, transformed, v, _i, _len;
+      if (filter(obj)) {
+        return transform(obj);
+      } else if (_.isArray(obj)) {
+        transformed = [];
+        for (_i = 0, _len = obj.length; _i < _len; _i++) {
+          v = obj[_i];
+          transformed.push(deep.transform(v, filter, transform));
+        }
+        return transformed;
+      } else if (deep.isPlainObject(obj)) {
+        transformed = {};
+        for (k in obj) {
+          v = obj[k];
+          transformed[k] = deep.transform(v, filter, transform);
+        }
+        return transformed;
+      } else {
+        return obj;
+      }
+    }
+  };
+
+  module.exports = deep;
+
+}).call(this);
+
+},{"underscore":48,"util":45}],48:[function(require,module,exports){
+//     Underscore.js 1.4.4
+//     http://underscorejs.org
+//     (c) 2009-2013 Jeremy Ashkenas, DocumentCloud Inc.
+//     Underscore may be freely distributed under the MIT license.
+
+(function() {
+
+  // Baseline setup
+  // --------------
+
+  // Establish the root object, `window` in the browser, or `global` on the server.
+  var root = this;
+
+  // Save the previous value of the `_` variable.
+  var previousUnderscore = root._;
+
+  // Establish the object that gets returned to break out of a loop iteration.
+  var breaker = {};
+
+  // Save bytes in the minified (but not gzipped) version:
+  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
+
+  // Create quick reference variables for speed access to core prototypes.
+  var push             = ArrayProto.push,
+      slice            = ArrayProto.slice,
+      concat           = ArrayProto.concat,
+      toString         = ObjProto.toString,
+      hasOwnProperty   = ObjProto.hasOwnProperty;
+
+  // All **ECMAScript 5** native function implementations that we hope to use
+  // are declared here.
+  var
+    nativeForEach      = ArrayProto.forEach,
+    nativeMap          = ArrayProto.map,
+    nativeReduce       = ArrayProto.reduce,
+    nativeReduceRight  = ArrayProto.reduceRight,
+    nativeFilter       = ArrayProto.filter,
+    nativeEvery        = ArrayProto.every,
+    nativeSome         = ArrayProto.some,
+    nativeIndexOf      = ArrayProto.indexOf,
+    nativeLastIndexOf  = ArrayProto.lastIndexOf,
+    nativeIsArray      = Array.isArray,
+    nativeKeys         = Object.keys,
+    nativeBind         = FuncProto.bind;
+
+  // Create a safe reference to the Underscore object for use below.
+  var _ = function(obj) {
+    if (obj instanceof _) return obj;
+    if (!(this instanceof _)) return new _(obj);
+    this._wrapped = obj;
+  };
+
+  // Export the Underscore object for **Node.js**, with
+  // backwards-compatibility for the old `require()` API. If we're in
+  // the browser, add `_` as a global object via a string identifier,
+  // for Closure Compiler "advanced" mode.
+  if (typeof exports !== 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) {
+      exports = module.exports = _;
+    }
+    exports._ = _;
+  } else {
+    root._ = _;
+  }
+
+  // Current version.
+  _.VERSION = '1.4.4';
+
+  // Collection Functions
+  // --------------------
+
+  // The cornerstone, an `each` implementation, aka `forEach`.
+  // Handles objects with the built-in `forEach`, arrays, and raw objects.
+  // Delegates to **ECMAScript 5**'s native `forEach` if available.
+  var each = _.each = _.forEach = function(obj, iterator, context) {
+    if (obj == null) return;
+    if (nativeForEach && obj.forEach === nativeForEach) {
+      obj.forEach(iterator, context);
+    } else if (obj.length === +obj.length) {
+      for (var i = 0, l = obj.length; i < l; i++) {
+        if (iterator.call(context, obj[i], i, obj) === breaker) return;
+      }
+    } else {
+      for (var key in obj) {
+        if (_.has(obj, key)) {
+          if (iterator.call(context, obj[key], key, obj) === breaker) return;
+        }
+      }
+    }
+  };
+
+  // Return the results of applying the iterator to each element.
+  // Delegates to **ECMAScript 5**'s native `map` if available.
+  _.map = _.collect = function(obj, iterator, context) {
+    var results = [];
+    if (obj == null) return results;
+    if (nativeMap && obj.map === nativeMap) return obj.map(iterator, context);
+    each(obj, function(value, index, list) {
+      results[results.length] = iterator.call(context, value, index, list);
+    });
+    return results;
+  };
+
+  var reduceError = 'Reduce of empty array with no initial value';
+
+  // **Reduce** builds up a single result from a list of values, aka `inject`,
+  // or `foldl`. Delegates to **ECMAScript 5**'s native `reduce` if available.
+  _.reduce = _.foldl = _.inject = function(obj, iterator, memo, context) {
+    var initial = arguments.length > 2;
+    if (obj == null) obj = [];
+    if (nativeReduce && obj.reduce === nativeReduce) {
+      if (context) iterator = _.bind(iterator, context);
+      return initial ? obj.reduce(iterator, memo) : obj.reduce(iterator);
+    }
+    each(obj, function(value, index, list) {
+      if (!initial) {
+        memo = value;
+        initial = true;
+      } else {
+        memo = iterator.call(context, memo, value, index, list);
+      }
+    });
+    if (!initial) throw new TypeError(reduceError);
+    return memo;
+  };
+
+  // The right-associative version of reduce, also known as `foldr`.
+  // Delegates to **ECMAScript 5**'s native `reduceRight` if available.
+  _.reduceRight = _.foldr = function(obj, iterator, memo, context) {
+    var initial = arguments.length > 2;
+    if (obj == null) obj = [];
+    if (nativeReduceRight && obj.reduceRight === nativeReduceRight) {
+      if (context) iterator = _.bind(iterator, context);
+      return initial ? obj.reduceRight(iterator, memo) : obj.reduceRight(iterator);
+    }
+    var length = obj.length;
+    if (length !== +length) {
+      var keys = _.keys(obj);
+      length = keys.length;
+    }
+    each(obj, function(value, index, list) {
+      index = keys ? keys[--length] : --length;
+      if (!initial) {
+        memo = obj[index];
+        initial = true;
+      } else {
+        memo = iterator.call(context, memo, obj[index], index, list);
+      }
+    });
+    if (!initial) throw new TypeError(reduceError);
+    return memo;
+  };
+
+  // Return the first value which passes a truth test. Aliased as `detect`.
+  _.find = _.detect = function(obj, iterator, context) {
+    var result;
+    any(obj, function(value, index, list) {
+      if (iterator.call(context, value, index, list)) {
+        result = value;
+        return true;
+      }
+    });
+    return result;
+  };
+
+  // Return all the elements that pass a truth test.
+  // Delegates to **ECMAScript 5**'s native `filter` if available.
+  // Aliased as `select`.
+  _.filter = _.select = function(obj, iterator, context) {
+    var results = [];
+    if (obj == null) return results;
+    if (nativeFilter && obj.filter === nativeFilter) return obj.filter(iterator, context);
+    each(obj, function(value, index, list) {
+      if (iterator.call(context, value, index, list)) results[results.length] = value;
+    });
+    return results;
+  };
+
+  // Return all the elements for which a truth test fails.
+  _.reject = function(obj, iterator, context) {
+    return _.filter(obj, function(value, index, list) {
+      return !iterator.call(context, value, index, list);
+    }, context);
+  };
+
+  // Determine whether all of the elements match a truth test.
+  // Delegates to **ECMAScript 5**'s native `every` if available.
+  // Aliased as `all`.
+  _.every = _.all = function(obj, iterator, context) {
+    iterator || (iterator = _.identity);
+    var result = true;
+    if (obj == null) return result;
+    if (nativeEvery && obj.every === nativeEvery) return obj.every(iterator, context);
+    each(obj, function(value, index, list) {
+      if (!(result = result && iterator.call(context, value, index, list))) return breaker;
+    });
+    return !!result;
+  };
+
+  // Determine if at least one element in the object matches a truth test.
+  // Delegates to **ECMAScript 5**'s native `some` if available.
+  // Aliased as `any`.
+  var any = _.some = _.any = function(obj, iterator, context) {
+    iterator || (iterator = _.identity);
+    var result = false;
+    if (obj == null) return result;
+    if (nativeSome && obj.some === nativeSome) return obj.some(iterator, context);
+    each(obj, function(value, index, list) {
+      if (result || (result = iterator.call(context, value, index, list))) return breaker;
+    });
+    return !!result;
+  };
+
+  // Determine if the array or object contains a given value (using `===`).
+  // Aliased as `include`.
+  _.contains = _.include = function(obj, target) {
+    if (obj == null) return false;
+    if (nativeIndexOf && obj.indexOf === nativeIndexOf) return obj.indexOf(target) != -1;
+    return any(obj, function(value) {
+      return value === target;
+    });
+  };
+
+  // Invoke a method (with arguments) on every item in a collection.
+  _.invoke = function(obj, method) {
+    var args = slice.call(arguments, 2);
+    var isFunc = _.isFunction(method);
+    return _.map(obj, function(value) {
+      return (isFunc ? method : value[method]).apply(value, args);
+    });
+  };
+
+  // Convenience version of a common use case of `map`: fetching a property.
+  _.pluck = function(obj, key) {
+    return _.map(obj, function(value){ return value[key]; });
+  };
+
+  // Convenience version of a common use case of `filter`: selecting only objects
+  // containing specific `key:value` pairs.
+  _.where = function(obj, attrs, first) {
+    if (_.isEmpty(attrs)) return first ? null : [];
+    return _[first ? 'find' : 'filter'](obj, function(value) {
+      for (var key in attrs) {
+        if (attrs[key] !== value[key]) return false;
+      }
+      return true;
+    });
+  };
+
+  // Convenience version of a common use case of `find`: getting the first object
+  // containing specific `key:value` pairs.
+  _.findWhere = function(obj, attrs) {
+    return _.where(obj, attrs, true);
+  };
+
+  // Return the maximum element or (element-based computation).
+  // Can't optimize arrays of integers longer than 65,535 elements.
+  // See: https://bugs.webkit.org/show_bug.cgi?id=80797
+  _.max = function(obj, iterator, context) {
+    if (!iterator && _.isArray(obj) && obj[0] === +obj[0] && obj.length < 65535) {
+      return Math.max.apply(Math, obj);
+    }
+    if (!iterator && _.isEmpty(obj)) return -Infinity;
+    var result = {computed : -Infinity, value: -Infinity};
+    each(obj, function(value, index, list) {
+      var computed = iterator ? iterator.call(context, value, index, list) : value;
+      computed >= result.computed && (result = {value : value, computed : computed});
+    });
+    return result.value;
+  };
+
+  // Return the minimum element (or element-based computation).
+  _.min = function(obj, iterator, context) {
+    if (!iterator && _.isArray(obj) && obj[0] === +obj[0] && obj.length < 65535) {
+      return Math.min.apply(Math, obj);
+    }
+    if (!iterator && _.isEmpty(obj)) return Infinity;
+    var result = {computed : Infinity, value: Infinity};
+    each(obj, function(value, index, list) {
+      var computed = iterator ? iterator.call(context, value, index, list) : value;
+      computed < result.computed && (result = {value : value, computed : computed});
+    });
+    return result.value;
+  };
+
+  // Shuffle an array.
+  _.shuffle = function(obj) {
+    var rand;
+    var index = 0;
+    var shuffled = [];
+    each(obj, function(value) {
+      rand = _.random(index++);
+      shuffled[index - 1] = shuffled[rand];
+      shuffled[rand] = value;
+    });
+    return shuffled;
+  };
+
+  // An internal function to generate lookup iterators.
+  var lookupIterator = function(value) {
+    return _.isFunction(value) ? value : function(obj){ return obj[value]; };
+  };
+
+  // Sort the object's values by a criterion produced by an iterator.
+  _.sortBy = function(obj, value, context) {
+    var iterator = lookupIterator(value);
+    return _.pluck(_.map(obj, function(value, index, list) {
+      return {
+        value : value,
+        index : index,
+        criteria : iterator.call(context, value, index, list)
+      };
+    }).sort(function(left, right) {
+      var a = left.criteria;
+      var b = right.criteria;
+      if (a !== b) {
+        if (a > b || a === void 0) return 1;
+        if (a < b || b === void 0) return -1;
+      }
+      return left.index < right.index ? -1 : 1;
+    }), 'value');
+  };
+
+  // An internal function used for aggregate "group by" operations.
+  var group = function(obj, value, context, behavior) {
+    var result = {};
+    var iterator = lookupIterator(value || _.identity);
+    each(obj, function(value, index) {
+      var key = iterator.call(context, value, index, obj);
+      behavior(result, key, value);
+    });
+    return result;
+  };
+
+  // Groups the object's values by a criterion. Pass either a string attribute
+  // to group by, or a function that returns the criterion.
+  _.groupBy = function(obj, value, context) {
+    return group(obj, value, context, function(result, key, value) {
+      (_.has(result, key) ? result[key] : (result[key] = [])).push(value);
+    });
+  };
+
+  // Counts instances of an object that group by a certain criterion. Pass
+  // either a string attribute to count by, or a function that returns the
+  // criterion.
+  _.countBy = function(obj, value, context) {
+    return group(obj, value, context, function(result, key) {
+      if (!_.has(result, key)) result[key] = 0;
+      result[key]++;
+    });
+  };
+
+  // Use a comparator function to figure out the smallest index at which
+  // an object should be inserted so as to maintain order. Uses binary search.
+  _.sortedIndex = function(array, obj, iterator, context) {
+    iterator = iterator == null ? _.identity : lookupIterator(iterator);
+    var value = iterator.call(context, obj);
+    var low = 0, high = array.length;
+    while (low < high) {
+      var mid = (low + high) >>> 1;
+      iterator.call(context, array[mid]) < value ? low = mid + 1 : high = mid;
+    }
+    return low;
+  };
+
+  // Safely convert anything iterable into a real, live array.
+  _.toArray = function(obj) {
+    if (!obj) return [];
+    if (_.isArray(obj)) return slice.call(obj);
+    if (obj.length === +obj.length) return _.map(obj, _.identity);
+    return _.values(obj);
+  };
+
+  // Return the number of elements in an object.
+  _.size = function(obj) {
+    if (obj == null) return 0;
+    return (obj.length === +obj.length) ? obj.length : _.keys(obj).length;
+  };
+
+  // Array Functions
+  // ---------------
+
+  // Get the first element of an array. Passing **n** will return the first N
+  // values in the array. Aliased as `head` and `take`. The **guard** check
+  // allows it to work with `_.map`.
+  _.first = _.head = _.take = function(array, n, guard) {
+    if (array == null) return void 0;
+    return (n != null) && !guard ? slice.call(array, 0, n) : array[0];
+  };
+
+  // Returns everything but the last entry of the array. Especially useful on
+  // the arguments object. Passing **n** will return all the values in
+  // the array, excluding the last N. The **guard** check allows it to work with
+  // `_.map`.
+  _.initial = function(array, n, guard) {
+    return slice.call(array, 0, array.length - ((n == null) || guard ? 1 : n));
+  };
+
+  // Get the last element of an array. Passing **n** will return the last N
+  // values in the array. The **guard** check allows it to work with `_.map`.
+  _.last = function(array, n, guard) {
+    if (array == null) return void 0;
+    if ((n != null) && !guard) {
+      return slice.call(array, Math.max(array.length - n, 0));
+    } else {
+      return array[array.length - 1];
+    }
+  };
+
+  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
+  // Especially useful on the arguments object. Passing an **n** will return
+  // the rest N values in the array. The **guard**
+  // check allows it to work with `_.map`.
+  _.rest = _.tail = _.drop = function(array, n, guard) {
+    return slice.call(array, (n == null) || guard ? 1 : n);
+  };
+
+  // Trim out all falsy values from an array.
+  _.compact = function(array) {
+    return _.filter(array, _.identity);
+  };
+
+  // Internal implementation of a recursive `flatten` function.
+  var flatten = function(input, shallow, output) {
+    each(input, function(value) {
+      if (_.isArray(value)) {
+        shallow ? push.apply(output, value) : flatten(value, shallow, output);
+      } else {
+        output.push(value);
+      }
+    });
+    return output;
+  };
+
+  // Return a completely flattened version of an array.
+  _.flatten = function(array, shallow) {
+    return flatten(array, shallow, []);
+  };
+
+  // Return a version of the array that does not contain the specified value(s).
+  _.without = function(array) {
+    return _.difference(array, slice.call(arguments, 1));
+  };
+
+  // Produce a duplicate-free version of the array. If the array has already
+  // been sorted, you have the option of using a faster algorithm.
+  // Aliased as `unique`.
+  _.uniq = _.unique = function(array, isSorted, iterator, context) {
+    if (_.isFunction(isSorted)) {
+      context = iterator;
+      iterator = isSorted;
+      isSorted = false;
+    }
+    var initial = iterator ? _.map(array, iterator, context) : array;
+    var results = [];
+    var seen = [];
+    each(initial, function(value, index) {
+      if (isSorted ? (!index || seen[seen.length - 1] !== value) : !_.contains(seen, value)) {
+        seen.push(value);
+        results.push(array[index]);
+      }
+    });
+    return results;
+  };
+
+  // Produce an array that contains the union: each distinct element from all of
+  // the passed-in arrays.
+  _.union = function() {
+    return _.uniq(concat.apply(ArrayProto, arguments));
+  };
+
+  // Produce an array that contains every item shared between all the
+  // passed-in arrays.
+  _.intersection = function(array) {
+    var rest = slice.call(arguments, 1);
+    return _.filter(_.uniq(array), function(item) {
+      return _.every(rest, function(other) {
+        return _.indexOf(other, item) >= 0;
+      });
+    });
+  };
+
+  // Take the difference between one array and a number of other arrays.
+  // Only the elements present in just the first array will remain.
+  _.difference = function(array) {
+    var rest = concat.apply(ArrayProto, slice.call(arguments, 1));
+    return _.filter(array, function(value){ return !_.contains(rest, value); });
+  };
+
+  // Zip together multiple lists into a single array -- elements that share
+  // an index go together.
+  _.zip = function() {
+    var args = slice.call(arguments);
+    var length = _.max(_.pluck(args, 'length'));
+    var results = new Array(length);
+    for (var i = 0; i < length; i++) {
+      results[i] = _.pluck(args, "" + i);
+    }
+    return results;
+  };
+
+  // Converts lists into objects. Pass either a single array of `[key, value]`
+  // pairs, or two parallel arrays of the same length -- one of keys, and one of
+  // the corresponding values.
+  _.object = function(list, values) {
+    if (list == null) return {};
+    var result = {};
+    for (var i = 0, l = list.length; i < l; i++) {
+      if (values) {
+        result[list[i]] = values[i];
+      } else {
+        result[list[i][0]] = list[i][1];
+      }
+    }
+    return result;
+  };
+
+  // If the browser doesn't supply us with indexOf (I'm looking at you, **MSIE**),
+  // we need this function. Return the position of the first occurrence of an
+  // item in an array, or -1 if the item is not included in the array.
+  // Delegates to **ECMAScript 5**'s native `indexOf` if available.
+  // If the array is large and already in sort order, pass `true`
+  // for **isSorted** to use binary search.
+  _.indexOf = function(array, item, isSorted) {
+    if (array == null) return -1;
+    var i = 0, l = array.length;
+    if (isSorted) {
+      if (typeof isSorted == 'number') {
+        i = (isSorted < 0 ? Math.max(0, l + isSorted) : isSorted);
+      } else {
+        i = _.sortedIndex(array, item);
+        return array[i] === item ? i : -1;
+      }
+    }
+    if (nativeIndexOf && array.indexOf === nativeIndexOf) return array.indexOf(item, isSorted);
+    for (; i < l; i++) if (array[i] === item) return i;
+    return -1;
+  };
+
+  // Delegates to **ECMAScript 5**'s native `lastIndexOf` if available.
+  _.lastIndexOf = function(array, item, from) {
+    if (array == null) return -1;
+    var hasIndex = from != null;
+    if (nativeLastIndexOf && array.lastIndexOf === nativeLastIndexOf) {
+      return hasIndex ? array.lastIndexOf(item, from) : array.lastIndexOf(item);
+    }
+    var i = (hasIndex ? from : array.length);
+    while (i--) if (array[i] === item) return i;
+    return -1;
+  };
+
+  // Generate an integer Array containing an arithmetic progression. A port of
+  // the native Python `range()` function. See
+  // [the Python documentation](http://docs.python.org/library/functions.html#range).
+  _.range = function(start, stop, step) {
+    if (arguments.length <= 1) {
+      stop = start || 0;
+      start = 0;
+    }
+    step = arguments[2] || 1;
+
+    var len = Math.max(Math.ceil((stop - start) / step), 0);
+    var idx = 0;
+    var range = new Array(len);
+
+    while(idx < len) {
+      range[idx++] = start;
+      start += step;
+    }
+
+    return range;
+  };
+
+  // Function (ahem) Functions
+  // ------------------
+
+  // Create a function bound to a given object (assigning `this`, and arguments,
+  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
+  // available.
+  _.bind = function(func, context) {
+    if (func.bind === nativeBind && nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
+    var args = slice.call(arguments, 2);
+    return function() {
+      return func.apply(context, args.concat(slice.call(arguments)));
+    };
+  };
+
+  // Partially apply a function by creating a version that has had some of its
+  // arguments pre-filled, without changing its dynamic `this` context.
+  _.partial = function(func) {
+    var args = slice.call(arguments, 1);
+    return function() {
+      return func.apply(this, args.concat(slice.call(arguments)));
+    };
+  };
+
+  // Bind all of an object's methods to that object. Useful for ensuring that
+  // all callbacks defined on an object belong to it.
+  _.bindAll = function(obj) {
+    var funcs = slice.call(arguments, 1);
+    if (funcs.length === 0) funcs = _.functions(obj);
+    each(funcs, function(f) { obj[f] = _.bind(obj[f], obj); });
+    return obj;
+  };
+
+  // Memoize an expensive function by storing its results.
+  _.memoize = function(func, hasher) {
+    var memo = {};
+    hasher || (hasher = _.identity);
+    return function() {
+      var key = hasher.apply(this, arguments);
+      return _.has(memo, key) ? memo[key] : (memo[key] = func.apply(this, arguments));
+    };
+  };
+
+  // Delays a function for the given number of milliseconds, and then calls
+  // it with the arguments supplied.
+  _.delay = function(func, wait) {
+    var args = slice.call(arguments, 2);
+    return setTimeout(function(){ return func.apply(null, args); }, wait);
+  };
+
+  // Defers a function, scheduling it to run after the current call stack has
+  // cleared.
+  _.defer = function(func) {
+    return _.delay.apply(_, [func, 1].concat(slice.call(arguments, 1)));
+  };
+
+  // Returns a function, that, when invoked, will only be triggered at most once
+  // during a given window of time.
+  _.throttle = function(func, wait) {
+    var context, args, timeout, result;
+    var previous = 0;
+    var later = function() {
+      previous = new Date;
+      timeout = null;
+      result = func.apply(context, args);
+    };
+    return function() {
+      var now = new Date;
+      var remaining = wait - (now - previous);
+      context = this;
+      args = arguments;
+      if (remaining <= 0) {
+        clearTimeout(timeout);
+        timeout = null;
+        previous = now;
+        result = func.apply(context, args);
+      } else if (!timeout) {
+        timeout = setTimeout(later, remaining);
+      }
+      return result;
+    };
+  };
+
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds. If `immediate` is passed, trigger the function on the
+  // leading edge, instead of the trailing.
+  _.debounce = function(func, wait, immediate) {
+    var timeout, result;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) result = func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) result = func.apply(context, args);
+      return result;
+    };
+  };
+
+  // Returns a function that will be executed at most one time, no matter how
+  // often you call it. Useful for lazy initialization.
+  _.once = function(func) {
+    var ran = false, memo;
+    return function() {
+      if (ran) return memo;
+      ran = true;
+      memo = func.apply(this, arguments);
+      func = null;
+      return memo;
+    };
+  };
+
+  // Returns the first function passed as an argument to the second,
+  // allowing you to adjust arguments, run code before and after, and
+  // conditionally execute the original function.
+  _.wrap = function(func, wrapper) {
+    return function() {
+      var args = [func];
+      push.apply(args, arguments);
+      return wrapper.apply(this, args);
+    };
+  };
+
+  // Returns a function that is the composition of a list of functions, each
+  // consuming the return value of the function that follows.
+  _.compose = function() {
+    var funcs = arguments;
+    return function() {
+      var args = arguments;
+      for (var i = funcs.length - 1; i >= 0; i--) {
+        args = [funcs[i].apply(this, args)];
+      }
+      return args[0];
+    };
+  };
+
+  // Returns a function that will only be executed after being called N times.
+  _.after = function(times, func) {
+    if (times <= 0) return func();
+    return function() {
+      if (--times < 1) {
+        return func.apply(this, arguments);
+      }
+    };
+  };
+
+  // Object Functions
+  // ----------------
+
+  // Retrieve the names of an object's properties.
+  // Delegates to **ECMAScript 5**'s native `Object.keys`
+  _.keys = nativeKeys || function(obj) {
+    if (obj !== Object(obj)) throw new TypeError('Invalid object');
+    var keys = [];
+    for (var key in obj) if (_.has(obj, key)) keys[keys.length] = key;
+    return keys;
+  };
+
+  // Retrieve the values of an object's properties.
+  _.values = function(obj) {
+    var values = [];
+    for (var key in obj) if (_.has(obj, key)) values.push(obj[key]);
+    return values;
+  };
+
+  // Convert an object into a list of `[key, value]` pairs.
+  _.pairs = function(obj) {
+    var pairs = [];
+    for (var key in obj) if (_.has(obj, key)) pairs.push([key, obj[key]]);
+    return pairs;
+  };
+
+  // Invert the keys and values of an object. The values must be serializable.
+  _.invert = function(obj) {
+    var result = {};
+    for (var key in obj) if (_.has(obj, key)) result[obj[key]] = key;
+    return result;
+  };
+
+  // Return a sorted list of the function names available on the object.
+  // Aliased as `methods`
+  _.functions = _.methods = function(obj) {
+    var names = [];
+    for (var key in obj) {
+      if (_.isFunction(obj[key])) names.push(key);
+    }
+    return names.sort();
+  };
+
+  // Extend a given object with all the properties in passed-in object(s).
+  _.extend = function(obj) {
+    each(slice.call(arguments, 1), function(source) {
+      if (source) {
+        for (var prop in source) {
+          obj[prop] = source[prop];
+        }
+      }
+    });
+    return obj;
+  };
+
+  // Return a copy of the object only containing the whitelisted properties.
+  _.pick = function(obj) {
+    var copy = {};
+    var keys = concat.apply(ArrayProto, slice.call(arguments, 1));
+    each(keys, function(key) {
+      if (key in obj) copy[key] = obj[key];
+    });
+    return copy;
+  };
+
+   // Return a copy of the object without the blacklisted properties.
+  _.omit = function(obj) {
+    var copy = {};
+    var keys = concat.apply(ArrayProto, slice.call(arguments, 1));
+    for (var key in obj) {
+      if (!_.contains(keys, key)) copy[key] = obj[key];
+    }
+    return copy;
+  };
+
+  // Fill in a given object with default properties.
+  _.defaults = function(obj) {
+    each(slice.call(arguments, 1), function(source) {
+      if (source) {
+        for (var prop in source) {
+          if (obj[prop] == null) obj[prop] = source[prop];
+        }
+      }
+    });
+    return obj;
+  };
+
+  // Create a (shallow-cloned) duplicate of an object.
+  _.clone = function(obj) {
+    if (!_.isObject(obj)) return obj;
+    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
+  };
+
+  // Invokes interceptor with the obj, and then returns obj.
+  // The primary purpose of this method is to "tap into" a method chain, in
+  // order to perform operations on intermediate results within the chain.
+  _.tap = function(obj, interceptor) {
+    interceptor(obj);
+    return obj;
+  };
+
+  // Internal recursive comparison function for `isEqual`.
+  var eq = function(a, b, aStack, bStack) {
+    // Identical objects are equal. `0 === -0`, but they aren't identical.
+    // See the Harmony `egal` proposal: http://wiki.ecmascript.org/doku.php?id=harmony:egal.
+    if (a === b) return a !== 0 || 1 / a == 1 / b;
+    // A strict comparison is necessary because `null == undefined`.
+    if (a == null || b == null) return a === b;
+    // Unwrap any wrapped objects.
+    if (a instanceof _) a = a._wrapped;
+    if (b instanceof _) b = b._wrapped;
+    // Compare `[[Class]]` names.
+    var className = toString.call(a);
+    if (className != toString.call(b)) return false;
+    switch (className) {
+      // Strings, numbers, dates, and booleans are compared by value.
+      case '[object String]':
+        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
+        // equivalent to `new String("5")`.
+        return a == String(b);
+      case '[object Number]':
+        // `NaN`s are equivalent, but non-reflexive. An `egal` comparison is performed for
+        // other numeric values.
+        return a != +a ? b != +b : (a == 0 ? 1 / a == 1 / b : a == +b);
+      case '[object Date]':
+      case '[object Boolean]':
+        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+        // millisecond representations. Note that invalid dates with millisecond representations
+        // of `NaN` are not equivalent.
+        return +a == +b;
+      // RegExps are compared by their source patterns and flags.
+      case '[object RegExp]':
+        return a.source == b.source &&
+               a.global == b.global &&
+               a.multiline == b.multiline &&
+               a.ignoreCase == b.ignoreCase;
+    }
+    if (typeof a != 'object' || typeof b != 'object') return false;
+    // Assume equality for cyclic structures. The algorithm for detecting cyclic
+    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+    var length = aStack.length;
+    while (length--) {
+      // Linear search. Performance is inversely proportional to the number of
+      // unique nested structures.
+      if (aStack[length] == a) return bStack[length] == b;
+    }
+    // Add the first object to the stack of traversed objects.
+    aStack.push(a);
+    bStack.push(b);
+    var size = 0, result = true;
+    // Recursively compare objects and arrays.
+    if (className == '[object Array]') {
+      // Compare array lengths to determine if a deep comparison is necessary.
+      size = a.length;
+      result = size == b.length;
+      if (result) {
+        // Deep compare the contents, ignoring non-numeric properties.
+        while (size--) {
+          if (!(result = eq(a[size], b[size], aStack, bStack))) break;
+        }
+      }
+    } else {
+      // Objects with different constructors are not equivalent, but `Object`s
+      // from different frames are.
+      var aCtor = a.constructor, bCtor = b.constructor;
+      if (aCtor !== bCtor && !(_.isFunction(aCtor) && (aCtor instanceof aCtor) &&
+                               _.isFunction(bCtor) && (bCtor instanceof bCtor))) {
+        return false;
+      }
+      // Deep compare objects.
+      for (var key in a) {
+        if (_.has(a, key)) {
+          // Count the expected number of properties.
+          size++;
+          // Deep compare each member.
+          if (!(result = _.has(b, key) && eq(a[key], b[key], aStack, bStack))) break;
+        }
+      }
+      // Ensure that both objects contain the same number of properties.
+      if (result) {
+        for (key in b) {
+          if (_.has(b, key) && !(size--)) break;
+        }
+        result = !size;
+      }
+    }
+    // Remove the first object from the stack of traversed objects.
+    aStack.pop();
+    bStack.pop();
+    return result;
+  };
+
+  // Perform a deep comparison to check if two objects are equal.
+  _.isEqual = function(a, b) {
+    return eq(a, b, [], []);
+  };
+
+  // Is a given array, string, or object empty?
+  // An "empty" object has no enumerable own-properties.
+  _.isEmpty = function(obj) {
+    if (obj == null) return true;
+    if (_.isArray(obj) || _.isString(obj)) return obj.length === 0;
+    for (var key in obj) if (_.has(obj, key)) return false;
+    return true;
+  };
+
+  // Is a given value a DOM element?
+  _.isElement = function(obj) {
+    return !!(obj && obj.nodeType === 1);
+  };
+
+  // Is a given value an array?
+  // Delegates to ECMA5's native Array.isArray
+  _.isArray = nativeIsArray || function(obj) {
+    return toString.call(obj) == '[object Array]';
+  };
+
+  // Is a given variable an object?
+  _.isObject = function(obj) {
+    return obj === Object(obj);
+  };
+
+  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp.
+  each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp'], function(name) {
+    _['is' + name] = function(obj) {
+      return toString.call(obj) == '[object ' + name + ']';
+    };
+  });
+
+  // Define a fallback version of the method in browsers (ahem, IE), where
+  // there isn't any inspectable "Arguments" type.
+  if (!_.isArguments(arguments)) {
+    _.isArguments = function(obj) {
+      return !!(obj && _.has(obj, 'callee'));
+    };
+  }
+
+  // Optimize `isFunction` if appropriate.
+  if (typeof (/./) !== 'function') {
+    _.isFunction = function(obj) {
+      return typeof obj === 'function';
+    };
+  }
+
+  // Is a given object a finite number?
+  _.isFinite = function(obj) {
+    return isFinite(obj) && !isNaN(parseFloat(obj));
+  };
+
+  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
+  _.isNaN = function(obj) {
+    return _.isNumber(obj) && obj != +obj;
+  };
+
+  // Is a given value a boolean?
+  _.isBoolean = function(obj) {
+    return obj === true || obj === false || toString.call(obj) == '[object Boolean]';
+  };
+
+  // Is a given value equal to null?
+  _.isNull = function(obj) {
+    return obj === null;
+  };
+
+  // Is a given variable undefined?
+  _.isUndefined = function(obj) {
+    return obj === void 0;
+  };
+
+  // Shortcut function for checking if an object has a given property directly
+  // on itself (in other words, not on a prototype).
+  _.has = function(obj, key) {
+    return hasOwnProperty.call(obj, key);
+  };
+
+  // Utility Functions
+  // -----------------
+
+  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
+  // previous owner. Returns a reference to the Underscore object.
+  _.noConflict = function() {
+    root._ = previousUnderscore;
+    return this;
+  };
+
+  // Keep the identity function around for default iterators.
+  _.identity = function(value) {
+    return value;
+  };
+
+  // Run a function **n** times.
+  _.times = function(n, iterator, context) {
+    var accum = Array(n);
+    for (var i = 0; i < n; i++) accum[i] = iterator.call(context, i);
+    return accum;
+  };
+
+  // Return a random integer between min and max (inclusive).
+  _.random = function(min, max) {
+    if (max == null) {
+      max = min;
+      min = 0;
+    }
+    return min + Math.floor(Math.random() * (max - min + 1));
+  };
+
+  // List of HTML entities for escaping.
+  var entityMap = {
+    escape: {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#x27;',
+      '/': '&#x2F;'
+    }
+  };
+  entityMap.unescape = _.invert(entityMap.escape);
+
+  // Regexes containing the keys and values listed immediately above.
+  var entityRegexes = {
+    escape:   new RegExp('[' + _.keys(entityMap.escape).join('') + ']', 'g'),
+    unescape: new RegExp('(' + _.keys(entityMap.unescape).join('|') + ')', 'g')
+  };
+
+  // Functions for escaping and unescaping strings to/from HTML interpolation.
+  _.each(['escape', 'unescape'], function(method) {
+    _[method] = function(string) {
+      if (string == null) return '';
+      return ('' + string).replace(entityRegexes[method], function(match) {
+        return entityMap[method][match];
+      });
+    };
+  });
+
+  // If the value of the named property is a function then invoke it;
+  // otherwise, return it.
+  _.result = function(object, property) {
+    if (object == null) return null;
+    var value = object[property];
+    return _.isFunction(value) ? value.call(object) : value;
+  };
+
+  // Add your own custom functions to the Underscore object.
+  _.mixin = function(obj) {
+    each(_.functions(obj), function(name){
+      var func = _[name] = obj[name];
+      _.prototype[name] = function() {
+        var args = [this._wrapped];
+        push.apply(args, arguments);
+        return result.call(this, func.apply(_, args));
+      };
+    });
+  };
+
+  // Generate a unique integer id (unique within the entire client session).
+  // Useful for temporary DOM ids.
+  var idCounter = 0;
+  _.uniqueId = function(prefix) {
+    var id = ++idCounter + '';
+    return prefix ? prefix + id : id;
+  };
+
+  // By default, Underscore uses ERB-style template delimiters, change the
+  // following template settings to use alternative delimiters.
+  _.templateSettings = {
+    evaluate    : /<%([\s\S]+?)%>/g,
+    interpolate : /<%=([\s\S]+?)%>/g,
+    escape      : /<%-([\s\S]+?)%>/g
+  };
+
+  // When customizing `templateSettings`, if you don't want to define an
+  // interpolation, evaluation or escaping regex, we need one that is
+  // guaranteed not to match.
+  var noMatch = /(.)^/;
+
+  // Certain characters need to be escaped so that they can be put into a
+  // string literal.
+  var escapes = {
+    "'":      "'",
+    '\\':     '\\',
+    '\r':     'r',
+    '\n':     'n',
+    '\t':     't',
+    '\u2028': 'u2028',
+    '\u2029': 'u2029'
+  };
+
+  var escaper = /\\|'|\r|\n|\t|\u2028|\u2029/g;
+
+  // JavaScript micro-templating, similar to John Resig's implementation.
+  // Underscore templating handles arbitrary delimiters, preserves whitespace,
+  // and correctly escapes quotes within interpolated code.
+  _.template = function(text, data, settings) {
+    var render;
+    settings = _.defaults({}, settings, _.templateSettings);
+
+    // Combine delimiters into one regular expression via alternation.
+    var matcher = new RegExp([
+      (settings.escape || noMatch).source,
+      (settings.interpolate || noMatch).source,
+      (settings.evaluate || noMatch).source
+    ].join('|') + '|$', 'g');
+
+    // Compile the template source, escaping string literals appropriately.
+    var index = 0;
+    var source = "__p+='";
+    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
+      source += text.slice(index, offset)
+        .replace(escaper, function(match) { return '\\' + escapes[match]; });
+
+      if (escape) {
+        source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
+      }
+      if (interpolate) {
+        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
+      }
+      if (evaluate) {
+        source += "';\n" + evaluate + "\n__p+='";
+      }
+      index = offset + match.length;
+      return match;
+    });
+    source += "';\n";
+
+    // If a variable is not specified, place data values in local scope.
+    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
+
+    source = "var __t,__p='',__j=Array.prototype.join," +
+      "print=function(){__p+=__j.call(arguments,'');};\n" +
+      source + "return __p;\n";
+
+    try {
+      render = new Function(settings.variable || 'obj', '_', source);
+    } catch (e) {
+      e.source = source;
+      throw e;
+    }
+
+    if (data) return render(data, _);
+    var template = function(data) {
+      return render.call(this, data, _);
+    };
+
+    // Provide the compiled function source as a convenience for precompilation.
+    template.source = 'function(' + (settings.variable || 'obj') + '){\n' + source + '}';
+
+    return template;
+  };
+
+  // Add a "chain" function, which will delegate to the wrapper.
+  _.chain = function(obj) {
+    return _(obj).chain();
+  };
+
+  // OOP
+  // ---------------
+  // If Underscore is called as a function, it returns a wrapped object that
+  // can be used OO-style. This wrapper holds altered versions of all the
+  // underscore functions. Wrapped objects may be chained.
+
+  // Helper function to continue chaining intermediate results.
+  var result = function(obj) {
+    return this._chain ? _(obj).chain() : obj;
+  };
+
+  // Add all of the Underscore functions to the wrapper object.
+  _.mixin(_);
+
+  // Add all mutator Array functions to the wrapper.
+  each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+    var method = ArrayProto[name];
+    _.prototype[name] = function() {
+      var obj = this._wrapped;
+      method.apply(obj, arguments);
+      if ((name == 'shift' || name == 'splice') && obj.length === 0) delete obj[0];
+      return result.call(this, obj);
+    };
+  });
+
+  // Add all accessor Array functions to the wrapper.
+  each(['concat', 'join', 'slice'], function(name) {
+    var method = ArrayProto[name];
+    _.prototype[name] = function() {
+      return result.call(this, method.apply(this._wrapped, arguments));
+    };
+  });
+
+  _.extend(_.prototype, {
+
+    // Start chaining a wrapped Underscore object.
+    chain: function() {
+      this._chain = true;
+      return this;
+    },
+
+    // Extracts the result from a wrapped and chained object.
+    value: function() {
+      return this._wrapped;
+    }
+
+  });
+
+}).call(this);
+
+},{}],49:[function(require,module,exports){
+'use strict';
+
+var hasOwn = Object.prototype.hasOwnProperty;
+var toStr = Object.prototype.toString;
+
+var isArray = function isArray(arr) {
+	if (typeof Array.isArray === 'function') {
+		return Array.isArray(arr);
+	}
+
+	return toStr.call(arr) === '[object Array]';
+};
+
+var isPlainObject = function isPlainObject(obj) {
+	if (!obj || toStr.call(obj) !== '[object Object]') {
+		return false;
+	}
+
+	var hasOwnConstructor = hasOwn.call(obj, 'constructor');
+	var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+	// Not own constructor property must be Object
+	if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
+		return false;
+	}
+
+	// Own properties are enumerated firstly, so to speed up,
+	// if last one is own, then all properties are own.
+	var key;
+	for (key in obj) {/**/}
+
+	return typeof key === 'undefined' || hasOwn.call(obj, key);
+};
+
+module.exports = function extend() {
+	var options, name, src, copy, copyIsArray, clone,
+		target = arguments[0],
+		i = 1,
+		length = arguments.length,
+		deep = false;
+
+	// Handle a deep copy situation
+	if (typeof target === 'boolean') {
+		deep = target;
+		target = arguments[1] || {};
+		// skip the boolean and the target
+		i = 2;
+	} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
+		target = {};
+	}
+
+	for (; i < length; ++i) {
+		options = arguments[i];
+		// Only deal with non-null/undefined values
+		if (options != null) {
+			// Extend the base object
+			for (name in options) {
+				src = target[name];
+				copy = options[name];
+
+				// Prevent never-ending loop
+				if (target !== copy) {
+					// Recurse if we're merging plain objects or arrays
+					if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
+						if (copyIsArray) {
+							copyIsArray = false;
+							clone = src && isArray(src) ? src : [];
+						} else {
+							clone = src && isPlainObject(src) ? src : {};
+						}
+
+						// Never move original objects, clone them
+						target[name] = extend(deep, clone, copy);
+
+					// Don't bring in undefined values
+					} else if (typeof copy !== 'undefined') {
+						target[name] = copy;
+					}
+				}
+			}
+		}
+	}
+
+	// Return the modified object
+	return target;
+};
+
+
+},{}],50:[function(require,module,exports){
+
+var insertCss = require('insert-css');
+var inherits = require('inherits');
+var EventEmitter = require('events').EventEmitter;
+var d3 = require('d3');
+var transform = require('./lib/transform.js');
+
+inherits(Bundle, EventEmitter);
+module.exports = Bundle;
+
+function Bundle(settings) {
+    var me = this;
+    if (!(this instanceof Bundle)) return new Bundle(settings);
+    this.settings = settings;
+
+    if (me.settings.searchContext) {
+        me.searchContext = me.settings.searchContext;
+        delete me.settings.searchContext;
+    }
+
+    if (me.searchContext) {
+        me.searchContext.on('globisearch:resultsetchanged', function(json) {
+            me.settings.json = json;
+            me.draw();
+        });
+    }
+}
+
+Bundle.prototype.appendTo = function (target) {
+    if (typeof target === 'string') target = document.querySelector(target);
+    this.settings.target = target;
+    var css = ".bundle-node {\n    font: 10px \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    fill: #333;\n}\n\n.bundle-node:hover {\n    fill: #000;\n}\n\n.bundl-link {\n    stroke: lightgreen;\n    stroke-opacity: .4;\n    fill: none;\n    pointer-events: none;\n}\n\n.bundle-node:hover,\n.node--source,\n.node--target {\n    font-weight: 400;\n}\n\n.node--source {\n    fill: #2ca02c;\n}\n\n.node--target {\n    fill: #d62728;\n}\n\n.link--source,\n.link--target {\n    stroke-opacity: 1;\n    stroke-width: 2px;\n}\n\n.link--source {\n    stroke: #d62728;\n}\n\n.link--target {\n    stroke: #2ca02c;\n}\n";
+    insertCss(css);
+    if (this.settings.json && this.settings.json.length > 0) {
+        this.draw();
+    }
+    this.emit('append', this.settings.target);
+};
+
+Bundle.prototype.draw = function() {
+    this.settings.target.innerHTML ='';
+    this._buildBundles()
+};
+
+Bundle.prototype._buildBundles = function() {
+    var me = this;
+    var target = this.settings.target,
+        json = this.settings.json,
+        canvasDimension = this.settings.canvasDimension;
+    if (json.length === 0) return;
+    var diameter = canvasDimension.height * 2,
+        radius = diameter / 2,
+        innerRadius = radius - 120;
+
+    var cluster = d3.layout.cluster()
+        .size([360, innerRadius])
+        .sort(function (a, b) {
+            return d3.ascending(a.key, b.key);
+        })
+        .value(function (d) {
+            return d.size;
+        });
+
+    var bundle = d3.layout.bundle();
+
+    var line = d3.svg.line.radial()
+        .interpolate("bundle")
+        .tension(0.85)
+        .radius(function (d) {
+            return d.y;
+        })
+        .angle(function (d) {
+            return d.x / 180 * Math.PI;
+        });
+
+    var svg = d3.select(target).append("svg")
+        .attr('width', canvasDimension.width * 2)
+        .attr('height', canvasDimension.height * 2)
+        .attr('viewBox', '0 0 ' + canvasDimension.width * 2 + ' ' + canvasDimension.height * 2)
+        .attr('zoomAndPan', 'magnify')
+        .append("g")
+        .attr("transform", "translate(" + ( canvasDimension.width / 2 + 100 ) + "," + radius + ")");
+
+    var link = svg.append("g").selectAll(".bundl-link"),
+        node = svg.append("g").selectAll(".bundl-node");
+
+
+    var classes = transform.parseToStructure(json);
+
+    var nodes = cluster.nodes(transform.taxonHierarchy(classes));
+    var links = transform.taxonPreys(nodes);
+    link = link
+        .data(bundle(links))
+        .enter().append("path")
+        .each(function (d) {
+            d.source = d[0], d.target = d[d.length - 1];
+        })
+        .attr("class", "bundl-link")
+        .attr("d", line);
+
+    node = node
+        .data(nodes.filter(function (n) {
+            return !n.children;
+        }))
+        .enter().append("text")
+        .attr("class", "bundle-node")
+        .attr("dx", function (d) {
+            return d.x < 180 ? 8 : -8;
+        })
+        .attr("dy", ".31em")
+        .attr("transform", function (d) {
+            return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")" + (d.x < 180 ? "" : "rotate(180)");
+        })
+        .style("text-anchor", function (d) {
+            return d.x < 180 ? "start" : "end";
+        })
+        .style("cursor", "pointer")
+        .text(function (d) {
+            return d.key.length > 20 ? d.key.substring(0, 19) + '...' : d.key;
+        })
+        .on('click', mouseclicked)
+        .on("mouseover", mouseovered)
+        .on("mouseout", mouseouted)
+        .append("title").text(function (d) {
+            return d.eolId + ' ' + d.path
+        })
+    ;
+
+    function mouseovered(d) {
+        node
+            .each(function (n) {
+                n.target = n.source = false;
+            });
+
+        link
+            .classed("link--target", function (l) {
+                return l.target === d;
+            })
+            .classed("link--source", function (l) {
+                return l.source === d;
+            })
+            .filter(function (l) {
+                return l.target === d || l.source === d;
+            })
+            .each(function () {
+                this.parentNode.appendChild(this);
+            });
+
+        node
+            .classed("node--target", function (n) {
+                return n.target;
+            })
+            .classed("node--source", function (n) {
+                return n.source;
+            });
+    }
+
+    function mouseouted(d) {
+        link
+            .classed("link--target", false)
+            .classed("link--source", false);
+
+        node
+            .classed("node--target", false)
+            .classed("node--source", false);
+    }
+
+    function mouseclicked(d) {
+        //if (me.searchContext) {
+        //    me.searchContext.updateSearchParameter('sourceTaxon', d.key)
+        //}
+    }
+};
+
+
+},{"./lib/transform.js":51,"d3":52,"events":11,"inherits":84,"insert-css":53}],51:[function(require,module,exports){
+module.exports = {
+    parseToStructure: parseToStructure,
+    taxonHierarchy: taxonHierarchy,
+    taxonPreys: taxonPreys
+};
+
+function parseToStructure(data) {
+    var parsedData = {};
+
+    data.forEach(function (d) {
+
+        function isResolved(taxonNode) {
+            return taxonNode.id && taxonNode.id !== 'no:match' && taxonNode.path !== undefined;
+        }
+
+        function addNode(taxonNode) {
+            if (isResolved(taxonNode) && !parsedData[ taxonNode.id ]) {
+                var path = (taxonNode.path ? taxonNode.path : '').split(' | ').join('.');
+                parsedData[ taxonNode.id ] = { name: path, path: path, eolId: taxonNode.id, preys: [] };
+            }
+        }
+
+        function linkNodes(source, target) {
+            if (parsedData[ source.id ] && isResolved(target)) {
+                var path = (target.path ? target.path : '').split(' | ').join('.');
+                parsedData[ source.id ].preys.push(path);
+            }
+        }
+
+        addNode(d.source);
+        addNode(d.target);
+        linkNodes(d.source, d.target);
+    });
+
+    var returnData = [];
+    for (var id in parsedData) {
+        if (parsedData.hasOwnProperty(id)) {
+            returnData.push(parsedData[ id ]);
+        }
+    }
+
+    return returnData;
+}
+
+function taxonHierarchy(classes) {
+    var map = {};
+    var j = 0;
+
+    function find(name, data) {
+        var node = map[name], i;
+        if (!node) {
+            node = map[name] = data || {name: name, children: []};
+
+            if (name.length) {
+                node.parent = find(name.substring(0, i = name.lastIndexOf(".")));
+                if (!node.parent.children) {
+                    node.parent.children = [];
+                }
+                node.parent.children.push(node);
+                node.key = name.substring(i + 1);
+            }
+        }
+        return node;
+    }
+
+    classes.forEach(function (d) {
+        find(d.name, d);
+    });
+    return map[""];
+}
+
+// Return a list of preys for the given array of nodes.
+function taxonPreys(nodes) {
+    var map = {};
+    // Compute a map from name to node.
+    nodes.forEach(function (d) {
+        map[d.name] = d;
+    });
+    // For each import, construct a link from the source to target node.
+    var preys = [];
+    nodes.forEach(function (d) {
+        if (d.preys) d.preys.forEach(function (i) {
+            if (map[ i ]) {
+                preys.push({source: map[d.name], target: map[i]});
+            }
+        });
+    });
+    return preys;
+}
+},{}],52:[function(require,module,exports){
 !function() {
   var d3 = {
     version: "3.5.6"
@@ -17442,361 +19155,7 @@ function extend() {
   if (typeof define === "function" && define.amd) define(d3); else if (typeof module === "object" && module.exports) module.exports = d3;
   this.d3 = d3;
 }();
-},{}],49:[function(require,module,exports){
-'use strict';
-
-var hasOwn = Object.prototype.hasOwnProperty;
-var toStr = Object.prototype.toString;
-
-var isArray = function isArray(arr) {
-	if (typeof Array.isArray === 'function') {
-		return Array.isArray(arr);
-	}
-
-	return toStr.call(arr) === '[object Array]';
-};
-
-var isPlainObject = function isPlainObject(obj) {
-	if (!obj || toStr.call(obj) !== '[object Object]') {
-		return false;
-	}
-
-	var hasOwnConstructor = hasOwn.call(obj, 'constructor');
-	var hasIsPrototypeOf = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
-	// Not own constructor property must be Object
-	if (obj.constructor && !hasOwnConstructor && !hasIsPrototypeOf) {
-		return false;
-	}
-
-	// Own properties are enumerated firstly, so to speed up,
-	// if last one is own, then all properties are own.
-	var key;
-	for (key in obj) {/**/}
-
-	return typeof key === 'undefined' || hasOwn.call(obj, key);
-};
-
-module.exports = function extend() {
-	var options, name, src, copy, copyIsArray, clone,
-		target = arguments[0],
-		i = 1,
-		length = arguments.length,
-		deep = false;
-
-	// Handle a deep copy situation
-	if (typeof target === 'boolean') {
-		deep = target;
-		target = arguments[1] || {};
-		// skip the boolean and the target
-		i = 2;
-	} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
-		target = {};
-	}
-
-	for (; i < length; ++i) {
-		options = arguments[i];
-		// Only deal with non-null/undefined values
-		if (options != null) {
-			// Extend the base object
-			for (name in options) {
-				src = target[name];
-				copy = options[name];
-
-				// Prevent never-ending loop
-				if (target !== copy) {
-					// Recurse if we're merging plain objects or arrays
-					if (deep && copy && (isPlainObject(copy) || (copyIsArray = isArray(copy)))) {
-						if (copyIsArray) {
-							copyIsArray = false;
-							clone = src && isArray(src) ? src : [];
-						} else {
-							clone = src && isPlainObject(src) ? src : {};
-						}
-
-						// Never move original objects, clone them
-						target[name] = extend(deep, clone, copy);
-
-					// Don't bring in undefined values
-					} else if (typeof copy !== 'undefined') {
-						target[name] = copy;
-					}
-				}
-			}
-		}
-	}
-
-	// Return the modified object
-	return target;
-};
-
-
-},{}],50:[function(require,module,exports){
-
-var insertCss = require('insert-css');
-var inherits = require('inherits');
-var EventEmitter = require('events').EventEmitter;
-var d3 = require('d3');
-var transform = require('./lib/transform.js');
-
-inherits(Bundle, EventEmitter);
-module.exports = Bundle;
-
-function Bundle(settings) {
-    var me = this;
-    if (!(this instanceof Bundle)) return new Bundle(settings);
-    this.settings = settings;
-
-    if (me.settings.searchContext) {
-        me.searchContext = me.settings.searchContext;
-        delete me.settings.searchContext;
-    }
-
-    if (me.searchContext) {
-        me.searchContext.on('globisearch:resultsetchanged', function(json) {
-            me.settings.json = json;
-            me.draw();
-        });
-    }
-}
-
-Bundle.prototype.appendTo = function (target) {
-    if (typeof target === 'string') target = document.querySelector(target);
-    this.settings.target = target;
-    var css = ".bundle-node {\n    font: 10px \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    fill: #333;\n}\n\n.bundle-node:hover {\n    fill: #000;\n}\n\n.bundl-link {\n    stroke: lightgreen;\n    stroke-opacity: .4;\n    fill: none;\n    pointer-events: none;\n}\n\n.bundle-node:hover,\n.node--source,\n.node--target {\n    font-weight: 400;\n}\n\n.node--source {\n    fill: #2ca02c;\n}\n\n.node--target {\n    fill: #d62728;\n}\n\n.link--source,\n.link--target {\n    stroke-opacity: 1;\n    stroke-width: 2px;\n}\n\n.link--source {\n    stroke: #d62728;\n}\n\n.link--target {\n    stroke: #2ca02c;\n}\n";
-    insertCss(css);
-    if (this.settings.json && this.settings.json.length > 0) {
-        this.draw();
-    }
-    this.emit('append', this.settings.target);
-};
-
-Bundle.prototype.draw = function() {
-    this.settings.target.innerHTML ='';
-    this._buildBundles()
-};
-
-Bundle.prototype._buildBundles = function() {
-    var me = this;
-    var target = this.settings.target,
-        json = this.settings.json,
-        canvasDimension = this.settings.canvasDimension;
-    if (json.length === 0) return;
-    var diameter = canvasDimension.height * 2,
-        radius = diameter / 2,
-        innerRadius = radius - 120;
-
-    var cluster = d3.layout.cluster()
-        .size([360, innerRadius])
-        .sort(function (a, b) {
-            return d3.ascending(a.key, b.key);
-        })
-        .value(function (d) {
-            return d.size;
-        });
-
-    var bundle = d3.layout.bundle();
-
-    var line = d3.svg.line.radial()
-        .interpolate("bundle")
-        .tension(0.85)
-        .radius(function (d) {
-            return d.y;
-        })
-        .angle(function (d) {
-            return d.x / 180 * Math.PI;
-        });
-
-    var svg = d3.select(target).append("svg")
-        .attr('width', canvasDimension.width * 2)
-        .attr('height', canvasDimension.height * 2)
-        .attr('viewBox', '0 0 ' + canvasDimension.width * 2 + ' ' + canvasDimension.height * 2)
-        .attr('zoomAndPan', 'magnify')
-        .append("g")
-        .attr("transform", "translate(" + ( canvasDimension.width / 2 + 100 ) + "," + radius + ")");
-
-    var link = svg.append("g").selectAll(".bundl-link"),
-        node = svg.append("g").selectAll(".bundl-node");
-
-
-    var classes = transform.parseToStructure(json);
-
-    var nodes = cluster.nodes(transform.taxonHierarchy(classes));
-    var links = transform.taxonPreys(nodes);
-    link = link
-        .data(bundle(links))
-        .enter().append("path")
-        .each(function (d) {
-            d.source = d[0], d.target = d[d.length - 1];
-        })
-        .attr("class", "bundl-link")
-        .attr("d", line);
-
-    node = node
-        .data(nodes.filter(function (n) {
-            return !n.children;
-        }))
-        .enter().append("text")
-        .attr("class", "bundle-node")
-        .attr("dx", function (d) {
-            return d.x < 180 ? 8 : -8;
-        })
-        .attr("dy", ".31em")
-        .attr("transform", function (d) {
-            return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")" + (d.x < 180 ? "" : "rotate(180)");
-        })
-        .style("text-anchor", function (d) {
-            return d.x < 180 ? "start" : "end";
-        })
-        .style("cursor", "pointer")
-        .text(function (d) {
-            return d.key.length > 20 ? d.key.substring(0, 19) + '...' : d.key;
-        })
-        .on('click', mouseclicked)
-        .on("mouseover", mouseovered)
-        .on("mouseout", mouseouted)
-        .append("title").text(function (d) {
-            return d.eolId + ' ' + d.path
-        })
-    ;
-
-    function mouseovered(d) {
-        node
-            .each(function (n) {
-                n.target = n.source = false;
-            });
-
-        link
-            .classed("link--target", function (l) {
-                return l.target === d;
-            })
-            .classed("link--source", function (l) {
-                return l.source === d;
-            })
-            .filter(function (l) {
-                return l.target === d || l.source === d;
-            })
-            .each(function () {
-                this.parentNode.appendChild(this);
-            });
-
-        node
-            .classed("node--target", function (n) {
-                return n.target;
-            })
-            .classed("node--source", function (n) {
-                return n.source;
-            });
-    }
-
-    function mouseouted(d) {
-        link
-            .classed("link--target", false)
-            .classed("link--source", false);
-
-        node
-            .classed("node--target", false)
-            .classed("node--source", false);
-    }
-
-    function mouseclicked(d) {
-        //if (me.searchContext) {
-        //    me.searchContext.updateSearchParameter('sourceTaxon', d.key)
-        //}
-    }
-};
-
-
-},{"./lib/transform.js":51,"d3":48,"events":12,"inherits":81,"insert-css":52}],51:[function(require,module,exports){
-module.exports = {
-    parseToStructure: parseToStructure,
-    taxonHierarchy: taxonHierarchy,
-    taxonPreys: taxonPreys
-};
-
-function parseToStructure(data) {
-    var parsedData = {};
-
-    data.forEach(function (d) {
-
-        function isResolved(taxonNode) {
-            return taxonNode.id && taxonNode.id !== 'no:match' && taxonNode.path !== undefined;
-        }
-
-        function addNode(taxonNode) {
-            if (isResolved(taxonNode) && !parsedData[ taxonNode.id ]) {
-                var path = (taxonNode.path ? taxonNode.path : '').split(' | ').join('.');
-                parsedData[ taxonNode.id ] = { name: path, path: path, eolId: taxonNode.id, preys: [] };
-            }
-        }
-
-        function linkNodes(source, target) {
-            if (parsedData[ source.id ] && isResolved(target)) {
-                var path = (target.path ? target.path : '').split(' | ').join('.');
-                parsedData[ source.id ].preys.push(path);
-            }
-        }
-
-        addNode(d.source);
-        addNode(d.target);
-        linkNodes(d.source, d.target);
-    });
-
-    var returnData = [];
-    for (var id in parsedData) {
-        if (parsedData.hasOwnProperty(id)) {
-            returnData.push(parsedData[ id ]);
-        }
-    }
-
-    return returnData;
-}
-
-function taxonHierarchy(classes) {
-    var map = {};
-    var j = 0;
-
-    function find(name, data) {
-        var node = map[name], i;
-        if (!node) {
-            node = map[name] = data || {name: name, children: []};
-
-            if (name.length) {
-                node.parent = find(name.substring(0, i = name.lastIndexOf(".")));
-                if (!node.parent.children) {
-                    node.parent.children = [];
-                }
-                node.parent.children.push(node);
-                node.key = name.substring(i + 1);
-            }
-        }
-        return node;
-    }
-
-    classes.forEach(function (d) {
-        find(d.name, d);
-    });
-    return map[""];
-}
-
-// Return a list of preys for the given array of nodes.
-function taxonPreys(nodes) {
-    var map = {};
-    // Compute a map from name to node.
-    nodes.forEach(function (d) {
-        map[d.name] = d;
-    });
-    // For each import, construct a link from the source to target node.
-    var preys = [];
-    nodes.forEach(function (d) {
-        if (d.preys) d.preys.forEach(function (i) {
-            if (map[ i ]) {
-                preys.push({source: map[d.name], target: map[i]});
-            }
-        });
-    });
-    return preys;
-}
-},{}],52:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 var inserted = {};
 
 module.exports = function (css, options) {
@@ -17820,7 +19179,7 @@ module.exports = function (css, options) {
     }
 };
 
-},{}],53:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -18124,7 +19483,7 @@ function toggleNode(node, forcedStatus) {
 }
 
 
-},{"./lib/transform.js":54,"d3":48,"events":12,"inherits":81,"insert-css":55}],54:[function(require,module,exports){
+},{"./lib/transform.js":55,"d3":56,"events":11,"inherits":84,"insert-css":57}],55:[function(require,module,exports){
 module.exports = {
     parseInteractions: parseInteractions
 };
@@ -18179,9 +19538,11 @@ function parseInteractions(data) {
     }
     return { nodes: nodes, links: links};
 }
-},{}],55:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],56:[function(require,module,exports){
+},{"dup":52}],57:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"dup":53}],58:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var domify = require('domify');
@@ -18230,7 +19591,7 @@ function addButtonClickHandlers(target) {
         });
     }
 }
-},{"domify":57,"events":12,"inherits":81,"insert-css":58}],57:[function(require,module,exports){
+},{"domify":59,"events":11,"inherits":84,"insert-css":60}],59:[function(require,module,exports){
 
 /**
  * Expose `parse`.
@@ -18340,9 +19701,9 @@ function parse(html, doc) {
   return fragment;
 }
 
-},{}],58:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],59:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"dup":53}],61:[function(require,module,exports){
 var jQuery = require('jquery');
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
@@ -18353,7 +19714,6 @@ var globi = require('globi');
 var TypeSelector = require('./lib/TypeSelector.js');
 var TaxonSelector = require('./lib/TaxonSelector.js');
 var SearchResult = require('./lib/SearchResult.js');
-var Settings = require('../../lib/settings');
 
 module.exports = Plugin;
 
@@ -18385,13 +19745,11 @@ function Plugin(settings) {
     }, settings);
 
     this.searchContext = this.settings.searchContext;
-    delete this.settings.searchContext;
-
     this.init();
 }
 
 extend(Plugin.prototype, {
-    init: function() {
+    init: function () {
         var me = this;
         me.el = null;
         me.sourceSelector = null;
@@ -18403,7 +19761,7 @@ extend(Plugin.prototype, {
         me.events();
     },
 
-    appendTo: function(target) {
+    appendTo: function (target) {
         var me = this;
         if (typeof target === 'string') target = document.querySelector(target);
 
@@ -18413,7 +19771,7 @@ extend(Plugin.prototype, {
         }
     },
 
-    events: function() {
+    events: function () {
         var me = this;
         me.searchContext.on('taxonselector:selected', proxy(me.taxonSelected, me));
         me.searchContext.on('typeselector:selected', proxy(me.typeSelected, me));
@@ -18421,28 +19779,29 @@ extend(Plugin.prototype, {
         me.searchContext.on('globisearch:resultsetchanged', proxy(me.showResult, me));
     },
 
-    showResult: function(data) {
+    showResult: function (data) {
         var me = this;
-        var searchHash = me.searchContext.searchParameters;
-        searchHash.resultType = 'csv';
-        searchHash.includeObservations = true;
-        searchHash.fields = ['source_taxon_id', 'source_taxon_name', 'source_taxon_path', 'source_taxon_path_ids',
-            'source_specimen_life_stage','source_specimen_physiological_state','source_specimen_body_part'
-            , 'interaction_type'
-            , 'target_taxon_id', 'target_taxon_name', 'target_taxon_path', 'target_taxon_path_ids'
-            , 'target_specimen_life_stage','target_specimen_physiological_state','target_specimen_body_part'
-            , 'latitude', 'longitude'
-            , 'study_citation', 'study_url', 'study_source_citation'];
+        var searchHash = {
+            resultType: 'csv',
+            includeObservations: true,
+            field: ['source_taxon_id', 'source_taxon_name', 'source_taxon_path', 'source_taxon_path_ids',
+                'source_specimen_life_stage', 'source_specimen_physiological_state', 'source_specimen_body_part'
+                , 'interaction_type'
+                , 'target_taxon_id', 'target_taxon_name', 'target_taxon_path', 'target_taxon_path_ids'
+                , 'target_specimen_life_stage', 'target_specimen_physiological_state', 'target_specimen_body_part'
+                , 'latitude', 'longitude'
+                , 'study_citation', 'study_url', 'study_source_citation']
+        };
 
-        downloadUrl = globiData.urlForTaxonInteractionQuery(searchHash);
+        var downloadUrl = globiData.urlForTaxonInteractionQuery(extend(searchHash, me.searchContext.searchParameters));
         me.searchContext.emit('searchfilter:showresults', processDataForResultList(data), downloadUrl);
     },
 
-    update: function(data) {
+    update: function (data) {
         var me = this;
     },
 
-    buildUi: function() {
+    buildUi: function () {
         var me = this;
         var table = createElement('table', 'search-row'),
             row = createElement('tr'),
@@ -18450,13 +19809,16 @@ extend(Plugin.prototype, {
 
         me.filterElement = createElement('div', 'search-filter');
 
-        td = createElement('td', 'source-taxon-selector-cell'); td.appendChild(me.createSourceSelector().el)
+        td = createElement('td', 'source-taxon-selector-cell');
+        td.appendChild(me.createSourceSelector().el)
         row.appendChild(td);
 
-        td = createElement('td', 'type-selector-cell'); td.appendChild(me.createTypeSelector().el);
+        td = createElement('td', 'type-selector-cell');
+        td.appendChild(me.createTypeSelector().el);
         row.appendChild(td);
 
-        td = createElement('td', 'target-taxon-selector-cell'); td.appendChild(me.createTargetSelector().el);
+        td = createElement('td', 'target-taxon-selector-cell');
+        td.appendChild(me.createTargetSelector().el);
         row.appendChild(td);
 
         table.appendChild(row);
@@ -18465,14 +19827,14 @@ extend(Plugin.prototype, {
         me.populateTypeSelector();
     },
 
-    createTypeSelector: function() {
+    createTypeSelector: function () {
         var me = this;
         this.typeSelector = new TypeSelector({
             idPrefix: 'source',
             type: 'interactiontype',
             usePlaceholder: false,
             searchContext: me.searchContext,
-            startValue: Settings.InteractionTypeAtStart
+            startValue: me.searchContext.searchParameters.interactionType
         });
 
         this.typeSelector.disable();
@@ -18480,7 +19842,7 @@ extend(Plugin.prototype, {
         return this.typeSelector;
     },
 
-    createSourceSelector: function() {
+    createSourceSelector: function () {
         var me = this;
         this.sourceSelector = new TaxonSelector({
             idPrefix: 'source',
@@ -18490,7 +19852,7 @@ extend(Plugin.prototype, {
         return this.sourceSelector;
     },
 
-    createTargetSelector: function() {
+    createTargetSelector: function () {
         var me = this;
         this.targetSelector = new TaxonSelector({
             idPrefix: 'target',
@@ -18500,7 +19862,7 @@ extend(Plugin.prototype, {
         return this.targetSelector;
     },
 
-    createSearchResult: function() {
+    createSearchResult: function () {
         var me = this;
         this.searchResult = new SearchResult({
             searchContext: me.searchContext
@@ -18509,14 +19871,14 @@ extend(Plugin.prototype, {
         return this.searchResult;
     },
 
-    populateTypeSelector: function() {
+    populateTypeSelector: function () {
         var me = this;
 
         globiData.findInteractionTypes(
             [],
             {
-                callback: function(data) {
-                    forEach(data, function(value, key, object) {
+                callback: function (data) {
+                    forEach(data, function (value, key, object) {
                         me.typeSelector.addOption(camelCaseToRealWords(key), key);
                     });
                     me.typeSelector.enable();
@@ -18526,18 +19888,18 @@ extend(Plugin.prototype, {
         );
     },
 
-    itemSelected: function(data) {
+    itemSelected: function (data) {
         var me = this;
         if (me.searchContext.isAbleToFetch('GlobiSearch::itemselected')) {
             me.searchContext.lockFetching('GlobiSearch::itemselected');
             if (data['source'] && data['source']['name']) {
-                globiData.findTaxonInfo(data['source']['name'], function(sourceData) {
+                globiData.findTaxonInfo(data['source']['name'], function (sourceData) {
                     me.populateItemData(sourceData, data['source']['id'], 'source');
                     if (data['target'] && data['target']['name']) {
-                        globiData.findTaxonInfo(data['target']['name'], function(targetData) {
+                        globiData.findTaxonInfo(data['target']['name'], function (targetData) {
                             me.populateItemData(targetData, data['target']['id'], 'target');
                             if (data['link'] && data['link']['name']) {
-                                globiData.findInteractionTypes(function(linkData) {
+                                globiData.findInteractionTypes(function (linkData) {
                                     me.populateItemData(linkData, data['link']['id'], 'link');
                                 });
                             }
@@ -18548,7 +19910,7 @@ extend(Plugin.prototype, {
         }
     },
 
-    populateItemData: function(data, id, type) {
+    populateItemData: function (data, id, type) {
         var me = this;
         switch (type) {
             case 'source':
@@ -18581,16 +19943,17 @@ extend(Plugin.prototype, {
      * EVENT HANDLER
      */
 
-    taxonSelected: function(event) {
+    taxonSelected: function (event) {
         var me = this;
         this.searchContext.updateSearchParameter(event['emitter'] + 'Taxon', event['data']);
     },
 
-    typeSelected: function(event) {
+    typeSelected: function (event) {
         var me = this;
         this.searchContext.updateSearchParameter('interactionType', event['data']);
     },
-});
+})
+;
 
 /**
  * @param elementName
@@ -18605,12 +19968,14 @@ function createElement(elementName, id, classes) {
 
     var div = document.createElement(elementName);
     if (id) div.id = id;
-    if (classes.length > 0 ) div.className = classes.join(' ');
+    if (classes.length > 0) div.className = classes.join(' ');
     return div;
 }
 
 function camelCaseToRealWords(str) {
-    str = str.replace(/([A-Z])/g, function($1){return " "+$1.toLowerCase();});
+    str = str.replace(/([A-Z])/g, function ($1) {
+        return " " + $1.toLowerCase();
+    });
     var strParts = str.split(' '), lastPart = strParts[strParts.length - 1];
     if (['of', 'by'].indexOf(lastPart) >= 0) {
         strParts.unshift('is');
@@ -18619,14 +19984,14 @@ function camelCaseToRealWords(str) {
 }
 
 function proxy(fn, context) {
-    return function() {
+    return function () {
         return fn.apply(context, arguments);
     };
 }
 
 function processDataForResultList(data) {
     var result = [];
-    forEach(data, function(item) {
+    forEach(data, function (item) {
         if ((item['source_taxon_external_id'] !== 'no:match') && (item['target_taxon_external_id'] !== 'no:match')) {
             result.push({
                 source: {
@@ -18656,16 +20021,16 @@ function fillTemplate(data) {
 
     return [
         '<a target="_blank" href="' + infoURL + '">',
-            '<div class="source-data">',
-                '<div class="scientific-name">' + scientificName + '</div>',
-                '<div class="taxon-image"><img height="75px" src="' + thumbnailURL + '" /></div>',
-                '<div class="common-name">' + commonName + '</div>',
-            '</div>',
+        '<div class="source-data">',
+        '<div class="scientific-name">' + scientificName + '</div>',
+        '<div class="taxon-image"><img height="75px" src="' + thumbnailURL + '" /></div>',
+        '<div class="common-name">' + commonName + '</div>',
+        '</div>',
         '</a>'
     ].join('');
 }
 
-},{"../../lib/settings":4,"./lib/SearchResult.js":61,"./lib/TaxonSelector.js":62,"./lib/TypeSelector.js":63,"events":12,"extend":49,"foreach":65,"globi":76,"globi-data":66,"jquery":83,"util":46}],60:[function(require,module,exports){
+},{"./lib/SearchResult.js":63,"./lib/TaxonSelector.js":64,"./lib/TypeSelector.js":65,"events":11,"extend":49,"foreach":67,"globi":79,"globi-data":68,"jquery":86,"util":45}],62:[function(require,module,exports){
 var globi = require('globi');
 var globiData = require('globi-data');
 var forEach = require('foreach');
@@ -18707,7 +20072,7 @@ DataParser.process = function(data) {
 }
 
 module.exports = DataParser;
-},{"foreach":65,"globi":76,"globi-data":66}],61:[function(require,module,exports){
+},{"foreach":67,"globi":79,"globi-data":68}],63:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var extend = require('extend');
@@ -18912,7 +20277,7 @@ function camelCaseToRealWords(str) {
 }
 
 module.exports = SearchResult;
-},{"events":12,"extend":49,"util":46}],62:[function(require,module,exports){
+},{"events":11,"extend":49,"util":45}],64:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var DataParser = require('./DataParser.js');
@@ -19039,7 +20404,7 @@ function createElement(elementName, id, classes) {
 module.exports = TaxonSelector;
 
 
-},{"./DataParser.js":60,"./jquery.tokeninput":64,"events":12,"extend":49,"foreach":65,"jquery":83,"util":46}],63:[function(require,module,exports){
+},{"./DataParser.js":62,"./jquery.tokeninput":66,"events":11,"extend":49,"foreach":67,"jquery":86,"util":45}],65:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var extend = require('extend');
@@ -19200,7 +20565,7 @@ function proxy(fn, context) {
 
 
 module.exports = TypeSelector;
-},{"events":12,"extend":49,"foreach":65,"util":46}],64:[function(require,module,exports){
+},{"events":11,"extend":49,"foreach":67,"util":45}],66:[function(require,module,exports){
 var jQuery = require('jquery');
 /*
  * jQuery Plugin: Tokenizing Autocomplete Text Entry
@@ -20311,9 +21676,9 @@ var jQuery = require('jquery');
 
 }(jQuery));
 
-},{"jquery":83}],65:[function(require,module,exports){
-arguments[4][39][0].apply(exports,arguments)
-},{"dup":39}],66:[function(require,module,exports){
+},{"jquery":86}],67:[function(require,module,exports){
+arguments[4][38][0].apply(exports,arguments)
+},{"dup":38}],68:[function(require,module,exports){
 var nodeXHR = require("xmlhttprequest");
 var globiData = {};
 
@@ -20649,7 +22014,7 @@ globiData.findThumbnailById = function (search, callback) {
 
 module.exports = globiData;
 
-},{"xmlhttprequest":67}],67:[function(require,module,exports){
+},{"xmlhttprequest":69}],69:[function(require,module,exports){
 (function (process,Buffer){
 /**
  * Wrapper for built-in http.js to emulate the browser XMLHttpRequest object.
@@ -21252,7 +22617,7 @@ exports.XMLHttpRequest = function() {
 };
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":15,"buffer":8,"child_process":5,"fs":5,"http":34,"https":13,"url":44}],68:[function(require,module,exports){
+},{"_process":14,"buffer":7,"child_process":4,"fs":4,"http":33,"https":12,"url":43}],70:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -21355,7 +22720,7 @@ function placeMarker(content, location, map) {
 
     return marker;
 }
-},{"./lib/areapicker.js":69,"./lib/boundsToBBox.js":70,"./lib/infobox.js":71,"events":12,"globi":76,"inherits":81,"insert-css":72}],69:[function(require,module,exports){
+},{"./lib/areapicker.js":71,"./lib/boundsToBBox.js":72,"./lib/infobox.js":73,"events":11,"globi":79,"inherits":84,"insert-css":74}],71:[function(require,module,exports){
 var infobox = require('./infobox.js');
 var boundsToBBox = require('./boundsToBBox.js');
 
@@ -21505,7 +22870,7 @@ AreaPickerInfo.prototype.setContent = function (bounds) {
 AreaPickerInfo.prototype.createContent_ = function (bounds) {
     return infobox.areaInfoBox(boundsToBBox(bounds));
 };
-},{"./boundsToBBox.js":70,"./infobox.js":71}],70:[function(require,module,exports){
+},{"./boundsToBBox.js":72,"./infobox.js":73}],72:[function(require,module,exports){
 module.exports = boundsToBBox;
 
 function boundsToBBox(bounds) {
@@ -21528,7 +22893,7 @@ function boundsToBBox(bounds) {
     }
     return {bbox: eolBounds.nw_lng + ',' + eolBounds.nw_lat + ',' + eolBounds.se_lng + ',' + eolBounds.se_lat };
 }
-},{}],71:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 var extend = require('extend');
 
 module.exports = {
@@ -21578,9 +22943,9 @@ function areaInfoBox(locationParams) {
 function locationInfoBox(locationParams) {
     return infoBoxText('location-selection', locationParams);
 };
-},{"extend":49}],72:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],73:[function(require,module,exports){
+},{"extend":49}],74:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"dup":53}],75:[function(require,module,exports){
 
 var insertCss = require('insert-css');
 var inherits = require('inherits');
@@ -21818,7 +23183,7 @@ Wheel.prototype.dependencyWheel = function () {
 
 
 
-},{"./lib/transform.js":74,"d3":48,"events":12,"inherits":81,"insert-css":75}],74:[function(require,module,exports){
+},{"./lib/transform.js":76,"d3":77,"events":11,"inherits":84,"insert-css":78}],76:[function(require,module,exports){
 module.exports = {
     convertJsonForDependencyWheel: convertJsonForDependencyWheel
 };
@@ -21872,9 +23237,11 @@ function convertJsonForDependencyWheel(json) {
         matrix: matrix
     };
 };
-},{}],75:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],76:[function(require,module,exports){
+},{"dup":52}],78:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"dup":53}],79:[function(require,module,exports){
 var d3 = require('d3');
 var globiData = require('globi-data');
 var EventEmitter = require('events').EventEmitter;
@@ -22696,7 +24063,7 @@ globi.ResponseMapper = function() {
 
 module.exports = globi;
 
-},{"d3":78,"events":12,"globi-data":79,"jquery":83}],77:[function(require,module,exports){
+},{"d3":81,"events":11,"globi-data":82,"jquery":86}],80:[function(require,module,exports){
 d3 = function() {
   var d3 = {
     version: "3.2.8"
@@ -31507,16 +32874,16 @@ d3 = function() {
   });
   return d3;
 }();
-},{}],78:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 require("./d3");
 module.exports = d3;
 (function () { delete this.d3; })(); // unset global
 
-},{"./d3":77}],79:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"dup":66,"xmlhttprequest":80}],80:[function(require,module,exports){
-arguments[4][67][0].apply(exports,arguments)
-},{"_process":15,"buffer":8,"child_process":5,"dup":67,"fs":5,"http":34,"https":13,"url":44}],81:[function(require,module,exports){
+},{"./d3":80}],82:[function(require,module,exports){
+arguments[4][68][0].apply(exports,arguments)
+},{"dup":68,"xmlhttprequest":83}],83:[function(require,module,exports){
+arguments[4][69][0].apply(exports,arguments)
+},{"_process":14,"buffer":7,"child_process":4,"dup":69,"fs":4,"http":33,"https":12,"url":43}],84:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -31541,7 +32908,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],82:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*! jQuery UI - v1.10.3 - 2013-05-03
@@ -46548,7 +47915,7 @@ $.widget( "ui.tooltip", {
 
 }( jQuery ) );
 
-},{"jquery":83}],83:[function(require,module,exports){
+},{"jquery":86}],86:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -55760,7 +57127,7 @@ return jQuery;
 
 }));
 
-},{}],84:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 (function (global){
 /**
  * Npm version of markerClusterer works great with browserify and google maps for commonjs
@@ -57060,7 +58427,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 module.exports = MarkerClusterer;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],85:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 /**
  * Copyright (c) 2011-2014 Felix Gnass
  * Licensed under the MIT license
