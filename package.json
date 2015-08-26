@@ -1,6 +1,6 @@
 {
   "name": "globi-web",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "GloBI Website",
   "directories": {
     "test": "test"
@@ -19,7 +19,7 @@
     "jquery-ui": "1.10.5",
     "node-js-marker-clusterer": "~1.0.0",
     "spin.js": "~2.3.2",
-    "taxaprisma": "0.0.4"
+    "taxaprisma": "0.0.5"
   },
   "devDependencies": {
     "tape": "~4.1.0",
