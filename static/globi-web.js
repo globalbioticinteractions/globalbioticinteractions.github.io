@@ -18989,7 +18989,6 @@ Hairball.prototype.update = function(links, nodes) {
         .attr('dy', '.35em')
         .attr('dx', '.35em')
         .text(function (d) {
-            console.log(d);
             return d['name'];
         }).attr('shown', false);
 }
@@ -19022,7 +19021,6 @@ function redraw() {
 var nodeMouseover = function(node) {
     var $this = d3.selectAll('[eolid=' + node.id + ']');
     $this.attr('class', 'hairball-node-source');
-    console.log($this);
     var links = d3.selectAll('[data-source-id=' + node.id + ']');
     if (links[0].length > 0) {
         links[0].forEach(function(link) {
