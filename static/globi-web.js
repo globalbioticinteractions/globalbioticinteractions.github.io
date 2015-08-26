@@ -19375,6 +19375,7 @@ extend(Plugin.prototype, {
         me.targetSelector = null;
         me.typeSelector = null;
         me.searchResult = null;
+        me.spatialToggle = null;
 
         me.buildUi();
         me.events();
@@ -19429,7 +19430,11 @@ extend(Plugin.prototype, {
         var me = this;
         var table = createElement('table', 'search-row'),
             row = createElement('tr'),
+            toggle = createElement('span', 'spatial-toggle'),
             td;
+
+        toggle.innerHTML = 'Toggle spatial';
+        toggle.addEventListener('click', proxy(me.toggleSpatial, me));
 
         me.filterElement = createElement('div', 'search-filter');
 
@@ -19437,7 +19442,7 @@ extend(Plugin.prototype, {
         td.appendChild(me.createSourceSelector().el);
         row.appendChild(td);
 
-        td = createElement('td', 'type-selector-cell');
+        td = createElement('td', 'type-selector-cell', ['filter-middle-column']);
         td.appendChild(me.createTypeSelector().el);
         row.appendChild(td);
 
@@ -19446,6 +19451,21 @@ extend(Plugin.prototype, {
         row.appendChild(td);
 
         table.appendChild(row);
+
+        row = createElement('tr');
+
+        td = createElement('td');
+        row.appendChild(td);
+
+        td = createElement('td', false, ['filter-middle-column']);
+        td.appendChild(toggle);
+        row.appendChild(td);
+
+        td = createElement('td');
+        row.appendChild(td);
+
+        table.appendChild(row);
+
         me.filterElement.appendChild(table);
 
         me.populateTypeSelector();
@@ -19587,8 +19607,14 @@ extend(Plugin.prototype, {
         var me = this;
         this.searchContext.updateSearchParameter('interactionType', event['data']);
     },
-})
-;
+
+    toggleSpatial: function() {
+        var areaPickerControl = document.getElementById('toggle-area-picker');
+        if (areaPickerControl) {
+            areaPickerControl.click();
+        }
+    }
+});
 
 /**
  * @param elementName
@@ -41235,6 +41261,7 @@ AreaPicker.prototype.show = function () {
     }
     this.rectangle_.setMap(this.map);
     this.info_.show(this.bounds_);
+    this.searchContext_.updateSearchParameter('bbox', boundsToBBox(this.bounds_)['bbox']);
 };
 
 AreaPicker.prototype.hide = function () {
@@ -41265,6 +41292,7 @@ AreaPickerControl.prototype.create = function () {
     me.container_ = document.createElement('div');
     me.container_.title = 'Toggle Area Picker';
     me.container_.index = 1;
+    me.container_.id = 'toggle-area-picker';
 
     me.applyStyles();
 
