@@ -18561,9 +18561,8 @@ Bundle.prototype._buildBundles = function() {
         json = this.settings.json,
         canvasDimension = this.settings.canvasDimension;
     if (json.length === 0) return;
-    var diameter = canvasDimension.height * 2,
-        radius = diameter / 2,
-        innerRadius = radius - 120;
+    var radius = (canvasDimension.height < canvasDimension.width) ? canvasDimension.height : canvasDimension.width,
+        innerRadius = radius - 150;
 
     var cluster = d3.layout.cluster()
         .size([360, innerRadius])
@@ -18592,7 +18591,7 @@ Bundle.prototype._buildBundles = function() {
         .attr('viewBox', '0 0 ' + canvasDimension.width * 2 + ' ' + canvasDimension.height * 2)
         .attr('zoomAndPan', 'magnify')
         .append("g")
-        .attr("transform", "translate(" + ( canvasDimension.width / 2 + 100 ) + "," + radius + ")");
+        .attr("transform", "translate(" + radius + "," + 0.97 * radius + ")");
 
     var link = svg.append("g").selectAll(".bundl-link"),
         node = svg.append("g").selectAll(".bundl-node");
@@ -18838,7 +18837,8 @@ var config = {
         }
     },
     opacity: {
-        normal: 0.6,
+        normal: 0.4,
+        text: 0.7,
         active: 1
     }
 };
@@ -18871,7 +18871,7 @@ function Hairball(settings) {
 Hairball.prototype.appendTo = function (target) {
     if (typeof target === 'string') target = document.querySelector(target);
     this.settings.target = target;
-    var css = "line.hairball-link {\n    stroke: #888;\n}\nline.hairball-link:hover,\n\n.hairball-node:hover {\n    cursor: pointer;\n}\n\n.hairball-node text {\n    fill: #333;\n    font-family: sans-serif;\n    font-size: 0.8em;\n}";
+    var css = "line.hairball-link {\n    stroke: #888;\n}\n\n.hairball-node:hover {\n    cursor: pointer;\n}\n\n.hairball-node text {\n    fill: #333;\n    font-family: sans-serif;\n    font-size: 0.6em;\n}\n\n.hairball-node circle {\n    fill: #69f;\n}\n\n.hairball-node text {\n    display: none;\n}\n\n.hairball-node-target circle {\n    fill: #6c6;\n    display: block;\n}\n\n.hairball-node-target text {\n    fill: #333;\n    font-family: sans-serif;\n    font-size: 0.7em;\n}\n\n.hairball-node-source circle {\n    fill: #c66;\n    display: block;\n}\n\n.hairball-node-source text {\n    fill: #333;\n    font-family: sans-serif;\n    font-size: 0.8em;\n}";
     insertCss(css);
     if (this.settings.json && this.settings.json.length > 0) {
         this.draw();
@@ -18953,15 +18953,14 @@ Hairball.prototype.update = function(links, nodes) {
 
     link.enter().insert('line', '.node')
         .attr('class', 'hairball-link')
+        .attr('data-source-id', function(d) { return d.source.id; })
+        .attr('data-target-id', function(d) { return d.target.id; })
         .attr('marker-end', 'url(#arrowGray)')
         .attr('link_id', function (d) {
             return d['link_id'];
         })
         .style('opacity', config.opacity.normal)
-        .style('stroke-width', config.stroke_width.normal)
-        .on('mouseover', linkMouseover)
-        .on('mouseout', linkMouseout);
-        //.on('click', linkClick);
+        .style('stroke-width', config.stroke_width.normal);
 
     node = node.data(nodes);
 
@@ -18978,10 +18977,9 @@ Hairball.prototype.update = function(links, nodes) {
         .on('mousedown', function () {
             d3.event.stopPropagation();
         })
-        .on('click', function(d) { nodeClick(); /* me.searchContext.updateSearchParameter('sourceTaxon', d['name']);*/ })
         .on('mouseover', nodeMouseover)
         .on('mouseout', nodeMouseout)
-        .attr('opacity', config.opacity.normal)
+        .attr('opacity', config.opacity.text)
         .call(force.drag);
 
     nodeEnter.append('circle')
@@ -18991,11 +18989,9 @@ Hairball.prototype.update = function(links, nodes) {
         .attr('dy', '.35em')
         .attr('dx', '.35em')
         .text(function (d) {
+            console.log(d);
             return d['name'];
-        }).style('display', 'none').attr('shown', false);
-
-    node.select('circle')
-        .style('fill', config.color.circle);
+        }).attr('shown', false);
 }
 
 function tick() {
@@ -19023,86 +19019,30 @@ function redraw() {
     chart.attr('transform', 'translate(' + translate + ')' + ' scale(' + scale + ')');
 }
 
-function nodeMouseover(d) {
-    var $this = d3.select(this);
-    $this.attr('opacity', config.opacity.active);
-    toggleNode(d3.select(this));
-}
-
-function nodeMouseout(d) {
-    var $this = d3.select(this);
-    $this.attr('opacity', config.opacity.normal);
-    toggleNode(d3.select(this));
-}
-
-function nodeClick(d) {
-    if (d3.event.defaultPrevented) return;
-    //toggleNode(d3.select(this));
-}
-
-function linkMouseover(d) {
-    var $this = d3.select(this);
-    var linkdId = d['link_id'];
-    var nodes = linkdId.split('---');
-    var sourceNode = d3.select('[eolid=' + nodes[0] + ']');
-    var targetNode = d3.select('[eolid=' + nodes[1] + ']');
-    //sourceNode.attr('opacity', config.opacity.active);
-    //targetNode.attr('opacity', config.opacity.active);
-    toggleNode(sourceNode);
-    toggleNode(targetNode);
-    $this.attr('opacity', config.opacity.active);
-    $this.style('stroke-width', config.stroke_width.active);
-
-}
-
-function linkMouseout(d) {
-    var $this = d3.select(this);
-    var linkdId = d['link_id'];
-    var nodes = linkdId.split('---');
-    var sourceNode = d3.select('[eolid=' + nodes[0] + ']');
-    var targetNode = d3.select('[eolid=' + nodes[1] + ']');
-    //sourceNode.attr('opacity', config.opacity.normal);
-    //targetNode.attr('opacity', config.opacity.normal);
-    toggleNode(sourceNode);
-    toggleNode(targetNode);
-    $this.attr('opacity', config.opacity.normal);
-    $this.style('stroke-width', config.stroke_width.normal);
-}
-
-function linkClick(d) {
-    if (d3.event && d3.event.defaultPrevented) return;
-    var linkdId = d['link_id'];
-    var nodes = linkdId.split('---');
-    var sourceNode = d3.select('[eolid=' + nodes[0] + ']');
-    var targetNode = d3.select('[eolid=' + nodes[1] + ']');
-    var formerSourceStatus = toggleNode(sourceNode);
-    toggleNode(targetNode, formerSourceStatus);
-}
-
-function toggleNode(node, forcedStatus) {
-    forcedStatus = forcedStatus || '';
-    var $this = node;
-    var text = $this.select("text");
-    var circle = $this.select("circle");
-    var shown = text.attr('shown');
-    if (forcedStatus !== '') {
-        shown = forcedStatus;
+var nodeMouseover = function(node) {
+    var $this = d3.selectAll('[eolid=' + node.id + ']');
+    $this.attr('class', 'hairball-node-source');
+    console.log($this);
+    var links = d3.selectAll('[data-source-id=' + node.id + ']');
+    if (links[0].length > 0) {
+        links[0].forEach(function(link) {
+            var target = d3.selectAll('[eolid=' + link.dataset['targetId'] + ']');
+            target.moveToFront();
+            target.attr('class', 'hairball-node-target')
+        });
     }
-    if (shown === 'false') {
-        text.style('display', 'block');
-        text.attr('shown', true);
-        circle.style('fill', config.color.active.circle);
-        $this.attr('opacity', config.opacity.active);
-        $this.moveToFront();
-    } else {
-        text.style('display', 'none');
-        text.attr('shown', false);
-        circle.style('fill', config.color.circle);
-        $this.attr('opacity', config.opacity.normal);
-    }
-    return shown;
-}
+    links.style('opacity', config.opacity.active);
+    $this.moveToFront();
+};
 
+var nodeMouseout = function(node) {
+    var $this = d3.selectAll('[eolid=' + node.id + ']');
+    $this.attr('class', 'hairball-node');
+    var links = d3.selectAll('[data-source-id=' + node.id + ']');
+    links.style('opacity', config.opacity.normal);
+    var targets = d3.selectAll('[class=hairball-node-target]');
+    targets.attr('class', 'hairball-node');
+};
 
 },{"./lib/transform.js":54,"d3":46,"events":10,"inherits":86,"insert-css":55}],54:[function(require,module,exports){
 module.exports = {
