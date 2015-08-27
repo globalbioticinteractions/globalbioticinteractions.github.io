@@ -46,6 +46,7 @@
     </style>
 </head>
 <body>
+
 <script src="../menu.js"></script>
 <script>
     buildMenu();
@@ -105,7 +106,7 @@
 
     search.appendTo('#taxon-filter');
 
-    searchContext.on('searchcontext:searchparameterchange', function(context) {
+    searchContext.on('searchcontext:searchparameterchange', function (context) {
         window.location.hash = globiWeb.queryString.encode(searchContext.searchParameters);
         globiWeb.widgets.forEach(function (w) {
             var oldWidgetContainer = document.querySelector(w.target);
@@ -132,6 +133,25 @@
             var widget = w.factory({ searchContext: searchContext, canvasDimension: canvasDimension });
             widget.on('append', function (target) {
                 w.spinner.stop();
+            });
+            function removeTooltips() {
+                var tooltips = document.querySelectorAll('.taxon-tool-tip');
+                for (var i = 0; tooltips && i < tooltips.length; ++i) {
+                    tooltips[i].parentElement.removeChild(tooltips[i]);
+                }
+            }
+            widget.on('select', function (target) {
+                removeTooltips();
+                var tooltip = document.createElement('div');
+                tooltip.onclick = function(scientificName) {
+                    removeTooltips();
+                };
+                tooltip.setAttribute('class', 'taxon-tool-tip');
+                tooltip.setAttribute('style', 'z-index: 3; width: 10em; height: 10em; left: ' + target.x + 'px; top:' + target.y + 'px;position: absolute; background: transparent');
+                document.body.insertBefore(tooltip, document.body.firstChild);
+                globiWeb.globi
+                        .createTaxonInfo(target.name)
+                        .appendTaxonInfoTo(tooltip);
             });
             widget.appendTo(w.target);
         });

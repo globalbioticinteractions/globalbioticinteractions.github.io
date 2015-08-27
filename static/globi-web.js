@@ -9127,13 +9127,22 @@ Bundle.prototype._buildBundles = function() {
         .text(function (d) {
             return d.key.length > 20 ? d.key.substring(0, 19) + '...' : d.key;
         })
-        .on('click', mouseclicked)
+        .on('click', function (d) {
+            me.emit('select', taxonEvent(d));
+        })
         .on("mouseover", mouseovered)
         .on("mouseout", mouseouted)
         .append("title").text(function (d) {
             return d.path.replace(/\./g, ' | ');
         })
     ;
+
+    function taxonEvent(node) {
+        var taxon = transform.toTaxon(node);
+        taxon.x = d3.event.pageX;
+        taxon.y = d3.event.pageY;
+        return taxon;
+    }
 
     function mouseovered(d) {
         node
@@ -9165,6 +9174,7 @@ Bundle.prototype._buildBundles = function() {
     }
 
     function mouseouted(d) {
+        me.emit('deselect', taxonEvent(d));
         link
             .classed("link--target", false)
             .classed("link--source", false);
@@ -9174,11 +9184,6 @@ Bundle.prototype._buildBundles = function() {
             .classed("node--source", false);
     }
 
-    function mouseclicked(d) {
-        //if (me.searchContext) {
-        //    me.searchContext.updateSearchParameter('sourceTaxon', d.key)
-        //}
-    }
 };
 
 
@@ -9186,6 +9191,7 @@ Bundle.prototype._buildBundles = function() {
 module.exports = {
     parseToStructure: parseToStructure,
     taxonHierarchy: taxonHierarchy,
+    toTaxon: toTaxon,
     taxonPreys: taxonPreys
 };
 
@@ -9271,6 +9277,10 @@ function taxonPreys(nodes) {
         });
     });
     return preys;
+}
+
+function toTaxon(node) {
+    return { id: node.eolId, name: node.key, path: node.path.replace(/\./g, ' | ')};
 }
 },{}],51:[function(require,module,exports){
 !function() {
@@ -18967,6 +18977,40 @@ Hairball.prototype.update = function (links, nodes) {
 
     node.exit().remove();
 
+    function taxonEvent(node) {
+        var taxon = transform.toTaxon(node);
+        taxon.x = d3.event.pageX;
+        taxon.y = d3.event.pageY;
+        return taxon;
+    }
+
+    var nodeMouseover = function (node) {
+        var $this = d3.selectAll('[eolid=' + node.id + ']');
+        $this.attr('class', 'hairball-node-source');
+        var links = d3.selectAll('[data-source-id=' + node.id + ']');
+        if (links[0].length > 0) {
+            links[0].forEach(function (link) {
+                if (link.dataset) {
+                    var target = d3.selectAll('[eolid=' + link.dataset['targetId'] + ']');
+                    target.moveToFront();
+                    target.attr('class', 'hairball-node-target')
+                }
+            });
+        }
+        links.style('opacity', config.opacity.active);
+        $this.moveToFront();
+    };
+
+    var nodeMouseout = function (node) {
+        var $this = d3.selectAll('[eolid=' + node.id + ']');
+        $this.attr('class', 'hairball-node');
+        var links = d3.selectAll('[data-source-id=' + node.id + ']');
+        links.style('opacity', config.opacity.normal);
+        var targets = d3.selectAll('[class=hairball-node-target]');
+        targets.attr('class', 'hairball-node');
+    };
+
+
     var nodeEnter = node.enter().append('g')
         .attr('class', 'hairball-node')
         .attr('eolid', function (d) {
@@ -18977,6 +19021,9 @@ Hairball.prototype.update = function (links, nodes) {
         })
         .on('mousedown', function () {
             d3.event.stopPropagation();
+        })
+        .on('click', function (d) {
+            me.emit('select', taxonEvent(d));
         })
         .on('mouseover', nodeMouseover)
         .on('mouseout', nodeMouseout)
@@ -19021,36 +19068,10 @@ function redraw() {
     scale = d3.event.scale;
     chart.attr('transform', 'translate(' + translate + ')' + ' scale(' + scale + ')');
 }
-
-var nodeMouseover = function (node) {
-    var $this = d3.selectAll('[eolid=' + node.id + ']');
-    $this.attr('class', 'hairball-node-source');
-    var links = d3.selectAll('[data-source-id=' + node.id + ']');
-    if (links[0].length > 0) {
-        links[0].forEach(function (link) {
-            if (link.dataset) {
-                var target = d3.selectAll('[eolid=' + link.dataset['targetId'] + ']');
-                target.moveToFront();
-                target.attr('class', 'hairball-node-target')
-            }
-        });
-    }
-    links.style('opacity', config.opacity.active);
-    $this.moveToFront();
-};
-
-var nodeMouseout = function (node) {
-    var $this = d3.selectAll('[eolid=' + node.id + ']');
-    $this.attr('class', 'hairball-node');
-    var links = d3.selectAll('[data-source-id=' + node.id + ']');
-    links.style('opacity', config.opacity.normal);
-    var targets = d3.selectAll('[class=hairball-node-target]');
-    targets.attr('class', 'hairball-node');
-};
-
 },{"./lib/transform.js":54,"d3":55,"events":10,"inherits":81,"insert-css":56,"taxaprisma":86}],54:[function(require,module,exports){
 module.exports = {
-    parseInteractions: parseInteractions
+    parseInteractions: parseInteractions,
+    toTaxon: toTaxon
 };
 
 function parseInteractions(data) {
@@ -19102,6 +19123,10 @@ function parseInteractions(data) {
         }
     }
     return { nodes: nodes, links: links};
+}
+
+function toTaxon(node) {
+    return {id: node.id, name: node.name, path: node.path};
 }
 },{}],55:[function(require,module,exports){
 arguments[4][51][0].apply(exports,arguments)
@@ -58408,9 +58433,13 @@ var taxaprisma = {};
 module.exports = taxaprisma;
 
 function matchesTaxon(taxonPath) {
-    return taxonGroups.filter(function (obj) {
-        return taxonPath.match(obj.name);
-    });
+    var matches = [];
+    if (taxonPath) {
+        matches = taxonGroups.filter(function (obj) {
+            return taxonPath.match(obj.name);
+        });
+    }
+    return  matches;
 }
 taxaprisma.colorFor = function (taxonPath) {
     var matches = matchesTaxon(taxonPath);
@@ -58448,7 +58477,7 @@ taxaprisma.imageLicenseFor = function (taxonPath) {
         var first = matches[0];
         licenseText = cc0;
         if (first.image.licenseURL !== cc0) {
-            licenseText = ['by', first.image.attribution, 'under',first.image.licenseURL].join(' ');
+            licenseText = ['by', first.image.attribution, 'under', first.image.licenseURL].join(' ');
         }
     }
     return licenseText;
