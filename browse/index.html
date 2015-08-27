@@ -88,9 +88,9 @@
     document.body.querySelector(panels.topLeftContainer).innerHTML = helpHtml;
 
     globiWeb.widgets = [
-        {factory: globiWeb.hairball, target: panels.bottomLeftContainer},
-        {factory: globiWeb.bundle, target: panels.bottomRightContainer},
-        {factory: globiWeb.searchResult, target: panels.topLeftContainer}
+        {factory: globiWeb.hairball, target: panels.bottomLeftContainer, help: 'hairball'},
+        {factory: globiWeb.bundle, target: panels.bottomRightContainer, help: 'bundle-diagram'},
+        {factory: globiWeb.searchResult, target: panels.topLeftContainer, help: 'interaction-search'}
     ];
 
     var searchParameters = {};
@@ -132,6 +132,13 @@
             var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
             var widget = w.factory({ searchContext: searchContext, canvasDimension: canvasDimension });
             widget.on('append', function (target) {
+                var helpButton = target.parentElement.querySelector('.btn-info');
+                if (helpButton) {
+                    helpButton.addEventListener('click', function () {
+                        var win = window.open('https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/wiki#' + w.help, '_blank');
+                        win.focus();
+                    });
+                }
                 w.spinner.stop();
             });
             function removeTooltips() {
@@ -140,10 +147,11 @@
                     tooltips[i].parentElement.removeChild(tooltips[i]);
                 }
             }
+
             widget.on('select', function (target) {
                 removeTooltips();
                 var tooltip = document.createElement('div');
-                tooltip.onclick = function(scientificName) {
+                tooltip.onclick = function (scientificName) {
                     removeTooltips();
                 };
                 tooltip.setAttribute('class', 'taxon-tool-tip');
