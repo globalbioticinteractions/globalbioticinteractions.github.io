@@ -27,6 +27,17 @@
         table.interactions-result td {
             padding: 2px 5px;
         }
+
+        .globi-taxon-info p {
+            border-radius: 5px;
+            text-align: left;
+            margin-left: 19px;
+            padding-left: 2px;
+            background-color: #d7d7d7;
+            opacity: 0.7;
+            z-index: 4;
+        }
+
     </style>
 
     <style type="text/css">
@@ -154,6 +165,10 @@
                 tooltip.onclick = function (scientificName) {
                     removeTooltips();
                 };
+                var closeElem = document.createElement('div');
+                closeElem.setAttribute('class', 'btn');
+                closeElem.textContent = 'x';
+                tooltip.appendChild(closeElem);
                 tooltip.setAttribute('class', 'taxon-tool-tip');
                 tooltip.setAttribute('style', 'z-index: 3; width: 10em; height: 10em; left: ' + target.x + 'px; top:' + target.y + 'px;position: absolute; background: transparent');
                 document.body.insertBefore(tooltip, document.body.firstChild);
