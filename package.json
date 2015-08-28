@@ -13,7 +13,7 @@
   "dependencies": {
     "deep": "0.0.2",
     "extend": "^3.0.0",
-    "globi": "~0.0.56",
+    "globi": "~0.0.57",
     "inherits": "^2.0.1",
     "jquery": "^2.1.4",
     "jquery-ui": "1.10.5",

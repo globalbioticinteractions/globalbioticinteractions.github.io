@@ -21960,11 +21960,20 @@ globi.createTaxonInfo = function (scientificName) {
     var taxonInfoDiv = document.createElement('div');
     taxonInfoDiv.setAttribute('class', 'globi-taxon-info');
     var callback = function (taxonInfo) {
-        var img = document.createElement('img');
-        img.setAttribute('src', taxonInfo.thumbnailURL);
-        taxonInfoDiv.appendChild(img);
+        if (taxonInfo.thumbnailURL) {
+            var img = document.createElement('img');
+            img.setAttribute('src', taxonInfo.thumbnailURL);
+            taxonInfoDiv.appendChild(img);
+        }
         var p = document.createElement('p');
-        p.innerHTML = '<a href="' + taxonInfo.infoURL + '" target="_blank">' + taxonInfo.commonName + ' (<i>' + taxonInfo.scientificName + '</i>)</a>';
+        var nameHtml = taxonInfo.scientificName;
+        if (taxonInfo.scientificName.split(' ').length > 1) {
+            nameHtml = '<i>' + nameHtml + '</i>';
+        }
+        if (taxonInfo.commonName) {
+            nameHtml = taxonInfo.commonName + ' (' + nameHtml + ')';
+        }
+        p.innerHTML = '<a href="' + taxonInfo.infoURL + '" target="_blank">' + nameHtml + '</a>';
         taxonInfoDiv.appendChild(p);
         ee.emit('ready');
     };
@@ -21996,8 +22005,8 @@ globi.viewInteractions = function (id, interactionType, sourceTaxonScientificNam
         interactions.forEach(function (interaction) {
             var taxonInfo = globi.createTaxonInfo(interaction.target.name);
             taxonInfo.registerOnClick(onClickScientificName);
-            taxonInfo.on('ready', function() {
-                 taxonInfo.appendTaxonInfoTo(document.getElementById(id));
+            taxonInfo.on('ready', function () {
+                taxonInfo.appendTaxonInfoTo(document.getElementById(id));
             });
         });
     };
@@ -22261,8 +22270,8 @@ globi.addInteractionGraph = function (options) {
         var number_of_nodes = 0;
         for (var node_key in nodes) {
             if (nodes.hasOwnProperty(node_key)) {
-              number_of_nodes++;
-              nodeKeys.push(node_key);
+                number_of_nodes++;
+                nodeKeys.push(node_key);
             }
         }
 
@@ -22273,28 +22282,28 @@ globi.addInteractionGraph = function (options) {
         var taxonNodes = [];
         for (var nodeKey in nodeKeys) {
             if (nodeKeys.hasOwnProperty(nodeKey)) {
-              var key = nodeKeys[nodeKey];
-              var widthPerNode = options.width / (number_of_nodes + 1);
-              nodes[key].x = widthPerNode + i * widthPerNode;
-              /**
-              * @gb: Added a second ordinate to fix y-scale problem
-              * * Additionally this speeds up rendering because we don't need Bezier ploting in #addIteraction anymore
-              */
-              nodes[key].y1 = widthPerNode;
-              nodes[key].y2 = options.height - widthPerNode;
-              nodes[key].radius = widthPerNode / 2.0;
-              nodes[key].color = "pink";
-              taxonNodes.push(nodes[key]);
-              i = i + 1;
+                var key = nodeKeys[nodeKey];
+                var widthPerNode = options.width / (number_of_nodes + 1);
+                nodes[key].x = widthPerNode + i * widthPerNode;
+                /**
+                 * @gb: Added a second ordinate to fix y-scale problem
+                 * * Additionally this speeds up rendering because we don't need Bezier ploting in #addIteraction anymore
+                 */
+                nodes[key].y1 = widthPerNode;
+                nodes[key].y2 = options.height - widthPerNode;
+                nodes[key].radius = widthPerNode / 2.0;
+                nodes[key].color = "pink";
+                taxonNodes.push(nodes[key]);
+                i = i + 1;
             }
         }
 
         var interactionsArray = [];
         for (var mi in mergedInteractions) {
             if (mergedInteractions.hasOwnProperty(mi)) {
-              mergedInteractions[mi].source = nodes[indexForNode(mergedInteractions[mi].source)];
-              mergedInteractions[mi].target = nodes[indexForNode(mergedInteractions[mi].target)];
-              interactionsArray.push(mergedInteractions[mi]);
+                mergedInteractions[mi].source = nodes[indexForNode(mergedInteractions[mi].source)];
+                mergedInteractions[mi].target = nodes[indexForNode(mergedInteractions[mi].target)];
+                interactionsArray.push(mergedInteractions[mi]);
             }
         }
 
@@ -22328,7 +22337,7 @@ globi.addInteractionGraph = function (options) {
  * @param coordinates
  * @returns {{}}
  */
-globi.getNormalizeAreaCoordinates = function(coordinates) {
+globi.getNormalizeAreaCoordinates = function (coordinates) {
     var temp,
         normalized = {};
     switch (arguments.length) {
@@ -22356,7 +22365,7 @@ globi.getNormalizeAreaCoordinates = function(coordinates) {
         typeof normalized.south === 'undefined' ||
         typeof normalized.west === 'undefined' ||
         typeof normalized.east === 'undefined'
-    ) {
+        ) {
         normalized = getDefaultArea();
     }
     if (normalized.north < normalized.south) {
@@ -22385,7 +22394,7 @@ globi.getNormalizeAreaCoordinates = function(coordinates) {
  * @returns {Object}
  * @constructor
  */
-globi.Callbacks = function(options) {
+globi.Callbacks = function (options) {
     function createOptions(options) {
         var object = {}, names = options.split(' ');
         for (var i = 0, name; name = names[i]; i++) {
@@ -22405,14 +22414,14 @@ globi.Callbacks = function(options) {
         list = [],
         queue = [],
         firingIndex = -1,
-        fire = function() {
+        fire = function () {
             locked = options.once;
 
             fired = firing = true;
-            for(; queue.length; firingIndex = -1) {
+            for (; queue.length; firingIndex = -1) {
                 memory = queue.shift();
                 while (++firingIndex < list.length) {
-                    if(list[firingIndex].apply(memory[0], memory[1]) === false &&
+                    if (list[firingIndex].apply(memory[0], memory[1]) === false &&
                         options.stopOnFalse) {
                         firingIndex = list.length;
                         memory = false;
@@ -22436,10 +22445,10 @@ globi.Callbacks = function(options) {
         },
 
         self = {
-            add: function() {
+            add: function () {
                 if (list) {
                     if (memory && !firing) {
-                        firingIndex = list.length -1;
+                        firingIndex = list.length - 1;
                         queue.push(memory);
                     }
 
@@ -22462,8 +22471,8 @@ globi.Callbacks = function(options) {
                 return this;
             },
 
-            remove: function() {
-                for(var i = 0, arg; arg = arguments[i]; i++) {
+            remove: function () {
+                for (var i = 0, arg; arg = arguments[i]; i++) {
                     var index;
                     while ((index = list.indexOf(arg)) > -1) {
                         list.splice(index, 1);
@@ -22476,30 +22485,30 @@ globi.Callbacks = function(options) {
                 return this;
             },
 
-            has: function(fn) {
+            has: function (fn) {
                 return fn ?
-                list.indexOf(fn) > -1 :
-                list.length > 0;
+                    list.indexOf(fn) > -1 :
+                    list.length > 0;
             },
 
-            empty: function() {
+            empty: function () {
                 if (list) {
                     list = [];
                 }
                 return this;
             },
 
-            disable: function() {
+            disable: function () {
                 locked = queue = [];
                 list = memory = '';
                 return this;
             },
 
-            disabled: function() {
+            disabled: function () {
                 return !list;
             },
 
-            lock: function() {
+            lock: function () {
                 locked = queue = [];
                 if (!memory && !firing) {
                     list = memory = '';
@@ -22507,11 +22516,11 @@ globi.Callbacks = function(options) {
                 return this;
             },
 
-            locked: function() {
+            locked: function () {
                 return !!locked;
             },
 
-            fireWith: function(context, args) {
+            fireWith: function (context, args) {
                 if (!locked) {
                     args = args || [];
                     args = [ context, args.slice ? args.slice() : args ];
@@ -22523,12 +22532,12 @@ globi.Callbacks = function(options) {
                 return this;
             },
 
-            fire: function() {
+            fire: function () {
                 self.fireWith(this, arguments);
                 return this;
             },
 
-            fired: function() {
+            fired: function () {
                 return !!fired;
             }
         };
@@ -22546,7 +22555,7 @@ globi.Callbacks = function(options) {
  * @returns {Object}
  * @constructor
  */
-globi.Deferred = function(func) {
+globi.Deferred = function (func) {
     var tuples = [
             [ 'resolve', 'done', globi.Callbacks('once memory'), 'resolved' ],
             [ 'reject', 'fail', globi.Callbacks('once memory'), 'rejected' ],
@@ -22554,19 +22563,19 @@ globi.Deferred = function(func) {
         ],
         state = 'pending',
         promise = {
-            state: function() {
+            state: function () {
                 return state;
             },
-            always: function() {
+            always: function () {
                 deferred.done(arguments).fail(arguments);
                 return this;
             },
-            then: function() {
+            then: function () {
                 var fns = arguments;
-                return globi.Deferred(function(newDefer) {
-                    tuples.forEach(function(tuple, i) {
+                return globi.Deferred(function (newDefer) {
+                    tuples.forEach(function (tuple, i) {
                         var fn = typeof fns[i] === 'function' && fns[i];
-                        deferred[tuple[1]](function() {
+                        deferred[tuple[1]](function () {
                             var returned = fn && fn.apply(this, arguments);
                             if (returned && typeof returned.promise === 'function') {
                                 returned.promise()
@@ -22584,26 +22593,26 @@ globi.Deferred = function(func) {
                     fns = null;
                 }).promise();
             },
-            promise: function(obj) {
+            promise: function (obj) {
                 return obj != null ? globi.extend(obj, promise) : promise;
             }
         },
         deferred = {};
 
-    tuples.forEach(function(tuple, i) {
+    tuples.forEach(function (tuple, i) {
         var list = tuple[2],
             stateString = tuple[3];
 
         promise[tuple[1]] = list.add;
 
         if (stateString) {
-            list.add(function() {
+            list.add(function () {
                 state = stateString;
-            }, tuples[i ^ 1][2].disable, tuples[2][2].lock );
+            }, tuples[i ^ 1][2].disable, tuples[2][2].lock);
         }
 
-        deferred[tuple[0]] = function() {
-            deferred[tuple[0] + "With"]( this === deferred ? promise : this, arguments );
+        deferred[tuple[0]] = function () {
+            deferred[tuple[0] + "With"](this === deferred ? promise : this, arguments);
             return this;
         };
         deferred[tuple[0] + "With"] = list.fireWith;
@@ -22625,7 +22634,7 @@ globi.Deferred = function(func) {
  * @param {Object} source
  * @returns {Object}
  */
-globi.extend = function(target, source) {
+globi.extend = function (target, source) {
     for (var k in source) {
         if (source.hasOwnProperty(k)) {
             var value = source[k];
@@ -22645,7 +22654,7 @@ globi.extend = function(target, source) {
  * @param {Object} settings
  * @constructor
  */
-globi.PaginatedDataFetcher = function(settings) {
+globi.PaginatedDataFetcher = function (settings) {
     this.settings = globi.extend({
         offset: 0,
         limit: 1024,
@@ -22658,29 +22667,29 @@ globi.PaginatedDataFetcher = function(settings) {
 };
 
 globi.extend(globi.PaginatedDataFetcher.prototype, {
-    init: function() {
+    init: function () {
         this._data = [];
         this._columns = [];
     },
 
-    setUrl: function(url) {
+    setUrl: function (url) {
         this.url = url;
     },
 
-    fetchChunk: function(offset) {
+    fetchChunk: function (offset) {
         var me = this, settings = me.settings;
         var d = globi.Deferred();
         jQuery.ajax(settings.url + '&limit=' + settings.limit + '&offset=' + offset, {
             dataType: 'json'
-        }).done(function(response) {
+        }).done(function (response) {
             d.resolve(response);
         });
         return d.promise();
     },
 
-    poll: function() {
+    poll: function () {
         var me = this, settings = me.settings;
-        return me.fetchChunk(settings.offset).then(function(reponse) {
+        return me.fetchChunk(settings.offset).then(function (reponse) {
             me._data = me._data.concat(reponse.data);
             me._columns = reponse.columns;
             if (reponse.data.length < settings.limit) {
@@ -22697,7 +22706,7 @@ globi.extend(globi.PaginatedDataFetcher.prototype, {
         });
     },
 
-    fetch: function(callback, reset) {
+    fetch: function (callback, reset) {
         var me = this;
         reset = reset ? !!reset : true;
         if (reset) {
@@ -22712,19 +22721,21 @@ globi.extend(globi.PaginatedDataFetcher.prototype, {
     }
 });
 
-globi.ResponseMapper = function() {
+globi.ResponseMapper = function () {
     var rawData = arguments.length === 1 ? arguments[0] : {},
         isArray = Array.isArray(rawData),
         rowNames = rawData['columns'] ? rawData['columns'] : [],
         data = rawData['data'] ? rawData['data'] : [],
         dataLength = isArray ? rawData.length : data.length;
 
-    return function() {
+    return function () {
         if (arguments.length === 0) {
             if (isArray) {
                 return rawData;
             }
-            return data.map(function(item) { return RowMapper(item, rowNames)});
+            return data.map(function (item) {
+                return RowMapper(item, rowNames)
+            });
         }
         if (arguments.length === 1 && typeof arguments[0] === 'number' && arguments[0] < dataLength) {
             if (isArray) {
