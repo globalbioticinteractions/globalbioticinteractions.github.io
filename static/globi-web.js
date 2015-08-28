@@ -20,7 +20,7 @@ module.exports = {
 };
 
 
-},{"./lib/dataContext.js":2,"./lib/searchContext.js":3,"globi":81,"globi-bundle":50,"globi-hairball":53,"globi-panels":56,"globi-search":59,"globi-spatial-selector":73,"globi-wheel":78,"jquery-ui":87,"node-js-marker-clusterer":89,"querystring":17,"spin.js":90}],2:[function(require,module,exports){
+},{"./lib/dataContext.js":2,"./lib/searchContext.js":3,"globi":81,"globi-bundle":50,"globi-hairball":53,"globi-panels":56,"globi-search":59,"globi-spatial-selector":73,"globi-wheel":78,"jquery-ui":88,"node-js-marker-clusterer":90,"querystring":17,"spin.js":91}],2:[function(require,module,exports){
 var extend = require('extend');
 var globi = require('globi');
 var globiData = globi.globiData;
@@ -184,7 +184,7 @@ extend(SearchContext.prototype, {
     }
 });
 
-},{"deep":47,"events":10,"extend":49,"inherits":86}],4:[function(require,module,exports){
+},{"deep":47,"events":10,"extend":49,"inherits":87}],4:[function(require,module,exports){
 
 },{}],5:[function(require,module,exports){
 arguments[4][4][0].apply(exports,arguments)
@@ -3172,7 +3172,7 @@ function forEach (xs, f) {
   }
 }
 
-},{"./_stream_readable":21,"./_stream_writable":23,"core-util-is":24,"inherits":86,"process-nextick-args":25}],20:[function(require,module,exports){
+},{"./_stream_readable":21,"./_stream_writable":23,"core-util-is":24,"inherits":87,"process-nextick-args":25}],20:[function(require,module,exports){
 // a passthrough stream.
 // basically just the most minimal sort of Transform stream.
 // Every written chunk gets output as-is.
@@ -3201,7 +3201,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./_stream_transform":22,"core-util-is":24,"inherits":86}],21:[function(require,module,exports){
+},{"./_stream_transform":22,"core-util-is":24,"inherits":87}],21:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -4164,7 +4164,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":19,"_process":13,"buffer":6,"core-util-is":24,"events":10,"inherits":86,"isarray":12,"process-nextick-args":25,"string_decoder/":41,"util":5}],22:[function(require,module,exports){
+},{"./_stream_duplex":19,"_process":13,"buffer":6,"core-util-is":24,"events":10,"inherits":87,"isarray":12,"process-nextick-args":25,"string_decoder/":41,"util":5}],22:[function(require,module,exports){
 // a transform stream is a readable/writable stream where you do
 // something with the data.  Sometimes it's called a "filter",
 // but that's not a great name for it, since that implies a thing where
@@ -4363,7 +4363,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":19,"core-util-is":24,"inherits":86}],23:[function(require,module,exports){
+},{"./_stream_duplex":19,"core-util-is":24,"inherits":87}],23:[function(require,module,exports){
 // A bit simpler than readable streams.
 // Implement an async ._write(chunk, cb), and it'll handle all
 // the drain event emission and buffering.
@@ -4885,7 +4885,7 @@ function endWritable(stream, state, cb) {
   state.ended = true;
 }
 
-},{"./_stream_duplex":19,"buffer":6,"core-util-is":24,"events":10,"inherits":86,"process-nextick-args":25,"util-deprecate":26}],24:[function(require,module,exports){
+},{"./_stream_duplex":19,"buffer":6,"core-util-is":24,"events":10,"inherits":87,"process-nextick-args":25,"util-deprecate":26}],24:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -5230,7 +5230,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":10,"inherits":86,"readable-stream/duplex.js":18,"readable-stream/passthrough.js":27,"readable-stream/readable.js":28,"readable-stream/transform.js":29,"readable-stream/writable.js":30}],32:[function(require,module,exports){
+},{"events":10,"inherits":87,"readable-stream/duplex.js":18,"readable-stream/passthrough.js":27,"readable-stream/readable.js":28,"readable-stream/transform.js":29,"readable-stream/writable.js":30}],32:[function(require,module,exports){
 var ClientRequest = require('./lib/request')
 var extend = require('xtend')
 var statusCodes = require('builtin-status-codes')
@@ -5622,7 +5622,7 @@ var unsafeHeaders = [
 ]
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./capability":33,"./response":35,"_process":13,"buffer":6,"foreach":37,"indexof":38,"inherits":86,"object-keys":39,"stream":31}],35:[function(require,module,exports){
+},{"./capability":33,"./response":35,"_process":13,"buffer":6,"foreach":37,"indexof":38,"inherits":87,"object-keys":39,"stream":31}],35:[function(require,module,exports){
 (function (process,Buffer){
 var capability = require('./capability')
 var foreach = require('foreach')
@@ -5799,7 +5799,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./capability":33,"_process":13,"buffer":6,"foreach":37,"inherits":86,"stream":31}],36:[function(require,module,exports){
+},{"./capability":33,"_process":13,"buffer":6,"foreach":37,"inherits":87,"stream":31}],36:[function(require,module,exports){
 module.exports = {
   "100": "Continue",
   "101": "Switching Protocols",
@@ -7530,7 +7530,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":43,"_process":13,"inherits":86}],45:[function(require,module,exports){
+},{"./support/isBuffer":43,"_process":13,"inherits":87}],45:[function(require,module,exports){
 module.exports = extend
 
 function extend() {
@@ -18692,7 +18692,7 @@ Bundle.prototype._buildBundles = function() {
 };
 
 
-},{"./lib/transform.js":51,"d3":46,"events":10,"inherits":86,"insert-css":52,"taxaprisma":91}],51:[function(require,module,exports){
+},{"./lib/transform.js":51,"d3":46,"events":10,"inherits":87,"insert-css":52,"taxaprisma":92}],51:[function(require,module,exports){
 module.exports = {
     parseToStructure: parseToStructure,
     taxonHierarchy: taxonHierarchy,
@@ -19050,7 +19050,7 @@ function redraw() {
     scale = d3.event.scale;
     chart.attr('transform', 'translate(' + translate + ')' + ' scale(' + scale + ')');
 }
-},{"./lib/transform.js":54,"d3":46,"events":10,"inherits":86,"insert-css":55,"taxaprisma":91}],54:[function(require,module,exports){
+},{"./lib/transform.js":54,"d3":46,"events":10,"inherits":87,"insert-css":55,"taxaprisma":92}],54:[function(require,module,exports){
 module.exports = {
     parseInteractions: parseInteractions,
     toTaxon: toTaxon
@@ -19161,7 +19161,7 @@ function addButtonClickHandlers(target) {
         });
     }
 }
-},{"domify":57,"events":10,"inherits":86,"insert-css":58}],57:[function(require,module,exports){
+},{"domify":57,"events":10,"inherits":87,"insert-css":58}],57:[function(require,module,exports){
 
 /**
  * Expose `parse`.
@@ -19658,7 +19658,7 @@ function getStyleAttribute(path) {
     return 'style="color: ' + taxaprisma.colorFor(path) + ';"'
 }
 
-},{"./lib/SearchResult.js":61,"./lib/TaxonSelector.js":62,"./lib/TypeSelector.js":63,"events":10,"extend":65,"foreach":66,"globi":67,"jquery":72,"taxaprisma":91,"util":44}],60:[function(require,module,exports){
+},{"./lib/SearchResult.js":61,"./lib/TaxonSelector.js":62,"./lib/TypeSelector.js":63,"events":10,"extend":65,"foreach":66,"globi":67,"jquery":72,"taxaprisma":92,"util":44}],60:[function(require,module,exports){
 var globi = require('globi');
 var globiData = globi.globiData;
 var forEach = require('foreach');
@@ -19916,7 +19916,7 @@ function getStyleAttribute(path) {
 }
 
 module.exports = SearchResult;
-},{"events":10,"extend":65,"taxaprisma":91,"util":44}],62:[function(require,module,exports){
+},{"events":10,"extend":65,"taxaprisma":92,"util":44}],62:[function(require,module,exports){
 var inherits = require('util').inherits;
 var EventEmitter = require('events').EventEmitter;
 var DataParser = require('./DataParser.js');
@@ -41184,7 +41184,7 @@ function placeMarker(location, map) {
     var latLng = new google.maps.LatLng(location.latitude, location.longitude);
     return new google.maps.Marker({ position: latLng, map: map, clickable: false });
 }
-},{"./lib/areapicker.js":74,"events":10,"globi":81,"inherits":86,"insert-css":77}],74:[function(require,module,exports){
+},{"./lib/areapicker.js":74,"events":10,"globi":81,"inherits":87,"insert-css":77}],74:[function(require,module,exports){
 var infobox = require('./infobox.js');
 var boundsToBBox = require('./boundsToBBox.js');
 
@@ -41623,7 +41623,7 @@ Wheel.prototype.dependencyWheel = function () {
 
 
 
-},{"./lib/transform.js":79,"d3":46,"events":10,"inherits":86,"insert-css":80}],79:[function(require,module,exports){
+},{"./lib/transform.js":79,"d3":46,"events":10,"inherits":87,"insert-css":80}],79:[function(require,module,exports){
 module.exports = {
     convertJsonForDependencyWheel: convertJsonForDependencyWheel
 };
@@ -41684,6 +41684,7 @@ var d3 = require('d3');
 var globiData = require('globi-data');
 var EventEmitter = require('events').EventEmitter;
 var jQuery = require('jquery');
+var taxaprisma = require('taxaprisma');
 
 var globi = {};
 globi.d3 = d3;
@@ -41715,21 +41716,10 @@ globi.createTaxonInfo = function (scientificName) {
     var taxonInfoDiv = document.createElement('div');
     taxonInfoDiv.setAttribute('class', 'globi-taxon-info');
     var callback = function (taxonInfo) {
-        if (taxonInfo.thumbnailURL) {
-            var img = document.createElement('img');
-            img.setAttribute('src', taxonInfo.thumbnailURL);
-            taxonInfoDiv.appendChild(img);
-        }
-        var p = document.createElement('p');
-        var nameHtml = taxonInfo.scientificName;
-        if (taxonInfo.scientificName.split(' ').length > 1) {
-            nameHtml = '<i>' + nameHtml + '</i>';
-        }
-        if (taxonInfo.commonName) {
-            nameHtml = taxonInfo.commonName + ' (' + nameHtml + ')';
-        }
-        p.innerHTML = '<a href="' + taxonInfo.infoURL + '" target="_blank">' + nameHtml + '</a>';
-        taxonInfoDiv.appendChild(p);
+        var div = document.createElement('div');
+        div.className = 'result-source';
+        div.innerHTML = globi.getTaxonTemplate(taxonInfo);
+        taxonInfoDiv.appendChild(div);
         ee.emit('ready');
     };
     globiData.findTaxonInfo(scientificName, callback);
@@ -42510,9 +42500,32 @@ globi.ResponseMapper = function () {
     }
 };
 
+globi.getTaxonTemplate = function(taxon) {
+    var commonName = taxon['commonName'] ? taxon['commonName'] : '',
+        scientificName = taxon['scientificName'] ? taxon['scientificName'] : '',
+        path = taxon['taxonPath'] ? taxon['taxonPath'] : '',
+        thumbnailURL = taxon['thumbnailURL'] ? taxon['thumbnailURL'] : '../img/no-image-available.png',
+        infoURL = taxon['infoURL'] ? taxon['infoURL'] : '';
+
+    return template = [
+        '<a target="_blank" href="' + infoURL + '">',
+        '<div class="source-data">',
+        '<div class="scientific-name" style="color: ' + taxaprisma.colorFor(path) + ';">' + scientificName + '</div>',
+        '<div class="taxon-image">',
+        '<table style="width: 100%;"><tbody style="background-color: transparent;"><tr>',
+        '<td style="width: 50%;vertical-align: middle;"><img height="50px" src="' + thumbnailURL + '" /></td>',
+        '<td style="width: 50%;vertical-align: middle; text-align: right;"><img height="35px" src="' + taxaprisma.imageDataUrlFor(path) + '" /></td>',
+        '</tr></tbody></table>',
+        '</div>',
+        '<div class="common-name">' + commonName + '</div>',
+        '</div>',
+        '</a>'
+    ].join('');
+};
+
 module.exports = globi;
 
-},{"d3":83,"events":10,"globi-data":84,"jquery":88}],82:[function(require,module,exports){
+},{"d3":83,"events":10,"globi-data":84,"jquery":89,"taxaprisma":86}],82:[function(require,module,exports){
 arguments[4][68][0].apply(exports,arguments)
 },{"dup":68}],83:[function(require,module,exports){
 arguments[4][69][0].apply(exports,arguments)
@@ -42521,6 +42534,105 @@ arguments[4][70][0].apply(exports,arguments)
 },{"dup":70,"extend":49,"querystring":17,"xmlhttprequest":85}],85:[function(require,module,exports){
 arguments[4][71][0].apply(exports,arguments)
 },{"_process":13,"buffer":6,"child_process":4,"dup":71,"fs":4,"http":32,"https":11,"url":42}],86:[function(require,module,exports){
+var cc0 = 'http://creativecommons.org/publicdomain/zero/1.0/';
+var ccBy = 'http://creativecommons.org/licenses/by/3.0/';
+
+
+var taxaprisma = {};
+
+taxaprisma.taxonGroups = [
+    { name: 'Fungi', color: '#F52887', image: { id: 'afd875a3-815f-443b-9b93-3e5bedd9a7a3', ns: 'phylopic', licenseURL: cc0,
+        'image/png': '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'} },
+    { name: 'Plantae', color: '#73AC13', image: { id: 'b6400f39-345a-4711-ab4f-92fd4e22cb1a', ns: 'phylopic', licenseURL: cc0,
+        'image/png': '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' } },
+    { name: 'Insecta', color: '#FF4500', image: { id: '6c6c5073-2383-40fb-9824-c6a8ed27badc', ns: 'phylopic', licenseURL: cc0,
+        'image/png': 'iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACVVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADBmiUtAAAAxnRSTlMAC2YKCGwHcyAfXTMDJp4eifn1xr6/OCLeuhYBECGX/hlK718GJ/GBBBgCw2UxcOSYi7SAQ/zjrQWU3FkMufSHRq/uPkcPUiwOkHXHzx3OmxG3/aXgOykvG+2s83Ir1RPUFU+qioKjMEBkUyhgrvZv6VDZ6Dp/kpNWsIM5yW6MVU3QS83MmhSouMvW7PoqyHzqqRzFoHRxF21a0/A8mdjyeH1p34VBDYS1q1d2XGqWd8o1YUwl+JVeYp2I+58a5j9rWKRIWzQcPE9fAAAAAWJLR0QAiAUdSAAAAtdJREFUWMNjYBgFo2AUjIIhCRiZmCnSz8LKRpkD2DkYGDi5uLh5yDWAl49fQFBIWERUjFwTxCWOSUoxMEjLkKddVk7wmLwC+SGgKHQMCJSUVcjUr6p2DALUQTxpBgYNTZL0a2lD9R+TF9HR1dM3MDQyJskAk2MowNTMnMuCJAMskbVbWduQHAS2CO129gIO0iQb4AjX7+TMwOBi6EqqAW4w/WbuIK6HJ6lukPbyBuv38YXwuXhJ08/hB7HfHxZ6AcT4QQUR1oEg3UFW1iTZyhwcEgplhsmDY49Yf8uGgynDCLdIdi0wMwrs/miiEy+/uzQDT4yTIkNsnGM8kO8cBDYgwT6RwZ24vCTjnJSckiroxmCTFpLOkAHKh05WxzK1krKyiYy0nFxgwZGaZ8IgnV9QGAKyPrioOKLEmrW0rLyCsH6pyioNIMWTLFQNjMEasPtr65yAHlEL0ebzryekv6GxCRoPzcXAdNMCNqCVwSI9vQ0s3M6JV3tAewc8tN3zOkW6uo8d6+k6FtSLKFz7GPHozwiJgUV3bP8EaAaYOGnysSlT1acpJzlMB0rMaMeZIqRnzqqGmdQoD9U++1gIA8McprnzZs/PU2vhB6pyXIDL+oWxuhAWzyJBiO65dsfiji1GKGGbAkxmAUou2LRXL1nKIA3JJAGwAqTHZhm74LEy5ArSEVgglCyfCXc0jBFhrAhnaxlB9a+oAfK4V6qi5JHKVUCyYnWmzhpQQl+7jrXNgrNEJ38mUtCuh+rfsNEcWyUb5QW0SlpDGuoC14pNm7eg1LvZWyEF+LZl2+2x+VWjVU4Lb1LIhBSeOxgYdq7BrmLX8gx8ucoTqH33HmB8MYTgKLkCpLdsX7RJXJoBu0vqjpnZy4IYe/fhc2r8/gMHD2KVSazzgPrlEIWNosDDFBqQokWhATGUtut0KDXgCIX6tTZRaIDuUQoNmKlBmf7p1hQ6oCqACEUAT10Xp31X05MAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTUtMDctMTZUMDU6MTQ6MTgtMDc6MDDOeNgXAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE1LTA3LTE2VDA1OjE0OjE4LTA3OjAwvyVgqwAAAABJRU5ErkJggg==' } },
+    { name: 'Mollusca', color: '#FF4500', image: { id: '1eb7433a-4943-4220-aa66-a658b272f23c', ns: 'phylopic', licenseURL: ccBy, attribution: 'Marcello',
+        'image/png': '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' } },
+    { name: 'Arachnida', color: '#FF4500', image: { id: '44fa6ec0-6bad-42bd-ae91-48d00c9b035c', ns: 'phylopic', licenseURL: cc0,
+        'image/png': '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' } },
+    { name: 'Aves', color: '#1E90FF', image: { id: 'ee764929-c865-44f6-b5db-b4e7d5693d1a', ns: 'phylopic', licenseURL: ccBy, attribution: 'Scott Hartman',
+        'image/png': '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' } },
+    { name: 'Reptilia', color: '#1E90FF', image: { id: 'dffda000-77cb-4251-b837-0cd2ab21ed5b', ns: 'phylopic', licenseURL: cc0,
+        'image/png': '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' } },
+    { name: 'Actinopterygii', color: '#1E90FF', image: { id: '90e1c28f-dd6f-4b1c-b263-91d208610458', ns: 'phylopic', licenseURL: cc0,
+        'image/png': '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' } },
+    { name: 'Amphibia', color: '#1E90FF', image: { id: '244be3ea-0fe5-45b6-b04e-1bd914489f95', ns: 'phylopic', licenseURL: cc0,
+        'image/png': 'iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACJVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgdicOAAAAtnRSTlMAAoLw1UiA/pcBNIaWtHcvBEJtqOjSQQ0x1vxhWvX9pWZXFhIqE6JpCCLzWVEgXLf0U+fxo6yUnfmJUO3K1OUn2Qe260ccJfb3MNNE3CO7clIkDuomYMPNah7fNiHbyxfJg/jYA7I5D5u83nzs14Ef5BTOz16gcAZsbztk4Cy6NxtAet3vxEm++19F0Y/jCQqQEBGeQ9pKsLiF+owYduEFP44aKX8zp8CkxVhNuaGLmmc9Ok4+cWoYIRcAAAABYktHRACIBR1IAAACmklEQVRYw2NgGAWjYHgBRiZmFlZKDGDbtm0bOwcn2fq52LeBADcPLx8/yaYICAoJi2xDAFExcZL0S0huQwdS0iTol5Hdhgnk5BUUlaAKlFVUwZ7iVFPXgIhwajIieV5qGw6gJaSto6uhpy+3bZsBryEnA6fRNmMTVkYGTm3TbWYIA8y34QUWMIYlA4MViLa2sQWSdvZwAxy2EQcMHBkYnBBcZxeYAVpEGrDNlYHBzR3B9fCEGmBHpH4vUEB6eyAEfHwhBvgRaYCkf0BgkC9yjAWHgA0I3UY2CANHpkA4+SZEgJ0QGUW2AbLRYBNiYsk2IQ4SjvEJZJsAcQKDRmISmQYkp0BTg1sqmSakwZO0oh1ZBiDlqvQMdjIMyEQuGXRESDcgC6VsCcom2YgctOLJMZdEA+zQCzgmEg3IQzcgn7SQLCjEKGOLSNFfrIJZSJcQq7m0jEknBUspXx5MpAEVuOoJeSINqMRlgBmRBlRh6OSrBlMZxOmvEUDSGqkLJGrZ6xgYquobiIyGRmS7RQ2aBBjStiVpK0g1txCnPwHF8RXs21rb2klJAB3RqN7vRC+RpLrwF3NM6AGY1o2qoIeBUbsXt36WPlTt/dXSE1CDeCJQdNJkXPlCbgqq/olT0fNoLQPDtOnaDF0zsBswE839k0z8bO3gDYFts2YD7Z8DrIh5587Dqr97PtZ24gIelqQW9m3BHIEgrj+eEFyIs7nEybBoMSSDRczCY8ASAq2upcv8kvHGIR8BA5YTSkXqBAwIlSNgQBehliOBglV2IiEDyovxGtBEuPFaj0//CkYimr8rcWoXXUVUW341jjxQZ0VsVyATTav71DVr10XoEt+E7wJnRIvu9Rs2btq8xX4i6T2YgJrYrbopRCgEAAM7swXDPzG/AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE0LTExLTAzVDAzOjQ1OjI5LTA4OjAwkv+edwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0xMS0wM1QwMzo0NToyOS0wODowMOOiJssAAAAASUVORK5CYII='  } },
+    { name: 'Mammalia', color: '#1E90FF', image: { id: 'e5b0cde8-beab-48dc-b77c-d48b16c6a05e', ns: 'phylopic', licenseURL: cc0,
+        'image/png': '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' } }
+];
+
+var defaultColor = '#000000';
+// png 1px transparent
+var defaultImageDataUrl = { 'image/png': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII='};
+
+
+
+module.exports = taxaprisma;
+
+function matchesTaxon(taxonPath) {
+    var matches = [];
+    if (taxonPath) {
+        matches = taxaprisma.taxonGroups.filter(function (obj) {
+            return taxonPath.match(obj.name);
+        });
+    }
+    return  matches;
+}
+taxaprisma.colorFor = function (taxonPath) {
+    var matches = matchesTaxon(taxonPath);
+    var color = defaultColor;
+    if (matches.length > 0) {
+        color = matches[0].color;
+    }
+    return color;
+};
+
+taxaprisma.imageFor = function (taxonPath, mimeType) {
+    var type = mimeType || 'image/png';
+    var matches = matchesTaxon(taxonPath);
+    var img = null;
+    if (matches.length > 0) {
+        if (matches[0].image.ns === 'phylopic') {
+            var ext = { 'image/png': '.thumb.png', 'image/svg+xml': '.svg'}
+            var suffix = ext[type];
+            if (suffix) {
+                img = 'http://phylopic.org/assets/images/submissions/' + matches[0].image.id + suffix;
+            }
+        }
+    }
+    return img;
+};
+
+taxaprisma.imageDataUrlFor = function (taxonPath, mimeType) {
+    var type = mimeType || 'image/png';
+    var matches = matchesTaxon(taxonPath);
+    var img = defaultImageDataUrl[type];
+    if (matches.length > 0) {
+        var image = matches[0].image;
+        if (image && image[type]) {
+            img = 'data:' + type + ';base64,' + image[type];
+        }
+    }
+    return img;
+};
+
+taxaprisma.imageLicenseFor = function (taxonPath) {
+    var matches = matchesTaxon(taxonPath);
+    var licenseText = null;
+    if (matches.length > 0) {
+        var first = matches[0];
+        licenseText = cc0;
+        if (first.image.licenseURL !== cc0) {
+            licenseText = ['by', first.image.attribution, 'under', first.image.licenseURL].join(' ');
+        }
+    }
+    return licenseText;
+};
+
+
+},{}],87:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -42545,7 +42657,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],87:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*! jQuery UI - v1.10.3 - 2013-05-03
@@ -57552,9 +57664,9 @@ $.widget( "ui.tooltip", {
 
 }( jQuery ) );
 
-},{"jquery":88}],88:[function(require,module,exports){
+},{"jquery":89}],89:[function(require,module,exports){
 arguments[4][72][0].apply(exports,arguments)
-},{"dup":72}],89:[function(require,module,exports){
+},{"dup":72}],90:[function(require,module,exports){
 (function (global){
 /**
  * Npm version of markerClusterer works great with browserify and google maps for commonjs
@@ -58854,7 +58966,7 @@ ClusterIcon.prototype['onRemove'] = ClusterIcon.prototype.onRemove;
 module.exports = MarkerClusterer;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],90:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 /**
  * Copyright (c) 2011-2014 Felix Gnass
  * Licensed under the MIT license
@@ -59233,7 +59345,7 @@ module.exports = MarkerClusterer;
 
 }));
 
-},{}],91:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 var cc0 = 'http://creativecommons.org/publicdomain/zero/1.0/';
 var ccBy = 'http://creativecommons.org/licenses/by/3.0/';
 
