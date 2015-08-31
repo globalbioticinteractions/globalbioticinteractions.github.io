@@ -20,8 +20,8 @@ function showRefTitle(study) {
 
 function accordingTo(study) {
     // chop off http(s) from prefix of citation to avoid being used as a url lookup
-    var accordingTo = study.url;
-    if (accordingTo === undefined && study.citation) {
+    var accordingTo = study.url || null;
+    if (accordingTo == null && study.citation) {
       accordingTo = study.citation.replace(/^\W*http([s])*:\/\//, '');
     }
     return encodeURIComponent(accordingTo);
