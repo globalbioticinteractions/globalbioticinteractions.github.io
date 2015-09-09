@@ -104,7 +104,7 @@
         {factory: globiWeb.searchResult, target: panels.topLeftContainer, help: 'interaction-search'}
     ];
 
-    var searchParameters = {};
+    var searchParameters = { sourceTaxon: 'Chelonia mydas' };
     var hash = window.location.hash;
     if (hash && hash.length > 1) {
         var anchorOnly = hash.substring(1);
