@@ -19371,7 +19371,7 @@ extend(Plugin.prototype, {
                 , 'study_citation', 'study_url', 'study_source_citation']
         };
         var downloadUrls = ['csv', 'json', 'dot'].map(function(resultType) {
-            var searchParams = extend({}, me.searchContext.searchParameters, searchHash);
+            var searchParams = extend({ limit: 2048 }, me.searchContext.searchParameters, searchHash);
             searchParams.resultType = resultType;
             var link = {};
             link.resultType = resultType;
