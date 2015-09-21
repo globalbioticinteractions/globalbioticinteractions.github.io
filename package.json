@@ -13,13 +13,13 @@
   "dependencies": {
     "deep": "0.0.2",
     "extend": "^3.0.0",
-    "globi": "~0.0.59",
+    "globi": "~0.0.60",
     "inherits": "^2.0.1",
     "jquery": "^2.1.4",
     "jquery-ui": "1.10.5",
     "node-js-marker-clusterer": "~1.0.0",
     "spin.js": "~2.3.2",
-    "taxaprisma": "0.0.10"
+    "taxaprisma": "0.0.11"
   },
   "devDependencies": {
     "tape": "~4.1.0",
