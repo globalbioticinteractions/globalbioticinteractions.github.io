@@ -149,6 +149,7 @@ $(function () {
             textElem.innerHTML = prefix + $('#interactionType :selected').text() + message + '<p>Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.</p>';
             document.getElementById('info').appendChild(textElem);
 
+            var loadImagesAndNames = function(distinctNames) {
             Object.keys(distinctNames).forEach(function (name) {
                 globiData.findTaxonInfo(name, function (taxonInfo) {
                     var label = name;
@@ -169,8 +170,10 @@ $(function () {
                     }
                     $('.' + className(name)).html(label);
                 });
-            });
+            });};
 
+            
+            var loadReferences = function(distinctInteractions) {
             Object.keys(distinctInteractions).forEach(function (distinctInteractionKey) {
                 var distinctInteraction = distinctInteractions[distinctInteractionKey];
                 var search = { sourceTaxa: [distinctInteraction.source_taxon_name], targetTaxa: [distinctInteraction.target_taxon_name], interactionType: distinctInteraction.interaction_type, includeObservations: 'true', exactNameMatchOnly: 'true', fields: ['study_citation', 'study_url', 'study_source_citation'] };
@@ -200,8 +203,10 @@ $(function () {
                         }
                     });
                 });
-            });
-
+              });
+            };
+            loadReferences(distinctInteractions);
+            loadImagesAndNames(distinctNames);
         };
         globiData.findSpeciesInteractions(search, callback);
     };
