@@ -89,10 +89,20 @@ $(function () {
 
         var callback = function (interactions) {
             var resultDiv = document.getElementById('result');
-            $('.interaction').remove();
+            $('.interaction, thead').remove();
             var distinctNames = {};
             var distinctInteractions = {};
             var counter = 0;
+            
+            var header = document.createElement('thead');
+            var columns = ['Organism 1', 'Interaction', 'Organism 2', 'Sources'];
+            for (var c = 0; c < columns.length; c++) {
+              var th = document.createElement('th');
+              th.innerHTML = columns[c];
+              header.appendChild(th);
+            }
+            resultDiv.appendChild(header);
+            
             interactions.forEach(function (interaction) {
                 if (distinctNames[interaction.target_taxon_name] !== interaction.target_taxon_name) {
                     row = document.createElement('tr');

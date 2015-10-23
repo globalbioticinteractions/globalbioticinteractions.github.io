@@ -54,3 +54,75 @@ body {
 .menu li:last-child a { border-right: none; }
  
 .menu li:hover > a { color: rgba(0,0,255,.9); }
+
+thead {
+  border-bottom: 1px solid #000;
+}
+
+tr.interaction:nth-child(even) {
+  background: #ccc;
+}
+
+tr.interaction td {
+  border: none;
+}
+
+tr.interaction td li {
+  list-style-type: none;
+  margin-bottom: 8px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+}
+
+@media (max-width: 767px) {
+  .menu li:first-child {
+    float: none;
+  }
+  
+  .ui-widget {
+    clear: both;
+  }
+
+  table, tr {
+    display: block;
+    max-width: 100%;
+  }
+  
+  td {
+    display: block;
+  }
+  
+  thead {
+    display: none;
+  }
+  
+  tr.interaction td table {
+    display: block;
+  }
+  
+  tr.interaction td table, tr.interaction td li {
+    clear: both;
+    margin-top: 10px;
+  }
+  
+  tr.interaction td table tbody, tr.interaction td table tr, tr.interaction td table td {
+    display: block;
+    float: left;
+  }
+  
+  tr.interaction > td {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  tr.interaction > td:nth-child(2) {
+    font-size: 120%;
+    display: block;
+    clear: both;
+    padding: 10px;
+    text-align: center;
+  }
+}
