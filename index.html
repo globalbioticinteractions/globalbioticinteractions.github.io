@@ -88,23 +88,23 @@ $(function () {
         document.location.hash = queryString.stringify(searchHash)
 
         var callback = function (interactions) {
-            var resultDiv = document.getElementById('result');
+            var resultFragment = document.createDocumentFragment();
             $('.interaction, thead').remove();
             var distinctNames = {};
             var distinctInteractions = {};
             var counter = 0;
-            
+
             interactions.forEach(function (interaction) {
                 if (distinctNames[interaction.target_taxon_name] !== interaction.target_taxon_name) {
-                    row = document.createElement('tr');
+                    var row = document.createElement('tr');
                     row.setAttribute('class', 'interaction');
-                    resultDiv.appendChild(row);
+                    resultFragment.appendChild(row);
                     var td = document.createElement('td');
                     td.setAttribute('class', className(interaction.source_taxon_name));
                     td.innerHTML = interaction.source_taxon_name;
                     row.appendChild(td);
                     td = document.createElement('td');
-                    div = document.createElement('div');
+                    var div = document.createElement('div');
                     div.setAttribute('class', className(interaction.interaction_type));
                     div.textContent = interaction.interaction_type;
                     td.appendChild(div);
@@ -126,6 +126,9 @@ $(function () {
                 }
             });
             distinctNames[sourceTaxonName] = sourceTaxonName;
+
+            var result = document.getElementById('result');
+            result.appendChild(resultFragment);
 
             var textElem = document.createElement('p')
             textElem.setAttribute('class', 'interaction');
@@ -160,7 +163,7 @@ $(function () {
                     if (taxonInfo.commonName !== null) {
                         label = taxonInfo.commonName + '<br>(' + label + ')';
                     }
-                    var label = '<td>' + label + '</td>';
+                    label = '<td>' + label + '</td>';
                     if (taxonInfo.infoURL) {
                         var link = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>';
                         var image = '';
