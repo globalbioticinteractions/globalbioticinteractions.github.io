@@ -210,15 +210,16 @@ $(function () {
             var loadReferences = function (distinctInteractions) {
                 Object.keys(distinctInteractions).forEach(function (distinctInteractionKey) {
                     var distinctInteraction = distinctInteractions[distinctInteractionKey];
-                    var search = { sourceTaxa: [distinctInteraction.source_taxon_name], targetTaxa: [distinctInteraction.target_taxon_name], interactionType: distinctInteraction.interaction_type, includeObservations: 'true', exactNameMatchOnly: 'true', fields: ['study_citation', 'study_url', 'study_source_citation'] };
+                    var search = { sourceTaxa: [distinctInteraction.source_taxon_name], targetTaxa: [distinctInteraction.target_taxon_name], interactionType: distinctInteraction.interaction_type, includeObservations: 'true', exactNameMatchOnly: 'true', fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation'] };
                     globiData.findSpeciesInteractions(search, function (distinctInteractionResults) {
                         distinctInteractionResults.forEach(function (distinctInteractionResult) {
-                            var studyId = className(distinctInteractionKey + distinctInteractionResult.study_citation);
+                            var studyId = className(distinctInteractionKey + distinctInteractionResult.study_title);
                             if ($('#' + studyId).length == 0) {
                                 var citationElem = document.createElement('li');
                                 citationElem.setAttribute('id', studyId);
                                 var textElem = document.createElement('b');
-                                var study = {citation: distinctInteractionResult.study_citation,
+                                var study = {
+                                    citation: distinctInteractionResult.study_citation,
                                     url: distinctInteractionResult.study_url,
                                     source: distinctInteractionResult.study_source_citation};
 
