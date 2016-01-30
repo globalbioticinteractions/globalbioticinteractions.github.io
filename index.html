@@ -120,8 +120,7 @@ $(function () {
 
         search.limit = limitDefault;
         search.offset = offset || offsetDefault;
-        document.location.hash = queryString.stringify(searchHash);
-
+        window.history.pushState({}, "", "?" + queryString.stringify(searchHash));
         var callback = function (interactions) {
             var resultFragment = document.createDocumentFragment();
             var distinctNames = {};
@@ -283,7 +282,7 @@ $(function () {
 });
 
 var init = function () {
-    var params = queryString.parse(document.location.hash);
+    var params = queryString.parse(document.location.search || document.location.hash);
     globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
     $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
     $('#studySearchField').val(params.accordingTo);
