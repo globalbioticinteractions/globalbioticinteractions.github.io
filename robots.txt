@@ -1,0 +1,3 @@
+Sitemap: https://globi.s3.amazonaws.com/snapshot/target/data/sitemap/citations/sitemap_index.xml
+
+Sitemap: https://globi.s3.amazonaws.com/snapshot/target/data/sitemap/names/sitemap_index.xml
