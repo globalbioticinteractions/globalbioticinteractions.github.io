@@ -304,9 +304,9 @@ var showTaxonLinks = function (elem) {
 
 
     globiData.findTaxonLinks(elem.dataset.taxon, function (urls) {
-        if (urls !== null) {
+          if (urls !== null) {
             var taxonLinks = [];
-            urls.forEach(function (url) {
+            urls.sort().forEach(function (url) {
                 links.forEach(function (link) {
                     if (url.startsWith(link.url)) {
                         var taxonLink = { icon: link.icon, url: url, name: link.name };
