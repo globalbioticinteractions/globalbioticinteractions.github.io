@@ -126,3 +126,12 @@ tr.interaction td li {
     text-align: center;
   }
 }
+
+.taxonLinkIcon {
+  height: 1.1em;
+  padding: 0.2em;
+}
+
+.taxonLinkShow {
+  cursor: pointer;
+}

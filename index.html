@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <title>Global Biotic Interactions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="MHqp6kVCB-ILE2P_5iHK902nz8mCR0HwnqIgEFvwBgU" />
+    <meta name="google-site-verification" content="MHqp6kVCB-ILE2P_5iHK902nz8mCR0HwnqIgEFvwBgU"/>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" href="globi.css"/>
 </head>
@@ -167,7 +167,7 @@ $(function () {
                 if (!button) {
                     button = document.createElement('button');
                     button.setAttribute('id', 'moreButton');
-                    button.addEventListener('click', function(event) {
+                    button.addEventListener('click', function (event) {
                         searchForInteractions(search.offset + limitDefault);
                     });
                     button.textContent = 'more...';
@@ -192,14 +192,14 @@ $(function () {
                         if (taxonInfo.commonName !== null) {
                             label = taxonInfo.commonName + '<br>(' + label + ')';
                         }
-                        label = '<td>' + label + '</td>';
+                        label = '<td>' + label + ' <span class="taxonLinkShow" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon="' + taxonInfo.scientificName + '">...</span></td>';
                         if (taxonInfo.infoURL) {
-                            var link = '<a href="' + taxonInfo.infoURL + '"><table><tr><td>';
+                            var link = '<table><tr><td>';
                             var image = '';
                             if (taxonInfo.thumbnailURL) {
-                                image = '<img src="' + taxonInfo.thumbnailURL + '"/>';
+                                image = '<a href="' + taxonInfo.infoURL + '"><img src="' + taxonInfo.thumbnailURL + '"/></a>';
                             }
-                            label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table></a>';
+                            label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table>';
                         }
                         $('.' + className(name)).html(label);
                     });
@@ -280,6 +280,68 @@ $(function () {
     });
     $("#studySearchField").keyup(onEnter);
 });
+
+var showTaxonLinks = function (elem) {
+    var links = [
+        { name: 'Encyclopedia of Life', icon: "http://eol.org/assets/favicon.ico", url: "http://eol.org"}
+        ,
+        { name: 'World Register of Marine Species', icon: "http://www.marinespecies.org/favicon.ico", url: "http://marinespecies.org"}
+        ,
+        { name: 'National Center for Biotechnology Information', icon: "http://www.ncbi.nlm.nih.gov/favicon.ico", url: "http://marinespecies.org"}
+        ,
+        { name: 'Global Biodiversity Information Facility', icon: "http://cdn.gbif.org/img/favicon/favicon-32x32.png", url: "http://gbif.org"}
+        ,
+        { name: 'Open Tree of Life', icon: "https://tree.opentreeoflife.org/opentree/static/images/mini-opentree-logo.png", url: "https://tree.opentreeoflife.org"}
+        ,
+        { name: 'National Biodiversity Network', icon: "https://data.nbn.org.uk/favicon.ico", url: "https://data.nbn.org.uk"}
+        ,
+        { name: 'Atlas of Living Australia', icon: "http://www.ala.org.au/wp-content/themes/ala-wordpress-theme/img/favicon/favicon-32x32.png", url: "http://www.ala.org.au/" }
+        ,
+        { name: 'Integrated Taxonomic Information System', icon: "http://www.itis.gov/favicon.ico", url: "http://www.itis.gov/" }
+        ,
+        { name: 'Interim Register of Marine and Nonmarine Genera', icon: "http://www.cmar.csiro.au/favicon.ico", url: "http://www.cmar.csiro.au" }
+    ];
+
+
+    globiData.findTaxonLinks(elem.dataset.taxon, function (urls) {
+        if (urls !== null) {
+            var taxonLinks = [];
+            urls.forEach(function (url) {
+                links.forEach(function (link) {
+                    if (url.startsWith(link.url)) {
+                        var taxonLink = { icon: link.icon, url: url, name: link.name };
+                        taxonLinks.push(taxonLink);
+                    }
+                });
+            });
+
+            var linkToItem = function (link) {
+                var item = document.createElement("span");
+                var a = document.createElement("a");
+                a.setAttribute("target", "_blank");
+                a.setAttribute("href", link.url);
+                a.setAttribute('title', link.name);
+                var image = document.createElement("img");
+                image.setAttribute("class", "taxonLinkIcon");
+                image.setAttribute("src", link.icon);
+                a.appendChild(image);
+                item.appendChild(a);
+                return item;
+            };
+            var items = taxonLinks.map(linkToItem);
+
+            var td = document.createElement("span");
+            td.appendChild(document.createElement("br"));
+            td.setAttribute("class", "taxonLinkIcons");
+            items.forEach(function (item) {
+                td.appendChild(item);
+            });
+            elem.parentNode.appendChild(td);
+            elem.parentNode.removeChild(elem);
+        }
+    });
+
+}
 
 var init = function () {
     var params = queryString.parse(document.location.search || document.location.hash);
