@@ -336,8 +336,23 @@ var showTaxonLinks = function (elem) {
                 item.appendChild(a);
                 return item;
             };
-            var items = taxonLinks.map(linkToItem);
+            
+            var suggestNameLink = function(taxonName, globiRef) {
+              var item = document.createElement("span");
+              var a = document.createElement("a");
+              a.setAttribute("title", "suggest a link for this name");
+              a.setAttribute("target", "_blank");
+              var params = { title: 'name link suggestion for [' + taxonName +']', body: 'Hi!\nI found a taxon name ```' + taxonName + '``` at a [globi page](' + globiRef + '). After reviewing the data sources and relevant taxonomic tools like the [globalnames resolver](http://resolver.globalnames.org), I think that suggestion below might be helpful.\n\n Thanks!\n\n| name | suggested name | name url reference | notes\n| --- | --- | --- | ---\n| ' + taxonName +' | YOUR SUGGESTED NAME | http://somereference | some notes' };  
+              a.setAttribute("href", "https://github.com/globalbioticinteractions/globi-names/issues/new?" + queryString.stringify(params));
+              a.textContent = 'suggest link';
+              item.appendChild(a);
+              return item;
+            };
 
+            var items = taxonLinks.map(linkToItem);
+            if (items.length === 0) {
+              items.push(suggestNameLink(elem.dataset.taxon, window.location.href));
+            }
             var td = document.createElement("span");
             td.appendChild(document.createElement("br"));
             td.setAttribute("class", "taxonLinkIcons");
