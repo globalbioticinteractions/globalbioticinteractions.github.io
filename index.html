@@ -305,16 +305,25 @@ var showTaxonLinks = function (elem) {
 
     globiData.findTaxonLinks(elem.dataset.taxon, function (urls) {
           if (urls !== null) {
-            var taxonLinks = [];
-            urls.sort().forEach(function (url) {
-                links.forEach(function (link) {
-                    if (url.startsWith(link.url)) {
-                        var taxonLink = { icon: link.icon, url: url, name: link.name };
-                        taxonLinks.push(taxonLink);
-                    }
-                });
-            });
+            var taxonLinkForUrl = function(url) {
+              var selectedLinks = links.filter(function (link) {
+                return url.startsWith(link.url);
+              });
+              var selectedLink;
+              if (selectedLinks.length === 0) {
+                selectedLink = { icon: 'img/link.png', url: url, name: url };
+              } else {
+                selectedLink = { icon: selectedLinks[0].icon, url: url, name: selectedLinks[0].name };
+              }
+              console.log('returning ' + JSON.stringify(selectedLinks));
+              return selectedLink;
+            }
 
+            var taxonLinks = urls
+              .filter(function(url) { return url.startsWith("http://") || url.startsWith("https://"); })
+              .sort()
+              .map(function (url) { return taxonLinkForUrl(url); });
+            
             var linkToItem = function (link) {
                 var item = document.createElement("span");
                 var a = document.createElement("a");
