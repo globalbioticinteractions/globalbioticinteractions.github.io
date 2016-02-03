@@ -52,6 +52,9 @@
 <script src="links.js"></script>
 <script src="query-string.js"></script>
 <script>
+  var className = function (someString) {
+    return someString.replace(/\W/g, '_');
+  }
 $(function () {
     var labelForTaxon = function (taxon) {
         var englishName;
@@ -65,9 +68,6 @@ $(function () {
         return suggestion;
     };
 
-    var className = function (someString) {
-        return someString.replace(/\W/g, '_');
-    }
 
     function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctInteractions) {
         var textElem = document.createElement('p');
@@ -192,7 +192,7 @@ $(function () {
                         if (taxonInfo.commonName !== null) {
                             label = taxonInfo.commonName + '<br>(' + label + ')';
                         }
-                        label = '<td>' + label + ' <span class="taxonLinkShow" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon="' + taxonInfo.scientificName + '">...</span></td>';
+                        label = '<td>' + label + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon="' + taxonInfo.scientificName + '">...</span></td>';
                         if (taxonInfo.infoURL) {
                             var link = '<table><tr><td>';
                             var image = '';
@@ -202,8 +202,18 @@ $(function () {
                             label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table>';
                         }
                         $('.' + className(name)).html(label);
+                        
+                        if (sourceTaxonName === name) {
+                          var aSelector = '.taxonLinkShow.' + className(sourceTaxonName);
+                          var focalTaxonElem = document.querySelector(aSelector);
+                          if (focalTaxonElem) {
+                            showTaxonLinks(focalTaxonElem);
+                          }
+                        }
                     });
-                });
+                        
+                  });
+
             };
 
 
@@ -242,6 +252,7 @@ $(function () {
             };
             loadReferences(distinctInteractions);
             loadImagesAndNames(distinctNames);
+
         };
         globiData.findSpeciesInteractions(search, callback);
     };
@@ -359,8 +370,13 @@ var showTaxonLinks = function (elem) {
             items.forEach(function (item) {
                 td.appendChild(item);
             });
-            elem.parentNode.appendChild(td);
-            elem.parentNode.removeChild(elem);
+
+            var aSelector = '.taxonLinkShow.' + className(elem.dataset.taxon);
+            var taxonElems = document.querySelectorAll(aSelector);
+            for (var i = 0; i < taxonElems.length; i++) {
+              taxonElems.item(i).parentNode.appendChild(td.cloneNode(true));
+              taxonElems.item(i).parentNode.removeChild(taxonElems.item(i));
+            }
         }
     });
 
