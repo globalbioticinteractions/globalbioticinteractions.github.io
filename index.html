@@ -192,7 +192,7 @@ $(function () {
                         if (taxonInfo.commonName !== null) {
                             label = taxonInfo.commonName + '<br>(' + label + ')';
                         }
-                        label = '<td>' + label + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon="' + taxonInfo.scientificName + '">...</span></td>';
+                        label = '<td>' + label + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(name) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon="' + taxonInfo.scientificName + '">...</span></td>';
                         if (taxonInfo.infoURL) {
                             var link = '<table><tr><td>';
                             var image = '';
@@ -202,7 +202,7 @@ $(function () {
                             label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table>';
                         }
                         $('.' + className(name)).html(label);
-                        
+
                         if (sourceTaxonName === name) {
                           var aSelector = '.taxonLinkShow.' + className(sourceTaxonName);
                           var focalTaxonElem = document.querySelector(aSelector);
