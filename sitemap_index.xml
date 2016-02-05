@@ -4,4 +4,12 @@
     <loc>https://globi.s3.amazonaws.com/snapshot/target/data/sitemap/citations/sitemap.xml.gz</loc>
     <lastmod>2016-02-03T14:40:34.156+01:00</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>https://globi.s3.amazonaws.com/snapshot/target/data/sitemap/names/sitemap1.xml.gz</loc>
+    <lastmod>2016-02-04T15:49:25.013+01:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://globi.s3.amazonaws.com/snapshot/target/data/sitemap/names/sitemap2.xml.gz</loc>
+    <lastmod>2016-02-04T15:49:25.013+01:00</lastmod>
+  </sitemap>
 </sitemapindex>
