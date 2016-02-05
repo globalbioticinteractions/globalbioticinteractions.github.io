@@ -313,12 +313,15 @@ var showTaxonLinks = function (elem) {
         { name: 'Interim Register of Marine and Nonmarine Genera', icon: "http://www.cmar.csiro.au/favicon.ico", url: "http://www.cmar.csiro.au" }
     ];
 
+    var startsWith = function(str, substr) {
+      return str && substr && str.indexOf(substr) === 0;
+    }
 
     globiData.findTaxonLinks(elem.dataset.taxon, function (urls) {
           if (urls !== null) {
             var taxonLinkForUrl = function(url) {
               var selectedLinks = links.filter(function (link) {
-                return url.startsWith(link.url);
+                return startsWith(url, link.url);
               });
               var selectedLink;
               if (selectedLinks.length === 0) {
@@ -330,7 +333,7 @@ var showTaxonLinks = function (elem) {
             }
 
             var taxonLinks = urls
-              .filter(function(url) { return url.startsWith("http://") || url.startsWith("https://"); })
+              .filter(function(url) { return startsWith(url, "http://") || startsWith(url, "https://"); })
               .sort()
               .map(function (url) { return taxonLinkForUrl(url); });
             
