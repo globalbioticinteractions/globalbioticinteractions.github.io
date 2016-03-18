@@ -47,9 +47,10 @@
 <!-- DataTables -->
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
-<script src="https://rawgit.com/jhpoelen/eol-globi-data-js/master/globi-data-dist.js"></script>
+<script src="static/globi-web-min.js"></script>
 <script src="links.js"></script>
 <script type="text/javascript">
+    var globiData = globiWeb.globi.globiData;
     $(document).ready(function () {
         $('#contributors').DataTable({
             paging: true,

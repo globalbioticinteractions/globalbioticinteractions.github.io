@@ -104,7 +104,7 @@ $(function () {
         var interactionType = $('#interactionType').find(":selected").val();
         var studyQuery = $('#studySearchField').val();
         var searchHash = {};
-        var search = { fields: ['source_taxon_name', 'target_taxon_name', 'interaction_type'] };
+        var search = { fields: ['source_taxon_name', 'source_taxon_external_id', 'target_taxon_name', 'target_taxon_external_id', 'interaction_type'] };
         if (sourceTaxonName.length > 0) {
             searchHash.sourceTaxon = sourceTaxonName;
             search.sourceTaxa = [sourceTaxonName];
