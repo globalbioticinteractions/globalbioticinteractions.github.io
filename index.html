@@ -129,8 +129,9 @@ $(function () {
             var nDistinctInteractions = 0;
 
             interactions.forEach(function (interaction) {
+                var citationKey = (interaction.source_taxon_external_id + interaction.interaction_type + interaction.target_taxon_external_id);
                 nInteractions += 1;
-                if (distinctExternalIds[interaction.target_taxon_external_id] !== interaction.target_taxon_external_id) {
+                if (distinctInteractions[citationKey] === undefined) {
                     var row = document.createElement('tr');
                     row.setAttribute('class', 'interaction');
                     resultFragment.appendChild(row);
@@ -149,7 +150,6 @@ $(function () {
                     td.innerHTML = interaction.target_taxon_name;
                     row.appendChild(td);
 
-                    var citationKey = (interaction.source_taxon_external_id + interaction.interaction_type + interaction.target_taxon_external_id);
                     td = document.createElement('td');
                     td.setAttribute('class', className(citationKey));
                     row.appendChild(td);
