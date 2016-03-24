@@ -183,16 +183,16 @@ $(function () {
             }
 
             var loadImagesAndNames = function (distinctExternalIds) {
-                Object.keys(distinctExternalIds).forEach(function (name) {
-                    globiData.findTaxonInfo(name, function (taxonInfo) {
-                        var label = name;
+                Object.keys(distinctExternalIds).forEach(function (externalId) {
+                    globiData.findTaxonInfo(externalId, function (taxonInfo) {
+                        var label = externalId;
                         if (taxonInfo.scientificName) {
                             label = taxonInfo.scientificName;
                         }
                         if (taxonInfo.commonName !== null) {
                             label = taxonInfo.commonName + '<br>(' + label + ')';
                         }
-                        label = '<td>' + label + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(name) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon="' + name + '">...</span></td>';
+                        label = '<td>' + label + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(externalId) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon-external-id="' + externalId + '" data-taxon-name="' + label + '">...</span></td>';
                         if (taxonInfo.infoURL) {
                             var link = '<table><tr><td>';
                             var image = '';
@@ -201,9 +201,9 @@ $(function () {
                             }
                             label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table>';
                         }
-                        $('.' + className(name)).html(label);
+                        $('.' + className(externalId)).html(label);
 
-                        if (sourceTaxonName === name) {
+                        if (sourceTaxonName === externalId) {
                           var aSelector = '.taxonLinkShow.' + className(sourceTaxonName);
                           var focalTaxonElem = document.querySelector(aSelector);
                           if (focalTaxonElem) {
@@ -317,7 +317,7 @@ var showTaxonLinks = function (elem) {
       return str && substr && str.indexOf(substr) === 0;
     }
 
-    globiData.findTaxonLinks(elem.dataset.taxon, function (urls) {
+    globiData.findTaxonLinks(elem.dataset.taxonExternalId, function (urls) {
           if (urls !== null) {
             var taxonLinkForUrl = function(url) {
               var selectedLinks = links.filter(function (link) {
@@ -365,7 +365,7 @@ var showTaxonLinks = function (elem) {
 
             var items = taxonLinks.map(linkToItem);
             if (items.length === 0) {
-              items.push(suggestNameLink(elem.dataset.taxon, window.location.href));
+              items.push(suggestNameLink(elem.dataset.taxonName, window.location.href));
             }
             var td = document.createElement("span");
             td.appendChild(document.createElement("br"));
@@ -374,7 +374,7 @@ var showTaxonLinks = function (elem) {
                 td.appendChild(item);
             });
 
-            var aSelector = '.taxonLinkShow.' + className(elem.dataset.taxon);
+            var aSelector = '.taxonLinkShow.' + className(elem.dataset.taxonExternalId);
             var taxonElems = document.querySelectorAll(aSelector);
             for (var i = 0; i < taxonElems.length; i++) {
               taxonElems.item(i).parentNode.appendChild(td.cloneNode(true));
