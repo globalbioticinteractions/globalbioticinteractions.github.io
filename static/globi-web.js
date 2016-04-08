@@ -19993,6 +19993,10 @@ extend(TaxonSelector.prototype, {
             return { id: index, label: taxon };
         });
 
+        var onNameSelected = function(name) {
+          setTimeout(settings['selected'].callback.call(settings['selected'].context, { emitter: settings['type'], data: name } ), 0);
+        };
+
         jQuery(this.input).tokenInput(settings['url'],{
             queryParam: settings['queryParam'],
             crossDomain: false,
@@ -20006,11 +20010,15 @@ extend(TaxonSelector.prototype, {
             prePopulate: prePopulated,
             tokenValue: 'value',
             tokenLimit: 1,
+            allowFreeTagging: true,
+            onFreeTaggingAdd: function(hiddenInput, token) {
+              return hiddenInput;
+            },
             onAdd: function(item) {
-                setTimeout(settings['selected'].callback.call(settings['selected'].context, { emitter: settings['type'], data: item.name } ), 0);
+                onNameSelected(item.name || item.value);
             },
             onDelete: function(item) {
-                setTimeout(settings['selected'].callback.call(settings['selected'].context, { emitter: settings['type'], data: null }, 0));
+                onNameSelected(null);
             }
         });
     }
