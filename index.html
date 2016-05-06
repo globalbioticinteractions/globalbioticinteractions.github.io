@@ -189,12 +189,15 @@ $(function () {
                     globiData.findTaxonInfo(externalId, function (taxonInfo) {
                         var label = externalId;
                         if (taxonInfo.scientificName) {
-                            label = taxonInfo.scientificName;
+                          label = taxonInfo.scientificName;
+                          
                         }
                         if (taxonInfo.commonName !== null) {
                             label = taxonInfo.commonName + '<br>(' + label + ')';
                         }
-                        label = '<td>' + label + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(externalId) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon-external-id="' + externalId + '" data-taxon-name="' + label + '">...</span></td>';
+                        var title = 'Click to answer find out what ' + label.replace('<br>',' ') + ' ' + $('#interactionType :selected').text() + '.';
+                        var labelSpan = '<span class="taxonFollow" onclick="followTaxon(this)" title="' + title + '" data-taxon-external-id="' + externalId + '" data-taxon-name="' + label + '">' + label + '</span>';
+                        label = '<td>' + labelSpan + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(externalId) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon-external-id="' + externalId + '" data-taxon-name="' + label + '">...</span></td>';
                         if (taxonInfo.infoURL) {
                             var link = '<table><tr><td>';
                             var image = '';
@@ -293,6 +296,13 @@ $(function () {
     });
     $("#studySearchField").keyup(onEnter);
 });
+
+var followTaxon = function(elem) {
+  console.log('should follow ' + elem.dataset.taxonExternalId);
+  var inputField = $('#taxonInputField');
+  inputField.val(elem.dataset.taxonExternalId);
+  inputField.change();
+}
 
 var showTaxonLinks = function (elem) {
     var links = [

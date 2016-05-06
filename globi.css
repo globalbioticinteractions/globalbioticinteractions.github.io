@@ -135,3 +135,7 @@ tr.interaction td li {
 .taxonLinkShow {
   cursor: pointer;
 }
+
+.taxonFollow {
+  cursor: pointer;
+}
