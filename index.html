@@ -407,8 +407,11 @@ var init = function () {
     if (params.sourceTaxon || params.accordingTo) {
         $('#taxonInputField').change();
     }
-    $('#taxonInputField').focus();
 }
+
+window.onpopstate = function(e) {
+  init();
+};
 </script>
 </body>
 </html>
