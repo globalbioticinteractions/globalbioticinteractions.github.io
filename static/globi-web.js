@@ -41294,11 +41294,12 @@ SpatialSelector.prototype.appendMap = function (target, params) {
         mapTypeId: google.maps.MapTypeId.ROADMAP};
     var map = new google.maps.Map(target, options);
     me.appendAreaPicker(map, params, google);
-    d3.json('http://api.globalbioticinteractions.org/locations', function (json) {
+    // disabled for reason of https://github.com/jhpoelen/eol-globi-data/issues/230 
+    /*d3.json('http://api.globalbioticinteractions.org/locations', function (json) {
         if (json) {
             me.appendMarkersTo(json, map);
         }
-    });
+    });*/
 };
 
 function initializeMarkerClusterer(map, markers) {
@@ -41309,6 +41310,7 @@ function placeMarker(location, map) {
     var latLng = new google.maps.LatLng(location.latitude, location.longitude);
     return new google.maps.Marker({ position: latLng, map: map, clickable: false });
 }
+
 },{"./lib/areapicker.js":78,"events":10,"globi":86,"inherits":91,"insert-css":81}],78:[function(require,module,exports){
 var infobox = require('./infobox.js');
 var boundsToBBox = require('./boundsToBBox.js');
