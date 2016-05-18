@@ -41271,7 +41271,6 @@ SpatialSelector.prototype.appendAreaPicker = function (map, params, google) {
     if (params.bbox) {
         picker.setBounds(toLatLngBounds(params.bbox.split(','), google)).show();
         picker.control_.setActive();
-        map.panToBounds(picker.bounds_);
     }
     return picker;
 };
@@ -41318,11 +41317,11 @@ var boundsToBBox = require('./boundsToBBox.js');
 module.exports = AreaPicker;
 
 function AreaPicker(map, google, searchContext) {
-    var testCoords = { "nw_lat": 41.574361, "nw_lng": -125.533448, "se_lat": 32.750323, "se_lng": -114.744873 };
+    var defaultCalifornia = { "nw_lat": 41.574361, "nw_lng": -125.533448, "se_lat": 32.750323, "se_lng": -114.744873 };
 
     this.bounds_ = new google.maps.LatLngBounds(
-        new google.maps.LatLng(testCoords.se_lat, testCoords.nw_lng), // California
-        new google.maps.LatLng(testCoords.nw_lat, testCoords.se_lng)
+        new google.maps.LatLng(defaultCalifornia.se_lat, defaultCalifornia.nw_lng),
+        new google.maps.LatLng(defaultCalifornia.nw_lat, defaultCalifornia.se_lng)
     );
 
     this.rectangle_ = null;
@@ -41396,11 +41395,10 @@ AreaPickerControl.prototype.create = function () {
 
     me.applyStyles();
 
-    this.google.maps.event.addDomListener(me.container_, 'click', function (event) {
+    var toggleAreaPicker = function (event) {
         me.isActive_ = !me.isActive_;
         if (me.isActive_) {
-            me.container_.style.backgroundColor = '#f7f7f7';
-            me.container_.innerHTML = 'Hide Area Picker';
+            me.setActive();
             me.associatedPicker_.show(me.google);
         }
         else {
@@ -41408,7 +41406,8 @@ AreaPickerControl.prototype.create = function () {
             me.container_.innerHTML = 'Show Area Picker';
             me.associatedPicker_.hide();
         }
-    });
+    };
+    this.google.maps.event.addDomListener(me.container_, 'click', toggleAreaPicker);
 
     this.associatedPicker_.map.controls[ this.google.maps.ControlPosition.TOP_CENTER ].push(me.container_);
 };
@@ -41433,6 +41432,7 @@ AreaPickerControl.prototype.setActive = function () {
     me.isActive_ = true;
     me.container_.style.backgroundColor = '#f7f7f7';
     me.container_.innerHTML = 'Hide Area Picker';
+    me.associatedPicker_.map.fitBounds(me.associatedPicker_.bounds_);
 };
 
 function AreaPickerInfo(associatedPicker, google) {
