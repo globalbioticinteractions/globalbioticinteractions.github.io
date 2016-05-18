@@ -17,7 +17,10 @@
     <a href="https://s3.amazonaws.com/globi/snapshot/target/data/taxa/taxonMap.csv.gz" title="maps provided names/ids to existing taxonomies/terms">taxonMap.csv.gz</a> | 
     <a href="https://s3.amazonaws.com/globi/snapshot/target/data/taxa/taxonUnmatched.csv" title="list of taxon names (and associated study/source) that did not match against any of the taxonomies integrated with GloBI. Includes taxon name suggestions.">taxonUnmatched.csv</a>
   </div>
-<br/>
+  <br/>
+  <em>Please note that only first 1024 references are shown at this point. Work is being done to remove this limitation.</em>
+  <br/>
+  <br/>
 <table id="contributors">
     <thead>
     <tr>
@@ -58,7 +61,8 @@
             orderClasses: false,
             ajax: function (data, callback, settings) {
                 var rows = [];
-                globiData.findStudyStats({}, function (studyStatList) {
+                console.log(JSON.stringify(settings));
+                globiData.findStudyStats({ limit: 10 }, function (studyStatList) {
                     studyStatList.forEach(function (element) {
                         var row = [];
                         row[0] = element.citation + createLinkRef(element) + createShowRef(element);
