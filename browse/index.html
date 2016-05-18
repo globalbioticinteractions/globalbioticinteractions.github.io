@@ -101,11 +101,11 @@
     globiWeb.widgets = [
         {factory: globiWeb.hairball, target: panels.bottomLeftContainer, help: 'hairball'},
         {factory: globiWeb.bundle, target: panels.bottomRightContainer, help: 'bundle-diagram'},
-        {factory: globiWeb.searchResult, target: panels.topLeftContainer, help: 'interaction-search'}
+        {factory: globiWeb.searchResult, target: panels.topLeftContainer, spinnerTarget: '#result-list', help: 'interaction-search'}
     ];
 
     var searchParameters = { sourceTaxon: 'Chelonia mydas' };
-    var hash = window.location.hash;
+    var hash = window.location.search || window.location.hash;
     if (hash && hash.length > 1) {
         var anchorOnly = hash.substring(1);
         searchParameters = globiWeb.queryString.decode(anchorOnly);
@@ -124,7 +124,7 @@
             while (oldWidgetContainer.firstChild) {
                 oldWidgetContainer.removeChild(oldWidgetContainer.firstChild);
             }
-            w.spinner = appendSpinner(w.target);
+            w.spinner = appendSpinner(w.spinnerTarget || w.target);
         });
         appendWidgets();
     });
@@ -150,7 +150,6 @@
                         win.focus();
                     });
                 }
-                w.spinner.stop();
             });
             function removeTooltips() {
                 var tooltips = document.querySelectorAll('.taxon-tool-tip');

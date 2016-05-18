@@ -19636,7 +19636,7 @@ function processDataForResultList(data) {
                 link: {
                     id: item['interaction_type'],
                     name: camelCaseToRealWords(item['interaction_type'])
-                },
+                }
             })
         }
     });
