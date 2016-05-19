@@ -33,7 +33,6 @@
         "test": "browserify test/*.js test/browser/*.js node_modules/globi-*/test/*.js node_modules/globi-*/test/browser/*.js | testling",
         "build-js-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs -mc > static/globi-web-min.js",
         "build": "npm run build-js-min",
-        "prepublish": "npm run build-js-min",
         "watch": "watchify index.js --standalone globi-web --debug --verbose -o static/globi-web-min.js"
     },
     "repository": {
