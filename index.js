@@ -1,7 +1,6 @@
 var globi = require('globi');
 
 require('jquery-ui');
-var MarkerClusterer = require('node-js-marker-clusterer');
 
 module.exports = {
     bundle: require('globi-bundle'),
