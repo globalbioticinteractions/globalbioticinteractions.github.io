@@ -32724,7 +32724,7 @@ extend(Plugin.prototype, {
         document.addEventListener("click",function(e) {
             if (e.target && e.target.matches(".scientific-name")) {
                 var taxonName = e.target.textContent;
-                me.searchContext.update({ sourceTaxon: [taxonName], targetTaxon: null });
+                me.searchContext.update({ sourceTaxon: taxonName, targetTaxon: null });
                 me.sourceSelector.clear();
                 me.sourceSelector.add(taxonName);
                 me.targetSelector.clear();
@@ -33373,8 +33373,8 @@ extend(TaxonSelector.prototype, {
             return { id: index, label: taxon };
         });
 
-        var onNameSelected = function(name, clickThrough) {
-            settings['selected'].callback(settings['selected'].context, { emitter: settings['type'], data: name });
+        var onNameSelected = function(name) {
+          setTimeout(settings['selected'].callback.call(settings['selected'].context, { emitter: settings['type'], data: name } ), 0);
         };
 
         jQuery(this.input).tokenInput(settings['url'],{
@@ -33395,10 +33395,10 @@ extend(TaxonSelector.prototype, {
               return hiddenInput;
             },
             onAdd: function(item) {
-                onNameSelected(item.name || item.value, item.clickThrough);
+                onNameSelected(item.name || item.value);
             },
             onDelete: function(item) {
-                onNameSelected(null, item.clickThrough);
+                onNameSelected(null);
             }
         });
     }
