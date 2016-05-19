@@ -199,7 +199,7 @@ $(function () {
                             label = taxonInfo.commonName + '<br>(' + label + ')';
                         }
                         var title = 'Click to find out what ' + label.replace('<br>',' ') + ' ' + $('#interactionType :selected').text() + '.';
-                        var labelSpan = '<span class="taxonFollow" onclick="followTaxon(this)" title="' + title + '" data-taxon-external-id="' + externalId + '" data-taxon-name="' + label + '">' + label + '</span>';
+                        var labelSpan = '<span class="taxonFollow" onclick="followTaxon(this)" title="' + title + '" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonInfo.scientificName + '">' + label + '</span>';
                         label = '<td>' + labelSpan + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(externalId) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon-external-id="' + externalId + '" data-taxon-name="' + label + '">...</span></td>';
                         if (taxonInfo.infoURL) {
                             var link = '<table><tr><td>';
@@ -301,9 +301,8 @@ $(function () {
 });
 
 var followTaxon = function(elem) {
-  console.log('should follow ' + elem.dataset.taxonExternalId);
   var inputField = $('#taxonInputField');
-  inputField.val(elem.dataset.taxonExternalId);
+  inputField.val(elem.dataset.taxonName);
   inputField.change();
 }
 
