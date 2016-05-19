@@ -32724,10 +32724,11 @@ extend(Plugin.prototype, {
         document.addEventListener("click",function(e) {
             if (e.target && e.target.matches(".scientific-name")) {
                 var taxonName = e.target.textContent;
-                me.searchContext.update({ sourceTaxon: taxonName, targetTaxon: null });
                 me.sourceSelector.clear();
                 me.sourceSelector.add(taxonName);
                 me.targetSelector.clear();
+                me.searchContext.update({ sourceTaxon: taxonName, targetTaxon: null });
+
             }
         });
     },
@@ -33358,11 +33359,16 @@ extend(TaxonSelector.prototype, {
     },
 
     clear: function() {
-        jQuery(this.input).tokenInput("clear");
+        var me = this.input;
+        var tokens = jQuery(this.input).tokenInput("get");
+        tokens.forEach(function(token) {
+            token.quietly = true;
+            jQuery(me).tokenInput("remove", token);
+        });
     },
 
     add: function(taxonName) {
-        jQuery(this.input).tokenInput("add", { id: 1, label: taxonName});
+        jQuery(this.input).tokenInput("add", { id: 1, label: taxonName, quietly: true});
     },
 
     render: function() {
@@ -33395,10 +33401,14 @@ extend(TaxonSelector.prototype, {
               return hiddenInput;
             },
             onAdd: function(item) {
-                onNameSelected(item.name || item.value);
+                if (!item.quietly) {
+                    onNameSelected(item.name || item.value);
+                }
             },
             onDelete: function(item) {
-                onNameSelected(null);
+                if (!item.quietly) {
+                    onNameSelected(null);
+                }
             }
         });
     }
