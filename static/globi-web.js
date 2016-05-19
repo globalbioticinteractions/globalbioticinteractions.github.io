@@ -33362,13 +33362,13 @@ extend(TaxonSelector.prototype, {
         var me = this.input;
         var tokens = jQuery(this.input).tokenInput("get");
         tokens.forEach(function(token) {
-            token.quietly = true;
+            token.removeQuietly = true;
             jQuery(me).tokenInput("remove", token);
         });
     },
 
     add: function(taxonName) {
-        jQuery(this.input).tokenInput("add", { id: 1, label: taxonName, quietly: true});
+        jQuery(this.input).tokenInput("add", { id: 1, label: taxonName, addQuietly: true});
     },
 
     render: function() {
@@ -33401,12 +33401,12 @@ extend(TaxonSelector.prototype, {
               return hiddenInput;
             },
             onAdd: function(item) {
-                if (!item.quietly) {
+                if (!item.addQuietly) {
                     onNameSelected(item.name || item.value);
                 }
             },
             onDelete: function(item) {
-                if (!item.quietly) {
+                if (!item.removeQuietly) {
                     onNameSelected(null);
                 }
             }
