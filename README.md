@@ -33,7 +33,7 @@ npm run test-browser
 ```
 
 ## developing
-To continuously build the browserified (./static/globi-web.js) run:
+To continuously build the browserified (./static/globi-web-min.js) run:
 ```
 npm run watch
 ```
