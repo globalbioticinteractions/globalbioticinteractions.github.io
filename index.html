@@ -74,7 +74,7 @@ $(function () {
     function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctInteractions) {
         var textElem = document.createElement('p');
         textElem.setAttribute('class', 'interaction searchInfo');
-        if (sourceTaxonLabel.length == 0) {
+        if (sourceTaxonLabel === undefined || sourceTaxonLabel.length == 0) {
             sourceTaxonLabel = 'organisms';
         }
         var prefix = '<span class="' + className(sourceTaxonName) + '">' + sourceTaxonLabel + '</span> ';
