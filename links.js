@@ -68,11 +68,11 @@ function collectSearchParams($) {
     var studyQuery = $('#studySearchField').val();
     var searchHash = {};
     var search = { fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation'] };
-    if (sourceTaxonName.length > 0) {
+    if (sourceTaxonName && sourceTaxonName.length > 0) {
         searchHash.sourceTaxon = sourceTaxonName;
         search.sourceTaxa = [sourceTaxonName];
     }
-    if (targetTaxonName.length > 0) {
+    if (targetTaxonName && targetTaxonName.length > 0) {
         searchHash.targetTaxon = targetTaxonName;
         search.targetTaxa = [targetTaxonName];
     }
