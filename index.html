@@ -104,28 +104,12 @@ $(function () {
         if (!offset) {
             $('.interaction').remove();
         }
-        var sourceTaxonName = $('#taxonInputField').val();
-        var sourceTaxonLabel = sourceTaxonName;
-        var interactionType = $('#interactionType').find(":selected").val();
-        var studyQuery = $('#studySearchField').val();
-        var searchHash = {};
-        var search = { fields: ['source_taxon_name', 'source_taxon_external_id', 'target_taxon_name', 'target_taxon_external_id', 'interaction_type'] };
-        if (sourceTaxonName.length > 0) {
-            searchHash.sourceTaxon = sourceTaxonName;
-            search.sourceTaxa = [sourceTaxonName];
-        }
-        if (interactionType.length > 0) {
-            searchHash.interactionType = interactionType;
-            search.interactionType = interactionType;
-        }
-        if (studyQuery.length > 0) {
-            searchHash.accordingTo = studyQuery;
-            search.accordingTo = studyQuery;
-        }
 
+        var searchParams = collectSearchParams($);
+        var search = searchParams.search;
         search.limit = limitDefault;
         search.offset = offset || offsetDefault;
-        window.history.pushState({}, "", "?" + queryString.stringify(searchHash));
+        window.history.pushState({}, "", "?" + queryString.stringify(search.searchHash));
         var callback = function (interactions) {
             var resultFragment = document.createDocumentFragment();
             var distinctExternalIds = {};
@@ -235,23 +219,7 @@ $(function () {
                             if ($('#' + studyId).length == 0) {
                                 var citationElem = document.createElement('li');
                                 citationElem.setAttribute('id', studyId);
-                                var textElem = document.createElement('b');
-                                var study = {
-                                    citation: distinctInteractionResult.study_citation,
-                                    url: distinctInteractionResult.study_url,
-                                    source: distinctInteractionResult.study_source_citation};
-
-                                textElem.textContent = study.citation + ' ';
-                                citationElem.appendChild(textElem);
-                                appendLinkElem(citationElem, study);
-                                var span = document.createElement('span');
-                                span.textContent = ' ';
-                                citationElem.appendChild(span);
-                                appendShowElem(citationElem, study);
-
-                                var sourceElem = document.createElement('span');
-                                sourceElem.textContent = ' Provider: ' + study.source;
-                                citationElem.appendChild(sourceElem);
+                                appendCitationTo(distinctInteractionResult, citationElem);
                                 $('.' + className(distinctInteractionKey)).append(citationElem);
                             }
                         });

@@ -9,6 +9,7 @@ function appendLinkElem(parentElem, study) {
         var linkElem = document.createElement('a');
         linkElem.setAttribute('href', study.url);
         linkElem.setAttribute('title', study.citation);
+        linkElem.setAttribute('target', '_blank');
         linkElem.textContent = 'link';
         parentElem.appendChild(linkElem);
     }
@@ -31,11 +32,58 @@ function createShowRef(study) {
     return ' <a href="/#interactionType=interactsWith&accordingTo=' + accordingTo(study) + '" title="' + showRefTitle(study) + '">show</a>';
 }
 
-function appendShowElem(parentElem, study) {
+function appendShowElem(parentElem, study, baseUrl) {
     var elem = document.createElement('a');
-    elem.setAttribute('href', '/#interactionType=interactsWith&accordingTo=' + accordingTo(study));
+    elem.setAttribute('href', (baseUrl || '/') + '?interactionType=interactsWith&accordingTo=' + accordingTo(study));
     elem.setAttribute('title', showRefTitle(study));
     elem.setAttribute('target', '_blank');
     elem.textContent = 'show';
     parentElem.appendChild(elem);
 }
+
+function appendCitationTo(interactionRecord, citationElem, baseUrl) {
+    var textElem = document.createElement('b');
+    var study = {
+        citation: interactionRecord.study_citation,
+        url: interactionRecord.study_url,
+        source: interactionRecord.study_source_citation};
+
+    textElem.textContent = study.citation + ' ';
+    citationElem.appendChild(textElem);
+    appendLinkElem(citationElem, study);
+    var span = document.createElement('span');
+    span.textContent = ' ';
+    citationElem.appendChild(span);
+    appendShowElem(citationElem, study, baseUrl);
+
+    var sourceElem = document.createElement('span');
+    sourceElem.textContent = ' Provider: ' + study.source;
+    citationElem.appendChild(sourceElem);
+}
+
+function collectSearchParams($) {
+    var sourceTaxonName = $('#taxonInputField').val();
+    var targetTaxonName = $('#targetTaxonInputField').val();
+    var interactionType = $('#interactionType').find(":selected").val();
+    var studyQuery = $('#studySearchField').val();
+    var searchHash = {};
+    var search = { fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation'] };
+    if (sourceTaxonName.length > 0) {
+        searchHash.sourceTaxon = sourceTaxonName;
+        search.sourceTaxa = [sourceTaxonName];
+    }
+    if (targetTaxonName.length > 0) {
+        searchHash.targetTaxon = targetTaxonName;
+        search.targetTaxa = [targetTaxonName];
+    }
+    if (interactionType.length > 0) {
+        searchHash.interactionType = interactionType;
+        search.interactionType = interactionType;
+    }
+    if (studyQuery.length > 0) {
+        searchHash.accordingTo = studyQuery;
+        search.accordingTo = studyQuery;
+    }
+    return {searchHash: searchHash, search: search};
+}
+

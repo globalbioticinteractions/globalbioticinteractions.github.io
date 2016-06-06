@@ -1,97 +1,200 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Global Biotic Interactions | References</title>
+    <meta charset="utf-8"/>
+    <title>Global Biotic Interactions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="MHqp6kVCB-ILE2P_5iHK902nz8mCR0HwnqIgEFvwBgU"/>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" href="globi.css"/>
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/css/jquery.dataTables.min.css">
 </head>
-<body>
-  <noscript>JavaScript is off. Please enable to view full site.</noscript>
-  <div style="text-align: right">
-    <a href="http://api.globalbioticinteractions.org/reports/studies.csv" title="list of references/studies, their sources and statistics">studies.csv</a> | 
-    <a href="http://api.globalbioticinteractions.org/reports/sources.csv" title="list of sources and statistics">sources.csv</a> | 
-    <a href="https://s3.amazonaws.com/globi/snapshot/target/data/taxa/taxonCache.csv.gz" title="list of taxa/terms (and associated rank, path, ids or thumbnails) that occur within GloBI">taxonCache.csv.gz</a> | 
-    <a href="https://s3.amazonaws.com/globi/snapshot/target/data/taxa/taxonMap.csv.gz" title="maps provided names/ids to existing taxonomies/terms">taxonMap.csv.gz</a> | 
-    <a href="https://s3.amazonaws.com/globi/snapshot/target/data/taxa/taxonUnmatched.csv" title="list of taxon names (and associated study/source) that did not match against any of the taxonomies integrated with GloBI. Includes taxon name suggestions.">taxonUnmatched.csv</a>
-  </div>
-  <br/>
-  <em>Please note that only first 1024 references are shown at this point. Work is being done to remove this limitation.</em>
-  <br/>
-  <br/>
-<table id="contributors">
-    <thead>
-    <tr>
-        <th width='40%'><b>study</b></th>
-        <th width='10%'><b>interactions</b></th>
-        <th width='10%'><b>distinct taxa</b></th>
-        <th width='30%'><b>source</b></th>
-    </tr>
+<body onload="init()">
+<noscript>JavaScript is off. Please enable JavaScript to view full site.</noscript>
+<div class="ui-widget">
+    <div id="contributors">
+        GloBI currently includes <span id="studies">(...)</span> <a href="http://api.globalbioticinteractions.org/reports/studies.csv" title="list of references/studies, their sources and statistics">references</a> obtained from <span id="sources">(...)</span> <a href="http://api.globalbioticinteractions.org/reports/sources.csv" title="list of sources and statistics">data sources</a>. In total,
+        <span id="interactions">(...)</span> interaction records were discovered, covering <span id="distinctTaxa">(...)</span> <a href="https://s3.amazonaws.com/globi/snapshot/target/data/taxa/taxonCache.csv.gz" title="list of taxa/terms (and associated rank, path, ids or thumbnails) that occur within GloBI">taxa</a>.
+        A <a href="https://s3.amazonaws.com/globi/snapshot/target/data/taxa/taxonMap.csv.gz" title="maps provided names/ids to existing taxonomies/terms">taxon map</a> shows how these taxa relate to other projects (e.g. <a href="http://ncbi.nlm.nih.gov/taxonomy" target="_blank">NCBI</a>, <a href="http://www.marinespecies.org" target="_blank">WoRMS</a>, <a href="http://eol.org" target="_blank">EOL</a>). Names that could not be linked are documented in the <a href="https://s3.amazonaws.com/globi/snapshot/target/data/taxa/taxonUnmatched.csv" title="list of taxon names (and associated study/source) that did not match against any of the taxonomies integrated with GloBI. Includes taxon name suggestions.">list of unmatch taxon names by reference/source</a>. These unmatched or unresolved names are typically unknown or invalid names.
+    </div>
 
-    <tr>
-        <th id="studies">(...)</th>
-        <th id="interactions">(...)</th>
-        <th id="distinctTaxa">(...)</th>
-        <th id="sources">(...)</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-
+    <p>Below, you can search for references that contain species interaction records. Example queries: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">Which references document sea otters (<em>Enhydra lutris</em>) prey?</a> or <a href="?sourceTaxon=Apis&interactionType=pollinates">Who documented what honey bees (Apis) pollinate?</a></p>
+    <p>Which references containing <input id="studySearchField" autocomplete="off" placeholder="terms / doi"/> claim that
+        <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="some organism"/>
+        <select id="interactionType">
+            <option value="interactsWith">interact with</option>
+            <option value="eats">eat</option>
+            <option value="eatenBy">get eaten by</option>
+            <option value="preysOn">preys on</option>
+            <option value="preyedUponBy">get preyed on by</option>
+            <option value="parasiteOf">parasitize</option>
+            <option value="hasParasite">get parasitized by</option>
+            <option value="visitsFlowersOf">visits flowers of</option>
+            <option value="flowersVisitedBy">flowers visited by</option>
+            <option value="pollinates">pollinate</option>
+            <option value="pollinatedBy">get pollinated by</option>
+            <option value="pathogenOf">infect</option>
+            <option value="hasPathogen">get infected by</option>
+            <option value="vectorOf">spread</option>
+            <option value="hasVector">get spread by</option>
+            <option value="kills">kill</option>
+            <option value="killedBy">is killed by</option>
+        </select>
+        <input id="targetTaxonInputField" class="suggest" autocomplete="off" placeholder="some other organism"/>?
+    </p>
+    <div id="info"></div>
+    <table id="result">
+    </table>
+</div>
 <script src="menu.js"></script>
 <script>
     buildMenu();
 </script>
-<!-- jQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/js/jquery.js"></script>
 
-<!-- DataTables -->
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
 <script src="static/globi-web-min.js"></script>
-<script src="links.js"></script>
-<script type="text/javascript">
+<script>
+    var $ = globiWeb.globi.jQuery;
     var globiData = globiWeb.globi.globiData;
-    $(document).ready(function () {
-        $('#contributors').DataTable({
-            paging: true,
-            orderClasses: false,
-            ajax: function (data, callback, settings) {
-                var rows = [];
-                console.log(JSON.stringify(settings));
-                globiData.findStudyStats({ limit: 10 }, function (studyStatList) {
-                    studyStatList.forEach(function (element) {
-                        var row = [];
-                        row[0] = element.citation + createLinkRef(element) + createShowRef(element);
-                        row[1] = element.totalInteractions;
-                        row[2] = element.totalTaxa;
-                        row[3] = element.source;
-                        rows[rows.length] = row;
-                    });
-                    callback({ data: rows });
+    var offsetDefault = 0;
+    var limitDefault = 1024;
+</script>
+
+<script src="links.js"></script>
+<script src="query-string.js"></script>
+<script>
+    var className = function (someString) {
+        return someString.replace(/\W/g, '_');
+    }
+
+    $(function () {
+        var labelForTaxon = function (taxon) {
+            var englishName;
+            if (taxon.commonNames) {
+                englishName = taxon.commonNames['en'];
+            }
+            var suggestion = taxon.scientificName;
+            if (englishName !== undefined) {
+                suggestion = englishName + ' (' + suggestion + ')';
+            }
+            return suggestion;
+        };
+
+        var searchForInteractions = function (offset) {
+            $('thead, #moreButton').remove();
+            if (!offset) {
+                $('.interaction').remove();
+            }
+            var searchParams = collectSearchParams($);
+            var search = searchParams.search;
+            search.limit = limitDefault;
+            search.offset = offset || offsetDefault;
+            search.includeObservations = true;
+            if (document.location.protocol !== ('file:')) {
+                window.history.pushState({}, "", "?" + queryString.stringify(search.searchHash));
+            }
+            var callback = function (interactions) {
+                var resultFragment = document.createDocumentFragment();
+                var distinctCitations = {};
+                var nInteractions = 0;
+                var nDistinctCitations = 0;
+
+                interactions.forEach(function (interaction) {
+                    var citationKey = encodeURIComponent(interaction.study_citation + interaction.study_source_citation);
+                    nInteractions += 1;
+                    if (document.getElementById(citationKey) === null && distinctCitations[citationKey] === undefined) {
+                        var row = resultFragment.appendChild(document.createElement('tr'));
+                        row.setAttribute('class', 'interaction');
+                        row.setAttribute('id', citationKey);
+                        appendCitationTo(interaction, row, '/index.html');
+                        distinctCitations[citationKey] = interaction;
+                        nDistinctCitations += 1;
+                    }
                 });
-            }});
+
+                if (nInteractions == limitDefault) {
+                    var button = document.querySelector('#moreButton');
+                    if (!button) {
+                        button = document.createElement('button');
+                        button.setAttribute('id', 'moreButton');
+                        button.addEventListener('click', function (event) {
+                            searchForInteractions(search.offset + limitDefault);
+                        });
+                        button.textContent = 'more...';
+                    }
+                    resultFragment.appendChild(button);
+                }
+
+                var result = document.getElementById('result');
+                result.appendChild(resultFragment);
+            };
+            globiData.findSpeciesInteractions(search, callback);
+        };
+
+        $(".suggest").autocomplete({
+            minLength: 3,
+            source: function (request, response) {
+                globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
+                    var suggestions = [];
+                    closeMatches.forEach(function (closeMatch, index) {
+                        suggestions[index] = {
+                            label: labelForTaxon(closeMatch),
+                            value: closeMatch.scientificName
+                        };
+                    });
+                    response(suggestions);
+                });
+            },
+            select: function (event, ui) {
+                searchForInteractions();
+            }
+        });
+
+        var onEnter = function (e, ui) {
+            if (e.keyCode == 13) {
+                searchForInteractions();
+            }
+        };
+        $("#taxonInputField").change(function () {
+            searchForInteractions();
+        });
+        $("#taxonInputField").keyup(onEnter);
+
+        $("#interactionType").change(function () {
+            searchForInteractions();
+        });
+        $("#studySearchField").keyup(onEnter);
     });
 
     var loadStats = function () {
         globiData.findStats({}, function (stats) {
-            var elem = document.createElement('th');
-            elem.setAttribute('colspan', '4');
             var interDiv = document.getElementById('interactions');
-            interDiv.innerHTML = '(' + stats.totalInteractions + ' total)';
+            interDiv.innerHTML = '<b>' + stats.totalInteractions + '</b>';
             var tgtTaxa = document.getElementById('distinctTaxa');
-            tgtTaxa.innerHTML = '(' + stats.totalTaxa + ' unique)';
+            tgtTaxa.innerHTML = '<b>' + stats.totalTaxa + '</b>';
             var studies = document.getElementById('studies');
-            studies.innerHTML = '(' + stats.numberOfStudies + ' total)';
+            studies.innerHTML = '<b>' + stats.numberOfStudies + '</b>';
             var references = document.getElementById('sources');
-            references.innerHTML = '(' + stats.numberOfDistinctSources + ' total)';
+            references.innerHTML = '<b>' + stats.numberOfDistinctSources + '</b>';
         });
     };
 
-    loadStats();
+
+
+    var init = function () {
+        var params = queryString.parse(document.location.search || document.location.hash);
+        globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
+        $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
+        $('#studySearchField').val(params.accordingTo);
+        $('#taxonInputField').val(params.sourceTaxon);
+
+        if (params.sourceTaxon || params.accordingTo) {
+            $('#taxonInputField').change();
+        }
+        loadStats();
+    };
+
+    window.onpopstate = function(e) {
+        init();
+    };
 </script>
 </body>
 </html>
