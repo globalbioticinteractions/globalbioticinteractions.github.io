@@ -77,6 +77,9 @@ $(function () {
         if (sourceTaxonLabel === undefined || sourceTaxonLabel.length == 0) {
             sourceTaxonLabel = 'organisms';
         }
+        if (sourceTaxonName === undefined) {
+            sourceTaxonName = 'organisms';
+        }
         var prefix = '<span class="' + className(sourceTaxonName) + '">' + sourceTaxonLabel + '</span> ';
         var message = '... plenty of things';
         if (studyQuery && studyQuery.length > 0) {
