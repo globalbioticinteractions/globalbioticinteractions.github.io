@@ -23,7 +23,7 @@ function accordingTo(study) {
     // chop off http(s) from prefix of citation to avoid being used as a url lookup
     var accordingTo = study.url || null;
     if (accordingTo == null && study.citation) {
-      accordingTo = study.citation.replace(/^\W*http([s])*:\/\//, '');
+        accordingTo = study.citation.replace(/^\W*http([s])*:\/\//, '');
     }
     return encodeURIComponent(accordingTo);
 }
@@ -86,4 +86,11 @@ function collectSearchParams($) {
     }
     return {searchHash: searchHash, search: search};
 }
+
+function saveSearch(search) {
+    if (document.location.protocol !== 'file:') {
+        window.history.pushState({}, "", "?" + queryString.stringify(search.searchHash));
+    }
+}
+
 

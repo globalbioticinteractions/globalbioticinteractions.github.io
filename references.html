@@ -88,9 +88,7 @@
             search.limit = limitDefault;
             search.offset = offset || offsetDefault;
             search.includeObservations = true;
-            if (document.location.protocol !== ('file:')) {
-                window.history.pushState({}, "", "?" + queryString.stringify(search.searchHash));
-            }
+            saveSearch(searchParams);
             var callback = function (interactions) {
                 var resultFragment = document.createDocumentFragment();
                 var distinctCitations = {};
