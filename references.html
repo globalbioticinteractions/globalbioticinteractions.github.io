@@ -94,6 +94,11 @@
                 var distinctCitations = {};
                 var nInteractions = 0;
                 var nDistinctCitations = 0;
+                if (interactions.length == 0) {
+                    var row = resultFragment.appendChild(document.createElement('tr'));
+                    row.setAttribute('class', 'interaction');
+                    row.innerHTML = 'No references found. Bummer! Please change your search criteria or <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F" target="_blank">contribute data</a>.'
+                }
 
                 interactions.forEach(function (interaction) {
                     var citationKey = encodeURIComponent(interaction.study_citation + interaction.study_source_citation);
