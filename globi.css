@@ -1,5 +1,5 @@
 body {
-   font-family: Arial, "Bitstream Vera Sans", Helvetica, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
    font-size: 0.8em;
 }
 
@@ -14,7 +14,7 @@ body {
 }
 
 .ui-widget {
-  font-family: Arial, "Bitstream Vera Sans", Helvetica, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
   font-size: 1.1em;
 }
 
@@ -22,7 +22,7 @@ body {
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-  font-family: Arial, "Bitstream Vera Sans", Helvetica, Verdana, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
   font-size: 1em;
 }
 
