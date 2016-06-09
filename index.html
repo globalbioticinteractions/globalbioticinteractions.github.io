@@ -88,7 +88,7 @@ $(function () {
         message = message + '!';
         if (nDistinctInteractions == 0) {
             message = '... nothing ';
-            if (studyQuery.length > 0) {
+            if (studyQuery && studyQuery.length > 0) {
                 message = message + ' according to ' + studyQuery + '.';
             } else {
                 message = message + ' that we are aware of.';
