@@ -137,9 +137,8 @@
     searchContext.emit('searchcontext:searchparameterchange', searchContext.searchParameters);
 
     window.addEventListener('popstate', function(e){
-        console.log('popstate');
         var params = loadSearchParams();
-        searchContext.searchContext.update(params);
+        searchContext.emit('searchcontext:searchparameterchange', params);
     });
 
     var treeSpinner, wheelSpinner, bundleSpinner;
