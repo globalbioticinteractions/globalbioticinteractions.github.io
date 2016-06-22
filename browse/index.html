@@ -137,10 +137,10 @@
     searchContext.emit('searchcontext:searchparameterchange', searchContext.searchParameters);
 
     window.addEventListener('popstate', function(e){
-        searchContext.update(loadSearchParams());
         search.sourceSelector.clear();
         search.targetSelector.clear();
         search.typeSelector.clear();
+        searchContext.update(loadSearchParams());
     });
 
     var treeSpinner, wheelSpinner, bundleSpinner;
