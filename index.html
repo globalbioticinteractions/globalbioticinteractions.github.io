@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" href="globi.css"/>
 </head>
-<body onload="init()">
-  <noscript>JavaScript is off. Please enable JavaScript to view full site.</noscript>
+<body>
+<noscript>JavaScript is off. Please enable JavaScript to view full site.</noscript>
 <div class="ui-widget">
-  <p>Example queries: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">What do sea otters (<em>Enhydra lutris</em>) eat?</a> or <a href="?sourceTaxon=Apis&interactionType=pollinates">What do honey bees (Apis) pollinate?</a></p>
+    <p>Example queries: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">What do sea otters (<em>Enhydra
+        lutris</em>) eat?</a> or <a href="?sourceTaxon=Apis&interactionType=pollinates">What do honey bees (Apis)
+        pollinate?</a></p>
+
     <p>What do
         <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="organisms"/>
         <select id="interactionType">
@@ -54,9 +57,9 @@
 <script src="links.js"></script>
 <script src="query-string.js"></script>
 <script>
-  var className = function (someString) {
+var className = function (someString) {
     return someString.replace(/\W/g, '_');
-  }
+}
 $(function () {
     var labelForTaxon = function (taxon) {
         var englishName;
@@ -95,7 +98,7 @@ $(function () {
             }
         }
 
-        var linkToBrowser = ' Like a different view? <a href="browse/index.html' + document.location.search.replace(/^\?/,'#') + '" target="_blank">Open results</a> in interaction browser.';
+        var linkToBrowser = ' Like a different view? <a href="browse/index.html' + document.location.search.replace(/^\?/, '#') + '" target="_blank">Open results</a> in interaction browser.';
 
         var contribute = $('#interactionType :selected').text() + message + '<p>Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.';
         textElem.innerHTML = prefix + contribute + linkToBrowser + '</p>';
@@ -182,13 +185,13 @@ $(function () {
                     globiData.findTaxonInfo(externalId, function (taxonInfo) {
                         var label = externalId;
                         if (taxonInfo.scientificName) {
-                          label = taxonInfo.scientificName;
-                          
+                            label = taxonInfo.scientificName;
+
                         }
                         if (taxonInfo.commonName !== null) {
                             label = taxonInfo.commonName + '<br>(' + label + ')';
                         }
-                        var title = 'Click to find out what ' + label.replace('<br>',' ') + ' ' + $('#interactionType :selected').text() + '.';
+                        var title = 'Click to find out what ' + label.replace('<br>', ' ') + ' ' + $('#interactionType :selected').text() + '.';
                         var labelSpan = '<span class="taxonFollow" onclick="followTaxon(this)" title="' + title + '" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonInfo.scientificName + '">' + label + '</span>';
                         label = '<td>' + labelSpan + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(externalId) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon-external-id="' + externalId + '" data-taxon-name="' + label + '">...</span></td>';
                         if (taxonInfo.infoURL) {
@@ -202,15 +205,15 @@ $(function () {
                         $('.' + className(externalId)).html(label);
 
                         if (searchParams.searchHash.sourceTaxon === externalId) {
-                          var aSelector = '.taxonLinkShow.' + className(searchParams.searchHash.sourceTaxon);
-                          var focalTaxonElem = document.querySelector(aSelector);
-                          if (focalTaxonElem) {
-                            showTaxonLinks(focalTaxonElem);
-                          }
+                            var aSelector = '.taxonLinkShow.' + className(searchParams.searchHash.sourceTaxon);
+                            var focalTaxonElem = document.querySelector(aSelector);
+                            if (focalTaxonElem) {
+                                showTaxonLinks(focalTaxonElem);
+                            }
                         }
                     });
-                        
-                  });
+
+                });
 
             };
 
@@ -274,10 +277,10 @@ $(function () {
     $("#studySearchField").keyup(onEnter);
 });
 
-var followTaxon = function(elem) {
-  var inputField = $('#taxonInputField');
-  inputField.val(elem.dataset.taxonName);
-  inputField.change();
+var followTaxon = function (elem) {
+    var inputField = $('#taxonInputField');
+    inputField.val(elem.dataset.taxonName);
+    inputField.change();
 }
 
 var showTaxonLinks = function (elem) {
@@ -301,30 +304,34 @@ var showTaxonLinks = function (elem) {
         { name: 'Interim Register of Marine and Nonmarine Genera', icon: "http://www.cmar.csiro.au/favicon.ico", url: "http://www.cmar.csiro.au" }
     ];
 
-    var startsWith = function(str, substr) {
-      return str && substr && str.indexOf(substr) === 0;
+    var startsWith = function (str, substr) {
+        return str && substr && str.indexOf(substr) === 0;
     }
 
     globiData.findTaxonLinks(elem.dataset.taxonExternalId, function (urls) {
-          if (urls !== null) {
-            var taxonLinkForUrl = function(url) {
-              var selectedLinks = links.filter(function (link) {
-                return startsWith(url, link.url);
-              });
-              var selectedLink;
-              if (selectedLinks.length === 0) {
-                selectedLink = { icon: 'img/link.png', url: url, name: url };
-              } else {
-                selectedLink = { icon: selectedLinks[0].icon, url: url, name: selectedLinks[0].name };
-              }
-              return selectedLink;
+        if (urls !== null) {
+            var taxonLinkForUrl = function (url) {
+                var selectedLinks = links.filter(function (link) {
+                    return startsWith(url, link.url);
+                });
+                var selectedLink;
+                if (selectedLinks.length === 0) {
+                    selectedLink = { icon: 'img/link.png', url: url, name: url };
+                } else {
+                    selectedLink = { icon: selectedLinks[0].icon, url: url, name: selectedLinks[0].name };
+                }
+                return selectedLink;
             }
 
             var taxonLinks = urls
-              .filter(function(url) { return startsWith(url, "http://") || startsWith(url, "https://"); })
-              .sort()
-              .map(function (url) { return taxonLinkForUrl(url); });
-            
+                    .filter(function (url) {
+                        return startsWith(url, "http://") || startsWith(url, "https://");
+                    })
+                    .sort()
+                    .map(function (url) {
+                        return taxonLinkForUrl(url);
+                    });
+
             var linkToItem = function (link) {
                 var item = document.createElement("span");
                 var a = document.createElement("a");
@@ -338,22 +345,22 @@ var showTaxonLinks = function (elem) {
                 item.appendChild(a);
                 return item;
             };
-            
-            var suggestNameLink = function(taxonName, globiRef) {
-              var item = document.createElement("span");
-              var a = document.createElement("a");
-              a.setAttribute("title", "suggest a link for this name");
-              a.setAttribute("target", "_blank");
-              var params = { title: 'name link suggestion for [' + taxonName +']', body: 'Hi!\nI found a taxon name ```' + taxonName + '``` at a [globi page](' + globiRef + '). After reviewing the data sources and relevant taxonomic tools like the [globalnames resolver](http://resolver.globalnames.org), I think that suggestion below might be helpful.\n\n Thanks!\n\n| name | suggested name | name url reference | notes\n| --- | --- | --- | ---\n| ' + taxonName +' | YOUR SUGGESTED NAME | http://somereference | some notes' };  
-              a.setAttribute("href", "https://github.com/globalbioticinteractions/globi-names/issues/new?" + queryString.stringify(params));
-              a.textContent = 'suggest link';
-              item.appendChild(a);
-              return item;
+
+            var suggestNameLink = function (taxonName, globiRef) {
+                var item = document.createElement("span");
+                var a = document.createElement("a");
+                a.setAttribute("title", "suggest a link for this name");
+                a.setAttribute("target", "_blank");
+                var params = { title: 'name link suggestion for [' + taxonName + ']', body: 'Hi!\nI found a taxon name ```' + taxonName + '``` at a [globi page](' + globiRef + '). After reviewing the data sources and relevant taxonomic tools like the [globalnames resolver](http://resolver.globalnames.org), I think that suggestion below might be helpful.\n\n Thanks!\n\n| name | suggested name | name url reference | notes\n| --- | --- | --- | ---\n| ' + taxonName + ' | YOUR SUGGESTED NAME | http://somereference | some notes' };
+                a.setAttribute("href", "https://github.com/globalbioticinteractions/globi-names/issues/new?" + queryString.stringify(params));
+                a.textContent = 'suggest link';
+                item.appendChild(a);
+                return item;
             };
 
             var items = taxonLinks.map(linkToItem);
             if (items.length === 0) {
-              items.push(suggestNameLink(elem.dataset.taxonName, window.location.href));
+                items.push(suggestNameLink(elem.dataset.taxonName, window.location.href));
             }
             var td = document.createElement("span");
             td.appendChild(document.createElement("br"));
@@ -365,8 +372,8 @@ var showTaxonLinks = function (elem) {
             var aSelector = '.taxonLinkShow.' + className(elem.dataset.taxonExternalId);
             var taxonElems = document.querySelectorAll(aSelector);
             for (var i = 0; i < taxonElems.length; i++) {
-              taxonElems.item(i).parentNode.appendChild(td.cloneNode(true));
-              taxonElems.item(i).parentNode.removeChild(taxonElems.item(i));
+                taxonElems.item(i).parentNode.appendChild(td.cloneNode(true));
+                taxonElems.item(i).parentNode.removeChild(taxonElems.item(i));
             }
         }
     });
@@ -385,9 +392,13 @@ var init = function () {
     }
 };
 
-window.onpopstate = function(e) {
-  init();
-};
+window.addEventListener('load', function (e) {
+    init();
+    window.addEventListener('popstate', function (e) {
+        init();
+    });
+});
+
 </script>
 </body>
 </html>

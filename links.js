@@ -1,9 +1,3 @@
-function createLinkRef(element) {
-    var link = element.url ? ' <a href="' + element.url + '" title="' + element.citation + '">ref</a>' : '';
-    link = element.doi ? ' <a href="' + element.doi.replace(/^doi:/, 'https://dx.doi.org/') + '" title="' + element.citation + '">doi</a>' : link;
-    return link;
-}
-
 function appendLinkElem(parentElem, study) {
     if (study.url) {
         var linkElem = document.createElement('a');
@@ -26,10 +20,6 @@ function accordingTo(study) {
         accordingTo = study.citation.replace(/^\W*http([s])*:\/\//, '');
     }
     return encodeURIComponent(accordingTo);
-}
-
-function createShowRef(study) {
-    return ' <a href="/#interactionType=interactsWith&accordingTo=' + accordingTo(study) + '" title="' + showRefTitle(study) + '">show</a>';
 }
 
 function appendShowElem(parentElem, study, baseUrl) {
