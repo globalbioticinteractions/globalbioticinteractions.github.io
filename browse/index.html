@@ -116,6 +116,7 @@
     }
 
     var searchParameters = loadSearchParams();
+    saveSearch({searchHash: globiWeb.queryString.encode(searchParameters)});
     var searchContext = globiWeb.searchContext(searchParameters);
     var dataContext = globiWeb.dataContext(searchContext);
     var search = globiWeb.search({searchContext: searchContext});
