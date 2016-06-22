@@ -57,8 +57,9 @@
     </style>
 </head>
 <body>
-  <noscript>JavaScript is off. Please enable to view full site. </noscript>
+<noscript>JavaScript is off. Please enable to view full site.</noscript>
 <script src="../menu.js"></script>
+<script src="../links.js"></script>
 <script>
     buildMenu();
 </script>
@@ -104,13 +105,17 @@
         {factory: globiWeb.searchResult, target: panels.topLeftContainer, spinnerTarget: '#result-list', help: 'interaction-search'}
     ];
 
-    var searchParameters = { sourceTaxon: 'Chelonia mydas' };
-    var hash = window.location.search || window.location.hash;
-    if (hash && hash.length > 1) {
-        var anchorOnly = hash.substring(1);
-        searchParameters = globiWeb.queryString.decode(anchorOnly);
+    var loadSearchParams = function () {
+        var searchParameters = { sourceTaxon: 'Chelonia mydas' };
+        var hash = window.location.search || window.location.hash;
+        if (hash && hash.length > 1) {
+            var queryOnly = hash.substring(1);
+            searchParameters = globiWeb.queryString.decode(queryOnly);
+        }
+        return searchParameters;
     }
 
+    var searchParameters = loadSearchParams();
     var searchContext = globiWeb.searchContext(searchParameters);
     var dataContext = globiWeb.dataContext(searchContext);
     var search = globiWeb.search({searchContext: searchContext});
@@ -118,7 +123,7 @@
     search.appendTo('#taxon-filter');
 
     searchContext.on('searchcontext:searchparameterchange', function (context) {
-        window.location.hash = globiWeb.queryString.encode(searchContext.searchParameters);
+        saveSearch({searchHash: globiWeb.queryString.encode(searchContext.searchParameters)});
         globiWeb.widgets.forEach(function (w) {
             var oldWidgetContainer = document.querySelector(w.target);
             while (oldWidgetContainer.firstChild) {
@@ -130,6 +135,11 @@
     });
 
     searchContext.emit('searchcontext:searchparameterchange', searchContext.searchParameters);
+
+    window.addEventListener('popstate', function(e){
+        var params = loadSearchParams();
+        searchContext.searchContext.update(params);
+    });
 
     var treeSpinner, wheelSpinner, bundleSpinner;
 
