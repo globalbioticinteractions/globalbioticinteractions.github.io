@@ -116,7 +116,6 @@
     }
 
     var searchParameters = loadSearchParams();
-    saveSearch({searchHash: globiWeb.queryString.encode(searchParameters)});
     var searchContext = globiWeb.searchContext(searchParameters);
     var dataContext = globiWeb.dataContext(searchContext);
     var search = globiWeb.search({searchContext: searchContext});
@@ -124,7 +123,7 @@
     search.appendTo('#taxon-filter');
 
     searchContext.on('searchcontext:searchparameterchange', function (context) {
-        saveSearch({searchHash: globiWeb.queryString.encode(searchContext.searchParameters)});
+        saveQuery(globiWeb.queryString.encode(searchContext.searchParameters));
         globiWeb.widgets.forEach(function (w) {
             var oldWidgetContainer = document.querySelector(w.target);
             while (oldWidgetContainer.firstChild) {

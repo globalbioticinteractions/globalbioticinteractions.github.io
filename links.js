@@ -78,8 +78,12 @@ function collectSearchParams($) {
 }
 
 function saveSearch(search) {
+    saveQuery(queryString.stringify(search.searchHash));
+}
+
+function saveQuery(query) {
     if (document.location.protocol !== 'file:') {
-        window.history.pushState({}, "", "?" + queryString.stringify(search.searchHash));
+        window.history.pushState({}, "", "?" + query);
     }
 }
 
