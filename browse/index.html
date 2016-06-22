@@ -107,7 +107,7 @@
 
     var loadSearchParams = function () {
         var searchParameters = { sourceTaxon: 'Chelonia mydas' };
-        var hash = window.location.search || window.location.hash;
+        var hash = document.location.search || document.location.hash;
         if (hash && hash.length > 1) {
             var queryOnly = hash.substring(1);
             searchParameters = globiWeb.queryString.decode(queryOnly);
@@ -137,6 +137,7 @@
     searchContext.emit('searchcontext:searchparameterchange', searchContext.searchParameters);
 
     window.addEventListener('popstate', function(e){
+        console.log('popstate');
         var params = loadSearchParams();
         searchContext.searchContext.update(params);
     });
