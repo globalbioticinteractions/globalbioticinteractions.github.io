@@ -137,9 +137,7 @@
     searchContext.emit('searchcontext:searchparameterchange', searchContext.searchParameters);
 
     window.addEventListener('popstate', function(e){
-        var params = loadSearchParams();
-        saveQuery(globiWeb.queryString.encode(params));
-        searchContext.emit('searchcontext:searchparameterchange', params);
+        searchContext.update(loadSearchParams());
     });
 
     var treeSpinner, wheelSpinner, bundleSpinner;
