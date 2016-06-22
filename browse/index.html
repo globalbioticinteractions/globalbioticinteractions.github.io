@@ -138,6 +138,9 @@
 
     window.addEventListener('popstate', function(e){
         searchContext.update(loadSearchParams());
+        searchContext.sourceSelector.clear();
+        searchContext.targetSelector.clear();
+        searchContext.typeSelector.clear();
     });
 
     var treeSpinner, wheelSpinner, bundleSpinner;
