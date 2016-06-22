@@ -113,7 +113,7 @@
             searchParameters = globiWeb.queryString.decode(queryOnly);
         }
         return searchParameters;
-    }
+    };
 
     var searchParameters = loadSearchParams();
     var searchContext = globiWeb.searchContext(searchParameters);
@@ -138,6 +138,7 @@
 
     window.addEventListener('popstate', function(e){
         var params = loadSearchParams();
+        saveQuery(globiWeb.queryString.encode(params));
         searchContext.emit('searchcontext:searchparameterchange', params);
     });
 
