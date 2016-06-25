@@ -15,6 +15,33 @@
             margin-left: auto;
             margin-right: auto;
         }
+        ul {
+          list-style: none;
+          padding-left: 0.1em;
+        }
+
+        li {
+          padding: 0.1em 0.2em;
+        }
+
+        li.closed:before {
+          background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/67/Closed_Access_logo_white.svg);
+          background-size: 1em 1em;
+          display: inline-block;
+          width: 1em; 
+          height: 1em;
+          margin-right: 0.5em;
+          content: "";
+        }
+        li:before {
+          background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/77/Open_Access_logo_PLoS_transparent.svg);
+          background-size: 1em 1em;
+          display: inline-block;
+          width: 1em; 
+          height: 1em;
+          margin-right: 0.5em;
+          content: "";
+        }
     </style>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" href="globi.css"/>
@@ -111,22 +138,22 @@
     <h3 id="citations">Who cited GloBI?</h3>
     <b>2016</b>
     <ul>
-      <li>Adams, J. et al., 2016. A century of Chinook salmon consumption by marine mammal predators in the Northeast Pacific Ocean. <em>Ecological Informatics</em>, 34, pp.44–51. Available at: <a href="http://dx.doi.org/10.1016/j.ecoinf.2016.04.010">http://dx.doi.org/10.1016/j.ecoinf.2016.04.010.</a></li>
-      <li>Amano, T., Lamming, J.D.L. &amp; Sutherland, W.J., 2016. Spatial Gaps in Global Biodiversity Information and the Role of Citizen Science. <em>BioScience</em>, p.biw022. Available at: <a href="http://dx.doi.org/10.1093/biosci/biw022">http://dx.doi.org/10.1093/biosci/biw022</a>.
+      <li class="closed">Adams, J. et al., 2016. A century of Chinook salmon consumption by marine mammal predators in the Northeast Pacific Ocean. <em>Ecological Informatics</em>, 34, pp.44–51. Available at: <a href="http://dx.doi.org/10.1016/j.ecoinf.2016.04.010">http://dx.doi.org/10.1016/j.ecoinf.2016.04.010.</a></li>
+      <li class="closed">Amano, T., Lamming, J.D.L. &amp; Sutherland, W.J., 2016. Spatial Gaps in Global Biodiversity Information and the Role of Citizen Science. <em>BioScience</em>, p.biw022. Available at: <a href="http://dx.doi.org/10.1093/biosci/biw022">http://dx.doi.org/10.1093/biosci/biw022</a>.
       </li>
-      <li>Khabibullin, V.F., 2016. Location and foraging as basis for classification of biotic interactions. <em>Theory in Biosciences</em>. Available at: <a href="http://dx.doi.org/10.1007/s12064-016-0228-8">http://dx.doi.org/10.1007/s12064-016-0228-8</a>.</li>
-      <li>McKinley, D.C. et al., 2016. Citizen science can improve conservation science, natural resource management, and environmental protection. <em>Biological Conservation</em>. Available at: <a href="http://dx.doi.org/10.1016/j.biocon.2016.05.015">http://dx.doi.org/10.1016/j.biocon.2016.05.015</a>.</li>
-      <li>Schigel, D., 2016. Beetles versus Fungi: Trophic Interactions in Boreal Forests. Environmental and Microbial Relationships. In: The Mycota, Volume IV, pp.269–278. Available at: <a href="http://dx.doi.org/10.1007/978-3-319-29532-9_14">http://dx.doi.org/10.1007/978-3-319-29532-9_14</a>.</li>
+      <li class="closed">Khabibullin, V.F., 2016. Location and foraging as basis for classification of biotic interactions. <em>Theory in Biosciences</em>. Available at: <a href="http://dx.doi.org/10.1007/s12064-016-0228-8">http://dx.doi.org/10.1007/s12064-016-0228-8</a>.</li>
+      <li class="closed">McKinley, D.C. et al., 2016. Citizen science can improve conservation science, natural resource management, and environmental protection. <em>Biological Conservation</em>. Available at: <a href="http://dx.doi.org/10.1016/j.biocon.2016.05.015">http://dx.doi.org/10.1016/j.biocon.2016.05.015</a>.</li>
+      <li class="closed">Schigel, D., 2016. Beetles versus Fungi: Trophic Interactions in Boreal Forests. Environmental and Microbial Relationships. In: The Mycota, Volume IV, pp.269–278. Available at: <a href="http://dx.doi.org/10.1007/978-3-319-29532-9_14">http://dx.doi.org/10.1007/978-3-319-29532-9_14</a>.</li>
     </ul>
     <b>2015</b>
     <ul>
       <li>Costello, M.J. et al., 2015. Biological and ecological traits of marine species. <em>PeerJ</em>, 3, p.e1201. Available at: <a href="http://dx.doi.org/10.7717/peerj.1201">http://dx.doi.org/10.7717/peerj.1201</a>.</li>
         <li>Foulger, R.E. et al., 2015. Representing virus-host interactions and other multi-organism processes in the
-            Gene Ontology. <em>BMC Microbiol</em>, 15(1). Available at: <a
+            Gene Ontology. <em>BMC Microbiology</em>, 15(1). Available at: <a
                     href="http://dx.doi.org/10.1186/s12866-015-0481-x">http://dx.doi.org/10.1186/s12866-015-0481-x</a>.
                   </li>
                   <li>Gray, C. et al., 2015. Joining the dots: An automated method for constructing food webs from compendia of published interactions. <em>Food Webs</em>, 5, pp.11–20. Available at: <a href="http://dx.doi.org/10.1016/j.fooweb.2015.09.001">http://dx.doi.org/10.1016/j.fooweb.2015.09.001</a>.</li>
-        <li>Hortal, J. et al., 2015. Seven Shortfalls that Beset Large-Scale Knowledge of Biodiversity. <em>Annual Review of Ecology, Evolution, and Systematics</em>, 46(1). Available at: <a href="http://dx.doi.org/10.1146/annurev-ecolsys-112414-054400">http://dx.doi.org/10.1146/annurev-ecolsys-112414-054400i</a>.</li>
+        <li class="closed">Hortal, J. et al., 2015. Seven Shortfalls that Beset Large-Scale Knowledge of Biodiversity. <em>Annual Review of Ecology, Evolution, and Systematics</em>, 46(1). Available at: <a href="http://dx.doi.org/10.1146/annurev-ecolsys-112414-054400">http://dx.doi.org/10.1146/annurev-ecolsys-112414-054400i</a>.</li>
         <li>Kissling, W.D. et al., 2015. Towards global interoperability for supporting biodiversity research on
             essential biodiversity variables (EBVs). <em>Biodiversity</em>, pp.1–9. Available at:
             <a href="http://dx.doi.org/10.1080/14888386.2015.1068709">http://dx.doi.org/10.1080/14888386.2015.1068709</a>.
@@ -143,7 +170,7 @@
             Current. <em>Ecological Informatics</em>. Available at: <a
                     href="http://dx.doi.org/10.1016/j.ecoinf.2015.07.003">http://dx.doi.org/10.1016/j.ecoinf.2015.07.003</a>.
         </li>
-        <li>Thessen, A.E. et al., 2015. Data Infrastructures for Estuarine and Coastal Ecological Syntheses. <em>Estuaries and Coasts</em>. Available at: <a href="http://dx.doi.org/10.1007/s12237-015-0045-1">http://dx.doi.org/10.1007/s12237-015-0045-1.</a></li>
+        <li class="closed">Thessen, A.E. et al., 2015. Data Infrastructures for Estuarine and Coastal Ecological Syntheses. <em>Estuaries and Coasts</em>. Available at: <a href="http://dx.doi.org/10.1007/s12237-015-0045-1">http://dx.doi.org/10.1007/s12237-015-0045-1.</a></li>
         <li>Thessen, A.E. et al., 2015. Emerging semantics to link phenotype and environment. <em>PeerJ</em>, 3, p.e1470. Available at: <a href="http://dx.doi.org/10.7717/peerj.1470">http://dx.doi.org/10.7717/peerj.1470</a>.</li>
     </ul>
 </div>
