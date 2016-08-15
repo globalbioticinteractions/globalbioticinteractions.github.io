@@ -103,7 +103,19 @@ $(function () {
         var contribute = $('#interactionType :selected').text() + message + '<p>Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.';
         textElem.innerHTML = prefix + contribute + linkToBrowser + '</p>';
         document.getElementById('info').appendChild(textElem);
-    }
+      }
+
+      var sourceTaxonKey = function(interaction) {
+        return interaction.source_taxon_external_id;
+      }
+
+      var targetTaxonKey = function(interaction) {
+        return interaction.target_taxon_external_id;
+      }
+
+      var citationKey = function(interaction) {
+        return sourceTaxonKey(interaction) + interaction.interaction_type + targetTaxonKey(interaction);
+      }
 
     var searchForInteractions = function (offset) {
         $('thead, #moreButton').remove();
@@ -125,14 +137,13 @@ $(function () {
             var nDistinctInteractions = 0;
 
             interactions.forEach(function (interaction) {
-                var citationKey = (interaction.source_taxon_external_id + interaction.interaction_type + interaction.target_taxon_external_id);
                 nInteractions += 1;
-                if (distinctInteractions[citationKey] === undefined) {
+                if (distinctInteractions[citationKey(interaction)] === undefined) {
                     var row = document.createElement('tr');
                     row.setAttribute('class', 'interaction');
                     resultFragment.appendChild(row);
                     var td = document.createElement('td');
-                    td.setAttribute('class', className(interaction.source_taxon_external_id));
+                    td.setAttribute('class', className(sourceTaxonKey(interaction)));
                     td.innerHTML = interaction.source_taxon_name;
                     row.appendChild(td);
                     td = document.createElement('td');
@@ -142,17 +153,17 @@ $(function () {
                     td.appendChild(div);
                     row.appendChild(td);
                     td = document.createElement('td');
-                    td.setAttribute('class', className(interaction.target_taxon_external_id));
+                    td.setAttribute('class', className(targetTaxonKey(interaction)));
                     td.innerHTML = interaction.target_taxon_name;
                     row.appendChild(td);
 
                     td = document.createElement('td');
-                    td.setAttribute('class', className(citationKey));
+                    td.setAttribute('class', className(citationKey(interaction)));
                     row.appendChild(td);
-                    distinctExternalIds[interaction.target_taxon_external_id] = interaction.target_taxon_external_id;
-                    distinctExternalIds[interaction.source_taxon_external_id] = interaction.source_taxon_external_id;
+                    distinctExternalIds[targetTaxonKey(interaction)] = interaction.target_taxon_external_id;
+                    distinctExternalIds[sourceTaxonKey(interaction)] = interaction.source_taxon_external_id;
 
-                    distinctInteractions[citationKey] = interaction;
+                    distinctInteractions[citationKey(interaction)] = interaction;
                     nDistinctInteractions += 1;
                 }
             });
