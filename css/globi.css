@@ -12,7 +12,7 @@ div.right {
 
 div.figure {
   width: 40%;
-  border: thin silver solid;
+  border: none;
   margin: 0.3em;
   padding: 0.3em;
 }
