@@ -17,7 +17,7 @@ div.figure {
   padding: 0.3em;
 }
 div.figure p {
-  text-align: center;
+  text-align: left;
   font-style: italic;
   font-size: smaller;
   text-indent: 0;
