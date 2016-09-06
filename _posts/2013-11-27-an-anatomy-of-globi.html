@@ -1,0 +1,13 @@
+---
+layout: post
+title: The Anatomy of GloBI
+date: 2013-11-27 01:11:06.000000000 -08:00
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+---
+<div class="figure figure-globi left"><a href="http://globalbioticinteractions.files.wordpress.com/2013/11/dataflow1.png"><img class="size-medium wp-image-135   " title="GloBI Anatomy" src="/assets/dataflow1.png" alt="dataflow"/></a><p>An anatomy of GloBI: Sources (datasets, taxonomies, ontologies) are aggregated into a single normalized metadata set. This dataset can be accessed in various ways to suit offline data analysis (Darwin Core), data integration (Linked Data), or interactive apps (JavaScript APIs or web services).</p></div>
+<p>In the past year, we've written a bunch of software to normalize, aggregate, and expose <a href="http://eol-globi.github.io">various existing species-interaction datasets</a>. To help understand the bits and pieces of the software that drives GloBI, I've included a system diagram in this post. You'll find the data sources on the top (ontologies/datasets), the normalization magic in the middle, and the exports or APIs on the bottom. Also, the current (known) users (e.g., <a href="http://eol.org">EOL pages</a> and <a href="http://gomexsi.tamucc.edu">GoMexSI</a>) are included. If you have an interest in learning more or sharing ideas on any of these topics, I invite you to read our <a href="http://github.com/jhpoelen/eol-globi-data/wiki">wiki</a>, play around with the <a href="https://npmjs.org/package/globi-data">JavaScript API</a>, <a href="https://github.com/jhpoelen/eol-globi-data/wiki#accessing-species-interaction-data">download aggregate datasets</a>, comment on this post, or create a <a href="https://github.com/jhpoelen/eol-globi-data/issues/new">GitHub issue</a>. It is your input that helps us to build the right things at the right time. Past feedback has led us to make the improvements we're working on now. For instance, we are working on bettering the quality control of name mapping, providing examples for <a href="https://npmjs.org/package/globi-data">JavaScript APIs</a>, and creating more mappings to existing ontologies, such as <a href="http://environmentontology.org/">EnvO</a> and <a href="http://uberon.org">Uberon</a>, while extending our new <a href="https://github.com/jhpoelen/eol-globi-data/tree/master/eol-globi-ontology">interaction ontology</a>.</p>
+<p>Hoping to hear from you! Thank you for reading this post!</p>

@@ -1,20 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <title>Global Biotic Interactions</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="MHqp6kVCB-ILE2P_5iHK902nz8mCR0HwnqIgEFvwBgU"/>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
-    <link rel="stylesheet" href="globi.css"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="theme-color" content="#ffffff">
-</head>
-<body>
+---
+layout: default
+---
 <noscript>JavaScript is off. Please enable JavaScript to view full site.</noscript>
 <div class="ui-widget">
     <p>Example queries: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">What do sea otters (<em>Enhydra
@@ -47,12 +33,8 @@
     <table id="result">
     </table>
 </div>
-<script src="menu.js"></script>
-<script>
-    buildMenu();
-</script>
 
-<script src="static/globi-web-min.js"></script>
+<script src="/js/globi-web-min.js"></script>
 <script>
     var $ = globiWeb.globi.jQuery;
     var globiData = globiWeb.globi.globiData;
@@ -60,8 +42,8 @@
     var limitDefault = 15;
 </script>
 
-<script src="links.js"></script>
-<script src="query-string.js"></script>
+<script src="/js/links.js"></script>
+<script src="/js/query-string.js"></script>
 <script>
 var className = function (someString) {
     return someString.replace(/\W/g, '_');
@@ -337,7 +319,7 @@ var showTaxonLinks = function (elem) {
                 });
                 var selectedLink;
                 if (selectedLinks.length === 0) {
-                    selectedLink = { icon: 'img/link.png', url: url, name: url };
+                    selectedLink = { icon: 'assets/link.png', url: url, name: url };
                 } else {
                     selectedLink = { icon: selectedLinks[0].icon, url: url, name: selectedLinks[0].name };
                 }
@@ -421,5 +403,3 @@ window.addEventListener('load', function (e) {
 });
 
 </script>
-</body>
-</html>

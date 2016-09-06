@@ -1,3 +1,57 @@
+div.left {
+  float: left;
+}
+
+div.right {
+  float: right;
+}
+
+div.figure {
+  width: 40%;
+  border: thin silver solid;
+  margin: 0.3em;
+  padding: 0.3em;
+}
+div.figure p {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+}
+        .logos > img {
+          height: 10em;
+          vertical-align:top;
+          position:relative;
+          padding-left: 5em;
+        }
+
+        ul {
+          list-style: none;
+          padding-left: 0.1em;
+        }
+
+        li {
+          padding: 0.1em 0.2em;
+        }
+
+        li.closed:before {
+          background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/67/Closed_Access_logo_white.svg);
+          background-size: 1em 1em;
+          display: inline-block;
+          width: 1em; 
+          height: 1em;
+          margin-right: 0.5em;
+          content: "";
+        }
+        li.open:before {
+          background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/77/Open_Access_logo_PLoS_transparent.svg);
+          background-size: 1em 1em;
+          display: inline-block;
+          width: 1em; 
+          height: 1em;
+          margin-right: 0.5em;
+          content: "";
+        }
 body {
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
    font-size: 0.8em;
@@ -138,7 +192,7 @@ tr.interaction td li {
     padding: 10px;
     text-align: center;
   }
-}
+
 
 .taxonLinkIcon {
   height: 1.1em;

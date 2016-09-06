@@ -1,0 +1,125 @@
+#result-list {
+    padding: 1em 2em;
+}
+#result-table {
+    border-collapse: collapse;
+    background: #b0b0b0;
+    width: 100%;
+    table-layout: fixed;
+}
+#result-table a.link {
+    text-decoration: none;
+    color: #44e;
+}
+
+.table-wrapper {
+    width: 100%;
+    padding: 2px;
+    background: #d0d0d0;
+    border: 1px solid #a0a0a0;
+}
+#result-table thead {
+    background: #d0d0d0;
+}
+#result-table thead th,
+#result-table tbody td {
+    padding: 5px;
+    text-align: left;
+    font-size: 12px;
+}
+#result-table tbody {
+    background: #a0a0a0;
+}
+
+
+#info-box {
+    background: #fff;
+}
+
+#info-box .source-label,
+#info-box .target-label,
+#info-box .link-label{
+    color: #575757;
+    font-style: italic;
+    font-size: 11px;
+    padding-bottom: 3px;
+}
+
+.result-link {
+    vertical-align: top;
+}
+
+.source-data,
+.target-data {
+    border: 1px solid #cad3db;
+    padding: 3px;
+
+    background: #f3f7fa;
+}
+
+.result-link a,
+.result-source a,
+.result-target a {
+    color: #195184;
+    font-size: 11px;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.result-item.even {
+    background: #f3f7fa;
+}
+.result-item.odd {
+    background: #eaeeef;
+}
+
+.result-item.even:hover,
+.result-item.odd:hover {
+    background: #e3e7ea;
+    cursor: pointer;
+}
+
+.scientific-name:hover {
+    cursor: pointer;
+}
+
+.result-item.active-row {
+    display: none;
+}
+
+#search-row {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#search-filter {
+    padding: 1em 2em 0 2em;
+}
+
+.filter-middle-column {
+    text-align: center;
+}
+
+.source-cell,
+.target-cell,
+#source-taxon-selector-cell,
+#target-taxon-selector-cell{
+    width: 39%;
+}
+
+#search-row ul.token-input-list {
+    width: 100%;
+}
+
+li.token-input-token {
+    margin: 1px;
+    padding: 2px;
+}
+
+#spatial-toggle {
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #44e;
+}

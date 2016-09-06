@@ -1,15 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <title>Global Biotic Interactions</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="MHqp6kVCB-ILE2P_5iHK902nz8mCR0HwnqIgEFvwBgU"/>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
-    <link rel="stylesheet" href="globi.css"/>
-</head>
-<body onload="init()">
-<noscript>JavaScript is off. Please enable JavaScript to view full site.</noscript>
+---
+layout: default
+title: references
+---
 <div class="ui-widget">
     <div id="contributors">
         GloBI currently includes <span id="studies">(...)</span> <a href="http://api.globalbioticinteractions.org/reports/studies.tsv?limit=500000" title="list of references/studies, their sources and statistics">references</a> obtained from <span id="sources">(...)</span> <a href="http://api.globalbioticinteractions.org/reports/sources.tsv" title="list of sources and statistics">data sources</a>. In total,
@@ -45,12 +37,8 @@
     <table id="result">
     </table>
 </div>
-<script src="menu.js"></script>
-<script>
-    buildMenu();
-</script>
 
-<script src="static/globi-web-min.js"></script>
+<script src="js/globi-web-min.js"></script>
 <script>
     var $ = globiWeb.globi.jQuery;
     var globiData = globiWeb.globi.globiData;
@@ -58,8 +46,8 @@
     var limitDefault = 1024;
 </script>
 
-<script src="links.js"></script>
-<script src="query-string.js"></script>
+<script src="js/links.js"></script>
+<script src="js/query-string.js"></script>
 <script>
     var className = function (someString) {
         return someString.replace(/\W/g, '_');
@@ -195,9 +183,11 @@
         loadStats();
     };
 
-    window.onpopstate = function(e) {
+window.addEventListener('load', function (e) {
+    init();
+    window.addEventListener('popstate', function (e) {
         init();
-    };
+    });
+});
+
 </script>
-</body>
-</html>
