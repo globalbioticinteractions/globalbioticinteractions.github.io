@@ -2,6 +2,22 @@ body {
     font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
 }
 
+.answers {
+  font-size: 0.7em;
+}
+
+p.summary {
+  font-size: 0.8em;
+}
+
+p.question {
+  font-size: 0.8em;
+}
+
+p.examples {
+  font-size: 1em;
+}
+
 div.left {
   float: left;
 }

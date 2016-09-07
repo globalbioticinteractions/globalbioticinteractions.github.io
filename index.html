@@ -3,11 +3,11 @@ layout: default
 ---
 <noscript>JavaScript is off. Please enable JavaScript to view full site.</noscript>
 <div class="ui-widget">
-    <p>Example queries: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">What do sea otters (<em>Enhydra
+    <p class="examples">Example queries: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">What do sea otters (<em>Enhydra
         lutris</em>) eat?</a> or <a href="?sourceTaxon=Apis&interactionType=pollinates">What do honey bees (Apis)
         pollinate?</a></p>
 
-    <p>What do
+    <p class="question">What do
         <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="organisms"/>
         <select id="interactionType">
             <option value="interactsWith">interact with</option>
@@ -29,8 +29,8 @@ layout: default
             <option value="killedBy">is killed by</option>
         </select> according to <input id="studySearchField" autocomplete="off" placeholder="any study or source"/>?
     </p>
-    <div id="info"></div>
-    <table id="result">
+    <div id="info" class="summary"></div>
+    <table id="result" class="answers">
     </table>
 </div>
 
