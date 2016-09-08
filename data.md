@@ -3,7 +3,7 @@ layout: default
 title: data
 ---
 
-Species interaction datasets included in GloBI can be accessed in various ways. For most, this website and its pages may be helpful to poke around the data. Other projects like [GoMexSI](http://gomexsi.tamucc.edu), [Encyclopedia of Life](http://eol.org), and [Ecosystem Explorer](http://danielabar.github.io/globi-proto) present GloBI data in a human readable format. 
+Species interaction datasets available through GloBI can be accessed in various ways. For most, this website and its pages may be helpful to poke around the data. Other projects like [GoMexSI](http://gomexsi.tamucc.edu), [Encyclopedia of Life](http://eol.org), and [Ecosystem Explorer](http://danielabar.github.io/globi-proto) present GloBI data in a human readable format. 
 
 For those that use [R](http://r-project.org), [rglobi](http://cran.r-project.org/package=rglobi) is available to retrieve interaction data for further analysis in the R environment. [rglobi](http://cran.r-project.org/package=rglobi) can also be used to execute Cypher queries. 
 
