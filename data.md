@@ -1,6 +1,6 @@
---
+---
 layout: default
-title: data access
+title: data
 ---
 
 Species interaction datasets included in GloBI can be accessed in various ways. For most, this website and its pages may be helpful to poke around the data. Other projects like [GoMexSI](http://gomexsi.tamucc.edu), [Encyclopedia of Life](http://eol.org), and [Ecosystem Explorer](http://danielabar.github.io/globi-proto) present GloBI data in a human readable format. 
