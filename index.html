@@ -88,7 +88,7 @@ $(function () {
 
         var linkToBrowser = ' Like a different view? <a href="browse/index.html' + document.location.search.replace(/^\?/, '#') + '" target="_blank">Open results</a> in interaction browser.';
 
-        var contribute = $('#interactionType :selected').text() + message + '<p>Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.';
+        var contribute = '<p>' + $('#interactionType :selected').text() + message + '</p><p>Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.';
         textElem.innerHTML = prefix + contribute + linkToBrowser + '</p>';
         document.getElementById('info').appendChild(textElem);
       }
