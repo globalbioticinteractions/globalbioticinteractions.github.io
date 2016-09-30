@@ -32,6 +32,7 @@
         "preinstall": "npm install node_modules/globi-*",
         "test": "browserify test/*.js test/browser/*.js node_modules/globi-*/test/*.js node_modules/globi-*/test/browser/*.js | testling",
         "build-js-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs -mc > js/globi-web-min.js",
+        "build-js": "browserify -t brfs index.js --standalone globi-web > js/globi-web-min.js",
         "build": "npm run build-js-min",
         "watch": "watchify index.js --standalone globi-web --debug --verbose -o js/globi-web-min.js"
     },
