@@ -63,7 +63,10 @@ permalink: browse/
 
     search.appendTo('#taxon-filter');
 
-    searchContext.on('searchcontext:searchparameterchange', function (context) {
+    var spatialSelector = globiWeb.spatialSelector(searchContext);
+    spatialSelector.appendTo(panels.topRight);
+
+    searchContext.on('searchcontext:searchparameterchange', function () {
         saveQuery(globiWeb.queryString.encode(searchContext.searchParameters));
         globiWeb.widgets.forEach(function (w) {
             var oldWidgetContainer = document.querySelector(w.target);
@@ -77,11 +80,12 @@ permalink: browse/
 
     searchContext.emit('searchcontext:searchparameterchange', searchContext.searchParameters);
 
-    window.addEventListener('popstate', function(e){
+    window.addEventListener('popstate', function (e) {
         search.sourceSelector.update(search);
         search.targetSelector.update(search);
         search.typeSelector.update(search);
         searchContext.update(loadSearchParams());
+        spatialSelector.update(search);
     });
 
     var treeSpinner, wheelSpinner, bundleSpinner;
@@ -132,13 +136,5 @@ permalink: browse/
         });
     }
 
-    function appendMap() {
-        addMap(panels.topRight);
-    }
 
-    function addMap(target) {
-        var spatialSelector = globiWeb.spatialSelector(searchContext);
-        spatialSelector.appendTo(target);
-    }
-    appendMap();
 </script>
