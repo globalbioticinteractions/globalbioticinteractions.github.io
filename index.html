@@ -46,8 +46,13 @@ layout: default
 <script src="/js/query-string.js"></script>
 <script>
 var className = function (someString) {
-    return someString.replace(/\W/g, '_');
-}
+    var someClassName = 'undefined';
+    if (someString) {
+        someClassName = someString.replace(/\W/g, '_');
+    }
+    return someClassName;
+};
+
 $(function () {
     var labelForTaxon = function (taxon) {
         var englishName;
