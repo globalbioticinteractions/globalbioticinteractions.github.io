@@ -131,7 +131,9 @@ $(function () {
 
             interactions.forEach(function (interaction) {
                 nInteractions += 1;
-                if (distinctInteractions[citationKey(interaction)] === undefined) {
+		var shouldRender = document.querySelector('.' + citationKey(interaction)) === null;
+                var shouldProcess = distinctInteractions[citationKey(interaction)] === undefined;
+                if (shouldProcess && shouldRender) {
                     var row = document.createElement('tr');
                     row.setAttribute('class', 'interaction');
                     resultFragment.appendChild(row);
