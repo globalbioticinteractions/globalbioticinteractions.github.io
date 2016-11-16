@@ -139,7 +139,7 @@ $(function () {
                     row.setAttribute('class', 'interaction');
                     resultFragment.appendChild(row);
                     var td = document.createElement('td');
-                    td.setAttribute('class', interactionHash);
+                    td.setAttribute('class', className(sourceTaxonKey(interaction)));
                     td.innerHTML = interaction.source_taxon_name;
                     row.appendChild(td);
                     td = document.createElement('td');
