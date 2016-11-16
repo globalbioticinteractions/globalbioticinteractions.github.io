@@ -131,14 +131,15 @@ $(function () {
 
             interactions.forEach(function (interaction) {
                 nInteractions += 1;
-		var shouldRender = document.querySelector('.' + citationKey(interaction)) === null;
+		var interactionHash = className(citationKey(interaction));
+		var shouldRender = document.querySelector('.' + interactionHash) === null;
                 var shouldProcess = distinctInteractions[citationKey(interaction)] === undefined;
                 if (shouldProcess && shouldRender) {
                     var row = document.createElement('tr');
                     row.setAttribute('class', 'interaction');
                     resultFragment.appendChild(row);
                     var td = document.createElement('td');
-                    td.setAttribute('class', className(sourceTaxonKey(interaction)));
+                    td.setAttribute('class', interactionHash);
                     td.innerHTML = interaction.source_taxon_name;
                     row.appendChild(td);
                     td = document.createElement('td');
@@ -153,7 +154,7 @@ $(function () {
                     row.appendChild(td);
 
                     td = document.createElement('td');
-                    td.setAttribute('class', className(citationKey(interaction)));
+                    td.setAttribute('class', interactionHash);
                     row.appendChild(td);
                     distinctExternalIds[targetTaxonKey(interaction)] = interaction.target_taxon_external_id;
                     distinctExternalIds[sourceTaxonKey(interaction)] = interaction.source_taxon_external_id;
