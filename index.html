@@ -143,6 +143,7 @@ $(function () {
                     td.innerHTML = interaction.source_taxon_name;
                     row.appendChild(td);
                     td = document.createElement('td');
+                    td.appendChild(document.createElement('br'));
                     var div = document.createElement('div');
                     div.setAttribute('class', className(interaction.interaction_type));
                     div.textContent = interaction.interaction_type;

@@ -148,6 +148,7 @@ tr.interaction:nth-child(even) {
 
 tr.interaction td {
   border: none;
+  vertical-align: top;
 }
 
 tr.interaction td li {
@@ -200,7 +201,7 @@ tr.interaction td li {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   tr.interaction > td:nth-child(2) {
     font-size: 120%;
     display: block;
