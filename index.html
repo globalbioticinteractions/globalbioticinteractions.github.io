@@ -118,7 +118,7 @@ $(function () {
 
         var searchParams = collectSearchParams($);
         var search = searchParams.search;
-        search.fields = ['source_taxon_name', 'source_taxon_external_id', 'target_taxon_name', 'target_taxon_external_id', 'interaction_type'];
+        search.fields = ['source_taxon_name', 'source_taxon_external_id', 'target_taxon_name', 'target_taxon_external_id', 'interaction_type','number_of_studies'];
         search.limit = limitDefault;
         search.offset = offset || offsetDefault;
         saveSearch(searchParams);
