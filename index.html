@@ -386,8 +386,7 @@ var init = function () {
     globiData.findInteractionTypes(function (data) {
         var interactionSelector = document.getElementById('interactionType');
 
-
-        data.keys.forEach(function (interactionType) {
+        Object.keys(data).forEach(function (interactionType) {
             var typeClass = encodeURIComponent(interactionType.termIRI);
             if (document.querySelector('.' + typeClass) !== null) {
                 var optionElem = document.createElement('option');
