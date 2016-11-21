@@ -10,23 +10,8 @@ layout: default
     <p class="question">What do
         <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="organisms"/>
         <select id="interactionType">
-            <option value="interactsWith">interact with</option>
-            <option value="eats">eat</option>
-            <option value="eatenBy">get eaten by</option>
-            <option value="preysOn">preys on</option>
-            <option value="preyedUponBy">get preyed on by</option>
-            <option value="parasiteOf">parasitize</option>
-            <option value="hasParasite">get parasitized by</option>
-            <option value="visitsFlowersOf">visits flowers of</option>
-            <option value="flowersVisitedBy">flowers visited by</option>
-            <option value="pollinates">pollinate</option>
-            <option value="pollinatedBy">get pollinated by</option>
-            <option value="pathogenOf">infect</option>
-            <option value="hasPathogen">get infected by</option>
-            <option value="vectorOf">spread</option>
-            <option value="hasVector">get spread by</option>
-            <option value="kills">kill</option>
-            <option value="killedBy">is killed by</option>
+            <option value="interactsWith" class="http://purl.obolibrary.org/obo/RO_0002437">interacts with</option>
+         </select>
         </select> according to <input id="studySearchField" autocomplete="off" placeholder="any study or source"/>?
     </p>
     <div id="info" class="summary"></div>
@@ -397,6 +382,22 @@ var showTaxonLinks = function (elem) {
 };
 
 var init = function () {
+
+    globiData.findInteractionTypes(function (data) {
+        var interactionSelector = document.getElementById('interactionType');
+
+
+        data.keys.forEach(function (interactionType) {
+            var typeClass = encodeURIComponent(interactionType.termIRI);
+            if (document.querySelector('.' + typeClass) !== null) {
+                var optionElem = document.createElement('option');
+                optionElem.setAttribute('class', typeClass)
+                optionElem.setAttribute('value', interactionType);
+                optionElem.textContent = interactionType;
+                interactionSelector.appendChild(optionElem);
+             }
+         });
+    });
     var params = queryString.parse(document.location.search || document.location.hash);
     globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
     $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
