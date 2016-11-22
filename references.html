@@ -12,25 +12,7 @@ title: references
     <p>Below, you can search for references that contain species interaction records. Example queries: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">Which references document sea otters (<em>Enhydra lutris</em>) prey?</a> or <a href="?sourceTaxon=Apis&interactionType=pollinates">Who documented what honey bees (Apis) pollinate?</a></p>
     <p class="question">Which references containing <input id="studySearchField" autocomplete="off" placeholder="terms / doi"/> claim that
         <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="some organism"/>
-        <select id="interactionType">
-            <option value="interactsWith">interact with</option>
-            <option value="eats">eat</option>
-            <option value="eatenBy">get eaten by</option>
-            <option value="preysOn">preys on</option>
-            <option value="preyedUponBy">get preyed on by</option>
-            <option value="parasiteOf">parasitize</option>
-            <option value="hasParasite">get parasitized by</option>
-            <option value="visitsFlowersOf">visits flowers of</option>
-            <option value="flowersVisitedBy">flowers visited by</option>
-            <option value="pollinates">pollinate</option>
-            <option value="pollinatedBy">get pollinated by</option>
-            <option value="pathogenOf">infect</option>
-            <option value="hasPathogen">get infected by</option>
-            <option value="vectorOf">spread</option>
-            <option value="hasVector">get spread by</option>
-            <option value="kills">kill</option>
-            <option value="killedBy">is killed by</option>
-        </select>
+        {% include interactionTypeSelector.html %}
         <input id="targetTaxonInputField" class="suggest" autocomplete="off" placeholder="some other organism"/>?
     </p>
     <div id="info" class="summary"></div>
