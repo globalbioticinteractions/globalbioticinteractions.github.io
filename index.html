@@ -398,21 +398,6 @@ var showTaxonLinks = function (elem) {
 };
 
 var init = function () {
-
-    globiData.findInteractionTypes(function (data) {
-        var interactionSelector = document.getElementById('interactionType');
-
-        Object.keys(data).forEach(function (interactionType) {
-            var typeClass = encodeURIComponent(interactionType.termIRI);
-            if (document.querySelector('.' + typeClass) !== null) {
-                var optionElem = document.createElement('option');
-                optionElem.setAttribute('class', typeClass)
-                optionElem.setAttribute('value', interactionType);
-                optionElem.textContent = interactionType;
-                interactionSelector.appendChild(optionElem);
-             }
-         });
-    });
     var params = queryString.parse(document.location.search || document.location.hash);
     globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
     $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
