@@ -3,7 +3,9 @@ layout: default
 title: contribute
 ---
 
-GloBI provide a way to expose and explore existing web-accessible species interaction datasets. Species interaction datasets are continually retrieved and linked to external data sources such as taxonomies and ontologies. This continuous process allows the data contributors add new data or apply other updates without the need to go through a data submission process. In a way, GloBI acts as an ecological search engine: indexing existing datasets and making these datasets easy to discover and use. Ideally, an an interaction dataset includes scientific taxonomic names and/or taxonomic identifiers for all interacting taxa. Also, when available space and time properties should be included in most granular way possible. In addition, a citation or reference should be included to describe where the interaction data came from. 
+GloBI provides various ways to expose and explore existing web-accessible species interaction datasets. This page describes some of these methods. 
+
+Species interaction datasets are continually retrieved and linked to external data sources such as taxonomies and ontologies. This continuous process allows the data contributors add new data or apply other updates without the need to go through a data submission process. In a way, GloBI acts as an ecological search engine: indexing existing datasets and making these datasets easy to discover and use. Ideally, an an interaction dataset includes scientific taxonomic names and/or taxonomic identifiers for all interacting taxa. Also, when available space and time properties should be included in most granular way possible. In addition, a citation or reference should be included to describe where the interaction data came from. 
 
 ## Ways to Contribute Data
 Various methods exist to share existing interaction data through Global Biotic Interactions:
