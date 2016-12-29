@@ -111,6 +111,44 @@ function labelForTaxon(taxon) {
     return suggestion;
 }
 
+function addInputEvents($, globiData, searchForInteractions) {
+    $(".suggest").autocomplete({
+        minLength: 3,
+        source: function (request, response) {
+            globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
+                var suggestions = [];
+                closeMatches.forEach(function (closeMatch, index) {
+                    suggestions[index] = {
+                        label: labelForTaxon(closeMatch),
+                        value: closeMatch.scientificName
+                    };
+                });
+                response(suggestions);
+            });
+        },
+        select: function (event, ui) {
+            searchForInteractions();
+        }
+    });
+
+    var onEnter = function (e, ui) {
+        if (e.keyCode == 13) {
+            searchForInteractions();
+        }
+    };
+    $("#taxonInputField").change(function () {
+        searchForInteractions();
+    });
+    $("#taxonInputField").keyup(onEnter);
+
+    $("#interactionType").change(function () {
+        searchForInteractions();
+    });
+    $("#studySearchField").keyup(onEnter);
+
+}
+
+
 
 
 
