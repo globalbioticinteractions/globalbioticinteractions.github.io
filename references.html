@@ -24,6 +24,7 @@ title: references
     var $ = globiWeb.globi.jQuery;
     var globiData = globiWeb.globi.globiData;
     var queryString = globiWeb.queryString;
+    var formatNumber = globiWeb.formatNumber;
     var offsetDefault = 0;
     var limitDefault = 1024;
 </script>
@@ -92,13 +93,13 @@ title: references
     var loadStats = function () {
         globiData.findStats({}, function (stats) {
             var interDiv = document.getElementById('interactions');
-            interDiv.innerHTML = '<b>' + stats.totalInteractions + '</b>';
+            interDiv.innerHTML = '<b>' + formatNumber()(stats.totalInteractions) + '</b>';
             var tgtTaxa = document.getElementById('distinctTaxa');
-            tgtTaxa.innerHTML = '<b>' + stats.totalTaxa + '</b>';
+            tgtTaxa.innerHTML = '<b>' + formatNumber()(stats.totalTaxa) + '</b>';
             var studies = document.getElementById('studies');
-            studies.innerHTML = '<b>' + stats.numberOfStudies + '</b>';
+            studies.innerHTML = '<b>' + formatNumber()(stats.numberOfStudies) + '</b>';
             var references = document.getElementById('sources');
-            references.innerHTML = '<b>' + stats.numberOfDistinctSources + '</b>';
+            references.innerHTML = '<b>' + formatNumber()(stats.numberOfDistinctSources) + '</b>';
         });
     };
 
