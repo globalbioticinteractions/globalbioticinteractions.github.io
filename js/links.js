@@ -87,4 +87,19 @@ function saveQuery(query) {
     }
 }
 
+function initInputFields() {
+    var params = queryString.parse(document.location.search || document.location.hash);
+    $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
+    $('#studySearchField').val(params.accordingTo);
+    $('#taxonInputField').val(params.sourceTaxon);
+    $('#targetTaxonInputField').val(params.targetTaxon);
+
+    if (params.sourceTaxon || params.targetTaxon || params.accordingTo) {
+        $('#taxonInputField').change();
+    }
+}
+
+
+
+
 

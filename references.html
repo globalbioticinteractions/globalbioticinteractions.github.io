@@ -149,18 +149,8 @@ title: references
         });
     };
 
-
-
     var init = function () {
-        var params = queryString.parse(document.location.search || document.location.hash);
-        globiData.currentSelection = { value: params.sourceTaxon, label: params.sourceTaxon, interactionType: params.interactionType };
-        $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
-        $('#studySearchField').val(params.accordingTo);
-        $('#taxonInputField').val(params.sourceTaxon);
-
-        if (params.sourceTaxon || params.accordingTo) {
-            $('#taxonInputField').change();
-        }
+        initInputFields();
         loadStats();
     };
 
