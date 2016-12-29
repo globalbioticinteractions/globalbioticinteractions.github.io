@@ -14,6 +14,7 @@ module.exports = {
     searchResult: require('globi-search').Result,
     searchContext: require('./lib/searchContext.js'),
     dataContext: require('./lib/dataContext.js'),
-    queryString: require('querystring')
+    formatNumber: require('format-number'),
+    queryString: require('query-string')
 };
 

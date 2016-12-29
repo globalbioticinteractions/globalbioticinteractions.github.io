@@ -1,57 +1,59 @@
 {
-    "name": "globi-web",
-    "version": "0.0.2",
-    "description": "GloBI Website",
-    "directories": {
-        "test": "test"
-    },
-    "browserify": {
-        "transform": [
-            "brfs"
-        ]
-    },
-    "dependencies": {
-        "deep": "0.0.2",
-        "extend": "^3.0.0",
-        "globi": "~0.0.62",
-        "inherits": "^2.0.1",
-        "jquery": "^2.1.4",
-        "jquery-ui": "1.10.5",
-        "spin.js": "~2.3.2",
-        "taxaprisma": "0.0.11"
-    },
-    "devDependencies": {
-        "tape": "~4.1.0",
-        "browserify": "~11.0.1",
-        "brfs": "~1.4.0"
-    },
-    "testling": {
-        "files": "test/*.js"
-    },
-    "scripts": {
-        "preinstall": "npm install node_modules/globi-*",
-        "test": "browserify test/*.js test/browser/*.js node_modules/globi-*/test/*.js node_modules/globi-*/test/browser/*.js | testling",
-        "build-js-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs -mc > js/globi-web-min.js",
-        "build-js": "browserify -t brfs index.js --standalone globi-web > js/globi-web-min.js",
-        "build": "npm run build-js-min",
-        "watch": "watchify index.js --standalone globi-web --debug --verbose -o js/globi-web-min.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/"
-    },
-    "keywords": [
-        "global",
-        "biotic",
-        "interactions",
-        "species",
-        "interactions",
-        "bioinformatics"
-    ],
-    "author": "Jorrit Poelen",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues"
-    },
-    "homepage": "http://globalbioticinteractions.org"
+  "name": "globi-web",
+  "version": "0.0.2",
+  "description": "GloBI Website",
+  "directories": {
+    "test": "test"
+  },
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
+  },
+  "dependencies": {
+    "deep": "0.0.2",
+    "extend": "^3.0.0",
+    "format-number": "^2.0.1",
+    "globi": "~0.0.62",
+    "inherits": "^2.0.1",
+    "jquery": "^2.1.4",
+    "jquery-ui": "1.10.5",
+    "query-string": "^4.2.3",
+    "spin.js": "~2.3.2",
+    "taxaprisma": "0.0.11"
+  },
+  "devDependencies": {
+    "tape": "~4.1.0",
+    "browserify": "~11.0.1",
+    "brfs": "~1.4.0"
+  },
+  "testling": {
+    "files": "test/*.js"
+  },
+  "scripts": {
+    "preinstall": "npm install node_modules/globi-*",
+    "test": "browserify test/*.js test/browser/*.js node_modules/globi-*/test/*.js node_modules/globi-*/test/browser/*.js | testling",
+    "build-js-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs -mc > js/globi-web-min.js",
+    "build-js": "browserify -t brfs index.js --standalone globi-web > js/globi-web-min.js",
+    "build": "npm run build-js-min",
+    "watch": "watchify index.js --standalone globi-web --debug --verbose -o js/globi-web-min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/"
+  },
+  "keywords": [
+    "global",
+    "biotic",
+    "interactions",
+    "species",
+    "interactions",
+    "bioinformatics"
+  ],
+  "author": "Jorrit Poelen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues"
+  },
+  "homepage": "http://globalbioticinteractions.org"
 }
