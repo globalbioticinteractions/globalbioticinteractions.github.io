@@ -30,22 +30,7 @@ title: references
 <script src="js/links.js"></script>
 <script src="js/query-string.js"></script>
 <script>
-    var className = function (someString) {
-        return someString.replace(/\W/g, '_');
-    }
-
     $(function () {
-        var labelForTaxon = function (taxon) {
-            var englishName;
-            if (taxon.commonNames) {
-                englishName = taxon.commonNames['en'];
-            }
-            var suggestion = taxon.scientificName;
-            if (englishName !== undefined) {
-                suggestion = englishName + ' (' + suggestion + ')';
-            }
-            return suggestion;
-        };
 
         var searchForInteractions = function (offset) {
             $('thead, #moreButton').remove();

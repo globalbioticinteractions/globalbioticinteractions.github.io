@@ -99,6 +99,17 @@ function initInputFields() {
     }
 }
 
+function labelForTaxon(taxon) {
+    var englishName;
+    if (taxon.commonNames) {
+        englishName = taxon.commonNames['en'];
+    }
+    var suggestion = taxon.scientificName;
+    if (englishName !== undefined) {
+        suggestion = englishName + ' (' + suggestion + ')';
+    }
+    return suggestion;
+}
 
 
 

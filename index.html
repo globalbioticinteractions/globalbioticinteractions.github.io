@@ -39,19 +39,6 @@ var className = function (someString) {
 };
 
 $(function () {
-    var labelForTaxon = function (taxon) {
-        var englishName;
-        if (taxon.commonNames) {
-            englishName = taxon.commonNames['en'];
-        }
-        var suggestion = taxon.scientificName;
-        if (englishName !== undefined) {
-            suggestion = englishName + ' (' + suggestion + ')';
-        }
-        return suggestion;
-    };
-
-
     function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctInteractions) {
         var textElem = document.createElement('p');
         textElem.setAttribute('class', 'interaction searchInfo');
