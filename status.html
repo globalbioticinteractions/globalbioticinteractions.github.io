@@ -11,7 +11,7 @@ title: status
 
 <div id="status">loading...</div>
 <table id="sources">
-  <tr><th>readable</th><th>searchable</th><th>citable</th><th>name</th></tr> 
+  <tr><th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#readability" title="What make a source readable?">readable</a></th><th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#searchability" title="What makes a source searchable?">searchable</a></th><th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability" title="What makes a source citable?">citable</a></th><th>name</th></tr> 
 </table>
 
 </div>
@@ -57,7 +57,7 @@ title: status
     var a = appendLink(tr);
    
     if (source.doi === undefined) {
-      a.setAttribute('href', 'https://guides.github.com/activities/citable-code/');
+      a.setAttribute('href', 'https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management');
       a.textContent = 'make citable';
     } else {      
       a.setAttribute('href', 'https://doi.org/' + source.doi);
