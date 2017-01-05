@@ -68,7 +68,7 @@ title: status
 
     var urlForSource = function(source) {
       if (source.url === undefined) {
-        return 'https://github.com/' + encodeURIComponent(source.name);
+        return 'https://github.com/' + source.name;
       } else {
         return source.url;
       }
@@ -103,6 +103,7 @@ title: status
       { name: 'globalbioticinteractions/roopnarine', url: 'https://doi.org/10.7167/2013/857470', key: '10.7167/2013/857470' }, 
       { name: 'globalbioticinteractions/simons', url: 'http://gomexsi.tamucc.edu', key: 'James D. Simons' }, 
       { name: 'globalbioticinteractions/wrast', url: 'http://gomexsi.tamucc.edu', key: 'Wrast JL' }, 
+      { name: 'gomexsi/interaction-data' }, 
       { name: 'globalbioticinteractions/blewett', url: 'http://gomexsi.tamucc.edu', key: '10.18785/gcr.1801.01' },       
       { name: 'globalbioticinteractions/akin', url: 'http://gomexsi.tamucc.edu', key: '10.1007/BF02784282' },       
       { name: 'globalbioticinteractions/baremore', url: 'http://gomexsi.tamucc.edu', key: '10.3354/ab00214' },       
