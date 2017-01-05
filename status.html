@@ -9,6 +9,7 @@ title: status
 <p><b>Note: this page is under development. Please <a href="https://github.com/jhpoelen/eol-globi-data" target="_blank">submit an issue</a> for suggestions or bugs.</b></p>
 
 
+<div id="status">loading...</div>
 <table id="sources">
   <tr><th>readable</th><th>searchable</th><th>citable</th><th>name</th></tr> 
 </table>
@@ -86,6 +87,8 @@ title: status
     namesAll.sort(nameCompare).forEach(function(sourceName) { appendSourceTo(sourceName, frag); });
     var sources = document.getElementById('sources');
     sources.appendChild(frag);
+    var status = document.getElementById('status');
+    status.parentNode.removeChild(status);
   });
   
 </script>
