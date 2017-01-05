@@ -86,6 +86,7 @@ title: status
         var url = urlBase + '.png?size=' + sizePx;
         var a = document.createElement('a');
         a.setAttribute('href', urlBase);
+        a.setAttribute('target', '_blank');
         a.setAttribute('title', 'github profile for ' + gitHubName);
         var img = a.appendChild(document.createElement('img'));
         img.setAttribute('src', url);
