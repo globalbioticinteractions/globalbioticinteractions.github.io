@@ -25,6 +25,14 @@ title: status
     var a = td.appendChild(document.createElement('a'));
     return a;
   }
+
+  var keyFromSource = function(source) {
+    if (source.doi === undefined) {
+      return source.name;
+    } else {
+      return source.doi;
+    }
+  }
  
   var appendSourceTo = function(source, elem) {
     var tr = elem.appendChild(document.createElement('tr'));
@@ -38,10 +46,11 @@ title: status
     img.setAttribute('src', travisUrl + '.svg');
  
     var a = appendLink(tr);
-    a.setAttribute('href', 'http://globalbioticinteractions.org/?accordingTo=' + source.name);
+    var accordingTo = keyFromSource(source);
+    a.setAttribute('href', 'http://globalbioticinteractions.org/?accordingTo=' + accordingTo);
     a.setAttribute('target', '_blank');
     var img = a.appendChild(document.createElement('img'));
-    img.setAttribute('src', 'http://api.globalbioticinteractions.org/interaction.svg?accordingTo=' + source.name);
+    img.setAttribute('src', 'http://api.globalbioticinteractions.org/interaction.svg?accordingTo=' + accordingTo);
     
     var a = appendLink(tr);
    
