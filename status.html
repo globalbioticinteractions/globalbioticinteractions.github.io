@@ -11,7 +11,11 @@ title: status
 
 <div id="status">loading...</div>
 <table id="sources">
-  <tr><th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#readability" title="What make a source readable?">readable</a></th><th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#searchability" title="What makes a source searchable?">searchable</a></th><th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability" title="What makes a source citable?">citable</a></th><th>name</th></tr> 
+  <tr>
+<th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#readability" title="What make a source readable?">readable</a></th>
+<th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#searchability" title="What makes a source searchable?">searchable</a></th>
+<th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability" title="What makes a source citable?">citable</a></th>
+<th></th></tr> 
 </table>
 
 </div>
@@ -58,7 +62,7 @@ title: status
    
     if (source.doi === undefined) {
       a.setAttribute('href', 'https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management');
-      a.textContent = 'make citable';
+      a.textContent = '';
     } else {      
       a.setAttribute('href', 'https://doi.org/' + source.doi);
       a.setAttribute('target', '_blank');
@@ -74,11 +78,28 @@ title: status
       }
     };
 
+    var appendImgForSource = function(source, elem) {
+      if (source.url === undefined) {
+        var sizePx = 24;
+        var gitHubName = source.name.split('/')[0];
+        var urlBase = 'https://github.com/' + gitHubName;
+        var url = urlBase + '.png?size=' + sizePx;
+        var a = document.createElement('a');
+        a.setAttribute('href', urlBase);
+        a.setAttribute('title', 'github profile for ' + gitHubName);
+        var img = a.appendChild(document.createElement('img'));
+        img.setAttribute('src', url);
+        img.setAttribute('style', 'width:' + sizePx + 'px; padding-left:' + sizePx/2 + 'px');
+        elem.parentNode.appendChild(a);
+      } 
+    }
+
     var nameForSource = function(source) {
       return source.name;
     };
 
     var a = appendLink(tr);
+    appendImgForSource(source, a);
     a.setAttribute('href', urlForSource(source));
     a.setAttribute('target', '_blank');
     a.textContent = nameForSource(source);
