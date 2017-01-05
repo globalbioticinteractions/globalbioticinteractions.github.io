@@ -1,0 +1,91 @@
+---
+layout: default
+title: status
+---
+<div class="ui-widget">
+
+<p>GloBI integrates with many existing external data sources. As data sources are independently managed, GloBI continually discovers and revisits data sources to include recent updates or changes. This page gives you some insight into which data sources are used, where they are located, and what their status is.</p>
+
+<p><b>Note: this page is under development. Please <a href="https://github.com/jhpoelen/eol-globi-data" target="_blank">submit an issue</a> for suggestions or bugs.</b></p>
+
+
+<table id="sources">
+  <tr><th>readable</th><th>searchable</th><th>citable</th><th>name</th></tr> 
+</table>
+
+</div>
+
+
+<script src="js/globi-web-min.js"></script>
+<script>
+
+  var appendLink = function(tr) {
+    var td = tr.appendChild(document.createElement('td'));
+    var a = td.appendChild(document.createElement('a'));
+    return a;
+  }
+ 
+  var appendSourceTo = function(source, elem) {
+    var tr = elem.appendChild(document.createElement('tr'));
+    tr.setAttribute('class', 'interaction');
+    
+    var a = appendLink(tr);
+    var travisUrl = 'https://travis-ci.org/' + source.name;
+    a.setAttribute('href', travisUrl);
+    a.setAttribute('target', '_blank');
+    var img = a.appendChild(document.createElement('img'));
+    img.setAttribute('src', travisUrl + '.svg');
+ 
+    var a = appendLink(tr);
+    a.setAttribute('href', 'http://globalbioticinteractions.org/?accordingTo=' + source.name);
+    a.setAttribute('target', '_blank');
+    var img = a.appendChild(document.createElement('img'));
+    img.setAttribute('src', 'http://api.globalbioticinteractions.org/interaction.svg?accordingTo=' + source.name);
+    
+    var a = appendLink(tr);
+   
+    if (source.doi === undefined) {
+      a.setAttribute('href', 'https://guides.github.com/activities/citable-code/');
+      a.textContent = 'make citable';
+    } else {      
+      a.setAttribute('href', 'https://doi.org/' + source.doi);
+      a.setAttribute('target', '_blank');
+      var img = a.appendChild(document.createElement('img'));
+      img.setAttribute('src', 'https://zenodo.org/badge/DOI/' + source.doi + '.svg');
+    }
+
+    var a = appendLink(tr);
+    a.setAttribute('href', 'https://github.com/' + source.name);
+    a.setAttribute('target', '_blank');
+    a.textContent = source.name;
+  }
+
+  var globiData = globiWeb.globi.globiData;
+  globiData.findSourceNames(function(sourceNames) {
+    var frag = document.createDocumentFragment();
+    var staticNames = [ 
+      { name: 'globalbioticinteractions/noaa-reem' }, 
+      { name: 'globalbioticinteractions/apsnet-common-names-plant-diseases' }, 
+      { name: 'globalbioticinteractions/AfricaTreeDatabase' } 
+    ];
+    var namesAll = staticNames.concat(sourceNames);
+    
+    var nameCompare = function(a, b) {
+      var x = a.name.toUpperCase();
+      var y = b.name.toUpperCase();
+      if (x < y) {
+        return -1;
+      } else if (x > y) {
+        return 1;
+      } else {
+        return 0;
+      }
+    };   
+
+ 
+    namesAll.sort(nameCompare).forEach(function(sourceName) { appendSourceTo(sourceName, frag); });
+    var sources = document.getElementById('sources');
+    sources.appendChild(frag);
+  });
+  
+</script>

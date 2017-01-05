@@ -14,7 +14,7 @@
     "deep": "0.0.2",
     "extend": "^3.0.0",
     "format-number": "^2.0.1",
-    "globi": "~0.0.62",
+    "globi": "~0.0.66",
     "inherits": "^2.0.1",
     "jquery": "^2.1.4",
     "jquery-ui": "1.10.5",
@@ -32,6 +32,7 @@
   },
   "scripts": {
     "preinstall": "npm install node_modules/globi-*",
+    "unittest": "tape test/*.js",
     "test": "browserify test/*.js test/browser/*.js node_modules/globi-*/test/*.js node_modules/globi-*/test/browser/*.js | testling",
     "build-js-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs -mc > js/globi-web-min.js",
     "build-js": "browserify -t brfs index.js --standalone globi-web > js/globi-web-min.js",
