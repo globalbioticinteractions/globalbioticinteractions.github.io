@@ -13,6 +13,7 @@ title: status
 <table id="sources">
   <tr>
 <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#readability" title="What make a source readable?">readable</a></th>
+<th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#issues" title="How many known issue does this source have?">issues</a></th>
 <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#searchability" title="What makes a source searchable?">searchable</a></th>
 <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability" title="What makes a source citable?">citable</a></th>
 <th></th></tr> 
@@ -50,7 +51,14 @@ title: status
     a.setAttribute('target', '_blank');
     var img = a.appendChild(document.createElement('img'));
     img.setAttribute('src', travisUrl + '.svg');
- 
+
+    var a = appendLink(tr);
+    var issuesUrl = 'https://github.com/' + source.name + '/issues/';
+    a.setAttribute('href', issuesUrl);
+    a.setAttribute('target', '_blank');
+    var img = a.appendChild(document.createElement('img'));
+    img.setAttribute('src', 'https://img.shields.io/github/issues/' + source.name + '.svg');
+
     var a = appendLink(tr);
     var accordingTo = keyFromSource(source);
     a.setAttribute('href', 'http://globalbioticinteractions.org/?accordingTo=' + accordingTo);
