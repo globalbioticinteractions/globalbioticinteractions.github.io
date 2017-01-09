@@ -70,12 +70,14 @@ title: status
    
     if (source.doi === undefined) {
       a.setAttribute('href', 'https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management');
-      a.textContent = '';
+      a.setAttribute('target', '_blank');
+      var img = a.appendChild(document.createElement('img'));
+      img.setAttribute('src', 'assets/doiUnknown.svg');
     } else {      
       a.setAttribute('href', 'https://doi.org/' + source.doi);
       a.setAttribute('target', '_blank');
       var img = a.appendChild(document.createElement('img'));
-      img.setAttribute('src', 'https://zenodo.org/badge/DOI/' + source.doi + '.svg');
+      img.setAttribute('src', 'assets/doi.svg');
     }
 
     var urlForSource = function(source) {
