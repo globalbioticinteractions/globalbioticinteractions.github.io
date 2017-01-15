@@ -14,10 +14,11 @@
     "deep": "0.0.2",
     "extend": "^3.0.0",
     "format-number": "^2.0.1",
-    "globi": "~0.0.66",
+    "globi": "~0.0.67",
     "inherits": "^2.0.1",
     "jquery": "^2.1.4",
     "jquery-ui": "1.10.5",
+    "number-abbreviate": "^1.2.1",
     "query-string": "^4.2.3",
     "spin.js": "~2.3.2",
     "taxaprisma": "0.0.11"

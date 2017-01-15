@@ -15,6 +15,7 @@ module.exports = {
     searchContext: require('./lib/searchContext.js'),
     dataContext: require('./lib/dataContext.js'),
     formatNumber: require('format-number'),
+    abbreviateNumber: require('number-abbreviate'),
     queryString: require('query-string')
 };
 

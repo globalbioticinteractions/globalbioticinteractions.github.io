@@ -16,7 +16,8 @@ title: status
 <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#issues" title="How many known issue does this source have?">issues</a></th>
 <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#searchability" title="What makes a source searchable?">searchable</a></th>
 <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability" title="What makes a source citable?">citable</a></th>
-<th></th></tr> 
+<th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#stats" title="How many interactions/names this source have? What is the name match percentage?">stats</a></th>
+<th></th></tr>
 </table>
 
 </div>
@@ -65,7 +66,43 @@ title: status
     a.setAttribute('target', '_blank');
     var img = a.appendChild(document.createElement('img'));
     img.setAttribute('src', 'http://api.globalbioticinteractions.org/interaction.svg?accordingTo=' + accordingTo);
-    
+
+    var hasStats = function(source) {
+        return source.number_of_interactions !== undefined
+            && source.number_of_distinct_taxa !== undefined
+            && source.number_of_distinct_taxa_no_match != undefined;
+    }
+
+    var addStats = function(elem) {
+      var abbr = new globiWeb.abbreviateNumber();
+      var numberOfInteractions = elem.appendChild(document.createElement('span'));
+      numberOfInteractions.setAttribute('class', 'stats number_of_interactions');
+      numberOfInteractions.setAttribute('title', 'number of interaction records');
+      numberOfInteractions.textContent = abbr.abbreviate(source.number_of_interactions, 1);
+      var numberOfNames = elem.appendChild(document.createElement('span'));
+      numberOfNames.setAttribute('class', 'stats number_of_names');
+      numberOfNames.setAttribute('title', 'number of distinct taxon names');
+      numberOfNames.textContent = abbr.abbreviate(source.number_of_distinct_taxa, 1);
+      var nameMatchRatio = (1 - (source.number_of_distinct_taxa_no_match / source.number_of_distinct_taxa));
+
+      var statsStatus = 'green';
+      if (nameMatchRatio < 0.5) {
+        statsStatus = 'red';
+      } else if (nameMatchRatio < 1) {
+        statsStatus = 'yellow';
+      }
+      var attribute = elem.getAttribute('class');
+      elem.setAttribute('class', attribute + ' stats_' + statsStatus);
+
+      var percentMatchedNames = elem.appendChild(document.createElement('a'));
+      percentMatchedNames.setAttribute('class', 'stats name_match_ratio');
+      percentMatchedNames.setAttribute('title', '% of names that match to an external name source (e.g. taxonomy)');
+      percentMatchedNames.setAttribute('href', 'https://github.com/jhpoelen/eol-globi-data/wiki/Taxonomy-Matching');
+      percentMatchedNames.setAttribute('target', '_blank');
+      percentMatchedNames.textContent = abbr.abbreviate(Math.floor(nameMatchRatio * 100), 0) + '%';
+
+    };
+
     var a = appendLink(tr);
    
     if (source.doi === undefined) {
@@ -103,21 +140,32 @@ title: status
         img.setAttribute('style', 'width:' + sizePx + 'px; padding-left:' + sizePx/2 + 'px');
         elem.parentNode.appendChild(a);
       } 
-    }
+    };
 
     var nameForSource = function(source) {
       return source.name;
     };
+
+     var elem2 = tr.appendChild(document.createElement('td')).appendChild(document.createElement('span'));
+      if (hasStats(source)) {
+      elem2.setAttribute('class', 'stats');
+      addStats(elem2);
+    } else {
+      elem2.setAttribute('class', 'stats stats_red');
+      elem2.setAttribute('title', 'no stats available for [' + source.name +']');
+    }
 
     var a = appendLink(tr);
     appendImgForSource(source, a);
     a.setAttribute('href', urlForSource(source));
     a.setAttribute('target', '_blank');
     a.textContent = nameForSource(source);
-  }
+
+  };
 
   var globiData = globiWeb.globi.globiData;
   globiData.findSourceNames(function(sourceNames) {
+    console.log(JSON.stringify(sourceNames));
     var frag = document.createDocumentFragment();
     var staticNames = [ 
       { name: 'globalbioticinteractions/noaa-reem' }, 

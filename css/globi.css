@@ -225,3 +225,43 @@ img.taxonLinkIcon {
 .taxonFollow {
   cursor: pointer;
 }
+
+.stats {
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-left: 0.2em;
+}
+
+.stats_green {
+  background-color: greenyellow;
+}
+
+.stats_yellow {
+  background-color: #ffff00;
+}
+
+.stats_red {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+.stats_red > a:hover {
+    color: grey;
+}
+
+.stats_red > a:visited {
+    color: #ffffff;
+}
+.stats_red > a:link {
+    color: #ffffff;
+}
+.stats_red > a:active {
+    color: #ffffff;
+}
+
+
+.stats + .stats:before{
+  content: '/';
+  padding-right: 0.2em;
+}
+
