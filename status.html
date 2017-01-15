@@ -119,41 +119,6 @@ title: status
   var globiData = globiWeb.globi.globiData;
   globiData.findSourceNames(function(sourceNames) {
     var frag = document.createDocumentFragment();
-    var staticNames = [ 
-      { name: 'globalbioticinteractions/noaa-reem' }, 
-      { name: 'globalbioticinteractions/web-of-life', key: 'web-of-life.es' }, 
-      { name: 'globalbioticinteractions/kelpforest', key: 'kelpforest.ucsc.edu' }, 
-      { name: 'globalbioticinteractions/gemina', key: '10.1093/nar/gkp832' }, 
-      { name: 'globalbioticinteractions/cruaud', key: '10.1093/sysbio/sys068' }, 
-      { name: 'globalbioticinteractions/strona', key: '10.1890/12-1419.1' }, 
-      { name: 'globalbioticinteractions/bell', key: '10.1654/4756.1' }, 
-      { name: 'globalbioticinteractions/hafner', key: '10.1126/science.8066445' }, 
-      { name: 'globalbioticinteractions/brose', key: '10.1890/05-0379' }, 
-      { name: 'globalbioticinteractions/said', key: 'www.discoverlife.org/siad/' }, 
-      { name: 'globalbioticinteractions/byrnes', key: '10.1111/j.1365-2486.2011.02409.x' }, 
-      { name: 'globalbioticinteractions/raymond', key: '10.1890/10-1907.1' }, 
-      { name: 'globalbioticinteractions/roopnarine', key: '10.7167/2013/857470' }, 
-      { name: 'globalbioticinteractions/simons', key: 'James D. Simons' }, 
-      { name: 'globalbioticinteractions/wrast', key: 'Wrast JL' }, 
-      { name: 'gomexsi/interaction-data' }, 
-      { name: 'globalbioticinteractions/blewett', key: '10.18785/gcr.1801.01' },       
-      { name: 'globalbioticinteractions/akin', key: '10.1007/bf02784282' },       
-      { name: 'globalbioticinteractions/baremore', key: '10.3354/ab00214' },       
-      { name: 'globalbioticinteractions/ferrer-paris', key: '10.6084/m9.figshare.1168861' },       
-      { name: 'globalbioticinteractions/barnes', key: '10.1890/07-1551.1' },       
-      { name: 'globalbioticinteractions/cook', key: '2152/ETD-UT-2012-08-6285' },       
-      { name: 'globalbioticinteractions/robledo', key: '10.1371/journal.pone.0052967' },       
-      { name: 'globalbioticinteractions/bioinfo', key: 'bioinfo.org.uk' },       
-      { name: 'EOL/pseudonitzchia' },       
-      { name: 'globalbioticinteractions/spire', key: 'ebiquity.umbc.edu/get/a/publication/297.pdf' },       
-      { name: 'globalbioticinteractions/ices', key: 'http://ecosystemdata.ices.dk/stomachdata/' },       
-      { name: 'globalbioticinteractions/life-watch-greece', key: 'polytraits.lifewatchgreece.eu' }, 
-      { name: 'hurlbertlab/dietdatabase' }, 
-      { name: 'globalbioticinteractions/inaturalist', key: 'inaturalist.org' }, 
-      { name: 'globalbioticinteractions/apsnet-common-names-plant-diseases', key: 'apsnet.org' }, 
-      { doi: '10.6084/m9.figshare.1526128', name: 'globalbioticinteractions/AfricaTreeDatabase' } 
-    ];
-    var namesAll = staticNames.concat(sourceNames);
     
     var nameCompare = function(a, b) {
       var x = a.name.toUpperCase();
@@ -168,7 +133,7 @@ title: status
     }; 
 
  
-    namesAll.sort(nameCompare).forEach(function(sourceName) { appendSourceTo(sourceName, frag); });
+    sourceNames.sort(nameCompare).forEach(function(sourceName) { appendSourceTo(sourceName, frag); });
     var sources = document.getElementById('sources');
     sources.appendChild(frag);
     var status = document.getElementById('status');
