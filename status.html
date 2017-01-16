@@ -61,11 +61,10 @@ title: status
     img.setAttribute('src', 'https://img.shields.io/github/issues/' + source.name + '.svg');
 
     var a = appendLink(tr);
-    var accordingTo = keyFromSource(source);
-    a.setAttribute('href', 'http://globalbioticinteractions.org/?accordingTo=' + accordingTo);
+    a.setAttribute('href', 'http://globalbioticinteractions.org/?accordingTo=' + source.study_source_id);
     a.setAttribute('target', '_blank');
     var img = a.appendChild(document.createElement('img'));
-    img.setAttribute('src', 'http://api.globalbioticinteractions.org/interaction.svg?accordingTo=' + accordingTo);
+    img.setAttribute('src', 'http://api.globalbioticinteractions.org/interaction.svg?accordingTo=' + source.study_source_id);
 
     var hasStats = function(source) {
         return source.number_of_interactions !== undefined
@@ -105,13 +104,19 @@ title: status
 
     var a = appendLink(tr);
    
-    if (source.doi === undefined) {
+    if (source.doi === undefined || source.doi.trim().length == 0) {
       a.setAttribute('href', 'https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability');
       a.setAttribute('target', '_blank');
       var img = a.appendChild(document.createElement('img'));
       img.setAttribute('src', 'assets/doiUnknown.svg');
-    } else {      
-      a.setAttribute('href', 'https://doi.org/' + source.doi);
+    } else {
+      if (!source.doi.match(/(^http:)|(^https:)|(^doi:)/)) {
+        a.setAttribute('href', 'https://doi.org/' + source.doi);
+      } else if (source.doi.match(/(^http:)|(^https:)/)) {
+        a.setAttribute('href', source.doi);
+      } else if (source.doi.match(/(^doi:)/)) {
+        a.setAttribute('href', 'https://doi.org/' + source.doi.replace(/^doi:/, ""));
+      }
       a.setAttribute('target', '_blank');
       var img = a.appendChild(document.createElement('img'));
       img.setAttribute('src', 'assets/doi.svg');
@@ -168,38 +173,8 @@ title: status
     console.log(JSON.stringify(sourceNames));
     var frag = document.createDocumentFragment();
     var staticNames = [ 
-      { name: 'globalbioticinteractions/noaa-reem' }, 
-      { name: 'globalbioticinteractions/web-of-life', key: 'web-of-life.es' }, 
-      { name: 'globalbioticinteractions/kelpforest', key: 'kelpforest.ucsc.edu' }, 
-      { name: 'globalbioticinteractions/gemina', key: '10.1093/nar/gkp832' }, 
-      { name: 'globalbioticinteractions/cruaud', key: '10.1093/sysbio/sys068' }, 
-      { name: 'globalbioticinteractions/strona', key: '10.1890/12-1419.1' }, 
-      { name: 'globalbioticinteractions/bell', key: '10.1654/4756.1' }, 
-      { name: 'globalbioticinteractions/hafner', key: '10.1126/science.8066445' }, 
-      { name: 'globalbioticinteractions/brose', key: '10.1890/05-0379' }, 
-      { name: 'globalbioticinteractions/said', key: 'www.discoverlife.org/siad/' }, 
-      { name: 'globalbioticinteractions/byrnes', key: '10.1111/j.1365-2486.2011.02409.x' }, 
-      { name: 'globalbioticinteractions/raymond', key: '10.1890/10-1907.1' }, 
-      { name: 'globalbioticinteractions/roopnarine', key: '10.7167/2013/857470' }, 
-      { name: 'globalbioticinteractions/simons', key: 'James D. Simons' }, 
-      { name: 'globalbioticinteractions/wrast', key: 'Wrast JL' }, 
-      { name: 'gomexsi/interaction-data' }, 
-      { name: 'globalbioticinteractions/blewett', key: '10.18785/gcr.1801.01' },       
-      { name: 'globalbioticinteractions/akin', key: '10.1007/bf02784282' },       
-      { name: 'globalbioticinteractions/baremore', key: '10.3354/ab00214' },       
-      { name: 'globalbioticinteractions/ferrer-paris', key: '10.6084/m9.figshare.1168861' },       
-      { name: 'globalbioticinteractions/barnes', key: '10.1890/07-1551.1' },       
-      { name: 'globalbioticinteractions/cook', key: '2152/ETD-UT-2012-08-6285' },       
-      { name: 'globalbioticinteractions/robledo', key: '10.1371/journal.pone.0052967' },       
-      { name: 'globalbioticinteractions/bioinfo', key: 'bioinfo.org.uk' },       
-      { name: 'EOL/pseudonitzchia' },       
-      { name: 'globalbioticinteractions/spire', key: 'ebiquity.umbc.edu/get/a/publication/297.pdf' },       
-      { name: 'globalbioticinteractions/ices', key: 'http://ecosystemdata.ices.dk/stomachdata/' },       
-      { name: 'globalbioticinteractions/life-watch-greece', key: 'polytraits.lifewatchgreece.eu' }, 
-      { name: 'hurlbertlab/dietdatabase' }, 
-      { name: 'globalbioticinteractions/inaturalist', key: 'inaturalist.org' }, 
-      { name: 'globalbioticinteractions/apsnet-common-names-plant-diseases', key: 'apsnet.org' }, 
-      { doi: '10.6084/m9.figshare.1526128', name: 'globalbioticinteractions/AfricaTreeDatabase' } 
+      { name: 'globalbioticinteractions/kelpforest', key: 'kelpforest.ucsc.edu' },
+      { name: 'hurlbertlab/dietdatabase' }
     ];
     var namesAll = staticNames.concat(sourceNames);
     
