@@ -112,6 +112,8 @@ title: status
     } else {
       if (!source.doi.match(/(^http:)|(^https:)|(^doi:)/)) {
         a.setAttribute('href', 'https://doi.org/' + source.doi);
+      } else if (source.doi.match(/(^http:\/\/dx\.doi\.org)|(^https:\/\/dx\.doi\.org)/)) {
+          a.setAttribute('href', source.doi.replace(/dx\.doi\.org/, 'doi.org'));
       } else if (source.doi.match(/(^http:)|(^https:)/)) {
         a.setAttribute('href', source.doi);
       } else if (source.doi.match(/(^doi:)/)) {
