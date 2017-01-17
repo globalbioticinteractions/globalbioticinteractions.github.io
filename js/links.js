@@ -33,8 +33,14 @@ function appendShowElem(parentElem, study, baseUrl) {
 
 function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     var textElem = document.createElement('b');
+    var citation = interactionRecord.study_citation;
+    if (citation === undefined || citation === null) {
+        if (interactionRecord.study_url !== undefined && interactionRecord.study_url !== null) {
+            citation = interactionRecord.study_url
+        }
+    }
     var study = {
-        citation: interactionRecord.study_citation,
+        citation: citation,
         url: interactionRecord.study_url,
         source: interactionRecord.study_source_citation};
 

@@ -139,6 +139,7 @@ $(function () {
                 }
             });
             distinctExternalIds[searchParams.searchHash.sourceTaxon] = searchParams.searchHash.sourceTaxon;
+            delete distinctExternalIds[undefined];
 
             if (nInteractions == limitDefault) {
                 var button = document.querySelector('#moreButton');
