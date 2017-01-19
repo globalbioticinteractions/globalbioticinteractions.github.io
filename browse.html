@@ -51,7 +51,7 @@ permalink: browse/
         var hash = document.location.search || document.location.hash;
         if (hash && hash.length > 1) {
             var queryOnly = hash.substring(1);
-            searchParameters = globiWeb.queryString.decode(queryOnly);
+            searchParameters = globiWeb.queryString.parse(queryOnly);
         }
         return searchParameters;
     };
@@ -67,7 +67,7 @@ permalink: browse/
     spatialSelector.appendTo(panels.topRight);
 
     searchContext.on('searchcontext:searchparameterchange', function () {
-        saveQuery(globiWeb.queryString.encode(searchContext.searchParameters));
+        saveQuery(globiWeb.queryString.stringify(searchContext.searchParameters));
         globiWeb.widgets.forEach(function (w) {
             var oldWidgetContainer = document.querySelector(w.target);
             while (oldWidgetContainer.firstChild) {
