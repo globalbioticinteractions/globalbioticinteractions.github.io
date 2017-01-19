@@ -85,7 +85,7 @@ title: status
       var nameMatchRatio = (1 - (source.number_of_distinct_taxa_no_match / source.number_of_distinct_taxa));
 
       var statsStatus = 'green';
-      if (nameMatchRatio < 0.5) {
+      if (!Number.isFinite(nameMatchRatio) || nameMatchRatio < 0.5) {
         statsStatus = 'red';
       } else if (nameMatchRatio < 1) {
         statsStatus = 'yellow';
@@ -98,7 +98,11 @@ title: status
       percentMatchedNames.setAttribute('title', '% of names that match to an external name source (e.g. taxonomy)');
       percentMatchedNames.setAttribute('href', 'https://github.com/jhpoelen/eol-globi-data/wiki/Taxonomy-Matching');
       percentMatchedNames.setAttribute('target', '_blank');
-      percentMatchedNames.textContent = abbr.abbreviate(Math.floor(nameMatchRatio * 100), 0) + '%';
+      if (Number.isFinite(nameMatchRatio)) {
+        percentMatchedNames.textContent = abbr.abbreviate(Math.floor(nameMatchRatio * 100), 0) + '%';
+      } else {
+        percentMatchedNames.textContent = 'NaN';
+      }
 
     };
 
@@ -172,13 +176,7 @@ title: status
 
   var globiData = globiWeb.globi.globiData;
   globiData.findSourceNames(function(sourceNames) {
-    console.log(JSON.stringify(sourceNames));
     var frag = document.createDocumentFragment();
-    var staticNames = [ 
-      { name: 'globalbioticinteractions/kelpforest', study_source_id: 'globi:globalbioticinteractions/kelpforest' }
-    ];
-    var namesAll = staticNames.concat(sourceNames);
-    
     var nameCompare = function(a, b) {
       var x = a.name.toUpperCase();
       var y = b.name.toUpperCase();
@@ -192,7 +190,7 @@ title: status
     }; 
 
  
-    namesAll.sort(nameCompare).forEach(function(sourceName) { appendSourceTo(sourceName, frag); });
+    sourceNames.sort(nameCompare).forEach(function(sourceName) { appendSourceTo(sourceName, frag); });
     var sources = document.getElementById('sources');
     sources.appendChild(frag);
     var status = document.getElementById('status');
