@@ -1,0 +1,85 @@
+---
+layout: post
+title: Lifestages of Species Interaction Datasets
+date: 2017-01-24
+categories:
+- bioinformatics
+- biology
+- ecology
+- open data
+- species interactions
+tags: []
+status: published
+type: post
+published: true
+---
+
+
+<div class="figure figure-globi left"><a href="http://globalbioticinteractions.org/status" target="_blank"><img
+        class="wp-image-390" src="/assets/statusPage.png" alt="GloBI status page"/></a>
+
+    <div class="figcaption">
+        <p>Screenshot of <a href="http://globalbioticinteractions.org/status">GloBI status page</a>. 24 January 2017.
+        </p>
+    </div>
+</div>
+
+<p>
+    Just like organisms, datasets get born, grow up, reproduce, and die. GloBI's mission is to help increase the
+    productivity (or reuse) and increase the lifespan of datasets before they meet their maker.
+</p>
+
+<p>
+    To monitor the lifestage of a datasets, the <a href="http://globalbioticinteractions.org/status" target="_blank">GloBI
+    "status" page</a> was
+    introduced in January 2017. This page shows the state of the federated collection of species interaction datasets
+    that make up GloBI. Rather than treating datasets like static entities, GloBI takes a dynamic approach and revisits
+    datasets regularly to incorporate changes and revisit the links to naming authorities (e.g. <a
+        href="http://itis.gov" target="_blank">itis.gov</a>),
+    gazetteers (e.g. <a href="http://geonames.org" target="_blank">geonames.org</a>) and other relevant external data
+    services. Several monitors can be found on the
+    status page that indicate whether the dataset can be read, searched or citated. In addition, some statistics are
+    provided to point to known issues and the properties of the datasets (e.g. number of interactions, number of names,
+    match rate of names). With this, a de-facto publication process is outlined along with quality control measures that
+    show how the lifestage of a dataset.
+</p>
+
+<div class="figure figure-globi right"><a href="/assets/continuousIntegration.svg" target="blank"><img
+        class=" wp-image-389" src="/assets/continuousIntegration.svg" alt="Continuous Integration"/></a>
+
+    <div class="figcaption"><p>GloBI continuously discovers species interaction datasets through GitHub and Zenodo. In
+        addition, automated review processes can be configured on <a href="https://travis-ci.org">travis-ci</a> to check
+        on the "health" of datasets. For more
+        information see the <a href="https://github.com/jhoelen/eol-globi-data/wiki/Dataset-Management">data management
+            wiki page</a>.</p></div>
+</div>
+
+
+<p>
+    At time of writing, the status page provides a wealth of information. For instance, the state of the dataset (e.g. <img src="/assets/kelpForestStatus.svg" style="display: inline; height: 1em;"/>)
+    provided by <a href="http://kelpforest.ucsc.edu" target="_blank">http://kelpforest.ucsc.edu</a> (<a
+        href="http://dx.doi.org/10.1371/journal.pone.0109356" target="_blank">Beas-Luna et al. 2014</a>) indicates that
+    the dataset is close to dying or
+    already dead: nearly all indicators are red and unresolved issues exist. In contract, the chance of survival of
+    dataset like the Africa Tree Database (<a href=" https://dx.doi.org/10.6084/m9.figshare.1526128" target="_blank">Selzer
+    et al. 2015</a>) look promising: indicators are green (e.g. <img src="/assets/africaTreeDatabaseStatus.svg" style="display: inline; height: 1em;"/>), name match rate is
+    94% across 1.9k names and 7.7k interactions. In addition, the Africa Tree Database has been deposited with <a
+        href="https://zenodo.org" target="_blank">Zenodo</a>, a service
+    that is designed to provide "permanent" data availability through digital object identifiers.
+</p>
+
+
+<p>
+    Over the last couple of weeks, I've used the page to discover and resolve various dataset issues. For example, an
+    obscure GloBI bug was found (and resolved) (see
+    <a href="https://github.com/hurlbertlab/dietdatabase/issues/40" target="_blank">hurlbertlab/dietdatabase#40</a> and
+    <a href="https://github.com/jhpoelen/eol-globi-data/issues/276" target="_blank">jhpoelen/eol-globi-data#276</a>)
+    that prevented the integration of some interaction records provided by
+    the <a href="https://github.com/hurlbertlab/dietdatabase" target="_blank">Avian Diet Database</a>. I am curious to see how the status page will evolve in the next months.
+</p>
+<p>
+    For more information about the status page, please visit the <a
+        href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management" target="_blank">data
+    management wiki page</a>. The development of the status page was supported by the <a href="http://eol.org" target="_blank">Encyclopedia of Life</a>.
+</p>
+

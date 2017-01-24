@@ -32,6 +32,14 @@ div.figure {
   margin: 0.3em;
   padding: 0.3em;
 }
+
+div.figure-wide {
+  width: 100%;
+  border: none;
+  margin: 0.3em;
+  padding: 0.3em;
+}
+
 div.figure p {
   text-align: left;
   font-style: italic;
