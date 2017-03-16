@@ -16,6 +16,7 @@ module.exports = {
     dataContext: require('./lib/dataContext.js'),
     formatNumber: require('format-number'),
     abbreviateNumber: require('number-abbreviate'),
-    queryString: require('query-string')
+    queryString: require('query-string'),
+    moment: require('moment-shortformat')
 };
 

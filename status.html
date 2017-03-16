@@ -26,7 +26,7 @@ title: status
             <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability"
                    title="What makes a source citable?">citable</a></th>
             <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#stats"
-                   title="How many interactions/names this source have? What is the name match percentage?">stats</a>
+                   title="How many interactions/names this source have? What is the name match percentage? When did GloBI last see the dataset?">stats</a>
             </th>
             <th></th>
         </tr>
@@ -42,7 +42,7 @@ title: status
         var td = tr.appendChild(document.createElement('td'));
         var a = td.appendChild(document.createElement('a'));
         return a;
-    }
+    };
 
     var keyFromSource = function (source) {
         if (source.doi !== undefined) {
@@ -183,13 +183,22 @@ title: status
             elem2.setAttribute('class', 'stats stats_red');
             elem2.setAttribute('title', 'no stats available for [' + source.name + ']');
         }
+        var lastSeen = source.study_source_last_seen_at;
+        if (lastSeen !== undefined) {
+            var lastSeenMoment = globiWeb.moment('/Date(' + lastSeen + ')/');
+            var lastSeenElem = elem2.appendChild(document.createElement('span'));
+            lastSeenElem.setAttribute('class', 'stats last_seen');
+            lastSeenElem.setAttribute('title', 'last seen ' + lastSeenMoment.fromNow());
+            lastSeenElem.textContent = lastSeenMoment.short(true);
+        }
+
+
 
         var a = appendLink(tr);
         appendImgForSource(source, a);
         a.setAttribute('href', urlForSource(source));
         a.setAttribute('target', '_blank');
         a.textContent = nameForSource(source);
-
     };
 
     var globiData = globiWeb.globi.globiData;
