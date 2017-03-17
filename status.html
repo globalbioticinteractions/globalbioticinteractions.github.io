@@ -26,7 +26,7 @@ title: status
             <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability"
                    title="What makes a source citable?">citable</a></th>
             <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#stats"
-                   title="How many interactions/names this source have? What is the name match percentage? When did GloBI last see the dataset?">stats</a>
+                   title="How many interactions/names this source have? What is the name match percentage? When did GloBI last check the dataset?">stats</a>
             </th>
             <th></th>
         </tr>
@@ -188,7 +188,7 @@ title: status
             var lastSeenMoment = globiWeb.moment('/Date(' + lastSeen + ')/');
             var lastSeenElem = elem2.appendChild(document.createElement('span'));
             lastSeenElem.setAttribute('class', 'stats last_seen');
-            lastSeenElem.setAttribute('title', 'last seen ' + lastSeenMoment.fromNow());
+            lastSeenElem.setAttribute('title', 'last checked ' + lastSeenMoment.short());
             lastSeenElem.textContent = lastSeenMoment.short(true);
         }
 
