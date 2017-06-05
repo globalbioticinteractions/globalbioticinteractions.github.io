@@ -148,8 +148,9 @@ var searchForInteractions = function (offset) {
                 var interactionInfo = globiData.interactionTypes[interaction.interaction_type];
                 if (interactionInfo && interactionInfo.termIRI) {
                     var a = div.appendChild(document.createElement("a"));
-                    a.setAttribute("href", interactionInfo.termIRI);
-                    a.setAttribute("target", "_blank");
+                    a.setAttribute('href', interactionInfo.termIRI);
+                    a.setAttribute('target', '_blank');
+                    a.setAttribute('title', 'lookup term definition for [' + interaction.interaction_type + ']');
                     a.textContent = interaction.interaction_type;
                 } else {
                     div.textContent = interaction.interaction_type;
