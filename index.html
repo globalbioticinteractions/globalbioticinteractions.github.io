@@ -144,8 +144,16 @@ var searchForInteractions = function (offset) {
                 var td = document.createElement('td');
                 td.appendChild(document.createElement('br'));
                 var div = document.createElement('div');
-                div.setAttribute('class', className(interaction.interaction_type));
-                div.textContent = interaction.interaction_type;
+                div.setAttribute('class', 'interaction ' + className(interaction.interaction_type));
+                var interactionInfo = globiData.interactionTypes | globiData.interactionTypes[interaction.interaction_type];
+                if (interactionInfo && interactionInfo.termIRI) {
+                    var a = div.appendChild(document.createElement("a"));
+                    a.setAttribute("href", interactionInfo.termIRI);
+                    a.setAttribute("target", "_blank");
+                    a.textContent = interaction.interaction_type;
+                } else {
+                    div.textContent = interaction.interaction_type;
+                }
                 td.appendChild(div);
                 row.appendChild(td);
 
@@ -365,6 +373,10 @@ var showTaxonLinks = function (elem) {
 };
 
 var init = function () {
+    globiData.findInteractionTypes(function(interactionTypes) {
+        globiData.interactionTypes = interactionTypes;
+    });
+
     initInputFields();
 };
 
