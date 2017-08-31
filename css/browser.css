@@ -1,4 +1,20 @@
-        table.interactions-result {
+#globi-panel-top-left {
+    background: white;
+}
+
+#globi-panel-top-right {
+    background: white;
+}
+
+#globi-panel-bottom-left {
+    background: white;
+}
+
+#globi-panel-bottom-right {
+    background: white;
+}        
+
+table.interactions-result {
             margin-top: 10px;
             border-collapse: collapse;
             font-size: 11px;
