@@ -1,5 +1,5 @@
 User-agent: *
 Disallow: 
-Sitemap: http://globi.s3.amazonaws.com/snapshot/target/data/sitemap/citations/sitemap_index.xml
+Sitemap: http://depot.globalbioticinteractions.org/snapshot/target/data/sitemap/citations/sitemap_index.xml
 
-Sitemap: http://globi.s3.amazonaws.com/snapshot/target/data/sitemap/names/sitemap_index.xml
+Sitemap: http://depot.globalbioticinteractions.org/snapshot/target/data/sitemap/names/sitemap_index.xml
