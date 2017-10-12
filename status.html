@@ -185,7 +185,7 @@ title: status
         }
         var lastSeen = source.study_source_last_seen_at;
         if (lastSeen !== undefined) {
-            var lastSeenMoment = globiWeb.moment('/Date(' + lastSeen + ')/');
+            var lastSeenMoment = globiWeb.moment(lastSeen);
             var lastSeenElem = elem2.appendChild(document.createElement('span'));
             lastSeenElem.setAttribute('class', 'stats last_seen');
             lastSeenElem.setAttribute('title', 'last checked ' + lastSeenMoment.short());
