@@ -69,7 +69,7 @@ function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctI
 
     var linkToCitations = ', or <a href="references.html' + document.location.search.replace(/^\?/, '#') + '" target="_blank">list the references</a>.';
 
-    var contribute = '<p>' + $('#interactionType :selected').text() + message + '</p><p>Missing some results? Please <a href="https://github.com/jhpoelen/eol-globi-data/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.';
+    var contribute = '<p>' + $('#interactionType :selected').text() + message + '</p><p>Missing some results? Please <a href="/contribute">share your datasets</a>! Have suggestions? <a href="https://github.com/jhpoelen/eol-globi-data/issues/new"> Let us know</a>.';
     textElem.innerHTML = prefix + contribute + linkToBrowser + linkToCitations + '</p>';
     document.getElementById('info').appendChild(textElem);
 }
