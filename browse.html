@@ -80,7 +80,7 @@ permalink: browse/
 
     searchContext.emit('searchcontext:searchparameterchange', searchContext.searchParameters);
 
-    window.addEventListener('popstate', function (e) {
+    addPopState(function() {
         search.sourceSelector.update(search);
         search.targetSelector.update(search);
         search.typeSelector.update(search);

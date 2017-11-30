@@ -89,7 +89,7 @@ function saveSearch(search) {
 
 function saveQuery(query) {
     if (document.location.protocol !== 'file:') {
-        window.history.pushState({}, "", "?" + query);
+        window.history.pushState({ query: query }, "", "?" + query);
     }
 }
 
@@ -115,6 +115,14 @@ function labelForTaxon(taxon) {
         suggestion = englishName + ' (' + suggestion + ')';
     }
     return suggestion;
+}
+
+function addPopState(func) {
+    window.addEventListener('popstate', function (e) {
+        if(e.state && e.state['query']) {
+            func();
+        }
+    });
 }
 
 function addInputEvents($, globiData, searchForInteractions) {

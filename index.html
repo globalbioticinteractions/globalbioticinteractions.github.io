@@ -382,11 +382,11 @@ var init = function () {
     initInputFields();
 };
 
+
+
 window.addEventListener('load', function (e) {
     init();
-    window.addEventListener('popstate', function (e) {
-        init();
-    });
+    addPopState(init);
 });
 
 </script>
