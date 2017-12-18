@@ -3,7 +3,10 @@ layout: default
 title: contribute
 ---
 
-You can contribute to Global Biotic Interactions in many different ways.
+You can contribute to Global Biotic Interactions in many different ways: [use it](#use-it), [join a discussion](#join-a-discussion), [share data](#share-data), [contribute code](#contribute-code) or [donate](#donate).
+
+## Use it
+By using [GloBI](./data), you support it's mission: to help make species interaction datasets more accessible. 
 
 ## Join a Discussion
 Ask questions, share ideas and stay informed by joining the [mailing list](https://lists.gbif.org/mailman/listinfo/globi) or opening a [github issue](https://github.com/jhpoelen/eol-globi-data/issues/new). 
