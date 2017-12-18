@@ -29,4 +29,4 @@ Improve GloBI by contributing to [rglobi](https://github.com/ropensci/rglobi), [
 
 ## Donate
 
-Considering to donating man hours, server space and data storage to help make GloBI more useful and resilient? Please contact the main author of [2014 GloBI paper](https://doi.org/10.1016/j.ecoinf.2014.08.005).
+Considering to donating time, server space and data storage to help make GloBI more useful and resilient? Please contact the main author of [2014 GloBI paper](https://doi.org/10.1016/j.ecoinf.2014.08.005).
