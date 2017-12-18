@@ -3,11 +3,12 @@ layout: default
 title: contribute
 ---
 
-GloBI provides various ways to expose and explore existing web-accessible species interaction datasets. This page describes some of these methods. 
+You can contribute to Global Biotic Interactions in many different ways.
 
-Species interaction datasets are continually retrieved and linked to external data sources such as taxonomies and ontologies. This continuous process allows the data contributors add new data or apply other updates without the need to go through a data submission process. In a way, GloBI acts as an ecological search engine: indexing existing datasets and making these datasets easy to discover and use. Ideally, an an interaction dataset includes scientific taxonomic names and/or taxonomic identifiers for all interacting taxa. Also, when available space and time properties should be included in most granular way possible. In addition, a citation or reference should be included to describe where the interaction data came from. 
+## Join a Discussion
+Ask questions, share ideas and stay informed by joining the [mailing list](https://lists.gbif.org/mailman/listinfo/globi) or opening a [github issue](https://github.com/jhpoelen/eol-globi-data/issues/new). 
 
-## Ways to Contribute Data
+## Share Data
 Various methods exist to share existing interaction data through Global Biotic Interactions:
 
 1. Take a picture, upload it to [iNaturalist.org](https://www.inaturalist.org) and identify the interacting species using observation fields. For example see [Scott Loarie. 2013. _Haemorhous mexicanus_ eating _Heteromeles arbutifolia_. iNaturalist.org. Accessed at https://inaturalist.org/observations/432688 on 28 Aug 2014](https://www.inaturalist.org/observations/432688). With a few exceptions, most research-grade iNaturalist interaction data is automatically included in GloBI. For a full list of iNaturalist observation fields GloBI imports, see the [iNaturalist to GloBI interaction map](https://github.com/globalbioticinteractions/inaturalist/blob/master/interaction_types.csv) . For specific instructions, please see [Ken's how-to-add-an-inaturalist-interaction document](https://docs.google.com/document/d/12jFMA5a6EH1tqW2DcuNV8AQj2tuzx7ZvQoXtxaObaJ0/edit)
@@ -17,4 +18,12 @@ Various methods exist to share existing interaction data through Global Biotic I
 1. In case you are publishing a (data) paper that contains species interaction data, cite [Poelen et al. 2014](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005). The GloBI citation help us to easily find your paper and make the published data easy to access.
 1. In case the data is not (yet) web accessible, please [open an issue](https://github.com/jhpoelen/eol-globi-data/issues/new) describe the dataset and we can have a discussion on how to make the data available through GloBI.
 
-Since the automated updates occur on a daily basis, it may take a day or two for updates or corrections to be available through GloBI and related libraries like [rglobi](http://github.com/ropensci/rglobi). For more information, see [Poelen et al. 2014](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005), [GloBI homepage](http://globalbioticinteractions.org).
+As the automated updates occur on a daily basis, it may take a day or two for updates or corrections to be available through GloBI and related libraries like [rglobi](http://github.com/ropensci/rglobi). For more information, see [Poelen et al. 2014](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005), [GloBI homepage](http://globalbioticinteractions.org).
+
+## Contribute Code
+
+Improve GloBI by contributing to [rglobi](https://github.com/ropensci/rglobi), [elton](https://github.com/globalbioticinteractions/elton), [this website](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io) or [data crunching libraries](https://github.com/jhpoelen/eol-globi-data).
+
+## Donate
+
+Considering to donating man hours, server space and data storage to help make GloBI more useful and resilient? Please contact the main author of [2014 GloBI paper](https://doi.org/10.1016/j.ecoinf.2014.08.005).
