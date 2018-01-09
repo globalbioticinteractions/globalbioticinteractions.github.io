@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>http://depot.globalbioticinteractions.org/snapshot/target/data/sitemap/citations/sitemap.xml.gz</loc>
-    <lastmod>2017-09-17T14:40:34.156+01:00</lastmod>
+    <loc>https://depot.globalbioticinteractions.org/snapshot/target/data/sitemap/citations/sitemap1.xml.gz</loc>
+    <changefreq>weekly</changefreq>
   </sitemap>
   <sitemap>
-    <loc>http://depot.globalbioticinteractions.org/snapshot/target/data/sitemap/names/sitemap1.xml.gz</loc>
-    <lastmod>2017-09-17T15:49:25.013+01:00</lastmod>
+    <loc>https://depot.globalbioticinteractions.org/snapshot/target/data/sitemap/names/sitemap1.xml.gz</loc>
+    <changefreq>weekly</changefreq>
   </sitemap>
   <sitemap>
-    <loc>http://depot.globalbioticinteractions.org/snapshot/target/data/sitemap/names/sitemap2.xml.gz</loc>
-    <lastmod>2017-09-17T15:49:25.013+01:00</lastmod>
+    <loc>https://depot.globalbioticinteractions.org/snapshot/target/data/sitemap/names/sitemap2.xml.gz</loc>
+    <changefreq>weekly</changefreq>
   </sitemap>
 </sitemapindex>
