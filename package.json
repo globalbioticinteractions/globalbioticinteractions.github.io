@@ -18,11 +18,18 @@
     "inherits": "^2.0.1",
     "jquery": "^2.1.4",
     "jquery-ui": "1.10.5",
-    "moment-shortformat": "^2.0.0",
+    "moment": "^2.20.1",
+    "moment-shortformat": "^2.1.0",
     "number-abbreviate": "^1.2.1",
     "query-string": "^4.2.3",
     "spin.js": "~2.3.2",
-    "taxaprisma": "0.0.11"
+    "taxaprisma": "0.0.11",
+    "globi-hairball": "file:./lib/globi-hairball",
+    "globi-panels": "file:./lib/globi-panels",
+    "globi-wheel": "file:./lib/globi-wheel",
+    "globi-bundle": "file:./lib/globi-bundle",
+    "globi-spatial-selector": "file:./lib/globi-spatial-selector",
+    "globi-search": "file:./lib/globi-search"
   },
   "devDependencies": {
     "tape": "~4.1.0",
@@ -33,7 +40,6 @@
     "files": "test/*.js"
   },
   "scripts": {
-    "preinstall": "npm install node_modules/globi-*",
     "unittest": "tape test/*.js",
     "test": "browserify test/*.js test/browser/*.js node_modules/globi-*/test/*.js node_modules/globi-*/test/browser/*.js | testling",
     "build-js-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs -mc > js/globi-web-min.js",
