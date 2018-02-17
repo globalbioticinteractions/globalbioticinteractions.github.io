@@ -17,8 +17,6 @@ GloBI's aggregated interaction data publications/archives include:
 <li>neo4j v1.9.9 database (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-neo4j-graph-db.zip">download</a>)</li>
 </ul>
 
-The existing datasets can be accessed using <a href="https://github.com/globalbioticinteractions/elton">Elton</a> and the <a href="https://github.com/globalbioticinteractions/elton-archive">Elton Archive</a>. 
-
 In case the provided methods to access species interactions data do not quite suit your needs, please [open an issue](https://github.com/jhpoelen/eol-globi-data/issues/new) or contact the author(s) of [doi:10.1016/j.ecoinf.2014.08.005](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005).  
 
 For more information, please visit [Accessing Species Interaction Data](https://github.com/jhpoelen/eol-globi-data/wiki#accessing-species-interaction-data) wiki page.
