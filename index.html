@@ -200,15 +200,18 @@ var searchForInteractions = function (offset) {
             Object.keys(distinctExternalIds).forEach(function (externalId) {
                 globiData.findTaxonInfo(externalId, function (taxonInfo) {
                     var label = externalId;
+                    var taxonName = externalId;
                     if (taxonInfo.scientificName) {
                         label = taxonInfo.scientificName;
+                        taxonName = taxonInfo.scientificName;
                     }
+        
                     if (taxonInfo.commonName !== null) {
                         label = taxonInfo.commonName + '<br>(' + label + ')';
                     }
                     var title = 'Click to find out what ' + label.replace('<br>', ' ') + ' ' + $('#interactionType :selected').text() + '.';
-                    var labelSpan = '<span class="taxonFollow" onclick="followTaxon(this)" title="' + title + '" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonInfo.scientificName + '">' + label + '</span>';
-                    label = '<td>' + labelSpan + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(externalId) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon-external-id="' + externalId + '" data-taxon-name="' + label + '">...</span></td>';
+                    var labelSpan = '<span class="taxonFollow" onclick="followTaxon(this)" title="' + title + '" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonName + '">' + label + '</span>';
+                    label = '<td>' + labelSpan + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(externalId) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonName + '">...</span></td>';
                     if (taxonInfo.infoURL) {
                         var link = '<table><tr><td>';
                         var image = '';
@@ -262,7 +265,7 @@ addInputEvents($, globiData, searchForInteractions);
 var suggestNameLinkGitHub = function (taxonName, globiRef, githubRepo) {
     var item = document.createElement("span");
     var a = document.createElement("a");
-    a.setAttribute("title", "This name did not link to existing taxonomies. Click to suggest a correction for this name.");
+    a.setAttribute("title", "This name did not yet link to some taxonomy. Click to suggest a correction for this name.");
     a.setAttribute("target", "_blank");
     var params = { title: 'name correction suggestion for [' + taxonName + ']', body: 'Hi!\nI found a taxon name ```' + taxonName + '``` on a [globi page](' + globiRef + '). After reviewing the data sources and relevant taxonomic tools like the [globalnames resolver](http://resolver.globalnames.org), I think that suggestion below might be helpful.\n\n Thanks!\n\n| name | suggested name | name url reference | notes\n| --- | --- | --- | ---\n| ' + taxonName + ' | YOUR SUGGESTED NAME | http://somereference | some notes' };
     a.setAttribute("href", "https://github.com/" + githubRepo + "/issues/new?" + queryString.stringify(params));
