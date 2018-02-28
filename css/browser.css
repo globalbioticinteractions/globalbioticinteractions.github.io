@@ -46,3 +46,7 @@ body {
     font-weight: bold;
     background-color: yellow;
 }
+
+.site-nav {
+    z-index: 99999;
+}
