@@ -11,8 +11,8 @@ GloBI's aggregated interaction data publications/archives include:
 
 <ul>
 <li>tab-separated-values (tsv) archive (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-tsv.zip">download</a>) </li>
-<li>darwin core archive (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core.zip">download</a>) </li>
-<li>darwin core archive aggregated by study (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core-aggregated.zip">download</a>) </li>
+<li>darwin core-ish archive (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core.zip">download</a>) </li>
+<li>darwin core-ish archive aggregated by study (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core-aggregated.zip">download</a>) </li>
 <li>rdf/quads archive (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-nq.tar.gz">download</a>)</li>
 <li>neo4j v1.9.9 database (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-neo4j-graph-db.zip">download</a>)</li>
 </ul>
