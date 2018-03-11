@@ -33,7 +33,7 @@ Reflecting on this existential exchange, I realized that my statement was both a
         src="/assets/globis-b-2018.jpg" alt="GLOBIS-B Workshop Bari, Italy 26-28 Feb 2018"/></a>
 
     <div class="figcaption">
-        <p>Participants of the <a href="http://www.globis-b.eu/36/workshop_4.html" target="_blank">GLOBIS-B Species Interactions Workshop</a> held in Bari, Italy on 26-28 February 2018 and organized by <a href="https://danielkissling.de">Daniel Kissling</a> <em>et al.</em>.
+        <p>Participants of the <a href="http://www.globis-b.eu/36/workshop_4.html" target="_blank">GLOBIS-B Species Interactions Workshop</a> held in Bari, Italy on 26-28 February 2018 and organized by <a href="https://danielkissling.de">Daniel Kissling</a> <em>et al.</em>. Photo shared by Antonio M. Saraiva .
         </p>
     </div>
 </div>
