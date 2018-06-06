@@ -126,7 +126,7 @@ title: status
 
         var a = appendLink(tr);
 
-        if (source.doi === undefined || source.doi.trim().length == 0) {
+        if (source.doi === undefined || source.doi === null || source.doi.trim().length == 0) {
             a.setAttribute('href', 'https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability');
             a.setAttribute('target', '_blank');
             var img = a.appendChild(document.createElement('img'));
