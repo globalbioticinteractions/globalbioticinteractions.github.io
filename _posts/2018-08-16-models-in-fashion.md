@@ -26,7 +26,7 @@ published: true
 
 GloBI adapts to whatever contributors decided to express their digital data in and currently supports over 40+ flavors of species interaction data formats. This makes GloBI both fashionable and unfashionable – newer, hipper formats/models are supported as well as those that have been around for a while. Being fashionable has the advantage of appealing to the new hip kids in town. Supporting the older formats however, might actually be crucial to preserve valuable datasets from previous generations. 
 
-In this post, I’ll give some examples of formats currently used to share species interaction datasets. To help navigate through the various approaches, examplar datasets are described that fit into the following categories: [single tabular text file](#single-tabular-text-files), [multi-tabular text files](#multi-tabular-text-files), [json](#json), [rdf/owl/xml/json-ld](#rdf-owl-xml-json-ld), and [Darwin Core Archives](#darwin-core-archives). And, I'll end with sharing some [closing thoughts](#closing-thoughts).
+In this post, I’ll give some examples of formats currently used to share species interaction datasets. To help navigate through the various approaches, examplar datasets are described that fit into the following categories: [single tabular text file](#single-tabular-text-files), [multi-tabular text files](#multi-tabular-text-files), [json](#json), [rdf/owl/xml/json-ld](#rdfowlxmljson-ld), and [Darwin Core Archives](#darwin-core-archives). And, I'll end with sharing some [closing thoughts](#closing-thoughts).
 
 ### Single Tabular Text Files
 
