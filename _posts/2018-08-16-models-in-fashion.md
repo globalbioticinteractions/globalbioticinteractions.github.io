@@ -49,7 +49,7 @@ Other datasets use multiple tabular text files to capture species interaction da
 
 An example of a multi-tabular dataset is the study ["Who eats whom in the Barents Sea: a food web topology from plankton to whales." by Planque et. al 2014](https://doi.org/10.1890/13-1062.1). In this study, pairwise interactions are stored in PairWiseList.txt, related references are stored in References.txt and the table relating the pairwise interactions with their references is PairWise2References.txt. Note that after first publication of Planque et. al 2014, some data errors were detected and shared with authors on a first attempt to integrate the data into GloBI. The root cause of the data errors appeared to be broken links between reported pairwise species interactions and their references.  On receiving the feedback, the authors were careful to publish an updated dataset in which the issues were addressed. The reason the data errors were found in this peer-reviewed data publication is consistent with inadequate data quality methods during the publication process.
 
-PairWiseList.txt (first 5 lines)
+PairWiseList.txt (first 5 lines):
 
 PWKEY |	PREDATOR    | PREY  | CODE
 -- | -- | -- | --
@@ -58,7 +58,7 @@ ACA_SPP-AUT_FLA	| ACARTIA_SPP | AUTOTHROPH_FLAGELLAT | 1
 ACA_SPP-DIATOM | ACARTIA_SPP  | DIATOM | 1
 ACA_SPP-HET_FLA | ACARTIA_SPP | HETEROTROPH_FLAGELLAT |	1
 
-PairWiseList.txt (first 5 lines)
+PairWiseList.txt (first 5 lines):
 
 PWKEY | AUTHOR_YEAR
 -- | --
@@ -79,7 +79,7 @@ Agnalt 2011 |	Agnalt, A-L., Pavlov, V., J¿rstad, K. E., Farestveit, E., Sundet,
 ### JSON
 Javascript Object Notation (JSON) is used by [iNaturalist API](http://api.inaturalist.org) to expose observations along with their (taxon) observation fields. Species interaction data is extracted via specific, mapped observation field types. 
 
-Example from extracted from https://www.inaturalist.org/observation_field_values.json?type=taxon&page=1&per_page=100&quality_grade=research at 16 Aug 2018 related to https://www.inaturalist.org/observations/219043. 
+Example from extracted from [https://www.inaturalist.org/observation_field_values.json?type=taxon&page=1&per_page=100&quality_grade=research](https://www.inaturalist.org/observation_field_values.json?type=taxon&page=1&per_page=100&quality_grade=research) at 16 Aug 2018 related to [https://www.inaturalist.org/observations/219043](https://www.inaturalist.org/observations/219043). 
 
 ```json
 {
