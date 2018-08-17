@@ -39,7 +39,7 @@ BULLEN-1906-66 | 1906 | 19/04/1906 | Channel | VIIe | SCOMBER SCOMBRUS | (EUROPE
 BULLEN-1907-115 | 1907 | 01/05/1907 | Channel | VIIe | SCOMBER SCOMBRUS | (EUROPEAN) MACKEREL | y | 33.7 | ACARTIA CLAUSI | ACARTIA CLAUSI | Copepod | BULLEN-1907-115/MAC-1 | 6 | | 10
 BULLEN-1907-127 | 1907 | 23/05/1907 | Channel | VIIe | SCOMBER SCOMBRUS | (EUROPEAN) MACKEREL | y | 33.7 | ACARTIA CLAUSI | ACARTIA CLAUSI | Copepod | BULLEN-1907-127/MAC-1 | 6 | | 2
 
-Note that the kind of species association is defined in the name of the column headers (e.g., "Predator Latin name", "Prey Latin name"). Also note that the preferred citation of the data source is not included in the dataset itself, but in a human-readable form on a web page at https://www.cefas.co.uk/cefas-data-hub/fish-stomach-records/ . This citation was copy-pasted from the website into the meta-data descriptor of the datasets, globi.json. (see https://doi.org/10.5281/zenodo.258222) . To integrate the dataset from the various DAPSTOM download URLs, a list of URLs was created along with their schema definitions using globi.json and schema.json files. This approach was repeated for other single-table datasets expressed in tab-separated-values or comma-separated-values.
+Note that the kind of species association is defined in the name of the column headers (e.g., "Predator Latin name", "Prey Latin name"). Also note that the preferred citation of the data source is not included in the dataset itself, but in a human-readable form on a web page at https://www.cefas.co.uk/cefas-data-hub/fish-stomach-records/. This citation was copy-pasted from the website into the meta-data descriptor of the datasets, globi.json. (see https://doi.org/10.5281/zenodo.258222). To integrate the dataset from the various DAPSTOM download URLs, a list of URLs was created along with their schema definitions using globi.json and schema.json files. This approach was repeated for other single-table datasets expressed in tab-separated-values or comma-separated-values.
 
 Also note that GloBI produces a single-table interaction data archive to help make it easy for folks to get all the data for further processing. The download is available at [https://globalbioticinteractions.org/data](https://globalbioticinteractions.org/data). 
 
@@ -47,7 +47,7 @@ Also note that GloBI produces a single-table interaction data archive to help ma
 
 Other datasets use multiple tabular text files to capture species interaction data. The rationale behind doing this is often to normalize the data to avoid data duplication. This technique is often used in relational databases to make avoid having to update a single data element in multiple places. Efficient usage of this normalized data format requires an additional piece of software (a relational database) to relate data elements across the various tables. The mandated joining of tables makes it hard for humans  (like data paper reviewers) to digest and validate the information. Also, large normalized datasets become hard and expensive to handle even by powerful computers due to the resource requirements associated with joining million or billions of data elements across disjoint tables.
 
-An example of a multi-tabular dataset is the study ["Who eats whom in the Barents Sea: a food web topology from plankton to whales." by Planque et. al 2014](https://doi.org/10.1890/13-1062.1). In this study, pairwise interactions are stored in PairWiseList.txt, related references are stored in References.txt and the table relating the pairwise interactions with their references is PairWise2References.txt . Note that after first publication of Planque et. al 2014 , some data errors were detected and shared with authors on a first attempt to integrate the data into GloBI. The root cause of the data errors appeared to be broken links between reported pairwise species interactions and their references.  On receiving the feedback, the authors were careful to publish an updated dataset in which the issues were addressed. The reason the data errors were found in this peer-reviewed data publication is consistent with inadequate data quality methods during the publication process.
+An example of a multi-tabular dataset is the study ["Who eats whom in the Barents Sea: a food web topology from plankton to whales." by Planque et. al 2014](https://doi.org/10.1890/13-1062.1). In this study, pairwise interactions are stored in PairWiseList.txt, related references are stored in References.txt and the table relating the pairwise interactions with their references is PairWise2References.txt. Note that after first publication of Planque et. al 2014, some data errors were detected and shared with authors on a first attempt to integrate the data into GloBI. The root cause of the data errors appeared to be broken links between reported pairwise species interactions and their references.  On receiving the feedback, the authors were careful to publish an updated dataset in which the issues were addressed. The reason the data errors were found in this peer-reviewed data publication is consistent with inadequate data quality methods during the publication process.
 
 PairWiseList.txt (first 5 lines)
 
@@ -79,7 +79,7 @@ Agnalt 2011 |	Agnalt, A-L., Pavlov, V., J¿rstad, K. E., Farestveit, E., Sundet,
 ### JSON
 Javascript Object Notation (JSON) is used by [iNaturalist API](http://api.inaturalist.org) to expose observations along with their (taxon) observation fields. Species interaction data is extracted via specific, mapped observation field types. 
 
-Example from extracted from https://www.inaturalist.org/observation_field_values.json?type=taxon&page=1&per_page=100&quality_grade=research at 16 Aug 2018 related to https://www.inaturalist.org/observations/219043 . 
+Example from extracted from https://www.inaturalist.org/observation_field_values.json?type=taxon&page=1&per_page=100&quality_grade=research at 16 Aug 2018 related to https://www.inaturalist.org/observations/219043. 
 
 ```json
 {
@@ -241,7 +241,7 @@ Data formats compatible with the Semantic Web or [Linked Data](http://linkeddata
 
 The project [Semantic Prototypes in Research Ecoinformatics (SPIRE)](https://github.com/globalbioticinteractions/spire)  produced a RDF-based dataset in 2006 that contains species interactions. 
 
-Below, you'll find an owl snippet in xml extracted from [https://github.com/globalbioticinteractions/spire/raw/master/allFoodWebStudies.owl](https://github.com/globalbioticinteractions/spire/raw/master/allFoodWebStudies.owl) :
+Below, you'll find an owl snippet in xml extracted from [https://github.com/globalbioticinteractions/spire/raw/master/allFoodWebStudies.owl](https://github.com/globalbioticinteractions/spire/raw/master/allFoodWebStudies.owl):
 
 ```xml
 <ConfirmedFoodWebLink rdf:ID="c_6_14_6">
@@ -256,16 +256,16 @@ Below, you'll find an owl snippet in xml extracted from [https://github.com/glob
 The snippet is an example of how a predator-prey interaction (e.g., stingray (<em>Rajiformes</em>) preying on shore crabs (<em>Grapsidae</em>) is modeled using rdf/owl approach.
 
 
-From https://github.com/globalbioticinteractions/jsonld-template-dataset/blob/master/globi-dataset.jsonld , the example below shows a way to express a species interaction in JSON-LD. 
+From https://github.com/globalbioticinteractions/jsonld-template-dataset/blob/master/globi-dataset.jsonld, the example below shows a way to express a species interaction in JSON-LD. 
   
 ```json
 {
  "@context": "https://raw.githubusercontent.com/globalbioticinteractions/jsonld-template-dataset/master/context.jsonld",
- "datasets" : {
+ "datasets": {
      "id": "https://raw.githubusercontent.com/globalbioticinteractions/jsonld-template-dataset/master/globi-dataset.jsonld",
      "type": "dataset",
      "created": "2015-03-16",
-     "keyword" : ["birds", "insects"],
+     "keyword": ["birds", "insects"],
      "author": {
          "id": "http://orcid.org/0000-0002-6601-2165",
          "label": "Chris Mungall"
@@ -372,7 +372,7 @@ Note that this unofficial associatedTaxa extension has a wide variety of associa
 #### Darwin Core Archive – Uredinales of Belgium flavor
 Approach: use standard resourceRelationship extension to establish an association between taxa with associated bibliographic reference. 
 
-Example below was extracted from [https://github.com/trias-project/uredinales-belgium-checklist/tree/master/data/processed](https://github.com/trias-project/uredinales-belgium-checklist/tree/master/data/processed) on 16 August 2018 :
+Example below was extracted from [https://github.com/trias-project/uredinales-belgium-checklist/tree/master/data/processed](https://github.com/trias-project/uredinales-belgium-checklist/tree/master/data/processed) on 16 August 2018:
 
 taxonID | resourceID | relatedResourceID | relationshipOfResource | relationshipAccordingTo
 --- | --- | --- | --- | ---
@@ -383,12 +383,12 @@ uredinales-belgium-checklist:taxon:8f40d1f544b697192379f3573ae269d8|uredinales-b
 
 The usage of the standard [Resource Relationship Extension](http://rs.gbif.org/extension/dwc/resource_relation_2018_01_18.xml) helps to relate two associate taxa with a textual description of a relationship. Other than a free text description of the authority (i.e., relationshipAccordingTo), some free text nodes (i.e., relationshipRemarks) and a date at which the relationship was established (i.e., relationshipEstablishedDate), no other meta-data can be associated with the relationship.
 
-Also see [https://trias-project.github.io/uredinales-belgium-checklist](https://trias-project.github.io/uredinales-belgium-checklist) with active discussion here: [https://github.com/trias-project/uredinales-belgium-checklist/issues/8](https://github.com/trias-project/uredinales-belgium-checklist/issues/8) .
+Also see [https://trias-project.github.io/uredinales-belgium-checklist](https://trias-project.github.io/uredinales-belgium-checklist) with active discussion here: [https://github.com/trias-project/uredinales-belgium-checklist/issues/8](https://github.com/trias-project/uredinales-belgium-checklist/issues/8).
 
 #### Darwin Core Archive – Encyclopedia of Life flavor
 Approach: add non-standard Association extension to link occurrence records. This format was requested by the [Encyclopedia of Life](http://eol.org) as a way for GloBI to share aggregated species interaction records. 
 
-Example below contains first 5 lines of association.tsv extracted from https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core-aggregated.zip on 16 August 2018 :
+Example below contains first 5 lines of association.tsv extracted from https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core-aggregated.zip on 16 August 2018:
 
 associationID | occurrenceID | associationType | targetOccurrenceID | measurementDeterminedDate | measurementDeterminedBy | measurementMethod | measurementRemarks | source | bibliographicCitation | contributor | referenceID
 -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --
