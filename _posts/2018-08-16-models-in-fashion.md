@@ -397,7 +397,7 @@ globi:assoc:2-FBC:SLB:SpecCode:155196-ATE-GBIF:7572569 | globi:occur:source:2-FB
 globi:assoc:2-FBC:SLB:SpecCode:155196-ATE-GBIF:2436910 | globi:occur:source:2-FBC:SLB:SpecCode:155196-ATE | http://purl.obolibrary.org/obo/RO_0002470 | globi:occur:target:2-FBC:SLB:SpecCode:155196-ATE-GBIF:2436910 |   |   |   |   | Allen Hurlbert. Avian Diet Database (https://github.com/hurlbertlab/dietdatabase/). Accessed at <AvianDietDatabase.txt> on 13 Aug 2018. |   |   | globi:ref:2
 globi:assoc:2-FBC:SLB:SpecCode:155196-ATE-GBIF:729 | globi:occur:source:2-FBC:SLB:SpecCode:155196-ATE | http://purl.obolibrary.org/obo/RO_0002470 | globi:occur:target:2-FBC:SLB:SpecCode:155196-ATE-GBIF:729 |   |   |   |   | Allen Hurlbert. Avian Diet Database (https://github.com/hurlbertlab/dietdatabase/). Accessed at <AvianDietDatabase.txt> on 13 Aug 2018. |   |   | globi:ref:2
 
-The associationID helps provide a pointer to capture an association between two occurrences (i.e. occurrenceID and targetOccurrenceID) of a specific type (i.e. associationType) with some room for additional meta-data like how the interaction was measured, who made the claim and where the data came from. 
+The associationID helps provide a pointer to capture an association between two occurrences (i.e., occurrenceID and targetOccurrenceID) of a specific type (i.e., associationType) with some room for additional meta-data like how the interaction was measured, who made the claim and where the data came from. 
 
 ### Closing thoughts
 
