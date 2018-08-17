@@ -19,7 +19,7 @@ published: true
         src="https://static.inaturalist.org/photos/275923/medium.jpg?1363705043" alt="Desert Island"/></a>
 
     <div class="figcaption">
-        <p>An Eastern Pondhawk (<a href="https://www.inaturalist.org/taxa/61495" target="_blank"><em>Erythemis simplicicollis</em></a>) <a href="https://www.inaturalist.org/observation_fields/3011" target="_blank">preying on</a> a Narrow-winged Damselflies (<a href="https://www.inaturalist.org/taxa/47925" target="_blank"><em>Family Coenagrionidae</em></a>) was found by GloBI using a <a href="#json">JSON</a>-based integration with <a href="https://inaturalist.org" target="_blank">iNaturalist</a>. Photo 987870 © <a href="https://www.inaturalist.org/people/greglasley" target="_blank">greglasley</a>, some rights reserved (CC BY-NC), uploaded by Greg Lasley. 
+        <p>This photo of an Eastern Pondhawk (<a href="https://www.inaturalist.org/taxa/61495" target="_blank"><em>Erythemis simplicicollis</em></a>) <a href="https://www.inaturalist.org/observation_fields/3011" target="_blank">preying on</a> a Narrow-winged Damselflies (<a href="https://www.inaturalist.org/taxa/47925" target="_blank"><em>Family Coenagrionidae</em></a>) was found by GloBI using a <a href="#json">JSON</a>-based integration with <a href="https://inaturalist.org" target="_blank">iNaturalist</a>. Photo 987870 © <a href="https://www.inaturalist.org/people/greglasley" target="_blank">greglasley</a>, some rights reserved (CC BY-NC), uploaded by Greg Lasley. 
         </p>
     </div>
 </div>
