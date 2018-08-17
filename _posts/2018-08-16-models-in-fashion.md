@@ -352,12 +352,12 @@ The JSON-LD prototype shown above is ingested by GloBI, but no other datasets th
 
 [TDWG's Darwin Core](https://www.tdwg.org/standards/dwc/) standard has facilitated the impressive growth in digital biodiversity datasets available through infrastructures like [iDigBio](https://idigbio.org) and [GBIF](https://gbif.org). While some ways exist to capture species interaction within the Darwin Core framework, no clear community consensus exists on how to best capture species interaction records within the standard.  Even if data contributors capture association between specimen in their data archives using compliant fields like "associatedTaxa", platforms like iDigBio and GBIF do not provide a way to easily access, explore and review species interaction data. 
 
-There are some examples of DwC archives that express association data, including GloBI’s aggregate DwC archive used by Encyclopedia of Life has a non-standard "associations" extension, Lichens of Belgium uses resourceRelationship table, Tri-Trophic Thematic Collections Network uses a non-standard "associatedTaxa" extension with terms like "aec:associatedScientificName", "aec:associatedRelationshipTerm", "aec:associatedRelationshipURI", "aec:associatedLocationOnHost","aec:associatedEmergenceVerbatimDate".
+There are some examples of DwC archives that express association data, including GloBI’s aggregate DwC archive used by [Encyclopedia of Life](http://eol.org) has a non-standard "associations" extension, Lichens of Belgium uses resourceRelationship table, [Tri-Trophic Thematic Collections Network](http://tcn.amnh.org) uses a non-standard "associatedTaxa" extension with terms like "aec:associatedScientificName", "aec:associatedRelationshipTerm", "aec:associatedRelationshipURI", "aec:associatedLocationOnHost","aec:associatedEmergenceVerbatimDate".
 
 #### Darwin Core Archive – Tri-Trophic Thematic Collection Network flavor
 Approach: add non-standard associatedTaxa extension to link an occurrence record to an associated taxon of a specific association type that emerged from a specific body part of the host at a given time.
 
-First 5 lines of associatedTaxa.tsv extracted from [http://amnh.begoniasociety.org/dwc/AEC-NA_PlantBugPBI_DwC-A20160308.zip](http://amnh.begoniasociety.org/dwc/AEC-NA_PlantBugPBI_DwC-A20160308.zip):
+First 5 lines of associatedTaxa.tsv from the [Tri-Trophic Thematic Collection Network](http://tcn.amnh.org) extracted from [http://amnh.begoniasociety.org/dwc/AEC-NA_PlantBugPBI_DwC-A20160308.zip](http://amnh.begoniasociety.org/dwc/AEC-NA_PlantBugPBI_DwC-A20160308.zip):
 
 
 dwc:coreid | dwc:basisOfRecord | aec:associatedOccuranceID | aec:associatedFamily | aec:associatedGenus | aec:associatedSpecificEpithet | aec:associatedScientificName | aec:associatedAuthor | aec:associatedCommonName | aec:associatedRelationshipTerm | aec:associatedRelationshipURI | aec:associatedNotes | aec:associatedDeterminedBy | aec:associatedCondition | aec:associatedLocationOnHost | aec:associatedEmergenceVerbatimDate | aec:associatedCollectionLocation | aec:isCultivar
@@ -386,7 +386,7 @@ The usage of the standard [Resource Relationship Extension](http://rs.gbif.org/e
 Also see [https://trias-project.github.io/uredinales-belgium-checklist](https://trias-project.github.io/uredinales-belgium-checklist) with active discussion here: [https://github.com/trias-project/uredinales-belgium-checklist/issues/8](https://github.com/trias-project/uredinales-belgium-checklist/issues/8) .
 
 #### Darwin Core Archive – Encyclopedia of Life flavor
-Approach: add non-standard Association extension to link occurrence records. This format was requested by the Encyclopedia of Life as a way for GloBI to share aggregated species interaction records. 
+Approach: add non-standard Association extension to link occurrence records. This format was requested by the [Encyclopedia of Life](http://eol.org) as a way for GloBI to share aggregated species interaction records. 
 
 Example below contains first 5 lines of association.tsv extracted from https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core-aggregated.zip on 16 August 2018 :
 
