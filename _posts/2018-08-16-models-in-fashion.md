@@ -26,7 +26,7 @@ published: true
 
 GloBI adapts to whatever contributors decided to express their digital data in and currently supports over 40+ flavors of species interaction data formats. This makes GloBI both fashionable and unfashionable – newer, hipper formats/models are supported as well as those that have been around for a while. Being fashionable has the advantage of appealing to the new hip kids in town. Supporting the older formats however, might actually be crucial to preserve valuable datasets from previous generations. 
 
-In this post, I’ll give some examples of formats currently used to share species interaction datasets. To help navigate through the various approaches, examplar datasets are described that fit into the following categories: [single tabular text file](#single-tabular-text-files), [multi-tabular text files](#multi-tabular-text-files), [json](#json), [rdf/owl/xml/json-ld](#rdfowlxmljson-ld), and [Darwin Core Archives](#darwin-core-archives). And, I'll end with sharing some [closing thoughts](#closing-thoughts).
+In this post, I’ll give some examples of formats currently used to share species interaction datasets. To help navigate through the various approaches, examplar datasets are described that fit into the following categories: [single tabular text file](#single-tabular-text-files), [multi-tabular text files](#multi-tabular-text-files), [json](#json), [rdf/owl/xml/json-ld](#rdfowljson-ld), and [Darwin Core Archives](#darwin-core-archives). And, I'll end with sharing some [closing thoughts](#closing-thoughts).
 
 ### Single Tabular Text Files
 
@@ -41,7 +41,7 @@ BULLEN-1907-127 | 1907 | 23/05/1907 | Channel | VIIe | SCOMBER SCOMBRUS | (EUROP
 
 Note that the kind of species association is defined in the name of the column headers (e.g., "Predator Latin name", "Prey Latin name"). Also note that the preferred citation of the data source is not included in the dataset itself, but in a human readable form on a web page at https://www.cefas.co.uk/cefas-data-hub/fish-stomach-records/ . This citation was copy-pasted from the website into the meta-data descriptor of the datasets, globi.json. (see https://doi.org/10.5281/zenodo.258222) . To integrate the dataset from the various DAPSTOM download URLs, a list of URLs was created along with their schema definitions using globi.json and schema.json files. This approach was repeated for other single table datasets expressed in tab-separated-values or comma-separated-values.
 
-Also note that GloBI produces a single table interaction data archive to help make it easy for folks to get all the data for further processing. The download is available at [https://globalbioticinteractions.data](https://globalbioticinteractions.org/data). 
+Also note that GloBI produces a single table interaction data archive to help make it easy for folks to get all the data for further processing. The download is available at [https://globalbioticinteractions.org/data](https://globalbioticinteractions.org/data). 
 
 ### Multi-tabular Text Files
 
@@ -235,7 +235,7 @@ Note that the JSON file is full of identifiers in nested structures. While the J
 
 [GloBI's API](https://github.com/jhpoelen/eol-globi-data/wiki/API) supports JSON to help make it easier for web developers and other tech-savvy people to integrate species interaction records into their workflows.
 
-### RDF/Owl/XML/JSON-LD
+### RDF/Owl/JSON-LD
 
 Data formats compatible with the Semantic Web or [Linked Data](http://linkeddata.org) are sparingly used in GloBI's infrastructure. In the section below, a single dataset and a JSON-LD prototype that provide species association data to GloBI are described. To open the door to a brave new semantic world, GloBI exports aggregated records in a [RDF quads](https://globalbioticinteractions.org/data) archive. 
 
