@@ -237,7 +237,7 @@ Note that the JSON file is full of identifiers in nested structures. While the J
 
 ### RDF/Owl/XML/JSON-LD
 
-Data formats compatible with the Semantic Web or [Linked Data](http://linkeddata.org) like RDF/owl/JSON-LD are sparingly used in GloBI's infrastructure. In the section below, a single dataset and a JSON-LD prototype that provide species association data to GloBI are described. Also, GloBI exports aggregated records in a [RDF quads](https://globalbioticinteractions.org/data) archive. 
+Data formats compatible with the Semantic Web or [Linked Data](http://linkeddata.org) are sparingly used in GloBI's infrastructure. In the section below, a single dataset and a JSON-LD prototype that provide species association data to GloBI are described. To open the door to a brave new semantic world, GloBI exports aggregated records in a [RDF quads](https://globalbioticinteractions.org/data) archive. 
 
 Semantic Prototypes in Research Ecoinformatics (SPIRE) produced a RDF-based dataset in 2006 that contains species interactions. 
 
