@@ -345,7 +345,7 @@ From https://github.com/globalbioticinteractions/jsonld-template-dataset/blob/ma
 }
 ```
 
-The JSON-LD prototype shown above is ingested by GloBI, but no other datasets that use JSON-LD to express species association are currently indexed. To visualize the data, please visit the [JSON-LD Playground](https://json-ld.org/playground/#startTab=tab-signed-rsa&json-ld=https%3A%2F%2Fraw.githubusercontent.com%2Fglobalbioticinteractions%2Fjsonld-template-dataset%2Fmaster%2Fglobi-dataset.jsonld&frame=%7B%7D&context=%7B%7D) preloaded with the prototype.  
+The JSON-LD prototype shown above is ingested by GloBI, but no other datasets that use JSON-LD to express species association are currently indexed. To play around with the prototype, please visit a [JSON-LD Playground](https://json-ld.org/playground/#startTab=tab-normalized&json-ld=https%3A%2F%2Fraw.githubusercontent.com%2Fglobalbioticinteractions%2Fjsonld-template-dataset%2Fmaster%2Fglobi-dataset.jsonld) preloaded with the prototype.  
 
 ### Darwin Core Archives
 
