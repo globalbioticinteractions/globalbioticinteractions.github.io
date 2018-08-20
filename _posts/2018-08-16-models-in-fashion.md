@@ -24,7 +24,7 @@ published: true
     </div>
 </div>
 
-GloBI adapts to whatever contributors decided to express their digital data in and currently supports over 40+ flavors of species interaction data formats. This makes GloBI both fashionable and unfashionable – newer, hipper formats/models are supported as well as those that have been around for a while. Being fashionable has the advantage of appealing to the new hip kids in town. Supporting the older formats, however, might actually be crucial to preserve valuable datasets from previous generations. Note that GloBI uses an internal representation to help link heterogeneous datasets. While this [internal data model](https://speakerdeck.com/jhpoelen592/global-biotic-interactions-a-catalyst?slide=6) (see [here](https://speakerdeck.com/jhpoelen592/global-biotic-interactions-a-catalyst?slide=6)) may inspire others to capture their species interaction data, the model is expected to continue to evolve to meet our integration needs. 
+GloBI adapts to whatever contributors decided to express their digital data in and currently supports over 40+ flavors of species interaction data formats. This makes GloBI both fashionable and unfashionable – newer, hipper formats/models are supported as well as those that have been around for a while. Being fashionable has the advantage of appealing to the new hip kids in town. Supporting the older formats, however, might actually be crucial to preserve valuable datasets from previous generations. 
 
 In this post, I’ll give some examples of formats currently used to share species interaction datasets. To help navigate through the various approaches, examplar datasets are described that fit into the following categories: [single tabular text file](#single-tabular-text-files), [multi-tabular text files](#multi-tabular-text-files), [json](#json), [rdf/owl/json-ld](#rdfowljson-ld), and [Darwin Core Archives](#darwin-core-archives). And, I'll end with sharing some [closing thoughts](#closing-thoughts).
 
@@ -401,6 +401,8 @@ The associationID helps provide a pointer to capture an association between two 
 ### Closing thoughts
 
 Species interaction datasets are overwhelmingly published in tabular text files with custom schemas, while other formats like rdf/owl, JSON, JSON-LD and Darwin Core Archive are used by relatively few. In its role as a catalyst and mediator for access to species interaction data, GloBI, as shown in the included examples, serves as a way for data contributors to explore the various file formats to help promote re-use or improvement of existing data exchange methods. 
+
+GloBI uses an internal representation to help link species interaction records across heterogeneous datasets and existing biodiversity infrastructures. While this [internal data model](https://speakerdeck.com/jhpoelen592/global-biotic-interactions-a-catalyst?slide=6) may inspire others to capture their species interaction data, the model is expected to continue to evolve to meet our integration needs. 
 
 While I sometimes find it tempting to say that some data formats are better than others, I know from experience that the most beautiful datasets are those that are actively maintained, shared and accessed. As long as the data is valuable, humans and machines alike will figure out a way to store or parse it in order to keep it alive.
 
