@@ -10,7 +10,7 @@ Exploratory, interactive queries can be executed through [SPARQL](https://lod.gl
 GloBI's aggregated interaction data publications/archives include:
 
 <ul>
-<li>gzipped tab-separated-values (tsv) archive (<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.tsv.gz">download</a>) </li>
+<li>gzipped tab-separated-values (tsv) file (<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.tsv.gz">download</a>) </li>
 <li>darwin core-ish archive (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core.zip">download</a>) </li>
 <li>darwin core-ish archive aggregated by study (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core-aggregated.zip">download</a>) </li>
 <li>rdf/quads archive (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-nq.tar.gz">download</a>)</li>
