@@ -14,7 +14,7 @@ GloBI's aggregated interaction data publications/archives include:
 <a href="https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.tsv.gz">interactions.tsv.gz</a>, a gzipped tab-separated values (tsv) file 
 </li>
 <li>
-<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/csv/interactions.csv.gz">interactions.csv.gz</a>, gzipped comma-separated values (csv) file 
+<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/csv/interactions.csv.gz">interactions.csv.gz</a>, a gzipped comma-separated values (csv) file 
 </li>
 <li>
 <a href="https://depot.globalbioticinteractions.org/snapshot/target/data/interactions.nq.gz">interactions.nq.gz</a>, a gzipped rdf/quads file 
