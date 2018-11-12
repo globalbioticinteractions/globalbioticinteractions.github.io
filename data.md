@@ -10,9 +10,15 @@ Exploratory, interactive queries can be executed through [SPARQL](https://lod.gl
 GloBI's aggregated interaction data publications/archives include:
 
 <ul>
-<li>gzipped tab-separated values (tsv) file (<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.tsv.gz">interactoins.tsv.gz</a>) </li>
-<li>gzipped comma-separated values (csv) file (<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/csv/interactions.csv.gz">interactions.csv.gz</a>) </li>
-<li>gzipped rdf/quads file (<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/interactions.nq.gz">interactions.nq.gz</a>)</li>
+<li>
+<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.tsv.gz">interactions.tsv.gz</a>, a gzipped tab-separated values (tsv) file 
+</li>
+<li>
+<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/csv/interactions.csv.gz">interactions.csv.gz</a>, gzipped comma-separated values (csv) file 
+</li>
+<li>
+<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/interactions.nq.gz">interactions.nq.gz</a>, a gzipped rdf/quads file 
+</li>
 <li>darwin core-ish archive (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core.zip">download</a>) </li>
 <li>darwin core-ish archive aggregated by study (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core-aggregated.zip">download</a>) </li>
 <li>neo4j v1.9.9 database (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-neo4j-graph-db.zip">download</a>)</li>
