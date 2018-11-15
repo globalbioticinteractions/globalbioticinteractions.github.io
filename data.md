@@ -9,9 +9,9 @@ Exploratory, interactive queries can be executed through [SPARQL](https://lod.gl
 
 GloBI's aggregated interaction data publications/archives include:
 
- * [interactions.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.tsv.gz), species interactions tabulated as pair-wise interactions in a gzipped tab-separated values format.
- * [interactions.csv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.csv.gz), species interactions tabulated as pair-wise interactions in a gzipped comma-separated values format. 
- * [interactions.nq.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/interactions.nq.gz) species interactions expressed in the [resource definition framework](https://www.w3.org/RDF/) in a gzipped rdf/quads format.
+ * [interactions.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.tsv.gz) contains species interactions tabulated as pair-wise interactions in a gzipped tab-separated values format.
+ * [interactions.csv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.csv.gz) contains species interactions tabulated as pair-wise interactions in a gzipped comma-separated values format. 
+ * [interactions.nq.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/interactions.nq.gz) contains species interactions expressed in the [resource definition framework](https://www.w3.org/RDF/) in a gzipped rdf/quads format.
  * [taxonMap.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/taxa/taxonMap.tsv.gz) describes how names in existing datasets were mapped taxonomic naming schemes in a gzipped tab-separated values format.
  * [taxonCache.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/taxa/taxonCache.tsv.gz) contains hierarchies and identifiers associated with names from taxonomic naming schemes in a gzipped tab-separated values format. 
  * [darwin core-ish archive](https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core.zip) contains species interactions data as a [Darwin Core Archive](http://rs.tdwg.org/dwc/) using a custom, occurrence level, association extension. 
