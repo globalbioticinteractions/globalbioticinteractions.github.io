@@ -9,20 +9,14 @@ Exploratory, interactive queries can be executed through [SPARQL](https://lod.gl
 
 GloBI's aggregated interaction data publications/archives include:
 
-<ul>
-<li>
-<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.tsv.gz">interactions.tsv.gz</a>, a gzipped tab-separated values (tsv) file 
-</li>
-<li>
-<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/csv/interactions.csv.gz">interactions.csv.gz</a>, a gzipped comma-separated values (csv) file 
-</li>
-<li>
-<a href="https://depot.globalbioticinteractions.org/snapshot/target/data/interactions.nq.gz">interactions.nq.gz</a>, a gzipped rdf/quads file 
-</li>
-<li>darwin core-ish archive (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core.zip">download</a>) </li>
-<li>darwin core-ish archive aggregated by study (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core-aggregated.zip">download</a>) </li>
-<li>neo4j v1.9.9 database (<a href="https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-neo4j-graph-db.zip">download</a>)</li>
-</ul>
+ * [interactions.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.tsv.gz), species interactions tabulated as pair-wise interactions in a gzipped tab-separated values format.
+ * [interactions.csv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.csv.gz), species interactions tabulated as pair-wise interactions in a gzipped comma-separated values format. 
+ * [interactions.nq.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/interactions.nq.gz) species interactions expressed in the [resource definition framework](https://www.w3.org/RDF/) in a gzipped rdf/quads format.
+ * [taxonMap.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/taxa/taxonMap.tsv.gz) describes how names in existing datasets were mapped taxonomic naming schemes in a gzipped tab-separated values format.
+ * [taxonCache.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/taxa/taxonCache.tsv.gz) contains hierarchies and identifiers associated with names from taxonomic naming schemes in a gzipped tab-separated values format. 
+ * [darwin core-ish archive](https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core.zip) contains species interactions data as a [Darwin Core Archive](http://rs.tdwg.org/dwc/) using a custom, occurrence level, association extension. 
+ * [darwin core-ish archive aggregated by study](https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core-aggregated.zip) contains species interactions data as a [Darwin Core Archive](http://rs.tdwg.org/dwc/) aggregated by study using a custom, occurrence level, association extension. 
+ * [neo4j v1.9.9 graph database](https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-neo4j-graph-db.zip) contains a [neo4j](https://neo4j.org) database snapshot containing a graph representation of the species interaction data. 
 
 In case the provided methods to access species interactions data do not quite suit your needs, please [open an issue](https://github.com/jhpoelen/eol-globi-data/issues/new) or contact the author(s) of [doi:10.1016/j.ecoinf.2014.08.005](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005).  
 
