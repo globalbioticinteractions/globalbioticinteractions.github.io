@@ -220,6 +220,11 @@ tr.interaction td li {
   }
 }
 
+.taxonLinkIcons {
+    display: flex;
+    flex-direction: row;
+}
+
 img.taxonLinkIcon {
   width: 0.9em;
   height: auto;

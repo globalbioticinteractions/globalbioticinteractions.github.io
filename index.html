@@ -341,7 +341,7 @@ var showTaxonLinks = function (elem) {
                     });
 
             var linkToItem = function (link) {
-                var item = document.createElement("span");
+                var item = document.createElement("div");
                 var a = document.createElement("a");
                 a.setAttribute("target", "_blank");
                 a.setAttribute("href", link.url);
@@ -362,8 +362,7 @@ var showTaxonLinks = function (elem) {
             if (items.length === 0) {
                 items.push(suggestNameLink(elem.dataset.taxonName, window.location.href));
             }
-            var td = document.createElement("span");
-            td.appendChild(document.createElement("br"));
+            var td = document.createElement("div");
             td.setAttribute("class", "taxonLinkIcons");
             items.forEach(function (item) {
                 td.appendChild(item);
