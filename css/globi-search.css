@@ -1,3 +1,10 @@
+.interaction:nth-child(even) {
+    background: #eeeeee;
+    border: solid;
+    border-radius: 0.5em;
+    border-width: 0.05em;
+}
+
 .search {
     display: flex;
     flex-direction: column;

@@ -147,10 +147,6 @@ div.figure p {
  
 .menu li:hover > a { color: rgba(0,0,255,.9); }
 
-.interaction:nth-child(even) {
-  background: lightgray;
-}
-
 @media (max-width: 767px) {
   .menu li:first-child {
     float: none;
