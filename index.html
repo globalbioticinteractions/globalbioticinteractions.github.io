@@ -206,16 +206,20 @@ var searchForInteractions = function (offset) {
             Object.keys(distinctExternalIds).forEach(function (externalId) {
                 globiData.findTaxonInfo(externalId, function (taxonInfo) {
                     var label = externalId;
+                    var labelStr = externalId;
                     var taxonName = externalId;
                     if (taxonInfo.scientificName) {
                         label = taxonInfo.scientificName;
+                        labelStr = taxonInfo.scientificName;
                         taxonName = taxonInfo.scientificName;
                     }
-        
+
                     if (taxonInfo.commonName !== null) {
+                        labelStr = taxonInfo.commonName + ' (' + label + ')';
                         label = '<div>' + taxonInfo.commonName + '</div><div>(' + label + ')</div>';
                     }
-                    var title = 'Click to find out what ' + label + ' ' + $('#interactionType :selected').text() + '.';
+                    var title = 'Click to find out what ' + labelStr + ' ' + $('#interactionType :selected').text() + '.';
+
                     var labelSpan = '<div class="taxonFollow" onclick="followTaxon(this)" title="' + title + '" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonName + '">' + label + '</div>';
                     label = labelSpan + ' <div class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(externalId) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonName + '">...</div>';
                     if (taxonInfo.infoURL) {

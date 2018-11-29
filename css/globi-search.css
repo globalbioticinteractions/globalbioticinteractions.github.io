@@ -17,7 +17,7 @@
 
 .taxonLinkIcons {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
 }
 
 .search-results {
@@ -32,7 +32,7 @@
 
 .search-result-phrase {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
 }
 
 .supported:before {
