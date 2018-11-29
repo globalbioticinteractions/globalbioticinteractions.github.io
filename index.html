@@ -163,11 +163,11 @@ var searchForInteractions = function (offset) {
 
 
                 td = document.createElement('div');
-                td.setAttribute('class', interactionHash + ' supported');
+                td.setAttribute('class', interactionHash + ' supports');
                 row.appendChild(td);
 
                 td = document.createElement('div');
-                td.setAttribute('class', interactionHash + '.refuted refuted');
+                td.setAttribute('class', interactionHash + '_refutes refutes');
                 row.appendChild(td);
 
                 distinctExternalIds[targetTaxonKey(interaction)] = interaction.target_taxon_external_id;
@@ -246,10 +246,17 @@ var searchForInteractions = function (offset) {
         };
 
 
-        var loadReferences = function (distinctInteractions) {
+        var loadReferences = function (distinctInteractions, refutes) {
             Object.keys(distinctInteractions).forEach(function (distinctInteractionKey) {
                 var distinctInteraction = distinctInteractions[distinctInteractionKey];
-                var search = { sourceTaxa: [sourceTaxonKey(distinctInteraction)], targetTaxa: [targetTaxonKey(distinctInteraction)], interactionType: distinctInteraction.interaction_type, includeObservations: 'true', exactNameMatchOnly: 'true', fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation'] };
+                var distinctInteractionSelector = '.' + className(distinctInteractionKey) + (refutes ? '_refutes' : '');
+                var search = { sourceTaxa: [sourceTaxonKey(distinctInteraction)],
+                    targetTaxa: [targetTaxonKey(distinctInteraction)],
+                    interactionType: distinctInteraction.interaction_type,
+                    includeObservations: 'true',
+                    exactNameMatchOnly: 'true',
+                    refutes: refutes,
+                    fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation'] };
                 globiData.findSpeciesInteractions(search, function (distinctInteractionResults) {
                     distinctInteractionResults.forEach(function (distinctInteractionResult) {
                         var studyId = className(distinctInteractionKey + distinctInteractionResult.study_title);
@@ -257,13 +264,20 @@ var searchForInteractions = function (offset) {
                             var citationElem = document.createElement('li');
                             citationElem.setAttribute('id', studyId);
                             appendCitationTo(distinctInteractionResult, citationElem);
-                            $('.' + className(distinctInteractionKey)).append(citationElem);
+                            $(distinctInteractionSelector).append(citationElem);
                         }
                     });
+                    var citationContainer = $(distinctInteractionSelector);
+                    if (distinctInteractionResults.length == 0) {
+                        var citationElem = document.createElement('li');
+                        citationElem.textContent = 'None.';
+                        citationContainer.append(citationElem);
+                    }
                 });
             });
         };
-        loadReferences(distinctInteractions);
+        loadReferences(distinctInteractions, false);
+        loadReferences(distinctInteractions, true);
         loadImagesAndNames(distinctExternalIds);
 
     };

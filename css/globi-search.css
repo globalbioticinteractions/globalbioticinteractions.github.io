@@ -34,8 +34,11 @@
     flex-flow: row wrap;
 }
 
-.supported:before {
+.supports:before {
     content: "Supported by:";
+}
+.refutes:before {
+    content: "Refuted by:";
 }
 
 .search-result-phrase > div {
