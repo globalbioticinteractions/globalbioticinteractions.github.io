@@ -2,23 +2,23 @@
 layout: default
 ---
 <noscript>JavaScript is off. Please enable JavaScript to view full site.</noscript>
-<div class="ui-widget">
-    <p class="examples">Example queries: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">What do sea otters
+<div class="ui-widget search">
+    <div class="examples search-example">Example queries: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">What do sea otters
         (<em>Enhydra
             lutris</em>) eat?</a> or <a href="?sourceTaxon=Apis&interactionType=pollinates">What do honey bees (Apis)
-        pollinate?</a></p>
-
-    <p class="question">What kind of
+        pollinate?</a></div>
+    <br/>
+    <div class="question search-query">What kind of
         <input id="targetTaxonInputField" class="suggest" autocomplete="off" placeholder="organisms"/>
         do
         <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="organisms"/>
         {% include interactionTypeSelector.html %}
         </select> according to <input id="studySearchField" autocomplete="off" placeholder="any study or source"/>?
-    </p>
+    </div>
+    <br/>
 
-    <div id="info" class="summary"></div>
-    <table id="result" class="answers">
-    </table>
+    <div id="info" class="summary search-summary"></div>
+    <div id="result" class="answers search-results"></div>
 </div>
 
 <script src="/js/globi-web-min.js"></script>
@@ -42,7 +42,7 @@ var className = function (someString) {
 
 
 function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctInteractions) {
-    var textElem = document.createElement('p');
+    var textElem = document.createElement('div');
     textElem.setAttribute('class', 'interaction searchInfo');
     if (sourceTaxonLabel === undefined || sourceTaxonLabel.length == 0) {
         sourceTaxonLabel = 'organisms';
@@ -50,7 +50,7 @@ function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctI
     if (sourceTaxonName === undefined) {
         sourceTaxonName = 'organisms';
     }
-    var prefix = '<span class="' + className(sourceTaxonName) + '">' + sourceTaxonLabel + '</span> ';
+    var prefix = '<div class="' + className(sourceTaxonName) + '">' + sourceTaxonLabel + '</div> ';
     var message = '... plenty of things';
     if (studyQuery && studyQuery.length > 0) {
         message = message + ' according to ' + studyQuery;
@@ -119,14 +119,13 @@ var searchForInteractions = function (offset) {
             var shouldRender = document.querySelector('.' + interactionHash) === null;
             var shouldProcess = distinctInteractions[citationKey(interaction)] === undefined;
             if (shouldProcess && shouldRender) {
-                var row = document.createElement('tr');
-                row.setAttribute('class', 'interaction');
+                var row = document.createElement('div');
+                row.setAttribute('class', 'interaction search-result');
                 resultFragment.appendChild(row);
                 var createNameTd = function(interaction, name) {
-                    var td = document.createElement('td');
-                    td.setAttribute('class', className(keyForTaxon(interaction, name)));
-                    var p = td.appendChild(document.createElement('span'));
-                    td.appendChild(document.createElement('br'));
+                    var div = document.createElement('div');
+                    div.setAttribute('class', className(keyForTaxon(interaction, name)));
+                    var p = div.appendChild(document.createElement('div'));
                     p.textContent = interaction[name + '_taxon_name'];
                     if (interaction[name + '_taxon_external_id'] === 'no:match') {
                         var githubRepo = 'globalbioticinteractions/globi-names';
@@ -135,14 +134,16 @@ var searchForInteractions = function (offset) {
                             githubRepo = accordingTo2.replace(/^globi:/, '');
                         }
                         var globiRef = window.location.href;
-                        td.appendChild(suggestNameLinkGitHub(interaction[name + '_taxon_name'], globiRef, githubRepo));
+                        div.appendChild(suggestNameLinkGitHub(interaction[name + '_taxon_name'], globiRef, githubRepo));
                     }
-                    return td;
+                    return div;
                 };
 
-                row.appendChild(createNameTd(interaction, 'source'));
-                var td = document.createElement('td');
-                td.appendChild(document.createElement('br'));
+                var phrase = document.createElement('div');
+                phrase.setAttribute('class', 'search-result-phrase');
+                row.appendChild(phrase);
+                phrase.appendChild(createNameTd(interaction, 'source'));
+                var td = document.createElement('div');
                 var div = document.createElement('div');
                 div.setAttribute('class', 'interaction ' + className(interaction.interaction_type));
                 var interactionInfo = globiData.interactionTypes[interaction.interaction_type];
@@ -156,12 +157,17 @@ var searchForInteractions = function (offset) {
                     div.textContent = interaction.interaction_type;
                 }
                 td.appendChild(div);
+                phrase.appendChild(td);
+
+                phrase.appendChild(createNameTd(interaction, 'target'));
+
+
+                td = document.createElement('div');
+                td.setAttribute('class', interactionHash + ' supported');
                 row.appendChild(td);
 
-                row.appendChild(createNameTd(interaction, 'target'));
-
-                td = document.createElement('td');
-                td.setAttribute('class', interactionHash);
+                td = document.createElement('div');
+                td.setAttribute('class', interactionHash + '.refuted refuted');
                 row.appendChild(td);
 
                 distinctExternalIds[targetTaxonKey(interaction)] = interaction.target_taxon_external_id;
@@ -207,18 +213,18 @@ var searchForInteractions = function (offset) {
                     }
         
                     if (taxonInfo.commonName !== null) {
-                        label = taxonInfo.commonName + '<br>(' + label + ')';
+                        label = '<div>' + taxonInfo.commonName + '</div><div>(' + label + ')</div>';
                     }
-                    var title = 'Click to find out what ' + label.replace('<br>', ' ') + ' ' + $('#interactionType :selected').text() + '.';
-                    var labelSpan = '<span class="taxonFollow" onclick="followTaxon(this)" title="' + title + '" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonName + '">' + label + '</span>';
-                    label = '<td>' + labelSpan + ' <span class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(externalId) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonName + '">...</span></td>';
+                    var title = 'Click to find out what ' + ' ' + $('#interactionType :selected').text() + '.';
+                    var labelSpan = '<div class="taxonFollow" onclick="followTaxon(this)" title="' + title + '" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonName + '">' + label + '</div>';
+                    label = labelSpan + ' <div class="taxonLinkShow ' + className(taxonInfo.scientificName) + ' ' + className(externalId) + '" title="show taxon links" onclick="showTaxonLinks(this)" data-taxon-external-id="' + externalId + '" data-taxon-name="' + taxonName + '">...</div>';
                     if (taxonInfo.infoURL) {
-                        var link = '<table><tr><td>';
+                        var link = '';
                         var image = '';
                         if (taxonInfo.thumbnailURL) {
                             image = '<a href="' + taxonInfo.infoURL + '"><img src="' + taxonInfo.thumbnailURL + '"/></a>';
                         }
-                        label = link + image + '</td></tr><caption align="bottom">' + label + '</caption></table>';
+                        label = link + image + label;
                     }
                     $('.' + className(externalId)).html(label);
 

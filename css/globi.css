@@ -147,27 +147,8 @@ div.figure p {
  
 .menu li:hover > a { color: rgba(0,0,255,.9); }
 
-thead {
-  border-bottom: 1px solid #000;
-}
-
-tr.interaction:nth-child(even) {
-  background: #ccc;
-}
-
-tr.interaction td {
-  border: none;
-  vertical-align: top;
-}
-
-tr.interaction td li {
-  list-style-type: none;
-  margin-bottom: 8px;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  -ms-word-break: break-all;
-  word-break: break-all;
-  word-break: break-word;
+.interaction:nth-child(even) {
+  background: lightgray;
 }
 
 @media (max-width: 767px) {
@@ -178,51 +159,52 @@ tr.interaction td li {
   .ui-widget {
     clear: both;
   }
+}
 
-  table, tr {
-    display: block;
-    max-width: 100%;
-  }
-  
-  td {
-    display: block;
-  }
-  
-  thead {
-    display: none;
-  }
-  
-  tr.interaction td table {
-    display: block;
-  }
-  
-  tr.interaction td table, tr.interaction td li {
-    clear: both;
-    margin-top: 10px;
-  }
-  
-  tr.interaction td table tbody, tr.interaction td table tr, tr.interaction td table td {
-    display: block;
-    float: left;
-  }
-  
-  tr.interaction > td {
-    margin-left: auto;
-    margin-right: auto;
-  }
+.search {
+    display: flex;
+    flex-direction: column;
+}
 
-  tr.interaction > td:nth-child(2) {
-    font-size: 120%;
-    display: block;
-    clear: both;
-    padding: 10px;
-    text-align: center;
-  }
+.search-example .search-query .search-summary {
+    display: flex;
+    flex-direction: column;
 }
 
 .taxonLinkIcons {
     display: flex;
     flex-direction: row;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    font-size: 100%;
+}
+
+.search-result {
+    padding: 3em;
+}
+
+.search-result-phrase {
+    display: flex;
+    flex-direction: row;
+}
+
+.supported:before {
+    content: "Supported by:";
+}
+
+.search-result-phrase > div {
+    flex: 3;
+}
+
+.search-result-phrase > div:nth-of-type(2) {
+    flex: 1;
+}
+
+.search-result li {
+    list-style: none;
 }
 
 img.taxonLinkIcon {
