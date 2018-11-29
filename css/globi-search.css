@@ -1,0 +1,45 @@
+.search {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-example .search-query .search-summary {
+    display: flex;
+    flex-direction: column;
+}
+
+.taxonLinkIcons {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: column;
+    font-size: 100%;
+}
+
+.search-result {
+    padding: 3em;
+}
+
+.search-result-phrase {
+    display: flex;
+    flex-direction: row;
+}
+
+.supported:before {
+    content: "Supported by:";
+}
+
+.search-result-phrase > div {
+    flex: 3;
+}
+
+.search-result-phrase > div:nth-of-type(2) {
+    flex: 1;
+}
+
+.search-result li {
+    list-style: none;
+}
