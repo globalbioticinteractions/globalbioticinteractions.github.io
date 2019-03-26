@@ -16,7 +16,7 @@ GloBI's [incomplete](./contribute) aggregated interaction dataset archives:
  * [taxonCache.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/taxa/taxonCache.tsv.gz) contains hierarchies and identifiers associated with names from naming schemes in a gzipped tab-separated values format. 
  * [darwin core-ish archive](https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core.zip) contains species interactions data as a [Darwin Core Archive](http://rs.tdwg.org/dwc/) using a custom, occurrence level, association extension. 
  * [darwin core-ish archive aggregated by study](https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-darwin-core-aggregated.zip) contains species interactions data as a [Darwin Core Archive](http://rs.tdwg.org/dwc/) aggregated by study using a custom, occurrence level, association extension. 
- * [neo4j v1.9.9 graph database](https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-neo4j-graph-db.zip) contains a [neo4j](https://neo4j.org) database snapshot containing a graph representation of the species interaction data. 
+ * [neo4j v2.3.12 graph database](https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-neo4j-graph-db.zip) contains a [neo4j](https://neo4j.org) database snapshot containing a graph representation of the species interaction data. 
 
 When using this data, please make sure to attribute the original data contributors.
 
