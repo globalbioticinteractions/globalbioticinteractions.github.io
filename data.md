@@ -10,7 +10,7 @@ Exploratory, interactive queries can be executed through [SPARQL](https://lod.gl
 GloBI's [incomplete](./contribute) aggregated interaction dataset archives:
 
  * [interactions.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.tsv.gz) contains species interactions tabulated as pair-wise interactions in a gzipped tab-separated values format.
- * [interactions.csv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/tsv/interactions.csv.gz) contains species interactions tabulated as pair-wise interactions in a gzipped comma-separated values format. 
+ * [interactions.csv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/csv/interactions.csv.gz) contains species interactions tabulated as pair-wise interactions in a gzipped comma-separated values format. 
  * [interactions.nq.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/interactions.nq.gz) contains species interactions expressed in the [resource definition framework](https://www.w3.org/RDF/) in a gzipped rdf/quads format.
  * [taxonMap.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/taxa/taxonMap.tsv.gz) describes how names in existing datasets were mapped into existing naming schemes in a gzipped tab-separated values format.
  * [taxonCache.tsv.gz](https://depot.globalbioticinteractions.org/snapshot/target/data/taxa/taxonCache.tsv.gz) contains hierarchies and identifiers associated with names from naming schemes in a gzipped tab-separated values format. 
