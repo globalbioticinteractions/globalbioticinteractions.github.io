@@ -2,6 +2,7 @@
 layout: post
 title: Desert Island
 date: 2018-03-10
+excerpt: What happens if GloBI is no longer maintained?
 categories:
 - bioinformatics
 - biology

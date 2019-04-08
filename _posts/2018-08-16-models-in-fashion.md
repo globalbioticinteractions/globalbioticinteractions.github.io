@@ -2,6 +2,7 @@
 layout: post
 title: Models in Fashion
 date: 2018-08-16
+excerpt: GloBI adapts to whatever contributors decided to express their digital data in and currently supports over 40+ flavors of species interaction data formats. This makes GloBI both fashionable and unfashionable – newer, hipper formats/models are supported as well as those that have been around for a while. Being fashionable has the advantage of appealing to the new hip kids in town. Supporting the older formats, however, might actually be crucial to preserve valuable datasets from previous generations.
 categories:
 - bioinformatics
 - biology
