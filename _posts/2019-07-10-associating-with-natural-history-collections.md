@@ -29,16 +29,19 @@ Natural history collections contain essential building blocks for our scholarly 
 
 My first introduction to Arctos was through [Kayce Bell](http://www.kaycebell.com), who I met at the [Open Tree of Life Hack-a-thon in 2014](https://www.globalbioticinteractions.org/2014/10/24/eating-of-pudding#open-tree-hack-a-thon). I learned that she had painstakingly gone through existing chipmunk (Tamias sp.) specimens and extracted parasite specimens from their bodies. She used Arctos not only to record specimen details, but also to establish an explicit relationship between the host, the chipmunk, and the parasite feeding on it (e.g., [http://arctos.database.museum/guid/MSB:Para:27069](http://arctos.database.museum/guid/MSB:Para:27069)).
 
-Years later, at the [2nd Annual Digital Data in Biodiversity Research Conference in Berkeley, CA](https://www.idigbio.org/wiki/index.php/Digital_Data_in_Biodiversity_Research_Conference,_Berkeley), I was fortunate to have [lunch](http://curiositydata.org/Meeting-the-Modern-Naturalists_at_the_digital_data_conference/#highlights-with-links) with Mariel Campbell, current Arctos working group chair, and [Ciera Martinez](http://cierareports.org), an evolutionary biologist and lover of all things data. In this lunch conversation, I learned that Arctos is not just a carefully designed and maintained collection-management system, but also a thriving, active, self-governing, community that provides research-grade data, [training](https://www.youtube.com/watch?v=miVsxdMuGEs) and a [let's-make-it-work subscription model](https://arctosdb.org/join-arctos/financial-contributions/).
-
-<div class="figure figure-globi right"><a href="https://www.spnhcchicago2019.com" target="_blank"><img
-        src="/assets/spnhc2019.webp" alt="SPNHC 2019"/></a>
+<div class="figure figure-globi right">
+    <img src="/assets/chipmunk.jpg" alt="Chipmunk (Tamias sp.) specimens."/>
+    <img src="/assets/chipmunk_lice.jpg" alt="Chipmunk lice (Hoplopleura sp.) specimens."/>
 
     <div class="figcaption">
-        <p>Attendees of the 2019 Annual Meeting of the Society for Preservation of Natural History Collections in the Chicago Hilton. The conference was co-organized by the <a href="https://fieldmuseum.org" target="_blank">Field Museum</a>.
+        <p>Example of chipmunk (Tamias sp., top) and parasitic lice (Hoplopleura, bottom) specimens (with chipmunk hair!) that Kayce worked with. Chipmunk image courtesy of Adrienne Raniszewski. Lice image provided by Kayce Bell. 
         </p>
     </div>
 </div>
+
+
+Years later, at the [2nd Annual Digital Data in Biodiversity Research Conference in Berkeley, CA](https://www.idigbio.org/wiki/index.php/Digital_Data_in_Biodiversity_Research_Conference,_Berkeley), I was fortunate to have [lunch](http://curiositydata.org/Meeting-the-Modern-Naturalists_at_the_digital_data_conference/#highlights-with-links) with Mariel Campbell, current Arctos working group chair, and [Ciera Martinez](http://cierareports.org), an evolutionary biologist and lover of all things data. In this lunch conversation, I learned that Arctos is not just a carefully designed and maintained collection-management system, but also a thriving, active, self-governing, community that provides research-grade data, [training](https://www.youtube.com/watch?v=miVsxdMuGEs) and a [let's-make-it-work subscription model](https://arctosdb.org/join-arctos/financial-contributions/).
+
 Some weeks ago, at the [2019 Annual Meeting of the Society for Preservation of Natural History Collections in Chicago](https://www.spnhcchicago2019.com), I reconnected with Mariel and also met Teresa Mayfield-Meyer, current Arctos working group treasurer. Soon after some more exciting conversations on the benefits of linking data, we built the first bidirectional link between Arctos and GloBI, with the technical support of Dusty McDonald. With this integration, you can more easily [find Kayce's chipmunk parasite specimens](https://globalbioticinteractions.org/?interactionType=hasParasite&sourceTaxon=Tamias%20speciosus) and [related research](https://globalbioticinteractions.org/references?interactionType=hasParasite&sourceTaxon=Tamias%20speciosus), such as [Baker et al. 2017](#baker) and [Durden et al. 1994](#durden) as well as Kayce's research paper ([Bell et al. 2015](#bell)). 
 
 Just like it took generations to come up with strategies to preserve physical specimens, I expect it will take years, or perhaps even decades, to create sustained and useful links between digital datasets. I am hoping to continue to draw inspiration from curators and natural history collection managers through communities like Arctos to help contribute to improving ways to access our digital legacy.
@@ -54,4 +57,4 @@ Ed Baker; Ian J. Kitching; George W. Beccaloni; Amoret Whitaker; Steen Dupont; V
 Bell, K. C., Matek, D., Demboski, J. R., & Cook, J. A. (2015). Expanded Host Range of Sucking Lice and Pinworms of Western North American Chipmunks. Comparative Parasitology, 82(2), 312–321. [doi:10.1654/4756.1](https://doi.org/10.1654/4756.1).
 
 <span id="durden"></span>
-Durden, Lance A., and Guy A. Musser. The Sucking Lice (Insecta, Anoplura) of the World: A Taxonomic Checklist with Records of Mammalian Hosts and Geographical Distributions. Bulletin of the AMNH; No. 218. New York: American Museum of Natural History, 1994. Web. Also see [http://hdl.handle.net/2246/825](http://hdl.handle.net/2246/825). 
+Durden, Lance A., and Guy A. Musser. The Sucking Lice (Insecta, Anoplura) of the World: A Taxonomic Checklist with Records of Mammalian Hosts and Geographical Distributions. Bulletin of the AMNH; No. 218. New York: American Museum of Natural History, 1994. Web. Also see [http://hdl.handle.net/2246/825](http://hdl.handle.net/2246/825).
