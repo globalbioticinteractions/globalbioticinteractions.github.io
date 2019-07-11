@@ -73,11 +73,12 @@ title: status
         img.setAttribute('src', 'https://img.shields.io/github/issues/' + source.name + '.svg');
 
         var a = appendLink(tr);
-        var datasetDisplayUrl = '/?accordingTo=' + source.study_source_id;
+        var defaultQuery = '?interactionType=ecologicallyRelatedTo&accordingTo=' + source.study_source_id;
+        var datasetDisplayUrl = '/' + defaultQuery;
         a.setAttribute('href', datasetDisplayUrl);
         a.setAttribute('target', '_blank');
         var img = a.appendChild(document.createElement('img'));
-        img.setAttribute('src', 'https://api.globalbioticinteractions.org/interaction.svg?accordingTo=' + source.study_source_id);
+        img.setAttribute('src', 'https://api.globalbioticinteractions.org/interaction.svg' + defaultQuery);
 
         var hasStats = function (source) {
             return source.number_of_interactions !== undefined
