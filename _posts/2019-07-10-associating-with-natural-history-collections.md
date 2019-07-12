@@ -31,10 +31,14 @@ My first introduction to Arctos was through [Kayce Bell](http://www.kaycebell.co
 
 <div class="figure figure-globi right">
     <img src="/assets/chipmunk.jpg" alt="Chipmunk (Tamias sp.) specimens."/>
+    <div class="figcaption">
+        <p>Example of chipmunk specimens that Kayce worked with. Top to bottom: <em>Tamias townsendii</em> (<a href="http://arctos.database.museum/guid/MSB:Mamm:233582">MSB:Mamm:233582</a>), <em>Tamias speciosus</em> (<a href="http://arctos.database.museum/guid/MSB:Mamm:259343">MSB:Mamm:259343</a>), <em>Tamias amoenus</em> (<a href="http://arctos.database.museum/guid/MSB:Mamm:269867">MSB:Mamm:269867</a>). Image courtesy of Adrienne Raniszewski. 
+        </p>
+    </div>
     <img src="/assets/chipmunk_lice.jpg" alt="Chipmunk lice (Hoplopleura sp.) specimens."/>
 
     <div class="figcaption">
-        <p>Example of chipmunk (Tamias sp., top) and parasitic lice (Hoplopleura, bottom) specimens (with chipmunk hair!) that Kayce worked with. Chipmunk image courtesy of Adrienne Raniszewski. Lice image provided by Kayce Bell. 
+        <p>Example parasitic lice (<em>Hoplopleura arboricola</em>) specimens (with chipmunk hair!) extacted from a chipmunk specimen. Image provided by Kayce Bell. 
         </p>
     </div>
 </div>
