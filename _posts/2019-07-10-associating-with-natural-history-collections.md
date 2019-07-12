@@ -38,7 +38,7 @@ My first introduction to Arctos was through [Kayce Bell](http://www.kaycebell.co
     <img src="/assets/chipmunk_lice.jpg" alt="Chipmunk lice (Hoplopleura sp.) specimens."/>
 
     <div class="figcaption">
-        <p>Example parasitic lice (<em>Hoplopleura arboricola</em>) specimens (with chipmunk hair!) extacted from a chipmunk specimen. Image provided by Kayce Bell. 
+        <p>Example of parasitic lice (<em>Hoplopleura arboricola</em>) specimens (with chipmunk hair!) extacted from a chipmunk specimen. Image provided by Kayce Bell. 
         </p>
     </div>
 </div>
