@@ -1,5 +1,5 @@
 function appendLinkElem(parentElem, study) {
-    if (study.url) {
+    if (study.url && study.url.match(/^http/)) {
         var linkElem = document.createElement('a');
         linkElem.setAttribute('href', study.url);
         linkElem.setAttribute('title', study.citation);
