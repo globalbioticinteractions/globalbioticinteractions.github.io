@@ -1,0 +1,139 @@
+---
+layout: browser
+title: browse
+permalink: browse/
+---
+<script src="/js/links.js"></script>
+<script src="/js/globi-web-min.js"></script>
+<script>
+    var globiData = globiWeb.globi.globiData;
+    var Spinner = globiWeb.Spinner;
+
+
+    function appendSpinner(target) {
+        var SpinnerOptions = {
+            lines: 13, // The number of lines to draw
+            length: 10, // The length of each line
+            width: 5, // The line thickness
+            radius: 20, // The radius of the inner circle
+            corners: 1, // Corner roundness (0..1)
+            rotate: 0, // The rotation offset
+            direction: 1, // 1: clockwise, -1: counterclockwise
+            color: '#a0a0a0', // #rgb or #rrggbb or array of colors
+            speed: 1, // Rounds per second
+            trail: 60, // Afterglow percentage
+            hwaccel: false, // Whether to use hardware acceleration
+            className: 'spinner', // The CSS class to assign to the spinner
+            zIndex: 2e9 // The z-index (defaults to 2000000000)
+        };
+        return new Spinner(SpinnerOptions).spin(document.querySelector(target));
+    }
+
+    var panels = globiWeb.panels();
+    panels.appendTo(document.body);
+
+
+    var helpHtml = '<div id="welcome">' +
+            '<h1>Welcome to the GloBI Interaction Browser!</h1>' +
+            '<p>Please click on a marker or select an area to display species interactions!</p>' +
+            '<p><a target="_blank" href="http://blog.globalbioticinteractions.org">Learn more about GloBI</a>' +
+            '</p></div>';
+    document.body.querySelector(panels.topLeftContainer).innerHTML = helpHtml;
+
+    globiWeb.widgets = [
+        {factory: globiWeb.hairball, target: panels.bottomLeftContainer, help: 'hairball'},
+        {factory: globiWeb.bundle, target: panels.bottomRightContainer, help: 'bundle-diagram'},
+        {factory: globiWeb.searchResult, target: panels.topLeftContainer, spinnerTarget: '#result-list', help: 'interaction-search'}
+    ];
+
+    var loadSearchParams = function () {
+        var searchParameters = { sourceTaxon: 'Chelonia mydas' };
+        var hash = document.location.search || document.location.hash;
+        if (hash && hash.length > 1) {
+            var queryOnly = hash.substring(1);
+            searchParameters = globiWeb.queryString.parse(queryOnly);
+        }
+        return searchParameters;
+    };
+
+    var searchParameters = loadSearchParams();
+    var searchContext = globiWeb.searchContext(searchParameters);
+    var dataContext = globiWeb.dataContext(searchContext);
+    var search = globiWeb.search({searchContext: searchContext});
+
+    search.appendTo('#taxon-filter');
+
+    var spatialSelector = globiWeb.spatialSelector(searchContext);
+    spatialSelector.appendTo(panels.topRight);
+
+    searchContext.on('searchcontext:searchparameterchange', function () {
+        saveQuery(globiWeb.queryString.stringify(searchContext.searchParameters));
+        globiWeb.widgets.forEach(function (w) {
+            var oldWidgetContainer = document.querySelector(w.target);
+            while (oldWidgetContainer.firstChild) {
+                oldWidgetContainer.removeChild(oldWidgetContainer.firstChild);
+            }
+            w.spinner = appendSpinner(w.spinnerTarget || w.target);
+        });
+        appendWidgets();
+    });
+
+    searchContext.emit('searchcontext:searchparameterchange', searchContext.searchParameters);
+
+    addPopState(function() {
+        search.sourceSelector.update(search);
+        search.targetSelector.update(search);
+        search.typeSelector.update(search);
+        searchContext.update(loadSearchParams());
+    });
+
+    var treeSpinner, wheelSpinner, bundleSpinner;
+
+    var showAreaInfos = function (element) {
+        searchContext.update(JSON.parse(element.dataset.spatialSelection));
+    };
+
+    function appendWidgets() {
+        globiWeb.widgets.forEach(function (w, index) {
+            var panel = document.querySelector(w.target).parentElement;
+            var canvasDimension = { height: panel.offsetHeight, width: panel.offsetWidth };
+            var widget = w.factory({ searchContext: searchContext, canvasDimension: canvasDimension });
+            widget.on('append', function (target) {
+                var helpButton = target.parentElement.querySelector('.btn-info');
+                if (helpButton) {
+                    helpButton.addEventListener('click', function () {
+                        var win = window.open('https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/wiki#' + w.help, '_blank');
+                        win.focus();
+                    });
+                }
+            });
+            function removeTooltips() {
+                var tooltips = document.querySelectorAll('.taxon-tool-tip');
+                for (var i = 0; tooltips && i < tooltips.length; ++i) {
+                    tooltips[i].parentElement.removeChild(tooltips[i]);
+                }
+            }
+
+            widget.on('select', function (target) {
+                removeTooltips();
+                var tooltip = document.createElement('div');
+                tooltip.onclick = function (scientificName) {
+                    removeTooltips();
+                };
+                var closeElem = document.createElement('div');
+                closeElem.setAttribute('class', 'btn');
+                closeElem.textContent = 'x';
+                tooltip.appendChild(closeElem);
+                tooltip.setAttribute('class', 'taxon-tool-tip');
+                tooltip.setAttribute('style', 'z-index: 3; width: 10em; height: 10em; left: ' + target.x + 'px; top:' + target.y + 'px;position: absolute; background: transparent');
+                document.body.insertBefore(tooltip, document.body.firstChild);
+                globiWeb.globi
+                        .createTaxonInfo(target.name)
+                        .appendTaxonInfoTo(tooltip);
+            });
+            widget.appendTo(w.target);
+        });
+    }
+
+
+</script>
