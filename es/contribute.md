@@ -20,7 +20,7 @@ i18n-link: contribute
 
 <h2 id="share-data">Comparte tus datos</h2>
 
-<p>Existen varios métodos para compartir información existente sobre interacciones a través de GloBI:</p>
+<p>Existen varios métodos para compartir información sobre interacciones a través de GloBI:</p>
 
 
 
