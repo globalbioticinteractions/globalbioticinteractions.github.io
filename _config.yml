@@ -28,6 +28,31 @@ defaults:
   -
     scope: 
       path: ""
-      type: "posts"
     values:
+      lang: en
+  - 
+    scope:
+      path: ""
+      type: "posts"
+    values: 
       permalink: /:year/:month/:day/:title/
+  -
+    scope:
+      path: es
+    values:
+      lang: es
+      base-url: "/es/"
+
+# Value to use into url per language
+langs-value:
+    en: ""
+    es: es
+
+# Translation
+t:
+    language:
+        en: "English"
+        es: "Español"
+    contribute:
+        en: "contribute"
+        es: "colaborar"

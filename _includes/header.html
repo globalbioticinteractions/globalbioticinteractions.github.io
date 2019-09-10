@@ -17,10 +17,22 @@
             </label>
 
             <div class="trigger">
-                {% for my_page in site.pages %}
-                {% if my_page.title %}
-                <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-                {% endif %}
+                {% assign my_pages=site.pages | where:"lang", page.lang %}
+                {% for my_page in my_pages  %}
+                  {% if my_page.title %}
+                    <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+                  {% endif %}
+                {% endfor %}
+                
+                {% assign translated_pages_by_language=site.pages | where_exp:"item", "item.lang != page.lang" | group_by:"lang" %}
+                {% for translated_pages_for_language in translated_pages_by_language %}
+                    {% assign translated_pages = translated_pages_for_language.items | where:"i18n-link", page.i18n-link %}
+                    {% if translated_pages.size == 0 %}
+                        {% assign translated_page = translated_pages_for_language.items[0] %}
+                    {% else %}
+                        {% assign translated_page = translated_pages[0] %}
+                    {% endif %}
+                    <span><a class="{{ translated_page.name }}" href="{{ site.base-url }}{{ translated_page.url }}">{{ site.t.language[translated_page.lang] }}</a></span>
                 {% endfor %}
             </div>
         </nav>

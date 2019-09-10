@@ -1,6 +1,7 @@
 ---
 layout: default
 title: contribute
+i18n-link: contribute
 ---
 
 You can contribute to Global Biotic Interactions in many different ways: [use it](#use-it), [join a discussion](#join-a-discussion), [share data](#share-data), [contribute code](#contribute-code) or [donate](#donate).
