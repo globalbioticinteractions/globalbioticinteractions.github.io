@@ -53,6 +53,122 @@ t:
     language:
         en: "English"
         es: "Español"
-    contribute:
-        en: "contribute"
-        es: "colaborar"
+    example-query:
+        en: "Example query"
+        es: "Por ejemplo"
+    what-do-sea-otters-eat:
+        en: "What do sea otters (<em>Enhydra lutris</em>) eat?"
+        es: "Que come la nutria (<em>Enhydra lutris</em>)?"
+    or:
+        en: "or"
+        es: "o"
+    what-do-honey-bees-pollinate:
+        en: "What do honey bees (Apis) pollinate?"
+        es: "Que plantas poliniza la abeja mielera (Apis)?"
+    what-kind-of:
+        en: "What kind of"
+        es: "Que tipo de"
+    do:
+        en: "do"
+        es: "hace"
+    more:
+        en: "more"
+        es: "more"
+    none:
+        en: "none"
+        es: "none"
+    refuted-by:
+        en: "Refuted by"
+        es: "Refuted by"
+    supported-by:
+        en: "Supported by"
+        es: "Refuted by"
+    according-to:
+        en: "according to"
+        es: "de acuerdo a"
+    organisms:
+        en: "organisms"
+        es: "organismos"
+    plenty-of-things:
+        en: "plenty of things"
+        es: "plenty of things"
+    missing-some-results:
+        en: "Missing some results?"
+        es: "Missing some results?"
+    please-share-your-dataset:
+        en: "Please share your dataset!"
+        es: "Please share your dataset!"
+    have-suggestions:
+        en: "Have suggestions?"
+        es: "Have suggestions?"
+    let-us-know:
+        en: "Let us know."
+        es: "Let us know."
+    like-a-different-view:
+        en: "Like a different view?"
+        es: "Like a different view?"
+    open-results-in-browser:
+        en: "Open results in interaction browser"
+        es: "Open results in interaction browser"
+    list-the-references:
+        en: "list the references"
+        es: "list the references"
+    interacts-with:
+        en: "interacts with"
+        es: "interacts with"
+    relate-to:
+        en: "relate to"
+        es: "relate to"
+    eat:
+        en: "eat"
+        es: "eat"
+    get-eaten-by:
+        en: "get eaten by"
+        es: "get eaten by"
+    preys-on:
+        en: "preys on"
+        es: "preys on"
+    get-preyed-on-by:
+        en: "get preyed on by"
+        es: "get preyed on by"
+    parasitize:
+        en: "parasitize"
+        es: "parasitize"
+    get-parasitized-by:
+        en: "get parasitized by"
+        es: "get paratisized by"
+    is-symbiont-of:
+        en: "is symbiont of"
+        es: "is symbiont of"
+    visits-flowers-of:
+        en: "visits flowers of"
+        es: "visits flowers of"
+    flowers-visited-by:
+        en: "flowers visited by"
+        es: "flowers visited by"
+    pollinate:
+        en: "pollinate"
+        es: "pollinate"
+    get-pollinated-by:
+        en: "get pollinated by"
+        es: "get pollinated by"
+    infect:
+        en: "infect"
+        es: "infect"
+    get-infected-by:
+        en: "get infected by"
+        es: "get infected by"
+    spread:
+        en: "spread"
+        es: "spread"
+    get-spread-by:
+        en: "get spread by"
+        es: "get spread by"
+    kill:
+        en: "kill"
+        es: "kill"
+    is-killed-by:
+        en: "is killed by"
+        es: "is killed by"
+        
+
