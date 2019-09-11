@@ -197,8 +197,7 @@ var searchForInteractions = function (offset) {
 
         var loadImagesAndNames = function (distinctExternalIds) {
             Object.keys(distinctExternalIds).forEach(function (externalId) {
-                val opts = { lang: {{ page.lang }} }
-                globiData.findTaxon(externalId, opts, function (taxonInfo) {
+                globiData.findTaxonInfo(externalId, function (taxonInfo) {
                     var label = externalId;
                     var labelStr = externalId;
                     var taxonName = externalId;
