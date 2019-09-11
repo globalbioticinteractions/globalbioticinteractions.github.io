@@ -14,7 +14,7 @@
     "deep": "0.0.2",
     "extend": "^3.0.0",
     "format-number": "^2.0.1",
-    "globi": "~0.0.72",
+    "globi": "~0.1.1",
     "inherits": "^2.0.1",
     "jquery": "^2.1.4",
     "jquery-ui": "1.10.5",
