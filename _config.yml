@@ -75,8 +75,8 @@ t:
         en: "more"
         es: "más"
     none:
-        en: "none"
-        es: "ninguno"
+        en: "None"
+        es: "Ninguno"
     refuted-by:
         en: "Refuted by"
         es: "Rechazado por"
