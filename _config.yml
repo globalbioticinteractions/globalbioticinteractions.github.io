@@ -77,6 +77,14 @@ t:
     none:
         en: "None"
         es: "Ninguno"
+    nothing:
+        en: "nothing"
+        es: "nothing"
+    search-suggestion:
+        en: >
+          nothing that we are aware of. Please make sure to use <a href="https://en.wikipedia.org/wiki/Taxon">scientific taxon names</a> to describe the organism that you are interested in. For instance, instead of searching for "guppy", use <a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>.
+        es: >
+          nothing that we are aware of. Please make sure to use <a href="https://en.wikipedia.org/wiki/Taxon">scientific taxon names</a> to describe the organism that you are interested in. For instance, instead of searching for "guppy", use <a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>.
     refuted-by:
         en: "Refuted by"
         es: "Rechazado por"
