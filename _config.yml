@@ -58,31 +58,31 @@ t:
         es: "Por ejemplo"
     what-do-sea-otters-eat:
         en: "What do sea otters (<em>Enhydra lutris</em>) eat?"
-        es: "Que come la nutria (<em>Enhydra lutris</em>)?"
+        es: "Qué come la nutria (<em>Enhydra lutris</em>)?"
     or:
         en: "or"
         es: "o"
     what-do-honey-bees-pollinate:
-        en: "What do honey bees (Apis) pollinate?"
-        es: "Que plantas poliniza la abeja mielera (Apis)?"
+        en: "What do honey bees (<em>Apis</em>) pollinate?"
+        es: "Qué plantas poliniza la abeja mielera (<em>Apis</em>)?"
     what-kind-of:
         en: "What kind of"
-        es: "Que tipo de"
+        es: "Qué tipo de"
     do:
         en: "do"
         es: "hace"
     more:
         en: "more"
-        es: "more"
+        es: "más"
     none:
         en: "none"
-        es: "none"
+        es: "ninguno"
     refuted-by:
         en: "Refuted by"
-        es: "Refuted by"
+        es: "Rechazado por"
     supported-by:
         en: "Supported by"
-        es: "Refuted by"
+        es: "Aprobado por"
     according-to:
         en: "according to"
         es: "de acuerdo a"
@@ -91,84 +91,84 @@ t:
         es: "organismos"
     plenty-of-things:
         en: "plenty of things"
-        es: "plenty of things"
+        es: "muchas cosas"
     missing-some-results:
         en: "Missing some results?"
-        es: "Missing some results?"
+        es: "Falta algún resultado?"
     please-share-your-dataset:
         en: "Please share your dataset!"
-        es: "Please share your dataset!"
+        es: "¡Por favor comparte tus datos!"
     have-suggestions:
         en: "Have suggestions?"
-        es: "Have suggestions?"
+        es: "¿Tienes alguna sugerencia?"
     let-us-know:
         en: "Let us know."
-        es: "Let us know."
+        es: "Haznos saber."
     like-a-different-view:
         en: "Like a different view?"
-        es: "Like a different view?"
+        es: "¿Te gustaría una vista diferente?"
     open-results-in-browser:
         en: "Open results in interaction browser"
-        es: "Open results in interaction browser"
+        es: "Resultados en el navegador de interacciones"
     list-the-references:
         en: "list the references"
-        es: "list the references"
+        es: "lista de referencias"
     interacts-with:
         en: "interacts with"
-        es: "interacts with"
+        es: "interactua con"
     relate-to:
         en: "relate to"
-        es: "relate to"
+        es: "relacionado con"
     eat:
         en: "eat"
-        es: "eat"
+        es: "come"
     get-eaten-by:
         en: "get eaten by"
-        es: "get eaten by"
+        es: "es comida de"
     preys-on:
         en: "preys on"
-        es: "preys on"
+        es: "es presa de"
     get-preyed-on-by:
         en: "get preyed on by"
-        es: "get preyed on by"
+        es: "es depredado por"
     parasitize:
         en: "parasitize"
-        es: "parasitize"
+        es: "es parasito de"
     get-parasitized-by:
         en: "get parasitized by"
-        es: "get paratisized by"
+        es: "es parasitado por"
     is-symbiont-of:
         en: "is symbiont of"
-        es: "is symbiont of"
+        es: "es simbionte de"
     visits-flowers-of:
         en: "visits flowers of"
-        es: "visits flowers of"
+        es: "visita las flores de"
     flowers-visited-by:
         en: "flowers visited by"
-        es: "flowers visited by"
+        es: "flores visitadas por"
     pollinate:
         en: "pollinate"
-        es: "pollinate"
+        es: "poliniza a"
     get-pollinated-by:
         en: "get pollinated by"
-        es: "get pollinated by"
+        es: "es polinizado por"
     infect:
         en: "infect"
-        es: "infect"
+        es: "infecta a"
     get-infected-by:
         en: "get infected by"
-        es: "get infected by"
+        es: "es infectado por"
     spread:
         en: "spread"
-        es: "spread"
+        es: "dispersa a"
     get-spread-by:
         en: "get spread by"
-        es: "get spread by"
+        es: "es dispersado por"
     kill:
         en: "kill"
-        es: "kill"
+        es: "mata a"
     is-killed-by:
         en: "is killed by"
-        es: "is killed by"
+        es: "lo mata"
         
 
