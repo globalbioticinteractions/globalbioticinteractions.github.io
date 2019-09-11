@@ -58,7 +58,7 @@ function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctI
         }
     }
 
-    var linkToBrowser = ' {{ site.t.like-a-different-view[page.lang] }} <a href="browse/index.html' + document.location.search.replace(/^\?/, '#') + '" target="_blank">{{ site.t.open-results-in-browser[page.lang] }}</a> ';
+    var linkToBrowser = ' {{ site.t.like-a-different-view[page.lang] }} <a href="browse' + document.location.search.replace(/^\?/, '?') + '" target="_blank">{{ site.t.open-results-in-browser[page.lang] }}</a> ';
 
     var linkToCitations = ', or <a href="/references.html' + document.location.search.replace(/^\?/, '#') + '" target="_blank">{{ site.t.list-the-references[page.lang] }}</a>.';
 
