@@ -234,7 +234,7 @@ Example from extracted from [https://www.inaturalist.org/observation_field_value
 
 Note that the JSON file is full of identifiers in nested structures. While the JSON structure does not follow any particular standard, you can derive most of the meaning by reading the text and squinting your eyes a little. With <a href="https://travis-ci.org/globalbioticinteractions/inaturalist" target="_blank">automated integration checks</a>, GloBI is able to verify that the integration is still alive and that iNaturalist developers did not change the data format. Also, checks are in place to help pick up new observation fields so that they can be mapped to interaction terms that GloBI understands. 
 
-[GloBI's API](https://github.com/jhpoelen/eol-globi-data/wiki/API) supports JSON to help make it easier for web developers and other tech-savvy people to integrate species interaction records into their workflows.
+[GloBI's API](https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/API) supports JSON to help make it easier for web developers and other tech-savvy people to integrate species interaction records into their workflows.
 
 ### RDF/Owl/JSON-LD
 
@@ -407,4 +407,4 @@ GloBI uses an internal representation to help link species interaction records a
 
 While I sometimes find it tempting to say that some data formats are better than others, I know from experience that the most beautiful datasets are those that are actively maintained, shared and accessed. As long as the data is valuable, humans and machines alike will figure out a way to store or parse it in order to keep it alive.
 
-If you'd like to share additional examples of species associations in digital formats, please send <a href="mailto:info@globalbioticinteractions.org?subject=I'd like to share my species interaction dataset and tell you all about it&body=Hi! [start typing now]">an email</a>, join the <a href="https://lists.gbif.org/mailman/listinfo/globi">GloBI mailing list</a>, open an <a href="https://github.com/jhpoelen/eol-globi-data/issues/new">GitHub issue</a> or have a conversation with your neighbor. 
+If you'd like to share additional examples of species associations in digital formats, please send <a href="mailto:info@globalbioticinteractions.org?subject=I'd like to share my species interaction dataset and tell you all about it&body=Hi! [start typing now]">an email</a>, join the <a href="https://lists.gbif.org/mailman/listinfo/globi">GloBI mailing list</a>, open an <a href="https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new">GitHub issue</a> or have a conversation with your neighbor. 

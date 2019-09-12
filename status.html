@@ -8,24 +8,24 @@ title: status
         continually discovers and revisits data sources to include recent updates or changes. This page gives you some
         insight into which data sources are used, where they are located, and what their status is. If you are
         interested to learn about dataset/source management, please go <a
-                href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management" target="_blank">here</a>, or perhaps read the blog post <a href="http://www.globalbioticinteractions.org/2017/01/24/lifestages-of-species-interaction-datasets/" target="_blank">"Lifestages of Species Interaction Datasets"</a>.</p>
+                href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management" target="_blank">here</a>, or perhaps read the blog post <a href="http://www.globalbioticinteractions.org/2017/01/24/lifestages-of-species-interaction-datasets/" target="_blank">"Lifestages of Species Interaction Datasets"</a>.</p>
 
-    <p>Please <a href="https://github.com/jhpoelen/eol-globi-data" target="_blank">submit an issue</a> for suggestions
+    <p>Please <a href="https://github.com/globalbioticinteractions/globalbioticinteractions" target="_blank">submit an issue</a> for suggestions
         or bugs.</p>
 
 
     <div id="status">loading...</div>
     <table id="sources">
         <tr>
-            <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#readability"
+            <th><a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#readability"
                    title="What make a source readable?">readable</a></th>
-            <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#issues"
+            <th><a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#issues"
                    title="How many known issue does this source have?">issues</a></th>
-            <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#searchability"
+            <th><a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#searchability"
                    title="What makes a source searchable?">search</a></th>
-            <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability"
+            <th><a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#citability"
                    title="What makes a source citable?">citable</a></th>
-            <th><a href="https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#stats"
+            <th><a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#stats"
                    title="How many interactions/names this source have? What is the name match percentage? When did GloBI last check the dataset?">stats</a>
             </th>
             <th></th>
@@ -105,7 +105,7 @@ title: status
                 statsStatus = 'yellow';
             }
 
-            var matchInfoUrl = 'https://github.com/jhpoelen/eol-globi-data/wiki/Taxonomy-Matching';
+            var matchInfoUrl = 'https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Taxonomy-Matching';
             if (nameMatchRatio < 1) {
                 matchInfoUrl = datasetDisplayUrl + '&sourceTaxon=no%3Amatch';
             }
@@ -128,7 +128,7 @@ title: status
         var a = appendLink(tr);
 
         if (source.doi === undefined || source.doi === null || source.doi.trim().length == 0) {
-            a.setAttribute('href', 'https://github.com/jhpoelen/eol-globi-data/wiki/Dataset-Management#citability');
+            a.setAttribute('href', 'https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#citability');
             a.setAttribute('target', '_blank');
             var img = a.appendChild(document.createElement('img'));
             img.setAttribute('src', 'assets/doiUnknown.svg');

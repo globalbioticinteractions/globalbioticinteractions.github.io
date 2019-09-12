@@ -2,7 +2,7 @@ globalbioticinteractions.github.io
 ==================
 [![Build Status](https://travis-ci.org/globalbioticinteractions/globalbioticinteractions.github.io.svg?branch=master)](https://travis-ci.org/globalbioticinteractions/globalbioticinteractions.github.io)
 
-This project contains live examples of how to use species interaction data from GloBI (see http://github.com/jhpoelen/eol-globi-data) in a webpage.
+This project contains live examples of how to use species interaction data from GloBI (see http://github.com/globalbioticinteractions/globalbioticinteractions) in a webpage.
 
 Live examples are available at http://www.globalbioticinteractions.org .
 
