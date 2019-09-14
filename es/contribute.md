@@ -1,5 +1,5 @@
 ---
-layout: default_es
+layout: default
 title: colabora
 i18n-link: contribute
 ---

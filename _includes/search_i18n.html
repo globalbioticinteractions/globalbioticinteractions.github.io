@@ -6,7 +6,7 @@
         {{ site.t.do[page.lang] }}
         <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="{{ site.t.organisms[page.lang] }}"/>
         {% include interactionTypeSelector.html %}
-        </select> {{ site.t.according-to[page.lang] }} <input id="studySearchField" autocomplete="off" placeholder="any study or source"/>?
+        </select> {{ site.t.according-to[page.lang] }} <input id="studySearchField" autocomplete="off" placeholder="{{ site.t.any-study-or source[page.lang] }}"/>?
     </div>
     <br/>
 
@@ -140,14 +140,22 @@ var searchForInteractions = function (offset) {
                 var div = document.createElement('div');
                 div.setAttribute('class', 'interaction ' + className(interaction.interaction_type));
                 var interactionInfo = globiData.interactionTypes[interaction.interaction_type];
+                var translate = function(term, lang) {
+                    var lookupTable = {};
+                    {% for term in site.t %}
+                    lookupTable['{{ term[0] }}'] = {{ term[1] | jsonify }};
+                    {% endfor %}
+                    return lookupTable[term][lang];
+                };
+
                 if (interactionInfo && interactionInfo.termIRI) {
                     var a = div.appendChild(document.createElement("a"));
                     a.setAttribute('href', interactionInfo.termIRI);
                     a.setAttribute('target', '_blank');
-                    a.setAttribute('title', 'lookup term definition for [' + interaction.interaction_type + ']');
-                    a.textContent = interaction.interaction_type;
+                    a.setAttribute('title', '{{ site.t.lookup-term-definition-for[page.lang] }} [' + translate(interaction.interaction_type, '{{ page.lang }}') + ']');
+                    a.textContent = translate(interaction.interaction_type, '{{ page.lang }}');
                 } else {
-                    div.textContent = interaction.interaction_type;
+                    div.textContent = translate(interaction.interaction_type, '{{ page.lang }}');
                 }
                 td.appendChild(div);
                 phrase.appendChild(td);

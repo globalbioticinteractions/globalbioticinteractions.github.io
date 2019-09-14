@@ -42,16 +42,24 @@ defaults:
     values:
       lang: es
       base-url: "/es/"
+  -
+    scope:
+      path: jp
+    values:
+      lang: jp
+      base-url: "/jp/"
 
 # Value to use into url per language
 langs-value:
     en: ""
     es: es
+    jp: jp
 
 # Translation
 t:
     language:
         en: "English"
+        jp: "日本語"
         es: "Español"
     example-query:
         en: "Example query"
@@ -80,6 +88,11 @@ t:
     nothing:
         en: "nothing"
         es: "nothing"
+    footer-text:
+        en: >
+          Global Biotic Interactions is an <a href="http://opendefinition.org/ossd/" title="open service definition">open service</a> providing <a href="http://opendefinition.org/od/" title="open data definition">open data</a> using <a href="https://opensource.org/osd" title="open source definition">open source</a> software.
+        es: >
+          GloBI es una iniciativa <a href="http://opendefinition.org/ossd/" title="open service definition"> abierta</a> que promueve <a href="http://opendefinition.org/od/" title="open data definition"> datos abiertos</a> utilizando <a href="https://opensource.org/osd" title="open source definition">código abierto</a> para su funcionamiento.
     search-suggestion:
         en: >
           nothing that we are aware of. Please make sure to use <a href="https://en.wikipedia.org/wiki/Taxon">scientific taxon names</a> to describe the organism that you are interested in. For instance, instead of searching for "guppy", use <a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>.
@@ -97,6 +110,10 @@ t:
     organisms:
         en: "organisms"
         es: "organismos"
+        jp: "生物"
+    any-study-or-source:
+        en: "any study or source"
+        es: "any study or source"
     plenty-of-things:
         en: "plenty of things"
         es: "muchas cosas"
@@ -121,6 +138,12 @@ t:
     list-the-references:
         en: "list the references"
         es: "lista de referencias"
+    lookup-term-definition-for:
+        en: "lookup term definition for"
+        es: "lookup term definition for"
+    interactsWith:
+        en: "interacts with"
+        es: "interactua con"
     interacts-with:
         en: "interacts with"
         es: "interactua con"
@@ -130,15 +153,45 @@ t:
     eat:
         en: "eat"
         es: "come"
+    eats:
+        en: "eats"
+        es: "eats"
+    eatenBy:
+        en: "eaten by"
+        es: "eaten by"
     get-eaten-by:
         en: "get eaten by"
         es: "es comida de"
     preys-on:
         en: "preys on"
         es: "es presa de"
+    preysOn:
+        en: "preys on"
+        es: "es presa de"
     get-preyed-on-by:
         en: "get preyed on by"
         es: "es depredado por"
+    preyedUponBy:
+        en: "preyed upon by"
+        es: "preyed upon by"
+    kills:
+        en: "kills"
+        es: "kills"
+    killedBy:
+        en: "killedBy"
+        es: "killedBy"
+    parasiteOf:
+        en: "parasite of"
+        es: "parasite of"
+    hasParasite:
+        en: "has parasite"
+        es: "has parasite"
+    hostOf:
+        en: "host of"
+        es: "host of"
+    hasHost:
+        en: "has host"
+        es: "has host"
     parasitize:
         en: "parasitize"
         es: "es parasito de"
@@ -148,18 +201,57 @@ t:
     is-symbiont-of:
         en: "is symbiont of"
         es: "es simbionte de"
+    visitsFlowersOf:
+        en: "visits flowers of"
+        es: "visita las flores de"
     visits-flowers-of:
         en: "visits flowers of"
         es: "visita las flores de"
+    flowersVisitedBy:
+        en: "flowers visited by"
+        es: "flores visitadas por" 
     flowers-visited-by:
         en: "flowers visited by"
         es: "flores visitadas por"
+    pollinates:
+        en: "pollinates"
+        es: "pollinates"
     pollinate:
         en: "pollinate"
         es: "poliniza a"
+    pollinatedBy:
+        en: "pollinated by"
+        es: "pollinated by"
     get-pollinated-by:
         en: "get pollinated by"
         es: "es polinizado por"
+    pathogenOf:
+        en: "pathogen of"
+        es: "pathogen of"
+    hasPathogen:
+        en: "has pathogen"
+        es: "has pathogen"
+    vectorOf:
+        en: "vector of"
+        es: "vector of"
+    hasVector:
+        en: "has vector"
+        es: "has vector"
+    dispersalVectorOf:
+        en: "dispersal vector of"
+        es: "dispersal vector of"
+    hasDispersalVector:
+        en: "has dispersal vector"
+        es: "has dispersal vector"
+    symbiontOf:
+        en: "symbiont of"
+        es: "symbiont of"
+    ecologicallyRelatedTo:
+        en: "related to"
+        es: "related to"
+    coOccursWith:
+        en: "co-occurs with"
+        es: "co-occurs with"
     infect:
         en: "infect"
         es: "infecta a"
