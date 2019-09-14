@@ -3,8 +3,6 @@ layout: default
 title: 出す
 i18n-link: contribute
 ---
-<h3>Translation in progress...</h3>
-
 Please help translate this page by:
 
 1. editing <a href="https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/edit/master/jp/contibute.md">jp/contribute.md</a> 
