@@ -3,16 +3,6 @@ layout: default
 title: 出す
 i18n-link: contribute
 ---
-Please help translate this page by:
-
-1. editing <a href="https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/edit/master/jp/contibute.md">jp/contribute.md</a> 
-1. replace English text with Japanese
-1. <a href="https://help.github.com/en/articles/creating-a-pull-request">create a pull request</a> to add your translation
-
-If you have any questions, please <a href="https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues/new"> open an issue</a>.
-
--------
-
 皆さまには様々な方法で,Global Biotic Interactionsの活動に関わることができます。: [Global Biotic Interactionsを利用する](#GLOBIを利用する), [議論に参加する](#議論に参加する), [データを共有する](#データを共有する), [コーディングで貢献する](#コーディングで貢献する) or [寄付をする](#寄付をする).
 
 ## GLOBIを利用する
