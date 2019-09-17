@@ -63,7 +63,7 @@ t:
         es: "Español"
     example-query:
         en: "Example query"
-        ja: "検索の例"
+        ja: "検索例"
         es: "Por ejemplo"
     what-do-sea-otters-eat:
         en: "What do sea otters (<em>Enhydra lutris</em>) eat?"
@@ -75,15 +75,15 @@ t:
         es: "o"
     what-do-honey-bees-pollinate:
         en: "What do honey bees (<em>Apis</em>) pollinate?"
-        ja: "ミツバチ (<em>Apis</em>)は、何に受粉しますか?"
+        ja: "ミツバチ (<em>Apis</em>)は,何に受粉しますか?"
         es: "Qué plantas poliniza la abeja mielera (<em>Apis</em>)?"
     what-kind-of:
         en: "What kind of"
-        ja: "どんな種類の"
+        ja: "どんな"
         es: "Qué tipo de"
     do:
         en: "do"
-        ja: "する"
+        ja: "と"
         es: "hace"
     more:
         en: "more"
@@ -101,7 +101,7 @@ t:
         en: >
           Global Biotic Interactions is an <a href="http://opendefinition.org/ossd/" title="open service definition">open service</a> providing <a href="http://opendefinition.org/od/" title="open data definition">open data</a> using <a href="https://opensource.org/osd" title="open source definition">open source</a> software.
         ja: >
-          Global Biotic Interactions は、 <a href="http://opendefinition.org/ossd/" title="open service definition">オープン・サービス</a> を提供しています <a href="http://opendefinition.org/od/" title="open data definition">オープン・データ</a> と <a href="https://opensource.org/osd" title="open source definition">オープンソース</a> を利用したソフトウェアです.     
+          Global Biotic Interactions は、 オープン・データ</a> と <a href="https://opensource.org/osd" title="open source definition">オープンソース</a> を利用したソフトウェアを使用した<a href="http://opendefinition.org/ossd/" title="open service definition">オープン・サービス</a> を提供しています <a href="http://opendefinition.org/od/" title="open data definition">.     
         es: >
           GloBI es una iniciativa <a href="http://opendefinition.org/ossd/" title="open service definition"> abierta</a> que promueve <a href="http://opendefinition.org/od/" title="open data definition"> datos abiertos</a> utilizando <a href="https://opensource.org/osd" title="open source definition">código abierto</a> para su funcionamiento.
     search-suggestion:
@@ -129,7 +129,7 @@ t:
         ja: "生物"
     any-study-or-source:
         en: "any study or source"
-        ja: "どんな研究 または 情報源"
+        ja: "研究論文または情報源"
         es: "any study or source"
     plenty-of-things:
         en: "plenty of things"
