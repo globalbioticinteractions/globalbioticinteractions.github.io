@@ -52,7 +52,7 @@ function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctI
     if (nDistinctInteractions == 0) {
         message = '... ';
         if (studyQuery && studyQuery.length > 0) {
-            message = message + '{{ site.t.nothing[page.lang] | strip }}' + ' {{ site.t.according-to[page.lang] }}' + studyQuery + '.';
+            message = message + '{{ site.t.nothing[page.lang] | strip }}' + ' {{ site.t.according-to[page.lang] }} ' + studyQuery + '.';
         } else {
             message = message + ' {{ site.t.search-suggestion[page.lang] | strip }}'; 
         }
