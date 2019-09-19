@@ -110,7 +110,7 @@ t:
         ja: >
           該当しません. 関心がある生物を検索する際に、必ず <a href="https://en.wikipedia.org/wiki/Taxon">学名</a> を使用してください。例えば、”グッピー”という熱帯魚と入力する代わりに、学名である<a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>を入力してください.
         es: >
-          nothing that we are aware of. Please make sure to use <a href="https://en.wikipedia.org/wiki/Taxon">scientific taxon names</a> to describe the organism that you are interested in. For instance, instead of searching for "guppy", use <a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>.
+          no encontramos ningún resutado. Asegurate de utilizar el <a href="https://es.wikipedia.org/wiki/Taxon">nombre científico</a> del taxón de interes. Por ejemplo, en lugar de buscar por "guppy", utiliza <a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>.
     refuted-by:
         en: "Refuted by"
         ja: "反論"
@@ -130,7 +130,7 @@ t:
     any-study-or-source:
         en: "any study or source"
         ja: "研究論文または情報源"
-        es: "any study or source"
+        es: "cualquier estudio o fuente"
     plenty-of-things:
         en: "plenty of things"
         ja: "たくさん存在します"
@@ -166,7 +166,7 @@ t:
     lookup-term-definition-for:
         en: "lookup term definition for"
         ja: "検索用語の定義"
-        es: "lookup term definition for"
+        es: "definición de"
     interactsWith:
         en: "interacts with"
         ja: "相互作用する"
@@ -186,11 +186,11 @@ t:
     eats:
         en: "eats"
         ja: "食べる（捕食）"
-        es: "eats"
+        es: "come"
     eatenBy:
         en: "eaten by"
         ja: "食われる（被食）"
-        es: "eaten by"
+        es: "es comida de"
     get-eaten-by:
         en: "get eaten by"
         ja: "食われる（被食）"
@@ -206,35 +206,35 @@ t:
     get-preyed-on-by:
         en: "get preyed on by"
         ja: "に食われる"
-        es: "es depredado por"
+        es: "es comida de"
     preyedUponBy:
         en: "preyed upon by"
         ja: "よって食われる"
-        es: "preyed upon by"
+        es: "es presa de"
     kills:
         en: "kills"
         ja: "を殺す"
-        es: "kills"
+        es: "mata a"
     killedBy:
         en: "killedBy"
         ja: "によって殺される"
-        es: "killedBy"
+        es: "lo mata"
     parasiteOf:
         en: "parasite of"
         ja: "の寄生虫"
-        es: "parasite of"
+        es: "es parásito de"
     hasParasite:
         en: "has parasite"
         ja: "寄生虫を持っている"
-        es: "has parasite"
+        es: "es parasitado por"
     hostOf:
         en: "host of"
         ja: "の宿主"
-        es: "host of"
+        es: "hospedero de"
     hasHost:
         en: "has host"
         ja: "宿主を持つ"
-        es: "has host"
+        es: "tiene como hospedero a"
     parasitize:
         en: "parasitize"
         ja: "に寄生する"
@@ -282,39 +282,39 @@ t:
     pathogenOf:
         en: "pathogen of"
         ja: "の病原体"
-        es: "pathogen of"
+        es: "patógeno de"
     hasPathogen:
         en: "has pathogen"
         ja: "病原体を持っている"
-        es: "has pathogen"
+        es: "tiene patógeno"
     vectorOf:
         en: "vector of"
         ja: "のベクター"
-        es: "vector of"
+        es: "vector de"
     hasVector:
         en: "has vector"
         ja: "ベクターを持っている"
-        es: "has vector"
+        es: "es vector"
     dispersalVectorOf:
         en: "dispersal vector of"
         ja: "の拡散ベクター"
-        es: "dispersal vector of"
+        es: "vector de dispersión de"
     hasDispersalVector:
         en: "has dispersal vector"
         ja: "拡散ベクターを持っている"
-        es: "has dispersal vector"
+        es: "es vector de dispersión"
     symbiontOf:
         en: "symbiont of"
         ja: "の共生"
-        es: "symbiont of"
+        es: "simbionte de"
     ecologicallyRelatedTo:
         en: "related to"
         ja: "と関連する"
-        es: "related to"
+        es: "relacionado con"
     coOccursWith:
         en: "co-occurs with"
         ja: "と共起する"
-        es: "co-occurs with"
+        es: "coocurre con"
     infect:
         en: "infect"
         ja: "に感染する"
