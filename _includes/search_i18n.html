@@ -145,7 +145,12 @@ var searchForInteractions = function (offset) {
                     {% for term in site.t %}
                     lookupTable['{{ term[0] }}'] = {{ term[1] | jsonify }};
                     {% endfor %}
-                    return lookupTable[term][lang];
+                    var termId = lookupTable[term];
+                    var translatedTerm = term;
+                    if (termId !== undefined) {
+                        translatedTerm = lookupTable[term][lang];
+                    }
+                    return translatedTerm;
                 };
 
                 if (interactionInfo && interactionInfo.termIRI) {
