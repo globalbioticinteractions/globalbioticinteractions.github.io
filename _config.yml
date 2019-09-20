@@ -167,6 +167,14 @@ t:
         en: "lookup term definition for"
         ja: "検索用語の定義"
         es: "definición de"
+    commensalistOf:
+        en: "commensalist of"
+        ja: "commensalist of"
+        es: "commensalist of"
+    mutualistOf:
+        en: "mutualist of"
+        ja: "mutualist of"
+        es: "mutualist of"
     interactsWith:
         en: "interacts with"
         ja: "相互作用する"
