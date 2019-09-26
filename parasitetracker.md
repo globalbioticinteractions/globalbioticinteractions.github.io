@@ -4,7 +4,7 @@ title: "parasite tracker"
 status: unlisted
 ---
 
-Collections related to the [Parasite Tracker](https://parasitetracker.org) project. Click on badge to see records. 
+Collections related to the [Parasite Tracker](https://parasitetracker.org) project. Click on badge to explore indexed records. 
 
 [update page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/parasitetracker.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues)
 
