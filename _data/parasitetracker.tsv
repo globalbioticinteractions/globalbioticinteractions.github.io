@@ -5,7 +5,7 @@ UNM	Museum of Southwestern Biology, University of New Mexico	MSB Bird Collection
 UNM	Museum of Southwestern Biology, University of New Mexico	MSB Fish Collection	Mariel Lee Campbell	Arctos	MSB Fish Collection
 UNM	Museum of Southwestern Biology, University of New Mexico	MSB Mammal Collection	Mariel Lee Campbell	Arctos	MSB Mammal Collection
 UNM	Museum of Southwestern Biology, University of New Mexico	MSB Amphibian and Reptile Collection 	Mariel Lee Campbell	Arctos	MSB Amphibian and Reptile Collection 
-CAS	California Academy of Sciences Entomology Collection	? 	Chris Grinter	Institutional	California Academy of Sciences Entomology Collection
+CAS	California Academy of Sciences	Entomology Collection	Chris Grinter	Institutional	California Academy of Sciences Entomology Collection
 PSU	Penn State	? 	?	TaxonWorks	Penn State
 MSU	Michigan State University	? 	?	SymbScan	Michigan State University
 UM	University of Michigan	? 	?	Specify	University of Michigan
@@ -17,14 +17,14 @@ OSU	Ohio State University	? 	?	Institutional/Filemaker Pro	Ohio State University
 UNH	University of New Hampshire	? 	?	Filemaker Pro	University of New Hampshire
 ANS	The Academy of Natural Sciences of Drexel University	Entomology Collection	?	SymbSCAN	The Academy of Natural Sciences of Drexel University, Entomology Collection
 TAMU	Texas A&M University	? 	John Oswald	Institutional(cloud based Microsoft Access-->iDigBio)	Texas A&M University
-PU	The Purdue Entomological Research Collection	? 	?	Specify	The Purdue Entomological Research Collection
+PU	Purdue University	Entomological Research Collection	?	Specify	The Purdue Entomological Research Collection
 BPBM	Bishop Museum	? 	?	Specify	Bishop Museum
 INHS	Illinois Natural History Survey, University of Illinois at Urbana-Champaign	? 	?	TaxonWorks	Illinois Natural History Survey, University of Illinois at Urbana-Champaign
-UCSB	University of California at Santa Barbara	? 	Katja Seltmann	Symbiota	globi:globalbioticinteractions/ucsb-izc
+UCSB	University of California at Santa Barbara	Invertebrate Zoology Collection	Katja Seltmann	Symbiota	globi:globalbioticinteractions/ucsb-izc
 CU	Clemson University	? 	?	Specify	Clemson
 BYU	Brigham Young University Arthropod Museum	? 	?	SymbSCAN	Brigham Young University Arthropod Museum
 	University of Minnesota	? 	?	Institutional	University of Minnesota
 UU	Entomology Collection at the Natural History Museum of Utah	? 	?	Undecided	Entomology Collection at the Natural History Museum of Utah
 UWSP	University of Wisconsin Stevens Point	? 	?	?	University of Wisconsin Stevens Point
 UNL	University of Nebraska State Museum	? 	?	Arctos	University of Nebraska State Museum
-FMNH	Field Museum			EMu	Field Museum
+FMNH	Field Museum of Natural History			EMu	Field Museum
