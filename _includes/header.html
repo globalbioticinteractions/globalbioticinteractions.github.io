@@ -19,7 +19,7 @@
             <div class="trigger">
                 {% assign my_pages=site.pages | where:"lang", page.lang %}
                 {% for my_page in my_pages  %}
-                  {% if my_page.title %}
+                  {% if my_page.title and my_page.status != "unlisted" %}
                     <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
                   {% endif %}
                 {% endfor %}
