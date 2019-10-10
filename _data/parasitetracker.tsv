@@ -1,30 +1,32 @@
 institution_short	institution	collection	contact	platform	globi_id
-UNM	Museum of Southwestern Biology, University of New Mexico	MSB Divisions of Mammals, Parasites	Mariel Lee Campbell	Arctos	MSB Parasite Collection
-UNM	Museum of Southwestern Biology, University of New Mexico	MSB Host Collection	Mariel Lee Campbell	Arctos	MSB Host Collection
-UNM	Museum of Southwestern Biology, University of New Mexico	MSB Bird Collection	Mariel Lee Campbell	Arctos	MSB Bird Collection
-UNM	Museum of Southwestern Biology, University of New Mexico	MSB Fish Collection	Mariel Lee Campbell	Arctos	MSB Fish Collection
-UNM	Museum of Southwestern Biology, University of New Mexico	MSB Mammal Collection	Mariel Lee Campbell	Arctos	MSB Mammal Collection
-UNM	Museum of Southwestern Biology, University of New Mexico	MSB Amphibian and Reptile Collection 	Mariel Lee Campbell	Arctos	MSB Amphibian and Reptile Collection 
-CAS	California Academy of Sciences	Entomology Collection	Chris Grinter	Institutional	California Academy of Sciences Entomology Collection
-PSU	Penn State	? 	?	TaxonWorks	Penn State
-MSU	Michigan State University	? 	?	SymbScan	Michigan State University
-UM	University of Michigan Museum of Zoology	Insect Collection 	Erica Tucker	Specify	University of Michigan Museum of Zoology Insect Collection
-UWM	University of Wisconsin Madison	? 	?	Specify	University of Wisconsin
-MPM	Milwaukee Public Museum	? 	Jenn Zaspel	EMU	Milwaukee Public Museum
-	VectorBase	? 	?	Institutional	globi:globalbioticinteractions/vectorbase
-UH	University of Hawaii Insect Museum	? 	?	Institutional	University of Hawaii Insect Museum
-OSU	Ohio State University	? 	?	Institutional/Filemaker Pro	Ohio State University
-UNH	University of New Hampshire	? 	?	Filemaker Pro	University of New Hampshire
-ANS	The Academy of Natural Sciences of Drexel University	Entomology Collection	?	SymbSCAN	The Academy of Natural Sciences of Drexel University, Entomology Collection
-TAMU	Texas A&M University	? 	John Oswald	Institutional(cloud based Microsoft Access-->iDigBio)	Texas A&M University
-PU	Purdue University	Entomological Research Collection	?	Specify	The Purdue Entomological Research Collection
+ANSP	Academy of Natural Sciences	Ornithology Collection at Academy of Natural Sciences of Drexel University		SymbSCAN	
 BPBM	Bishop Museum	Gressitt Entomology Collection 	Jim Boone	Specify	Bishop Museum Gressitt Entomology Collection 
-INHS	Illinois Natural History Survey, University of Illinois at Urbana-Champaign	? 	?	TaxonWorks	Illinois Natural History Survey, University of Illinois at Urbana-Champaign
+BYU	Brigham Young University Arthropod Museum	Monte L. Bean Museum of Life Science Museum Insects and Arachnids		SymbSCAN	Brigham Young University Arthropod Museum
+CAS	California Academy of Sciences	Entomology Collection	Chris Grinter	Institutional	California Academy of Sciences Entomology Collection
+CUAC	Clemson University	Clemson University Arthropod Collection		Specify	Clemson
+FMNH	Field Museum of Natural History	FMNH Insects, Arachnids, and Myriapods		EMu	Field Museum
+INHS	Illinois Natural History Survey, University of Illinois at Urbana-Champaign	INHS Insect Collection		TaxonWorks	Illinois Natural History Survey, University of Illinois at Urbana-Champaign
+MSU	Michigan State University	Albert J. Cook Arthropod Research Collection		SymbScan	Michigan State University
+MPM	Milwaukee Public Museum	MPM Zoology 	Jenn Zaspel	EMU	Milwaukee Public Museum
+HWML	Nebraska State Museum	Harold W. Manter Laboratory of Parasitology		Arctos	University of Nebraska State Museum
+OSAL	Ohio State University	Ohio State University Acarology Collection		Institutional/Filemaker Pro	Ohio State University
+PSU	Pennsylvania State University	Frost Entomological Museum	Andy Deans	TaxonWorks	Penn State
+PERC	Purdue University	Entomological Research Collection		Specify	The Purdue Entomological Research Collection
+TAMUIC	Texas A&M University	Texas A&M University Insect Collection	John Oswald	Institutional(cloud based Microsoft Access-->iDigBio)	Texas A&M University
+BRTC	Texas A&M University	Biodiversity Teaching and Research Collections		Institutional/Access	
+ANS	The Academy of Natural Sciences of Drexel University	Entomology Collection		SymbSCAN	The Academy of Natural Sciences of Drexel University, Entomology Collection
 UCSB	University of California at Santa Barbara	Invertebrate Zoology Collection	Katja Seltmann	Symbiota	globi:globalbioticinteractions/ucsb-izc
-CU	Clemson University	? 	?	Specify	Clemson
-BYU	Brigham Young University Arthropod Museum	? 	?	SymbSCAN	Brigham Young University Arthropod Museum
-	University of Minnesota	? 	?	Institutional	University of Minnesota
-UU	Entomology Collection at the Natural History Museum of Utah	? 	?	Undecided	Entomology Collection at the Natural History Museum of Utah
-UWSP	University of Wisconsin Stevens Point	? 	?	?	University of Wisconsin Stevens Point
-UNL	University of Nebraska State Museum	? 	?	Arctos	University of Nebraska State Museum
-FMNH	Field Museum of Natural History			EMu	Field Museum
+UHIM	University of Hawaii Insect Museum	University of Hawaii Insect Museum 		Institutional	University of Hawaii Insect Museum
+UMMZ	University of Michigan Museum of Zoology	University of Michigan Museum of Zoology Insect Collection	Erica Tucker	Specify	University of Michigan Museum of Zoology Insect Collection
+UMSP	University of Minnesota	University of Minnesota Insect Collection		Specify	University of Minnesota
+UNH	University of New Hampshire	UNH Collection of Insects and other Arachnids		Filemaker Pro	University of New Hampshire
+UNM	University of New Mexico	Museum of Southwestern Biology, Divisions of Mammals, Parasites	Mariel Lee Campbell	Arctos	MSB Parasite Collection
+UNM	University of New Mexico	Museum of Southwestern Biology, Host Collection	Mariel Lee Campbell	Arctos	MSB Host Collection
+UNM	University of New Mexico	Museum of Southwestern Biology, Bird Collection	Mariel Lee Campbell	Arctos	MSB Bird Collection
+UNM	University of New Mexico	Museum of Southwestern Biology, Fish Collection	Mariel Lee Campbell	Arctos	MSB Fish Collection
+UNM	University of New Mexico	Museum of Southwestern Biology, Mammal Collection	Mariel Lee Campbell	Arctos	MSB Mammal Collection
+UNM	University of New Mexico	Museum of Southwestern Biology, Amphibian and Reptile Collection 	Mariel Lee Campbell	Arctos	MSB Amphibian and Reptile Collection 
+PIPER	University of Utah	Price Institute of Parasites Research (PIPeR)		Unndecided	Entomology Collection at the Natural History Museum of Utah
+WIRC	University of Wisconsin Madison	Wisconsin Insect Research Collection		Specify	University of Wisconsin
+UWSP	University of Wisconsin Stevens Point	Stephen J. Taft Parasitological Collection		Unndecided	University of Wisconsin Stevens Point
+	VectorBase			Institutional	globi:globalbioticinteractions/vectorbase
