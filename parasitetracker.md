@@ -14,7 +14,7 @@ Collections related to the [Parasite Tracker](https://parasitetracker.org) proje
 |---|---|---|---|---|
 {% assign cols = site.data.parasitetracker | sort: "institution" -%}
 {% for c in cols -%}
-{%- assign globi-badge = c.globi_id | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" | uri_escape -%} 
-{%- assign globi-url = c.globi_id | prepend: "https://globalbioticinteractions.org/?accordingTo=" | uri_escape -%} 
+{%- assign globi-badge = c.globi_id | uri_escape | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
+{%- assign globi-url = c.globi_id | uri_escape | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%} 
 [![badge]({{ globi-badge }})]({{ globi-url }}) | {{ c.institution }} | {{ c.collection }} | {{ c.platform }} | {{ c.contact }} | 
 {% endfor -%}
