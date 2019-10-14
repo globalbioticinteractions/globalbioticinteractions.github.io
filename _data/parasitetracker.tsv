@@ -14,19 +14,17 @@ PERC	Purdue University	Entomological Research Collection	Jessica Williams, Steph
 TAMUIC	Texas A&M University	Texas A&M University Insect Collection	John Oswald, Karen Wright	Institutional(cloud based Microsoft Access-->iDigBio)	Texas A&M University Insect Collection
 BRTC	Texas A&M University	Biodiversity Teaching and Research Collections	Jessica Light	Institutional/Access	Biodiversity Teaching and Research Collections
 ANSP	The Academy of Natural Sciences of Drexel University	Ornithology Collection at Academy of Natural Sciences of Drexel University	Jason Weckstein 	SymbSCAN	Ornithology Collection at Academy of Natural Sciences of Drexel University
-ANSP	The Academy of Natural Sciences of Drexel University	Entomology Collection		SymbSCAN	The Academy of Natural Sciences of Drexel University, Entomology Collection
 UCSB	University of California at Santa Barbara	Invertebrate Zoology Collection	Katja Seltmann	Symbiota	globi:globalbioticinteractions/ucsb-izc
-UCSB	University of California at Santa Barbara	Algae Collection	Katja Seltmann	Symbiota	globi:globalbioticinteractions/ucsb-ac
 UHIM	University of Hawaii Insect Museum	University of Hawaii Insect Museum 	Daniel Rubinoff 	Institutional	University of Hawaii Insect Museum
 UMMZ	University of Michigan Museum of Zoology	University of Michigan Museum of Zoology Insect Collection	Barry OConnor, Erika Tucker 	Specify	University of Michigan Museum of Zoology Insect Collection
 UMSP	University of Minnesota	University of Minnesota Insect Collection	Ralph Holzenthal, Robin Thomson	Specify	University of Minnesota Insect Collection
-UNH	University of New Hampshire	UNH Collection of Insects and other Arachnids	Sandra Rehan 	Filemaker Pro	UNH Collection of Insects and other Arachnids
-UNM	University of New Mexico	Museum of Southwestern Biology, Divisions of Mammals, Parasites	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Parasite Collection
-UNM	University of New Mexico	Museum of Southwestern Biology, Host Collection	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Host Collection
-UNM	University of New Mexico	Museum of Southwestern Biology, Bird Collection	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Bird Collection
-UNM	University of New Mexico	Museum of Southwestern Biology, Fish Collection	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Fish Collection
-UNM	University of New Mexico	Museum of Southwestern Biology, Mammal Collection	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Mammal Collection
-UNM	University of New Mexico	Museum of Southwestern Biology, Amphibian and Reptile Collection 	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Amphibian and Reptile Collection 
+UNH	University of New Hampshire	UNH Collection of Insects and other Arachnids	Istvan Miko 	Filemaker Pro	UNH Collection of Insects and other Arachnids
+MSB	University of New Mexico	Museum of Southwestern Biology, Divisions of Mammals, Parasites	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Parasite Collection
+MSB	University of New Mexico	Museum of Southwestern Biology, Host Collection	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Host Collection
+MSB	University of New Mexico	Museum of Southwestern Biology, Bird Collection	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Bird Collection
+MSB	University of New Mexico	Museum of Southwestern Biology, Fish Collection	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Fish Collection
+MSB	University of New Mexico	Museum of Southwestern Biology, Mammal Collection	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Mammal Collection
+MSB	University of New Mexico	Museum of Southwestern Biology, Amphibian and Reptile Collection 	Mariel Lee Campbell, Joseph Cook	Arctos	MSB Amphibian and Reptile Collection 
 PIPER	University of Utah	Price Institute of Parasites Research (PIPeR)	Sarah Bush 	Undecided	Entomology Collection at the Natural History Museum of Utah
 WIRC	University of Wisconsin Madison	Wisconsin Insect Research Collection	Craig Brabant, Daniel Young	Specify	Wisconsin Insect Research Collection
 UWSP	University of Wisconsin Stevens Point	Stephen J. Taft Parasitological Collection	Sarah Orlofske 	Undecided	University of Wisconsin Stevens Point
