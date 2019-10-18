@@ -10,7 +10,7 @@ Collections related to the [Parasite Tracker](https://parasitetracker.org) proje
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%}
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
-[![badge]({{ globi-badge }})]({{ globi-url }}) {{ c.institution_short }} {{ " / " }}
+[![badge]({{ globi-badge }})]({{ globi-url }}) <a href="#{{ c.institution_short }}">{{ c.institution_short }}</a> {{ " / " }}
 {%- endfor %}
 
 1 Oct 2019 Parasite Tracker kick-off [presentation](./assets/globi_adbc_summit_20191001.pdf) / [video](https://vimeo.com/362883545). 
@@ -24,5 +24,5 @@ Collections related to the [Parasite Tracker](https://parasitetracker.org) proje
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%} 
-[![badge]({{ globi-badge }})]({{ globi-url }}) | {{ c.institution_short }} | {{ c.institution }} | {{ c.collection }} | {{ c.platform }} | {{ c.contact }} | 
+[![badge]({{ globi-badge }})]({{ globi-url }}) | <span id="{{ c.institution_short }}">{{ c.institution_short }}</span> | {{ c.institution }} | {{ c.collection }} | {{ c.platform }} | {{ c.contact }} | 
 {% endfor -%}
