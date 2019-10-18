@@ -18,11 +18,11 @@ Collections related to the [Parasite Tracker](https://parasitetracker.org) proje
 [update page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/parasitetracker.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
 
 
-|code|institution|collection|platform|contact|
+|indexed|code|institution|collection|platform|contact|
 |---|---|---|---|---|
 {% assign cols = site.data.parasitetracker | sort: "institution" -%}
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%} 
-[![badge]({{ globi-badge }})]({{ globi-url }}) {{ c.institution_short }} | {{ c.institution }} | {{ c.collection }} | {{ c.platform }} | {{ c.contact }} | 
+[![badge]({{ globi-badge }})]({{ globi-url }}) | {{ c.institution_short }} | {{ c.institution }} | {{ c.collection }} | {{ c.platform }} | {{ c.contact }} | 
 {% endfor -%}
