@@ -59,6 +59,17 @@ Various Symbiota-based collections are indexed by GloBI. This section explains h
 <sup>1</sup>Note that Symbiota includes two distinct systems: Symbiota CMS and Symbiota Portal. Symbiota CMS is a collection management system typically used to keep a digital inventory of physical collections. Symbiota Portal exposes digital records as Darwin Core Archives and Ecological Metadata Language files, These Darwin Core Archives and EML files are included in a list of available datasets in the form of a RSS feed. So, This include records retrieved from Symbiota CMS as well as other systems or datasources (e.g., spreadsheets, csv files). Symbiota Portal is used to help interface with national and global aggregators like iDigBio and GBIF. 
 
 ## Specify
+Association records in Specify managed collections are indexed by GloBI. This section explains how.
+
+ Specify | GloBI Integration Profile
+ --- | ---
+ authors | Ralph Holzenthal, Robin Thomson 
+ actors | Collection Manager, Excel, Specify6, https://scan-bugs.org 
+ integration method | Collection Manager enters records in excel, then uploads the records in batch into Specify. A manual export to https://scan-bugs.org is done periodically to provide updates to GBIF, iDigBio and GloBI. If updates are made to existing Specify records, a new batch export is needed to update https://scan-bugs.org .  
+  diagram | ![specify-integration.png](./assets/specify-integration.png)
+example collection |
+  open questions | 1. Which darwin core archive field to use for assocations? associatedTaxa, associatedOccurrences, Resource Relationship extension. 2. Can we automate the export of Specify records to SCAN?  
+
 ## EMu
 ## TaxonWorks
 

@@ -1,0 +1,21 @@
+digraph pairwise {
+    #rankdir=LR;
+    #labelloc="t";
+    #label="Specify <> GloBI integration";
+    a1 [label="Collection Manager"];
+    b1 [label="Excel"];
+    c1 [label="Specify6"];
+    d1 [label="SCAN"];
+    e1 [label="GloBI"];
+    { rank=same;
+    a1 -> b1 [label="uses (1)"];
+    b1 -> c1 [label="upload (2)"];
+    c1 -> d1 [label="export (3)"];
+    };
+    { 
+
+    e1 -> d1 [label="indexes (4)"];
+    e1 -> d1 [label="links to (5)"];
+    };
+}
+
