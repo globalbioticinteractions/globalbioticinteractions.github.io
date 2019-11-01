@@ -72,11 +72,18 @@ example collection |
   references | Linking Specify data to SCAN Collection Provided by Laura Prado, U. of Wisconsin (December 8, 2018) https://scan-all-bugs.org/?page_id=2084
 
 ## EMu
+The EMu <> GloBI integration profiles describes a way GloBI indexes assocation data originating from EMu .  
+
+EMu/GBIF | GloBI Integration Profile
+ --- | ---
+authors | Kate Webbink, Janeen Jones 
+actors | FMNH Collection Manager, EMu, IPT, GloBI
+integration method | A collection manager uses EMu to establish associations or relationships between Catalogue (occurrence) records. The collection manager periodically exports data from EMu, and the IT Department publishes with the FMNH IPT - fmipt.fieldmuseum.org. The fmipt site publishes a list of available datasets in the form of a RSS feed (https://fmipt.fieldmuseum.org/ipt/rss.do), similarly to VertNet. Periodically, GloBI could find and download FMNH-related data archives in the fmipt. Then, GloBI could index the relatedResourceID fields of records in these FMNH data archives (IPT resources). The relationshipOfResource field contains the relationship type (e.g., “stomach contents of”) and the relatedResourceID field contains a pointer to the occurrenceID of the linked record.
+diagram | [...]
+example collection | https://fmipt.fieldmuseum.org/ipt/manage/resource?r=fmnh-rr-test ( https://github.com/jhpoelen/eol-globi-data/files/3586074/dwca-fmnh-rr-test-v1.1.zip ) Post-FMNH/EMu-data-standardization, more resources on fmipt will include a “Resource Relationship” DwC extension
+
+
 ## TaxonWorks
-
-We are working on establishing detailed integration profiles for exchanging biotic associations between platforms like Specify, EMu and TaxonWorks and GloBI.
-
-
 ## Institutional
 ## Undecided
 
