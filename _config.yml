@@ -235,6 +235,30 @@ t:
         en: "has parasite"
         ja: "寄生虫を持っている"
         es: "es parasitado por"
+    endoparasiteOf:
+        en: "endoparasite of"
+        ja: "endoparasite of"
+        es: "endoparasite of"
+    hasEndoparasite:
+        en: "has endoparasite"
+        ja: "has endoparasite"
+        es: "has endoparasite"
+    ectoparasiteOf:
+        en: "ectoparasite of"
+        ja: "ectoparasite of"
+        es: "ectoparasite of"
+    hasEctoparasite:
+        en: "has ectoparasite"
+        ja: "has ectoparasite"
+        es: "has ectoparasite"
+    parasitoidOf:
+        en: "parasitoid of"
+        ja: "parasitoid of"
+        es: "parasitoid of"
+    hasParasitoid:
+        en: "has parasitoid"
+        ja: "has parasitoid"
+        es: "has parasitoid"
     hostOf:
         en: "host of"
         ja: "の宿主"
