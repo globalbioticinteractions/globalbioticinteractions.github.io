@@ -1,0 +1,20 @@
+digraph pairwise {
+    #rankdir=LR;
+    #labelloc="t";
+    #label="Alternative w/ Symbiota";
+    a1 [label="Collection Manager"];
+    b1 [label="EMu Private"];
+    c1 [label="Symbiota Portal"];
+    d1 [label="IPT"];
+    e1 [label="GloBI"];
+    { rank=same;
+    a1 -> b1 [label="uses (1)"];
+    b1 -> c1 [label="publishes (2)"];
+    };
+    { 
+    b1 -> d1 [label="publishes (3)"];
+    e1 -> d1 [label="indexes (4)"];
+    e1 -> c1 [label="links to (5)"];
+    };
+}
+
