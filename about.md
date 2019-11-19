@@ -93,6 +93,5 @@ Also, <a href="http://www.nhm.ac.uk/our-science/departments-and-staff/staff-dire
                 href="https://doi.org/10.1016/j.ecoinf.2014.08.005">https://doi.org/10.1016/j.ecoinf.2014.08.005</a>.</p> <p>In addition, if you'd like to visually reference GloBI, please don't hesitate to use the <a href="https://github.com/globalbioticinteractions/logo" target="_blank">GloBI logo collection</a> created by <a href="http://pepperluboff.wordpress.com" target="_blank">Pepper Luboff</a>.
 <h3 id="citations">Who cited GloBI?</h3>
     {% include citations.html %}
-</div>
 <h3 id="partners">GloBI Partners</h3>
     {% include partners.html %}
