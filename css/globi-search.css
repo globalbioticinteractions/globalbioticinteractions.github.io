@@ -32,6 +32,8 @@
 .search-result-phrase {
     display: flex;
     flex-flow: row wrap;
+    border: 0.05em none #d3d3d3;
+    border-bottom-style: solid;
 }
 
 .search-result-phrase > div {
