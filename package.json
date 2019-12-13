@@ -42,7 +42,7 @@
   },
   "scripts": {
     "unittest": "tape test/*.js",
-    "test": "browserify test/*.js test/browser/*.js node_modules/globi-*/test/*.js node_modules/globi-*/test/browser/*.js | testling",
+    "test": "browserify test/*.js test/browser/*.js node_modules/globi-bundle/test/*.js node_modules/globi-bundle/test/browser/*.js node_modules/globi-hairball/test/*.js node_modules/globi-hairball/test/browser/*.js node_modules/globi-panels/test/*.js node_modules/globi-panels/test/browser/*.js node_modules/globi-search/test/*.js node_modules/globi-spatial-selector/test/*.js node_modules/globi-wheel/test/*.js node_modules/globi-wheel/test/browser/*.js | testling",
     "build-js-min": "browserify -t brfs index.js --standalone globi-web | uglifyjs -mc > js/globi-web-min.js",
     "build-js": "browserify -t brfs index.js --standalone globi-web > js/globi-web-min.js",
     "build": "npm run build-js-min",
