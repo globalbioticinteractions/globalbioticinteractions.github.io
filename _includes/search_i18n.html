@@ -121,7 +121,7 @@ var searchForInteractions = function (offset) {
                     var p = div.appendChild(document.createElement('div'));
                     p.textContent = interaction[name + '_taxon_name'];
                     if (interaction[name + '_taxon_external_id'] === 'no:match') {
-                        var githubRepo = 'globalbioticinteractions/globi-names';
+                        var githubRepo = 'globalbioticinteractions/globi-taxon-names';
                         var accordingTo2 = searchParams.searchHash.accordingTo;
                         if (accordingTo2 !== undefined && accordingTo2.match(/globi:.*/)) {
                             githubRepo = accordingTo2.replace(/^globi:/, '');
@@ -385,7 +385,7 @@ var showTaxonLinks = function (elem) {
             };
 
             var suggestNameLink = function (taxonName, globiRef) {
-                return suggestNameLinkGitHub(taxonName, globiRef, "globalbioticinteractions/globi-names");
+                return suggestNameLinkGitHub(taxonName, globiRef, "globalbioticinteractions/globi-taxon-names");
             };
 
             var items = taxonLinks.map(linkToItem);
