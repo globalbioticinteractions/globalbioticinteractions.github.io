@@ -239,13 +239,12 @@ var searchForInteractions = function (offset) {
                     }
                     $('.' + className(externalId)).html(label);
 
-                    if (searchParams.searchHash.sourceTaxon === externalId) {
-                        var aSelector = '.taxonLinkShow.' + className(searchParams.searchHash.sourceTaxon);
-                        var focalTaxonElem = document.querySelector(aSelector);
-                        if (focalTaxonElem) {
-                            showTaxonLinks(focalTaxonElem);
-                        }
+                    var aSelector = '.taxonLinkShow.' + className(externalId);
+                    var focalTaxonElem = document.querySelector(aSelector);
+                    if (focalTaxonElem) {
+                        showTaxonLinks(focalTaxonElem);
                     }
+
                 });
 
             });
