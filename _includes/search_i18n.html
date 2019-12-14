@@ -28,7 +28,7 @@
 var className = function (someString) {
     var someClassName = 'undefined';
     if (someString) {
-        someClassName = someString.replace(/\W/g, '_');
+        someClassName = '_' + someString.replace(/\W/g, '_');
     }
     return someClassName;
 };
