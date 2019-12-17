@@ -83,6 +83,14 @@ diagram | A workflow using a public EMu website for GloBI to link back into: ![e
 
 example collection | https://fmipt.fieldmuseum.org/ipt/manage/resource?r=fmnh-rr-test ( https://github.com/jhpoelen/eol-globi-data/files/3586074/dwca-fmnh-rr-test-v1.1.zip ) Post-FMNH/EMu-data-standardization, more resources on fmipt will include a “Resource Relationship” DwC extension
 
+## TAMUIC
+
+TAMUIC | GloBI Integration Profile
+ --- | ---
+authors | John Oswald
+actors | Collection Manager, SQL Server, SCAN, GloBI
+integration method | A collection manager uses SQL Server to manage collection record relations. The collection manager episodically exports datasets from SQL Server to SCAN as a Darwin Core Archive. Periodically, GloBI indexes TAMUIC related datasets as part of indexing all of SCAN. 
+diagram | ![tamuic-integration.png](./assets/tamuic-integration.png) 
 
 ## TaxonWorks
 ## Institutional
