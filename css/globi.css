@@ -50,6 +50,7 @@ div.figure p {
           height: 10em;
           vertical-align:top;
           position:relative;
+          padding-top: 2em;
           padding-left: 5em;
         }
 
