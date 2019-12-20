@@ -94,5 +94,4 @@ Also, <a href="http://www.nhm.ac.uk/our-science/departments-and-staff/staff-dire
 <h3 id="citations">Who cited GloBI?</h3>
     {% include citations.html %}
 <h3 id="partners">GloBI Partners</h3>
-    <p> GloBI partners have made direct (e.g., awards, contracts) or indirect (e.g., donated server space) financial contributions to GloBI.</p>
     {% include partners.html %}
