@@ -17,7 +17,7 @@ Erika (UMMZ), Barry (UMMZ), Jorrit (GloBI)
 1. Revisit UMMZ goals / GloBI
 2. GloBI Q&A / UMMZ Collection Q&A
 3. Review existing Specify integration profile at https://globalbioticinteractions.org/parasitetracker#specify
-4. Discuss / document record linking strategy for UMMZ based on examples UMMZI-156823 (associated with bat guano FMNH 74-348) / UMMZI-167581 (associated with bird UMMZ 232420) / UMMZI-178049 (associated with Aves Passeriformes Parulidae Parkesia motacilla)
+4. Discuss / document record linking strategy for UMMZ based on examples UMMZI-156823 (associated with bat guano FMNH 74-348) / UMMZI-167581 (associated with bird UMMZ 232420) / UMMZI-178049 (associated with Aves Passeriformes Parulidae Parkesia motacilla) - please see [ummz-email-thread-2020-01.eml](ummz-email-thread-2020-01.eml) for related email thread.
 5. Identify next steps to further detail/ implement 4.
 
 ## Action Items
