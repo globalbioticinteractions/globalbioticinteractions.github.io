@@ -1,6 +1,7 @@
 ---
 status: unlisted
 ---
+# Parasite Tracker / University of Michigan Museum of Zoology (UMMZ) Meeting Notes
 
 ## Date / Time 
 23 Jan 2020 13:00 EST (Thu)  
@@ -10,7 +11,7 @@ video/voice @ https://whereby.com/jhpoelen
 notes @ https://pad.carpentries.org/parasitetracker-ummz
 
 ## Attendees 
-Erika, Barry, Jorrit
+Erika (UMMZ), Barry (UMMZ), Jorrit (GloBI)
 
 ## Agenda  
 1. Revisit UMMZ goals / GloBI
