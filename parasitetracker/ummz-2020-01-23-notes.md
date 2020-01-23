@@ -24,7 +24,7 @@ Erika (UMMZ), Barry (UMMZ), Jorrit (GloBI)
 1. Erika to share manual database export with Jorrit
 2. Jorrit to find UMMZ collections in SCAN/ GBIF/ iDigBio networks
 3. Jorrit to share documented record indexing strategies
-4. Jorrit to analyze manual database export and outline method to implement indexing strategies 
+4. Jorrit to analyze manual database export and outline method to implement indexing strategies (see also https://github.com/globalbioticinteractions/globalbioticinteractions/issues/452 ). 
 5. Jorrit to consider adding lifestage information to GloBI search pages (see also https://github.com/globalbioticinteractions/globalbioticinteractions/issues/379 ).
 
 ## Notes
