@@ -1,4 +1,8 @@
- ## Date / Time 
+---
+status: unlisted
+---
+
+## Date / Time 
 23 Jan 2020 13:00 EST (Thu)  
 
 video/voice @ https://whereby.com/jhpoelen
@@ -8,7 +12,7 @@ notes @ https://pad.carpentries.org/parasitetracker-ummz
 ## Attendees 
 Erika, Barry, Jorrit
 
- ## Agenda  
+## Agenda  
 1. Revisit UMMZ goals / GloBI
 2. GloBI Q&A / UMMZ Collection Q&A
 3. Review existing Specify integration profile at https://globalbioticinteractions.org/parasitetracker#specify
