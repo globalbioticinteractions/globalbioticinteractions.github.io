@@ -1,15 +1,25 @@
  
+---
+status: unlisted
+---
+
 # Meeting Notes Parasite Tracker Workshop Prep
  
- Date - 24 Jan 2020
- Time - 12:00 - 14:00 PST 
- 
+## Date 
+24 Jan 2020
+## Time 
+12:00 - 14:00 PST 
+## Location
+To join the video meeting, click this link: https://meet.google.com/uwf-cpxe-vmw
+Otherwise, to join by phone, dial +1 626-838-3505 and enter this PIN: 821 280 661#
+To view more phone numbers, click this link: https://tel.meet/uwf-cpxe-vmw?hs=5
+
+Interactive notes at https://pad.carpentries.org/parasitetracker .
+
 ## Attendees
- 
 Jen, Katja, Kat, Jorrit
  
 ## Agenda
- 
 0. outline workshop agenda
 1. workshop logistics (arrival etc)
 2. review workshop timeslot and how to fit with pressing topics
