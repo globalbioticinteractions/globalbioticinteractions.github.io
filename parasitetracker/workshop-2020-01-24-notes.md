@@ -1,25 +1,26 @@
- 
 ---
 status: unlisted
 ---
 
 # Meeting Notes Parasite Tracker Workshop Prep
  
-## Date 
+### Date 
 24 Jan 2020
-## Time 
+
+### Time 
 12:00 - 14:00 PST 
-## Location
+
+### Location
 To join the video meeting, click this link: https://meet.google.com/uwf-cpxe-vmw
 Otherwise, to join by phone, dial +1 626-838-3505 and enter this PIN: 821 280 661#
 To view more phone numbers, click this link: https://tel.meet/uwf-cpxe-vmw?hs=5
 
 Interactive notes at https://pad.carpentries.org/parasitetracker .
 
-## Attendees
+### Attendees
 Jen, Katja, Kat, Jorrit
  
-## Agenda
+### Agenda
 0. outline workshop agenda
 1. workshop logistics (arrival etc)
 2. review workshop timeslot and how to fit with pressing topics
@@ -28,7 +29,7 @@ Jen, Katja, Kat, Jorrit
 5. Time commitments + expectations 
 6. Strategy on getting providers up-to-speed with data integration (documentation needs?)
  
-# Action Items
+### Action Items
 
 (Kat) ask active project members (e.g., Erika) to provide 10 or more examples and share with Katja before the end of Jan 2020.  
 (Jen) to provide supplies for the group session / need to figure out where / big pieces of post-it notes and sheets / afterwards transcribe this into shared google docs / need to 
@@ -39,7 +40,7 @@ Jen, Katja, Kat, Jorrit
 (Kat) ask Matt Yoder for TaxonWorks office hours
 (Jen / Katja / Kat ) review GloBI materials - pages and provide suggestions on how to best capture and link biotic association records. 
 
-## Notes
+### Notes
  
 Jen - Not everyone is ready to provide data yet. 
 
