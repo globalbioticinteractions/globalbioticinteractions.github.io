@@ -2,7 +2,7 @@
 status: unlisted
 ---
 
-# Meeting Notes Parasite Tracker Workshop Prep
+# Parasite Tracker Workshop Prep Meeting Notes
  
 ### Date 
 24 Jan 2020
@@ -32,12 +32,19 @@ Jen, Katja, Kat, Jorrit
 ### Action Items
 
 (Kat) ask active project members (e.g., Erika) to provide 10 or more examples and share with Katja before the end of Jan 2020.  
+
 (Jen) to provide supplies for the group session / need to figure out where / big pieces of post-it notes and sheets / afterwards transcribe this into shared google docs / need to 
+
 (Kat) ask folks to bring laptop
+
 (Katja) Create a google doc reporting template for used terms and translation table to related to more common terms. Same doc can be used to finish afterwards / ensure to capture all the names-emails for break out groups
+
 (Jen) come up with assessment criteria 
+
 (Kat) to reserve some "office hours" time for biotic associations at the workshop
+
 (Kat) ask Matt Yoder for TaxonWorks office hours
+
 (Jen / Katja / Kat ) review GloBI materials - pages and provide suggestions on how to best capture and link biotic association records. 
 
 ### Notes
@@ -108,9 +115,13 @@ Jen - outline of workshop  What date? Day 1 - (after lunch / 1p30 - 4p30 ~3 hour
 
 
 Jen - there are back-up plans (parachute topics, macropod labs, office hours) available in case we finish early.  
+
 Jen - propose to meet again for coordinate workshop in two weeks  (Wed) 5 Feb 2020 @ 09:00 PST / 11:00 CET 
+
 Jorrit - I can make myself available for initial informatics weekly meetings before the workshop.
+
 Katja - reporting and taxonomy in GloBI / I expect that folks wanting to see what is happening to their data from GloBI / re: taxonomy ~ as the taxonomy is being updated and managed how to resolve multiple taxonomies. 
+
 Kat - TaxonWorks will be used to manage the TPT taxonomy and GloBI is expected to use that taxonomy to provide a TPT view on GloBI data. 
 
 
