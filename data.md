@@ -26,7 +26,7 @@ GloBI's most recent aggregated interaction dataset are available in the followin
  
  * [neo4j v2.3.12 graph database](https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-neo4j-graph-db.zip) contains a [neo4j](https://neo4j.org) database snapshot containing a graph representation of the species interaction data. 
 
-When using this data, please make sure to attribute the original data contributors. Also, please consider to [contribute](./contribute) to improve access to existing species interaction data.
+Data in GloBI is generously provided by researchers and collections openly sharing their datasets. When using this data, please make sure to attribute the original data contributors, including citing the specific datasets in derivative work. Also, please consider to [contribute](./contribute) to improve access to existing species interaction data.
 
 In case the provided methods to access species interactions data do not quite suit your needs, please [open an issue](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new) or contact the author(s) of [doi:10.1016/j.ecoinf.2014.08.005](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005).  
 
