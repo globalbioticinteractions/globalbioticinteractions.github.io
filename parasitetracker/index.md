@@ -4,6 +4,8 @@ title: "parasite tracker"
 status: unlisted
 ---
 
+<a class="logos" href="https://parasitetracker.org/"><img src="/assets/TPTlogo_wide.png" alt="Terrestrial Parasite Tracker"/></a>
+
 This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status page shows the current state of integration between TPT affiliated collections and GloBI.
 
 [update page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/parasitetracker.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues) / [integration profiles](#integration-profiles) / [DwCA Guidelines](#dwca-guidelines) 
