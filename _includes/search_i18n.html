@@ -297,7 +297,7 @@ var suggestNameLinkGitHub = function (taxonName, globiRef, githubRepo) {
     var a = document.createElement("a");
     a.setAttribute("title", "This name did not yet link to some taxonomy. Click to suggest a correction for this name.");
     a.setAttribute("target", "_blank");
-    var params = { title: 'name correction suggestion for [' + taxonName + ']', body: 'Hi!\nI found a taxon name ```' + taxonName + '``` on a [globi page](' + globiRef + '). After reviewing the data sources and relevant taxonomic tools like the [globalnames resolver](http://resolver.globalnames.org), I think that suggestion below might be helpful.\n\n Thanks!\n\n| name | suggested name | name url reference | notes\n| --- | --- | --- | ---\n| ' + taxonName + ' | YOUR SUGGESTED NAME | http://somereference | some notes' };
+    var params = { title: 'name correction suggestion for [' + taxonName + ']', body: 'Hi!\nI found a taxon name ```' + taxonName + '``` on a [globi page](' + globiRef + '). After reviewing the data sources and relevant taxonomic tools like the [globalnames resolver](https://resolver.globalnames.org), I think that suggestion below might be helpful.\n\n Thanks!\n\n| name | suggested name | name url reference | notes\n| --- | --- | --- | ---\n| ' + taxonName + ' | YOUR SUGGESTED NAME | http://somereference | some notes' };
     a.setAttribute("href", "https://github.com/" + githubRepo + "/issues/new?" + queryString.stringify(params));
     a.textContent = 'suggest correction';
     item.appendChild(a);
@@ -319,7 +319,7 @@ var showTaxonLinks = function (elem) {
         ,
         { name: 'iNaturalist', icon: "https://www.inaturalist.org/favicon.ico", url: "https://inaturalist.org"}
         ,
-        { name: 'World Register of Marine Species', icon: "http://www.marinespecies.org/images/favicon/favicon-32x32.png?=v2", url: "http://www.marinespecies.org"}
+        { name: 'World Register of Marine Species', icon: "https://www.marinespecies.org/images/favicon/favicon-32x32.png?=v2", url: "http://www.marinespecies.org"}
         ,
         { name: 'National Center for Biotechnology Information', icon: "https://www.ncbi.nlm.nih.gov/favicon.ico", url: "https://www.ncbi.nlm.nih.gov"}
         ,
