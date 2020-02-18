@@ -17,20 +17,20 @@ Click on badges to explore indexed records.
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%}
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
-[![badge]({{ globi-badge }})]({{ globi-url }}) <a href="#{{ c.institution_short }}">{{ c.institution_short }}</a> {{ " / " }}
+[![badge]({{ globi-badge }})]({{ globi-url }}) <a href="#{{ c.institution_code }}">{{ c.institution_code }}</a> {{ " / " }}
 {%- endfor %}
 
 1 Oct 2019 Parasite Tracker kick-off [presentation](./assets/globi_adbc_summit_20191001.pdf) / [video](https://vimeo.com/362883545). 
 
 
 
-|indexed|code|institution|collection|platform|platform detail|contact|
-|---|---|---|---|---|---
+|indexed|institution code/name|collection code/name|platform|platform detail|contact|
+|---|---|---|---|---
 {% assign cols = site.data.parasitetracker | sort: "institution" -%}
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%} 
-[![badge]({{ globi-badge }})]({{ globi-url }}) | <span id="{{ c.institution_short }}">{{ c.institution_short }}</span> | {{ c.institution }} | {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.platform_detail }} | {{ c.contact }} | 
+[![badge]({{ globi-badge }})]({{ globi-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} | {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.platform_detail }} | {{ c.contact }} | 
 {% endfor %}
 
 # Integration Profiles

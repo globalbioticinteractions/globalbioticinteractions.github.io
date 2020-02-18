@@ -1,32 +1,32 @@
-institution_short	institution	collection	contact	platform	platform_detail	globi_id
-BPBM	Bishop Museum	Gressitt Entomology Collection 	Jim Boone, Neal Evenhuis	Specify		Bishop Museum Gressitt Entomology Collection 
-BYU	Brigham Young University Arthropod Museum	Monte L. Bean Museum of Life Science Museum Insects and Arachnids	Michael Whiting 	SymbSCAN		Darwin Core Archive for Brigham Young University Arthropod Museum
-CAS	California Academy of Sciences	Entomology Collection	Chris Grinter, Michelle Trautwein	Institutional		California Academy of Sciences Entomology Collection
-CUAC	Clemson University	Clemson University Arthropod Collection	Michael Caterino 	Specify		Clemson University Arthropod Collection
-FMNH	Field Museum of Natural History	FMNH Insects, Arachnids, and Myriapods	John Bates, Maureen Turcatel, Petra Sierwald	EMu		Darwin Core Archive for Field Museum of Natural History Collection of Insects, Arachnids, and Myriapods
-INHS	Illinois Natural History Survey, University of Illinois at Urbana-Champaign	INHS Insect Collection	Dmitry A Dmitriev, Matt Yoder 	TaxonWorks		globi:globalbioticinteractions/inhs-insects
-MSU	Michigan State University	Albert J. Cook Arthropod Research Collection	Anthony Cognato, Sarah Smith	SymbSCAN		Darwin Core Archive for The Albert J. Cook Arthropod Research Collection
-MPM	Milwaukee Public Museum	MPM Zoology 	Kat Sullivan, Alyssa Caywood, Christopher Tyrrell, Jennifer Zaspel , Julia Colby	EMu		Milwaukee Public Museum
-HWML	Nebraska State Museum	Harold W. Manter Laboratory of Parasitology	Scott Gardner	Arctos		University of Nebraska State Museum
-OSAL	Ohio State University	Ohio State University Acarology Collection	Hans Klompen	Institutional	Filemaker Pro	Ohio State University Acarology Collection
-PSU	Pennsylvania State University	Frost Entomological Museum	Andy Deans, Joyce Sakamoto 	TaxonWorks		Frost Entomological Museum
-PERC	Purdue University	Entomological Research Collection	Jessica Williams, Stephen Cameron	Specify		The Purdue Entomological Research Collection
-TAMUIC	Texas A&M University	Texas A&M University Insect Collection	John Oswald, Karen Wright	TAMUIC	SQL Server	Texas A&M University Insect Collection
-BRTC	Texas A&M University	Biodiversity Teaching and Research Collections	Jessica Light	Institutional	Access	Biodiversity Teaching and Research Collections
-ANSP	The Academy of Natural Sciences of Drexel University	Ornithology Collection at Academy of Natural Sciences of Drexel University	Jason Weckstein 	SymbSCAN		Darwin Core Archive for Academy of Natural Sciences Entomology Collection – OrthopNet
-ANSP	The Academy of Natural Sciences of Drexel University	Entomology Collection		SymbSCAN		Darwin Core Archive for Academy of Natural Sciences Entomology Collection - LepNet
-UCSB-IZC	University of California at Santa Barbara	Invertebrate Zoology Collection	Katja Seltmann	Symbiota		globi:globalbioticinteractions/ucsb-izc
-UHIM	University of Hawaii Insect Museum	University of Hawaii Insect Museum 	Daniel Rubinoff 	Institutional		University of Hawaii Insect Museum
-UMMZ	University of Michigan Museum of Zoology	University of Michigan Museum of Zoology Insect Collection	Barry OConnor, Erika Tucker 	Specify		globi:globalbioticinteractions/ummzi
-UMSP	University of Minnesota	University of Minnesota Insect Collection	Ralph Holzenthal, Robin Thomson	Specify		University of Minnesota Insect Collection
-UNH	University of New Hampshire	UNH Collection of Insects and other Arachnids	Istvan Miko 	Institutional	Filemaker Pro	UNH Collection of Insects and other Arachnids
-MSB-PARA	University of New Mexico	Museum of Southwestern Biology, Divisions of Mammals, Parasites	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Parasite Collection
-MSB-HOST	University of New Mexico	Museum of Southwestern Biology, Host Collection	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Host Collection
-MSB-BIRD	University of New Mexico	Museum of Southwestern Biology, Bird Collection	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Bird Collection
-MSB-FISH	University of New Mexico	Museum of Southwestern Biology, Fish Collection	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Fish Collection
-MSB-MAM	University of New Mexico	Museum of Southwestern Biology, Mammal Collection	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Mammal Collection
-MSB-HERP	University of New Mexico	Museum of Southwestern Biology, Amphibian and Reptile Collection 	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Amphibian and Reptile Collection 
-PIPER	University of Utah	Price Institute of Parasites Research (PIPeR)	Sarah Bush 	Undecided	Undecided	Entomology Collection at the Natural History Museum of Utah
-WIRC	University of Wisconsin Madison	Wisconsin Insect Research Collection	Craig Brabant, Daniel Young	Specify		Wisconsin Insect Research Collection
-UWSP	University of Wisconsin Stevens Point	Stephen J. Taft Parasitological Collection	Sarah Orlofske 	Undecided	Undecided	University of Wisconsin Stevens Point
-VB	VectorBase		Samuel Rund 	Institutional		globi:globalbioticinteractions/vectorbase  
+institution_code	institution	collection_code	collection	contact	platform	platform_detail	globi_id
+BPBM	Bishop Museum		Gressitt Entomology Collection 	Jim Boone, Neal Evenhuis	Specify		Bishop Museum Gressitt Entomology Collection 
+BYU	Brigham Young University Arthropod Museum		Monte L. Bean Museum of Life Science Museum Insects and Arachnids	Michael Whiting 	SymbSCAN		Darwin Core Archive for Brigham Young University Arthropod Museum
+CAS	California Academy of Sciences		Entomology Collection	Chris Grinter, Michelle Trautwein	Institutional		California Academy of Sciences Entomology Collection
+CUAC	Clemson University		Clemson University Arthropod Collection	Michael Caterino 	Specify		Clemson University Arthropod Collection
+FMNH	Field Museum of Natural History		FMNH Insects, Arachnids, and Myriapods	John Bates, Maureen Turcatel, Petra Sierwald	EMu		Darwin Core Archive for Field Museum of Natural History Collection of Insects, Arachnids, and Myriapods
+INHS	Illinois Natural History Survey, University of Illinois at Urbana-Champaign		INHS Insect Collection	Dmitry A Dmitriev, Matt Yoder 	TaxonWorks		globi:globalbioticinteractions/inhs-insects
+MSU	Michigan State University		Albert J. Cook Arthropod Research Collection	Anthony Cognato, Sarah Smith	SymbSCAN		Darwin Core Archive for The Albert J. Cook Arthropod Research Collection
+MPM	Milwaukee Public Museum		MPM Zoology 	Kat Sullivan, Alyssa Caywood, Christopher Tyrrell, Jennifer Zaspel , Julia Colby	EMu		Milwaukee Public Museum
+HWML	Nebraska State Museum		Harold W. Manter Laboratory of Parasitology	Scott Gardner	Arctos		University of Nebraska State Museum
+OSAL	Ohio State University		Ohio State University Acarology Collection	Hans Klompen	Institutional	Filemaker Pro	Ohio State University Acarology Collection
+PSU	Pennsylvania State University		Frost Entomological Museum	Andy Deans, Joyce Sakamoto 	TaxonWorks		Frost Entomological Museum
+PERC	Purdue University		Entomological Research Collection	Jessica Williams, Stephen Cameron	Specify		The Purdue Entomological Research Collection
+TAMUIC	Texas A&M University		Texas A&M University Insect Collection	John Oswald, Karen Wright	TAMUIC	SQL Server	Texas A&M University Insect Collection
+BRTC	Texas A&M University		Biodiversity Teaching and Research Collections	Jessica Light	Institutional	Access	Biodiversity Teaching and Research Collections
+ANSP	The Academy of Natural Sciences of Drexel University		Ornithology Collection at Academy of Natural Sciences of Drexel University	Jason Weckstein 	SymbSCAN		Darwin Core Archive for Academy of Natural Sciences Entomology Collection – OrthopNet
+ANSP	The Academy of Natural Sciences of Drexel University		Entomology Collection		SymbSCAN		Darwin Core Archive for Academy of Natural Sciences Entomology Collection - LepNet
+UCSB-IZC	University of California at Santa Barbara		Invertebrate Zoology Collection	Katja Seltmann	Symbiota		globi:globalbioticinteractions/ucsb-izc
+UHIM	University of Hawaii Insect Museum		University of Hawaii Insect Museum 	Daniel Rubinoff 	Institutional		University of Hawaii Insect Museum
+UMMZ	University of Michigan Museum of Zoology		University of Michigan Museum of Zoology Insect Collection	Barry OConnor, Erika Tucker 	Specify		globi:globalbioticinteractions/ummzi
+UMSP	University of Minnesota		University of Minnesota Insect Collection	Ralph Holzenthal, Robin Thomson	Specify		University of Minnesota Insect Collection
+UNH	University of New Hampshire		UNH Collection of Insects and other Arachnids	Istvan Miko 	Institutional	Filemaker Pro	UNH Collection of Insects and other Arachnids
+MSB-PARA	University of New Mexico		Museum of Southwestern Biology, Divisions of Mammals, Parasites	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Parasite Collection
+MSB-HOST	University of New Mexico		Museum of Southwestern Biology, Host Collection	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Host Collection
+MSB-BIRD	University of New Mexico		Museum of Southwestern Biology, Bird Collection	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Bird Collection
+MSB-FISH	University of New Mexico		Museum of Southwestern Biology, Fish Collection	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Fish Collection
+MSB-MAM	University of New Mexico		Museum of Southwestern Biology, Mammal Collection	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Mammal Collection
+MSB-HERP	University of New Mexico		Museum of Southwestern Biology, Amphibian and Reptile Collection 	Mariel Lee Campbell, Joseph Cook	Arctos		MSB Amphibian and Reptile Collection 
+PIPER	University of Utah		Price Institute of Parasites Research (PIPeR)	Sarah Bush 	Undecided	Undecided	Entomology Collection at the Natural History Museum of Utah
+WIRC	University of Wisconsin Madison		Wisconsin Insect Research Collection	Craig Brabant, Daniel Young	Specify		Wisconsin Insect Research Collection
+UWSP	University of Wisconsin Stevens Point		Stephen J. Taft Parasitological Collection	Sarah Orlofske 	Undecided	Undecided	University of Wisconsin Stevens Point
+VB	VectorBase			Samuel Rund 	Institutional		globi:globalbioticinteractions/vectorbase  
