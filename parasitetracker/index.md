@@ -24,7 +24,7 @@ Click on badges to explore indexed records.
 
 
 
-|indexed|institution code/name|collection code/name|platform|platform detail|contact|
+|indexed|institution|collection|platform|platform detail|contact|
 |---|---|---|---|---
 {% assign cols = site.data.parasitetracker | sort: "institution" -%}
 {% for c in cols -%}
