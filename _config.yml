@@ -239,6 +239,14 @@ t:
         en: "endoparasite of"
         ja: "endoparasite of"
         es: "endoparasite of"
+    hostOf:
+        en: "host of"
+        ja: "host of"
+        es: "host of"
+    hasHost:
+        en: "has host"
+        ja: "has host"
+        es: "has host"
     hasEndoparasite:
         en: "has endoparasite"
         ja: "has endoparasite"
