@@ -8,10 +8,12 @@ status: unlisted
 
 This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status page shows the current state of integration between TPT affiliated collections and GloBI.
 
-[update page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/parasitetracker.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues) / [integration profiles](#integration-profiles) / [DwCA Guidelines](#dwca-guidelines) 
+[edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/parasitetracker/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/parasitetracker.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues) / [integration profiles](#integration-profiles) / [DwCA Guidelines](#dwca-guidelines) 
 
 
 Click on badges to explore indexed records.
+
+[edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/parasitetracker.tsv)
 
 {% assign cols = site.data.parasitetracker | sort: "institution" -%}
 {% for c in cols -%}
