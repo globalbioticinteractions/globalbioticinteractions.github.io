@@ -82,7 +82,7 @@ example collection |
  integration method | Collection Manager enters records in Specify. A manual csv export of full Specify database (including host records) is shared with, and indexed by, GloBI. If updates are made to existing Specify records, a manual export performed and GloBI is notified.
   diagram | ![specify-integration-ummzi.png](./assets/specify-integration-ummzi.png)
 example collection |
-  open questions | 1. Which darwin core archive field to use for assocations? associatedTaxa, associatedOccurrences, Resource Relationship extension. 2. How to establish an automated the export of Specify records to SCAN? 3. How to best link to individual specimen records? 4. How to best cite specimen records? 5. How to establish reliable link to non-UMMZI host records?
+  open questions | 1. Which darwin core archive field to use for assocations? associatedTaxa, associatedOccurrences, Resource Relationship extension. 2. How to establish an automated the export of Specify records via (UMich) IPT? 3. How to best link to individual specimen records? 4. How to best cite specimen records? 5. How to establish reliable links to non-UMMZI host records?
   references | Meeting notes and email exchanges between Jorrit (GloBI), Erika (UMMZ), Barry (UMMZ)
   example collection |  [UMMZ](#UMMZ), [UMMZI on GloBI](https://globalbioticinteractions.org/?accordingTo=globi:globalbioticinteractions/ummzi) and [UMMZI on github](https://github.com/globalbioticinteractions/ummzi) .
 
