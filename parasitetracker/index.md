@@ -33,7 +33,7 @@ Click on badges to explore indexed records.
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
 {%- if (c.review_id | trim | empty) -%}
-{%- assign globi-review-url = c.review_id | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review.tsv.gz" -%}
+{%- assign globi-review-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review.tsv.gz" -%}
 {%- assign globi-review-sign = "✓" -%}
 {%- else -%}
 {%- assign globi-review-url = "https://globalbioticinteractions.org/contribute" -%}
