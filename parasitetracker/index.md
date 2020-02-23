@@ -34,12 +34,14 @@ Click on badges to explore indexed records.
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
 {%- if (c.review_id | trim | empty) -%}
 {%- assign globi-review-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review.tsv.gz" -%}
+{%- assign globi-interactions-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/indexed-interactions.tsv.gz" -%}
 {%- assign globi-review-sign = "✓" -%}
 {%- else -%}
 {%- assign globi-review-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- assign globi-interactions-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- assign globi-review-sign = "x" -%}
 {%- endif -%}
-[![badge]({{ globi-badge }})]({{ globi-url }}) | [{{ globi-review-sign }}]({{ globi-review-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
+[![badge]({{ globi-badge }})]({{ globi-url }}) | [{{ globi-review-sign }}]({{ globi-review-url }}) [{{ globi-review-sign }}]({{ globi-interactions-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
 {% endfor %}
 
 # Integration Profiles
