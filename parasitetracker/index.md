@@ -59,6 +59,7 @@ Arctos managed collections are indexed by GloBI. This section explains how.
 
  Arctos | GloBI Integration Profile 
  --- | --- 
+ authors | Dusty (Arctos dev), Mariel Campbell (MSB), Teresa Mayfield-Meyer (MSB)
  actors | Arctos, VertNet, GloBI
  integration method | A collection manager uses Arctos to establish associations or relationships between records. Arctos periodically shares data with VertNet. VertNet uses [GBIF IPT](https://www.gbif.org/ipt) software to publish data archives. VertNet publishes a list of available datasets in the form of a RSS feed, including those shared by Arctos. Periodically, GloBI finds, and downloads, Arctos related data archives in VertNet. Then, GloBI indexes the associatedOccurrences fields of records in these Arctos data archives. The associatedOccurrences contain the association type (e.g., "eats") and a pointer to the occurrence id of the linked record.
   diagram | ![arctos-integration.png](./assets/arctos-integration.png)
@@ -71,6 +72,7 @@ Various Symbiota-based collections are indexed by GloBI. This section explains h
 
  Symbiota | GloBI Integration Profile
  --- | ---
+ authors | Katja Seltmann (UCSB)
  actors | Collection Manager, Symbiota CMS<sup>1</sup>, Symbiota Portal<sup>1</sup>, GloBI
  integration method | A collection manager uses the "associatedTaxa" fields in Symbiota CMS to record host-parasite associations. The Symbiota CMS periodically publishes their data to a Symbiota Portal (e.g., https://scan-bugs.org , ) . After successful publication, the Symbiota Portal includes the updates data archive in their list of available datasets through their RSS feed. GloBI indexes all data archives in the list of available datasets. For each dataset, GloBI looks for association records in associatedTaxa, associatedOccurrences, dynamicProperties field as well as Resource Relationship and Associated Taxa Extensions. In this case, only associatedTaxa fields are encountered and related records are indexed accordingly.
   diagram | ![symbiota-integration.png](./assets/symbiota-integration.png)
@@ -83,7 +85,7 @@ Association records in Specify managed collections are indexed by GloBI. This se
 
  Specify | GloBI Integration Profile
  --- | ---
- authors | Ralph Holzenthal, Robin Thomson 
+ authors | Ralph Holzenthal (UMSP), Robin Thomson (UMSP) 
  actors | Collection Manager, Excel, Specify6, https://scan-bugs.org 
  integration method | Collection Manager enters records in excel, then uploads the records in batch into Specify. A manual export to https://scan-bugs.org is done periodically to provide updates to GBIF, iDigBio and GloBI. If updates are made to existing Specify records, a new batch export is needed to update https://scan-bugs.org .  
   diagram | ![specify-integration.png](./assets/specify-integration.png)
@@ -93,13 +95,13 @@ example collection |
 
  Specify | GloBI Integration Profile
  --- | ---
- authors | Erika Tucker, Barry Oconner 
+ authors | Erika Tucker (UMMZ), Barry Oconner (UMMZ)
  actors | Collection Manager, Specify, https://gbif.org/ 
  integration method | Collection Manager enters records in Specify. A manual csv export of full Specify database (including host records) is shared with, and indexed by, GloBI. If updates are made to existing Specify records, a manual export performed and GloBI is notified.
   diagram | ![specify-integration-ummzi.png](./assets/specify-integration-ummzi.png)
 example collection |
   open questions | 1. Which darwin core archive field to use for assocations? associatedTaxa, associatedOccurrences, Resource Relationship extension. 2. How to establish an automated the export of Specify records via (UMich) IPT? 3. How to best link to individual specimen records? 4. How to best cite specimen records? 5. How to establish reliable links to non-UMMZI host records?
-  references | Meeting notes and email exchanges between Jorrit (GloBI), Erika (UMMZ), Barry (UMMZ)
+  references | [2020-01-23 Meeting notes](ummz-2020-01-23-notes) and [Jan 2020 email exchanges](ummz-email-thread-2020-01.eml) between Jorrit (GloBI), Erika (UMMZ), Barry (UMMZ)
   example collection |  [UMMZ](#UMMZ), [UMMZI on GloBI](https://globalbioticinteractions.org/?accordingTo=globi:globalbioticinteractions/ummzi) and [UMMZI on github](https://github.com/globalbioticinteractions/ummzi) .
 
 
@@ -134,6 +136,8 @@ Aside from various collection management systems, some collections use custom, h
 # DwCA Guidelines
 
 Darwin Core Archives provide several ways to capture biotic associations including: [associatedTaxa](https://dwc.tdwg.org/terms/#associatedTaxa), [associatedOccurrences](https://dwc.tdwg.org/terms/#associatedOccurrences), [ResourceRelationship](https://dwc.tdwg.org/terms/#resourcerelationship), and [dynamicProperties](https://dwc.tdwg.org/terms/#dwc:dynamicProperties). 
+
+For specific examples also see GloBI blog posts [Associating with Natural History Collections](/2019/07/10/associating-with-natural-history-collections/) and [Models in Fashion](/2018/08/16/models-in-fashion/#darwin-core-archives).
 
 ## General Guidelines
 The interaction information should be shared in multiple ways through DwC-A because no single way is sufficient for all aggregators. GBIf does display Dynamic Properties and Associated Taxa (according to K. Seltmann).
