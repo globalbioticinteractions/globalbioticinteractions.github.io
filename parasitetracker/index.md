@@ -10,8 +10,15 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 [edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/parasitetracker/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/parasitetracker.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues) / [integration profiles](#integration-profiles) / [DwCA Guidelines](#dwca-guidelines) 
 
-1 Oct 2019 Parasite Tracker kick-off [presentation](./assets/globi_adbc_summit_20191001.pdf) / [video](https://vimeo.com/362883545). 
 
+# Events 
+
+**1 Oct 2019** -  Parasite Tracker kick-off [presentation](./assets/globi_adbc_summit_20191001.pdf) / [video](https://vimeo.com/362883545). 
+
+**23 Feb 2020** -  Draft TPT GloBI Status Report published. 
+ For summaries see [indexed_interactions_by_collection.tsv](https://depot.globalbioticinteractions.org/reviews/2020-02-23/indexed_interactions_by_collection.tsv) and [review_summary_by_collection.tsv](https://depot.globalbioticinteractions.org/reviews/2020-02-23/review_summary_by_collection.tsv). Full report with review comments and indexed interactions available at [tpt-globi-report-2020-02-23.zip](https://depot.globalbioticinteractions.org/reviews/tpt-globi-report-2020-02-23.zip) (note: size ~2GB).
+
+# TPT Collections Status
 
 Click on badges to explore indexed records.
 
