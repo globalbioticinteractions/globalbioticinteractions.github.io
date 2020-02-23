@@ -53,7 +53,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign globi-interactions-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- assign globi-index-badge = "assets/index_none.svg" -%}
 {%- endif -%}
-[![badge]({{ globi-badge }})]({{ globi-url }}) [![review-badge]({{ globi-review-badge }})]({{ globi-review-url }}) [![index-badge]({{ globi-index-badge }})]({{ globi-interactions-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
+[![review-badge]({{ globi-review-badge }})]({{ globi-review-url }}) [![index-badge]({{ globi-index-badge }})]({{ globi-interactions-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
 {% endfor %}
 
 # Integration Profiles
