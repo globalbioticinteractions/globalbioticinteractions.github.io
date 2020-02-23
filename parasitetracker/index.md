@@ -10,6 +10,8 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 [edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/parasitetracker/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/parasitetracker.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues) / [integration profiles](#integration-profiles) / [DwCA Guidelines](#dwca-guidelines) 
 
+1 Oct 2019 Parasite Tracker kick-off [presentation](./assets/globi_adbc_summit_20191001.pdf) / [video](https://vimeo.com/362883545). 
+
 
 Click on badges to explore indexed records.
 
@@ -22,26 +24,24 @@ Click on badges to explore indexed records.
 [![badge]({{ globi-badge }})]({{ globi-url }}) <a href="#{{ c.institution_code }}">{{ c.institution_code }}</a> {{ " / " }}
 {%- endfor %}
 
-1 Oct 2019 Parasite Tracker kick-off [presentation](./assets/globi_adbc_summit_20191001.pdf) / [video](https://vimeo.com/362883545). 
-
-
-
-|indexed|reviewed|institution/collection|platform|contact|
+|status|institution/collection|platform|contact|
 |---|---|---|---|---
 {% assign cols = site.data.parasitetracker | sort: "institution" -%}
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
-{%- if (c.review_id | trim | empty) -%}
+{%- if c.review_id -%}
 {%- assign globi-review-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review.tsv.gz" -%}
+{%- assign globi-review-badge = "assets/review.svg" -%}
 {%- assign globi-interactions-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/indexed-interactions.tsv.gz" -%}
-{%- assign globi-review-sign = "✓" -%}
+{%- assign globi-index-badge = "assets/index.svg" -%}
 {%- else -%}
 {%- assign globi-review-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- assign globi-review-badge = "assets/review_none.svg" -%}
 {%- assign globi-interactions-url = "https://globalbioticinteractions.org/contribute" -%}
-{%- assign globi-review-sign = "x" -%}
+{%- assign globi-index-badge = "assets/index_none.svg" -%}
 {%- endif -%}
-[![badge]({{ globi-badge }})]({{ globi-url }}) | [{{ globi-review-sign }}]({{ globi-review-url }}) [{{ globi-review-sign }}]({{ globi-interactions-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
+[![badge]({{ globi-badge }})]({{ globi-url }}) [![review-badge]({{ globi-review-badge }})]({{ globi-review-url }}) [![index-badge]({{ globi-index-badge }})]({{ globi-interactions-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
 {% endfor %}
 
 # Integration Profiles

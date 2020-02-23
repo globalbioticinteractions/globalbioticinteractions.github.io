@@ -12,10 +12,10 @@ OSAL	Ohio State University		Ohio State University Acarology Collection	Hans Klom
 PSU	Pennsylvania State University		Frost Entomological Museum	Andy Deans, Joyce Sakamoto 	TaxonWorks		Frost Entomological Museum	globalbioticinteractions/scan
 PERC	Purdue University		Entomological Research Collection	Jessica Williams, Stephen Cameron	Specify		The Purdue Entomological Research Collection	globalbioticinteractions/scan
 TAMUIC	Texas A&M University		Texas A&M University Insect Collection	John Oswald, Karen Wright	TAMUIC	SQL Server	Texas A&M University Insect Collection	
-BRTC	Texas A&M University		Biodiversity Teaching and Research Collections	Jessica Light	Institutional	Access	Biodiversity Teaching and Research Collections	globalbioticinteractions/scan
+BRTC	Texas A&M University		Biodiversity Teaching and Research Collections	Jessica Light	Institutional	Access	Biodiversity Teaching and Research Collections	
 ANSP	The Academy of Natural Sciences of Drexel University		Ornithology Collection at Academy of Natural Sciences of Drexel University	Jason Weckstein 	SymbSCAN		Darwin Core Archive for Academy of Natural Sciences Entomology Collection – OrthopNet	
 UCSB-IZC	University of California at Santa Barbara		Invertebrate Zoology Collection	Katja Seltmann	Symbiota		globi:globalbioticinteractions/ucsb-izc	globalbioticinteractions/ucsb-izc
-UHIM	University of Hawaii Insect Museum		University of Hawaii Insect Museum 	Daniel Rubinoff 	Institutional		University of Hawaii Insect Museum	
+UHIM	University of Hawaii Insect Museum		University of Hawaii Insect Museum 	Daniel Rubinoff 	Institutional		University of Hawaii Insect Museum	globalbioticinteractions/scan
 UMMZ	University of Michigan Museum of Zoology		University of Michigan Museum of Zoology Insect Collection	Barry OConnor, Erika Tucker 	Specify		globi:globalbioticinteractions/ummzi	globalbioticinteractions/ummzi
 UMSP	University of Minnesota		University of Minnesota Insect Collection	Ralph Holzenthal, Robin Thomson	Specify		University of Minnesota Insect Collection	
 UNH	University of New Hampshire		UNH Collection of Insects and other Arachnids	Istvan Miko 	Institutional	Filemaker Pro	UNH Collection of Insects and other Arachnids	
