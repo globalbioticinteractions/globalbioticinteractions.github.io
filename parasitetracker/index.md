@@ -20,7 +20,7 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 # TPT Collections Status
 
-Click on badges to explore indexed records.
+Click on badges to browse/download indexed records or inspect automated reviews.
 
 [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/parasitetracker.tsv)
 
