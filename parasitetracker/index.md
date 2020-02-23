@@ -26,8 +26,8 @@ Click on badges to explore indexed records.
 
 
 
-|indexed|reviewed|institution|collection|platform|contact|
-|---|---|---|---|---|---
+|indexed|reviewed|institution/collection|platform|contact|
+|---|---|---|---|---
 {% assign cols = site.data.parasitetracker | sort: "institution" -%}
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
@@ -39,7 +39,7 @@ Click on badges to explore indexed records.
 {%- assign globi-review-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- assign globi-review-sign = "x" -%}
 {%- endif -%}
-[![badge]({{ globi-badge }})]({{ globi-url }}) | [{{ globi-review-sign }}]({{ globi-review-url }}) | (<span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} | {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
+[![badge]({{ globi-badge }})]({{ globi-url }}) | [{{ globi-review-sign }}]({{ globi-review-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
 {% endfor %}
 
 # Integration Profiles
