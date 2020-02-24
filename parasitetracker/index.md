@@ -10,7 +10,9 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 [edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/parasitetracker/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/parasitetracker.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
 
-[integration profiles](#integration-profiles) 
+[events](#events)
+/ [collections status](#tpt-collections-status)
+/ [integration profiles](#integration-profiles) 
 / [DwC-A guidelines](#dwca-guidelines) 
 / [translation tables](#translation-tables) 
 / [supported biotic interaction terms](#supported-terms) 
