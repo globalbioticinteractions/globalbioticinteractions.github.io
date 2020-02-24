@@ -131,15 +131,6 @@ integration method | A collection manager uses SQL Server to manage collection r
 diagram | ![tamuic-integration.png](./assets/tamuic-integration.svg) 
 
 ## TaxonWorks
-
-TaxonWorks | GloBI Integration Profile
- --- | ---
-authors | ?
-actors | ?
-integration method | ?
-diagram | ?
-example collection | [http://dmitriev.speciesfile.org/Export/insects.zip](http://dmitriev.speciesfile.org/Export/insects.zip) ? . Please update at: [INHS Insect Collection](https://github.com/globalbioticinteractions/inhs-insects) 
-
 ## Institutional
 ## Undecided
 
