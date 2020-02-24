@@ -20,8 +20,7 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **1 Oct 2019** -  Parasite Tracker kick-off [presentation](./assets/globi_adbc_summit_20191001.pdf) / [video](https://vimeo.com/362883545). 
 
-**23 Feb 2020** -  Draft TPT GloBI Status Report published. 
- For summaries see [indexed_interactions_by_collection.tsv](https://depot.globalbioticinteractions.org/reviews/2020-02-23/indexed_interactions_by_collection.tsv) and [review_summary_by_collection.tsv](https://depot.globalbioticinteractions.org/reviews/2020-02-23/review_summary_by_collection.tsv). Full report with review comments and indexed interactions available at [tpt-globi-report-2020-02-23.zip](https://depot.globalbioticinteractions.org/reviews/tpt-globi-report-2020-02-23.zip) (note: size ~2GB).
+**24 Feb 2020** -  Publication of ```Poelen, Jorrit H., & Seltmann, Katja. (2020). Terrestrial Parasite Tracker indexed biotic interactions and review summary (Version 0.1) [Data set]. Zenodo. [http://doi.org/10.5281/zenodo.3685365](http://doi.org/10.5281/zenodo.3685365)``` .  For summaries see [indexed_interactions_by_collection.tsv](https://zenodo.org/record/3685365/files/indexed_interactions_by_collection.tsv) and [review_summary_by_collection.tsv](https://zenodo.org/record/3685365/files/review_summary_by_collection.tsv). For full report with review comments, indexed interactions and source datasets, please visit the Zenodo data publication at [http://doi.org/10.5281/zenodo.3685365](http://doi.org/10.5281/zenodo.3685365). **If you'd like to be added as a co-author, please add yourself at [https://pad.carpentries.org/tpt-datapaper-authors](https://pad.carpentries.org/tpt-datapaper-authors) by the end of February or contact Jorrit or Katja directly**.  
 
 # TPT Collections Status
 
