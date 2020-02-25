@@ -1,0 +1,20 @@
+digraph pairwise {
+    #rankdir=LR;
+    #labelloc="t";
+    #label="Specify <> GloBI integration";
+    a1 [label="Collection Manager"];
+    b1 [label="Specify"];
+    c1 [label="full_database_export.csv"];
+    d1 [label="GloBI"];
+    e1 [label="GBIF Collection Landing Page"];
+    { rank=same;
+    a1 -> b1 [label="uses (1)"];
+    b1 -> c1 [label="export (2)"];
+    };
+    { 
+
+    d1 -> c1 [label="indexes (3)"];
+    d1 -> e1 [label="links to (4)"];
+    };
+}
+
