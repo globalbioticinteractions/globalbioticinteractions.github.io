@@ -19,7 +19,7 @@ published: true
     <img src="/assets/tpt-workshop-0.jpg" alt="Arctos"/>
 
     <div class="figcaption">
-        <p><em>Figure 1.</em>A parasite specimen and associated label from the Milwaukee Public Museum Invertebrate Collection ([MPM-IC](https://symbiota.mpm.edu/collections/misc/collprofiles.php?collid=3) that was used in group transcription exercise during Terrestrial Parasite Tracker workshop on 24-25 February 2020 in the Field Museum, Chicago, IL. (more specific specimen citation in pending as the specimen is still being processed)
+        <p><em>Figure 1.</em>A parasite specimen and associated label from the Milwaukee Public Museum Invertebrate Zoology Collection (<a href="https://symbiota.mpm.edu/collections/misc/collprofiles.php?collid=3">MPM-IZ</a>) that was used in group transcription exercise during Terrestrial Parasite Tracker workshop on 24-25 February 2020 in the Field Museum, Chicago, IL. (more specific specimen citation in pending as the specimen is still being processed)
         </p>
     </div>
 </div>
