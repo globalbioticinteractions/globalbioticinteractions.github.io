@@ -19,7 +19,7 @@ published: true
     <img src="/assets/tpt-workshop-0.jpg" alt="Arctos"/>
 
     <div class="figcaption">
-        <p><em>Figure 1.</em> Parasite specimen and associated label used in group transcription exercise during Terrestrial Parasite Tracker workshop on 24-25 February 2020 in the Field Museum, Chicago, IL. (needs specimen citation)
+        <p><em>Figure 1.</em> Parasite specimen and associated label used in group transcription exercise during Terrestrial Parasite Tracker workshop on 24-25 February 2020 in the Field Museum, Chicago, IL. (specimen citation in pending as the specimen is still being processed)
         </p>
     </div>
 </div>
