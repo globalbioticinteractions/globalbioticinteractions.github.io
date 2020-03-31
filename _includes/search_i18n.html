@@ -277,6 +277,7 @@ var searchForInteractions = function (offset) {
                     var citationContainer = $(distinctInteractionSelector);
                     if (distinctInteractionResults.length == 0) {
                         var citationElem = document.createElement('li');
+                        citationElem.setAttribute('class', 'citation');
                         citationElem.textContent = '{{ site.t.none[page.lang] }}.';
                         citationContainer.append(citationElem);
                     }
