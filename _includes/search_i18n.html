@@ -269,6 +269,7 @@ var searchForInteractions = function (offset) {
                         if ($('#' + studyId).length == 0) {
                             var citationElem = document.createElement('li');
                             citationElem.setAttribute('id', studyId);
+                            citationElem.setAttribute('class', 'citation');
                             appendCitationTo(distinctInteractionResult, citationElem);
                             $(distinctInteractionSelector).append(citationElem);
                         }
