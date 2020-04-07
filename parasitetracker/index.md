@@ -134,6 +134,15 @@ integration method | A collection manager uses SQL Server to manage collection r
 diagram | ![tamuic-integration.png](./assets/tamuic-integration.svg) 
 
 ## TaxonWorks
+
+PSUC | GloBI Integration Profile
+ --- | ---
+authors | Andrew R. Deans, Laura Porturas
+actors | Curator, Data Manager, TaxonWorks, SCAN, GloBI
+integration method | A curator uses TaxonWorks to manage collection object associations. The data manager periodically exports data from TaxonWorks to SCAN as Darwin Core Archive. Periodically, GloBI indexes PSUC datasets as part of indexing all of SCAN.
+diagram | ?
+example collection | ?
+
 ## Institutional
 ## Undecided
 
