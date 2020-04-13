@@ -239,11 +239,11 @@ t:
         en: "endoparasite of"
         ja: "endoparasite of"
         es: "endoparasite of"
-    hostOf:
+    hosts:
         en: "host of"
         ja: "host of"
         es: "host of"
-    hasHost:
+    get-hosted-by:
         en: "has host"
         ja: "has host"
         es: "has host"
