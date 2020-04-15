@@ -240,13 +240,13 @@ t:
         ja: "endoparasite of"
         es: "endoparasite of"
     hosts:
-        en: "host of"
-        ja: "host of"
-        es: "host of"
+        en: "hosts"
+        ja: "hosts"
+        es: "hosts"
     get-hosted-by:
-        en: "has host"
-        ja: "has host"
-        es: "has host"
+        en: "get hosted by"
+        ja: "get hosted by"
+        es: "get hosted by"
     hasEndoparasite:
         en: "has endoparasite"
         ja: "has endoparasite"
