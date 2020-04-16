@@ -26,6 +26,12 @@ April 16 2020 16:00 CET at https://app.gotomeeting.com/XXX
 
 ## Action Items
 
+ * Mariya/Luybo - provide examples on integration methods in https://github.com/globalbioticinteractions/globalbioticinteractions/issues/480 https://github.com/globalbioticinteractions/globalbioticinteractions/issues/481 https://github.com/globalbioticinteractions/globalbioticinteractions/issues/483
+
+ * Jorrit - get GloBI sparql endpoint back up / see https://github.com/globalbioticinteractions/globalbioticinteractions/issues/482 .
+
+ * all - report notes to the COVID-19 group
+
 ## Notes
 
 Lyubo - We are exploring ways to annotate publications (Pensoft pubs / treatments) in freetext. Maria is planning to work on her PhD.  We will soon have more than 200 000 RDF-ized treatments from Plazi inside OpenBiodiv that can also be a source of knowledge.  We use pensoft annotator  tool to annotate text with various ontologies (1 or multiple). We can run the annotator against any ontology and this could help to identify possible biotic interactions (after curation). 
