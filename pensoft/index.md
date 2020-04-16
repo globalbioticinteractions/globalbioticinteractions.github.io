@@ -25,13 +25,6 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 
 [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/pensoft.tsv)
 
-{% assign cols = site.data.pensoft | sort: "institution" -%}
-{% for c in cols -%}
-{%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%}
-{%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
-[![badge]({{ globi-badge }})]({{ globi-url }}) <a href="#{{ c.institution_code }}">{{ c.institution_code }}</a> {{ " / " }}
-{%- endfor %}
-
 |status|institution/collection|platform|contact|
 |---|---|---|---|---
 {% assign cols = site.data.pensoft | sort: "institution" -%}
@@ -57,6 +50,7 @@ Integration profiles are descriptions on how data flows from one system to the n
 
 
 ## OpenBiodiv
+
 OpenBiodiv | GloBI Integration Profile
  --- | ---
 authors | ?
@@ -66,6 +60,7 @@ diagram | ?
 examples | see related [issue 483](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/483)
 
 ## Arpha Table
+
 Pensoft Arpha Tables | GloBI Integration Profile
  --- | ---
 authors | ?
