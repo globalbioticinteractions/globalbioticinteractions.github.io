@@ -14,8 +14,8 @@ April 16 2020 16:00 CET at https://app.gotomeeting.com/XXX
 
 ## Attendees
  * Jorrit (GloBI)
-* Mariya
-* Lyubo
+* Mariya Dimitrova (Pensoft)
+* Lyubo Penev (Pensoft)
 
 ## Agenda
 
