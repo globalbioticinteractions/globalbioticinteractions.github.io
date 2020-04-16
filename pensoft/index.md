@@ -55,13 +55,31 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 # Integration Profiles
 Integration profiles are descriptions on how data flows from one system to the next. 
 
-Pensoft | GloBI Integration Profile
+OpenBiodiv | GloBI Integration Profile
  --- | ---
 authors | ?
 actors | ?
-integration method | ?
+integration method | GloBI uses **OpenBiodiv sparql endpoint** to query for publications using that contains species interactions (e.g., dwc:habitat fields). GloBI indexes resulting pensoft publications and taxonomic treatments. Now, Pensoft publications and plazi taxonomic treatments can be found via GloBI.
 diagram | ?
-examples | ?
+examples | see related [issue 483](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/483)
+
+Pensoft Tables | GloBI Integration Profile
+ --- | ---
+authors | ?
+actors | ?
+integration method | GloBI queries Arphia (?) for **tables** that include Darwin Core Archive attachments.  GloBI parses the DwC-A and indexes species interactions terms contained in them. Now, Pensoft publications and plazi taxonomic treatments can be found via GloBI.
+diagram | ?
+examples | see related [issue 481](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/481)
+
+Pensoft DwC-A | GloBI Integration Profile
+ --- | ---
+authors | ?
+actors | ?
+integration method | GloBI queries Arphia (?) for publications that include **Darwin Core Archive attachments**.  GloBI parses the DwC-A and indexes species interactions terms contained in them. Now, Pensoft publications and plazi taxonomic treatments can be found via GloBI.
+diagram | ?
+examples | see related [issue 480](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/480)
+
+
 
 # Interaction Types 
 # Supported Terms
