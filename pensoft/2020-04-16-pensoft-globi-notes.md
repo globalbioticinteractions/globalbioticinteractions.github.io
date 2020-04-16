@@ -1,3 +1,8 @@
+---
+status: unlisted
+---
+
+
 Pensoft - GloBI meeting  - exploring a bidirectional exchange of species interactions data 
 
 ## Context
@@ -5,7 +10,7 @@ CETAF - biodiversity-related knowledge hub on COVID-19
 https://docs.google.com/document/d/1qizBMYK3xjyQ2zDsQyXn3AN0cqpTYPxSdkefkJNYWFw/edit?ts=5e95cba8#heading=h.jia835vae59i
 
 ## Location / time
-April 16 2020 16:00 CET at https://app.gotomeeting.com/?meetingId=816582413
+April 16 2020 16:00 CET at https://app.gotomeeting.com/XXX
 
 ## Attendees
  * Jorrit (GloBI)

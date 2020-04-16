@@ -9,22 +9,17 @@ This page shows the current state of integration between Pensoft publication pla
 [edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/pensoft/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/pensoft.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
 
 [events](#events)
-/ [collections status](#tpt-collections-status)
+/ [integration status](#integration-status)
 / [integration profiles](#integration-profiles) 
-/ [DwC-A guidelines](#dwca-guidelines) 
 / [translation tables](#translation-tables) 
 / [supported biotic interaction terms](#supported-terms) 
 
 
 # Events 
 
-**16 April 2020** -  Exploratory Pensoft<>GloBI integration meeting with Jorrit, Lyubo, Mariya. [meeting notes](  
+**16 April 2020** -  Exploratory Pensoft<>GloBI integration meeting with Jorrit, Lyubo, Mariya. [meeting notes](./2020-04-16-pensoft-globi-notes) .  
 
-**24 Feb 2020** -  Publication of ```Poelen, Jorrit H., & Seltmann, Katja. (2020). Terrestrial Parasite Tracker indexed biotic interactions and review summary (Version 0.1) [Data set]. Zenodo. [http://doi.org/10.5281/zenodo.3685365](http://doi.org/10.5281/zenodo.3685365)``` .  For summaries see [indexed_interactions_by_collection.tsv](https://zenodo.org/record/3685365/files/indexed_interactions_by_collection.tsv) and [review_summary_by_collection.tsv](https://zenodo.org/record/3685365/files/review_summary_by_collection.tsv). For full report with review comments, indexed interactions and source datasets, please visit the Zenodo data publication at [http://doi.org/10.5281/zenodo.3685365](http://doi.org/10.5281/zenodo.3685365). 
-
-**5 Mar 2020** - workshop GloBI presentation available via [doi:10.17605/OSF.IO/VK8WQ](https://doi.org/10.17605/OSF.IO/VK8WQ), workshop blog post at [Tracking Parasites](/2020/03/05/tracking-parasites/) 
-
-# TPT Collections Status
+# Integration Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
 
