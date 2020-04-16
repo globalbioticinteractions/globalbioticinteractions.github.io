@@ -1,1 +1,4 @@
 institution_code	institution	collection_code	collection	contact	platform	platform_detail	globi_id	review_id
+TDB	TDB	TDB	OpenBiodiv	TDB	TDB		globi:globalbioticinteractions/openbiodiv	globalbioticinteractions/openbiodiv
+TDB	TDB	TDB	Tables from Pensoft publications	TDB	TDB		globi:globalbioticinteractions/pensoft-dwc	globalbioticinteractions/pensoft-dwc
+TDB	TDB	TDB	DwC from Pensoft publications	TDB	TDB		globi:globalbioticinteractions/pensoft-tables	globalbioticinteractions/pensoft-tables
