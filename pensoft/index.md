@@ -65,7 +65,7 @@ Pensoft Arpha Tables | GloBI Integration Profile
  --- | ---
 authors | ?
 actors | ?
-integration method | GloBI queries Arphia (?) for **tables** that include Darwin Core Archive attachments.  GloBI parses the DwC-A and indexes species interactions terms contained in them. Now, Pensoft publications and plazi taxonomic treatments can be found via GloBI.
+integration method | GloBI queries Arpha (?) for **tables** that include Darwin Core Archive attachments.  GloBI parses the DwC-A and indexes species interactions terms contained in them. Now, Pensoft publications and plazi taxonomic treatments can be found via GloBI.
 diagram | ?
 examples | see related [issue 481](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/481)
 
@@ -75,7 +75,7 @@ Pensoft Arpha DwC-A | GloBI Integration Profile
  --- | ---
 authors | ?
 actors | ?
-integration method | GloBI queries Arphia (?) for publications that include **Darwin Core Archive attachments**.  GloBI parses the DwC-A and indexes species interactions terms contained in them. Now, Pensoft publications and plazi taxonomic treatments can be found via GloBI.
+integration method | GloBI queries Arpha (?) for publications that include **Darwin Core Archive attachments**.  GloBI parses the DwC-A and indexes species interactions terms contained in them. Now, Pensoft publications and plazi taxonomic treatments can be found via GloBI.
 diagram | ?
 examples | see related [issue 480](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/480)
 
