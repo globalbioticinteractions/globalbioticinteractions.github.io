@@ -17,7 +17,7 @@ This page shows the current state of integration between Pensoft publication pla
 
 # Events 
 
-**16 April 2020** -  Exploratory Pensoft<>GloBI integration meeting with Jorrit, Lyubo, Mariya. [meeting notes](./2020-04-16-pensoft-globi-notes) .  
+**16 April 2020** -  Exploratory Pensoft<>GloBI integration meeting with Jorrit, Lyubo, Mariya. [meeting notes](./2020-04-16-pensoft-globi-notes) .
 
 # Integration Status
 
@@ -55,6 +55,8 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 # Integration Profiles
 Integration profiles are descriptions on how data flows from one system to the next. 
 
+
+## OpenBiodiv
 OpenBiodiv | GloBI Integration Profile
  --- | ---
 authors | ?
@@ -63,7 +65,8 @@ integration method | GloBI uses **OpenBiodiv sparql endpoint** to query for publ
 diagram | ?
 examples | see related [issue 483](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/483)
 
-Pensoft Tables | GloBI Integration Profile
+## Arpha Table
+Pensoft Arpha Tables | GloBI Integration Profile
  --- | ---
 authors | ?
 actors | ?
@@ -71,7 +74,9 @@ integration method | GloBI queries Arphia (?) for **tables** that include Darwin
 diagram | ?
 examples | see related [issue 481](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/481)
 
-Pensoft DwC-A | GloBI Integration Profile
+## Arpha DwC
+
+Pensoft Arpha DwC-A | GloBI Integration Profile
  --- | ---
 authors | ?
 actors | ?
