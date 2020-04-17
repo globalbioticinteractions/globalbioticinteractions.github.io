@@ -8,7 +8,7 @@ This page shows the current state of exploratory integrations between Pensoft pu
 
 These integration are very much a work in progress and will hopefully lead to a increased visibility of Pensoft publications that make claims about species interactions. 
 
-[edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/pensoft/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/pensoft.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
+[edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/pensoft/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/_data/pensoft.tsv) / [ask a question](https://github.com/globalbioticinteractions/globalbioticinteractions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
 
 [events](#events)
 / [integration status](#integration-status)
