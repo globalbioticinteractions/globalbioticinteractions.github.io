@@ -4,6 +4,10 @@ title: "pensoft"
 status: unlisted
 ---
 
+<div class="figure figure-globi right">
+<a href="https://cetaf.org/covid19-taf-communities-taking-action"><img src="assets/cetaf-discco-covid.png"/></a><a href="https://pensoft.com"><img src="assets/pensoftlogo_-01.png"/></a>
+</div>
+
 This page shows the current state of integrations between Pensoft publication platforms and GloBI. This integration originated as part of developing a biodiversity-related knowledge hub on COVID-19 via [COVID19-TAF - Communities Taking Action](https://cetaf.org/covid19-taf-communities-taking-action), a community-rooted initiative raised jointly by CETAF and DiSSCo.  
 
 These integration are very much a work in progress and will hopefully lead to an increased visibility of Pensoft publications that make claims about species interactions.
