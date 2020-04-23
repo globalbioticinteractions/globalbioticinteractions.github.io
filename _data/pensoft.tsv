@@ -1,5 +1,5 @@
 institution_code	institution	collection_code	collection	contact	platform	platform_detail	globi_id	review_id
 Pensoft	Pensoft	OpenBiodiv	OpenBiodiv	Lubyo; Mariya	openbiodiv		globi:globalbioticinteractions/openbiodiv	
-Pensoft	Pensoft	tdb	Tables from Pensoft publications	Lubyo; Mariya	arpha-table		globi:globalbioticinteractions/pensoft-tables	globalbioticinteractions/pensoft-table
-Pensoft	Pensoft	tdb	DwC from Pensoft publications	Lubyo; Mariya	arpha-dwc		globi:globalbioticinteractions/pensoft-dwc	globalbioticinteractions/pensoft-dwca
+Pensoft	Pensoft	tdb	Tables from Pensoft publications	Lubyo; Mariya	arpha-table		globi:globalbioticinteractions/pensoft-table	globalbioticinteractions/pensoft-table
+Pensoft	Pensoft	tdb	DwC from Pensoft publications	Lubyo; Mariya	arpha-dwc		globi:globalbioticinteractions/pensoft-dwca	globalbioticinteractions/pensoft-dwca
 Pensoft	Pensoft	tdb	Pensoft IPT	Lubyo; Mariya	arpha-ipt		globi:globalbioticinteractions/pensoft-ipt	globalbioticinteractions/pensoft-ipt
