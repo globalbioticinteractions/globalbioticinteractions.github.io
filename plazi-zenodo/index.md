@@ -2,7 +2,6 @@
 layout: default
 title: "Plazi-Zenodo"
 status: unlisted
-permalink: /plazi-zenodo
 ---
 
 <div class="figure figure-globi right">
