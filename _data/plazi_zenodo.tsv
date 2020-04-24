@@ -1,0 +1,4 @@
+institution_code	institution	collection_code	collection	contact	platform	platform_detail	globi_id	review_id
+Plazi	Plazi	Plazi-covid19	Covid19 related literature list	Markus; Donat	google-sheets		globi:globalbioticinteractions/plazi-covid19	globalbioticinteractions/plazi-covid19
+Plazi	Plazi	plazi-zotero	Plazi annotated Zotero citation list 	Markus; Donat	zotero		globi:globalbioticinteractions/plazi-zotero	
+Zenodo	Zenodo	plazi-zenodo	Plazi annotated Zenodo publications	Alex; Markus; Donat	zenodo		globi:globalbioticinteractions/plazi-zenodo	
