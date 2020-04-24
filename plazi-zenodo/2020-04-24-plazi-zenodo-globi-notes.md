@@ -2,7 +2,7 @@
 status: unlisted
 ---
 
- Attendees:
+## Attendees
  Donat (Plazi) , Marcus (Plazi Brazil), Jorrit (GloBI), Alex (Zenodo)
  
 ##  Date

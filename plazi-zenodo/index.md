@@ -27,7 +27,7 @@ These integration are very much a work in progress and will hopefully lead to an
 
 # Events 
 
-**24 April 2020** -  Exploratory Plazi<>Zenodo<>GloBI integration meeting with Jorrit (GloBI), Donat (Plazi), Markus (Plazi) and Alex (Zenodo). [meeting notes](./2020-04-24-plazi-zenodo-globi-notes) .
+**24 April 2020** -  Exploratory Plazi<>Zenodo<>GloBI integration meeting with Jorrit (GloBI), Donat (Plazi), Marcus (Plazi) and Alex (Zenodo). [meeting notes](./2020-04-24-plazi-zenodo-globi-notes) .
 
 # Integration Status
 
