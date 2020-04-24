@@ -9,8 +9,8 @@ status: unlisted
  24 April 2020
  
 ## Agenda
- * discuss how to custom meta-data for biotic interactions (e.g., virus-host, predator-prey)
- * figure out a way to for GloBI to index Plazi/Zenodo mediated Covid-related literature
+ 1. discuss how to custom meta-data for biotic interactions (e.g., virus-host, predator-prey)
+ 2. figure out a way to for GloBI to index Plazi/Zenodo mediated Covid-related literature
  
 
 ## Notes
