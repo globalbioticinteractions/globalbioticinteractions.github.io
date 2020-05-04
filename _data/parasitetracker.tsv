@@ -1,6 +1,6 @@
 institution_code	institution	collection_code	collection	contact	platform	platform_detail	globi_id	review_id
 BPBM	Bishop Museum		Gressitt Entomology Collection 	Jim Boone, Neal Evenhuis	Specify		Bishop Museum Gressitt Entomology Collection 	
-BYU	Brigham Young University Arthropod Museum		Monte L. Bean Museum of Life Science Museum Insects and Arachnids	Michael Whiting 	SymbSCAN		Darwin Core Archive for Brigham Young University Arthropod Museum	globalbioticinteractions/scan
+BYU	Brigham Young University Arthropod Museum	BYUC	Monte L. Bean Museum of Life Science Museum Insects and Arachnids	Michael Whiting 	SymbSCAN		Darwin Core Archive for Brigham Young University Arthropod Museum	globalbioticinteractions/scan
 CAS	California Academy of Sciences		Entomology Collection	Chris Grinter, Michelle Trautwein	Institutional		California Academy of Sciences Entomology Collection	
 CUAC	Clemson University		Clemson University Arthropod Collection	Michael Caterino 	Specify		Clemson University Arthropod Collection	
 FMNH	Field Museum of Natural History		FMNH Insects, Arachnids, and Myriapods	John Bates, Maureen Turcatel, Petra Sierwald	EMu		globi:globalbioticinteractions/fmnh	globalbioticinteractions/fmnh
@@ -14,7 +14,7 @@ PERC	Purdue University		Entomological Research Collection	Jessica Williams, Step
 TAMUIC	Texas A&M University		Texas A&M University Insect Collection	John Oswald, Karen Wright	TAMUIC	SQL Server	globi:globalbioticinteractions/tamuic-ent	globalbioticinteractions/tamuic-ent
 BRTC	Texas A&M University		Biodiversity Teaching and Research Collections	Jessica Light	Institutional	Access	Biodiversity Teaching and Research Collections	
 ANSP	The Academy of Natural Sciences of Drexel University		Ornithology Collection at Academy of Natural Sciences of Drexel University	Jason Weckstein 	SymbSCAN		Darwin Core Archive for Academy of Natural Sciences Entomology Collection – OrthopNet	
-UCSB-IZC	University of California at Santa Barbara		Invertebrate Zoology Collection	Katja Seltmann	Symbiota		globi:globalbioticinteractions/ucsb-izc	globalbioticinteractions/ucsb-izc
+UCSB	University of California at Santa Barbara	IZC	Invertebrate Zoology Collection	Katja Seltmann	Symbiota		globi:globalbioticinteractions/ucsb-izc	globalbioticinteractions/ucsb-izc
 UHIM	University of Hawaii Insect Museum		University of Hawaii Insect Museum 	Daniel Rubinoff 	SymbSCAN		University of Hawaii Insect Museum	globalbioticinteractions/scan
 UMMZ	University of Michigan Museum of Zoology		University of Michigan Museum of Zoology Insect Collection	Barry OConnor, Erika Tucker 	Specify		globi:globalbioticinteractions/ummzi	globalbioticinteractions/ummzi
 UMSP	University of Minnesota		University of Minnesota Insect Collection	Ralph Holzenthal, Robin Thomson	Specify		University of Minnesota Insect Collection	
