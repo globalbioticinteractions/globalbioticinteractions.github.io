@@ -55,7 +55,7 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     appendShowElem(citationElem, study, baseUrl);
 
     var sourceElem = document.createElement('span');
-    sourceElem.textContent = ' Provider: ' + study.source + ' Accessed via <' + study.archiveURI + '> on ' + new Date(study.lastSeenAt).toISOString() + '.';
+    sourceElem.textContent = ' Provider: ' + study.source + ' Accessed via <' + study.archiveURI + '> at ' + new Date(study.lastSeenAt).toISOString() + '.';
     citationElem.appendChild(sourceElem);
 }
 
