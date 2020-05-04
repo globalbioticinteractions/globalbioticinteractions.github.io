@@ -42,7 +42,9 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     var study = {
         citation: citation,
         url: interactionRecord.study_url,
-        source: interactionRecord.study_source_citation};
+        source: interactionRecord.study_source_citation,
+        lastSeenAt: interactionRecord.study_source_last_seen_at,
+        archiveURI: interactionRecord.study_source_archive_uri};
 
     textElem.textContent = study.citation + ' ';
     citationElem.appendChild(textElem);
@@ -53,7 +55,7 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     appendShowElem(citationElem, study, baseUrl);
 
     var sourceElem = document.createElement('span');
-    sourceElem.textContent = ' Provider: ' + study.source;
+    sourceElem.textContent = ' Provider: ' + study.source + ' Accessed via <' + study.archiveURI + '> on [' + study.lastSeenAt + ']';
     citationElem.appendChild(sourceElem);
 }
 
@@ -63,7 +65,7 @@ function collectSearchParams($) {
     var interactionType = $('#interactionType').find(":selected").val();
     var studyQuery = $('#studySearchField').val();
     var searchHash = {};
-    var search = { fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation'] };
+    var search = { fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation', 'study_source_archive_uri', 'study_source_last_seen_at'] };
     if (sourceTaxonName && sourceTaxonName.length > 0) {
         searchHash.sourceTaxon = sourceTaxonName;
         search.sourceTaxa = [sourceTaxonName];
