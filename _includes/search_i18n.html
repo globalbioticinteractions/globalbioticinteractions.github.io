@@ -262,7 +262,7 @@ var searchForInteractions = function (offset) {
                     includeObservations: 'true',
                     exactNameMatchOnly: 'true',
                     refutes: refutes,
-                    fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation'] };
+                    fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation', 'study_source_archive_uri', 'study_source_last_seen_at'] };
                 globiData.findSpeciesInteractions(search, function (distinctInteractionResults) {
                     distinctInteractionResults.forEach(function (distinctInteractionResult) {
                         var studyId = className(distinctInteractionKey + distinctInteractionResult.study_title);
