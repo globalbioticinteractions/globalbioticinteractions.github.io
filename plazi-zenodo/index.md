@@ -29,6 +29,9 @@ These integration are very much a work in progress and will hopefully lead to an
 
 **24 April 2020** -  Exploratory Plazi<>Zenodo<>GloBI integration meeting with Jorrit (GloBI), Donat (Plazi), Marcus (Plazi) and Alex (Zenodo). [meeting notes](./2020-04-24-plazi-zenodo-globi-notes) .
 
+**18 May 2020** - **18 May 2020** - Continued Pensoft<>Plazi<>GloBI integration meeting with Jorrit, Lyubo, Mariya, Donat, Guido, Teodor, Georgi. [meeting notes](../pensoft/2020-05-18-pensoft-zenodo-globi-notes) .
+
+
 # Integration Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.

@@ -27,6 +27,9 @@ These integration are very much a work in progress and will hopefully lead to an
 
 **23 April 2020** - Publication of Lyubomir Penev, Mariya Dimitrova, Viktor Senderov, Georgi Zhelezov, Teodor Georgiev, Pavel Stoev, & Kiril Simov. (2020). OpenBiodiv Archive (Version 0.0.1) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.3763429
 
+**18 May 2020** - Continued Pensoft<>Plazi<>GloBI integration meeting with Jorrit, Lyubo, Mariya, Donat, Guido, Teodor, Georgi. [meeting notes](./2020-05-18-pensoft-zenodo-globi-notes) .
+
+
 # Integration Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
