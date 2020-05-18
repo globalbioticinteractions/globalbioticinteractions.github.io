@@ -19,16 +19,20 @@ Donat Agosti (Plazi)
 ### Pensoft integration profiles:
 openbiodiv - Through OpenBiodiv SPARQL endpoint (e.g. querying dwc:habitats to discover possible interactions) https://github.com/globalbioticinteractions/globalbioticinteractions/issues/483
 Update: to be replaced with linked data fragments 
+
 arpha-table - Indexing of tables from articles having dwc archives:
 https://github.com/globalbioticinteractions/globalbioticinteractions/issues/481
+
 arpha-dwc - Indexing of dwc archives:
 https://github.com/globalbioticinteractions/globalbioticinteractions/issues/480
 
 ### Plazi integration profiles:
 google-sheets - Manual extraction of interactions
 https://github.com/globalbioticinteractions/globalbioticinteractions/issues/490
+
 zotero - 
 https://github.com/globalbioticinteractions/globalbioticinteractions/issues/487
+
 zenodo - https://github.com/globalbioticinteractions/globalbioticinteractions/issues/488
 
 
@@ -42,6 +46,7 @@ Mariya - discussing indexing tables from articles, including manual mapping sche
 Mariya - suggests to use rdf instead of indexing tables, but the “old” tables are still around, so manual work is still needed for authors that do not use the (new) linked data tables. 
 
 Jorrit - How to find interesting tables in Pensoft’s articles? (interesting = containing biotic interactions.
+
 Guido -Plazi’s processing of Pensoft articles can help to identify articles which contain tables.  Plazi has 17,164 tables see eg http://tb.plazi.org/GgServer/dioStats/stats?outputFields=doc.articleUuid+cont.tabCount&groupingFields=doc.articleUuid+cont.tabCount&limit=100&FP-cont.tabCount=1-&format=HTML  whereas UUID is the journal article. The question is though to Guido how to get access to them
 
 Here are the tables in Pensoft journals that are processed by Plazi
@@ -50,6 +55,7 @@ Overview of Pensoft articles with tables: https://tb.plazi.org/GgServer/dioStats
 
 Guido: resolve the DOI and use xpath to get to the table 
 Extracting the tables along with the captions is something Plazi wants to do
+
 Donat - can start working on that in the fall/spring; can assign rows with DwC value
 
 Mariya - We extract tables from the XMLs and their captions as well. We can flag potentially interesting tables by searching for keywords. 
@@ -104,7 +110,9 @@ Jorrit - We can have another conversation again once when GLOBI starts indexing 
 Guido - Primary files attached to deposition cannot be modified in Zenodo => Zenodo is not my preferred place for storing tables at this point.
 
 Teodor - Why do we even want to upload the tables to Zenodo?
+
 Donat - A lot of important data is in tables
+
 Lyubo - We do this for supplementary files, images, etc. Tables are next.
 
 Mariya - in the next month, I can work on: 1. Old tables and 2. Openbiodiv as Linked Data Fragments and 3. Annotator-related progress (workflow to process tables row by row)
@@ -139,6 +147,7 @@ Lyubo - It’s a good idea to create nanopublications server. e.g. Biotic inform
 Guido - Agree.
 
 Jorrit - GloBI has preliminary support for nanopublication .  https://arxiv.org/abs/1809.06532 . 
+
 Lyubo - When we modelled some types of nanopublication a couple of years ago we got stuck at:  Anyone can post nanopublications but who will review them? Now we cn base this metaservices only for published information on the top of  we all three fo
 
 Jorrit - Review by use of nanopublications. As they are linked and shared they can be reviewed.
@@ -150,6 +159,7 @@ Date: 22/06/2020
 TODO for Mariya: Create Google calendar invite
 
 Donat shares the citation count by journal in 30k processed articles:
+
 Guido - Number of bibliography strings in reference list pointing to these journals 
 
 
