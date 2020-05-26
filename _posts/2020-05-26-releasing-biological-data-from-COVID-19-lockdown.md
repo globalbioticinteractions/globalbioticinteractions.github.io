@@ -38,7 +38,7 @@ Alexander Graham Bell said that “_when one door closes, another opens; but we 
     <a href="https://www.globalbioticinteractions.org/browse/?sourceTaxon=Rousettus%20aegyptiacus"><img src="/assets/groom-bat-interactions-all.png" alt="Rousettus aegyptiacus all"/></a>
 
     <div class="figcaption">
-        <p><em>Figure 2. </em>An interaction visualization of all <a href="https://en.wikipedia.org/wiki/Egyptian_fruit_bat"><em>Rousettus aegyptiacus</em></a> bat species indexed by GloBI on 2020-05-26. Please visit a <a href="https://www.globalbioticinteractions.org/references.html?sourceTaxon=Rousettus%20aegyptiacus">full list of associated references</a> and <a href="https://www.globalbioticinteractions.org/browse/?sourceTaxon=Rousettus%20aegyptiacus">associated visualization</a> .
+        <p><em>Figure 2. </em>A visualization of all <a href="https://en.wikipedia.org/wiki/Egyptian_fruit_bat"><em>Rousettus aegyptiacus</em></a> bat species interactions indexed by GloBI on 2020-05-26. Please visit a <a href="https://www.globalbioticinteractions.org/references.html?sourceTaxon=Rousettus%20aegyptiacus">full list of associated references</a> and <a href="https://www.globalbioticinteractions.org/browse/?sourceTaxon=Rousettus%20aegyptiacus">associated visualization</a> .
         </p>
     </div>
 </div>
