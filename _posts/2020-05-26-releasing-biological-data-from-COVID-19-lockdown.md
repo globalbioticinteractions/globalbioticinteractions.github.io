@@ -47,11 +47,11 @@ Alexander Graham Bell said that “_when one door closes, another opens; but we 
 
 ## References
 
-Andersen, K.G., Rambaut, A., Lipkin, W.I. et al. 2020. The proximal origin of SARS-CoV-2. Nat Med 26, 450–452 . [doi:10.1038/s41591-020-0820-9](https://doi.org/10.1038/s41591-020-0820-9).
+Andersen, K.G., Rambaut, A., Lipkin, W.I., et al. 2020. The proximal origin of SARS-CoV-2. Nat Med 26, 450–452 . [doi:10.1038/s41591-020-0820-9](https://doi.org/10.1038/s41591-020-0820-9).
 
 Poelen, J.H., Upham, N.S., Agosti, D., et al. 2020. CETAF-DiSCCo/COVID19-TAF biodiversity-related knowledge hub working group: indexed biotic interactions and review summary (Version 0.2) [Data set]. Zenodo. [doi:10.5281/zenodo.3839098](http://doi.org/10.5281/zenodo.3839098) .
 
-Simmons, N.B. and A.L. Cirranello. 2020. Bat Species of the World: A taxonomic and geographic database. [https://batnames.org](https://batnames.org)
+Simmons, N.B. and Cirranello, A.L. 2020. Bat Species of the World: A taxonomic and geographic database. [https://batnames.org](https://batnames.org)
 
 ## Acknowledgements
 
