@@ -55,4 +55,4 @@ Simmons, N.B. and Cirranello, A.L. 2020. Bat Species of the World: A taxonomic a
 
 ## Acknowledgements
 
-Thanks to the Consortium of European Taxonomic Facilities ([CETAF](https://cetaf.org)), the [DiSSCo Infrastructure](https://dissco.eu), [iDigBio](https://www.idigbio.org), Donat Agosti of [Plazi](https://plazi.org), whose goal it is to liberate biodiversity data from the dusty grave of, closed access and PDF-imprisoned literature, and by Jorrit Poelen who runs the Global Biotic Interactions database ([GloBI](https://globalbioticinteractions.org)).
+Thanks to the Consortium of European Taxonomic Facilities ([CETAF](https://cetaf.org)), the [DiSSCo Infrastructure](https://dissco.eu), [iDigBio](https://www.idigbio.org), Nancy Simmons (American Museum of Natural History), Donat Agosti of [Plazi](https://plazi.org), whose goal it is to liberate biodiversity data from the dusty grave of, closed access and PDF-imprisoned literature, and by Jorrit Poelen who runs the Global Biotic Interactions database ([GloBI](https://globalbioticinteractions.org)).
