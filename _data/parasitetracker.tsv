@@ -1,7 +1,7 @@
 institution_code	institution	collection_code	collection	contact	platform	platform_detail	globi_id	review_id
 BPBM	Bishop Museum		Gressitt Entomology Collection 	Jim Boone, Neal Evenhuis	Specify		Bishop Museum Gressitt Entomology Collection 	
 BYU	Brigham Young University Arthropod Museum	BYUC	Monte L. Bean Museum of Life Science Museum Insects and Arachnids	Michael Whiting 	SymbSCAN	SymbSCAN	globi:globalbioticinteractions/byu-byuc	globalbioticinteractions/byu-byuc
-CAS	California Academy of Sciences		Entomology Collection	Chris Grinter, Michelle Trautwein	Institutional	SymbSCAN	California Academy of Sciences Entomology Collection	
+CAS	California Academy of Sciences		Entomology Collection	Chris Grinter, Michelle Trautwein	Institutional	SymbSCAN	globi:globalbioticinteractions/cas-ent	globalbioticinteractions/cas-ent
 CUAC	Clemson University		Clemson University Arthropod Collection	Michael Caterino 	Specify		Clemson University Arthropod Collection	
 FMNH	Field Museum of Natural History		FMNH Insects, Arachnids, and Myriapods	John Bates, Maureen Turcatel, Petra Sierwald	EMu		globi:globalbioticinteractions/fmnh	globalbioticinteractions/fmnh
 INHS	Illinois Natural History Survey, University of Illinois at Urbana-Champaign		INHS Insect Collection	Dmitry A Dmitriev, Matt Yoder 	TaxonWorks		globi:globalbioticinteractions/inhs-insects	globalbioticinteractions/inhs-insects
