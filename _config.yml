@@ -22,6 +22,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://globalbioticinteractions.org" # the base hostname & protocol for your site
 
 # Build settings
+#status: shutdown
+status: live
 markdown: kramdown
 theme: minima
 defaults:

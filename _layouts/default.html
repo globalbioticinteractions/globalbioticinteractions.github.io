@@ -8,7 +8,11 @@
 
     <div class="page-content">
       <div class="wrapper">
+      {% if site.status == 'shutdown' %}
+        {% include shutdown.html %}
+      {% else %}
         {{ content }}
+      {% endif %}
       </div>
     </div>
 

@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  {% include head_browser.html %}
-
+  {% if site.status == 'shutdown' %}
+    {% include head.html %}
+  {% else %}
+    {% include head_browser.html %}
+  {% endif %}
   <body>
     {% include header.html %}
-    <div class="disclaimer">Please note that this is a <a href="https://github.com/globalbioticinteractions/globalbioticinteractions.github.io" target="_blank">data exploration prototype</a> with room for improvement. Please use <a href="/data" target="_blank">data publications</a> for further analysis.</div>
-    {{ content }}
-
+    
+    {% if site.status == 'shutdown' %}
+      {% include shutdown.html %}
+    {% else %}
+      <div class="disclaimer">Please note that this is a <a href="https://github.com/globalbioticinteractions/globalbioticinteractions.github.io" target="_blank">data exploration prototype</a> with room for improvement. Please use <a href="/data" target="_blank">data publications</a> for further analysis.</div>
+      {{ content }}
+    {% endif %}
+    
     {% include footer.html %}
-
   </body>
 
 </html>
