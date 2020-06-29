@@ -1,3 +1,8 @@
+---
+status: unlisted
+---
+
+
 Globi Pensoft Plazi technology brainstorming @ Mon May 18, 2020 7am - 8am (PDT)
 
 See also https://docs.google.com/document/d/1EPZRD-oCR0kWa_9b-KcSTlQ4uYerYg0iO4_xxrTX9JE .
