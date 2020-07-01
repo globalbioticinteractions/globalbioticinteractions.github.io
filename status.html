@@ -161,13 +161,13 @@ title: status
 
 
         var a = appendLink(tr);
+        var elem2 = a.parentElement.insertBefore(document.createElement('span'), a);
         appendImgForRepo(source, a);
         appendImgForSource(source, a);
         a.setAttribute('href', urlForSource(source));
         a.setAttribute('target', '_blank');
         a.textContent = ' ' + source.study_source_citation;
 
-        var elem2 = a.parentElement.insertBefore(document.createElement('span'), a);
         if (hasStats(source)) {
             elem2.setAttribute('class', 'stats');
             addStats(elem2);
