@@ -165,7 +165,7 @@ title: status
         appendImgForSource(source, a);
         a.setAttribute('href', urlForSource(source));
         a.setAttribute('target', '_blank');
-        a.textContent = ' @' + nameForSource(source) + ' ' + source.study_source_citation;
+        a.textContent = ' ' + source.study_source_citation;
 
         var elem2 = a.parentElement.insertBefore(document.createElement('span'), a);
         if (hasStats(source)) {
