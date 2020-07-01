@@ -134,7 +134,7 @@ title: status
                 var img = a.appendChild(document.createElement('img'));
                 img.setAttribute('src', url);
                 img.setAttribute('style', 'width:' + sizePx + 'px; padding-left:' + sizePx / 2 + 'px');
-                elem.parentNode.appendChild(a);
+                elem.parentNode.insertBefore(a, elem);
             }
         };
 
@@ -151,7 +151,7 @@ title: status
                 var img = a.appendChild(document.createElement('img'));
                 img.setAttribute('src', url);
                 img.setAttribute('style', 'width:' + sizePx + 'px; padding-left:' + sizePx / 2 + 'px');
-                elem.parentNode.appendChild(a);
+                elem.parentNode.insertBefore(a, elem);
             }
         };
 
