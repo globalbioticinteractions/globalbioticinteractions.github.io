@@ -17,18 +17,18 @@ title: status
     <div id="status">loading...</div>
     <table id="sources">
         <tr>
-            <th><a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#readability"
-                   title="What make a source readable?">readable</a></th>
-            <th><a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#issues"
-                   title="How many known issue does this source have?">issues</a></th>
-            <th><a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#searchability"
-                   title="What makes a source searchable?">search</a></th>
-            <th><a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#citability"
-                   title="What makes a source citable?">citable</a></th>
-            <th><a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#stats"
-                   title="How many interactions/names this source have? What is the name match percentage? When did GloBI last check the dataset?">stats</a>
+           <th>
+							<a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#stats"
+                   title="How many interactions/names this source have? What is the name match percentage? When did GloBI last check the dataset?">stats</a> / citation / links /
+						<a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#readability"
+                   title="What make a source readable?">readable</a> /
+            <a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#issues"
+                   title="How many known issue does this source have?">issues</a> /
+            <a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#searchability"
+                   title="What makes a source searchable?">search</a> /
+            <a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#citability"
+                   title="What makes a source citable?">citable</a>
             </th>
-            <th></th>
         </tr>
     </table>
 
@@ -40,6 +40,14 @@ title: status
 
     var appendLink = function (tr) {
         var td = tr.appendChild(document.createElement('td'));
+        var a = td.appendChild(document.createElement('a'));
+        return a;
+    };
+
+    var appendLinkDiv = function (tr) {
+        var td = tr.appendChild(document.createElement('span'));
+        var pre = td.appendChild(document.createElement('span'));
+				pre.textContent = ' ';
         var a = td.appendChild(document.createElement('a'));
         return a;
     };
@@ -58,27 +66,6 @@ title: status
         var tr = elem.appendChild(document.createElement('tr'));
         tr.setAttribute('class', 'interaction');
 
-        var a = appendLink(tr);
-        var travisUrl = 'https://travis-ci.com/' + source.name;
-        a.setAttribute('href', travisUrl);
-        a.setAttribute('target', '_blank');
-        var img = a.appendChild(document.createElement('img'));
-        img.setAttribute('src', travisUrl + '.svg');
-
-        var a = appendLink(tr);
-        var issuesUrl = 'https://github.com/' + source.name + '/issues/';
-        a.setAttribute('href', issuesUrl);
-        a.setAttribute('target', '_blank');
-        var img = a.appendChild(document.createElement('img'));
-        img.setAttribute('src', 'https://img.shields.io/github/issues/' + source.name + '.svg');
-
-        var a = appendLink(tr);
-        var defaultQuery = '?interactionType=ecologicallyRelatedTo&accordingTo=' + source.study_source_id;
-        var datasetDisplayUrl = '/' + defaultQuery;
-        a.setAttribute('href', datasetDisplayUrl);
-        a.setAttribute('target', '_blank');
-        var img = a.appendChild(document.createElement('img'));
-        img.setAttribute('src', 'https://api.globalbioticinteractions.org/interaction.svg' + defaultQuery);
 
         var hasStats = function (source) {
             return source.number_of_interactions !== undefined
@@ -125,27 +112,6 @@ title: status
 
         };
 
-        var a = appendLink(tr);
-
-        if (source.doi === undefined || source.doi === null || source.doi.trim().length == 0) {
-            a.setAttribute('href', 'https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#citability');
-            a.setAttribute('target', '_blank');
-            var img = a.appendChild(document.createElement('img'));
-            img.setAttribute('src', 'assets/doiUnknown.svg');
-        } else {
-            if (!source.doi.match(/(^http:)|(^https:)|(^doi:)/)) {
-                a.setAttribute('href', 'https://doi.org/' + source.doi);
-            } else if (source.doi.match(/(^http:\/\/dx\.doi\.org)|(^https:\/\/dx\.doi\.org)/)) {
-                a.setAttribute('href', source.doi.replace(/dx\.doi\.org/, 'doi.org'));
-            } else if (source.doi.match(/(^http:)|(^https:)/)) {
-                a.setAttribute('href', source.doi);
-            } else if (source.doi.match(/(^doi:)/)) {
-                a.setAttribute('href', 'https://doi.org/' + source.doi.replace(/^doi:/, ""));
-            }
-            a.setAttribute('target', '_blank');
-            var img = a.appendChild(document.createElement('img'));
-            img.setAttribute('src', 'assets/doi.svg');
-        }
 
         var urlForSource = function (source) {
             if (source.url === undefined) {
@@ -172,11 +138,36 @@ title: status
             }
         };
 
+        var appendImgForRepo = function (source, elem) {
+            if (source.url === undefined) {
+                var sizePx = 18;
+                var gitHubName = source.name;
+                var urlBase = 'https://github.com/' + gitHubName;
+                var url = '/assets/GitHub-Mark-32px.png';
+                var a = document.createElement('a');
+                a.setAttribute('href', urlBase);
+                a.setAttribute('target', '_blank');
+                a.setAttribute('title', 'configuration for ' + gitHubName);
+                var img = a.appendChild(document.createElement('img'));
+                img.setAttribute('src', url);
+                img.setAttribute('style', 'width:' + sizePx + 'px; padding-left:' + sizePx / 2 + 'px');
+                elem.parentNode.appendChild(a);
+            }
+        };
+
         var nameForSource = function (source) {
             return source.name;
         };
 
-        var elem2 = tr.appendChild(document.createElement('td')).appendChild(document.createElement('span'));
+
+        var a = appendLink(tr);
+        appendImgForRepo(source, a);
+        appendImgForSource(source, a);
+        a.setAttribute('href', urlForSource(source));
+        a.setAttribute('target', '_blank');
+        a.textContent = ' ' + source.study_source_citation + ' @' + nameForSource(source);
+
+        var elem2 = a.parentElement.insertBefore(document.createElement('span'), a);
         if (hasStats(source)) {
             elem2.setAttribute('class', 'stats');
             addStats(elem2);
@@ -193,13 +184,52 @@ title: status
             lastSeenElem.textContent = lastSeenMoment.short(true);
         }
 
-
-
-        var a = appendLink(tr);
-        appendImgForSource(source, a);
-        a.setAttribute('href', urlForSource(source));
+        var a = appendLinkDiv(a.parentElement);
+        var travisUrl = 'https://travis-ci.com/' + source.name;
+        a.setAttribute('href', travisUrl);
         a.setAttribute('target', '_blank');
-        a.textContent = nameForSource(source);
+        var img = a.appendChild(document.createElement('img'));
+        img.setAttribute('src', travisUrl + '.svg');
+
+        var a = appendLinkDiv(a.parentElement);
+        var issuesUrl = 'https://github.com/' + source.name + '/issues/';
+        a.setAttribute('href', issuesUrl);
+        a.setAttribute('target', '_blank');
+        var img = a.appendChild(document.createElement('img'));
+        img.setAttribute('src', 'https://img.shields.io/github/issues/' + source.name + '.svg');
+
+        var a = appendLinkDiv(a.parentElement);
+        var defaultQuery = '?interactionType=ecologicallyRelatedTo&accordingTo=' + source.study_source_id;
+        var datasetDisplayUrl = '/' + defaultQuery;
+        a.setAttribute('href', datasetDisplayUrl);
+        a.setAttribute('target', '_blank');
+        var img = a.appendChild(document.createElement('img'));
+        img.setAttribute('src', 'https://api.globalbioticinteractions.org/interaction.svg' + defaultQuery);
+
+
+        var a = appendLinkDiv(a.parentElement);
+
+        if (source.doi === undefined || source.doi === null || source.doi.trim().length == 0) {
+            a.setAttribute('href', 'https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#citability');
+            a.setAttribute('target', '_blank');
+            var img = a.appendChild(document.createElement('img'));
+            img.setAttribute('src', 'assets/doiUnknown.svg');
+        } else {
+            if (!source.doi.match(/(^http:)|(^https:)|(^doi:)/)) {
+                a.setAttribute('href', 'https://doi.org/' + source.doi);
+            } else if (source.doi.match(/(^http:\/\/dx\.doi\.org)|(^https:\/\/dx\.doi\.org)/)) {
+                a.setAttribute('href', source.doi.replace(/dx\.doi\.org/, 'doi.org'));
+            } else if (source.doi.match(/(^http:)|(^https:)/)) {
+                a.setAttribute('href', source.doi);
+            } else if (source.doi.match(/(^doi:)/)) {
+                a.setAttribute('href', 'https://doi.org/' + source.doi.replace(/^doi:/, ""));
+            }
+            a.setAttribute('target', '_blank');
+            var img = a.appendChild(document.createElement('img'));
+            img.setAttribute('src', 'assets/doi.svg');
+        }
+
+
     };
 
     var globiData = globiWeb.globi.globiData;
