@@ -24,14 +24,13 @@ c. ```integrate``` Every other day, GloBI's Index Builder takes the most recent 
 
 ## Bias and Errors
 
-As with any analysis and processing workflow, care should be taken to understand the bias and error propagation of data sources and related data transformation processes.  The datasets indexed by GloBI are biased geospatially, temporally and taxonomically (see Poelen et al. 2014 ([doi:10.1016/j.ecoinf.2014.08.005](https://doi.org/10.1016/j.ecoinf.2014.08.005)). Also, mapping of verbatim names from datasets to known name concept may contains errors due to synonym mismatches, outdated names lists, typos or conflicting name authorities. Finally, bugs may introduce bias and errors in the resulting integrated data product.
+As with any analysis and processing workflow, care should be taken to understand the bias and error propagation of data sources and related data transformation processes.  The datasets indexed by GloBI are biased geospatially, temporally and taxonomically (Hortal et al. 2015 [doi:10.1146/annurev-ecolsys-112414-054400](https://doi.org/10.1146/annurev-ecolsys-112414-054400), Cains et al. 2017 [doi:10.5281/zenodo.814978](https://doi.org/10.5281/zenodo.814978)). Also, mapping of verbatim names from datasets to known name concept may contains errors due to synonym mismatches, outdated names lists, typos or conflicting name authorities. Finally, bugs may introduce bias and errors in the resulting integrated data product.
 
 To help better understand where bias and errors are introduced, published and versioned data is used as an input: the datasets, name maps and integration software are versioned so that the integration processes can be reproduced if needed. This way, steps take to compile an integrated data record can be traced and the sources of bias and errors can be more easily found.
 
-## (Taxonomic) Scope and Customization
+## Customization
 
-The GloBI integration workflow is designed to be modular. This means that, in theory, other name maps and source datasets can be used to compile an integrated data product specific to answer a research question. For instance, when studying bats and the viruses that they host, only relevant input datasets and up-to-date name maps can be curated and constructed. And, a name map can be constructed manually instead of using the Taxon Graph Builder.  
-
+The GloBI integration workflow is designed to be modular. This means that, in theory, other name maps and source datasets can be used to compile an integrated data product specific to answer a research question. For instance, when studying bats and the viruses that they host, only relevant input datasets and up-to-date name maps can be curated and constructed. And, a name map can be constructed manually instead of using the Taxon Graph Builder. Alternatively, the verbatim interaction can be extracted from selected datasets using ```elton interactions``` and other tools can be used to resolve names or otherwise enrich/process the verbatim interactions.   
 
 ## Notes
 
