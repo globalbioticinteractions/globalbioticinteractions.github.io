@@ -31,7 +31,7 @@ To help better understand where bias and errors are introduced, published and ve
 
 ## Customization
 
-The GloBI integration workflow is designed to be modular. This means that, in theory, other name maps and source datasets can be used to compile an integrated data product specific to answer a research question. For instance, when studying bats and the viruses that they host, only relevant input datasets and up-to-date name maps can be curated and constructed. And, a name map can be constructed manually instead of using the Taxon Graph Builder. Alternatively, the verbatim interaction can be extracted from selected datasets using ```elton interactions``` and other tools can be used to resolve names or otherwise enrich/process the verbatim interactions.   
+The GloBI integration workflow is designed to be modular to facilitate maintenance, troubleshooting, scaling, and stability of the process. This means that, in theory, other name maps and source datasets can be used to compile an integrated data product specific to answer a research question. For instance, when studying bats and the viruses that they host, only relevant input datasets and up-to-date name maps can be curated and constructed. And, a name map can be constructed manually instead of using the Taxon Graph Builder. Alternatively, the verbatim interaction can be extracted from selected datasets using ```elton interactions``` and other tools can be used to resolve names or otherwise enrich/process the verbatim interactions.   
 
 ## Notes
 
