@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Data Integration Process
+status: unlisted
 ---
 [edit page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/process.md)
 
