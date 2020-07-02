@@ -2,10 +2,13 @@
 layout: default
 title: Data Integration Process
 ---
+[edit page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/master/process.md)
 
 ## Data Integration Process
 
-To enable the discovery of existing species interaction datasets, Global Biotic Interactions (GloBI) continuously tracks existing datasets and integrates the discovered interaction records. These integrated interaction records form the basis for the [GloBI data products](/data).   
+To enable the discovery of existing species interaction datasets, Global Biotic Interactions (GloBI) continuously tracks existing datasets and integrates the discovered interaction records. These integrated interaction records form the basis of the [GloBI data products](/data). 
+
+The process described below is an evolution of the process described in the original GloBI methods paper (Poelen et al. 2014 [doi:10.1016/j.ecoinf.2014.08.005](https://doi.org/10.1016/j.ecoinf.2014.08.005)). 
 
 
 [![integration-process](/assets/integration-process.svg)](/assets/integration-process.svg)
@@ -19,7 +22,18 @@ b. ```resolve``` Regularly, as part of the automated [taxon-graph-builder](https
 
 c. ```integrate``` Every other day, GloBI's Index Builder takes the most recent versions of species interaction datasets, extracts the interactions and integrates the resulting records using, among other things, a published version of the name link table. The resulting integrated, or interpreted, species interaction data forms the basis of the [GloBI data products](/data).
 
-## References
+## Bias and Errors
+
+As with any analysis and processing workflow, care should be taken to understand the bias and error propagation of data sources and related data transformation processes.  The datasets indexed by GloBI are biased geospatially, temporally and taxonomically (see Poelen et al. 2014 ([doi:10.1016/j.ecoinf.2014.08.005](https://doi.org/10.1016/j.ecoinf.2014.08.005)). Also, mapping of verbatim names from datasets to known name concept may contains errors due to synonym mismatches, outdated names lists, typos or conflicting name authorities. Finally, bugs may introduce bias and errors in the resulting integrated data product.
+
+To help better understand where bias and errors are introduced, published and versioned data is used as an input: the datasets, name maps and integration software are versioned so that the integration processes can be reproduced if needed. This way, steps take to compile an integrated data record can be traced and the sources of bias and errors can be more easily found.
+
+## (Taxonomic) Scope and Customization
+
+The GloBI integration workflow is designed to be modular. This means that, in theory, other name maps and source datasets can be used to compile an integrated data product specific to answer a research question. For instance, when studying bats and the viruses that they host, only relevant input datasets and up-to-date name maps can be curated and constructed. And, a name map can be constructed manually instead of using the Taxon Graph Builder.  
+
+
+## Notes
 
 [1] Elton is a command-line tool to help track, version and access species interaction data. See https://github.com/globalbioticinteractions/elton and https://doi.org/10.5281/zenodo.998263.
 
