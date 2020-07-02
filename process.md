@@ -14,7 +14,7 @@ The process described below is an evolution of the process described in the orig
 
 [![integration-process](/assets/integration-process.svg)](/assets/integration-process.svg)
 
-The integration process consists of the following processes:
+The integration process consists of the following phases:
 
 a. ```track``` Every other day, [Elton](https://github.com/globalbioticinteractions/elton) is used to execute ```elton track```. This command queries GitHub and Zenodo for species interactions datasets. Now, all resources related to these datasets are downloaded, versioned and stored. Once in a while, a collection volume of these versioned datasets is added to the [Elton Dataset Cache](https://doi.org/10.5281/zenodo.2007418). 
 
@@ -27,17 +27,17 @@ c. ```integrate``` Every other day, GloBI's Index Builder takes the most recent 
 
 As with any analysis and processing workflow, care should be taken to understand the bias and error propagation of data sources and related data transformation processes.  The datasets indexed by GloBI are biased geospatially, temporally and taxonomically (Hortal et al. 2015 [doi:10.1146/annurev-ecolsys-112414-054400](https://doi.org/10.1146/annurev-ecolsys-112414-054400), Cains et al. 2017 [doi:10.5281/zenodo.814978](https://doi.org/10.5281/zenodo.814978)). Also, mapping of verbatim names from datasets to known name concept may contains errors due to synonym mismatches, outdated names lists, typos or conflicting name authorities. Finally, bugs may introduce bias and errors in the resulting integrated data product.
 
-To help better understand where bias and errors are introduced, published and versioned data is used as an input: the datasets, name maps and integration software are versioned so that the integration processes can be reproduced if needed. This way, steps take to compile an integrated data record can be traced and the sources of bias and errors can be more easily found.
+To help better understand where bias and errors are introduced, only versioned data and code are used as an input: the datasets, name maps and integration software are versioned so that the integration processes can be reproduced if needed. This way, steps take to compile an integrated data record can be traced and the sources of bias and errors can be more easily found.
 
 ## Customization
 
-The GloBI integration workflow is designed to be modular to facilitate maintenance, troubleshooting, scaling, and stability of the process. This means that, in theory, other name maps and source datasets can be used to compile an integrated data product specific to answer a research question. For instance, when studying bats and the viruses that they host, only relevant input datasets and up-to-date name maps can be curated and constructed. And, a name map can be constructed manually instead of using the Taxon Graph Builder. Alternatively, the verbatim interaction can be extracted from selected datasets using ```elton interactions``` and other tools can be used to resolve names or otherwise enrich/process the verbatim interactions.   
+The GloBI integration workflow is designed to be modular to facilitate maintenance, troubleshooting, scaling, and stability of the process. This means that, in theory, specifically curated name maps and source datasets can be used to compile an integrated data product to answer a specific research question. For instance, when studying bats and the viruses that they host, only relevant input datasets and up-to-date name maps can be curated and constructed. And, a name map can be constructed manually instead of using the Taxon Graph Builder. Alternatively, the verbatim interaction can be extracted from selected datasets using ```elton interactions``` and other tools can be used to resolve names or otherwise enrich/process the verbatim interactions.   
 
 ## Notes
 
 [1] Elton is a command-line tool to help track, version and access species interaction data. See https://github.com/globalbioticinteractions/elton and https://doi.org/10.5281/zenodo.998263.
 
-[2] Versioned datasets, or GloBI's Elton Dataset Cache, contains versioned species interactions datasets and are the result of the ```elton update``` command. See also https://doi.org/10.5281/zenodo.2007418 . 
+[2] Versioned datasets, or GloBI's Elton Dataset Cache, contains versioned species interactions datasets and are the result of the ```elton track``` command. See also https://doi.org/10.5281/zenodo.2007418 . 
 
 [3] Nomer is a command-line tool to help map identifiers and names to taxonomic names and ontological terms. See https://github.com/globalbioticinteractions/nomer/ and https://doi.org/10.5281/zenodo.1145474 .
 
