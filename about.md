@@ -5,7 +5,7 @@ i18n-link: about
 permalink: about
 ---
 <div class="ui-widget">
-    <p>In case you are wondering... <a href="#what">What is GloBI?</a>, <a href="#why">Why GloBI?</a>, <a href="#who">Who makes GloBI possible?</a>, <a href="#process">How does GloBI work?</a>, <a href="#share">How to share data through GloBI?</a>, <a href="#in-the-wild">GloBI in the wild</a>, <a href="#education">How to use GloBI as an educational tool?</a>, <a href="#cite">How to cite GloBI?</a>, <a href="#citations">Who cited GloBI?</a> and <a href="#partners">Who partner with GloBI?</a>.</p>
+    <p>In case you are wondering... <a href="#what">What is GloBI?</a>, <a href="#why">Why GloBI?</a>, <a href="#who">Who makes GloBI possible?</a>, <a href="#process">How does GloBI work?</a>, <a href="#share">How to share data through GloBI?</a>, <a href="#in-the-wild">GloBI in the wild</a>, <a href="#education">How to use GloBI as an educational tool?</a>, <a href="#cite">How to cite GloBI?</a>, <a href="#citations">Who cited GloBI?</a> and <a href="#partners">Who partners with GloBI?</a></p>
 
     <h3 id="what">What is GloBI?</h3>
 
