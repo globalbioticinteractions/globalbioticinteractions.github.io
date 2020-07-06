@@ -18,18 +18,8 @@ permalink: status
     <div id="status">loading...</div>
     <table id="sources">
         <tr>
-           <th>
-							indexed dataset citation / <a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#stats"
-                   title="How many interactions/names this source have? What is the name match percentage? When did GloBI last check the dataset?">stats</a> / 
-						<a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#readability"
-                   title="What make a source readable?">readable</a> /
-            <a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#issues"
-                   title="How many known issue does this source have?">issues</a> /
-            <a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#searchability"
-                   title="What makes a source searchable?">search</a> /
-            <a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#citability"
-                   title="What makes a source citable?">citable</a>
-            </th>
+           <th>status badges</th>
+           <th>dataset citation</th>
         </tr>
     </table>
 
@@ -189,30 +179,37 @@ permalink: status
             lastSeenElem.textContent = lastSeenMoment.short(true);
         }
 
-        a.parentElement.appendChild(statElem);
+        a.parentElement.insertBefore(statElem, a);
 
-        var a = appendLinkDiv(a.parentElement);
-        var travisUrl = 'https://travis-ci.com/' + source.name;
+        var badgesElem = tr.insertBefore(document.createElement('td'), a.parentElement);
+        
+        var a = appendLinkDiv(badgesElem);
+        var travisTLD = (source.name && source.name.indexOf('globalbioticinteractions/') == -1) ? 'org' : 'com'; 
+        var travisUrl = 'https://travis-ci.' + travisTLD + '/' + source.name;
         a.setAttribute('href', travisUrl);
         a.setAttribute('target', '_blank');
+        a.setAttribute('title', 'data review');
         var img = a.appendChild(document.createElement('img'));
         img.setAttribute('src', travisUrl + '.svg');
 
-        var a = appendLinkDiv(a.parentElement);
+        var a = appendLinkDiv(badgesElem);
         var issuesUrl = 'https://github.com/' + source.name + '/issues/';
         a.setAttribute('href', issuesUrl);
         a.setAttribute('target', '_blank');
+        a.setAttribute('title', 'reported issues');
+        
         var img = a.appendChild(document.createElement('img'));
         img.setAttribute('src', 'https://img.shields.io/github/issues/' + source.name + '.svg');
 
-        var a = appendLinkDiv(a.parentElement);
+        var a = appendLinkDiv(badgesElem);
         a.setAttribute('href', datasetDisplayUrl);
         a.setAttribute('target', '_blank');
+        a.setAttribute('title', 'indexed interaction records');
         var img = a.appendChild(document.createElement('img'));
         img.setAttribute('src', 'https://api.globalbioticinteractions.org/interaction.svg' + defaultQuery);
 
 
-        var a = appendLinkDiv(a.parentElement);
+        var a = appendLinkDiv(badgesElem);
 
         if (source.doi === undefined || source.doi === null || source.doi.trim().length == 0) {
             a.setAttribute('href', 'https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#citability');
@@ -230,6 +227,7 @@ permalink: status
                 a.setAttribute('href', 'https://doi.org/' + source.doi.replace(/^doi:/, ""));
             }
             a.setAttribute('target', '_blank');
+            a.setAttribute('title', 'citable publication');
             var img = a.appendChild(document.createElement('img'));
             img.setAttribute('src', 'assets/doi.svg');
         }
