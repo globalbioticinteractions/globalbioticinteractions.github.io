@@ -6,7 +6,7 @@ permalink: status
 <div class="ui-widget">
 
     <p>GloBI integrates with many existing external datasets. As datasets are independently managed, GloBI
-        continually discovers and revisits data sources to include recent updates or changes. This page gives you some
+        <a href="/process">continually discovers and revisits data sources to include recent updates or changes</a>. This page gives you some
         insight into which datasets are indexed, where they are located, and what their status is. If you are
         interested to learn about dataset management, please go <a
                 href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management" target="_blank">here</a>, or perhaps read the blog post <a href="http://www.globalbioticinteractions.org/2017/01/24/lifestages-of-species-interaction-datasets/" target="_blank">"Life stages of Species Interaction Datasets"</a>.</p>
@@ -19,7 +19,7 @@ permalink: status
     <table id="sources">
         <tr>
            <th>status</th>
-           <th>dataset location, stats and citation</th>
+           <th>dataset config, stats and citation</th>
         </tr>
     </table>
 
@@ -31,6 +31,7 @@ permalink: status
 
     var appendLink = function (tr) {
         var td = tr.appendChild(document.createElement('td'));
+        td.setAttribute('style', 'vertical-align: top');
         var a = td.appendChild(document.createElement('a'));
         return a;
     };
@@ -56,7 +57,7 @@ permalink: status
     var appendSourceTo = function (source, elem) {
         var tr = elem.appendChild(document.createElement('tr'));
         tr.setAttribute('class', 'interaction');
-
+        tr.setAttribute('id', source.study_source_id);
 
         var hasStats = function (source) {
             return source.number_of_interactions !== undefined
