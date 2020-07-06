@@ -48,7 +48,7 @@ i18n-link: about
 
     <h3 id="process">How does GloBI work?</h3>
 
-        <p>GloBI continuously scans existing data infrastructures and registries (e.g., <a href="https://github.com">GitHub</a>, <a href="https://zenodo.org">Zenodo</a>, <a href="https://www.gbif.org/ipt">IPT</a> RSS feeds, <a href="https://inaturalist.org">iNaturalist</a>), and tracks the species interactions data they make available. Found species interaction data are then resolved and integrated. So, rather than being a giant store of species interaction data, GloBI is more of a search index that help find existing species interaction datasets. For more information about how GloBI works, please visit the <a href="/process">Data Integration Process</a> page.</p>
+        <p>GloBI continuously scans existing data infrastructures and registries and tracks the species interactions data they make available. Found species interaction data are then resolved and integrated. So, rather than being a giant centralized repository of species interaction data, GloBI is more of a search index that helps to find existing species interaction datasets in their native cyber-habitat. For more information about how GloBI works, please visit the <a href="/process">Data Integration Process</a> page.</p>
 
     <h3 id="share">How to share data through GloBI?</h3>
 
