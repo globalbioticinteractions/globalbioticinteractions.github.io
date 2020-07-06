@@ -4,7 +4,7 @@ title: data
 permalink: data
 ---
 
-**Data indexed by GloBI is generously provided by researchers and collections openly sharing their datasets. When using this data, please make sure to attribute the original data contributors, including citing the specific datasets in derivative work.** Also, please consider to [contribute](./contribute) to improve access to existing species interaction data.
+**Data indexed by GloBI is generously provided by researchers and collections openly sharing their datasets. When using this data, please make sure to attribute the original data contributors, including citing the specific datasets in derivative work.** Each record indexed by GloBI contains a reference and dataset citation. Also, please consider to [contribute](./contribute) to improve access to existing species interaction data.
 
 Species interaction datasets supported by GloBI can be accessed in various ways. For most, this website and its pages may be helpful to poke around the data. Other projects like [GoMexSI](http://gomexsi.tamucc.edu), [Encyclopedia of Life](http://eol.org), and [Ecosystem Explorer](http://danielabar.github.io/globi-proto) present GloBI data in a human readable format. 
 
