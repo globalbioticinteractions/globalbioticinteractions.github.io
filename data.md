@@ -1,6 +1,7 @@
 ---
 layout: default
 title: data
+permalink: data
 ---
 
 **Data indexed by GloBI is generously provided by researchers and collections openly sharing their datasets. When using this data, please make sure to attribute the original data contributors, including citing the specific datasets in derivative work.** Also, please consider to [contribute](./contribute) to improve access to existing species interaction data.
@@ -29,7 +30,7 @@ For research or other data intensive project, please use GloBI's most recent agg
  
  * [neo4j v2.3.12 graph database](https://depot.globalbioticinteractions.org/snapshot/target/eol-globi-datasets-1.0-SNAPSHOT-neo4j-graph-db.zip) contains a [neo4j](https://neo4j.org) database snapshot containing a graph representation of the species interaction data. 
 
-If you'd like to better understand how the above integrated data products came about, please visit the [Data Integration Process](/process) page.  Also, if you'd like to learn more about data access methods, please visit the [Accessing Species Interaction Data](https://github.com/globalbioticinteractions/globalbioticinteractions/wiki#accessing-species-interaction-data) wiki page.
+If you'd like to better understand how the above integrated data products came about, please visit the [Data Integration Process](/process) page.  Also, see the [Accessing Species Interaction Data](https://github.com/globalbioticinteractions/globalbioticinteractions/wiki#accessing-species-interaction-data) wiki page for additional information about data access methods.
 
 In case the provided methods to access species interactions data do not quite suit your needs, please [open an issue](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new) or contact the author(s) of [doi:10.1016/j.ecoinf.2014.08.005](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005).  
 
