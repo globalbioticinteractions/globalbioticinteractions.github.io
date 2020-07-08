@@ -24,7 +24,7 @@ Various methods exist to share existing interaction data through Global Biotic I
 1. In case the data is not (yet) web accessible, please [open an issue](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new) describe the dataset and we can have a discussion on how to make the data available through GloBI.
 1. Tweet/ tag a reference to openly available food web dataset (or any other species interaction datasets) with [@GlobalBiotic](https://twitter.com/GlobalBiotic) to let GloBI take a stab at making them easier to find via https://globalbioticinteractions.org .
 
-As the automated updates occur on a daily basis, it may take a day or two for updates or corrections to be available through GloBI and related libraries like [rglobi](http://github.com/ropensci/rglobi). For more information, see [Poelen et al. 2014](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005), [GloBI homepage](http://globalbioticinteractions.org).
+As the automated updates occur on a daily basis, it may take a day or two for updates or corrections to be available through GloBI and related libraries like [rglobi](http://github.com/ropensci/rglobi). For more information, see [GloBI's Data Integration Process page](/process) or [Poelen et al. 2014](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005).
 
 ## Contribute Code
 
