@@ -191,7 +191,9 @@
 
         a.parentElement.insertBefore(statElem, repoLink);
 
-        var badgesElem = tr.insertBefore(document.createElement('td'), a.parentElement);
+        var badgesElem = document.createElement('td');
+        badgesElem.setAttribute('style', 'vertical-align: top');
+        var badgesElem = tr.insertBefore(badgesElem, a.parentElement);
         
         var a = appendLinkDiv(badgesElem);
         var travisTLD = (source.name && source.name.indexOf('globalbioticinteractions/') == -1) ? 'org' : 'com'; 
