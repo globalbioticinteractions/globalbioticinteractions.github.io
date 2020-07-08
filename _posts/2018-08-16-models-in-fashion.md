@@ -372,7 +372,7 @@ Note that this unofficial associatedTaxa extension has a wide variety of associa
 #### Darwin Core Archive – Uredinales of Belgium flavor
 Approach: use standard resourceRelationship extension to establish an association between taxa with associated bibliographic reference. 
 
-Example below was extracted from [https://github.com/trias-project/uredinales-belgium-checklist/tree/master/data/processed](https://github.com/trias-project/uredinales-belgium-checklist/tree/master/data/processed) on 16 August 2018:
+Example below was extracted from [https://github.com/trias-project/uredinales-belgium-checklist/tree/5862be2b384c6d7e4775c2a2d84377ac03ac6338/data/processed](https://github.com/trias-project/uredinales-belgium-checklist/tree/5862be2b384c6d7e4775c2a2d84377ac03ac6338/data/processed) on 16 August 2018:
 
 taxonID | resourceID | relatedResourceID | relationshipOfResource | relationshipAccordingTo
 --- | --- | --- | --- | ---
