@@ -130,16 +130,22 @@ permalink: status
             }
         };
 
+        var githubLinkFor = function(source) {
+          var urlBase = 'https://github.com/' + source.name;
+          var a = document.createElement('a');
+          a.setAttribute('href', urlBase);
+          a.setAttribute('target', '_blank');
+          a.setAttribute('title', 'configuration for ' + source.study_source_citation);
+          return a;
+        };
+
         var appendImgForRepo = function (source, elem) {
             if (source.url === undefined) {
                 var sizePx = 18;
                 var gitHubName = source.name;
                 var urlBase = 'https://github.com/' + gitHubName;
                 var url = '/assets/GitHub-Mark-32px.png';
-                var a = document.createElement('a');
-                a.setAttribute('href', urlBase);
-                a.setAttribute('target', '_blank');
-                a.setAttribute('title', 'configuration for ' + gitHubName);
+                var a = githubLinkFor(source); 
                 var img = a.appendChild(document.createElement('img'));
                 img.setAttribute('src', url);
                 img.setAttribute('style', 'width:' + sizePx + 'px; padding-left:' + sizePx / 2 + 'px');
@@ -162,6 +168,10 @@ permalink: status
         a.setAttribute('href', datasetDisplayUrl);
         a.setAttribute('target', '_blank');
         a.textContent = ' ' + source.study_source_citation;
+
+        var githubReference = githubLinkFor(source);
+        githubReference.textContent = ' @' + source.name;
+        a.parentElement.appendChild(githubReference);
 
         var statElem = document.createElement('span');
         if (hasStats(source)) {
