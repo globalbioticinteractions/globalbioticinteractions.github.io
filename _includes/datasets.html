@@ -1,0 +1,273 @@
+<div class="ui-widget">
+
+    <p>GloBI integrates with many existing external datasets. As datasets are independently managed, GloBI
+        <a href="/process">continually discovers and revisits data sources to include recent updates or changes</a>. This page gives you some
+        insight into which datasets are indexed, where they are located, and what their status is. If you are
+        interested to learn about dataset management, please go <a
+                href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management" target="_blank">here</a>, or perhaps read the blog post <a href="http://www.globalbioticinteractions.org/2017/01/24/lifestages-of-species-interaction-datasets/" target="_blank">"Life stages of Species Interaction Datasets"</a>.</p>
+
+    <p>Please <a href="https://github.com/globalbioticinteractions/globalbioticinteractions" target="_blank">submit an issue</a> for suggestions
+        or bugs.</p>
+
+
+    <div id="status">loading...</div>
+    <table id="sources">
+        <tr>
+           <th>status</th>
+           <th>dataset config, stats and citation</th>
+        </tr>
+    </table>
+
+</div>
+
+
+<script src="js/globi-web-min.js"></script>
+<script>
+
+    var appendLink = function (tr) {
+        var td = tr.appendChild(document.createElement('td'));
+        td.setAttribute('style', 'vertical-align: top');
+        var a = td.appendChild(document.createElement('a'));
+        return a;
+    };
+
+    var appendLinkDiv = function (tr) {
+        var td = tr.appendChild(document.createElement('span'));
+        var pre = td.appendChild(document.createElement('span'));
+				pre.textContent = ' ';
+        var a = td.appendChild(document.createElement('a'));
+        return a;
+    };
+
+    var keyFromSource = function (source) {
+        if (source.doi !== undefined) {
+            return source.doi;
+        } else if (source.key !== undefined) {
+            return source.key;
+        } else {
+            return source.name;
+        }
+    }
+
+    var appendSourceTo = function (source, elem) {
+        var tr = elem.appendChild(document.createElement('tr'));
+        tr.setAttribute('class', 'interaction');
+        tr.setAttribute('id', source.study_source_id);
+
+        var hasStats = function (source) {
+            return source.number_of_interactions !== undefined
+                    && source.number_of_distinct_taxa !== undefined
+                    && source.number_of_distinct_taxa_no_match != undefined;
+        };
+
+        var addStats = function (elem) {
+            var abbr = new globiWeb.abbreviateNumber();
+            var numberOfInteractions = elem.appendChild(document.createElement('span'));
+            numberOfInteractions.setAttribute('class', 'stats number_of_interactions');
+            numberOfInteractions.setAttribute('title', 'number of interaction records');
+            numberOfInteractions.textContent = abbr.abbreviate(source.number_of_interactions, 1);
+            var numberOfNames = elem.appendChild(document.createElement('span'));
+            numberOfNames.setAttribute('class', 'stats number_of_names');
+            numberOfNames.setAttribute('title', 'number of distinct taxon names');
+            numberOfNames.textContent = abbr.abbreviate(source.number_of_distinct_taxa, 1);
+            var nameMatchRatio = (1 - (source.number_of_distinct_taxa_no_match / source.number_of_distinct_taxa));
+
+            var statsStatus = 'green';
+            if (!Number.isFinite(nameMatchRatio) || nameMatchRatio < 0.5) {
+                statsStatus = 'red';
+            } else if (nameMatchRatio < 1) {
+                statsStatus = 'yellow';
+            }
+
+            var matchInfoUrl = 'https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Taxonomy-Matching';
+            if (nameMatchRatio < 1) {
+                matchInfoUrl = datasetDisplayUrl + '&sourceTaxon=no%3Amatch';
+            }
+            var attribute = elem.getAttribute('class');
+            elem.setAttribute('class', attribute + ' stats_' + statsStatus);
+
+            var percentMatchedNames = elem.appendChild(document.createElement('a'));
+            percentMatchedNames.setAttribute('class', 'stats name_match_ratio');
+            percentMatchedNames.setAttribute('title', '% of names that match to an external name source (e.g. taxonomy)');
+            percentMatchedNames.setAttribute('href', matchInfoUrl);
+            percentMatchedNames.setAttribute('target', '_blank');
+            if (Number.isFinite(nameMatchRatio)) {
+                percentMatchedNames.textContent = abbr.abbreviate(Math.floor(nameMatchRatio * 100), 0) + '%';
+            } else {
+                percentMatchedNames.textContent = 'NaN';
+            }
+
+        };
+
+
+        var urlForSource = function (source) {
+            if (source.url === undefined) {
+                return 'https://github.com/' + source.name;
+            } else {
+                return source.url;
+            }
+        };
+
+        var appendImgForSource = function (source, elem) {
+            if (source.url === undefined) {
+                var sizePx = 18;
+                var gitHubName = source.name.split('/')[0];
+                var urlBase = 'https://github.com/' + gitHubName;
+                var url = urlBase + '.png?size=' + sizePx;
+                var a = document.createElement('a');
+                a.setAttribute('href', urlBase);
+                a.setAttribute('target', '_blank');
+                a.setAttribute('title', 'github profile for ' + gitHubName);
+                var img = a.appendChild(document.createElement('img'));
+                img.setAttribute('src', url);
+                img.setAttribute('style', 'width:' + sizePx + 'px; padding-left:' + sizePx / 2 + 'px');
+                elem.parentNode.insertBefore(a, elem);
+                return a;
+            }
+        };
+
+        var githubLinkFor = function(source) {
+          var urlBase = 'https://github.com/' + source.name;
+          var a = document.createElement('a');
+          a.setAttribute('href', urlBase);
+          a.setAttribute('target', '_blank');
+          a.setAttribute('title', 'configuration for ' + source.study_source_citation);
+          return a;
+        };
+
+        var appendImgForRepo = function (source, elem) {
+            if (source.url === undefined) {
+                var sizePx = 18;
+                var gitHubName = source.name;
+                var urlBase = 'https://github.com/' + gitHubName;
+                var url = '/assets/GitHub-Mark-32px.png';
+                var a = githubLinkFor(source); 
+                var img = a.appendChild(document.createElement('img'));
+                img.setAttribute('src', url);
+                img.setAttribute('style', 'width:' + sizePx + 'px; padding-left:' + sizePx / 2 + 'px');
+                elem.parentNode.insertBefore(a, elem);
+                return a;
+            }
+        };
+
+        var nameForSource = function (source) {
+            return source.name;
+        };
+
+
+        var a = appendLink(tr);
+        var repoLink = appendImgForRepo(source, a);
+        appendImgForSource(source, a);
+
+        var defaultQuery = '?interactionType=ecologicallyRelatedTo&accordingTo=' + source.study_source_id;
+        var datasetDisplayUrl = '/' + defaultQuery;
+
+        a.setAttribute('href', datasetDisplayUrl);
+        a.setAttribute('target', '_blank');
+        a.textContent = ' ' + source.study_source_citation;
+
+        var githubReference = githubLinkFor(source);
+        githubReference.textContent = ' @' + source.name;
+        a.parentElement.insertBefore(githubReference, a);
+
+        a.parentElement.insertBefore(document.createElement('br'), a);
+
+        var statElem = document.createElement('span');
+        if (hasStats(source)) {
+            statElem.setAttribute('class', 'stats');
+            addStats(statElem);
+        } else {
+            statElem.setAttribute('class', 'stats stats_red');
+            statElem.setAttribute('title', 'no stats available for [' + source.name + ']');
+        }
+        var lastSeen = source.study_source_last_seen_at;
+        if (lastSeen !== undefined) {
+            var lastSeenMoment = globiWeb.moment(lastSeen);
+            var lastSeenElem = statElem.appendChild(document.createElement('span'));
+            lastSeenElem.setAttribute('class', 'stats last_seen');
+            lastSeenElem.setAttribute('title', 'last checked ' + lastSeenMoment.short());
+            lastSeenElem.textContent = lastSeenMoment.short(true);
+        }
+
+        a.parentElement.insertBefore(statElem, repoLink);
+
+        var badgesElem = tr.insertBefore(document.createElement('td'), a.parentElement);
+        
+        var a = appendLinkDiv(badgesElem);
+        var travisTLD = (source.name && source.name.indexOf('globalbioticinteractions/') == -1) ? 'org' : 'com'; 
+        var travisUrl = 'https://travis-ci.' + travisTLD + '/' + source.name;
+        a.setAttribute('href', travisUrl);
+        a.setAttribute('target', '_blank');
+        a.setAttribute('title', 'data review');
+        var img = a.appendChild(document.createElement('img'));
+        img.setAttribute('src', travisUrl + '.svg');
+
+        var a = appendLinkDiv(badgesElem);
+        var issuesUrl = 'https://github.com/' + source.name + '/issues/';
+        a.setAttribute('href', issuesUrl);
+        a.setAttribute('target', '_blank');
+        a.setAttribute('title', 'reported issues');
+        
+        var img = a.appendChild(document.createElement('img'));
+        img.setAttribute('src', 'https://img.shields.io/github/issues/' + source.name + '.svg');
+
+        var a = appendLinkDiv(badgesElem);
+        a.setAttribute('href', datasetDisplayUrl);
+        a.setAttribute('target', '_blank');
+        a.setAttribute('title', 'indexed interaction records');
+        var img = a.appendChild(document.createElement('img'));
+        img.setAttribute('src', 'https://api.globalbioticinteractions.org/interaction.svg' + defaultQuery);
+
+
+        var a = appendLinkDiv(badgesElem);
+
+        if (source.doi === undefined || source.doi === null || source.doi.trim().length == 0) {
+            a.setAttribute('href', 'https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#citability');
+            a.setAttribute('target', '_blank');
+            var img = a.appendChild(document.createElement('img'));
+            img.setAttribute('src', 'assets/doiUnknown.svg');
+        } else {
+            if (!source.doi.match(/(^http:)|(^https:)|(^doi:)/)) {
+                a.setAttribute('href', 'https://doi.org/' + source.doi);
+            } else if (source.doi.match(/(^http:\/\/dx\.doi\.org)|(^https:\/\/dx\.doi\.org)/)) {
+                a.setAttribute('href', source.doi.replace(/dx\.doi\.org/, 'doi.org'));
+            } else if (source.doi.match(/(^http:)|(^https:)/)) {
+                a.setAttribute('href', source.doi);
+            } else if (source.doi.match(/(^doi:)/)) {
+                a.setAttribute('href', 'https://doi.org/' + source.doi.replace(/^doi:/, ""));
+            }
+            a.setAttribute('target', '_blank');
+            a.setAttribute('title', 'citable publication');
+            var img = a.appendChild(document.createElement('img'));
+            img.setAttribute('src', 'assets/doi.svg');
+        }
+
+
+    };
+
+    var globiData = globiWeb.globi.globiData;
+    globiData.findSourceNames(function (sourceNames) {
+        var frag = document.createDocumentFragment();
+        var nameCompare = function (a, b) {
+            var x = a.name.toUpperCase();
+            var y = b.name.toUpperCase();
+            if (x < y) {
+                return -1;
+            } else if (x > y) {
+                return 1;
+            } else {
+                return 0;
+            }
+        };
+
+
+        sourceNames.sort(nameCompare).forEach(function (sourceName) {
+            appendSourceTo(sourceName, frag);
+        });
+        var sources = document.getElementById('sources');
+        sources.appendChild(frag);
+        var status = document.getElementById('status');
+        status.parentNode.removeChild(status);
+    });
+
+</script>
