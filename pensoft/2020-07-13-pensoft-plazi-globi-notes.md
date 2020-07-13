@@ -35,3 +35,4 @@
 1. (Jorrit) share example of how to read the review.tsv 
 1. (Jorrit) share example for review by Lyubo, Mariya et al. of nanopub extracted from interaction tables using ```elton nanopubs```
 1. (Lyubo, Mariya) to propose improvements/changes/alternate to existing ```elton nanopubs``` output 
+1. (Mariya) write blog post about progress
