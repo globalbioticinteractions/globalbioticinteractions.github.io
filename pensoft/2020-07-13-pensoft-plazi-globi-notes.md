@@ -22,5 +22,16 @@
 3. How to improve tagging of subject - verb - object of interactions in tables? Re-use inline taxon-name tag approach?
 4. Decide on way to provide feedback on indexed Pensoft interaction tables. Feedback link? Email? 
 5. How to properly cite a table? How to link straight into a published table? 
+6. Can indexed interaction be used to generate nanopublication drafts? To be used as curation and communication. 
 
+### action 
 
+1. (Jorrit) share the sparql queries in GloBI code
+1. (Mariya) review sparql in GloBI code  
+1. (Mariya) make github public 
+1. (Jorrit) add globi.json and .travis.yml to github repo to enable indexing and review 
+1. review the tables that were not indexed
+1. (Mariya) add annotated table captions to include taxonomic names
+1. (Jorrit) share example of how to read the review.tsv 
+1. (Jorrit) share example for review by Lyubo, Mariya et al. of nanopub extracted from interaction tables using ```elton nanopubs```
+1. (Lyubo, Mariya) to propose improvements/changes/alternate to existing ```elton nanopubs``` output 
