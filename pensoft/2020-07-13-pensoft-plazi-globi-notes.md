@@ -3,8 +3,7 @@
 ## GloBI support for Pensoft-annotated species interaction tables
 
 ### methods
-
-1. generate article table citation using OpenBioDiv and provided article_doi 
+1. generate article table citation using OpenBioDiv and provided article_doi (e.g., ```10.3897/zookeys.306.5455```)
 1. parse html table content of ```table_content```
 1. extract table schema from table header or, if missing, from first data row
 1. duplicate value in rowspanned columns
@@ -15,8 +14,14 @@
 
 ### (preliminary) results
 1. workflow produced 2378 interactions from 46 out of 233 tables (results need review, see [interactions-pensoft-tables-2020-07-12.tsv.gz](interactions-pensoft-tables-2020-07-12.tsv.gz))
-1. 
+1. workflow issued 7569 unique sparql queries to resolve article dois and taxon hierarchies
+1. workflow ready to be integrated into GloBI indexing and review workflows
 
+### discussion
+1. When to enable automated review and indexing of Pensoft interaction tables? 
+2. How to support manual curation of table schemas? (GloBI has support for custom table schemas via https://w3c.github.io/csvw/syntax/)
+3. How to improve tagging of subject - verb - object of interactions in tables? Re-use inline taxon-name tag approach?
+4. Decide on way to provide feedback on indexed Pensoft interaction tables. Feedback link? Email? 
+5. How to properly cite a table? How to link straight into a published table? 
 
-### next steps/ discussion
 
