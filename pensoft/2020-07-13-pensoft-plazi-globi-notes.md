@@ -26,13 +26,12 @@
 
 ### action 
 
-1. (Jorrit) share the sparql queries in GloBI code
-1. (Mariya) review sparql in GloBI code  
-1. (Mariya) make github public 
-1. (Jorrit) add globi.json and .travis.yml to github repo to enable indexing and review 
-1. review the tables that were not indexed
-1. (Mariya) add annotated table captions to include taxonomic names
-1. (Jorrit) share example of how to read the review.tsv 
-1. (Jorrit) share example for review by Lyubo, Mariya et al. of nanopub extracted from interaction tables using ```elton nanopubs```
-1. (Lyubo, Mariya) to propose improvements/changes/alternate to existing ```elton nanopubs``` output 
+1. (Jorrit/Mariya) share/review the sparql queries in GloBI code (see https://github.com/pensoft/pensoft-interaction-tables/issues/3 https://github.com/pensoft/pensoft-interaction-tables/issues/6)
+1. (Mariya) make github public (https://github.com/pensoft/pensoft-interaction-tables/issues/5)
+1. (Jorrit, done) add globi.json and .travis.yml to github repo to enable indexing and review (https://github.com/pensoft/pensoft-interaction-tables/issues/5)
+1. review the tables that were not indexed 
+1. (Mariya) add annotated table captions to include taxonomic names (https://github.com/pensoft/pensoft-interaction-tables/issues/2)
+1. (Jorrit) share example of how to read the review.tsv (https://github.com/pensoft/pensoft-interaction-tables/issues/7)
+1. (Jorrit) share example for review by Lyubo, Mariya et al. of nanopub extracted from interaction tables using ```elton nanopubs``` (https://github.com/pensoft/pensoft-interaction-tables/issues/8)
+1. (Lyubo, Mariya) to propose improvements/changes/alternate to existing ```elton nanopubs``` output  (https://github.com/pensoft/pensoft-interaction-tables/issues/8)
 1. (Mariya) write blog post about progress
