@@ -2,10 +2,10 @@
 ## GloBI support for Pensoft-annotated species interaction tables
 
 ### methods
-1. generate article table citation using OpenBioDiv and provided article_doi (e.g., ```10.3897/zookeys.306.5455```)
+1. generate article table citation using OpenBioDiv and provided article_doi (e.g., [```10.3897/zookeys.306.5455```](https://doi.org/10.3897/zookeys.306.5455))
 1. parse html table content of ```table_content```
 1. extract table schema from table header or, if missing, from first data row
-1. duplicate value in rowspanned columns
+1. duplicate value in rowspanned columns 
 1. duplicate rows on encountering taxa lists row column values
 1. expand taxonomic names to include taxon hierarchy using OpenBioDiv
 1. merge overlapping taxon hierarchy in single row (e.g., host plant family + host plant species -> host plant species)
