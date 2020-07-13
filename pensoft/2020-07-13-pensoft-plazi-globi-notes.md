@@ -1,5 +1,4 @@
 
-
 ## GloBI support for Pensoft-annotated species interaction tables
 
 ### methods
@@ -13,7 +12,7 @@
 1. species interaction assumed iff two non-overlapping taxa are found in single column (using general term "interacts with" http://purl.obolibrary.org/obo/RO_0002437)
 
 ### (preliminary) results
-1. workflow produced 2378 interactions from 46 out of 233 tables (results need review, see [interactions-pensoft-tables-2020-07-12.tsv.gz](interactions-pensoft-tables-2020-07-12.tsv.gz))
+1. workflow produced 2378 interactions from 46 out of 233 tables (results need review, see [interactions-pensoft-tables-2020-07-12.tsv.gz](interactions-pensoft-tables-2020-07-12.tsv.gz)) provided by Mariya via https://github.com/pensoft/pensoft-interaction-tables / https://github.com/pensoft/pensoft-interaction-tables/blob/master/bi_tables_20200630.json . 
 1. workflow issued 7569 unique sparql queries to resolve article dois and taxon hierarchies
 1. workflow ready to be integrated into GloBI indexing and review workflows
 
