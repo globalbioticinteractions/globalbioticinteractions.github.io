@@ -18,7 +18,7 @@
 
 ### discussion
 1. When to enable automated review and indexing of Pensoft interaction tables? 
-2. How to support manual curation of table schemas? (GloBI has support for custom table schemas via https://w3c.github.io/csvw/syntax/)
+2. How to support manual curation of table schemas? (GloBI has support for custom table schemas via https://w3c.github.io/csvw/syntax/ , e.g. https://github.com/globalbioticinteractions/ncbi-virus)
 3. How to improve tagging of subject - verb - object of interactions in tables? Re-use inline taxon-name tag approach?
 4. Decide on way to provide feedback on indexed Pensoft interaction tables. Feedback link? Email? 
 5. How to properly cite a table? How to link straight into a published table? 
