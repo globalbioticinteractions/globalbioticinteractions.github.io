@@ -33,6 +33,8 @@ These integration are very much a work in progress and will hopefully lead to an
 
 **13 July 2020** - Continued Pensoft<>Plazi<>GloBI integration meeting with Mariya (organizer), Lyubomir, Georgi, Guido, Jorrit. [meeting notes](./2020-07-13-pensoft-plazi-globi-notes) .
 
+**17 July 2020** - Mariya published blog post "Pensoft – GloBI workflow for FAIR data exchange and indexing of biotic interactions locked within scholarly articles" at [https://blog.pensoft.net/2020/07/17/pensoft-globi-workflow-for-fair-data-exchange-and-indexing-of-biotic-interactions-locked-within-scholarly-articles/](https://blog.pensoft.net/2020/07/17/pensoft-globi-workflow-for-fair-data-exchange-and-indexing-of-biotic-interactions-locked-within-scholarly-articles/).
+
 
 # Integration Status
 
