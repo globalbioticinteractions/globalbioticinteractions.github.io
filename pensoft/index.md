@@ -31,6 +31,8 @@ These integration are very much a work in progress and will hopefully lead to an
 
 **25 June 2020** - Continued Pensoft<>Plazi<>GloBI integration meeting with Mariya (organizer), Jorrit, Lyubo,  Donat, Georgi. [meeting notes](./2020-06-25-pensoft-plazi-globi-notes) .
 
+**13 July 2020** - Continued Pensoft<>Plazi<>GloBI integration meeting with Mariya (organizer), Lyubomir, Georgi, Guido, Jorrit. [meeting notes](./2020-07-13-pensoft-plazi-globi-notes) .
+
 
 # Integration Status
 
