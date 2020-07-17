@@ -50,17 +50,28 @@ Jorrit presents current state of biotic interaction extraction and preliminary w
 1. Paper recommendation: Elliott, M.J., Poelen, J.H. & Fortes, J.A.B., 2020. Toward reliable biodiversity dataset references. Ecological Informatics, 59, p.101132. Available at: http://dx.doi.org/10.1016/j.ecoinf.2020.101132.
 
 # Discussion:
-## When to enable automated review and indexing of Pensoft interaction tables?
-ASAP. Mariya/Teodor will make the github repository public. See necessary steps for automatic GloBI indexing https://github.com/pensoft/pensoft-interaction-tables/issues/5
-## How to support manual curation of table schemas? (GloBI has support for custom table schemas via https://w3c.github.io/csvw/syntax/ , e.g. https://github.com/globalbioticinteractions/ncbi-virus)
 
-## How to improve tagging of subject - verb - object of interactions in tables? Re-use inline taxon-name tag approach?
-    Mariya suggests POS tagging for ‘simple’ tables (no rowspans/colspans) to determine the directionality of interactions. To be tried in the next few weeks.
+When to enable automated review and indexing of Pensoft interaction tables?
+
+ASAP. Mariya/Teodor will make the github repository public. See necessary steps for automatic GloBI indexing https://github.com/pensoft/pensoft-interaction-tables/issues/5
+
+How to support manual curation of table schemas? 
+
+(GloBI has support for custom table schemas via https://w3c.github.io/csvw/syntax/ , e.g. https://github.com/globalbioticinteractions/ncbi-virus)
+
+How to improve tagging of subject - verb - object of interactions in tables? Re-use inline taxon-name tag approach?
+
+Mariya suggests POS tagging for ‘simple’ tables (no rowspans/colspans) to determine the directionality of interactions. To be tried in the next few weeks.
+
 Decide on way to provide feedback on indexed Pensoft interaction tables. Feedback link? Email?
+
 Can do github issues for now. We can establish nanopublication messaging service between Pensoft and GloBI. 
-## How to properly cite a table? How to link straight into a published table?
+
+How to properly cite a table? How to link straight into a published table?
+
 Article title, authors, year. Direct link to the published table (html) can be done in the future (see https://zookeys.pensoft.net/article/3038/element/3/21// - link to table)
-## Can indexed interaction be used to generate nanopublication drafts? To be used as curation and communication.
+
+Can indexed interaction be used to generate nanopublication drafts? To be used as curation and communication.
     Yes!
 
 Mariya demonstrates the Annotator interface.
@@ -74,6 +85,7 @@ Jorrit: We don’t have to limit but can leave it up to the client to decide who
 Lyubo: It is not enough to have the doi in the Provenance part. There should be a ‘method’ - how the nanopublication was created? - e.g. through OpenBiodiv
 
 Jorrit: We can use nanopublications to document suspicious interactions in GloBI. 
+
 We can use different levels of confidence when generating nanopublications (e.g. species sharing the same habitat are more likely to interact, a certain article section is more likely to contain an interaction/habitat data)
 
 Lyubo: We should visualise the source of an assertion (e.g. the article/table it came from); perhaps through a button or link.
