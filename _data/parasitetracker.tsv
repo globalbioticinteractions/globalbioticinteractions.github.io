@@ -1,5 +1,5 @@
 institution_code	institution	collection_code	collection	contact	platform	platform_detail	globi_id	review_id
-BPBM	Bishop Museum		J. Linsley Gressitt Center for Research in Entomology 	Jim Boone, Neal Evenhuis	Specify		Bishop Museum Gressitt Entomology Collection 	
+BPBM	Bishop Museum		Gressitt Entomology Collection 	Jim Boone, Neal Evenhuis	Specify		Bishop Museum Gressitt Entomology Collections 	
 BYU	Brigham Young University Arthropod Museum	BYUC	Monte L. Bean Museum of Life Science Museum Insects and Arachnids	Michael Whiting 	SymbSCAN	SymbSCAN	globi:globalbioticinteractions/byu-byuc	globalbioticinteractions/byu-byuc
 CAS	California Academy of Sciences		Entomology Collection	Chris Grinter, Michelle Trautwein	Institutional	SymbSCAN	globi:globalbioticinteractions/cas-ent	globalbioticinteractions/cas-ent
 CUAC	Clemson University		Clemson University Arthropod Collection	Michael Caterino 	Specify		Clemson University Arthropod Collection	
