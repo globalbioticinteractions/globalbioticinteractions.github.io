@@ -1,12 +1,12 @@
 institution_code	institution	collection_code	collection	contact	platform	platform_detail	globi_id	review_id
 BPBM	Bishop Museum		J. Linsley Gressitt Center for Research in Entomology	Jim Boone, Neal Evenhuis	Specify		Bishop Museum Gressitt Entomology Collection 	
 BYU	Brigham Young University Arthropod Museum	BYUC	Monte L. Bean Museum of Life Science Museum Insects and Arachnids	Michael Whiting 	SymbSCAN	SymbSCAN	globi:globalbioticinteractions/byu-byuc	globalbioticinteractions/byu-byuc
-CAS	California Academy of Sciences		Entomology Collection	Chris Grinter, Michelle Trautwein	Institutional	SymbSCAN	globi:globalbioticinteractions/cas-ent	globalbioticinteractions/cas-ent
-CUAC	Clemson University		Clemson University Arthropod Collection	Michael Caterino 	Specify		Clemson University Arthropod Collection	
-FMNH	Field Museum of Natural History		FMNH Insects, Arachnids, and Myriapods	John Bates, Maureen Turcatel, Petra Sierwald	EMu		globi:globalbioticinteractions/fmnh	globalbioticinteractions/fmnh
+CAS	California Academy of Sciences		Entomology Collection	Chris Grinter, Michelle Trautwein	Institutional/Symbiota	SymbSCAN	globi:globalbioticinteractions/cas-ent	globalbioticinteractions/cas-ent
+CUAC	Clemson University		Clemson University Arthropod Collection	Michael Caterino 	Specify/Symbiota		Clemson University Arthropod Collection	
+FMNH	Field Museum of Natural History		FMNH Insects, Arachnids, and Myriapods	John Bates, Maureen Turcatel, Petra Sierwald	EMu/Symbiota		globi:globalbioticinteractions/fmnh	globalbioticinteractions/fmnh
 INHS	Illinois Natural History Survey, University of Illinois at Urbana-Champaign		INHS Insect Collection	Dmitry A Dmitriev, Matt Yoder 	TaxonWorks		globi:globalbioticinteractions/inhs-insects	globalbioticinteractions/inhs-insects
 MSU	Michigan State University	MSUC	Albert J. Cook Arthropod Research Collection	Anthony Cognato, Sarah Smith	SymbSCAN	SymbSCAN	globi:globalbioticinteractions/msu-msuc	globalbioticinteractions/msu-msuc
-MPM	Milwaukee Public Museum		MPM Zoology 	Kat Sullivan, Alyssa Caywood, Christopher Tyrrell, Jennifer Zaspel , Julia Colby	EMu		globi:globalbioticinteractions/mpm	globalbioticinteractions/mpm
+MPM	Milwaukee Public Museum/Symbiota		MPM Zoology 	Kat Sullivan, Alyssa Caywood, Christopher Tyrrell, Jennifer Zaspel , Julia Colby	EMu		globi:globalbioticinteractions/mpm	globalbioticinteractions/mpm
 HWML	Nebraska State Museum		Harold W. Manter Laboratory of Parasitology	Scott Gardner	Arctos		University of Nebraska State Museum	
 OSAL	Ohio State University		Ohio State University Acarology Collection	Hans Klompen	Filemaker Pro	Filemaker Pro	Ohio State University Acarology Collection	
 PSUC	Pennsylvania State University	ENTO	Frost Entomological Museum	Andy Deans, Joyce Sakamoto, Laura Porturas	TaxonWorks		globi:globalbioticinteractions/psuc-ento	globalbioticinteractions/psuc-ento
