@@ -30,6 +30,8 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **1 May 2020** - Publication of ```Kathryn Sullivan, Katja Seltmann, Jorrit Poelen, & Jennifer M. Zaspel. (2020, May). Making Parasite-Host Associations Visible in Terrestrial Parasite Tracker (TPT) (Version 0.0.1). Zenodo. http://doi.org/10.5281/zenodo.3780543```. The [publication](http://doi.org/10.5281/zenodo.3780543) (see [doi:10.5281/zenodo.3780543](http://doi.org/10.5281/zenodo.3780543)) contains transcription guidelines to help capture biotic assocations in natural history collections.   
 
+**8 July 2020** - Webinar: Making parasite-host associations visible in Terrestrial Parasite Tracker (TPT) [mp4 video](https://drive.google.com/file/d/1Z5He729SGj8IW-tHI9o1_GmOvQCdOYaU/view) / [slides](http://doi.org/10.5281/zenodo.3941952) / [iDigBio wiki](https://www.idigbio.org/wiki/index.php/Terrestrial_Parasite_Tracker_Workshop:_Best_Practices_and_Standardization_of_Digital_Data_Capture#Webinar_Follow-up). The slides have been published via on update of: ```Kathryn Sullivan, Katja Seltmann, Jorrit Poelen, & Jennifer M. Zaspel. (2020, May). Making Parasite-Host Associations Visible in Terrestrial Parasite Tracker (TPT) (Version 0.0.1). Zenodo. http://doi.org/10.5281/zenodo.3941952``` . 
+
 # TPT Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
