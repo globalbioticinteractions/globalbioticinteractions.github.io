@@ -5,7 +5,7 @@ status: unlisted
 ---
 
 <div class="figure figure-globi right">
-  <a href="https://cetaf.org/covid19-taf-communities-taking-action"><img src="assets/cetaf-discco-covid.png"/></a>
+  <a href="https://cetaf.org/covid19-taf-communities-taking-action"><img src="/assets/cetaf-dissco-covid.png"/></a>
   <a href="https://plazi.org"><img src="assets/plazi_logo.png"/></a>
   <div class="figure figure-globi right">
     <a href="https://zenodo.org"><img src="assets/zenodo_logo.svg"/></a>
@@ -31,7 +31,7 @@ These integration are very much a work in progress and will hopefully lead to an
 
 **18 May 2020** - Continued Pensoft<>Plazi<>GloBI integration meeting with Jorrit, Lyubo, Mariya, Donat, Guido, Teodor, Georgi. [meeting notes](../pensoft/2020-05-18-pensoft-zenodo-globi-notes) .
 
-**16/17 July 2020 ** - Guido adds Plazi-mediated publications to Zenodo using the custom "host of" Zenodo annotation that Alex implemented (e.g., [Luo et al. 2018](https://zenodo.org/record/3948922)). Soon after, Jorrit enabled the indexing of these Zenodo pubs. For context, see [related github issue](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/488#issuecomment-658277871) and related tweets by [Donat](https://twitter.com/myrmoteras/status/1284123656138960898) and [GloBI](https://twitter.com/GlobalBiotic/status/1284171977662410754) . 
+**16/17 July 2020** - Guido adds Plazi-mediated publications to Zenodo using the custom "host of" Zenodo annotation that Alex implemented (e.g., [Luo et al. 2018](https://zenodo.org/record/3948922)). Soon after, Jorrit enabled the indexing of these Zenodo pubs. For context, see [related github issue](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/488#issuecomment-658277871) and related tweets by [Donat](https://twitter.com/myrmoteras/status/1284123656138960898) and [GloBI](https://twitter.com/GlobalBiotic/status/1284171977662410754) . 
 
 # Integration Status
 
