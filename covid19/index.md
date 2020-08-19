@@ -1,7 +1,8 @@
 ---
 layout: default
-title: "pensoft"
+title: "covid19"
 status: unlisted
+permalink: covid19
 ---
 
 <div class="figure figure-globi right">
@@ -41,5 +42,5 @@ The information on this page does not aim to be a complete overview of activitie
 **17 July 2020** - Mariya published blog post "Pensoft – GloBI workflow for FAIR data exchange and indexing of biotic interactions locked within scholarly articles" at [https://blog.pensoft.net/2020/07/17/pensoft-globi-workflow-for-fair-data-exchange-and-indexing-of-biotic-interactions-locked-within-scholarly-articles/](https://blog.pensoft.net/2020/07/17/pensoft-globi-workflow-for-fair-data-exchange-and-indexing-of-biotic-interactions-locked-within-scholarly-articles/).
 
 
-**12 Aug 2020** -  submitted abstract ["Liberating Biodiversity Data From COVID-19 Lockdown: Toward a knowledge hub for mammal host-virus information"](./assets/tdwg2020-covid19.pdf) to [virtual TDWG 2020](https://www.tdwg.org/conferences/2020/) annual conference Oct 19-23 2020. 
+**12 Aug 2020** -  submitted abstract ["Liberating Biodiversity Data From COVID-19 Lockdown: Toward a knowledge hub for mammal host-virus information"](./tdwg2020-abstract.pdf) to [virtual TDWG 2020](https://www.tdwg.org/conferences/2020/) annual conference Oct 19-23 2020. 
 
