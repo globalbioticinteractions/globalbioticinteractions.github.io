@@ -2,7 +2,7 @@
 layout: post
 title: Extracting Parasitic Tick Interaction Data from a Scientific Paper using Google Sheets
 date: 2020-08-25
-excerpt: During my senior year at Texas A&M University, I had the privilege of participating in a data transcription project. The goal of the project is to make parasite data generally more accessible to everyone. My task was to gather data from a host-parasite list from a scientific paper (Light et al. 2019) and prepare it for upload into GLoBI by entering information into specific fields on a Google Sheet.
+excerpt: During my senior year at Texas A&M University, I had the privilege of participating in a data transcription project. The goal of the project is to make parasite data generally more accessible to everyone. My task was to gather data from a host-parasite list from a scientific paper (Light et al. 2019) and prepare it for upload into GloBI by entering information into specific fields on a Google Sheet.
 categories:
 - bioinformatics
 - biology
