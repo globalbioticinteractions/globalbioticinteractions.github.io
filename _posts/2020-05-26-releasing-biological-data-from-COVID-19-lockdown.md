@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Releasing Biological Data from COVID-19 Lockdown
+author: Quentin Groom
 date: 2020-05-26
 excerpt: During the current lockdown, the museum collection community established an international COVID-19 Task Force. COVID-19 research touches upon many aspects of science and data management. SARS-CoV-2, the virus that causes COVID-19, is likely to have originated from bats, and knowledge about bat ecology and interactions could be critical to avoiding crises like this in the future (Andersen et al., 2020).
 categories:
