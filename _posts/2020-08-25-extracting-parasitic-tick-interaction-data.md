@@ -1,8 +1,9 @@
 ---
 layout: post
-title: Extracting Parasitic Tick Interaction Data from a Scientific Paper using Google Sheets
+title: Extracting Parasite Interaction Data from a Scientific Paper using Google Sheets
+author: Stephen Fowler
 date: 2020-08-25
-excerpt: During my senior year at Texas A&M University, I had the privilege of participating in a data transcription project. The goal of the project is to make parasite data generally more accessible to everyone. My task was to gather data from a host-parasite list from a scientific paper (Light et al. 2019) and prepare it for upload into GloBI by entering information into specific fields on a Google Sheet.
+excerpt: During my senior year at Texas A&M University, I had the privilege of participating in a data transcription project. The goal of the project was to make parasite data generally more accessible to everyone. My task was to gather data from a host-parasite list from a scientific paper (Light et al. 2019) and prepare it for upload into GloBI by entering information into specific fields on a Google Sheet.
 categories:
 - bioinformatics
 - biology
@@ -16,7 +17,7 @@ published: true
 ---
 
 <div class="figure figure-globi left">
-    <a href="https://docs.google.com/spreadsheets/u/0/d/1FoGhyDoPlPa7FHyUZO8VEvLdLkoJB84H2f7sgXPFDxY"><img src="/assets/fowler-figure1.jpg" alt="transcribed tick data in Google Sheets"/></a>
+    <a href="https://docs.google.com/spreadsheets/u/0/d/1FoGhyDoPlPa7FHyUZO8VEvLdLkoJB84H2f7sgXPFDxY"><img src="/assets/fowler-figure1.png" alt="transcribed tick data in Google Sheets"/></a>
 
     <div class="figcaption">
         <p><em>Figure 1. </em>An example of the Google Sheets spreadsheet used for transcribing data. GloBI accessed the transcribed data set through <a href="https://github.com/globalbioticinteractions/light2019">open source scripts accessible on GitHub</a>. Once every other day the data was indexed into GloBI data products.
@@ -24,9 +25,9 @@ published: true
     </div>
 </div>
 
-During my senior year at [Texas A&M University](http://www.tamu.edu/), I had the privilege of participating in a data transcription project. The goal of the project is to make parasite data generally more accessible to everyone. My task was to gather data from a host-parasite list from a scientific paper (Light et al. 2019) and prepare it for upload into GloBI by entering information into specific fields on a Google Sheet. Google Sheets was chosen because multiple people were working on this project and it is an efficient way to work simultaneously. I was transcribing the data of records of different ectoparasites (parasites found on the outside of the host body, such as fleas, ticks, mites, and lice) found on rodents across Mexico. For example, _Amaradix euphorbia_ (flea) _Otobius megnini_ (the spinose ear tick), _Ameroseius bassolsae_ (mite), and _Hoplopleura hirsute_ (a sucking louse). Transcribing data is not a terribly difficult task. The challenge was how quickly I could transcribe the data points from the paper to the Google Sheet. 
+During my senior year at [Texas A&M University](http://www.tamu.edu/), I had the privilege of participating in a data transcription project. The goal of the project was to make parasite data generally more accessible to everyone. My task was to gather data from a host-parasite list from a scientific paper (Light et al. 2019) and prepare it for upload into GloBI by entering information into specific fields on a Google Sheet. Google Sheets was chosen because multiple people were working on this project and it was an efficient way to work simultaneously. I was transcribing the data of records of different ectoparasites (parasites found on the outside of the host body, such as fleas, ticks, mites, and lice) found on rodents across Mexico. For example, _Amaradix euphorbia_ (flea), _Otobius megnini_ (the spinose ear tick), _Ameroseius bassolsae_ (mite), and _Hoplopleura hirsuta_ (a sucking louse). Transcribing data was not a terribly difficult task. The challenge was how quickly I could transcribe the data points from the paper to the Google Sheet. 
 
-In my case, each data point consisted of the mammalian ecto-parasite, its taxonomy, the host, the taxonomy of the host, the locality, and the natural history collection where the specimen is located (if that information was available). The Google Sheet spreadsheet also included cells that identified the proper taxonomic authorities such as the parasite authority, the host authority, and the association reference. 
+In my case, each data point consisted of the mammalian ectoparasite, its taxonomy, the host, the taxonomy of the host, the locality, and the natural history collection where the specimen is located (if that information was available). The Google Sheet spreadsheet also included cells that identified the proper taxonomic authorities such as the parasite authority, the host authority, and the association reference. 
 
 <div class="figure figure-globi right">
     <a href="https://www.globalbioticinteractions.org/?sourceTaxon=Otobius%20megnini"><img src="/assets/fowler-figure2.jpg" alt="Otobius megnini"/></a>
