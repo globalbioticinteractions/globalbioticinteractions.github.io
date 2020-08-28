@@ -244,6 +244,12 @@
             img.setAttribute('src', 'assets/doi.svg');
         }
 
+        var a = appendLinkDiv(badgesElem);
+        a.setAttribute('href', 'https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/' + source.name);
+        a.setAttribute('target', '_blank');
+        a.setAttribute('title', 'archival status');
+        var img = a.appendChild(document.createElement('img'));
+        img.setAttribute('src', 'https://archive.softwareheritage.org/badge/origin/https://github.com/' + source.name +'/');
 
     };
 
