@@ -171,7 +171,7 @@
         var repoLink = appendImgForRepo(source, a);
         appendImgForSource(source, a);
 
-        var defaultQuery = '?interactionType=ecologicallyRelatedTo&accordingTo=' + source.study_source_id;
+        var defaultQuery = '?interactionType=ecologicallyRelatedTo&accordingTo=' + source.study_source_id + '&refutes=true&refutes=false';
         var datasetDisplayUrl = '/' + defaultQuery;
 
         a.setAttribute('href', datasetDisplayUrl);
