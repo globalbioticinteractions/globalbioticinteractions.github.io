@@ -233,7 +233,7 @@ var searchForInteractions = function (offset) {
                         var link = '';
                         var image = '';
                         if (taxonInfo.thumbnailURL) {
-                            image = '<a href="' + taxonInfo.infoURL + '"><img src="' + taxonInfo.thumbnailURL + '" crossorigin="anonymous"/></a>';
+                            image = '<a href="' + taxonInfo.infoURL + '"><img src="' + taxonInfo.thumbnailURL + '"/></a>';
                         }
                         label = link + image + label;
                     }
@@ -382,7 +382,6 @@ var showTaxonLinks = function (elem) {
                 var image = document.createElement("img");
                 image.setAttribute("class", "taxonLinkIcon");
                 image.setAttribute("src", link.icon);
-                image.setAttribute("crossorigin", "anonymous");
                 a.appendChild(image);
                 item.appendChild(a);
                 return item;
