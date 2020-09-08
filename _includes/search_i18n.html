@@ -233,7 +233,7 @@ var searchForInteractions = function (offset) {
                         var link = '';
                         var image = '';
                         if (taxonInfo.thumbnailURL) {
-                            image = '<a href="' + taxonInfo.infoURL + '"><img src="' + taxonInfo.thumbnailURL + '"/></a>';
+                            image = '<a href="' + taxonInfo.infoURL + '"><img src="' + taxonInfo.thumbnailURL + '" crossorigin="anonymous"/></a>';
                         }
                         label = link + image + label;
                     }
@@ -316,33 +316,33 @@ var followTaxon = function (elem) {
 
 var showTaxonLinks = function (elem) {
     var links = [
-        { name: 'Encyclopedia of Life', icon: "https://raw.githubusercontent.com/EOL/eol/master/app/assets/images/favicon.ico", url: "http://eol.org"}
+        { name: 'Encyclopedia of Life', icon: "/assets/favicon_cache/eol.ico", url: "http://eol.org"}
         ,
-        { name: 'Encyclopedia of Life', icon: "https://raw.githubusercontent.com/EOL/eol/master/app/assets/images/favicon.ico", url: "https://doi.org/10.5281/zenodo.1495266"}
+        { name: 'Encyclopedia of Life', icon: "/assets/favicon_cache/eol.ico", url: "https://doi.org/10.5281/zenodo.1495266"}
         ,
-        { name: 'iNaturalist', icon: "https://www.inaturalist.org/favicon.ico", url: "https://inaturalist.org"}
+        { name: 'iNaturalist', icon: "/assets/favicon_cache/inaturalist.ico", url: "https://inaturalist.org"}
         ,
-        { name: 'World Register of Marine Species', icon: "https://www.marinespecies.org/images/favicon/favicon-32x32.png?=v2", url: "http://www.marinespecies.org"}
+        { name: 'World Register of Marine Species', icon: "/assets/favicon_cache/worms.png", url: "http://www.marinespecies.org"}
         ,
-        { name: 'National Center for Biotechnology Information', icon: "https://www.ncbi.nlm.nih.gov/favicon.ico", url: "https://www.ncbi.nlm.nih.gov"}
+        { name: 'National Center for Biotechnology Information', icon: "/assets/favicon_cache/ncbi.ico", url: "https://www.ncbi.nlm.nih.gov"}
         ,
-        { name: 'Global Biodiversity Information Facility', icon: "https://github.com/gbif/portal16/raw/master/app/assets/favicon-32x32.png", url: "http://www.gbif.org"}
+        { name: 'Global Biodiversity Information Facility', icon: "/assets/favicon_cache/gbif.png", url: "http://www.gbif.org"}
         ,
         { name: 'Open Tree of Life', icon: "/assets/favicon_cache/otol.ico", url: "https://tree.opentreeoflife.org"}
         ,
-        { name: 'National Biodiversity Network', icon: "https://data.nbn.org.uk/favicon.ico", url: "https://data.nbn.org.uk"}
+        { name: 'National Biodiversity Network', icon: "/assets/favicon_cache/nbn.ico", url: "https://data.nbn.org.uk"}
         ,
-        { name: 'Atlas of Living Australia', icon: "https://www.ala.org.au/wp-content/themes/ala-wordpress-theme/img/favicon/favicon-32x32.png", url: "https://bie.ala.org.au/species/" }
+        { name: 'Atlas of Living Australia', icon: "/assets/favicon_cache/ala.png", url: "https://bie.ala.org.au/species/" }
         ,
         { name: 'SeaLifeBase', icon: "/assets/favicon_cache/sealifebase.ico", url: "http://sealifebase.org" }
         ,
         { name: 'FishBase', icon: "/assets/favicon_cache/fishbase.ico", url: "http://fishbase.org" }
         ,
-        { name: 'Integrated Taxonomic Information System', icon: "https://www.itis.gov/favicon.ico", url: "http://www.itis.gov/" }
+        { name: 'Integrated Taxonomic Information System', icon: "/assets/favicon_cache/itis.ico", url: "http://www.itis.gov/" }
         ,
         { name: 'Interim Register of Marine and Nonmarine Genera', icon: "/assets/favicon_cache/irmng.ico", url: "http://www.marine.csiro.au/" }
         ,
-        { name: 'Wikidata', icon: "https://www.wikidata.org/static/favicon/wikidata.ico", url: "https://www.wikidata.org/" }
+        { name: 'Wikidata', icon: "/assets/favicon_cache/wikidata.ico", url: "https://www.wikidata.org/" }
     ];
 
     var startsWith = function (str, substr) {
@@ -382,6 +382,7 @@ var showTaxonLinks = function (elem) {
                 var image = document.createElement("img");
                 image.setAttribute("class", "taxonLinkIcon");
                 image.setAttribute("src", link.icon);
+                image.setAttribute("crossorigin", "anonymous");
                 a.appendChild(image);
                 item.appendChild(a);
                 return item;
