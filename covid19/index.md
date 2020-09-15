@@ -13,7 +13,7 @@ This page includes links, meeting info and timelines of activities related to de
 
 The information on this page does not aim to be a complete overview of activities, but rather a minimalist collection of past accomplishments and ongoing activities. 
 
-[edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/covid19/index.md) 
+[edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/edit/master/covid19/index.md) 
 
 # Contact Info
 
