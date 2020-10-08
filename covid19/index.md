@@ -47,3 +47,4 @@ The information on this page does not aim to be a complete overview of activitie
 
 **12 Aug 2020** - Nathan submitted abstract ["Liberating Biodiversity Data From COVID-19 Lockdown: Toward a knowledge hub for mammal host-virus information"](./tdwg2020-abstract.pdf) to [virtual TDWG 2020](https://www.tdwg.org/conferences/2020/) annual conference Oct 19-23 2020. 
 
+**6 Oct 2020** - Released data publication: Poelen, Jorrit, Upham, Nathan, Agosti, Donat, Ruschel, Tatiana, Guidoti, Marcus, Reeder, DeeAnn, Simmons, Nancy; Penev, Lyubomir; Dimitrova, Mariya; Csorba, Gabor; Groom, Quentin; Willoughby, Anna. (2020). CETAF-DiSSCo/COVID19-TAF biodiversity-related knowledge hub working group: indexed biotic interactions and review summary (Version 0.3) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4068958 .
