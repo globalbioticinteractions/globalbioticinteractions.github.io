@@ -32,6 +32,8 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **8 July 2020** - Webinar: Making parasite-host associations visible in Terrestrial Parasite Tracker (TPT) [mp4 video](https://drive.google.com/file/d/1Z5He729SGj8IW-tHI9o1_GmOvQCdOYaU/view) / [slides](http://doi.org/10.5281/zenodo.3941952) / [iDigBio wiki](https://www.idigbio.org/wiki/index.php/Terrestrial_Parasite_Tracker_Workshop:_Best_Practices_and_Standardization_of_Digital_Data_Capture#Webinar_Follow-up). The slides have been published via on update of: ```Kathryn Sullivan, Katja Seltmann, Jorrit Poelen, & Jennifer M. Zaspel. (2020, May). Making Parasite-Host Associations Visible in Terrestrial Parasite Tracker (TPT) (Version 0.0.1). Zenodo. http://doi.org/10.5281/zenodo.3941952``` . 
 
+**19 Oct 2020** - Katja Seltmann presented at [TDWG 2020 Conference](https://www.tdwg.org/conferences/2020): Seltmann KC, Poelen JH, Sullivan K, Zaspel J (2020) Making Parasite-Host Associations Visible using Global Biotic Interactions. Biodiversity Information Science and Standards 4: e58985. [https://doi.org/10.3897/biss.4.58985](https://doi.org/10.3897/biss.4.58985) slides: [https://docs.google.com/presentation/d/1qJTIiR77_2RmO5OErGr1FGwPWp2PvJ33wVhOoL3tD1Y](https://docs.google.com/presentation/d/1qJTIiR77_2RmO5OErGr1FGwPWp2PvJ33wVhOoL3tD1Y).
+
 # TPT Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
