@@ -107,7 +107,7 @@ actors | Plazi automated OCR workflows; Plazi RSS notification feed; Community E
 actors | Plazi OCR workflow, Plazi treatment bank (search index), Expert Curators at institutions studying species interactions
 integration method | (step 1. machine readable literature) Existing Plazi workflows produce a steady flow of OCR-ed taxonomic literature with machine readable and machine generated annotations for taxonomic names, locations, habitats etc. . Note that descriptions of species interactions are (yet) automatically annotated, but the text containing the descriptions is available in machine readable format (OCR-ed pdfs/scans). (step 2. notify availability) On completing the OCR and annotation process, Plazi notifies community of the available publication via an rss feed and search indexes. (step 3. listening experts) On receiving a notification of a newly transcribed taxonomic literature for a specific taxonomic group (e.g., ticks), experts (e.g., entomologist/parasitologist) accesses the machine readable text and transcribes the species interaction in them. (step 4. integration) The transcribed species interactions are linked to the Plazi treatment bank and made available as annotations on Zenodo publications (step 5. indexing) GloBI indexes the annotations via Zenodo custom annotation.
 diagram | ...
-examples | ...
+examples | See https://github.com/globalbioticinteractions/globalbioticinteractions/issues/559 for example
 
 
 
