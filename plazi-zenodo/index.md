@@ -33,7 +33,7 @@ These integration are very much a work in progress and will hopefully lead to an
 
 **16/17 July 2020** - Guido adds Plazi-mediated publications to Zenodo using the custom "host of" Zenodo annotation that Alex implemented (e.g., [Luo et al. 2018](https://zenodo.org/record/3948922)). Soon after, Jorrit enabled the indexing of these Zenodo pubs. For context, see [related github issue](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/488#issuecomment-658277871) and related tweets by [Donat](https://twitter.com/myrmoteras/status/1284123656138960898) and [GloBI](https://twitter.com/GlobalBiotic/status/1284171977662410754) . 
 
-**2 Oct 2020** - Jorrit uses a [newly added feature](https://github.com/globalbioticinteractions/nomer/issues/23#issuecomment-705650038) of [Nomer](https://github.com/globalbioticinteractions/nomer) to link taxonomic names indexed by GloBI to 41,894 Plazi treatments,  27,721 Plazi taxonomic concepts and direct links to 9,346 associated scientific publications. The methods and results of the link process are described in Poelen, Jorrit H. (2020). Global Biotic Interactions: Taxon Graph Patches (Version 0.5) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4062711 and Poelen, Jorrit H. (2020). Global Biotic Interactions: Taxon Graph (Version 0.3.26) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4062765 .  
+**2 Oct 2020** - Jorrit uses a [newly added feature](https://github.com/globalbioticinteractions/nomer/issues/23#issuecomment-705650038) of [Nomer](https://github.com/globalbioticinteractions/nomer) to link taxonomic names indexed by GloBI to 41,894 Plazi treatments,  27,721 Plazi taxonomic concepts and direct links to 9,346 associated scientific publications. The methods and results of the link process are described in Poelen, Jorrit H. (2020). Global Biotic Interactions: Taxon Graph Patches (Version 0.5) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4062711 and Poelen, Jorrit H. (2020). Global Biotic Interactions: Taxon Graph (Version 0.3.26) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4062765 .
 
 
 # Integration Status
@@ -80,21 +80,35 @@ examples | see related [issue 490](https://github.com/globalbioticinteractions/g
 
 Zotero | GloBI Integration Profile
  --- | ---
-authors | ?
-actors | ?
-integration method | Plazi team takes manually curated spreadsheets to automatically populate an annotated [Zotero](https://zotero.org) reference list of COVID-19 publications. Also, interested parties can append relevant publication to the Zotero reference list to allow to outside, non-Plazi contributions. The each contributed citation, Plazi help to extract and add relevant virus-host annotations and records them manually in the curated spreadsheet.   
-diagram | ?
+authors | ...
+actors | ...
+integration method | Plazi team takes manually curated spreadsheets to automatically populate an annotated [Zotero](https://zotero.org) reference list of COVID-19 publications. Also, interested parties can append relevant publication to the Zotero reference list to allow to outside, non-Plazi contributions. The each contributed citation, Plazi help to extract and add relevant virus-host annotations and records them manually in the curated spreadsheet.
+diagram | ...
 examples | see related [issue 487](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/487)
+status | method not implemented because alternatives exist (googlesheets, Zenodo) 
 
 ## Zenodo
 
 Zenodo | GloBI Integration Profile
  --- | ---
-authors | ?
-actors | ?
+authors | Alex, Markus, Donat, Jorrit
+actors | ...
 integration method | Plazi team uses each invidual reference in annotated Zotero citation list and creates an individual Zenodo publication. These Zenodo publications are annotated with relevant taxonomic, interactions, locality etc. properties. Interaction annotations are encoded in a key value scheme that allows for encoding interaction triples, taking inspiration from hexastore. For more information see [Virus host relationship custom metadata: feature request](https://docs.google.com/document/d/1cKcQfx8X8uAXR6JF96jqZO8OCpwwkYatnxSIyVXvYbo). 
-diagram | ?
+diagram | ...
 examples | see related [issue 488](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/488)
+
+## Collaborative Transcription
+
+Collaborative Transcription | GloBI Integration Profile
+ --- | ---
+status | under development
+authors | Marcus, Katja, Donat, Jorrit 
+actors | Plazi automated OCR workflows; Plazi RSS notification feed; Community Experts with interest in transcribing species interactions from taxonomic literature;
+actors | Plazi OCR workflow, Plazi treatment bank (search index), Expert Curators at institutions studying species interactions
+integration method | (step 1. machine readable literature) Existing Plazi workflows produce a steady flow of OCR-ed taxonomic literature with machine readable and machine generated annotations for taxonomic names, locations, habitats etc. . Note that descriptions of species interactions are (yet) automatically annotated, but the text containing the descriptions is available in machine readable format (OCR-ed pdfs/scans). (step 2. notify availability) On completing the OCR and annotation process, Plazi notifies community of the available publication via an rss feed and search indexes. (step 3. listening experts) On receiving a notification of a newly transcribed taxonomic literature for a specific taxonomic group (e.g., ticks), experts (e.g., entomologist/parasitologist) accesses the machine readable text and transcribes the species interaction in them. (step 4. integration) The transcribed species interactions are linked to the Plazi treatment bank and made available as annotations on Zenodo publications (step 5. indexing) GloBI indexes the annotations via Zenodo custom annotation.
+diagram | ...
+examples | ...
+
 
 
 
