@@ -35,6 +35,7 @@ These integration are very much a work in progress and will hopefully lead to an
 
 **2 Oct 2020** - Jorrit uses a [newly added feature](https://github.com/globalbioticinteractions/nomer/issues/23#issuecomment-705650038) of [Nomer](https://github.com/globalbioticinteractions/nomer) to link taxonomic names indexed by GloBI to 41,894 Plazi treatments,  27,721 Plazi taxonomic concepts and direct links to 9,346 associated scientific publications. The methods and results of the link process are described in Poelen, Jorrit H. (2020). Global Biotic Interactions: Taxon Graph Patches (Version 0.5) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4062711 and Poelen, Jorrit H. (2020). Global Biotic Interactions: Taxon Graph (Version 0.3.26) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.4062765 .
 
+**16 Nov 2020** - Katja, Marcus, Donat and Jorrit meet to discuss a semi-automated species interaction transcription workflow using existing GloBI<>Plazi<>BLR workflows. See [#collaborative-transcription](#collaborative-transcription).  
 
 # Integration Status
 
@@ -103,14 +104,10 @@ Collaborative Transcription | GloBI Integration Profile
  --- | ---
 status | under development
 authors | Marcus, Katja, Donat, Jorrit 
-actors | Plazi automated OCR workflows; Plazi RSS notification feed; Community Experts with interest in transcribing species interactions from taxonomic literature;
-actors | Plazi OCR workflow, Plazi treatment bank (search index), Expert Curators at institutions studying species interactions
-integration method | (step 1. machine readable literature) Existing Plazi workflows produce a steady flow of OCR-ed taxonomic literature with machine readable and machine generated annotations for taxonomic names, locations, habitats etc. . Note that descriptions of species interactions are (yet) automatically annotated, but the text containing the descriptions is available in machine readable format (OCR-ed pdfs/scans). (step 2. notify availability) On completing the OCR and annotation process, Plazi notifies community of the available publication via an rss feed and search indexes. (step 3. listening experts) On receiving a notification of a newly transcribed taxonomic literature for a specific taxonomic group (e.g., ticks), experts (e.g., entomologist/parasitologist) accesses the machine readable text and transcribes the species interaction in them. (step 4. integration) The transcribed species interactions are linked to the Plazi treatment bank and made available as annotations on Zenodo publications (step 5. indexing) GloBI indexes the annotations via Zenodo custom annotation.
-diagram | ...
+actors | ...
+integration method | ... 
+diagram | ![collaborative-transcription.png](assets/collaborative-transcription.png) see also https://drive.google.com/file/d/1-lSC0-pqOYIUBDtij0_XDfSY7yBHnkhq/view?ts=5fb2db8a 
 examples | See https://github.com/globalbioticinteractions/globalbioticinteractions/issues/559 for example
-
-
-
 
 # Interaction Types 
 # Supported Terms
