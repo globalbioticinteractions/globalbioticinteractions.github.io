@@ -54,10 +54,10 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
 {%- if c.review_id -%}
-{%- assign globi-review-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review.zip" -%}
-{%- assign globi-review-badge = "assets/review.svg" -%}
+{%- assign review-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review.zip" -%}
+{%- assign review-badge = "assets/review.svg" -%}
 {%- assign notes-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review-sample.csv" -%}
-{%- assign notes-badge = "assets/sample.svg" -%}
+{%- assign notes-badge = "assets/notes.svg" -%}
 {%- assign config-badge = "assets/config.svg" -%}
 {%- assign config-url = c.review_id | trim | prepend: "https://github.com/" -%}
 {%- assign issues-badge = c.review_id | trim | prepend: "https://img.shields.io/github/issues/" | append: ".svg" -%}
