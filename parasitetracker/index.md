@@ -54,25 +54,25 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
 {%- if c.review_id -%}
-{%- assign globi-review-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review.tsv.gz" -%}
+{%- assign globi-review-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review.zip" -%}
 {%- assign globi-review-badge = "assets/review.svg" -%}
-{%- assign globi-interactions-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/indexed-interactions.tsv.gz" -%}
-{%- assign globi-index-badge = "assets/index.svg" -%}
+{%- assign notes-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review-sample.csv" -%}
+{%- assign notes-badge = "assets/sample.svg" -%}
 {%- assign config-badge = "assets/config.svg" -%}
 {%- assign config-url = c.review_id | trim | prepend: "https://github.com/" -%}
 {%- assign issues-badge = c.review_id | trim | prepend: "https://img.shields.io/github/issues/" | append: ".svg" -%}
 {%- assign issues-url = c.review_id | trim | prepend: "https://github.com/" | append: "/issues" -%}
 {%- else -%}
-{%- assign globi-review-url = "https://globalbioticinteractions.org/contribute" -%}
-{%- assign globi-review-badge = "assets/review_none.svg" -%}
-{%- assign globi-interactions-url = "https://globalbioticinteractions.org/contribute" -%}
-{%- assign globi-index-badge = "assets/index_none.svg" -%}
+{%- assign review-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- assign review-badge = "assets/review_none.svg" -%}
+{%- assign notes-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- assign notes-badge = "assets/notes_none.svg" -%}
 {%- assign config-badge = "assets/config_none.svg" -%}
 {%- assign config-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- assign issues-badge = "assets/issues_none.svg" -%}
 {%- assign issues-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- endif -%}
-[![review-badge]({{ globi-review-badge }})]({{ globi-review-url }}) [![index-badge]({{ globi-index-badge }})]({{ globi-interactions-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
+[![review-badge]({{ review-badge }})]({{ review-url }}) [![notes-badge]({{ notes-badge }})]({{ notes-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
 {% endfor %}
 
 # Integration Profiles
