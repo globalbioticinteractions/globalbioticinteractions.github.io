@@ -242,7 +242,7 @@ Data formats compatible with the Semantic Web or [Linked Data](http://linkeddata
 
 The project [Semantic Prototypes in Research Ecoinformatics (SPIRE)](https://github.com/globalbioticinteractions/spire)  produced a RDF-based dataset in 2006 that contains species interactions. 
 
-Below, you'll find an owl snippet in xml extracted from [https://github.com/globalbioticinteractions/spire/raw/master/allFoodWebStudies.owl](https://github.com/globalbioticinteractions/spire/raw/master/allFoodWebStudies.owl):
+Below, you'll find an owl snippet in xml extracted from [https://github.com/globalbioticinteractions/spire/raw/main/allFoodWebStudies.owl](https://github.com/globalbioticinteractions/spire/raw/main/allFoodWebStudies.owl):
 
 ```xml
 <ConfirmedFoodWebLink rdf:ID="c_6_14_6">
@@ -257,13 +257,13 @@ Below, you'll find an owl snippet in xml extracted from [https://github.com/glob
 The snippet is an example of how a predator-prey interaction (e.g., stingray (<em>Rajiformes</em>) preying on shore crabs (<em>Grapsidae</em>) is modeled using rdf/owl approach.
 
 
-From https://github.com/globalbioticinteractions/jsonld-template-dataset/blob/master/globi-dataset.jsonld, the example below shows a way to express a species interaction in JSON-LD. 
+From https://github.com/globalbioticinteractions/jsonld-template-dataset/blob/main/globi-dataset.jsonld, the example below shows a way to express a species interaction in JSON-LD. 
   
 ```json
 {
- "@context": "https://raw.githubusercontent.com/globalbioticinteractions/jsonld-template-dataset/master/context.jsonld",
+ "@context": "https://raw.githubusercontent.com/globalbioticinteractions/jsonld-template-dataset/main/context.jsonld",
  "datasets": {
-     "id": "https://raw.githubusercontent.com/globalbioticinteractions/jsonld-template-dataset/master/globi-dataset.jsonld",
+     "id": "https://raw.githubusercontent.com/globalbioticinteractions/jsonld-template-dataset/main/globi-dataset.jsonld",
      "type": "dataset",
      "created": "2015-03-16",
      "keyword": ["birds", "insects"],
@@ -346,7 +346,7 @@ From https://github.com/globalbioticinteractions/jsonld-template-dataset/blob/ma
 }
 ```
 
-The JSON-LD prototype shown above is ingested by GloBI, but no other datasets that use JSON-LD to express species association are currently indexed. To play around with the prototype, please visit a [JSON-LD Playground](https://json-ld.org/playground/#startTab=tab-normalized&json-ld=https%3A%2F%2Fraw.githubusercontent.com%2Fglobalbioticinteractions%2Fjsonld-template-dataset%2Fmaster%2Fglobi-dataset.jsonld) preloaded with the prototype.  
+The JSON-LD prototype shown above is ingested by GloBI, but no other datasets that use JSON-LD to express species association are currently indexed. To play around with the prototype, please visit a [JSON-LD Playground](https://json-ld.org/playground/#startTab=tab-normalized&json-ld=https%3A%2F%2Fraw.githubusercontent.com%2Fglobalbioticinteractions%2Fjsonld-template-dataset%2Fmain%2Fglobi-dataset.jsonld) preloaded with the prototype.  
 
 ### Darwin Core Archives
 
