@@ -1,6 +1,6 @@
 globalbioticinteractions.github.io
 ==================
-[![Build Status](https://travis-ci.org/globalbioticinteractions/globalbioticinteractions.github.io.svg?branch=master)](https://travis-ci.org/globalbioticinteractions/globalbioticinteractions.github.io)
+[![Build Status](https://travis-ci.com/globalbioticinteractions/globalbioticinteractions.github.io.svg?branch=main)](https://travis-ci.com/globalbioticinteractions/globalbioticinteractions.github.io)
 
 This project contains live examples of how to use species interaction data from GloBI (see http://github.com/globalbioticinteractions/globalbioticinteractions) in a webpage.
 
