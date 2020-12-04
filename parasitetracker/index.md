@@ -58,6 +58,8 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign review-badge = "assets/review.svg" -%}
 {%- assign notes-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review-sample.csv" -%}
 {%- assign notes-badge = "assets/notes.svg" -%}
+{%- assign names-url = c.review_id | trim | uri_escape | prepend: "https://api.globalbioticinteractions.org/interaction?type=csv&sourceTaxon=no%3Amatch&accordingTo=globi%3A" -%}
+{%- assign names-badge = "assets/suspicious_names.svg" -%}
 {%- assign config-badge = "assets/config.svg" -%}
 {%- assign config-url = c.review_id | trim | prepend: "https://github.com/" -%}
 {%- assign issues-badge = c.review_id | trim | prepend: "https://img.shields.io/github/issues/" | append: ".svg" -%}
@@ -67,12 +69,14 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign review-badge = "assets/review_none.svg" -%}
 {%- assign notes-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- assign notes-badge = "assets/notes_none.svg" -%}
+{%- assign names-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- assign names-badge = "assets/suspicious_names_none.svg" -%}
 {%- assign config-badge = "assets/config_none.svg" -%}
 {%- assign config-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- assign issues-badge = "assets/issues_none.svg" -%}
 {%- assign issues-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- endif -%}
-[![review-badge]({{ review-badge }})]({{ review-url }}) [![notes-badge]({{ notes-badge }})]({{ notes-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
+[![review-badge]({{ review-badge }})]({{ review-url }}) [![notes-badge]({{ notes-badge }})]({{ notes-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) [![badge]({{ names-badge }})]({{ names-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
 {% endfor %}
 
 # Integration Profiles
