@@ -58,7 +58,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign review-badge = "assets/review.svg" -%}
 {%- assign notes-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review-sample.csv" -%}
 {%- assign notes-badge = "assets/notes.svg" -%}
-{%- assign names-url = c.review_id | trim | uri_escape | prepend: "https://api.globalbioticinteractions.org/interaction?type=csv&sourceTaxon=no%3Amatch&accordingTo=globi%3A" -%}
+{%- assign names-url = c.review_id | trim | uri_escape | prepend: "https://api.globalbioticinteractions.org/interaction.csv?type=csv&sourceTaxon=no%3Amatch&accordingTo=globi%3A" -%}
 {%- assign names-badge = "assets/suspicious_names.svg" -%}
 {%- assign config-badge = "assets/config.svg" -%}
 {%- assign config-url = c.review_id | trim | prepend: "https://github.com/" -%}
