@@ -210,13 +210,11 @@
         var badgesElem = tr.insertBefore(badgesElem, a.parentElement);
         
         var a = appendLinkDiv(badgesElem);
-        var travisTLD = (source.name && source.name.indexOf('globalbioticinteractions/') == -1) ? 'org' : 'com'; 
-        var travisUrl = 'https://travis-ci.' + travisTLD + '/' + source.name;
-        a.setAttribute('href', travisUrl);
-        a.setAttribute('target', '_blank');
+        var reviewUrl = 'https://depot.globalbioticinteractions.org/reviews/' +  source.name + '/README.txt';
+        a.setAttribute('href', reviewUrl);
         a.setAttribute('title', 'data review');
         var img = a.appendChild(document.createElement('img'));
-        img.setAttribute('src', travisUrl + '.svg');
+        img.setAttribute('src', 'parasitetracker/assets/review.svg');
 
         var a = appendLinkDiv(badgesElem);
         var issuesUrl = 'https://github.com/' + source.name + '/issues/';
