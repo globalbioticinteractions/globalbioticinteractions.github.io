@@ -210,11 +210,12 @@
         var badgesElem = tr.insertBefore(badgesElem, a.parentElement);
         
         var a = appendLinkDiv(badgesElem);
-        var reviewUrl = 'https://depot.globalbioticinteractions.org/reviews/' +  source.name + '/README.txt';
+        var reviewUrlPrefix = 'https://depot.globalbioticinteractions.org/reviews/' +  source.name;
+        var reviewUrl = reviewUrlPrefix + '/README.txt';
         a.setAttribute('href', reviewUrl);
         a.setAttribute('title', 'data review');
         var img = a.appendChild(document.createElement('img'));
-        img.setAttribute('src', 'parasitetracker/assets/review.svg');
+        img.setAttribute('src', reviewUrlPrefix + '/review.svg'); 
 
         var a = appendLinkDiv(badgesElem);
         var issuesUrl = 'https://github.com/' + source.name + '/issues/';
