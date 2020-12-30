@@ -233,30 +233,6 @@
         var img = a.appendChild(document.createElement('img'));
         img.setAttribute('src', 'https://api.globalbioticinteractions.org/interaction.svg' + defaultQuery);
 
-
-        var a = appendLinkDiv(badgesElem);
-
-        if (source.doi === undefined || source.doi === null || source.doi.trim().length == 0) {
-            a.setAttribute('href', 'https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/Dataset-Management#citability');
-            a.setAttribute('target', '_blank');
-            var img = a.appendChild(document.createElement('img'));
-            img.setAttribute('src', 'assets/doiUnknown.svg');
-        } else {
-            if (!source.doi.match(/(^http:)|(^https:)|(^doi:)/)) {
-                a.setAttribute('href', 'https://doi.org/' + source.doi);
-            } else if (source.doi.match(/(^http:\/\/dx\.doi\.org)|(^https:\/\/dx\.doi\.org)/)) {
-                a.setAttribute('href', source.doi.replace(/dx\.doi\.org/, 'doi.org'));
-            } else if (source.doi.match(/(^http:)|(^https:)/)) {
-                a.setAttribute('href', source.doi);
-            } else if (source.doi.match(/(^doi:)/)) {
-                a.setAttribute('href', 'https://doi.org/' + source.doi.replace(/^doi:/, ""));
-            }
-            a.setAttribute('target', '_blank');
-            a.setAttribute('title', 'citable publication');
-            var img = a.appendChild(document.createElement('img'));
-            img.setAttribute('src', 'assets/doi.svg');
-        }
-
     };
 
     var globiData = globiWeb.globi.globiData;
