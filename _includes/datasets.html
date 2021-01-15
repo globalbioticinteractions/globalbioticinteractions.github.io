@@ -135,17 +135,27 @@
           return a;
         };
 
-				var archiveLinkFor = function(source) {
-					var a = document.createElement('a');
-        	a.setAttribute('href', 'https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/' + source.name);
-        	a.setAttribute('target', '_blank');
-        	a.setAttribute('title', 'archival status');
-        	var img = a.appendChild(document.createElement('img'));
-        	img.setAttribute('src', 'https://archive.softwareheritage.org/badge/origin/https://github.com/' + source.name +'/');
+	var archiveLinkFor = function(source) {
+	  var a = document.createElement('a');
+          a.setAttribute('href', 'https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/' + source.name);
+          a.setAttribute('target', '_blank');
+          a.setAttribute('title', 'archival status');
+          var img = a.appendChild(document.createElement('img'));
+          img.setAttribute('src', 'https://archive.softwareheritage.org/badge/origin/https://github.com/' + source.name +'/');
           img.setAttribute('style', 'padding-left:6px');
+	  return a;
+	}
 
-					return a;
-				}
+	var nanopubLinkFor = function(source) {
+	  var a = document.createElement('a');
+          a.setAttribute('href', 'https://depot.globalbioticinteractions.org/reviews/' + source.name + '/nanopub.ttl.gz');
+          a.setAttribute('target', '_blank');
+          a.setAttribute('title', 'related nanopubs.org feed');
+          var img = a.appendChild(document.createElement('img'));
+          img.setAttribute('src', 'assets/nanopub.png');
+          img.setAttribute('style', 'padding-left:6px; height:2em;');
+	  return a;
+	}
 
         var appendImgForRepo = function (source, elem) {
             if (source.url === undefined) {
@@ -182,7 +192,8 @@
         githubReference.textContent = ' @' + source.name;
         a.parentElement.insertBefore(githubReference, a);
 
-				githubReference.after(archiveLinkFor(source))
+	githubReference.after(nanopubLinkFor(source))
+	githubReference.after(archiveLinkFor(source))
 
         a.parentElement.insertBefore(document.createElement('br'), a);
 
