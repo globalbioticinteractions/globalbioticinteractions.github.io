@@ -17,12 +17,12 @@ ANSP	The Academy of Natural Sciences of Drexel University		Ornithology Collectio
 UCSB	University of California at Santa Barbara	IZC	Invertebrate Zoology Collection	Katja Seltmann	Symbiota		globi:globalbioticinteractions/ucsb-izc	globalbioticinteractions/ucsb-izc
 UHIM	University of Hawaii Insect Museum	UHIM	University of Hawaii Insect Museum 	Daniel Rubinoff 	SymbSCAN		globi:globalbioticinteractions/uhim	globalbioticinteractions/uhim
 UMMZ	University of Michigan Museum of Zoology		University of Michigan Museum of Zoology Insect Collection	Barry OConnor, Erika Tucker 	Specify		globi:globalbioticinteractions/ummzi	globalbioticinteractions/ummzi
-UMSP	University of Minnesota		University of Minnesota Insect Collection	Ralph Holzenthal, Robin Thomson	Specify		University of Minnesota Insect Collection	
+UMSP	University of Minnesota		University of Minnesota Insect Collection	Ralph Holzenthal, Robin Thomson	Specify		globi:globalbioticinteractions/min-umsp	globalbioticinteractions/min-umsp
 UNHC	University of New Hampshire		UNH Collection of Insects and other Arachnids	Istvan Miko 	Filemaker Pro	Filemaker Pro	globi:globalbioticinteractions/unhc	globalbioticinteractions/unhc
 MSB	University of New Mexico	PARA	Museum of Southwestern Biology, Divisions of Mammals, Parasites	Mariel Lee Campbell, Joseph Cook	Arctos	VertNet	globi:globalbioticinteractions/msb-para	globalbioticinteractions/msb-para
 MSB	University of New Mexico	HOST	Museum of Southwestern Biology, Host Collection	Mariel Lee Campbell, Joseph Cook	Arctos	VertNet	globi:globalbioticinteractions/msb-host	globalbioticinteractions/msb-host
 UTAH	University of Utah	PIPER	Price Institute of Parasites Research (PIPeR)	Sarah Bush 	SymbSCAN	SymbSCAN	globi:globalbioticinteractions/utah-piper	globalbioticinteractions/utah-piper
-WIRC	University of Wisconsin Madison	WIS-IH	Wisconsin Insect Research Collection	Craig Brabant, Daniel Young	Specify	SymbSCAN	Wisconsin Insect Research Collection	
+WIRC	University of Wisconsin Madison	WIS-IH	Wisconsin Insect Research Collection	Craig Brabant, Daniel Young	Specify	SymbSCAN	globi:globalbioticinteractions/wis-ih-wirc	globalbioticinteractions/wis-ih-wirc
 UWSP	University of Wisconsin Stevens Point	PARA	Stephen J. Taft Parasitological Collection	Sarah Orlofske 	SymbSCAN	SymbSCAN	globi:globalbioticinteractions/uwsp-para	globalbioticinteractions/uwsp-para
 VB	VectorBase			Samuel Rund 	Institutional		globi:globalbioticinteractions/vectorbase	globalbioticinteractions/vectorbase
 USNM	United States National Museum of Natural History (USNM), Smithsonian Institution	USNMENTFLEA	 United States National Museum of Natural History (USNM), Smithsonian Institution, Washington DC and digitized by the Walter Reed Biosystematics Unit (WRBU)	David Pecor	Institutional		globi:globalbioticinteractions/usnmentflea	globalbioticinteractions/usnmentflea
