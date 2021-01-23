@@ -24,7 +24,7 @@
                   {% endif %}
                 {% endfor %}
                 
-                {% assign translated_pages_by_language=site.pages | where_exp:"item", "item.lang != page.lang" | group_by:"lang" %}
+                {% assign translated_pages_by_language=site.pages | where_exp:"item", "item.lang != page.lang" | where_exp: "item", "item.status != 'unlisted'" | group_by:"lang" %}
                 {% for translated_pages_for_language in translated_pages_by_language %}
                     {% assign translated_pages = translated_pages_for_language.items | where:"i18n-link", page.i18n-link %}
                     {% if translated_pages.size == 0 %}
