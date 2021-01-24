@@ -1,7 +1,7 @@
 ---
 layout: post
 title: GloBI and BDMY partnership - a symbiotic history
-author: Antar Mijail Perez Botello
+author: Rosa Sotelo Casas and Antar Mijail Perez Botello
 date: 2021-01-21
 excerpt: There is a consensus on the fundamental role that biotic interactions have on ecological processes. However, when evaluating the relative importance of each type of interaction, the competition or predator/prey interaction takes all the credit, while symbiotic relationships pass for mere ecological curiosities. However, symbiosis is a frequent phenomenon in the marine environment mainly responsible for its actual structure. For this reason, it is necessary to develop comprehensive analytic methods, such as those set in the BDMY Marine Species Interactions project, and working together with the GloBI initiative. For more details go to this note.
 

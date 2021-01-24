@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  La asociación de GloBI y BDMY - Una historia de simbiosis 
-author: Antar Mijail Perez Botello
+author: Rosa Sotelo Casas y Antar Mijail Perez Botello
 date: 2021-01-21
 excerpt: Existe un consenso sobre el papel fundamental que las interacciones bióticas tienen sobre los procesos ecológicos. Sin embargo, al evaluar la importancia relativa de cada tipo de interacción, la competencia y depredación reciben todo el crédito, mientras que las relaciones simbióticas pasan por meras curiosidades ecológicas. Sin embargo, la simbiosis además de ser un fenómeno frecuente en el medio marino, es responsable en gran medida de la estructura actual de estos ecosistemas. Para dimensionar su importancia es necesario desarrollar métodos integrales de análisis, como los que desarrollamos en el proyecto Marine Species Interactions, BDMY, FC-UNAM, mano a mano con la iniciativa GloBI. Conoce los detalles de este apasionante proyecto leyendo la nota completa.
 lang: es
