@@ -50,7 +50,7 @@ Derivado de todo este esfuerzo y trabajo, surge BDMY: Marine Species Interaction
 
 
 
-“[Marine Species Interactions](https://marinespeciesinteractions.org)” es un proyecto de colaboración multidisciplinaria entre especialistas en áreas como la ecología y taxonomía de invertebrados marinos, ciencia de datos, medios digitales, ilustración científica y difusión de la ciencia, con el objetivo de estudiar y dar a conocer la importancia de las interacciones simbióticas entre invertebrados marinos y su influencia en los procesos ecológicos del medio marino.
+“[Marine Species Interactions](https://marinespeciesinteractions.org)” ([https://marinespeciesinteractions.org](https://marinespeciesinteractions.org)) es un proyecto de colaboración multidisciplinaria entre especialistas en áreas como la ecología y taxonomía de invertebrados marinos, ciencia de datos, medios digitales, ilustración científica y difusión de la ciencia, con el objetivo de estudiar y dar a conocer la importancia de las interacciones simbióticas entre invertebrados marinos y su influencia en los procesos ecológicos del medio marino.
 
 Actualmente concentramos nuestros esfuerzos en el estudio de los filos Porifera, Echinoidea, Cnidaria y Anomura y del Atlántico americano, pero estamos abiertos a ampliar esta línea de investigación hacia la mayor cantidad de geografías y taxa posibles con la intención de conformar una visión cada vez más completa sobre interacciones bióticas en el mundo marino.
 

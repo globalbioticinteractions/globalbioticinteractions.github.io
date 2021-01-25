@@ -55,7 +55,7 @@ Derived from all this effort and work, BDMY: Marine Species Interactions arises,
 
 ## What is Marine Species Interactions?
 
-"Marine Species Interactions" is a multidisciplinary project that involve ecology and taxonomy of marine invertebrates, data science, digital media, scientific illustration, and science communication, with a common goal, communicate and understand the symbiotic interactions between marine invertebrates importance and their influence on the ecological processes. We are currently concentrating our efforts on studying the Porifera, Echinoidea, Cnidaria, and Anomura phyla at the American Atlantic. Still, we are open to expanding research frontiers to as many geographies and taxa.
+"Marine Species Interactions" ([https://marinespeciesinteractions.org](https://marinespeciesinteractions.org)) is a multidisciplinary project that involve ecology and taxonomy of marine invertebrates, data science, digital media, scientific illustration, and science communication, with a common goal, communicate and understand the symbiotic interactions between marine invertebrates importance and their influence on the ecological processes. We are currently concentrating our efforts on studying the Porifera, Echinoidea, Cnidaria, and Anomura phyla at the American Atlantic. Still, we are open to expanding research frontiers to as many geographies and taxa.
 
 ## Why are symbiotic interactions crucial in the marine environment? 
 
