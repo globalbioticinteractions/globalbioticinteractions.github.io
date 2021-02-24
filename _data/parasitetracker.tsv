@@ -16,7 +16,7 @@ BRTC	Texas A&M University	PARA	Biodiversity Teaching and Research Collections	Je
 ANSP	The Academy of Natural Sciences of Drexel University		Ornithology Collection at Academy of Natural Sciences of Drexel University	Jason Weckstein 	SymbSCAN		globi:globalbioticinteractions/ansp-para	globalbioticinteractions/ansp-para
 UCSB	University of California at Santa Barbara	IZC	Invertebrate Zoology Collection	Katja Seltmann	Symbiota		globi:globalbioticinteractions/ucsb-izc	globalbioticinteractions/ucsb-izc
 UHIM	University of Hawaii Insect Museum	UHIM	University of Hawaii Insect Museum 	Daniel Rubinoff 	SymbSCAN		globi:globalbioticinteractions/uhim	globalbioticinteractions/uhim
-UMMZ	University of Michigan Museum of Zoology		University of Michigan Museum of Zoology Insect Collection	Barry OConnor, Erika Tucker 	Specify		globi:globalbioticinteractions/ummzi	globalbioticinteractions/ummzi
+UMMZ	University of Michigan Museum of Zoology		University of Michigan Museum of Zoology Insect Collection	Barry OConnor, Erika Tucker 	Specify		globi:EMTuckerLabUMMZ/ummzi	EMTuckerLabUMMZ/ummzi
 UMSP	University of Minnesota		University of Minnesota Insect Collection	Ralph Holzenthal, Robin Thomson	Specify		globi:globalbioticinteractions/min-umsp	globalbioticinteractions/min-umsp
 UNHC	University of New Hampshire		UNH Collection of Insects and other Arachnids	Istvan Miko 	Filemaker Pro	Filemaker Pro	globi:globalbioticinteractions/unhc	globalbioticinteractions/unhc
 MSB	University of New Mexico	PARA	Museum of Southwestern Biology, Divisions of Mammals, Parasites	Mariel Lee Campbell, Joseph Cook	Arctos	VertNet	globi:globalbioticinteractions/msb-para	globalbioticinteractions/msb-para
