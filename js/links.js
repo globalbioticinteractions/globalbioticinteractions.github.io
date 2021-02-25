@@ -55,8 +55,19 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     appendShowElem(citationElem, study, baseUrl);
 
     var sourceElem = document.createElement('span');
-    sourceElem.textContent = ' Provider: ' + study.source + ' Accessed via <' + study.archiveURI + '> at ' + new Date(study.lastSeenAt).toISOString() + '.';
+    sourceElem.textContent = ' Provider: ' + study.source + ' Accessed via <' + study.archiveURI + '> at ' + new Date(study.lastSeenAt).toISOString() + '. ';
     citationElem.appendChild(sourceElem);
+
+    if (/^https:\/\/github.com\/.*\/archive\/.*zip$/.test(study.archiveURI)) {
+      let feedbackElem = document.createElement('span');
+      let githubRepoName = study.archiveURI.replace(/^https:\/\/github.com\//, "").replace(/\/archive\/[0-9a-f]+\.zip/, "")
+      let newIssueLink = feedbackElem.appendChild(document.createElement('a'));
+      newIssueLink.setAttribute('href', 'https://github.com/' + githubRepoName + '/issues/new?' + queryString.stringify({ title: 'your indexed records for ' + study.citation, body: 'Hi!\n\nThanks for helping to make existing biotic interaction data easier to find and access!\n\nI was just looking at your GloBI indexed record at ' + document.location + ' and I was wondering about ... (please add your own text)' }));
+      newIssueLink.setAttribute('title', 'start a discussion by opening an issue');
+      newIssueLink.textContent = 'Start discussion...';
+      citationElem.appendChild(feedbackElem);
+    }
+
 }
 
 function collectSearchParams($) {
