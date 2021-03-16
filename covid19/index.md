@@ -17,10 +17,8 @@ The information on this page does not aim to be a complete overview of activitie
 
 # Contact Info
 
- * Weekly meetings on Tuesdays 08:00 Pacific / 11:00 US Eastern / 17:00 Central European Time at [Zoom meeting room](https://us02web.zoom.us/j/5234090215?pwd=bWpSekpTLzFJK3VGT2tLaDlLOHc2UT09) https://us02web.zoom.us/j/5234090215?pwd=bWpSekpTLzFJK3VGT2tLaDlLOHc2UT09
- 
+ * Weekly meetings on Tuesdays 08:00 Pacific / 11:00 US Eastern / 17:00 Central European Time at [Zoom meeting room](https://asu.zoom.us/j/7588563077?pwd=NHV2RmlKMDh6cHFwWG53aVM1dlluZz09). 
  * [Meeting notes](https://docs.google.com/document/d/1qizBMYK3xjyQ2zDsQyXn3AN0cqpTYPxSdkefkJNYWFw/edit#) https://docs.google.com/document/d/1qizBMYK3xjyQ2zDsQyXn3AN0cqpTYPxSdkefkJNYWFw/edit# 
- 
  * [Slack channel](https://covid19taf.slack.com/archives/C011W4GPXDX) https://covid19taf.slack.com/archives/C011W4GPXDX
 
 # Integrations
