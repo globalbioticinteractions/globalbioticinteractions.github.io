@@ -357,6 +357,14 @@ t:
         en: "co-occurs with"
         ja: "と共起する"
         es: "coocurre con"
+    coRoostsWith:
+        en: "co-roosts with"
+        ja: "co-roosts with"
+        es: "co-roosts with"
+    co-roosts-with:
+        en: "co-roosts with"
+        ja: "co-roosts with"
+        es: "co-roosts with"
     infect:
         en: "infect"
         ja: "に感染する"
