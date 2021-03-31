@@ -34,6 +34,8 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **19 Oct 2020** - Katja Seltmann presented at [TDWG 2020 Conference](https://www.tdwg.org/conferences/2020): Seltmann KC, Poelen JH, Sullivan K, Zaspel J (2020) Making Parasite-Host Associations Visible using Global Biotic Interactions. Biodiversity Information Science and Standards 4: e58985. [https://doi.org/10.3897/biss.4.58985](https://doi.org/10.3897/biss.4.58985) slides: [https://docs.google.com/presentation/d/1qJTIiR77_2RmO5OErGr1FGwPWp2PvJ33wVhOoL3tD1Y](https://docs.google.com/presentation/d/1qJTIiR77_2RmO5OErGr1FGwPWp2PvJ33wVhOoL3tD1Y).
 
+**31 Mar 2021** - iDigBio hosted Terrestrial Parasite Tracker TCN webinar with updates from the TPT Research Advisory Board and other collaborators. [abstract](https://www.idigbio.org/content/terrestrial-parasite-tracker-data-and-collections-based-research) [video](https://vimeo.com/531437207) [slides](tpt-webinar-data-for-research-2021-03-31.pdf)
+
 # TPT Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
