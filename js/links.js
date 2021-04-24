@@ -81,7 +81,6 @@ function appendShowDatasetElem(parentElem, study, baseUrl) {
 
 
 function appendCitationTo(interactionRecord, citationElem, baseUrl) {
-    var textElem = document.createElement('b');
     var citation = interactionRecord.study_citation;
     if (citation === undefined || citation === null) {
         if (interactionRecord.study_url !== undefined && interactionRecord.study_url !== null) {
@@ -96,20 +95,24 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
         lastSeenAt: interactionRecord.study_source_last_seen_at,
         archiveURI: interactionRecord.study_source_archive_uri};
 
-
-    let appendSpan = function(parentElem) {
+    let appendSpanText = function(parentElem, text) {
       var span = document.createElement('span');
-      span.textContent = ' ';
+      span.textContent = text;
       parentElem.appendChild(span);
     };
+
+    let appendSpan = function(parentElem) { appendSpanText(parentElem, ' '); }
+
     appendLinkElem(citationElem, study);
     appendSpan(citationElem);
     appendShowReferenceElem(citationElem, study, baseUrl);
     appendSpan(citationElem);
 
+    var textElem = document.createElement('b');
     textElem.textContent = study.citation + ' ';
     citationElem.appendChild(textElem);
 
+    appendSpanText(citationElem, ' Provider: ');
     appendDatasetLinkElem(citationElem, study, baseUrl);
     appendSpan(citationElem);
     appendShowDatasetElem(citationElem, study);
@@ -119,7 +122,7 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     let githubRepoName = getRepoNameOrDefault(study.archiveURI);
     
     var sourceElem = document.createElement('span');
-    sourceElem.textContent = ' Provider: ' + study.source + ' Accessed via <' + study.archiveURI + '> at ' + new Date(study.lastSeenAt).toISOString() + '. ';
+    sourceElem.textContent = ' ' + study.source + ' Accessed via <' + study.archiveURI + '> at ' + new Date(study.lastSeenAt).toISOString() + '. ';
     citationElem.appendChild(sourceElem);
     
     let newIssueLink = feedbackElem.appendChild(document.createElement('a'));
