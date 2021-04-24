@@ -105,6 +105,7 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     appendLinkElem(citationElem, study);
     appendSpan(citationElem);
     appendShowReferenceElem(citationElem, study, baseUrl);
+    appendSpan(citationElem);
 
     textElem.textContent = study.citation + ' ';
     citationElem.appendChild(textElem);
