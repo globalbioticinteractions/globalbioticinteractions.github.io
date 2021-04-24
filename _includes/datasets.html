@@ -22,6 +22,7 @@
 
 
 <script src="js/globi-web-min.js"></script>
+<script src="/js/links.js"></script>
 <script>
 
     var appendLink = function (tr) {
@@ -221,12 +222,8 @@
         var badgesElem = tr.insertBefore(badgesElem, a.parentElement);
         
         var a = appendLinkDiv(badgesElem);
-        var reviewUrlPrefix = 'https://depot.globalbioticinteractions.org/reviews/' +  source.name;
-        var reviewUrl = reviewUrlPrefix + '/README.txt';
-        a.setAttribute('href', reviewUrl);
-        a.setAttribute('title', 'data review');
-        var img = a.appendChild(document.createElement('img'));
-        img.setAttribute('src', reviewUrlPrefix + '/review.svg'); 
+
+        decorateReviewLink(a, source.name);
 
         var a = appendLinkDiv(badgesElem);
         var issuesUrl = 'https://github.com/' + source.name + '/issues/';

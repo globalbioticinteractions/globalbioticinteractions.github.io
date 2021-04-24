@@ -18,6 +18,16 @@ let getArchiveURIBase = function(archiveURI) {
   .replace(zenodoRegEx, prefixAndPath);
 }
 
+let decorateReviewLink = function(aElem, namespace) {
+  var reviewUrlPrefix = 'https://depot.globalbioticinteractions.org/reviews/' +  namespace;
+  var reviewUrl = reviewUrlPrefix + '/README.txt';
+  aElem.setAttribute('href', reviewUrl);
+  aElem.setAttribute('title', 'data review');
+  var img = aElem.appendChild(document.createElement('img'));
+  img.setAttribute('src', reviewUrlPrefix + '/review.svg');
+}
+
+
 function appendLinkElem(parentElem, study) {
     if (study.url && study.url.match(/^http/)) {
         var linkElem = document.createElement('a');
@@ -117,13 +127,21 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     appendSpan(citationElem);
     appendShowDatasetElem(citationElem, study);
     appendSpan(citationElem);
-
-    let feedbackElem = document.createElement('span');
-    let githubRepoName = getRepoNameOrDefault(study.archiveURI);
     
     var sourceElem = document.createElement('span');
     sourceElem.textContent = ' ' + study.source + ' Accessed via <' + study.archiveURI + '> at ' + new Date(study.lastSeenAt).toISOString() + '. ';
     citationElem.appendChild(sourceElem);
+
+    let reviewElem = document.createElement('span');
+    let reviewLink = reviewElem.appendChild(document.createElement('a'));
+    decorateReviewLink(reviewLink, study.namespace);
+    citationElem.appendChild(reviewElem);
+
+    appendSpan(citationElem);
+
+    let feedbackElem = document.createElement('span');
+    let githubRepoName = getRepoNameOrDefault(study.archiveURI);
+    
     
     let newIssueLink = feedbackElem.appendChild(document.createElement('a'));
     newIssueLink.setAttribute('href', 'https://github.com/' + githubRepoName + '/issues/new?' + queryString.stringify({ title: 'your indexed records for ' + study.citation, body: 'Hi!\n\nThanks for helping to make existing biotic interaction data easier to find and access!\n\nI was just looking at your GloBI indexed record at ' + document.location + ' and I was wondering about ... (please add your own text)' }));
@@ -138,7 +156,7 @@ function collectSearchParams($) {
     var interactionType = $('#interactionType').find(":selected").val();
     var studyQuery = $('#studySearchField').val();
     var searchHash = {};
-    var search = { fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation', 'study_source_archive_uri', 'study_source_last_seen_at', 'source_source_id'] };
+    var search = { fields: ['study_title', 'study_citation', 'study_url', 'study_source_citation', 'study_source_archive_uri', 'study_source_last_seen_at', 'study_source_id'] };
     if (sourceTaxonName && sourceTaxonName.length > 0) {
         searchHash.sourceTaxon = sourceTaxonName;
         search.sourceTaxa = [sourceTaxonName];
