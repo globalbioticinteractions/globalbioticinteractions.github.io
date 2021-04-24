@@ -218,3 +218,6 @@ img.taxonLinkIcon {
   padding-right: 0.2em;
 }
 
+.badge-in-text img {
+  max-height: 1.1em;
+}

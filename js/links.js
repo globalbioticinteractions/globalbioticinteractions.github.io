@@ -133,6 +133,7 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     citationElem.appendChild(sourceElem);
 
     let reviewElem = document.createElement('span');
+    reviewElem.setAttribute('class', 'badge-in-text');
     let reviewLink = reviewElem.appendChild(document.createElement('a'));
     decorateReviewLink(reviewLink, study.namespace);
     citationElem.appendChild(reviewElem);
