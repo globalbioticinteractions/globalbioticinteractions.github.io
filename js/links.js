@@ -96,29 +96,30 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
         lastSeenAt: interactionRecord.study_source_last_seen_at,
         archiveURI: interactionRecord.study_source_archive_uri};
 
-    textElem.textContent = study.citation + ' ';
-    citationElem.appendChild(textElem);
-    appendLinkElem(citationElem, study);
 
     let appendSpan = function(parentElem) {
       var span = document.createElement('span');
       span.textContent = ' ';
       parentElem.appendChild(span);
     };
+    appendLinkElem(citationElem, study);
     appendSpan(citationElem);
     appendShowReferenceElem(citationElem, study, baseUrl);
 
-    var sourceElem = document.createElement('span');
-    sourceElem.textContent = ' Provider: ' + study.source + ' Accessed via <' + study.archiveURI + '> at ' + new Date(study.lastSeenAt).toISOString() + '. ';
-    citationElem.appendChild(sourceElem);
-    appendDatasetLinkElem(sourceElem, study, baseUrl);
-    appendSpan(sourceElem);
-    appendShowDatasetElem(sourceElem, study);
-    appendSpan(sourceElem);
+    textElem.textContent = study.citation + ' ';
+    citationElem.appendChild(textElem);
 
+    appendDatasetLinkElem(citationElem, study, baseUrl);
+    appendSpan(citationElem);
+    appendShowDatasetElem(citationElem, study);
+    appendSpan(citationElem);
 
     let feedbackElem = document.createElement('span');
     let githubRepoName = getRepoNameOrDefault(study.archiveURI);
+    
+    var sourceElem = document.createElement('span');
+    sourceElem.textContent = ' Provider: ' + study.source + ' Accessed via <' + study.archiveURI + '> at ' + new Date(study.lastSeenAt).toISOString() + '. ';
+    citationElem.appendChild(sourceElem);
     
     let newIssueLink = feedbackElem.appendChild(document.createElement('a'));
     newIssueLink.setAttribute('href', 'https://github.com/' + githubRepoName + '/issues/new?' + queryString.stringify({ title: 'your indexed records for ' + study.citation, body: 'Hi!\n\nThanks for helping to make existing biotic interaction data easier to find and access!\n\nI was just looking at your GloBI indexed record at ' + document.location + ' and I was wondering about ... (please add your own text)' }));
