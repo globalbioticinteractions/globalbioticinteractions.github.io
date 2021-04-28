@@ -35,17 +35,17 @@ The modular GloBI integration workflow is designed to facilitate maintenance, tr
 
 ## Notes
 
-[1] Elton is a command-line tool to help track, version and access species interaction data. See https://github.com/globalbioticinteractions/elton and https://doi.org/10.5281/zenodo.998263.
+[1] Elton is a command-line tool to help track, version and access species interaction data. See [https://github.com/globalbioticinteractions/elton](https://github.com/globalbioticinteractions/elton) and [doi:10.5281/zenodo.998263](https://doi.org/10.5281/zenodo.998263).
 
-[2] Versioned datasets, or GloBI's Elton Dataset Cache, contains versioned species interactions datasets and are the result of the ```elton track``` command. See also https://doi.org/10.5281/zenodo.2007418 . 
+[2] Versioned datasets, or GloBI's Elton Dataset Cache, contains versioned species interactions datasets and are the result of the ```elton track``` command. See also [doi:10.5281/zenodo.2007418](https://doi.org/10.5281/zenodo.2007418) . 
 
-[3] Nomer is a command-line tool to help map identifiers and names to taxonomic names and ontological terms. See https://github.com/globalbioticinteractions/nomer/ and https://doi.org/10.5281/zenodo.1145474 .
+[3] Nomer is a command-line tool to help map identifiers and names to taxonomic names and ontological terms. See [https://github.com/globalbioticinteractions/nomer/](https://github.com/globalbioticinteractions/nomer/) and [doi:10.5281/zenodo.1145474](https://doi.org/10.5281/zenodo.1145474) .
 
 [4] Taxon Graph Builder is a script using standard linux tools to map (new) names in versioned interaction datasets to known name concepts. The process produces a version of a GloBI Taxon Graph.
 
-[5] Name link table, or GloBI Taxon Graph, is the (published) outcome of the Taxon Graph Builder. The link table associated verbatim names to known taxon name concepts. See published versions at https://doi.org/10.5281/zenodo.755513 .
+[5] Name link table, or GloBI Taxon Graph, is the (published) outcome of the Taxon Graph Builder. The link table associated verbatim names to known taxon name concepts. See published versions at [doi:10.5281/zenodo.755513](https://doi.org/10.5281/zenodo.755513) .
 
-[6] GloBI's Index Builder is an automated process that integrates versioned datasets and a published name map (e.g., GloBI's Taxon Graph) to create integrated species interaction data products at https://globalbioticinteractions.org/data . See also https://github.com/globalbioticinteractions/globalbioticinteractions/ .
+[6] GloBI's Index Builder is an automated process that integrates versioned datasets and a published name map (e.g., GloBI's Taxon Graph) to create integrated species interaction data products at [https://globalbioticinteractions.org/data](https://globalbioticinteractions.org/data) . See also [https://github.com/globalbioticinteractions/globalbioticinteractions/](https://github.com/globalbioticinteractions/globalbioticinteractions/) .
 
 [7] Intepreted, or integrated, interactions are one of the outcomes of the described GloBI processes. Also see [doi:10.5281/zenodo.3950589](https://doi.org/10.5281/zenodo.3950589) and the [data page](/data) . 
 
