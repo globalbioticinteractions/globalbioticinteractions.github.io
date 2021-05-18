@@ -36,6 +36,8 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **31 Mar 2021** - iDigBio hosted Terrestrial Parasite Tracker TCN webinar with updates from the TPT Research Advisory Board and other collaborators. [abstract](https://www.idigbio.org/content/terrestrial-parasite-tracker-data-and-collections-based-research) [video](https://vimeo.com/531437207) [slides](tpt-webinar-data-for-research-2021-03-31.pdf)
 
+**28 April 2021** - Terrestrial Parasite Tracker GloBI workshop: Seltmann KC & Poelen JH. 2021. A Practical Exploration of Biotic Interaction Data Management and Information Retrieval through Terrestrial Parasite Tracker (TPT) and Global Biotic Interactions (GloBI) [Workshop]. Zenodo. [doi:10.5281/zenodo.4759060](https://doi.org/10.5281/zenodo.4759060). See also [video](https://vimeo.com/546669878) and reusable/hackable workshop repository at [https://github.com/globalbioticinteractions/interaction-data-workshop](https://github.com/globalbioticinteractions/interaction-data-workshop).
+
 # TPT Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
