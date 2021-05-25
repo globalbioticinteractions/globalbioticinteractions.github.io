@@ -130,7 +130,7 @@ t:
         es: "organismos"
         ja: "生物"
     any-study-or-source:
-        en: "any DOI, URI or title"
+        en: "a DOI, URI or other identifiers"
         ja: "研究論文または情報源"
         es: "cualquier estudio o fuente"
     plenty-of-things:
