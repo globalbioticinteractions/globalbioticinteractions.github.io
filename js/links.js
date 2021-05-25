@@ -72,12 +72,14 @@ function accordingToDataset(study) {
 }
 
 function appendShowReferenceElem(parentElem, study, baseUrl) {
-    var elem = document.createElement('a');
-    elem.setAttribute('href', (baseUrl || '/') + '?interactionType=interactsWith&accordingTo=' + accordingTo(study));
-    elem.setAttribute('title', showRefTitle(study));
-    elem.setAttribute('target', '_blank');
-    elem.textContent = '🔍';
-    parentElem.appendChild(elem);
+    if (study.url) {
+      var elem = document.createElement('a');
+      elem.setAttribute('href', (baseUrl || '/') + '?interactionType=interactsWith&accordingTo=' + accordingTo(study));
+      elem.setAttribute('title', showRefTitle(study));
+      elem.setAttribute('target', '_blank');
+      elem.textContent = '🔍';
+      parentElem.appendChild(elem);
+    }
 }
 
 function appendShowDatasetElem(parentElem, study, baseUrl) {
