@@ -38,6 +38,9 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **28 April 2021** - Terrestrial Parasite Tracker GloBI workshop: Seltmann KC & Poelen JH. 2021. A Practical Exploration of Biotic Interaction Data Management and Information Retrieval through Terrestrial Parasite Tracker (TPT) and Global Biotic Interactions (GloBI) [Workshop]. Zenodo. [doi:10.5281/zenodo.4759060](https://doi.org/10.5281/zenodo.4759060). See also [video](https://vimeo.com/546669878) and reusable/hackable workshop repository at [https://github.com/globalbioticinteractions/interaction-data-workshop](https://github.com/globalbioticinteractions/interaction-data-workshop).
 
+**8 June 2021** - Presented at the 5th Annual Digital Data in Biodiversity Research Conference on 8 June 2021 hosted online by the Florida Museum of Natural History: Seltmann, Katja. (2021, June). 🐝 interacts with 🌼 (Version 0.1). Zenodo. http://doi.org/10.5281/zenodo.4924889 . [abstract](http://doi.org/10.5281/zenodo.4924889) [video](https://vimeo.com/564804784) [slides](https://zenodo.org/record/4924889/files/seltmann-bee-interacts-with-flower-2021-06-08.pdf)
+
+
 # TPT Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
