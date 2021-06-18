@@ -24,7 +24,7 @@
     "globi-wheel": "file:./lib/globi-wheel",
     "inherits": "^2.0.1",
     "jquery": "^2.1.4",
-    "jquery-ui": "1.10.5",
+    "jquery-ui": "1.12.0",
     "moment": "^2.20.1",
     "moment-shortformat": "^2.1.0",
     "number-abbreviate": "^1.2.1",
