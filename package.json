@@ -30,7 +30,7 @@
     "number-abbreviate": "^1.2.1",
     "query-string": "^4.2.3",
     "spin.js": "~2.3.2",
-    "taxaprisma": "0.0.11"
+    "taxaprisma": "0.0.12"
   },
   "devDependencies": {
     "tape": "~4.1.0",

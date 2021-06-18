@@ -389,3 +389,11 @@ t:
         en: "is killed by"
         ja: "によって殺される"
         es: "lo mata"
+    hasHabitat:
+        en: "has habitat"
+        ja: "has habitat"
+        es: "has habitat"
+    createsHabitatFor:
+        en: "habitat of"
+        ja: "habitat of"
+        es: "habitat of"
