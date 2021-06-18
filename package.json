@@ -23,7 +23,7 @@
     "globi-spatial-selector": "file:./lib/globi-spatial-selector",
     "globi-wheel": "file:./lib/globi-wheel",
     "inherits": "^2.0.1",
-    "jquery": "^2.1.4",
+    "jquery": "^3.5.0",
     "jquery-ui": "1.10.5",
     "moment": "^2.20.1",
     "moment-shortformat": "^2.1.0",
