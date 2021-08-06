@@ -23,28 +23,34 @@ Global Biotic Interactions integrates with Image Snippets to exchange species in
 
 # Integration Profiles
 
-Integration profiles are descriptions on how data flows from one system to the next. Because the Parasite Tracker community is using a variety of tools (e.g., Arctos, Symbiota, Specify, Excel, MSAccess) to manage and share collection data, there are many integration profiles to exchange collection data. The integration profiles below are geared towards the exchange and linking of biotic associations data (e.g., species interactions, or host-parasite associations) with [GloBI](https://globalbioticinteractions.org). 
+Integration profiles are descriptions on how data flows from one system to the next. 
 
-## Arctos
-Arctos managed collections are indexed by GloBI. This section explains how.
 
- Arctos | GloBI Integration Profile 
+## ImageSnippets
+
+ImageSnippets is able to import existing annotation and related images. Global Biotic Interactions indexes datasets describing species interactions. Some of these datasets, like those provided via https://inaturalist.org, provide links to supporting photographic evidence.
+
+This integration profile describes a way how ImageSnippets can re-use the GloBI indexed data to import image annotations related to a specific image. 
+
+## ImagesSnippets re-using GloBI
+
+ ImageSnippets re-using GloBI | GloBI Integration Profile 
  --- | --- 
- authors | Dusty (Arctos dev), Mariel Campbell (MSB), Teresa Mayfield-Meyer (MSB)
- actors | Arctos, VertNet, GloBI
- integration method | A collection manager uses Arctos to establish associations or relationships between records. Arctos periodically shares data with VertNet. VertNet uses [GBIF IPT](https://www.gbif.org/ipt) software to publish data archives. VertNet publishes a list of available datasets in the form of a RSS feed, including those shared by Arctos. Periodically, GloBI finds, and downloads, Arctos related data archives in VertNet. Then, GloBI indexes the associatedOccurrences fields of records in these Arctos data archives. The associatedOccurrences contain the association type (e.g., "eats") and a pointer to the occurrence id of the linked record.
-  diagram | ![arctos-integration.png](./assets/arctos-integration.svg)
-example collection | [MSB-PARA](#MSB-PARA)
+ authors | Margaret Warren (ImageSnippets), Jorrit Poelen (GloBI)
+ actors | ImageSnippets, GloBI data products
+ integration method | A iNaturalist image describing a species interactions is indexed by GloBI (1). Periodically, an ImageSnippets workflow uses GloBI data product (2) (TODO Margaret et al. to determine which one from available products [https://globalbioticinteractions.org/data](GloBI data products) or more data review products via e.g., [https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/README.txt](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/README.txt) ). After importing the data from GloBI (3), the ImageSnippets SPARQL endpoint allows for discovery of images contains species interactions via linked wikidata pages (4) (e.g., [WD:Q199458](https://www.wikidata.org/wiki/Q199458) and [WD:Q320193](https://www.wikidata.org/wiki/Q320193)). 
+  diagram | ![globi2imagesnippets-integration.png](./assets/globi2imagesnippets-integration.svg)
+example records | found via [Green Sea Turtle (Chelonia mydas) Interactions](https://www.globalbioticinteractions.org/?accordingTo=globi%3Aglobalbioticinteractions%2Finaturalist&interactionType=interactsWith&sourceTaxon=Chelonia%20mydas) https://www.inaturalist.org/observations/6549764 
 
-# Integration Profile Template
+## ImageSnippets as data source
 
-Your platform/project here | GloBI Integration Profile
- --- | ---
-authors | ?
-actors | ?
-integration method | ?
-diagram | ?
-example collection | ?
+ ImageSnippets as data source | GloBI Integration Profile 
+ --- | --- 
+ authors | Margaret Warren (ImageSnippets), Jorrit Poelen (GloBI)
+ actors | ImageSnippets, GloBI data products
+ integration method | An annotated image is added to ImageSnippets triplestore (1) Periodically, a GloBI queries/retrieves all ImageSnippets annotations that describe images depicting a species interaction (2). (TODO Margaret et al. to provide examples of how GloBI can best import ImageSnippet annotations e.g., SPARQL queries or data dumps). After importing retrieving data from ImageSnippets, GloBI includes references (3) to ImageSnippet links as supporting evidence for described claims (e.g., a reference to https://imgsnp.co/xlvuw appears with a citation string supporting the claim Green Sea turtle (_Chelonia mydas_) interacts with ([OBO:RO_0002437](http://purl.obolibrary.org/obo/RO_0002437)) Brown Booby (_Sula leucogaster_)the ImageSnippets SPARQL endpoint allows for discovery of images contains species interactions via linked wikidata pages (e.g., [WD:Q199458](https://www.wikidata.org/wiki/Q199458) and [WD:Q320193](https://www.wikidata.org/wiki/Q320193)). 
+  diagram | ![imagesnippets2globi-integration.png](./assets/imagesnippets2globi-integration.svg)
+example records | found via [Green Sea Turtle (Chelonia mydas) Interactions](https://www.globalbioticinteractions.org/?accordingTo=globi%3Aglobalbioticinteractions%2Finaturalist&interactionType=interactsWith&sourceTaxon=Chelonia%20mydas) https://www.inaturalist.org/observations/6549764 
 
 
 # Interaction Types 

@@ -1,0 +1,11 @@
+digraph pairwise {
+    a1 [label="GloBI Import Script"];
+    b1 [label="ImageSnippets TripleStore"];
+    c1 [label="GloBI search index"];
+    d1 [label="Manually Annotated Image"];
+    a1 -> b1 [label="uses (2)"];
+    a1 -> c1 [label="add species interaction claim (3)"];
+    d1 -> b1 [label="add (1)"];
+    c1 -> d1 [label="links to (4)"];
+}
+

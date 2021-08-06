@@ -1,0 +1,11 @@
+digraph pairwise {
+    a1 [label="ImageSnippets Import Script"];
+    b1 [label="GloBI"];
+    c1 [label="ImageSnippets TripleStore"];
+    d1 [label="iNaturalist observation record"];
+    a1 -> b1 [label="uses (2)"];
+    a1 -> c1 [label="add image annotations (3)"];
+    b1 -> d1 [label="indexes (1)"];
+    c1 -> d1 [label="links to (4)"];
+}
+
