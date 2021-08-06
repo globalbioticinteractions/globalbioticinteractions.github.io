@@ -19,7 +19,7 @@ Global Biotic Interactions integrates with Image Snippets to exchange species in
 
 # Events 
 
-**6 Aug 2021** - Exploratory meeting with Jorrit and Margaret
+**6 Aug 2021** - Exploratory meeting with Jorrit and Margaret - discussing example [https://imgsnp.co/xlvuw](https://imgsnp.co/xlvuw) and ways to easily re-use species interactions with photographic evidence.
 
 # Integration Profiles
 
