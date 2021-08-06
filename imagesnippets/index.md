@@ -34,23 +34,25 @@ This integration profile describes a way how ImageSnippets can re-use the GloBI 
 
 ## ImagesSnippets re-using GloBI
 
+
  ImageSnippets re-using GloBI | GloBI Integration Profile 
  --- | --- 
  authors | Margaret Warren (ImageSnippets), Jorrit Poelen (GloBI)
  actors | ImageSnippets, GloBI data products
- integration method | A iNaturalist image describing a species interactions is indexed by GloBI (1). Periodically, an ImageSnippets workflow uses GloBI data product (2) (TODO Margaret et al. to determine which one from available products [https://globalbioticinteractions.org/data](GloBI data products) or more data review products via e.g., [https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/README.txt](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/README.txt) ). After importing the data from GloBI (3), the ImageSnippets SPARQL endpoint allows for discovery of images contains species interactions via linked wikidata pages (4) (e.g., [WD:Q199458](https://www.wikidata.org/wiki/Q199458) and [WD:Q320193](https://www.wikidata.org/wiki/Q320193)). 
+ integration method | A iNaturalist image describing a species interactions is indexed by GloBI (1). ![GloBI indexed claim](./assets/globi-claim.png) Periodically, an ImageSnippets workflow uses GloBI data product (2) (TODO Margaret et al. to determine which one from available products [https://globalbioticinteractions.org/data](GloBI data products) or more data review products via e.g., [https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/README.txt](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/README.txt) ). After importing the data from GloBI (3), the ImageSnippets SPARQL endpoint allows for discovery of images contains species interactions via linked wikidata pages (4) (e.g., [WD:Q199458](https://www.wikidata.org/wiki/Q199458) and [WD:Q320193](https://www.wikidata.org/wiki/Q320193)). 
   diagram | ![globi2imagesnippets-integration.png](./assets/globi2imagesnippets-integration.svg)
 example records | found via [Green Sea Turtle (Chelonia mydas) Interactions](https://www.globalbioticinteractions.org/?accordingTo=globi%3Aglobalbioticinteractions%2Finaturalist&interactionType=interactsWith&sourceTaxon=Chelonia%20mydas) https://www.inaturalist.org/observations/6549764 
 
 ## ImageSnippets as data source
 
+
  ImageSnippets as data source | GloBI Integration Profile 
  --- | --- 
  authors | Margaret Warren (ImageSnippets), Jorrit Poelen (GloBI)
  actors | ImageSnippets, GloBI data products
- integration method | An annotated image is added to ImageSnippets triplestore (1) Periodically, a GloBI queries/retrieves all ImageSnippets annotations that describe images depicting a species interaction (2). (TODO Margaret et al. to provide examples of how GloBI can best import ImageSnippet annotations e.g., SPARQL queries or data dumps). After importing retrieving data from ImageSnippets, GloBI includes references (3) to ImageSnippet links as supporting evidence for described claims (e.g., a reference to https://imgsnp.co/xlvuw appears with a citation string supporting the claim Green Sea turtle (_Chelonia mydas_) interacts with ([OBO:RO_0002437](http://purl.obolibrary.org/obo/RO_0002437)) Brown Booby (_Sula leucogaster_)the ImageSnippets SPARQL endpoint allows for discovery of images contains species interactions via linked wikidata pages (e.g., [WD:Q199458](https://www.wikidata.org/wiki/Q199458) and [WD:Q320193](https://www.wikidata.org/wiki/Q320193)). 
+ integration method | ![annotation in imagesnippets](./assets/imagesnippet.png) An annotated image is added to ImageSnippets triplestore (1) Periodically, a GloBI queries/retrieves all ImageSnippets annotations that describe images depicting a species interaction (2). (TODO Margaret et al. to provide examples of how GloBI can best import ImageSnippet annotations e.g., SPARQL queries or data dumps). After importing retrieving data from ImageSnippets, GloBI includes references (3) to ImageSnippet links as supporting evidence for described claims (e.g., a reference to https://imgsnp.co/xlvuw appears with a citation string supporting the claim Green Sea turtle (_Chelonia mydas_) interacts with ([OBO:RO_0002437](http://purl.obolibrary.org/obo/RO_0002437)) Brown Booby (_Sula leucogaster_)the ImageSnippets SPARQL endpoint allows for discovery of images contains species interactions via linked wikidata pages (e.g., [WD:Q199458](https://www.wikidata.org/wiki/Q199458) and [WD:Q320193](https://www.wikidata.org/wiki/Q320193)). 
   diagram | ![imagesnippets2globi-integration.png](./assets/imagesnippets2globi-integration.svg)
-example records | found via [Green Sea Turtle (Chelonia mydas) Interactions](https://www.globalbioticinteractions.org/?accordingTo=globi%3Aglobalbioticinteractions%2Finaturalist&interactionType=interactsWith&sourceTaxon=Chelonia%20mydas) https://www.inaturalist.org/observations/6549764 
+example records | found via [Green Sea Turtle (Chelonia mydas) Interactions](https://www.globalbioticinteractions.org/?accordingTo=globi%3Aglobalbioticinteractions%2Finaturalist&interactionType=interactsWith&sourceTaxon=Chelonia%20mydas) [https://www.inaturalist.org/observations/6549764](https://www.inaturalist.org/observations/6549764) 
 
 
 # Interaction Types 
