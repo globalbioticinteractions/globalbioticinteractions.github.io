@@ -21,6 +21,8 @@ Global Biotic Interactions integrates with Image Snippets to exchange species in
 
 **6 Aug 2021** - Exploratory meeting with Jorrit and Margaret - discussing example [https://imgsnp.co/xlvuw](https://imgsnp.co/xlvuw) and ways to easily re-use species interactions with photographic evidence.
 
+**13 Aug 2021** - Work meeting with James, Margaret and Jorrit - see [notes](./2021-08-13-notes.txt) . Related: [GloBI issue 688](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/688#issuecomment-898631037). 
+
 # Integration Profiles
 
 Integration profiles are descriptions on how data flows from one system to the next. 

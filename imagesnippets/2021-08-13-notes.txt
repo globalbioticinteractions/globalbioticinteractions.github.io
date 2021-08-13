@@ -1,0 +1,111 @@
+ ImageSnippets / GloBI meeting
+ 
+ date: 
+ 13 Aug 2021
+ 
+ attendees: 
+ Margaret, James, Jorrit
+ 
+ notes:
+ 
+ James: how to use rdf snippets from GloBI? 
+ 
+ Image Snippets manual downloads rdf snippets from GloBI data something. Alternatively, GloBI can manual upload data to Image Snippets. Long term would be automated download/update processes.
+ 
+ James: we have existing tools to handle RDF, so having GloBI produce usable rdf would  be nice. 
+ 
+ Jorrit: I prefer pull integrations - "Hollywood model: don't call us, we call you". Easier to offer some download products and allow others to access at their convenience. 
+ 
+ Margaret: suggest to start with (small) examples, work out the details. Then figure out how to do many of them. Interested to see what the subj / verb/ obj look like before thinking about dealing with much 
+ 
+ 
+ 
+ Import function?
+ 
+just posing question, what  would interaction look like in our triple editor? 
+for example what would be the subject/object?
+
+"which" switch  (e.g., this is an image that depicts a sea turtle in which . . . )
+
+alternative is that we just bring the triple in as is - and add it in editor ---but all needs to match an image 
+
+account is: globi
+password is: seaturtle
+
+
+examples:
+* https://imgsnp.co/vadnk 
+* https://imgsnp.co/kdf6c
+
+
+https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/README.txt
+ - contains all sorts of existing integration or views into the indexed iNaturalist. 
+ 
+ 
+https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/nanopub-sample.ttl - contains a small sample of nanopubs expressed in turt
+
+
+ $ curl "https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/nanopub-sample.ttl" | head -n1
+ 
+@prefix this: <http://purl.org/np/RArZaY1lKHYANwcm_TtRFgjkSgrb0prbHX2AD-IDXYOJg> . @prefix sub: <http://purl.org/np/RArZaY1lKHYANwcm_TtRFgjkSgrb0prbHX2AD-IDXYOJg#> . @prefix np: <http://www.nanopub.org/nschema#> . @prefix dcterms: <http://purl.org/dc/terms/> . @prefix prov: <http://www.w3.org/ns/prov#> . @prefix pav: <http://swan.mindinformatics.org/ontologies/1.2/pav/> . @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . @prefix obo: <http://purl.obolibrary.org/obo/> . @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  sub:Head {   this: np:hasAssertion sub:Assertion;     np:hasProvenance sub:Provenance;     np:hasPublicationInfo sub:Pubinfo;     a np:Nanopublication . }  sub:Assertion {   sub:Interaction obo:RO_0000057 sub:Organism_1, sub:Organism_2;     a obo:GO_0044419;     geo:latitude 47.304924;     geo:longitude 15.309792;     prov:atTime "2015-01-28T12:27:00Z"^^xsd:dateTime .      sub:Organism_1 obo:RO_0002444 sub:Organism_2;     a <https://inaturalist.org/taxa/366211>;     rdfs:label "Stamnaria americana" .      sub:Organism_2 a <https://inaturalist.org/taxa/474979>;     rdfs:label "Equisetum hyemale hyemale" . }  sub:Provenance {   sub:Assertion prov:wasDerivedFrom sub:Study .      sub:Study dcterms:bibliographicCitation "Erwin Gruber. 2015. Stamnaria americana host to parasitic fungus Equisetum hyemale hyemale. iNaturalist.org. Accessed at &lt;https://www.inaturalist.org/observations/1209879&gt; on 09 Aug 2021." . }  sub:Pubinfo {   this: dcterms:license <https://creativecommons.org/licenses/by/4.0/>;     pav:createdBy <https://doi.org/10.5281/zenodo.998263>;     prov:wasDerivedFrom <https://github.com/globalbioticinteractions/inaturalist> .      <https://github.com/globalbioticinteractions/inaturalist> dcterms:bibliographicCitation       "http://iNaturalist.org is a place where you can record what you see in nature, meet other nature lovers, and learn about the natural world." . } 
+
+Is it possible to include the images in species interactions rdf/turtle provided by GloBI ? 
+
+Can we do import from iNaturalist directly ? 
+
+
+
+https://www.inaturalist.org/observations/1209879      
+https://www.inaturalist.org/observations/1209879.json 
+
+
+https://www.inaturalist.org/observations/6549764
+
+https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/nanopub.ttl.gz
+
+$ curl "https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/inaturalist/nanopub.ttl.gz" | gunzip | grep "observations/6549764" | tee seaturtle.ttl
+
+@prefix this: <http://purl.org/np/RArQQAqWjsG9wY_FXD0TONziEajNXQzorZ8qbsPYPJuv4> . @prefix sub: <http://purl.org/np/RArQQAqWjsG9wY_FXD0TONziEajNXQzorZ8qbsPYPJuv4#> . @prefix np: <http://www.nanopub.org/nschema#> . @prefix dcterms: <http://purl.org/dc/terms/> . @prefix prov: <http://www.w3.org/ns/prov#> . @prefix pav: <http://swan.mindinformatics.org/ontologies/1.2/pav/> . @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . @prefix obo: <http://purl.obolibrary.org/obo/> . @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  
+
+sub:Head {   this: np:hasAssertion sub:Assertion;     np:hasProvenance sub:Provenance;     np:hasPublicationInfo sub:Pubinfo;     a np:Nanopublication . }  
+
+sub:Assertion {   sub:Interaction obo:RO_0000057 sub:Organism_1, sub:Organism_2;     a obo:GO_0044419;     geo:latitude 23.7400976244;     geo:longitude -109.5501708984;     prov:atTime "2011-09-05T00:00:00Z"^^xsd:dateTime .      
+
+sub:Organism_1 obo:RO_0002437 sub:Organism_2;    
+
+ a <https://inaturalist.org/taxa/3797>;     rdfs:label "Sula leucogaster" .      sub:Organism_2 a <https://inaturalist.org/taxa/39659>;     rdfs:label "Chelonia mydas" . }  
+
+sub:Provenance {   sub:Assertion prov:wasDerivedFrom sub:Study .      sub:Study dcterms:bibliographicCitation "Ryan Terrill. 2011. Sula leucogaster interaction-&gt;riding on Chelonia mydas. iNaturalist.org. Accessed at &lt;https://www.inaturalist.org/observations/6549764&gt; on 09 Aug 2021." . }  
+
+sub:Pubinfo {   this: dcterms:license <https://creativecommons.org/licenses/by/4.0/>;     pav:createdBy <https://doi.org/10.5281/zenodo.998263>;     prov:wasDerivedFrom <https://github.com/globalbioticinteractions/inaturalist> .      <https://github.com/globalbioticinteractions/inaturalist> dcterms:bibliographicCitation       "http://iNaturalist.org is a place where you can record what you see in nature, meet other nature lovers, and learn about the natural world." . } 
+
+The GloBI translation/interpretation for iNaturalist observation fields can be found via the index configuration:
+
+via https://github.com/globalbioticinteractions/inaturalist
+
+https://github.com/globalbioticinteractions/inaturalist/blob/main/interaction_types.csv
+
+https://github.com/globalbioticinteractions/inaturalist/blob/main/interaction_types.csv#L124
+
+Interaction->Riding On
+
+    https://www.inaturalist.org/observation_fields/5029
+
+    interacts with
+
+    http://purl.obolibrary.org/obo/RO_0002437
+
+
+obo:  http://purl.obolibrary.org/obo/
+
+are there claims that don't have images where it be helpful for us the images. 
+
+https://whereby.com/zeroexp
+
+ https://github.com/globalbioticinteractions/globalbioticinteractions/issues/688#issuecomment-898631037 - please add changes to make the rdf to work and share. 
+  
+http://www.margaretwarren.us/leaf-studies - a gallery driven by a wordpress plugin to show images matching specific criteria. 
+
+next  steps: 
+1. Margaret / James - provide updated RDF snippet
+2. Jorrit - review updated example and try to incorporate changes
