@@ -1,0 +1,19 @@
+digraph pairwise {
+    #rankdir=LR;
+    #labelloc="t";
+    #label="TAMUIC <> GloBI integration";
+    a1 [label="Collection Manager"];
+    b1 [label="TAMUIC SQL Server"];
+    c1 [label="SCAN"];
+    d1 [label="GloBI"];
+    { rank=same;
+    a1 -> b1 [label="uses (1)"];
+    b1 -> c1 [label="export (2)"];
+    };
+    { 
+
+    d1 -> c1 [label="indexes (3)"];
+    d1 -> c1 [label="links to (4)"];
+    };
+}
+
