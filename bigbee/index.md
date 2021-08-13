@@ -4,14 +4,12 @@ title: "big bee"
 status: unlisted
 ---
 
-<a class="logos" href="https://parasitetracker.org/"><img src="/assets/TPTlogo_wide.png" alt="Terrestrial Parasite Tracker"/></a>
-
 This [Big Bee](https://big-bee.net) status page shows the current state of integration between Big Bee affiliated collections and GloBI.
 
 [edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/bigbee/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/_data/bigbee.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
 
 [events](#events)
-/ [collections status](#tpt-collections-status)
+/ [collections status](#collections-status)
 / [integration profiles](#integration-profiles) 
 / [DwC-A guidelines](#dwca-guidelines) 
 / [translation tables](#translation-tables) 
@@ -29,7 +27,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 
 [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/_data/bigbee.tsv)
 
-{% assign cols = site.data.parasitetracker | sort: "institution" -%}
+{% assign cols = site.data.bigbee | sort: "institution" -%}
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%}
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
