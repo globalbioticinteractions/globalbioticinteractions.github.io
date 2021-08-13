@@ -18,7 +18,7 @@ This [Big Bee](https://big-bee.net) status page shows the current state of integ
 
 # Events 
 
-**15 Sept 2021** - Formal Start of NSF Big Bee project.
+**15 Sept 2021** - Formal Start of NSF funded projects related to ```Collaborative Research: Digitization TCN: Extending Anthophila research through image and trait digitization (Big-Bee)``` including but not limited to [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2102006&HistoricalAwards=false) and [NSF DBI 2101891](https://nsf.gov/awardsearch/showAward?AWD_ID=2101891&HistoricalAwards=false)
 
 
 # Collections Status
