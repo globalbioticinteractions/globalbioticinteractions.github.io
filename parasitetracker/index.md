@@ -40,8 +40,6 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **8 June 2021** - Presented at the [5th Annual Digital Data in Biodiversity Research Conference](https://www.idigbio.org/wiki/index.php/5th_Annual_Digital_Data_Conference,_Florida_Museum_of_Natural_History) on 8 June 2021 hosted online by the Florida Museum of Natural History: Seltmann, Katja. (2021, June). 🐝 interacts with 🌼 (Version 0.1). Zenodo. http://doi.org/10.5281/zenodo.4924889 . [abstract](http://doi.org/10.5281/zenodo.4924889) [video](https://vimeo.com/564804784) [slides](https://zenodo.org/record/4924889/files/seltmann-bee-interacts-with-flower-2021-06-08.pdf) [tweet](https://twitter.com/GlobalBiotic/status/1406001107130740738)
 
-**21 June 2021** - Nathan Upham (PI) and DeeAnn Reeder (Co-PI) et al. awarded NIH grant "Intelligently predicting viral spillover risks from bats and other wild mammals" Project number 1R21AI164268-01 See also [https://reporter.nih.gov/project-details/10289637](https://reporter.nih.gov/project-details/10289637) .
-
 **24 June 2021** - Publication of: Poelen, Jorrit H., Seltmann, Katja C., & Campbell, Mariel. (2021). Terrestrial Parasite Tracker indexed biotic interactions and review summary (Version 0.4) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.5029617](https://doi.org/10.5281/zenodo.5029617) .
 
 # TPT Collections Status
