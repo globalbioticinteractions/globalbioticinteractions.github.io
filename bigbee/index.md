@@ -4,9 +4,9 @@ title: "big bee"
 status: unlisted
 ---
 
-This [Big Bee](https://big-bee.net) status page shows the current state of integration between Big Bee affiliated collections and GloBI.
+The [Big Bee](https://big-bee.net) network is a project to create and openly share trait information about global bees. This status page shows the current state of integration between Big Bee affiliated collections and GloBI. 
 
-[edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/bigbee/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/_data/bigbee.tsv) / [ask a question](https://github.com/Big-Bee-Network/issues-observations-and-questions/issues/new) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
+[ask a question about the project](https://github.com/Big-Bee-Network/issues-observations-and-questions/issues/new) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
 
 [events](#events)
 / [collections status](#collections-status)
@@ -18,7 +18,7 @@ This [Big Bee](https://big-bee.net) status page shows the current state of integ
 
 # Events 
 
-**15 Sept 2021** - Formal Start of NSF funded projects related to ```Collaborative Research: Digitization TCN: Extending Anthophila research through image and trait digitization (Big-Bee)``` including [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2102006), [NSF DBI 2101929](https://nsf.gov/awardsearch/showAward?AWD_ID=2101929), [NSF DBI 2101908](https://nsf.gov/awardsearch/showAward?AWD_ID=2101908), [NSF DBI 2101876](https://nsf.gov/awardsearch/showAward?AWD_ID=2101876), [NSF DBI 2101875](https://nsf.gov/awardsearch/showAward?AWD_ID=2101875), [NSF DBI 2101851](https://nsf.gov/awardsearch/showAward?AWD_ID=2101851), [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2101345), [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2101345), [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2101913), [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2101913)
+**15 Sept 2021** - Formal Start of NSF funded projects related to ```Collaborative Research: Digitization TCN: Extending Anthophila research through image and trait digitization (Big-Bee)``` including [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2102006), [NSF DBI 2101929](https://nsf.gov/awardsearch/showAward?AWD_ID=2101929), [NSF DBI 2101908](https://nsf.gov/awardsearch/showAward?AWD_ID=2101908), [NSF DBI 2101876](https://nsf.gov/awardsearch/showAward?AWD_ID=2101876), [NSF DBI 2101875](https://nsf.gov/awardsearch/showAward?AWD_ID=2101875), [NSF DBI 2101851](https://nsf.gov/awardsearch/showAward?AWD_ID=2101851), [NSF DBI 2101345](https://nsf.gov/awardsearch/showAward?AWD_ID=2101345), [NSF DBI 2101913](https://nsf.gov/awardsearch/showAward?AWD_ID=2101913), [NSF DBI 2101891](https://nsf.gov/awardsearch/showAward?AWD_ID=2101891), and , [NSF DBI 2101850](https://nsf.gov/awardsearch/showAward?AWD_ID=2101850)
 
 
 # Collections Status
