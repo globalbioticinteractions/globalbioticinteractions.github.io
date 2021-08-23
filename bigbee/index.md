@@ -6,7 +6,7 @@ status: unlisted
 
 This [Big Bee](https://big-bee.net) status page shows the current state of integration between Big Bee affiliated collections and GloBI.
 
-[edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/bigbee/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/_data/bigbee.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
+[edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/bigbee/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/_data/bigbee.tsv) / [ask a question](https://github.com/Big-Bee-Network/issues-observations-and-questions/issues/new) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
 
 [events](#events)
 / [collections status](#collections-status)
@@ -18,7 +18,7 @@ This [Big Bee](https://big-bee.net) status page shows the current state of integ
 
 # Events 
 
-**15 Sept 2021** - Formal Start of NSF funded projects related to ```Collaborative Research: Digitization TCN: Extending Anthophila research through image and trait digitization (Big-Bee)``` including but not limited to [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2102006&HistoricalAwards=false) and [NSF DBI 2101891](https://nsf.gov/awardsearch/showAward?AWD_ID=2101891&HistoricalAwards=false)
+**15 Sept 2021** - Formal Start of NSF funded projects related to ```Collaborative Research: Digitization TCN: Extending Anthophila research through image and trait digitization (Big-Bee)``` including [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2102006), [NSF DBI 2101929](https://nsf.gov/awardsearch/showAward?AWD_ID=2101929), [NSF DBI 2101908](https://nsf.gov/awardsearch/showAward?AWD_ID=2101908), [NSF DBI 2101876](https://nsf.gov/awardsearch/showAward?AWD_ID=2101876), [NSF DBI 2101875](https://nsf.gov/awardsearch/showAward?AWD_ID=2101875), [NSF DBI 2101851](https://nsf.gov/awardsearch/showAward?AWD_ID=2101851), [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2101345), [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2101345), [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2101913), [NSF DBI 2102006](https://nsf.gov/awardsearch/showAward?AWD_ID=2101913)
 
 
 # Collections Status
@@ -63,7 +63,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {% endfor %}
 
 # Integration Profiles
-Integration profiles are descriptions on how data flows from one system to the next. Because the Parasite Tracker community is using a variety of tools (e.g., Arctos, Symbiota, Specify, Excel, MSAccess) to manage and share collection data, there are many integration profiles to exchange collection data. The integration profiles below are geared towards the exchange and linking of biotic associations data (e.g., species interactions, or host-parasite associations) with [GloBI](https://globalbioticinteractions.org). 
+Integration profiles are descriptions on how data flows from one system to the next. Because the Big Bee community is using a variety of tools (e.g., Arctos, Symbiota, Specify, Excel, MSAccess) to manage and share collection data, there are many integration profiles to exchange collection data. The integration profiles below are geared towards the exchange and linking of biotic associations data (e.g., species interactions, or host-parasite associations) with [GloBI](https://globalbioticinteractions.org). 
 
 ## Arctos
 Arctos managed collections are indexed by GloBI. This section explains how.
@@ -77,7 +77,6 @@ Arctos managed collections are indexed by GloBI. This section explains how.
 example collection | [MSB-PARA](#MSB-PARA)
 
 ## Symbiota
-## SymbSCAN
 Various Symbiota-based collections are indexed by GloBI. This section explains how.
 
 
@@ -126,15 +125,6 @@ actors | FMNH Collection Manager, EMu, IPT, GloBI
 integration method | A collection manager uses EMu to establish associations or relationships between Catalogue (occurrence) records. The collection manager periodically exports datasets from EMu, and the IT Department publishes those datasets as resources on the FMNH IPT - fmipt.fieldmuseum.org. Datasets ("IPT resources") that include interactions among occurrences will include a Darwin Core "Resource Relationship" extension. The fmipt site publishes a list of available IPT resources in the form of a RSS feed (https://fmipt.fieldmuseum.org/ipt/rss.do), similarly to VertNet. Periodically, GloBI could find and download FMNH-related data archives in the fmipt. Then, GloBI could index the resourceID fields of records in these FMNH data archives (IPT resources). The relationshipOfResource field contains the relationship type (e.g., “stomach contents of”) and the relatedResourceID field contains a pointer to the occurrenceID of the linked record.
 diagram | A workflow using a public EMu website for GloBI to link back into: ![emu-integration.svg](./assets/emu-integration.png) An alternative workflow using a Symbiota Portal for public linking: ![emu-mpm-integration.svg](./assets/emu-mpm-integration.png)
 example collection | https://fmipt.fieldmuseum.org/ipt/manage/resource?r=fmnh-rr-test ( https://github.com/jhpoelen/eol-globi-data/files/3586074/dwca-fmnh-rr-test-v1.1.zip ) Post-FMNH/EMu-data-standardization, more resources on fmipt will include a “Resource Relationship” DwC extension
-
-## TAMUIC
-
-TAMUIC | GloBI Integration Profile
- --- | ---
-authors | John Oswald
-actors | Collection Manager, SQL Server, SCAN, GloBI
-integration method | A collection manager uses SQL Server to manage collection record relations. The collection manager episodically exports datasets from SQL Server to SCAN as a Darwin Core Archive. Periodically, GloBI indexes TAMUIC related datasets as part of indexing all of SCAN. 
-diagram | ![tamuic-integration.png](./assets/tamuic-integration.svg) 
 
 ## TaxonWorks
 
