@@ -1,6 +1,6 @@
 institution_code	institution	collection_code	collection	contact	email	platform	platform_detail	globi_id	review_id
 CAS	California Academy of Sciences 	ENT	Entomology	Christopher Grinter		Symbiota Monarch			
-FSCA	Florida State Collection of Arthropods	n/a	Entomology	Elijah J. Talamas		Symbiota SCAN			
+FSCA	Florida State Collection of Arthropods		Entomology	Elijah J. Talamas		Symbiota SCAN			
 LACM	Natural History Museum of Los Angeles County	LACMEC	Entomology	Brian V. Brown		KEmu			
 SDNHM	San Diego Natural History Museum	SDMC	Entomology Department	Pamela Horsley & Michael Wall		Specify	Published through Symbiota SCAN		
 UCB	University of California Berkeley	EMEC	Essig Museum of Entomology	Peter Oboyski & Neil D. Tsutsui		in-house MySQL			
