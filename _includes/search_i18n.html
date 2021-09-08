@@ -232,7 +232,7 @@ var searchForInteractions = function (offset) {
                     if (taxonInfo.infoURL) {
                         var link = '';
                         var image = '';
-                        if (taxonInfo.thumbnailURL) {
+                        if (taxonInfo.thumbnailURL && taxonInfo.thumbnailURL.startsWith("http")) {
                             image = '<a href="' + taxonInfo.infoURL + '"><img src="' + taxonInfo.thumbnailURL + '"/></a>';
                         }
                         label = link + image + label;
