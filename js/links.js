@@ -74,7 +74,7 @@ function accordingToDataset(study) {
 function appendShowReferenceElem(parentElem, study, baseUrl) {
     if (study.url) {
       var elem = document.createElement('a');
-      elem.setAttribute('href', (baseUrl || '/') + '?interactionType=interactsWith&accordingTo=' + accordingTo(study));
+      elem.setAttribute('href', (baseUrl || '/') + '?interactionType=ecologicallyRelatedTo&accordingTo=' + accordingTo(study));
       elem.setAttribute('title', showRefTitle(study));
       elem.setAttribute('target', '_blank');
       elem.textContent = '🔍';
@@ -84,7 +84,7 @@ function appendShowReferenceElem(parentElem, study, baseUrl) {
 
 function appendShowDatasetElem(parentElem, study, baseUrl) {
     var elem = document.createElement('a');
-    elem.setAttribute('href', (baseUrl || '/') + '?interactionType=interactsWith&accordingTo=' + accordingToDataset(study));
+    elem.setAttribute('href', (baseUrl || '/') + '?interactionType=ecologicallyRelatedTo&accordingTo=' + accordingToDataset(study));
     elem.setAttribute('title', showDatasetCitation(study));
     elem.setAttribute('target', '_blank');
     elem.textContent = '🔍';
