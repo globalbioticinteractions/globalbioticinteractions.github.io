@@ -185,6 +185,14 @@ t:
         en: "interacts with"
         ja: "相互作用する"
         es: "interactua con"
+    adjacentTo:
+        en: "adjacent to"
+        ja: "adjacent to"
+        es: "adjacent to"
+    adjacent-to:
+        en: "adjacent to"
+        ja: "adjacent to"
+        es: "adjacent to"
     relate-to:
         en: "relate to"
         ja: "と関連する"
