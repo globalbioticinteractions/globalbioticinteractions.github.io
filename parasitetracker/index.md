@@ -45,7 +45,7 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **20 Sept 2021** - Poster publication of: Sullivan, Kathryn, Poelen, Jorrit H., Seltmann, Katja C., & Zaspel, Jennifer M. (2021). Making Parasite-Host Associations Visible using Global Biotic Interactions (Version 1). Zenodo. [https://doi.org/10.5281/zenodo.5518108](https://doi.org/10.5281/zenodo.5518108) [abstract](https://zenodo.org/record/5518108/files/Sullivan_etal_GloBI_TPT_Abstract_20210922.pdf) [poster](https://zenodo.org/record/5518108/files/Sullivan_etal_GloBI_TPT_Poster_2021092.pdf) [audio](https://zenodo.org/record/5518108/files/Sullivan_etal_GloBI_TPT_Audio_20210922.mp3) [audio transcript](https://zenodo.org/record/5518108/files/Sullivan_etal_GloBI_TPT_Audio_Transcript_20210922.pdf) [tweet](https://twitter.com/GlobalBiotic/status/1440085932707876866).
 
-
+**4 Oct 2021** - Tweet: ```"G. oregonensis's cousin, the Mexican Flying Squirrel (Glaucomys volans), host squirrel fleas (Orchopeas fulleri) according to https://collections-zoology.fieldmuseum.org/catalogue/4355428 by Robin Delapena of @FieldMuseum through @NSF https://parasitetracker.org . @KayceCBell are there *gliding* squirrel fleas too?"``` [tweet](https://twitter.com/GlobalBiotic/status/1445088137357660164). 
 
 
 # TPT Collections Status
