@@ -38,6 +38,7 @@ These integration are very much a work in progress and will hopefully lead to an
 **11 Aug 2020** - Mariya submitted abstract ["Semantic Publishing Enables Text Mining of Biotic Interactions"](/pensoft/td
 wg2020-semantic-publishing.pdf) to [virtual TDWG 2020](https://www.tdwg.org/conferences/2020/) annual conference Oct 19-23 2020.
 
+**12 Oct 2021** - Pensoft - Naturalis - GloBI meeting with Mariya Dimitrova (Pensoft), Lyubomir Penev (Pensoft), Teodor Georgiev (Pensoft), Georgi Zhelezov (Pensoft), Niki Kyriakopoulou (Naturalis), Jorrit Poelen (GloBI) discussing a possible collaboration to improve ways to extract species interaction data from conserved/published materials like tables, specimen records. See [meeting notes](https://docs.google.com/document/d/1vgsX3k0Gy5Sigalv1fXCFHEwSgJCf2begeaITrsxeQo) for more details.
 
 
 
