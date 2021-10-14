@@ -1,14 +1,14 @@
 institution_code	institution	collection_code	collection	contact	email	platform	platform_detail	globi_id	review_id
-CAS	California Academy of Sciences 	ENT	Entomology	Christopher Grinter		Symbiota Monarch			
-FSCA	Florida State Collection of Arthropods		Entomology	Elijah J. Talamas		Symbiota SCAN			
-LACM	Natural History Museum of Los Angeles County	LACMEC	Entomology	Brian V. Brown		KEmu			
-SDNHM	San Diego Natural History Museum	SDMC	Entomology Department	Pamela Horsley & Michael Wall		Specify	Published through Symbiota SCAN		
-UCB	University of California Berkeley	EMEC	Essig Museum of Entomology	Peter Oboyski & Neil D. Tsutsui		in-house MySQL			
+CAS	California Academy of Sciences 	ENT	Entomology	Christopher Grinter		Symbiota Monarch		globi:REPLACE/ME	REPLACE/ME
+FSCA	Florida State Collection of Arthropods		Entomology	Elijah J. Talamas		Symbiota SCAN		globi:REPLACE/ME	REPLACE/ME
+LACM	Natural History Museum of Los Angeles County	LACMEC	Entomology	Brian V. Brown		KEmu		globi:REPLACE/ME	REPLACE/ME
+SDNHM	San Diego Natural History Museum	SDMC	Entomology Department	Pamela Horsley & Michael Wall		Specify	Published through Symbiota SCAN	globi:REPLACE/ME	REPLACE/ME
+UCB	University of California Berkeley	EMEC	Essig Museum of Entomology	Peter Oboyski & Neil D. Tsutsui		in-house MySQL		globi:REPLACE/ME	REPLACE/ME
 UCSB	University of California Santa Barbara	IZC	Invertebrate Zoology Collection	Katja C. Seltmann		Symbiota Light		globi:globalbioticinteractions/ucsb-izc	globalbioticinteractions/ucsb-izc
-MCZ	Museum of Comparative Zoology, Harvard University	ENT	Entomology	Naomi E. Pierce, Crystal Maier & Paul Morris		MCZbase-Arctos			
-KU	University of Kansas Natural History Museum	SEMC	Entomology Division	Michael S. Engel & Victor H. Gonzalez		Specify			
-UMMZ	University of Michigan Museum of Zoology	UMMZI	Division of Insects			Specify			
-UCM	University of Colorado Museum of Natural History	UCMC	Entomology Collection	Adrian Carper		Specify			
-USGS	USGS Native Bee Inventory and Monitoring Lab	PWRC	Bees	Sam Droege		Custom			
-ASU	Arizona State University	ASUHIC	Hasbrouck Insect Collection	Sangmi Lee		Symbiota Light			
-UNH	University of New Hampshire	UNHC	Donald S. Chandler Entomological Collection	Istvan Miko					
+MCZ	Museum of Comparative Zoology, Harvard University	ENT	Entomology	Naomi E. Pierce, Crystal Maier & Paul Morris		MCZbase-Arctos		globi:REPLACE/ME	REPLACE/ME
+KU	University of Kansas Natural History Museum	SEMC	Entomology Division	Michael S. Engel & Victor H. Gonzalez		Specify		globi:REPLACE/ME	REPLACE/ME
+UMMZ	University of Michigan Museum of Zoology	UMMZI	Division of Insects			Specify		globi:REPLACE/ME	REPLACE/ME
+UCM	University of Colorado Museum of Natural History	UCMC	Entomology Collection	Adrian Carper		Specify		globi:REPLACE/ME	REPLACE/ME
+USGS	USGS Native Bee Inventory and Monitoring Lab	PWRC	Bees	Sam Droege		Custom		globi:REPLACE/ME	REPLACE/ME
+ASU	Arizona State University	ASUHIC	Hasbrouck Insect Collection	Sangmi Lee		Symbiota Light		globi:REPLACE/ME	REPLACE/ME
+UNH	University of New Hampshire	UNHC	Donald S. Chandler Entomological Collection	Istvan Miko				globi:REPLACE/ME	REPLACE/ME
