@@ -24,6 +24,8 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **18 Oct 2021** - Big Bee poster presented by Katja Seltmann at [TDWG 2021](https://www.tdwg.org/conferences/2021/): Seltmann, K., Allen, J., Brown, B. V, Carper, A., Engel, M. S, Franz, N., et al. (2021). Announcing Big-Bee: An initiative to promote understanding of bees through image and trait digitization. Biodiversity Information Science and Standards, 5(e74037). [doi:10.3897/biss.5.74037](https://doi.org/10.3897/biss.5.74037) Retrieved from [https://escholarship.org/uc/item/0937b5gp](https://escholarship.org/uc/item/0937b5gp)
 
+** 28 Oct 2021 ** - Tara Duggan. (2021). To help fight loss of bees, California Academy of Sciences to share 180,000-strong collection online. <em>San Francisco Chronicle</em>. Retrieved from [https://www.sfchronicle.com/climate/article/To-help-fight-loss-of-bees-California-Academy-of-16570034.php](https://www.sfchronicle.com/climate/article/To-help-fight-loss-of-bees-California-Academy-of-16570034.php) on 2 Nov 2021. [tweet](https://twitter.com/GlobalBiotic/status/1453809039599562761). 
+
 # Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
