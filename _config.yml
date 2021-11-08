@@ -405,3 +405,11 @@ t:
         en: "habitat of"
         ja: "habitat of"
         es: "habitat of"
+    hasEpiphite:
+        en: "has epiphite"
+        ja: "has epiphite"
+        es: "has epiphite"
+    epiphiteOf:
+        en: "epiphite of"
+        ja: "epiphite of"
+        es: "epiphite of"
