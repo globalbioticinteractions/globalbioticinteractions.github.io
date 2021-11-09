@@ -22,9 +22,12 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **8 Oct 2021** - Publication of Image Corpus: Cheadle Center for Biodiversity and Ecological Restoration, University of California Santa Barbara. (2021). UC Santa Barbara Invertebrate Zoology Collection (UCSB-IZC) Data Archive and Biodiversity Dataset Graph (0.1) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.5557670](https://doi.org/10.5281/zenodo.5557670) [https://archive.org/details/preston-ucsb-izc](https://archive.org/details/preston-ucsb-izc) hash://sha256/d5eb492d3e0304afadcc85f968de1e23042479ad670a5819cee00f2c2c277f36
 
+
 **18 Oct 2021** - Big Bee poster presented by Katja Seltmann at [TDWG 2021](https://www.tdwg.org/conferences/2021/): Seltmann, K., Allen, J., Brown, B. V, Carper, A., Engel, M. S, Franz, N., et al. (2021). Announcing Big-Bee: An initiative to promote understanding of bees through image and trait digitization. Biodiversity Information Science and Standards, 5(e74037). [doi:10.3897/biss.5.74037](https://doi.org/10.3897/biss.5.74037) Retrieved from [https://escholarship.org/uc/item/0937b5gp](https://escholarship.org/uc/item/0937b5gp)
 
 **28 Oct 2021** - Tara Duggan. (2021). To help fight loss of bees, California Academy of Sciences to share 180,000-strong collection online. <em>San Francisco Chronicle</em>. Retrieved from [https://www.sfchronicle.com/climate/article/To-help-fight-loss-of-bees-California-Academy-of-16570034.php](https://www.sfchronicle.com/climate/article/To-help-fight-loss-of-bees-California-Academy-of-16570034.php) on 2 Nov 2021. [tweet](https://twitter.com/GlobalBiotic/status/1453809039599562761). 
+
+**4 Nov 2021** - Publication of Image Corpus: Cheadle Center for Biodiversity and Ecological Restoration, University of California Santa Barbara. (2021). UC Santa Barbara Invertebrate Zoology Collection (UCSB-IZC) Data Archive and Biodiversity Dataset Graph (0.2) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.5660088](https://doi.org/10.5281/zenodo.5660088) hash://sha256/80c0f5fc598be1446d23c95141e87880c9e53773cb2e0b5b54cb57a8ea00b20c
 
 # Collections Status
 
