@@ -47,6 +47,7 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **4 Oct 2021** - Tweet: ```"G. oregonensis's cousin, the Mexican Flying Squirrel (Glaucomys volans), host squirrel fleas (Orchopeas fulleri) according to https://collections-zoology.fieldmuseum.org/catalogue/4355428 by Robin Delapena of @FieldMuseum through @NSF https://parasitetracker.org . @KayceCBell are there *gliding* squirrel fleas too?"``` [tweet](https://twitter.com/GlobalBiotic/status/1445088137357660164). 
 
+**15 Oct 2021** - Publication of: Poelen, Jorrit H., Seltmann, Katja C., & Campbell, Mariel. (2021). Terrestrial Parasite Tracker indexed biotic interactions and review summary (Version 0.5) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.5572874](https://doi.org/10.5281/zenodo.5572874) .
 
 # TPT Collections Status
 
