@@ -29,6 +29,8 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **4 Nov 2021** - Publication of Image Corpus: Cheadle Center for Biodiversity and Ecological Restoration, University of California Santa Barbara. (2021). UC Santa Barbara Invertebrate Zoology Collection (UCSB-IZC) Data Archive and Biodiversity Dataset Graph (0.2) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.5660088](https://doi.org/10.5281/zenodo.5660088) hash://sha256/80c0f5fc598be1446d23c95141e87880c9e53773cb2e0b5b54cb57a8ea00b20c
 
+**29 Nov 2021** - Publication of: Seltmann, Katja, & Poelen, Jorrit. (2021). Tab and comma delimited versions of Discover Life bee species guide and world checklist (Hymenoptera: Apoidea: Anthophila) (v55.1) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.5738043](https://doi.org/10.5281/zenodo.5738043) . 
+
 # Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
