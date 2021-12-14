@@ -245,6 +245,14 @@ t:
         en: "has parasite"
         ja: "寄生虫を持っている"
         es: "es parasitado por"
+    hasHyperparasite:
+        en: "has hyperparasite"
+        ja: "寄生虫を持っている"
+        es: "es parasitado por"
+    hyperparasiteOf:
+        en: "hyperparasite of"
+        ja: "の寄生虫"
+        es: "es parásito de"
     endoparasiteOf:
         en: "endoparasite of"
         ja: "endoparasite of"
