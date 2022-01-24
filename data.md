@@ -15,12 +15,13 @@ For research or other data intensive project, please use GloBI's stable versione
 
 If you feel adventurous and would like to have the most recent data, you can use provided instable snapshots.  
 
- {% assign products = site.data.products | sort: "id" -%}
+Data table below as [tsv](data.tsv).
 
-[tsv](https://raw.githubusercontent.com/globalbioticinteractions/globalbioticinteractions.github.io/main/_data/data.tsv)
+
+ {% assign products = site.data.data | sort: "id" -%}
  data | description
  --- | ---
-{% for product in data -%}
+{% for product in products -%}
 [{{ product.name }}]({{ product.url_stable }}) <br/> [stable]({{ product.url_stable }}) / [snapshot]({{ product.url_snapshot }}) | {{ product.description }}
 {% endfor -%} 
  [sqlite](https://sqlite.org), the most used database engine in the world. | create a sqlite3 database using:<br/> ```cat interactions.csv.gz | gunzip | sqlite3 -csv globi.db '.import /dev/stdin interactions'``` . <br/>If you'd like to reduce your database size, you can drop columns before importing them using powertools like [```cut```](https://en.wikipedia.org/wiki/Cut_(Unix)) or [```mlr/miller```](https://github.com/johnkerl/miller). See also [importing csv files](https://sqlite.org/cli.html#importing_csv_files).

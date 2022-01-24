@@ -1,0 +1,9 @@
+---
+permalink: data.tsv
+---
+{%- assign products = site.data.data | sort: "id" -%}
+data	url_stable	url_snapshot	description
+{% for product in products -%}
+{{ product.name }}	{{ product.url_stable }}	{{ product.url_snapshot }}	{{ product.description }}
+{% endfor -%} 
+
