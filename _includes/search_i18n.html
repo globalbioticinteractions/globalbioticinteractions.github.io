@@ -69,7 +69,7 @@ function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctI
 
 function keyForTaxon(interaction, name) {
     var key = interaction[name + '_taxon_external_id'];
-    if (key === 'no:match') {
+    if (key === 'no:match' || key.indexOf(":") === -1) {
         key = interaction[name + '_taxon_name'];
     }
     return key;
