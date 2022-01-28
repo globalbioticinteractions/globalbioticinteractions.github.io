@@ -31,6 +31,8 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **29 Nov 2021** - Publication of: Seltmann, Katja, & Poelen, Jorrit. (2021). Tab and comma delimited versions of Discover Life bee species guide and world checklist (Hymenoptera: Apoidea: Anthophila) (v55.1) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.5738043](https://doi.org/10.5281/zenodo.5738043) . 
 
+**28 Jan 2022** - Publication of: Seltmann, Katja, & Poelen, Jorrit. (2021). Tab and comma delimited versions of Discover Life bee species guide and world checklist (Hymenoptera: Apoidea: Anthophila) (v55.1) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.5915003](https://doi.org/10.5281/zenodo.5915003) .
+
 # Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
