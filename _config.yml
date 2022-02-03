@@ -229,6 +229,14 @@ t:
         en: "preyed upon by"
         ja: "よって食われる"
         es: "es presa de"
+    providesNutrientsFor:
+        en: "provides nutrients for"
+        ja: "provides nutrients for"
+        es: "provides nutrients for"
+    acquiresNutrientsFrom:
+        en: "acquires nutrients from"
+        ja: "acquires nutrients from"
+        es: "acquires nutrients from"
     kills:
         en: "kills"
         ja: "を殺す"
