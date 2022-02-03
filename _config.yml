@@ -209,6 +209,14 @@ t:
         en: "eaten by"
         ja: "食われる（被食）"
         es: "es comida de"
+    epiphyteOf:
+        en: "epiphyte of"
+        ja: "epiphyte of"
+        es: "epiphyte of"
+    hasEpiphyte:
+        en: "has epiphyte"
+        ja: "has epiphyte"
+        es: "has epiphyte"
     get-eaten-by:
         en: "get eaten by"
         ja: "食われる（被食）"
