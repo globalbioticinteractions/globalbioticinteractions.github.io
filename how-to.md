@@ -45,7 +45,7 @@ Here are some multiple collection precompiled datasets you may find useful:
 
 ### Terrestrial Parasite Tracker (TPT) data <span id="TPT"/>
 [Terretrial Parasite Tracker](https://parasitetracker.org) ([https://parasitetracker.org](https://parasitetracker.org)) is a NSF-funded project that aims to digitize natural history collection records related to parasites and their vertebrate hosts. 
-- [List of all data files available](https://zenodo.org/record/5572874/files/README?download=1)
+- [List of all data files available](https://zenodo.org/record/5572874)
 - [.tsv file of some interactions from TPT data](https://zenodo.org/record/5572874/files/indexed_interactions_simple.tsv.gz?download=1)
 - [.tsv file of *ALL* interactions from TPT](https://zenodo.org/record/5572874/files/indexed_interactions_full.tsv.gz?download=1)\
       *Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...*
