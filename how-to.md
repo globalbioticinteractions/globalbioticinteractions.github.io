@@ -5,10 +5,11 @@ permalink: how-to
 ---
 
 # A 'How-To' Guide for Extracting GloBI Data :) 
----
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
 ## :exclamation: :warning: under construction :warning: :exclamation:
+
+---
 
 ## Contents:
 
@@ -16,12 +17,15 @@ GloBI has a ton of useful data in it and can be used in many different ways. How
 * [Pre-compiled Datasets](#datasets)
     * [TPT data](#TPT)
     * [SCAN data](#SCAN)
+    * [Big-Bee data](#bigbee)
 * [General Searches](#searches)
 * [Using R](#R)
 * [GloBI Hacks](#hacks)
 
-## Introduction to using GloBI <a name="intro"></a>
 ---
+
+## Introduction to using GloBI <a name="intro"></a>
+
 Did you know there is a video tutorial on how to use GloBI?\
 [A Practical Exploration of Biotic Interaction Data Management and Information Retrieval through TPT and GloBI](https://vimeo.com/546669878) (video)
 
@@ -32,17 +36,16 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 4. [Data Sources: Interaction Data Record Review](https://www.globalbioticinteractions.org/interaction-data-workshop/07-reviewing-interaction-records/)
 5. [Data Sources: Taxonomic Name Review](https://www.globalbioticinteractions.org/interaction-data-workshop/06-reviewing-taxonomic-names/index.html)
 
-
-## Pre-compiled Datasets <a name="datasets"></a>
 ---
+## Pre-compiled Datasets <a name="datasets"></a>
+
 Did you know, GloBI has a number of datasets and files pre-compiled and ready to download?! 
 \Here are some precompiled datasets you may find useful:
 
 ### TPT data <a name="TPT"></a>
-
 - [List of all data files available](https://zenodo.org/record/5572874/files/README?download=1)
 - [.tsv file of some interactions from TPT data](https://zenodo.org/record/5572874/files/indexed_interactions_simple.tsv.gz?download=1)
-- [.tsv file of *ALL* interactions from TPT](https://zenodo.org/record/5572874/files/indexed_interactions_full.tsv.gz?download=1) Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...
+- [.tsv file of *ALL* interactions from TPT](https://zenodo.org/record/5572874/files/indexed_interactions_full.tsv.gz?download=1) Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file... 
 - [.tsv file of interactions for each collection in TPT](https://zenodo.org/record/5572874/files/indexed_interactions_by_collection.tsv?download=1)
 - [List of collections in the TPT group on GloBI](https://www.globalbioticinteractions.org/parasitetracker/)
 
@@ -52,16 +55,27 @@ Did you know, GloBI has a number of datasets and files pre-compiled and ready to
 - [.csv file of some interactions from SCAN data](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions-sample.csv)
 - [.csv file of *ALL* interactions from SCAN](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions.csv.gz) *Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...*
 
+### Big-Bee data  <a name="bigbee"></a>
+- [List of collections in the Big-Big group](https://www.globalbioticinteractions.org/bigbee/)
+
+---
 ## General Searches <a name="searches"></a>
----
+
 :exclamation: :warning: under construction :warning: :exclamation:
 
+---
 ## Using R <a name="R"></a>
----
+
+For those that are comfortable using R, install and use **rglobi** for more precise and filtered datasets. 
+- [rglobi CRAN (download) page](https://cran.r-project.org/web/packages/rglobi/index.html)
+- [rglobi GitHub installation instructions](https://github.com/ropensci/rglobi)
+- [Detailed instructions on how to use rglobi](https://github.com/ParasiteTracker/TPT-GloBI-R-Demo/blob/master/globi-to-graph2019.R)
+- [How to use GloBi data in bipartite interaction analyses](https://www.globalbioticinteractions.org/deadwood2021/13-day-two-part-two/)
+
 :exclamation: :warning: under construction :warning: :exclamation:
 
-## GloBI Hacks <a name="hacks"></a>
 ---
+## GloBI Hacks <a name="hacks"></a>
 
 :exclamation: :warning: under construction :warning: :exclamation:
 
