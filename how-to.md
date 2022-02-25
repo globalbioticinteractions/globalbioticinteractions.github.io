@@ -3,16 +3,17 @@ layout: default
 title: how-to
 permalink: how-to
 ---
-# <p align="center"> A 'How-To' Guide for Extracting GloBI Data :) </p>
+
+# A 'How-To' Guide for Extracting GloBI Data :) 
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
-# :exclamation: :warning: under construction :warning: :exclamation:
+## :exclamation: :warning: under construction :warning: :exclamation:
 
 ## Contents:
 - [Introduction to using GloBI](https://www.globalbioticinteractions.org/how-to/#intro) 
 - [Pre-compiled Datasets](https://www.globalbioticinteractions.org/how-to/#datasets)
-  - [TPT data](https://www.globalbioticinteractions.org/how-to/#TPT)
-  - [SCAN data](https://www.globalbioticinteractions.org/how-to/#SCAN)
+  + [TPT data](https://www.globalbioticinteractions.org/how-to/#TPT)
+  + [SCAN data](https://www.globalbioticinteractions.org/how-to/#SCAN)
 - [General Searches](https://www.globalbioticinteractions.org/how-to/#searches)
 - [Using R](https://www.globalbioticinteractions.org/how-to/#R)
 - [GloBI Hacks](https://www.globalbioticinteractions.org/how-to/#hacks)
