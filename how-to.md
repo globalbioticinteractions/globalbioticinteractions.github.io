@@ -40,7 +40,8 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 ## Pre-compiled Datasets <a name="datasets"></a>
 
 Did you know, GloBI has a number of datasets and files pre-compiled and ready to download?! 
-\Here are some precompiled datasets you may find useful:
+
+Here are some precompiled datasets you may find useful:
 
 ### TPT data <a name="TPT"></a>
 - [List of all data files available](https://zenodo.org/record/5572874/files/README?download=1)
