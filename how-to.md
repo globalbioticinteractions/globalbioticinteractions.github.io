@@ -4,19 +4,16 @@ title: how-to
 permalink: how-to
 ---
 
-<b><h1 align="center"> A 'How-To' Guide for Extracting GloBI Data 😃 <a name="top"></a> </h1></b>
+# A 'How-To' Guide for Extracting GloBI Data 😃<span id="top"></span>
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
 ## ❗ ⚠️ under construction ⚠️ ❗
 
----
-<br>
-
-## Contents:
+## Contents
 
 * [Introduction to using GloBI](#intro) 
 * [Pre-compiled Datasets](#datasets)
-    * [TPT data](#TPT)
+    * [Terrestrial Parasite Tracker (TPT) data](#TPT)
     * [SCAN data](#SCAN)
     * [Big-Bee data](#bigbee)
 * [General Searches](#searches)
@@ -24,10 +21,7 @@ GloBI has a ton of useful data in it and can be used in many different ways. How
 * [GloBI Hacks](#hacks)
    * [No-download data viewing](#no-download) 
 
----
-<br>
-
-## Introduction to using GloBI <a name="intro"></a>
+## Introduction to using GloBI <span id="intro"></span>
 
 Did you know there is a video tutorial on how to use GloBI?\
 [A Practical Exploration of Biotic Interaction Data Management and Information Retrieval through TPT and GloBI](https://vimeo.com/546669878) (video)
@@ -39,13 +33,9 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 4. [Data Sources: Interaction Data Record Review](https://www.globalbioticinteractions.org/interaction-data-workshop/07-reviewing-interaction-records/)
 5. [Data Sources: Taxonomic Name Review](https://www.globalbioticinteractions.org/interaction-data-workshop/06-reviewing-taxonomic-names/index.html)
 
-<a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
-<!-- for even tinier font: <a href="#top"> <p align="center"> <sub><sup>  Top of Page</p></a></sub></sup> -->
+[Top of Page](#top)
 
----
-<br>
-
-## Pre-compiled Datasets <a name="datasets"></a>
+## Pre-compiled Datasets <span id="datasets"></span>
 
 Did you know, GloBI has a number of datasets and files pre-compiled and ready to download?! 
 
@@ -53,7 +43,8 @@ Just go to the [GloBI Sources page](https://www.globalbioticinteractions.org/sou
 
 Here are some multip collection precompiled datasets you may find useful:
 
-### TPT data <a name="TPT"></a>
+### Terrestrial Parasite Tracker (TPT) data <span id="TPT"/>
+[Terretrial Parasite Tracker](https://parasitetracker.org) ([https://parasitetracker.org](https://parasitetracker.org)) is a NSF-funded project that aims to digitize natural history collection records related to parasites and their vertebrate hosts. 
 - [List of all data files available](https://zenodo.org/record/5572874/files/README?download=1)
 - [.tsv file of some interactions from TPT data](https://zenodo.org/record/5572874/files/indexed_interactions_simple.tsv.gz?download=1)
 - [.tsv file of *ALL* interactions from TPT](https://zenodo.org/record/5572874/files/indexed_interactions_full.tsv.gz?download=1)\
@@ -61,31 +52,27 @@ Here are some multip collection precompiled datasets you may find useful:
 - [.tsv file of interactions for each collection in TPT](https://zenodo.org/record/5572874/files/indexed_interactions_by_collection.tsv?download=1)
 - [List of collections in the TPT group on GloBI](https://www.globalbioticinteractions.org/parasitetracker/)
 
-### SCAN data <a name="SCAN"></a>
-
+### SCAN data <span id="SCAN"/>
+[Symbiota Collections of Arthropods Network (SCAN)](https://scan-bugs.org) ( [https://scan-bugs.org](https://scan-bugs.org) ) is "A Data Portal Built to Visualize, Manipulate, and Export Species Occurrences." 
 - [List of all data files available](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/README.txt)
 - [.csv file of some interactions from SCAN data](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions-sample.csv)
 - [.csv file of *ALL* interactions from SCAN](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions.csv.gz)\
       *Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...*
 
-### Big-Bee data  <a name="bigbee"></a>
+### Big-Bee data  <span id="bigbee"/>
+The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-bee.net/)) aims to "Extend Anthophila research through image and trait digitization." 
 - [List of collections in the Big-Big group](https://www.globalbioticinteractions.org/bigbee/)
 
-<a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
+[Top of Page](#top)
 
----
-<br>
 
-## General Searches <a name="searches"></a>
+## General Searches <span id="searches"></span>
 
-:exclamation: :warning: under construction :warning: :exclamation:
+❗ ⚠️ under construction ⚠️ ❗
 
-<a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
+[Top of Page](#top)
 
----
-<br>
-
-## Using R <a name="R"></a>
+## Using R <span id="R"></span>
 
 For those that are comfortable using R, install and use **rglobi** for more precise and filtered datasets. 
 - [rglobi CRAN (download) page](https://cran.r-project.org/web/packages/rglobi/index.html)
@@ -93,37 +80,42 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 - [Detailed instructions on how to use rglobi](https://github.com/ParasiteTracker/TPT-GloBI-R-Demo/blob/master/globi-to-graph2019.R)
 - [How to use GloBi data in bipartite interaction analyses](https://www.globalbioticinteractions.org/deadwood2021/13-day-two-part-two/)
 
-:exclamation: :warning: under construction :warning: :exclamation:
-<a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
+❗ ⚠️ under construction ⚠️ ❗
+[Top of Page](#top)
 
----
-<br>
+## GloBI Hacks <span id="hacks"/>
 
-## GloBI Hacks <a name="hacks"></a>
-
-### No-download data viewing <a name="no-download"></a>
+### No-download data viewing <span id="no-download"/>
 
 You can view datasets from GloBI (or any other .csv/.tsv files online) without actually downloading them! This is possible by using Google Sheets and removing the 
 ".gz" extention of a file from the [GloBI Sources page](https://www.globalbioticinteractions.org/sources). 
-- Open a new blacnk Google Spreadsheet in one browser tab/window
+- Open a new blank Google Spreadsheet in one browser tab/window
 - In another browser tab/window, pick the dataset you want to view
    - On the [GloBI Sources page](https://www.globalbioticinteractions.org/sources), pick a collection or group
    - On the left of the items listed, click the "review" button with a green checkmark next to it
    - From the list of files that opens on a new page, copy the file name of the file you want to view (excluding the .gz part if it has it)
 - Go back to your blank Google Spreadsheet tab
-- In the first cell type the formula:\
-      **=IMPORTDATA("YOUR FILE NAME")**\
-   Example: \
-      =IMPORTDATA("https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions-sample.tsv")
+- In the first cell type the formula:
+
+```
+IMPORTDATA("YOUR FILE NAME")
+```
+   Example: 
+```
+=IMPORTDATA("https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions-sample.tsv")
+```
 - Don't forget the quotation marks in the formula!
 
-:exclamation: :warning: under construction :warning: :exclamation:
+❗⚠️ under construction ⚠️ ❗
 
-<a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
+[Top of Page](#top)
 
----
 
-This page will have helpful content for navigating GloBI!!\
-Have something helpful to add to this page? Please add it to the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) we are creating to help pull data out of GloBI. 
-Have a problem or something we need to add? Please submit a request on the [issue page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues)!
+Hopefully, this page had some helpful content to help you navigate GloBI!!
+
+**Have something helpful to add to this page?**
+Please add it to the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) we are creating to help pull data out of GloBI. 
+
+**Have a problem or something we need to add?**
+Please submit a request on the [issue page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues)!
 
