@@ -53,7 +53,7 @@ Here are some multiple collection precompiled datasets you may find useful:
 - [List of collections in the TPT group on GloBI](https://www.globalbioticinteractions.org/parasitetracker/)
 
 ### SCAN data <span id="SCAN"/>
-[Symbiota Collections of Arthropods Network (SCAN)](https://scan-bugs.org) ( [https://scan-bugs.org](https://scan-bugs.org) ) is "A Data Portal Built to Visualize, Manipulate, and Export Species Occurrences." 
+[Symbiota Collections of Arthropods Network (SCAN)](https://scan-bugs.org) ([https://scan-bugs.org](https://scan-bugs.org)) is "A Data Portal Built to Visualize, Manipulate, and Export Species Occurrences." 
 - [List of all data files available](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/README.txt)
 - [.csv file of some interactions from SCAN data](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions-sample.csv)
 - [.csv file of *ALL* interactions from SCAN](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions.csv.gz)\
