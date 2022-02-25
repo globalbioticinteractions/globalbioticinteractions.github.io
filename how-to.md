@@ -4,12 +4,13 @@ title: how-to
 permalink: how-to
 ---
 
-<h1 align="center"> A 'How-To' Guide for Extracting GloBI Data 😃 <a name="top"></a> </h1>
+<b><h1 align="center"> A 'How-To' Guide for Extracting GloBI Data 😃 <a name="top"></a> </h1></b>
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
 ## ❗ ⚠️ under construction ⚠️ ❗
 
 ---
+<br>
 
 ## Contents:
 
@@ -24,6 +25,7 @@ GloBI has a ton of useful data in it and can be used in many different ways. How
    * [No-download data viewing](#no-download) 
 
 ---
+<br>
 
 ## Introduction to using GloBI <a name="intro"></a>
 
@@ -41,6 +43,8 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 <!-- for even tinier font: <a href="#top"> <p align="center"> <sub><sup>  Top of Page</p></a></sub></sup> -->
 
 ---
+<br>
+
 ## Pre-compiled Datasets <a name="datasets"></a>
 
 Did you know, GloBI has a number of datasets and files pre-compiled and ready to download?! 
@@ -70,6 +74,8 @@ Here are some multip collection precompiled datasets you may find useful:
 <a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
 
 ---
+<br>
+
 ## General Searches <a name="searches"></a>
 
 :exclamation: :warning: under construction :warning: :exclamation:
@@ -77,6 +83,8 @@ Here are some multip collection precompiled datasets you may find useful:
 <a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
 
 ---
+<br>
+
 ## Using R <a name="R"></a>
 
 For those that are comfortable using R, install and use **rglobi** for more precise and filtered datasets. 
@@ -89,6 +97,8 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 <a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
 
 ---
+<br>
+
 ## GloBI Hacks <a name="hacks"></a>
 
 ### No-download data viewing <a name="no-download"></a>
