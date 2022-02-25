@@ -4,10 +4,10 @@ title: how-to
 permalink: how-to
 ---
 
-# A 'How-To' Guide for Extracting GloBI Data :) 
+# A 'How-To' Guide for Extracting GloBI Data 😃
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
-## :exclamation: :warning: under construction :warning: :exclamation:
+## ❗ ⚠️ under construction ⚠️ :exclamation:
 
 ---
 
@@ -41,12 +41,15 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 
 Did you know, GloBI has a number of datasets and files pre-compiled and ready to download?! 
 
-Here are some precompiled datasets you may find useful:
+Just go to the [GloBI Sources page](https://www.globalbioticinteractions.org/sources), find a collection or group's dataset you are interested in, and click the "review" button on the left with the green checkmark. Then copy the file you want and paste it into your web browser address box. It will automatically start to download the file 😃
+
+Here are some multip collection precompiled datasets you may find useful:
 
 ### TPT data <a name="TPT"></a>
 - [List of all data files available](https://zenodo.org/record/5572874/files/README?download=1)
 - [.tsv file of some interactions from TPT data](https://zenodo.org/record/5572874/files/indexed_interactions_simple.tsv.gz?download=1)
-- [.tsv file of *ALL* interactions from TPT](https://zenodo.org/record/5572874/files/indexed_interactions_full.tsv.gz?download=1) Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file... 
+- [.tsv file of *ALL* interactions from TPT](https://zenodo.org/record/5572874/files/indexed_interactions_full.tsv.gz?download=1)\
+      *Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...*
 - [.tsv file of interactions for each collection in TPT](https://zenodo.org/record/5572874/files/indexed_interactions_by_collection.tsv?download=1)
 - [List of collections in the TPT group on GloBI](https://www.globalbioticinteractions.org/parasitetracker/)
 
@@ -54,7 +57,8 @@ Here are some precompiled datasets you may find useful:
 
 - [List of all data files available](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/README.txt)
 - [.csv file of some interactions from SCAN data](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions-sample.csv)
-- [.csv file of *ALL* interactions from SCAN](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions.csv.gz) *Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...*
+- [.csv file of *ALL* interactions from SCAN](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions.csv.gz)\
+      *Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...*
 
 ### Big-Bee data  <a name="bigbee"></a>
 - [List of collections in the Big-Big group](https://www.globalbioticinteractions.org/bigbee/)
@@ -78,7 +82,24 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 ---
 ## GloBI Hacks <a name="hacks"></a>
 
+### No-download data viewing
+You can view datasets from GloBI (or any other .csv/.tsv files online) without actually downloading them! This is possible by using Google Sheets and removing the 
+".gz" extention of a file from the [GloBI Sources page](https://www.globalbioticinteractions.org/sources). 
+- Open a new blacnk Google Spreadsheet in one browser tab/window
+- In another browser tab/window, pick the dataset you want to view
+   - On the [GloBI Sources page](https://www.globalbioticinteractions.org/sources), pick a collection or group
+   - On the left of the items listed, click the "review" button with a green checkmark next to it
+   - From the list of files that opens on a new page, copy the file name of the file you want to view (excluding the .gz part if it has it)
+- Go back to your blank Google Spreadsheet tab
+- In the first cell type the formula:\
+      **=IMPORTDATA("YOUR FILE NAME")**\
+   Example: \
+      =IMPORTDATA("https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions-sample.tsv")
+- Don't forget the quotation marks in the formula!
+
 :exclamation: :warning: under construction :warning: :exclamation:
+
+---
 
 This page will have helpful content for navigating GloBI!!\
 Have something helpful to add to this page? Please add it to the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) we are creating to help pull data out of GloBI. 
