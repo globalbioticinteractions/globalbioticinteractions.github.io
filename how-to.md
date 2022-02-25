@@ -11,13 +11,14 @@ GloBI has a ton of useful data in it and can be used in many different ways. How
 ## :exclamation: :warning: under construction :warning: :exclamation:
 
 ## Contents:
-- [Introduction to using GloBI](#intro) 
-- [Pre-compiled Datasets](#datasets)
-  + [TPT data](#TPT)
-  + [SCAN data](#SCAN)
-- [General Searches](#searches)
-- [Using R](#R)
-- [GloBI Hacks](#hacks)
+
+* [Introduction to using GloBI](#intro) 
+* [Pre-compiled Datasets](#datasets)
+    * [TPT data](#TPT)
+    * [SCAN data](#SCAN)
+* [General Searches](#searches)
+* [Using R](#R)
+* [GloBI Hacks](#hacks)
 
 ## Introduction to using GloBI <a name="intro"></a>
 ---
@@ -36,16 +37,20 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 ---
 Did you know, GloBI has a number of datasets and files pre-compiled and ready to download?! 
 \Here are some precompiled datasets you may find useful:
+
 ### TPT data <a name="TPT"></a>
+
 - [List of all data files available](https://zenodo.org/record/5572874/files/README?download=1)
 - [.tsv file of some interactions from TPT data](https://zenodo.org/record/5572874/files/indexed_interactions_simple.tsv.gz?download=1)
 - [.tsv file of *ALL* interactions from TPT](https://zenodo.org/record/5572874/files/indexed_interactions_full.tsv.gz?download=1) Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...
 - [.tsv file of interactions for each collection in TPT](https://zenodo.org/record/5572874/files/indexed_interactions_by_collection.tsv?download=1)
+- [List of collections in the TPT group on GloBI](https://www.globalbioticinteractions.org/parasitetracker/)
 
 ### SCAN data <a name="SCAN"></a>
+
 - [List of all data files available](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/README.txt)
 - [.csv file of some interactions from SCAN data](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions-sample.csv)
-- [.csv file of *ALL* interactions from SCAN](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions.csv.gz) Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...
+- [.csv file of *ALL* interactions from SCAN](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions.csv.gz) *Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...*
 
 ## General Searches <a name="searches"></a>
 ---
