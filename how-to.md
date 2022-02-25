@@ -78,7 +78,7 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 - [rglobi CRAN (download) page](https://cran.r-project.org/web/packages/rglobi/index.html)
 - [rglobi GitHub installation instructions](https://github.com/ropensci/rglobi)
 - [Detailed instructions on how to use rglobi](https://github.com/ParasiteTracker/TPT-GloBI-R-Demo/blob/master/globi-to-graph2019.R)
-- [How to use GloBi data in bipartite interaction analyses](https://www.globalbioticinteractions.org/deadwood2021/13-day-two-part-two/)
+- [How to use GloBI data in bipartite interaction analyses](https://www.globalbioticinteractions.org/deadwood2021/13-day-two-part-two/)
 
 ❗ ⚠️ under construction ⚠️ ❗
 [Top of Page](#top)
