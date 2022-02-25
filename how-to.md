@@ -61,7 +61,7 @@ Here are some multiple collection precompiled datasets you may find useful:
 
 ### Big-Bee data  <span id="bigbee"/>
 The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-bee.net/)) aims to "Extend Anthophila research through image and trait digitization." 
-- [List of collections in the Big-Big group](https://www.globalbioticinteractions.org/bigbee/)
+- [List of collections in the Big-Bee group](https://www.globalbioticinteractions.org/bigbee/)
 
 [Top of Page](#top)
 
