@@ -4,7 +4,7 @@ title: how-to
 permalink: how-to
 ---
 
-# A 'How-To' Guide for Extracting GloBI Data 😃
+<h1 align="center"> A 'How-To' Guide for Extracting GloBI Data 😃 <a name="top"></a> </h1>
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
 ## ❗ ⚠️ under construction ⚠️ ❗
@@ -37,6 +37,9 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 4. [Data Sources: Interaction Data Record Review](https://www.globalbioticinteractions.org/interaction-data-workshop/07-reviewing-interaction-records/)
 5. [Data Sources: Taxonomic Name Review](https://www.globalbioticinteractions.org/interaction-data-workshop/06-reviewing-taxonomic-names/index.html)
 
+<a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
+<!-- for even tinier font: <a href="#top"> <p align="center"> <sub><sup>  Top of Page</p></a></sub></sup> -->
+
 ---
 ## Pre-compiled Datasets <a name="datasets"></a>
 
@@ -64,10 +67,14 @@ Here are some multip collection precompiled datasets you may find useful:
 ### Big-Bee data  <a name="bigbee"></a>
 - [List of collections in the Big-Big group](https://www.globalbioticinteractions.org/bigbee/)
 
+<a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
+
 ---
 ## General Searches <a name="searches"></a>
 
 :exclamation: :warning: under construction :warning: :exclamation:
+
+<a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
 
 ---
 ## Using R <a name="R"></a>
@@ -79,6 +86,7 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 - [How to use GloBi data in bipartite interaction analyses](https://www.globalbioticinteractions.org/deadwood2021/13-day-two-part-two/)
 
 :exclamation: :warning: under construction :warning: :exclamation:
+<a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
 
 ---
 ## GloBI Hacks <a name="hacks"></a>
@@ -100,6 +108,8 @@ You can view datasets from GloBI (or any other .csv/.tsv files online) without a
 - Don't forget the quotation marks in the formula!
 
 :exclamation: :warning: under construction :warning: :exclamation:
+
+<a href="#top"> <p align="center"> <sub>  Top of Page </p></a></sub>
 
 ---
 
