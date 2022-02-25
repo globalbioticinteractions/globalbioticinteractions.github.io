@@ -41,7 +41,7 @@ Did you know, GloBI has a number of datasets and files pre-compiled and ready to
 
 Just go to the [GloBI Sources page](https://www.globalbioticinteractions.org/sources), find a collection or group's dataset you are interested in, and click the "review" button on the left with the green checkmark. Then copy the file you want and paste it into your web browser address box. It will automatically start to download the file 😃
 
-Here are some multip collection precompiled datasets you may find useful:
+Here are some multiple collection precompiled datasets you may find useful:
 
 ### Terrestrial Parasite Tracker (TPT) data <span id="TPT"/>
 [Terretrial Parasite Tracker](https://parasitetracker.org) ([https://parasitetracker.org](https://parasitetracker.org)) is a NSF-funded project that aims to digitize natural history collection records related to parasites and their vertebrate hosts. 
