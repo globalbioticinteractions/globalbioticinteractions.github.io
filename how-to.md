@@ -7,7 +7,7 @@ permalink: how-to
 # A 'How-To' Guide for Extracting GloBI Data 😃
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
-## ❗ ⚠️ under construction ⚠️ :exclamation:
+## ❗ ⚠️ under construction ⚠️ ❗
 
 ---
 
@@ -21,6 +21,7 @@ GloBI has a ton of useful data in it and can be used in many different ways. How
 * [General Searches](#searches)
 * [Using R](#R)
 * [GloBI Hacks](#hacks)
+   * [No-download data viewing](#no-download) 
 
 ---
 
@@ -82,7 +83,8 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 ---
 ## GloBI Hacks <a name="hacks"></a>
 
-### No-download data viewing
+### No-download data viewing <a name="no-download"></a>
+
 You can view datasets from GloBI (or any other .csv/.tsv files online) without actually downloading them! This is possible by using Google Sheets and removing the 
 ".gz" extention of a file from the [GloBI Sources page](https://www.globalbioticinteractions.org/sources). 
 - Open a new blacnk Google Spreadsheet in one browser tab/window
