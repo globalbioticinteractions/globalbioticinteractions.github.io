@@ -4,7 +4,7 @@ title: how-to
 permalink: how-to
 ---
 
-# A 'How-To' Guide for Extracting GloBI Data 😃<span id="top"></span>
+# A 'How-To' Guide for Extracting GloBI Data 😃<span id="top"/>
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
 ## ❗ ⚠️ under construction ⚠️ ❗
@@ -21,7 +21,7 @@ GloBI has a ton of useful data in it and can be used in many different ways. How
 * [GloBI Hacks](#hacks)
    * [No-download data viewing](#no-download) 
 
-## Introduction to using GloBI <span id="intro"></span>
+## Introduction to using GloBI <span id="intro"/>
 
 Did you know there is a video tutorial on how to use GloBI?\
 [A Practical Exploration of Biotic Interaction Data Management and Information Retrieval through TPT and GloBI](https://vimeo.com/546669878) (video)
@@ -35,7 +35,7 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 
 [Top of Page](#top)
 
-## Pre-compiled Datasets <span id="datasets"></span>
+## Pre-compiled Datasets <span id="datasets"/>
 
 Did you know, GloBI has a number of datasets and files pre-compiled and ready to download?! 
 
@@ -66,13 +66,13 @@ The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-
 [Top of Page](#top)
 
 
-## General Searches <span id="searches"></span>
+## General Searches <span id="searches"/>
 
 ❗ ⚠️ under construction ⚠️ ❗
 
 [Top of Page](#top)
 
-## Using R <span id="R"></span>
+## Using R <span id="R"/>
 
 For those that are comfortable using R, install and use **rglobi** for more precise and filtered datasets. 
 - [rglobi CRAN (download) page](https://cran.r-project.org/web/packages/rglobi/index.html)
