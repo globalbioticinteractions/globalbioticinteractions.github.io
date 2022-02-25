@@ -9,13 +9,13 @@ GloBI has a ton of useful data in it and can be used in many different ways. How
 # :exclamation: :warning: under construction :warning: :exclamation:
 
 ## Contents:
-- [Introduction to using GloBI](https://www.globalbioticinteractions.org/how-to/intro) 
-- [Pre-compiled Datasets](https://www.globalbioticinteractions.org/how-to/intro)
-  - [TPT data](https://www.globalbioticinteractions.org/how-to/TPT)
-  - [SCAN data](https://www.globalbioticinteractions.org/how-to/SCAN)
-- [General Searches](https://www.globalbioticinteractions.org/how-to/searches)
-- [Using R](https://www.globalbioticinteractions.org/how-to/R)
-- [GloBI Hacks](https://www.globalbioticinteractions.org/how-to/hacks)
+- [Introduction to using GloBI](https://www.globalbioticinteractions.org/how-to/#intro) 
+- [Pre-compiled Datasets](https://www.globalbioticinteractions.org/how-to/#datasets)
+  - [TPT data](https://www.globalbioticinteractions.org/how-to/#TPT)
+  - [SCAN data](https://www.globalbioticinteractions.org/how-to/#SCAN)
+- [General Searches](https://www.globalbioticinteractions.org/how-to/#searches)
+- [Using R](https://www.globalbioticinteractions.org/how-to/#R)
+- [GloBI Hacks](https://www.globalbioticinteractions.org/how-to/#hacks)
 
 ## Introduction to using GloBI <a name="intro"></a>
 Did you know there is a video tutorial on how to use GloBI?\
