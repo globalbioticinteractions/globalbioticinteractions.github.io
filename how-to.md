@@ -75,12 +75,12 @@ The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-
 - Enter an organism name in one or both search boxes
 - Hit search
 
-![](https://i.imgur.com/3nxuq2q.png "")
+![](https://i.imgur.com/3nxuq2q.png)
 
 - You can browse these result in the resulting list, or for a downloadable list, click the “Open results in interaction browser” link
 - This will bring up a map, two different interactive interaction graphs, and a list of interactions on the left.
  
-![](https://i.imgur.com/SxR6atJ.png "")
+![](https://i.imgur.com/SxR6atJ.png)
 
 - To download the list of the interactions, click the “download csv data sample” at the top of the list for a partial list, or for a full dataset click "more data access options" and select the file you want.
    - Copy and paste the file name into your browser address box to download, or use the [hack below](#no-download) to view the dataset without downloading
