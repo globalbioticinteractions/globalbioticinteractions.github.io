@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang }}">
+
+  {% include head-how-to.html %}
+
+  <body>
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+      {% if site.status == 'shutdown' %}
+        {% include shutdown.html %}
+      {% else %}
+        {{ content }}
+      {% endif %}
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

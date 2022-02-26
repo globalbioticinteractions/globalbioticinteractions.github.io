@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default-how-to
 title: how-to
 permalink: how-to
 ---
