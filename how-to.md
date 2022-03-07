@@ -82,7 +82,7 @@ The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-
  
 ![](https://i.imgur.com/SxR6atJ.png)
 
-- To download the list of the interactions, click the “download csv data sample” at the top of the list for a partial list, or for a full dataset click "more data access options" and select the file you want.
+- To download the list of the interactions, click the “download csv data sample” at the top of the list for a partial list, or for a full dataset click "access full dataset" and select the file you want.
    - Copy and paste the file name into your browser address box to download, or use the [hack below](#no-download) to view the dataset without downloading
 
 ### Search from browse page <span id="browse-search"/>

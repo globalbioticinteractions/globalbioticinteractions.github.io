@@ -15,8 +15,11 @@ For research or other data intensive project, please use GloBI's stable versione
 
 If you feel adventurous and would like to have the most recent data, you can use provided instable snapshots.  
 
-Table below is available as tab-separated values table via [data.tsv](data.tsv).
 
+
+## Interaction Data Indexes
+
+Table below is available as tab-separated values table via [data.tsv](data.tsv).
 
  {% assign products = site.data.data | sort: "id" -%}
  data | description
