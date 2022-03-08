@@ -11,7 +11,7 @@ You can contribute to Global Biotic Interactions in many different ways: [use it
 By using [GloBI](./data), you support it's mission: to help make species interaction datasets more accessible. 
 
 ## Join a Discussion
-Ask questions, share ideas and stay informed by joining the [mailing list](https://lists.gbif.org/mailman/listinfo/globi) or opening a [github issue](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new). 
+Ask questions, share ideas and stay informed by reviewing, commenting, or opening, a [github issue](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new). 
 
 ## Share Data
 Various methods exist to share existing interaction data through Global Biotic Interactions:
