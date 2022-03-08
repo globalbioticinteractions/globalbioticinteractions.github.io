@@ -34,7 +34,7 @@ var className = function (someString) {
 };
 
 
-function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctInteractions) {
+function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctInteractions, downloadLink) {
     var textElem = document.createElement('div');
     textElem.setAttribute('class', 'interaction searchInfo');
     if (sourceTaxonLabel === undefined || sourceTaxonLabel.length == 0) {
@@ -57,13 +57,16 @@ function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctI
             message = message + ' {{ site.t.search-suggestion[page.lang] | strip }}'; 
         }
     }
+    
+    var getData = ' Want data? Get <a href="' + downloadLink + '">csv sample</a> or <a href="/data#interaction-data-indexes">all data</a>.';
 
     var linkToBrowser = ' {{ site.t.like-a-different-view[page.lang] }} <a href="browse' + document.location.search.replace(/^\?/, '?') + '" target="_blank">{{ site.t.open-results-in-browser[page.lang] }}</a> ';
 
     var linkToCitations = ', or <a href="/references.html' + document.location.search.replace(/^\?/, '#') + '" target="_blank">{{ site.t.list-the-references[page.lang] }}</a>.';
 
-    var contribute = '<p>' + $('#interactionType :selected').text() + message + '</p><p>{{ site.t.missing-some-results[page.lang] }} <a href="contribute">{{ site.t.share-your-dataset[page.lang] }}</a> {{ site.t.have-suggestions[page.lang] }} <a href="contribute#join-a-discussion" target="_blank">{{ site.t.let-us-know[page.lang] }}</a>';
-    textElem.innerHTML = prefix + contribute + linkToBrowser + linkToCitations + '</p>';
+    var description = '<p>' + $('#interactionType :selected').text() + message + '</p>';
+    var contribute = ' {{ site.t.missing-some-results[page.lang] }} <a href="contribute">{{ site.t.share-your-dataset[page.lang] }}</a> {{ site.t.have-suggestions[page.lang] }} <a href="contribute#join-a-discussion" target="_blank">{{ site.t.let-us-know[page.lang] }}</a>';
+    textElem.innerHTML = prefix + description + '<p>' + getData + contribute + linkToBrowser + linkToCitations + '</p>';
     document.getElementById('info').appendChild(textElem);
 }
 
@@ -86,6 +89,35 @@ var targetTaxonKey = function (interaction) {
 var citationKey = function (interaction) {
     return sourceTaxonKey(interaction) + interaction.interaction_type + targetTaxonKey(interaction);
 };
+
+var csvDownloadLink = function(search) {
+    let fields = ['source_taxon_id', 'source_taxon_name', 'source_taxon_path', 'source_taxon_path_ids'
+                , 'source_specimen_occurrence_id',  'source_specimen_institution_code', 'source_specimen_collection_code', 'source_specimen_catalog_number'
+                , 'source_specimen_life_stage_id', 'source_specimen_life_stage'
+                , 'source_specimen_physiological_state_id', 'source_specimen_physiological_state'
+                , 'source_specimen_body_part_id', 'source_specimen_body_part'
+                , 'source_specimen_sex_id', 'source_specimen_sex'
+                , 'source_specimen_basis_of_record'
+                , 'interaction_type'
+                , 'target_taxon_id', 'target_taxon_name', 'target_taxon_path', 'target_taxon_path_ids'
+                , 'target_specimen_occurrence_id',  'target_specimen_institution_code', 'target_specimen_collection_code', 'target_specimen_catalog_number'
+                , 'target_specimen_life_stage_id',  'target_specimen_life_stage'
+                , 'target_specimen_physiological_state_id', 'target_specimen_physiological_state'
+                , 'target_specimen_body_part_id', 'target_specimen_body_part'
+                , 'target_specimen_sex_id', 'target_specimen_sex'
+                , 'target_specimen_basis_of_record'
+                , 'latitude', 'longitude', 'collection_time_in_unix_epoch'
+                , 'study_citation', 'study_url', 'study_source_citation', 'study_source_archive_uri'];
+
+    var downloadSearch = $.extend(search, { 
+    	resultType: 'csv', 
+    	limit: 4096, 
+    	includeObservations: true, 
+    	fields: fields
+    });
+    return globiData.urlForTaxonInteractionQuery(downloadSearch);
+}
+
 
 var searchForInteractions = function (offset) {
     $('thead, #moreButton').remove();
@@ -205,7 +237,7 @@ var searchForInteractions = function (offset) {
         if (!document.querySelector('.searchInfo')) {
             var sourceTaxon = searchParams.searchHash.sourceTaxon;
             var studyQuery = searchParams.searchHash.accordingTo;
-            addSearchInfo(sourceTaxon, sourceTaxon, studyQuery, nDistinctInteractions);
+            addSearchInfo(sourceTaxon, sourceTaxon, studyQuery, nDistinctInteractions, csvDownloadLink(search));
         }
 
         var loadImagesAndNames = function (distinctExternalIds) {
@@ -289,8 +321,11 @@ var searchForInteractions = function (offset) {
         loadImagesAndNames(distinctExternalIds);
 
     };
-    search.refutes = ['true','false'];
+    
+
+    search.refutes = ['false'];
     globiData.findSpeciesInteractions(search, callback);
+
 };
 
 addInputEvents($, globiData, searchForInteractions);
