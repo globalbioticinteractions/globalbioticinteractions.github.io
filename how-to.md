@@ -4,7 +4,7 @@ title: how-to
 permalink: how-to
 ---
 
-# <p align="center">**A 'How-To' Guide for Extracting GloBI Data** 😃 </p><span id="top"/>
+# **A 'How-To' Guide for Extracting GloBI Data** 😃 <span id="top"/>
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
 
@@ -41,7 +41,9 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 4. [Data Sources: Interaction Data Record Review](https://www.globalbioticinteractions.org/interaction-data-workshop/07-reviewing-interaction-records/)
 5. [Data Sources: Taxonomic Name Review](https://www.globalbioticinteractions.org/interaction-data-workshop/06-reviewing-taxonomic-names/index.html)
 
-#### <p align="center"> <sub> [Top of Page](#top) </sub> </p>
+<br>
+
+#### <sub> [Top of Page](#top) </sub>
 
 ---
 <br>
@@ -55,7 +57,7 @@ Just go to the [GloBI Sources page](https://www.globalbioticinteractions.org/sou
 Here are some multiple collection precompiled datasets you may find useful:
 
 ### **Terrestrial Parasite Tracker (TPT) data** <span id="TPT"/>
-[Terretrial Parasite Tracker](https://parasitetracker.org) ([https://parasitetracker.org](https://parasitetracker.org)) is a NSF-funded project that aims to digitize natural history collection records related to parasites and their vertebrate hosts. 
+[Terrestrial Parasite Tracker](https://parasitetracker.org) is a NSF-funded project that aims to digitize natural history collection records related to parasites and their vertebrate hosts. 
 - [List of all data files available](https://zenodo.org/record/5572874)
 - [.tsv file of some interactions from TPT data](https://zenodo.org/record/5572874/files/indexed_interactions_simple.tsv.gz?download=1)
 - [.tsv file of *ALL* interactions from TPT](https://zenodo.org/record/5572874/files/indexed_interactions_full.tsv.gz?download=1)\
@@ -74,7 +76,9 @@ Here are some multiple collection precompiled datasets you may find useful:
 The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-bee.net/)) aims to "Extend Anthophila research through image and trait digitization." 
 - [List of collections in the Big-Bee group](https://www.globalbioticinteractions.org/bigbee/)
 
-[Top of Page](#top)
+<br>
+
+#### <sub> [Top of Page](#top) </sub>
 
 ---
 <br>
@@ -105,7 +109,9 @@ To search from the [GloBI browse page](https://www.globalbioticinteractions.org/
 - Click "download csv data sample" or	"access full dataset" at the top of the list depending on the dataset you need 
 - If your browser cuts off some of the search boxes strangely like mine does, click the little grey box within a box icon on the top left of the page (next to the qestion mark - it says "maximize/minimize" if you hover your mouse over it for a bit". This will hide the maps and make it easier to see the list and search boxes.
 
-[Top of Page](#top)
+<br>
+
+#### <sub> [Top of Page](#top) </sub>
 
 ---
 <br>
@@ -120,7 +126,9 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 
 ❗ ⚠️ under construction ⚠️ ❗
 
-[Top of Page](#top)
+<br>
+
+#### <sub> [Top of Page](#top) </sub>
 
 ---
 <br>
@@ -175,7 +183,9 @@ If you can provide further, set by step instruction on how to use these scripts,
 
 ❗ ⚠️ under construction ⚠️ ❗
 
-[Top of Page](#top)
+<br>
+
+#### <sub> [Top of Page](#top) </sub>
 
 ---
 <br>
@@ -208,7 +218,9 @@ To match or cross-reference names in GloBI to names in other databases such as I
 
 ❗⚠️ under construction ⚠️ ❗
 
-[Top of Page](#top)
+<br>
+
+#### <sub> [Top of Page](#top) </sub>
 
 ---
 
