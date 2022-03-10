@@ -179,7 +179,7 @@ wc -l
 
 To reduce the size of sqlite3 (or other) database, you can drop columns before importing them using powertools like [cut](https://en.wikipedia.org/wiki/Cut_(Unix)) or [mlr/miller](https://github.com/johnkerl/miller). See the [importing csv files to sqlite page ](https://sqlite.org/cli.html#importing_csv_files).
 
-If you can provide further, set by step instruction on how to use these scripts, please add it to the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) and I will add to this page. I'm not a command line person, so any help adding to this section would be much appreciated!
+If you can provide further step by step instructions on how to use these scripts, please add it to the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) and I will add to this page. I'm not a command line person, so any help adding to this section would be much appreciated!
 
 ❗ ⚠️ under construction ⚠️ ❗
 
