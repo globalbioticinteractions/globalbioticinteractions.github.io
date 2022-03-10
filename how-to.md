@@ -4,12 +4,11 @@ title: how-to
 permalink: how-to
 ---
 
-# A 'How-To' Guide for Extracting GloBI Data 😃<span id="top"/>
+# <p align="center">**A 'How-To' Guide for Extracting GloBI Data** 😃 </p><span id="top"/>
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
-## ❗ ⚠️ under construction ⚠️ ❗ 
 
-## Contents
+## **Contents**
 
 * [Introduction to using GloBI](#intro) 
 * [Pre-compiled Datasets](#datasets)
@@ -25,9 +24,12 @@ GloBI has a ton of useful data in it and can be used in many different ways. How
    * [No-download data viewing](#no-download) 
    * [Name matching with other databases](#nomer)
 
----
+## ❗ ⚠️ Page under construction ⚠️ ❗
 
-## Introduction to using GloBI <span id="intro"/>
+---
+<br>
+
+## **Introduction to using GloBI** <span id="intro"/>
 
 Did you know there is a video tutorial on how to use GloBI?\
 [A Practical Exploration of Biotic Interaction Data Management and Information Retrieval through TPT and GloBI](https://vimeo.com/546669878) (video)
@@ -39,11 +41,12 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 4. [Data Sources: Interaction Data Record Review](https://www.globalbioticinteractions.org/interaction-data-workshop/07-reviewing-interaction-records/)
 5. [Data Sources: Taxonomic Name Review](https://www.globalbioticinteractions.org/interaction-data-workshop/06-reviewing-taxonomic-names/index.html)
 
-[Top of Page](#top)
+#### <p align="center"> <sub> [Top of Page](#top) </sub> </p>
 
 ---
+<br>
 
-## Pre-compiled Datasets <span id="datasets"/>
+## **Pre-compiled Datasets** <span id="datasets"/>
 
 Did you know, GloBI has a number of datasets and files pre-compiled and ready to download?! 
 
@@ -51,7 +54,7 @@ Just go to the [GloBI Sources page](https://www.globalbioticinteractions.org/sou
 
 Here are some multiple collection precompiled datasets you may find useful:
 
-### Terrestrial Parasite Tracker (TPT) data <span id="TPT"/>
+### **Terrestrial Parasite Tracker (TPT) data** <span id="TPT"/>
 [Terretrial Parasite Tracker](https://parasitetracker.org) ([https://parasitetracker.org](https://parasitetracker.org)) is a NSF-funded project that aims to digitize natural history collection records related to parasites and their vertebrate hosts. 
 - [List of all data files available](https://zenodo.org/record/5572874)
 - [.tsv file of some interactions from TPT data](https://zenodo.org/record/5572874/files/indexed_interactions_simple.tsv.gz?download=1)
@@ -60,24 +63,25 @@ Here are some multiple collection precompiled datasets you may find useful:
 - [.tsv file of interactions for each collection in TPT](https://zenodo.org/record/5572874/files/indexed_interactions_by_collection.tsv?download=1)
 - [List of collections in the TPT group on GloBI](https://www.globalbioticinteractions.org/parasitetracker/)
 
-### SCAN data <span id="SCAN"/>
+### **SCAN data** <span id="SCAN"/>
 [Symbiota Collections of Arthropods Network (SCAN)](https://scan-bugs.org) ([https://scan-bugs.org](https://scan-bugs.org)) is "A Data Portal Built to Visualize, Manipulate, and Export Species Occurrences." 
 - [List of all data files available](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/README.txt)
 - [.csv file of some interactions from SCAN data](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions-sample.csv)
 - [.csv file of *ALL* interactions from SCAN](https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/scan/indexed-interactions.csv.gz)\
       *Note: this is LARGE file so it will need to be unzipped/compressed. See below for ways to download un-zipped/compressed file...*
 
-### Big-Bee data  <span id="bigbee"/>
+### **Big-Bee data**  <span id="bigbee"/>
 The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-bee.net/)) aims to "Extend Anthophila research through image and trait digitization." 
 - [List of collections in the Big-Bee group](https://www.globalbioticinteractions.org/bigbee/)
 
 [Top of Page](#top)
 
 ---
+<br>
 
-## General Searches <span id="searches"/>
+## **General Searches** <span id="searches"/>
 
-### Search from home page <span id="home-search"/>
+### **Search from home page** <span id="home-search"/>
 - Navigate to [GloBI's home page](https://www.globalbioticinteractions.org/)
 - Enter an organism name in one or both search boxes
 - Hit search
@@ -92,7 +96,7 @@ The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-
 - To download the list of the interactions, click the “csv sample" link at the top of the list for a partial list, or for a full dataset click "all data” " and select the file you want.
    - Copy and paste the file name into your browser address box to download, or use the [hack below](#no-download) to view the dataset without downloading
 
-### Search from browse page <span id="browse-search"/>
+### **Search from browse page** <span id="browse-search"/>
 
 To search from the [GloBI browse page](https://www.globalbioticinteractions.org/browse/):
 - Clear the name "Chelonia mydas" in green by clicking the little "x" next to it (unless of course this is the organism you are interested in!)
@@ -104,8 +108,9 @@ To search from the [GloBI browse page](https://www.globalbioticinteractions.org/
 [Top of Page](#top)
 
 ---
+<br>
 
-## Using R <span id="R"/>
+## **Using R** <span id="R"/>
 
 For those that are comfortable using R, install and use **rglobi** for more precise and filtered datasets. 
 - [rglobi CRAN (download) page](https://cran.r-project.org/web/packages/rglobi/index.html)
@@ -118,8 +123,9 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 [Top of Page](#top)
 
 ---
+<br>
 
-## Using the Command Line <span id="command-line"/>
+## **Using the Command Line** <span id="command-line"/>
 
 If you are are comfortable with using command line scripts and codes (i.e., in terminal, shell, etc.) you may find the following "[Big Data Cheatsheet](https://www.globalbioticinteractions.org/deadwood2021/code/cheatsheet.txt)" useful. 
 
@@ -172,10 +178,11 @@ If you can provide further, set by step instruction on how to use these scripts,
 [Top of Page](#top)
 
 ---
+<br>
 
-## GloBI Hacks <span id="hacks"/>
+## **GloBI Hacks** <span id="hacks"/>
 
-### No-download data viewing <span id="no-download"/>
+### **No-download data viewing** <span id="no-download"/>
 
 You can view datasets from GloBI (or any other .csv/.tsv files online) without actually downloading them! This is possible by using Google Sheets and removing the 
 ".gz" extention of a file from the [GloBI Sources page](https://www.globalbioticinteractions.org/sources). 
@@ -196,7 +203,7 @@ IMPORTDATA("YOUR FILE NAME")
 ```
 - Don't forget the quotation marks in the formula!
 
-### Name matching with other databases <span id="nomer"/>
+### **Name matching with other databases** <span id="nomer"/>
 To match or cross-reference names in GloBI to names in other databases such as ITIS or NCBI, check out the tool [Nomer](https://github.com/globalbioticinteractions/nomer)...
 
 ❗⚠️ under construction ⚠️ ❗
