@@ -7,7 +7,7 @@ permalink: how-to
 # A 'How-To' Guide for Extracting GloBI Data 😃<span id="top"/>
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
-## ❗ ⚠️ under construction ⚠️ ❗
+## ❗ ⚠️ under construction ⚠️ ❗ 
 
 ## Contents
 
@@ -20,8 +20,12 @@ GloBI has a ton of useful data in it and can be used in many different ways. How
    * [Search from Home Page](#home-search)
    * [Search from Browse Page](#browse-search)
 * [Using R](#R)
+* [Using the Command Line](#command-line)
 * [GloBI Hacks](#hacks)
    * [No-download data viewing](#no-download) 
+   * [Name matching with other databases](#nomer)
+
+---
 
 ## Introduction to using GloBI <span id="intro"/>
 
@@ -36,6 +40,8 @@ There are also detailed step-by-step instructions from the [Species Interaction 
 5. [Data Sources: Taxonomic Name Review](https://www.globalbioticinteractions.org/interaction-data-workshop/06-reviewing-taxonomic-names/index.html)
 
 [Top of Page](#top)
+
+---
 
 ## Pre-compiled Datasets <span id="datasets"/>
 
@@ -67,6 +73,7 @@ The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-
 
 [Top of Page](#top)
 
+---
 
 ## General Searches <span id="searches"/>
 
@@ -82,14 +89,21 @@ The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-
  
 ![](https://i.imgur.com/SxR6atJ.png)
 
-- To download the list of the interactions, click the “download csv data sample” at the top of the list for a partial list, or for a full dataset click "access full dataset" and select the file you want.
+- To download the list of the interactions, click the “csv sample" link at the top of the list for a partial list, or for a full dataset click "all data” " and select the file you want.
    - Copy and paste the file name into your browser address box to download, or use the [hack below](#no-download) to view the dataset without downloading
 
 ### Search from browse page <span id="browse-search"/>
 
-❗ ⚠️ under construction ⚠️ ❗
+To search from the [GloBI browse page](https://www.globalbioticinteractions.org/browse/):
+- Clear the name "Chelonia mydas" in green by clicking the little "x" next to it (unless of course this is the organism you are interested in!)
+- Type in the scientific name of the organism you want to look up and select it from the dropdown menu when it comes up (you need to actually select it from the list, not just type it in)
+- Examine the preview list automatically produced
+- Click "download csv data sample" or	"access full dataset" at the top of the list depending on the dataset you need 
+- If your browser cuts off some of the search boxes strangely like mine does, click the little grey box within a box icon on the top left of the page (next to the qestion mark - it says "maximize/minimize" if you hover your mouse over it for a bit". This will hide the maps and make it easier to see the list and search boxes.
 
 [Top of Page](#top)
+
+---
 
 ## Using R <span id="R"/>
 
@@ -102,6 +116,62 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 ❗ ⚠️ under construction ⚠️ ❗
 
 [Top of Page](#top)
+
+---
+
+## Using the Command Line <span id="command-line"/>
+
+If you are are comfortable with using command line scripts and codes (i.e., in terminal, shell, etc.) you may find the following "[Big Data Cheatsheet](https://www.globalbioticinteractions.org/deadwood2021/code/cheatsheet.txt)" useful. 
+
+After you download the dataset you need (see Pre-compiled Datasets](#datasets), [General Searches](#searches), or the [GloBI data page](https://www.globalbioticinteractions.org/data)), you can  modify the following code to fit your dataset needs:
+
+```
+$ time cat data/stable/interactions.csv.gz\
+  | gunzip\
+  | mlr --csv filter '$sourceTaxonKingdomName == "Fungi"'\
+  | mlr --csv filter '$targetTaxonGenusName == "Quercus"'\
+  | mlr --csv cut -f sourceTaxonName,targetTaxonName\
+  > data/oakfungi.csv
+$ time cat data/stable/interactions.csv.gz\
+  | gunzip\
+  | mlr --csv filter '$targetTaxonKingdomName == "Fungi"'\
+  | mlr --csv filter '$sourceTaxonGenusName == "Quercus"'\
+  | mlr --csv cut -f targetTaxonName,sourceTaxonName\
+  | tail -n+2\
+  >> data/oakfungi.csv
+
+```
+
+You can also load a dataset from GloBI into a sqlite3 database on your personal computer by using/modifying the following code (after downloading the dataset):
+
+```
+cat interactions.csv.gz 
+gunzip 
+sqlite3 -csv globi.db '.import /dev/stdin interactions'
+```
+Or for SCAN specific data:
+```
+cat interactions.csv.gz
+gunzip
+grep "globalbioticinteractions/scan" > globi-scan.csv
+```
+or:
+```
+cat interactions.csv.gz
+gunzip
+rep "globalbioticinteractions/scan"
+wc -l
+```
+
+To reduce the size of sqlite3 (or other) database, you can drop columns before importing them using powertools like [cut](https://en.wikipedia.org/wiki/Cut_(Unix)) or [mlr/miller](https://github.com/johnkerl/miller). See the [importing csv files to sqlite page ](https://sqlite.org/cli.html#importing_csv_files).
+
+If you can provide further, set by step instruction on how to use these scripts, please add it to the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) and I will add to this page. I'm not a command line person, so any help adding to this section would be much appreciated!
+
+❗ ⚠️ under construction ⚠️ ❗
+
+[Top of Page](#top)
+
+---
 
 ## GloBI Hacks <span id="hacks"/>
 
@@ -126,10 +196,14 @@ IMPORTDATA("YOUR FILE NAME")
 ```
 - Don't forget the quotation marks in the formula!
 
+### Name matching with other databases <span id="nomer"/>
+To match or cross-reference names in GloBI to names in other databases such as ITIS or NCBI, check out the tool [Nomer](https://github.com/globalbioticinteractions/nomer)...
+
 ❗⚠️ under construction ⚠️ ❗
 
 [Top of Page](#top)
 
+---
 
 Hopefully, this page had some helpful content to help you navigate GloBI!!
 
