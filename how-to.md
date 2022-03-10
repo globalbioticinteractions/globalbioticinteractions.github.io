@@ -124,8 +124,6 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 - [Detailed instructions on how to use rglobi](https://github.com/ParasiteTracker/TPT-GloBI-R-Demo/blob/master/globi-to-graph2019.R)
 - [How to use GloBI data in bipartite interaction analyses](https://www.globalbioticinteractions.org/deadwood2021/13-day-two-part-two/)
 
-❗ ⚠️ under construction ⚠️ ❗
-
 <br>
 
 #### <sub> [Top of Page](#top) </sub>
@@ -181,8 +179,6 @@ To reduce the size of sqlite3 (or other) database, you can drop columns before i
 
 If you can provide further step by step instructions on how to use these scripts, please add it to the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) and I will add to this page. I'm not a command line person, so any help adding to this section would be much appreciated!
 
-❗ ⚠️ under construction ⚠️ ❗
-
 <br>
 
 #### <sub> [Top of Page](#top) </sub>
@@ -216,19 +212,23 @@ IMPORTDATA("YOUR FILE NAME")
 ### **Name matching with other databases** <span id="nomer"/>
 To match or cross-reference names in GloBI to names in other databases such as ITIS or NCBI, check out the tool [Nomer](https://github.com/globalbioticinteractions/nomer)...
 
-❗⚠️ under construction ⚠️ ❗
 
 <br>
 
 #### <sub> [Top of Page](#top) </sub>
 
 ---
+<br>
 
 Hopefully, this page had some helpful content to help you navigate GloBI!!
 
-**Have something helpful to add to this page?**
-Please add it to the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) we are creating to help pull data out of GloBI. 
+💡 **Have something helpful to add to this page?**
 
-**Have a problem or something we need to add?**
-Please submit a request on the [issue page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues)!
+  ➡️ Please add it to the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) we are creating to help pull data out of GloBI. 
 
+💡 **Have a problem or something we need to add?**
+
+  ➡️ Please submit a request on the [issue page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues)!
+<br>
+
+## 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧
