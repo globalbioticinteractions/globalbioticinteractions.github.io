@@ -157,22 +157,22 @@ $ time cat data/stable/interactions.csv.gz\
 You can also load a dataset from GloBI into a sqlite3 database on your personal computer by using/modifying the following code (after downloading the dataset):
 
 ```
-cat interactions.csv.gz 
-gunzip 
-sqlite3 -csv globi.db '.import /dev/stdin interactions'
+$ cat interactions.csv.gz\
+| gunzip\
+| sqlite3 -csv globi.db '.import /dev/stdin interactions'
 ```
 Or for SCAN specific data:
 ```
-cat interactions.csv.gz
-gunzip
-grep "globalbioticinteractions/scan" > globi-scan.csv
+$ cat interactions.csv.gz\
+| gunzip\
+| grep "globalbioticinteractions/scan" > globi-scan.csv
 ```
 or:
 ```
-cat interactions.csv.gz
-gunzip
-rep "globalbioticinteractions/scan"
-wc -l
+cat interactions.csv.gz\
+| gunzip\
+| grep "globalbioticinteractions/scan"\
+| wc -l
 ```
 
 To reduce the size of sqlite3 (or other) database, you can drop columns before importing them using powertools like [cut](https://en.wikipedia.org/wiki/Cut_(Unix)) or [mlr/miller](https://github.com/johnkerl/miller). See the [importing csv files to sqlite page ](https://sqlite.org/cli.html#importing_csv_files).
