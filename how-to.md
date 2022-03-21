@@ -201,7 +201,7 @@ You can view datasets from GloBI (or any other .csv/.tsv files online) without a
 - In the first cell type the formula:
 
 ```
-IMPORTDATA("YOUR FILE NAME")
+=IMPORTDATA("YOUR FILE NAME")
 ```
    Example: 
 ```
