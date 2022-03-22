@@ -233,3 +233,7 @@ Hopefully, this page had some helpful content to help you navigate GloBI!!
 <br>
 
 ## 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧
+
+Need additional help the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) or [issue page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues) doesn't cover? Contact page editor [Erika Tucker](mailto:emtuckerlab@gmail.com)
+
+This page is supported in part by the [Terrestrial Parasite Tracker](https://parasitetracker.org/) group's efforts to produce sustainable, open access, digitization methods and related research tools. 
