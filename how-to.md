@@ -20,6 +20,8 @@ GloBI has a ton of useful data in it and can be used in many different ways. How
    * [Search from Browse Page](#browse-search)
 * [Using R](#R)
 * [Using the Command Line](#command-line)
+   * [General datasets](#command-line)
+   * [Custom taxon list search](#batch-list)
 * [GloBI Hacks](#hacks)
    * [No-download data viewing](#no-download) 
    * [Name matching with other databases](#nomer)
@@ -132,10 +134,11 @@ For those that are comfortable using R, install and use **rglobi** for more prec
 <br>
 
 ## **Using the Command Line** <span id="command-line"/>
+### **General datasets** <span id="command-line"/>
 
 If you are are comfortable with using command line scripts and codes (i.e., in terminal, shell, etc.) you may find the following "[Big Data Cheatsheet](https://www.globalbioticinteractions.org/deadwood2021/code/cheatsheet.txt)" useful. 
 
-After you download the dataset you need (see Pre-compiled Datasets](#datasets), [General Searches](#searches), or the [GloBI data page](https://www.globalbioticinteractions.org/data)), you can  modify the following code to fit your dataset needs:
+After you download the dataset you need (see [Pre-compiled Datasets](#datasets), [General Searches](#searches), or the [GloBI data page](https://www.globalbioticinteractions.org/data)), you can  modify the following code to fit your dataset needs:
 
 ```
 $ time cat data/stable/interactions.csv.gz\
@@ -180,6 +183,9 @@ To reduce the size of sqlite3 (or other) database, you can drop columns before i
 If you can provide further step by step instructions on how to use these scripts, please add it to the [working guide](https://docs.google.com/document/d/1GjVMmGSBWJ8481BbkLfZC526eFG7TphupTf_ly98dtg/edit) and I will add to this page. I'm not a command line person, so any help adding to this section would be much appreciated!
 
 <br>
+
+### **Custom Taxon List Search** <span id="batch-list"/>
+...
 
 #### <sub> [Top of Page](#top) </sub>
 
