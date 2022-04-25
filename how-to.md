@@ -193,7 +193,7 @@ Want association information for multiple taxa without searching each name indiv
 1. Create a simple text (.txt) file with the names you want to find associations for. 
    - File should have a single column of names
    - For species names that have spaces in them, replace all spaces with “%20”. You can do this with a find and replace all procedure. Example: 
-``` Cremnops montrealensis ``` ⇒ ``` Cremnops%montrealensis ```
+``` Cremnops montrealensis ``` ⇒ ``` Cremnops%20montrealensis ```
    - Save file with extension ``` .txt ```
 2. Open a command line terminal on your computer (on Macs there is a built in one called “Terminal”)
 3. Navigate to the folder you want the resulting files to be saved to. Example for macs:
