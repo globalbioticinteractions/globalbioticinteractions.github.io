@@ -8,6 +8,8 @@ permalink: how-to
 
 GloBI has a ton of useful data in it and can be used in many different ways. However, it can also be a bit overwhelming with so much data. This page offers some helpful links, hacks, and instructions for how to extract the information available in a useful format. 
 
+Do you have web programing skills? Extra time on your hands? Want to help make easy to push buttons, search boxes, or other web interface type improvements to GloBI? PLEASE contact [Jorrit](mailto:jhpoelen@jhpoelen.nl)! We'd love the extra help!
+
 ## **Contents**
 
 * [Introduction to using GloBI](#intro) 
@@ -185,7 +187,54 @@ If you can provide further step by step instructions on how to use these scripts
 <br>
 
 ### **Custom Taxon List Search** <span id="batch-list"/>
-...
+
+Want association information for multiple taxa without searching each name individually? Want to be able to download a csv with this data? Well, now you can!
+
+1. Create a simple text (.txt) file with the names you want to find associations for. 
+   - File should have a single column of names
+   - For species names that have spaces in them, replace all spaces with “%20”. You can do this with a find and replace all procedure. Example: 
+``` Cremnops montrealensis ``` ⇒ ``` Cremnops%montrealensis ```
+   - Save file with extension ``` .txt ```
+2. Open a command line terminal on your computer (on Macs there is a built in one called “Terminal”)
+3. Navigate to the folder you want the resulting files to be saved to. Example for macs:
+```
+Cd YourDocuments/YourFolderName/ProjectsFolder
+```
+4. Once in the folder you want your results to save to, run the following code in terminal:
+   - This will produce and save a csv file with all associations in GloBI for the taxa in the list you made as well as the records the associations came from. 
+```
+cat YourNameList.txt\
+| sed 's+^+https://api.globalbioticinteractions.org/interaction.csv?includeObservations=true\&sourceTaxon=+g'\
+| xargs -L1 curl\
+> results-YourNameList.csv
+```
+   Where:
+   
+   ``` sed 's+^+https://api.globalbioticinteractions.org/interaction.csv?includeObservations=true&sourceTaxon=+g' ```
+
+   - Turns each name into a url request for individual records that involve the specified taxon.
+   
+   ``` xargs -L1 curl ```
+
+   - Executes one request at a time using "curl" (command-line web browser)
+   
+   ```  > results-...csv ``` 
+
+   - Saves the results in a file called "result[something].csv"
+
+5. If you only want the taxon level information (not information about the individual records the associations came from) you can modify the code by omitting the ``` includeObservations=true ```. For example:
+```
+cat YourTaxaList.txt\
+| sed 's+^+https://api.globalbioticinteractions.org/interaction.csv?sourceTaxon=+g'\
+| xargs -L1 curl\
+> results-YourInteractions.csv
+```
+
+Things to note about this procedure: 
+- It may not work well for lists longer than 100 names
+- These results are unstable (change everytime GloBI data changes) and are not in an easily citable format for research purposes..
+For a test dataset and to practice with and to read the conversation as this procedure was figured out, check out [GitHub issue #782](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/782)
+
 
 #### <sub> [Top of Page](#top) </sub>
 
