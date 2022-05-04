@@ -79,6 +79,11 @@ Here are some multiple collection precompiled datasets you may find useful:
 ### **Big-Bee data**  <span id="bigbee"/>
 The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-bee.net/)) aims to "Extend Anthophila research through image and trait digitization." 
 - [List of collections in the Big-Bee group](https://www.globalbioticinteractions.org/bigbee/)
+- Quarterly publication of the Big Bee data is found on Zenodo. This publication also includes the downloadable and citable *indexed_interactions_bees.tsv* file that includes all of the bee interaction data related to the Big Bee project. It is best to use the most recent version of of our publication to get the most recent data. 
+
+Seltmann, Katja C., & Poelen, Jorrit H. (2023). Big Bee indexed biotic interactions and review summary (0.3) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.5915012](https://zenodo.org/record/5915012#.YnLJ2ZPML0o)
+
+_coming soon_ A quarterly publication of all bee data found on GloBI!
 
 <br>
 
