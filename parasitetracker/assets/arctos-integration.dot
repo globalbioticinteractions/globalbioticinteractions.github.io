@@ -12,8 +12,8 @@ digraph pairwise {
     };
     { 
 
-    d1 -> c1 [label="indexes (3)"];
-    d1 -> b1 [label="links to (4)"];
+    d1 -> c1 [label="indexes (3)", dir="both"];
+    d1 -> b1 [label="links to (4)", dir="both"];
     };
 }
 
