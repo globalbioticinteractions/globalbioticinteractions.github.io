@@ -1,4 +1,5 @@
 digraph pairwise {
+    bgcolor="transparent";
     #rankdir=LR;
     #labelloc="t";
     #label="Arctos <> GloBI integration";
