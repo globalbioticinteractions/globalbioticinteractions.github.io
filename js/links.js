@@ -130,6 +130,10 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     appendSpan(citationElem);
 
     var textElem = document.createElement('b');
+    if (study.url && study.url.match(/^http/)) {
+      textElem = textElem.appendChild(document.createElement('a'));
+      textElem.setAttribute('href', study.url);
+    }
     textElem.textContent = study.citation + ' ';
     citationElem.appendChild(textElem);
 
