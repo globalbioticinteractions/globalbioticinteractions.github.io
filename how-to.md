@@ -80,9 +80,9 @@ Here are some multiple collection precompiled datasets you may find useful:
 The [Big Bee project](https://big-bee.net/) ([https://big-bee.net/](https://big-bee.net/)) aims to "Extend Anthophila research through image and trait digitization." 
 - [List of collections in the Big-Bee group](https://www.globalbioticinteractions.org/bigbee/)
 
-- Big-Bee publishes a quarterly report of global bee interactions indexed by GloBI that includes additional data curation such as the removal of duplicate records. This publication includes interactions from museum specimens, journal publications, and observations in both comma and tab-delimited formats.
+Big-Bee publishes a quarterly report of global bee interactions indexed by GloBI that includes additional data curation such as the removal of duplicate records. This publication includes interactions from museum specimens, journal publications, and observations in both comma and tab-delimited formats.
 
-Katja C. Seltmann. (2022). Global Bee Interaction Data (v1.0.1) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.6564738](https://doi.org/10.5281/zenodo.6564738)on May 19, 2022
+Katja C. Seltmann. (2022). Global Bee Interaction Data (v1.0.1) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.6564738](https://doi.org/10.5281/zenodo.6564738) on May 19, 2022
 
 <br>
 
