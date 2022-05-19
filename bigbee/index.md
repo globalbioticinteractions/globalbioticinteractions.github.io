@@ -35,6 +35,8 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **29 Apr 2022** - Publication of Big Bee Interaction Data: Seltmann, Katja C., & Poelen, Jorrit H. (2023). Big Bee indexed biotic interactions and review summary (0.3) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.5915012](https://doi.org/10.5281/zenodo.5915012).
 
+**19 May 2022** - Publication of global bee interaction data from GloBI: Katja C. Seltmann. (2022). Global Bee Interaction Data (v1.0.1) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.6564738](https://doi.org/10.5281/zenodo.6564738).
+
 # Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
