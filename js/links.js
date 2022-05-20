@@ -29,21 +29,22 @@ let decorateReviewLink = function(aElem, namespace) {
 
 
 function appendLinkElem(parentElem, study) {
-    if (study.url && study.url.match(/^http[s]{0,1}:\/\/arctos.database.museum/)) {
+    if (study.url && study.url.match(/^http/)) {
         var linkElem = document.createElement('a');
         linkElem.setAttribute('href', study.url);
         linkElem.setAttribute('title', 'show information for: [' + study.citation + ']');
-        linkElem.setAttribute('target', '_blank');
-        var img = linkElem.appendChild(document.createElement('img'));
-        img.setAttribute('src', '/assets/favicon_cache/arctos.png');
-        img.setAttribute('style', 'width: 1em; height: 1em;');
-        parentElem.appendChild(linkElem);
-    } else if (study.url && study.url.match(/^http/)) {
-        var linkElem = document.createElement('a');
-        linkElem.setAttribute('href', study.url);
-        linkElem.setAttribute('title', 'show information for: [' + study.citation + ']');
-        linkElem.setAttribute('target', '_blank');
-        linkElem.textContent = '📄';
+        linkElem.setAttribute('target', '_blank');  
+        if (study.url && study.url.match(/^http[s]{0,1}:\/\/arctos.database.museum/)) {
+          var img = linkElem.appendChild(document.createElement('img'));
+          img.setAttribute('src', '/assets/favicon_cache/arctos.png');
+          img.setAttribute('style', 'width: 1em; height: 1em;');
+        } else if (study.url && study.url.match(/^http[s]{0,1}:\/\/.*occid=[0-9]+/)) {
+          var img = linkElem.appendChild(document.createElement('img'));
+          img.setAttribute('src', '/assets/favicon_cache/symbiota.png');
+          img.setAttribute('style', 'width: 1em; height: 1em;');
+        } else {
+          linkElem.textContent = '📄';
+        }
         parentElem.appendChild(linkElem);
     }
 }
