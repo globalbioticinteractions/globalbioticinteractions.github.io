@@ -1,0 +1,24 @@
+digraph pairwise {
+    bgcolor="transparent";
+    labelloc="t";
+    label="Simplified Plazi Treatment Provenance";
+    a1 [label="Printed Media"];
+    b1 [label="Digital Image"];
+    c1 [label="Text"];
+    d1 [label="Annotated Text"];
+    e1 [label="Plazi GoldenGATE XML File"];
+    f1 [label="TreatmentBank XML\ngithub.com/plazi/treatments-xml"];
+    g1 [label="Tool/Application"];
+    //{ rank=same;
+    b1 -> a1 [label="derived from (1)\nscan"];
+    c1 -> b1 [label="extract text (2)\nOCR"];
+    //};
+    //{ 
+
+    d1 -> c1 [label="extract meaning (3)\nsegment"];
+    e1 -> d1 [label="derived from (4)\ntransform"];
+    f1 -> e1 [label="contains (5)\nstore"];
+    g1 -> f1 [label="uses (6)\napply"];
+    //};
+}
+

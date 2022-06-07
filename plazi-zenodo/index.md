@@ -109,6 +109,18 @@ integration method | ...
 diagram | ![collaborative-transcription.png](assets/collaborative-transcription.png) see also https://drive.google.com/file/d/1-lSC0-pqOYIUBDtij0_XDfSY7yBHnkhq/view?ts=5fb2db8a 
 examples | See https://github.com/globalbioticinteractions/globalbioticinteractions/issues/559 for example
 
+# Plazi Transcription Provenance
+
+Plazi Transcription | GloBI Integration Profile
+ --- | ---
+status | under development
+authors | Jorrit 
+actors | ...
+integration method | Plazi facilitates scanning and extracting knowledge from existing taxonomic literature. This integration profile attempts to give a high level summary of the provenance of Plazi's structured treatments.
+diagram | ![plazi-provenance.png](assets/plazi-provenance.png) 
+examples | See e.g., https://github.com/globalbioticinteractions/globalbioticinteractions/issues/783 
+
+
 # Interaction Types 
 # Supported Terms
 # Translation Tables
