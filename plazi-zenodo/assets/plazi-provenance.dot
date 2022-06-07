@@ -18,7 +18,7 @@ digraph pairwise {
     d1 -> c1 [label="extract meaning (3)"];
     e1 -> d1 [label="save as (4)"];
     f1 -> e1 [label="stores (5)"];
-    g1 -> f1 [label="uses (6)\napply"];
+    g1 -> f1 [label="uses (6)"];
     //};
 }
 
