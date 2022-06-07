@@ -10,14 +10,14 @@ digraph pairwise {
     f1 [label="TreatmentBank XML\ngithub.com/plazi/treatments-xml"];
     g1 [label="Tool/Application"];
     //{ rank=same;
-    b1 -> a1 [label="scan (1)"];
-    c1 -> b1 [label="extract text (2)"];
+    b1 -> a1 [label="depiction of (1)"];
+    c1 -> b1 [label="textual representation of (2)"];
     //};
     //{ 
 
-    d1 -> c1 [label="extract meaning (3)"];
-    e1 -> d1 [label="save as (4)"];
-    f1 -> e1 [label="stores (5)"];
+    d1 -> c1 [label="parsed representation of (3)"];
+    e1 -> d1 [label="version of (4)"];
+    f1 -> e1 [label="contains (5)"];
     g1 -> f1 [label="uses (6)"];
     //};
 }
