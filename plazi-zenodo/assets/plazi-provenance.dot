@@ -4,18 +4,22 @@ digraph pairwise {
     label="Simplified Plazi Treatment Provenance";
     a1 [label="Printed Media"];
     b1 [label="Digital Image"];
+    g1 [label="PDF"];
+    h1 [label="Semantic\nPublication"];
     c1 [label="Text"];
     d1 [label="Annotated Text"];
     e1 [label="Plazi GoldenGATE XML File"];
     f1 [label="TreatmentBank XML\ngithub.com/plazi/treatments-xml"];
     //{ rank=same;
     a1 -> b1 [label="has depiction (1)"];
+    g1 -> c1;
     b1 -> c1 [label="has textual representation (2)"];
     //};
     //{ 
 
     c1 -> d1 [label="has parsed representation (3)"];
     d1 -> e1 [label="has version (4)"];
+    h1 -> e1;
     e1 -> f1 [label="contained in (5)"];
     //};
 }
