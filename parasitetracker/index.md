@@ -51,7 +51,9 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **22 June 2022** - Erika Tucker of TPT led a workshop on interpreting biotic associations as part of the Entomology Collections Workshop (ECM) 2022. Tucker, Erika, Poelen, Jorrit, & Seltmann, Katja. (2022, June 23). globalbioticinteractions/ecm-workshop:. Zenodo. [https://doi.org/10.5281/zenodo.6704580](https://doi.org/10.5281/zenodo.6704580). Also see [https://globalbioticinteractions.org/ecm-workshop](https://globalbioticinteractions.org/ecm-workshop).  
 
-**22 June 2022** - Jorrit Poelen presented "On Interpreting Biotic Association Records" as part of the Entomology Collections Workshop (ECM) 2022: Poelen, Jorrit H. (2022, June 22). On Interpreting Biotic Association Records. Zenodo. [https://doi.org/10.5281/zenodo.6686306](https://doi.org/10.5281/zenodo.6686306) . 
+**22 June 2022** - Jorrit Poelen presented "On Interpreting Biotic Association Records" as part of the Entomology Collections Workshop (ECM) 2022: Poelen, Jorrit H. (2022, June 22). On Interpreting Biotic Association Records. Zenodo. [https://doi.org/10.5281/zenodo.6686306](https://doi.org/10.5281/zenodo.6686306) .
+
+**27 June 2022** - Publication of: Poelen, Jorrit H., Seltmann, Katja C., Campbell, Mariel, Orlofske, Sarah A., Light, Jessica E., Tucker, Erika M., Demboski, John R, McElrath, Tommy, Grinter, Christopher C, Diaz-Bastin, Rachel, Bush, Sarah E, Delapena, Robin, Cook, Joseph, Gall, Lawrence F., Whiting, Michael F, Clark, Shawn M, Cameron, Stephen L, Replogle, Charla R, Rund, Samuel S.C., … Allen, Julie. (2022). Terrestrial Parasite Tracker indexed biotic interactions and review summary (0.6) [Data set]. Zenodo. <a href="https://doi.org/10.5281/zenodo.6761707">https://doi.org/10.5281/zenodo.6761707</a> .
 
 # TPT Collections Status
 
