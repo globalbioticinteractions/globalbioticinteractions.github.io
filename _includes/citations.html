@@ -1,6 +1,6 @@
 {% assign pubs = site.data.citations | sort: "year,authors" -%}
 <ul>
 {% for pub in pubs -%}
-<li class="{{ pub.license_type }}">{{ pub.authors }}, {{ pub.year }}. <b>{{ pub.title }}</b> <em>{{ pub.journal }}</em>. <a href="https://doi.org/{{ pub.doi }}">doi:{{pub.doi}}</a> <a href="{{ pub.url }}">{{ pub.url }}</a></li>
+<li class="{{ pub.license_type }}">{{ pub.authors }}, {{ pub.year }}. {{ pub.title }} <em>{{ pub.journal }}</em>. <a href="https://doi.org/{{ pub.doi }}">doi:{{pub.doi}}</a> <a href="{{ pub.url }}">{{ pub.url }}</a></li>
 {%- endfor %}
 </ul>
