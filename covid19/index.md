@@ -15,6 +15,8 @@ The information on this page does not aim to be a complete overview of activitie
 
 [edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/edit/master/covid19/index.md) 
 
+[```publications```](#publications) / [```grants```](#grants)
+
 # Contact Info
 
  * Weekly meetings on Wednesdays 08:00 Pacific / 11:00 US Eastern / 17:00 Central European Time at [Zoom meeting room](https://asu.zoom.us/j/7588563077?pwd=NHV2RmlKMDh6cHFwWG53aVM1dlluZz09). 
@@ -58,3 +60,29 @@ The information on this page does not aim to be a complete overview of activitie
 **23 Sept 2021** - publication of: Van der Jeucht L, Groom Q, Agosti D, Phelps K, Reeder DM, Simmons NB (2021) Using iNaturalist to monitor adherence to best practices in bat handling. Biodiversity Data Journal 9: e68052. <a href="https://doi.org/10.3897/BDJ.9.e68052">https://doi.org/10.3897/BDJ.9.e68052</a>
 
 **23 Sept 2021** - publication of: Nathan S Upham, Jorrit H Poelen, Deborah Paul, Quentin J Groom, Nancy B Simmons, Maarten P M Vanhove, Sandro Bertolino, DeeAnn M Reeder, Cristiane Bastos-Silveira, Atriya Sen, Beckett Sterner, Nico M Franz, Marcus Guidoti, Lyubomir Penev, Donat Agosti (2021) Liberating host–virus knowledge from biological dark data. The Lancet Planetary Health. <a href="https://doi.org/10.1016/S2542-5196(21)00196-0">https://doi.org/10.1016/S2542-5196(21)00196-0</a>.
+
+
+# Publications
+
+## Peer-Review Publications
+
+Cook, J. A., Arai, S., Armién, B., Bates, J., Bonilla, C. A. C., Cortez, M. B. de S., Dunnum, J. L., Ferguson, A. W., Johnson, K. M., Khan, F. A. A., Paul, D. L., Reeder, D. M., Revelez, M. A., Simmons, N. B., Thiers, B. M., Thompson, C. W., Upham, N. S., Vanhove, M. P. M., Webala, P. W., … Soltis, P. S. (2020). Integrating Biodiversity Infrastructure into Pathogen Discovery and Mitigation of Emerging Infectious Diseases. BioScience, 70(7), 531–534. https://doi.org/10.1093/biosci/biaa064
+
+Upham, N. S., Poelen, J. H., Paul, D., Groom, Q. J., Simmons, N. B., Vanhove, M. P. M., Bertolino, S., Reeder, D. M., Bastos-Silveira, C., Sen, A., Sterner, B., Franz, N. M., Guidoti, M., Penev, L., & Agosti, D. (2021). Liberating host–virus knowledge from biological dark data. The Lancet Planetary Health, 0(0). https://doi.org/10.1016/S2542-5196(21)00196-0
+
+Groom, Q., Adriaens, T., Bertolino, S., Phelps, K., Poelen, J., Reeder, D., Richardson, D., Simmons, N., Trekels, M., & Upham, N. (2022). The Importance of Collecting and Archiving Data on Domestic and Cultivated Organisms. Biodiversity Information Science and Standards, 6, e90864. https://doi.org/10.3897/biss.6.90864
+
+Groom, Q., Adriaens, T., Bertolino, S., Phelps, K., Poelen, J., Reeder, D., Richardson, D., Simmons, N., & Upham, N. (2021). Holistic understanding of contemporary ecosystems requires integration of data on domesticated, captive and cultivated organisms. Biodiversity Data Journal, 9, e65371. https://doi.org/10.3897/BDJ.9.e65371
+
+Upham, N., Agosti, D., Poelen, J., Penev, L., Paul, D., Reeder, D., Simmons, N. B., Csorba, G., Groom, Q., Dimitrova, M., & Miller, J. (2020). Liberating Biodiversity Data From COVID-19 Lockdown: Toward a knowledge hub for mammal host-virus information. Biodiversity Information Science and Standards, 4, e59199. https://doi.org/10.3897/biss.4.59199
+
+## Data Publications
+
+Poelen, J., Upham, N., Agosti, D., Ruschel, T., Guidoti, M., Reeder, D., Simmons, N., Penev, L., Dimitrova, M., Csorba, G., Groom, Q., & Willoughby, A. (2020). CETAF-DiSSCo/COVID19-TAF biodiversity-related knowledge hub working group: Indexed biotic interactions and review summary [Data set]. Zenodo. https://doi.org/10.5281/zenodo.4068958
+
+Mast, A. R., Paul, D. L., Rios, N., Krimmel, E. R., Bruhn, R., Shorthouse, D. P., Simmons, N. B., Upham, N., & Soltis, P. (2020). Rapid Creation of a Data Product for the World’s Specimens of Horseshoe Bats and Relatives, a Known Reservoir for Coronaviruses [Data set]. Zenodo. https://doi.org/10.5281/zenodo.4047200
+
+## Grants
+
+U.S. National Institutes of Health, “Intelligently predicting viral spillover risks from bats and other wild mammals” R21 in response to PA-19-068, Secondary Analysis of Existing Datasets for Advancing Infectious Disease Research (PIs N. Upham and D. Reeder; also B. Sterner, A. Sen, N. Franz, A. Varsani, J. Rees, D. Agosti, J. Poelen). Awarded: $301,232 direct costs (2021-2023), 1R21AI164268-01.
+U.S. National Science Foundation, "RAPID: Rapid Creation of a Data Product for the World’s Specimens of Horseshoe Bats and Relatives, a Known Reservoir for Coronaviruses"  PI A. Mast, Co-PIs N. Rios, D. Paul https://www.nsf.gov/awardsearch/showAward?AWD_ID=2033973
