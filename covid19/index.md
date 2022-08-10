@@ -85,4 +85,5 @@ Mast, A. R., Paul, D. L., Rios, N., Krimmel, E. R., Bruhn, R., Shorthouse, D. P.
 ## Grants
 
 U.S. National Institutes of Health, “Intelligently predicting viral spillover risks from bats and other wild mammals” R21 in response to PA-19-068, Secondary Analysis of Existing Datasets for Advancing Infectious Disease Research (PIs N. Upham and D. Reeder; also B. Sterner, A. Sen, N. Franz, A. Varsani, J. Rees, D. Agosti, J. Poelen). Awarded: $301,232 direct costs (2021-2023), 1R21AI164268-01.
+
 U.S. National Science Foundation, "RAPID: Rapid Creation of a Data Product for the World’s Specimens of Horseshoe Bats and Relatives, a Known Reservoir for Coronaviruses"  PI A. Mast, Co-PIs N. Rios, D. Paul https://www.nsf.gov/awardsearch/showAward?AWD_ID=2033973
