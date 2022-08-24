@@ -76,6 +76,8 @@ Groom, Q., Adriaens, T., Bertolino, S., Phelps, K., Poelen, J., Reeder, D., Rich
 
 Upham, N., Agosti, D., Poelen, J., Penev, L., Paul, D., Reeder, D., Simmons, N. B., Csorba, G., Groom, Q., Dimitrova, M., & Miller, J. (2020). Liberating Biodiversity Data From COVID-19 Lockdown: Toward a knowledge hub for mammal host-virus information. Biodiversity Information Science and Standards, 4, e59199. https://doi.org/10.3897/biss.4.59199
 
+Van der Jeucht L, Groom Q, Agosti D, Phelps K, Reeder DM, Simmons NB (2021) Using iNaturalist to monitor adherence to best practices in bat handling. Biodiversity Data Journal 9: e68052. https://doi.org/10.3897/BDJ.9.e68052
+
 ## Data Publications
 
 Poelen, J., Upham, N., Agosti, D., Ruschel, T., Guidoti, M., Reeder, D., Simmons, N., Penev, L., Dimitrova, M., Csorba, G., Groom, Q., & Willoughby, A. (2020). CETAF-DiSSCo/COVID19-TAF biodiversity-related knowledge hub working group: Indexed biotic interactions and review summary [Data set]. Zenodo. https://doi.org/10.5281/zenodo.4068958
