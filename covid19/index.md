@@ -86,6 +86,12 @@ Poelen, J., Upham, N., Agosti, D., Ruschel, T., Guidoti, M., Reeder, D., Simmons
 
 Mast, A. R., Paul, D. L., Rios, N., Krimmel, E. R., Bruhn, R., Shorthouse, D. P., Simmons, N. B., Upham, N., & Soltis, P. (2020). Rapid Creation of a Data Product for the World’s Specimens of Horseshoe Bats and Relatives, a Known Reservoir for Coronaviruses [Data set]. Zenodo. https://doi.org/10.5281/zenodo.4047200
 
+## Presentations
+
+Sherman, Aja C., Geiselman, Cullen, Simons, Nancy B., Upham, Nathan S., Poelen, Jorrit H., Reeder, DeeAnn M., Bertolino, Sandro, Groom, Quentin, Phelps, Kendra, Agosti, Donat, & Willoughby, Anna R. (2022, August 7). What do we not know? Quantifying data gaps and biases in knowledge of bat co-roosting. 19the International Bat Research Conference, Austin, Texas, USA. Zenodo. https://doi.org/10.5281/zenodo.6959687
+
+
+
 ## Grants
 
 U.S. National Institutes of Health, “Intelligently predicting viral spillover risks from bats and other wild mammals” R21 in response to PA-19-068, Secondary Analysis of Existing Datasets for Advancing Infectious Disease Research (PIs N. Upham and D. Reeder; also B. Sterner, A. Sen, N. Franz, A. Varsani, J. Rees, D. Agosti, J. Poelen). Awarded: $301,232 direct costs (2021-2023), 1R21AI164268-01.
