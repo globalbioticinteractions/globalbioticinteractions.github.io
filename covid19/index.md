@@ -61,6 +61,8 @@ The information on this page does not aim to be a complete overview of activitie
 
 **23 Sept 2021** - publication of: Nathan S Upham, Jorrit H Poelen, Deborah Paul, Quentin J Groom, Nancy B Simmons, Maarten P M Vanhove, Sandro Bertolino, DeeAnn M Reeder, Cristiane Bastos-Silveira, Atriya Sen, Beckett Sterner, Nico M Franz, Marcus Guidoti, Lyubomir Penev, Donat Agosti (2021) Liberating host–virus knowledge from biological dark data. The Lancet Planetary Health. <a href="https://doi.org/10.1016/S2542-5196(21)00196-0">https://doi.org/10.1016/S2542-5196(21)00196-0</a>.
 
+**7 Aug 2022 ** - publication of: Sherman, Aja C., Geiselman, Cullen, Simons, Nancy B., Upham, Nathan S., Poelen, Jorrit H., Reeder, DeeAnn M., Bertolino, Sandro, Groom, Quentin, Phelps, Kendra, Agosti, Donat, & Willoughby, Anna R. (2022, August 7). What do we not know? Quantifying data gaps and biases in knowledge of bat co-roosting. 19the International Bat Research Conference, Austin, Texas, USA. Zenodo. https://doi.org/10.5281/zenodo.6959687 . Note that Cullen Geiselman presented live at conference, and Aja C. Sherman recorded presentation narrative in accompanying mp4 for asynchronous viewing. [pdf](https://zenodo.org/record/6959687/files/Rhinolophus_Thursday_3.30_Sherman.pdf) [mp4](https://zenodo.org/record/6959687/files/video1555496857.mp4) .  
+
 
 # Publications
 
