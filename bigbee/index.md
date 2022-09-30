@@ -40,7 +40,7 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **26 September 2022** - Publications of Big Bee Images: Big Bee Community, Poelen, Jorrit H., & Seltmann, Katja. (2022). Xylocopa sonorina - UCSB-IZC00012194 - Bee Library - 73e389aa-5886-4c48-8778-ba8932d1bd7e hash://sha256/96bfde1efa599e0e8e61de18b14d61dd308737f684950e4079c04e9bc0f33958 hash://md5/4940f68c84cffa4412f7ffb98bb255bd (0.0.3) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.7114665](https://doi.org/10.5281/zenodo.7114665) .
 
-**28 September 2022** - Publication of Seltmann, K. (2022). Extended Thoughts about the Extended Specimen. UC Santa Barbara: Cheadle Center for Biodiversity and Ecological Restoration. Retrieved from [https://escholarship.org/uc/item/0g99h7kf](https://escholarship.org/uc/item/0g99h7kf).
+**28 September 2022** - Publication of Seltmann, K. (2022). Extended Thoughts about the Extended Specimen. UC Santa Barbara: Cheadle Center for Biodiversity and Ecological Restoration. Retrieved from [https://escholarship.org/uc/item/0g99h7kf](https://escholarship.org/uc/item/0g99h7kf). [mp4](https://escholarship.org/content/qt0g99h7kf/supp/Seltmann-BioDigiCon-ExtendedSpecimen.mp4)
 
 # Collections Status
 
