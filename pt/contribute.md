@@ -7,7 +7,7 @@ i18n-link: contribute
 > 
 > Please help translate this page into Portugese by: 
 >
->1. editing [pt/contribute.md](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/es/contribute.md) replace English with Portuguese
+>1. editing [pt/contribute.md](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/pt/contribute.md) replace English with Portuguese
 >2. create a pull request
 >
 >Have questions? Please open an [issue](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new).
