@@ -1,6 +1,6 @@
 ---
 layout: default
-title: contribute
+title: coloborar
 i18n-link: contribute
 ---
 
