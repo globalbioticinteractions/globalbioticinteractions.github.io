@@ -134,6 +134,24 @@ t:
           該当しません. 関心がある生物を検索する際に、必ず <a href="https://en.wikipedia.org/wiki/Taxon">学名</a> を使用してください。例えば、”グッピー”という熱帯魚と入力する代わりに、学名である<a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>を入力してください.
         es: >
           no encontramos ningún resutado. Asegurate de utilizar el <a href="https://es.wikipedia.org/wiki/Taxon">nombre científico</a> del taxón de interes. Por ejemplo, en lugar de buscar por "guppy", utiliza <a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>.
+    want-data-pre:
+        en: >
+          Want data? Get <a href="
+        pt: > 
+          Want data? Get <a href="
+        ja: > 
+          Want data? Get <a href="
+        es: >
+          Want data? Get <a href="
+    want-data-post:
+        en: >
+          ">csv sample</a> or <a href="/data#interaction-data-indexes">all data</a>.
+        pt: >
+          ">csv sample</a> or <a href="/data#interaction-data-indexes">all data</a>.
+        ja: >
+          ">csv sample</a> or <a href="/data#interaction-data-indexes">all data</a>.
+        es: >
+          ">csv sample</a> or <a href="/data#interaction-data-indexes">all data</a>.
     refuted-by:
         en: "Refuted by"
         pt: "Refutado por"

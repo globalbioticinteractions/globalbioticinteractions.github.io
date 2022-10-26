@@ -58,7 +58,7 @@ function addSearchInfo(sourceTaxonLabel, sourceTaxonName, studyQuery, nDistinctI
         }
     }
     
-    var getData = ' Want data? Get <a href="' + downloadLink + '">csv sample</a> or <a href="/data#interaction-data-indexes">all data</a>.';
+    var getData = ' {{ site.t.want-data-pre[page.lang] | strip }} ' + downloadLink + '{{ site.t.want-data-post[page.lang] | strip }}';
 
     var linkToBrowser = ' {{ site.t.like-a-different-view[page.lang] }} <a href="browse' + document.location.search.replace(/^\?/, '?') + '" target="_blank">{{ site.t.open-results-in-browser[page.lang] }}</a> ';
 
