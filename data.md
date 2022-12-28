@@ -27,7 +27,12 @@ Table below is available as tab-separated values table via [data.tsv](data.tsv).
  data | description
  --- | ---
 {% for product in products -%}
+{% assign stable = product.url_stable | strip -%}
+{% if stable and stable.size == 0 -%}
+[{{ product.name }}]({{ product.url_snapshot }}) <br/> ~~stable~~ / [snapshot]({{ product.url_snapshot }}) | {{ product.description }}
+{% else -%}
 [{{ product.name }}]({{ product.url_stable }}) <br/> [stable]({{ product.url_stable }}) / [snapshot]({{ product.url_snapshot }}) | {{ product.description }}
+{% endif -%}
 {% endfor -%} 
  [sqlite](https://sqlite.org), the most used database engine in the world. | create a sqlite3 database using:<br/> ```cat interactions.csv.gz | gunzip | sqlite3 -csv globi.db '.import /dev/stdin interactions'``` . <br/>If you'd like to reduce your database size, you can drop columns before importing them using powertools like [```cut```](https://en.wikipedia.org/wiki/Cut_(Unix)) or [```mlr/miller```](https://github.com/johnkerl/miller). See also [importing csv files](https://sqlite.org/cli.html#importing_csv_files).
 
