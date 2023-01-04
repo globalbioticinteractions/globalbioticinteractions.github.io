@@ -42,6 +42,8 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **28 September 2022** - Publication of Seltmann, K. (2022). Extended Thoughts about the Extended Specimen. UC Santa Barbara: Cheadle Center for Biodiversity and Ecological Restoration. Retrieved from [https://escholarship.org/uc/item/0g99h7kf](https://escholarship.org/uc/item/0g99h7kf). [mp4](https://escholarship.org/content/qt0g99h7kf/supp/Seltmann-BioDigiCon-ExtendedSpecimen.mp4)
 
+**4 January 2023** - Publication of: Baskauf SJ, Girón Duque JC, Nielsen M, Cobb NS, Singer R, Seltmann KC, Kachian Z, Pérez M, Agosti D, Klompen AML (2023) Implementation Experience Report for Controlled Vocabularies Used with the Audubon Core Terms subjectPart and subjectOrientation. Biodiversity Information Science and Standards 7: e94188. https://doi.org/10.3897/biss.7.94188 .
+
 # Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
