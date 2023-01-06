@@ -44,7 +44,7 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **4 January 2023** - Publication of: Baskauf SJ, Girón Duque JC, Nielsen M, Cobb NS, Singer R, Seltmann KC, Kachian Z, Pérez M, Agosti D, Klompen AML (2023) Implementation Experience Report for Controlled Vocabularies Used with the Audubon Core Terms subjectPart and subjectOrientation. Biodiversity Information Science and Standards 7: e94188. https://doi.org/10.3897/biss.7.94188 .
 
-**6 January 2023** - Publication of: Seltmann, Katja, Poelen, Jorrit H., UCSB Natural History Collections, & Big Bee Community. (2023). Halictus ligatus Halictidae UCSB-IZC00036803 https://library.big-bee.net/portal/collections/individual/index.php?occid=72096 Male - Bee Library - 73e389aa-5886-4c48-8778-ba8932d1bd7e hash://sha256/3a178bd2f588c35eb9729309d1baa769ea819bcd5bb5142c2de208dd8e299d1a hash://md5/88a7c9b9b2df777a17e707aab635b3ef [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7510912 . ![bee](https://github.com/Big-Bee-Network/UCSB-IZC00036803/blob/main/bee.gif)
+**6 January 2023** - Publication of: Seltmann, Katja, Poelen, Jorrit H., UCSB Natural History Collections, & Big Bee Community. (2023). Halictus ligatus Halictidae UCSB-IZC00036803 https://library.big-bee.net/portal/collections/individual/index.php?occid=72096 Male - Bee Library - 73e389aa-5886-4c48-8778-ba8932d1bd7e hash://sha256/3a178bd2f588c35eb9729309d1baa769ea819bcd5bb5142c2de208dd8e299d1a hash://md5/88a7c9b9b2df777a17e707aab635b3ef [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7510912 . <a href="https://doi.org/10.5281/zenodo.7510912"><img src="https://github.com/Big-Bee-Network/UCSB-IZC00036803/raw/main/bee.gif" style="height:3em"/></a>
 
 # Collections Status
 
