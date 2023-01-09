@@ -47,5 +47,5 @@ The modular GloBI integration workflow is designed to facilitate maintenance, tr
 
 [6] GloBI's Index Builder is an automated process that integrates versioned datasets and a published name map (e.g., GloBI's Taxon Graph) to create integrated species interaction data products at [https://globalbioticinteractions.org/data](https://globalbioticinteractions.org/data) . See also [https://github.com/globalbioticinteractions/globalbioticinteractions/](https://github.com/globalbioticinteractions/globalbioticinteractions/) .
 
-[7] Intepreted, or integrated, interactions are one of the outcomes of the described GloBI processes. Also see [doi:10.5281/zenodo.3950589](https://doi.org/10.5281/zenodo.3950589) and the [data page](/data) . 
+[7] Interpreted, or integrated, interactions are one of the outcomes of the described GloBI processes. Also see [doi:10.5281/zenodo.3950589](https://doi.org/10.5281/zenodo.3950589) and the [data page](/data) . 
 
