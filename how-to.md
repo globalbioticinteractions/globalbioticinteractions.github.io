@@ -27,8 +27,12 @@ Do you have web programing skills? Extra time on your hands? Want to help make e
 * [GloBI Hacks](#hacks)
    * [No-download data viewing](#no-download) 
    * [Name matching with other databases](#nomer)
+* [GloBI related projects!](#projects)
+   * [Current projects](#current-projects) 
+   * [GloBI Related Workshops](#workshops)
+   * [Add a related project](#add-project)
 
-## ❗ ⚠️ Page under construction ⚠️ ❗
+<!-- ## ❗ ⚠️ Page under construction ⚠️ ❗ -->
 
 ---
 <br>
@@ -270,6 +274,35 @@ You can view datasets from GloBI (or any other .csv/.tsv files online) without a
 
 ### **Name matching with other databases** <span id="nomer"/>
 To match or cross-reference names in GloBI to names in other databases such as ITIS or NCBI, check out the tool [Nomer](https://github.com/globalbioticinteractions/nomer)...
+
+
+<br>
+
+#### <sub> [Top of Page](#top) </sub>
+
+---
+<br>
+
+## **GloBI Related Projects!** <span id="projects"/>
+GloBI and the GloBI How-to page can be used in so many interesting projects and applications!
+
+### **Current Projects** <span id="current-projects"/>
+Here are just some of the projects that have used GloBI or the GloBI How-to page in their project:
+* [Measuring the interactions of species with GloBI](http://datacuriosity.org/part1_globi_access/)
+* [Learn to ask about species interactions effectively using automation and network graph visualization](http://datacuriosity.org/part2_globi_exploration/)
+* [Getting started with GloBI to create networks](https://github.com/jrhillae/AlienCSI_VM_JH/blob/main/blogpost.md)
+
+### **GloBI Related Workshops** <span id="workshops"/>
+* [TPT-GloBI Species Interaction Data Workshop](https://www.globalbioticinteractions.org/interaction-data-workshop/)
+* [Big-Bee Name Alignment Workshop](https://big-bee-network.github.io/name-alignment-workshop/)
+* [ECM Interaction Data Interpretation Workshop](https://www.globalbioticinteractions.org/ecm-workshop/)
+* [Dead Wood Interaction Data Workshop](https://www.globalbioticinteractions.org/deadwood2021/)
+
+### **Add Your Project** <span id="add-project"/>
+Do you have a project that used GloBI, is related to GloBI, or used the GloBI How-to page (this page)? Let us know! We love learning about new projects or related works and would like to list you project here! 
+Just fill email [Jorrit](mailto:jhpoelen@jhpoelen.nl) or [Erika](mailto:emtuckerlab@gmail.com), fill out the out the [form below](https://forms.gle/qRiuD7hJno86peiU7), or [submit an issue](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/issues) and we'll add you to this page. So many ways to share and be included 😃
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFfHmoYhm1-ZWEuV6Gzs8DmX5S-SxSQYDLEpUIrf3fWJ1T_A/viewform?embedded=true" width="640" height="915" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 
 <br>
