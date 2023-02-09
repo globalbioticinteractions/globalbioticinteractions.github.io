@@ -350,6 +350,12 @@ var followTaxon = function (elem) {
 };
 
 var showTaxonLinks = function (elem) {
+
+    var extractWikidataQ = function(url) {
+      var index = url.search('Q[0-9]+$');
+      return index == -1 ? url : url.substr(index);
+    }
+
     var links = [
         { name: 'Encyclopedia of Life', icon: "/assets/favicon_cache/eol.ico", url: "http://eol.org"}
         ,
@@ -377,7 +383,9 @@ var showTaxonLinks = function (elem) {
         ,
         { name: 'Interim Register of Marine and Nonmarine Genera', icon: "/assets/favicon_cache/irmng.ico", url: "https://www.irmng.org" }
         ,
-        { name: 'Wikidata', icon: "/assets/favicon_cache/wikidata.ico", url: "https://www.wikidata.org/" }
+        { name: 'Wikidata', icon: '/assets/favicon_cache/wikidata.ico', url: 'https://www.wikidata.org/' }
+	,
+        { name: 'Scholia', icon: '/assets/favicon_cache/scholia.png', url: 'https://www.wikidata.org/', redirectTo: function(url) { return 'https://scholia.toolforge.org/topic/' + extractWikidataQ(url); } }
         ,
         { name: 'Plazi Treatment', icon: "/assets/favicon_cache/plazi.png", url: "http://treatment.plazi.org/id/" }
         ,
@@ -404,7 +412,10 @@ var showTaxonLinks = function (elem) {
                 if (selectedLinks.length === 0) {
                     selectedLinks = [{ icon: '/assets/link.png', url: url, name: url }];
                 } else {
-                    selectedLinks = selectedLinks.map(function(selectedLink) { return { icon: selectedLink.icon, url: url, name: selectedLinks.name };});
+                    selectedLinks = selectedLinks.map(function (selectedLink) { 
+                      var taxonUrl = selectedLink.redirectTo === undefined ? url : selectedLink.redirectTo(url);
+                      return { icon: selectedLink.icon, url: taxonUrl, name: selectedLink.name };
+                    });
                 }
                 return selectedLinks;
             }
