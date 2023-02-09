@@ -396,17 +396,17 @@ var showTaxonLinks = function (elem) {
 
     globiData.findTaxonLinks(elem.dataset.taxonExternalId, function (urls) {
         if (urls !== null) {
-            var taxonLinkForUrl = function (url) {
+            var taxonLinksForUrl = function (url) {
                 var selectedLinks = links.filter(function (link) {
                     return startsWith(url, link.url);
                 });
-                var selectedLink;
+                var selectedLinks;
                 if (selectedLinks.length === 0) {
-                    selectedLink = { icon: '/assets/link.png', url: url, name: url };
+                    selectedLinks = [{ icon: '/assets/link.png', url: url, name: url }];
                 } else {
-                    selectedLink = { icon: selectedLinks[0].icon, url: url, name: selectedLinks[0].name };
+                    selectedLinks = selectedLinks.map(function(selectedLink) { return { icon: selectedLink.icon, url: url, name: selectedLinks.name };});
                 }
-                return selectedLink;
+                return selectedLinks;
             }
 
             var taxonLinks = urls
@@ -414,8 +414,8 @@ var showTaxonLinks = function (elem) {
                         return startsWith(url, "http://") || startsWith(url, "https://");
                     })
                     .sort()
-                    .map(function (url) {
-                        return taxonLinkForUrl(url);
+                    .flatMap(function (url) {
+                        return taxonLinksForUrl(url);
                     });
 
             var linkToItem = function (link) {
