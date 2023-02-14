@@ -306,7 +306,7 @@ To review all the name matches in one place for collections involved in the TPT 
 ### **Individual Collection/Dataset Name Matches** <span id="names-individual"/>
 To review YOUR specific collection or dataset name matches, follow these instructions (super easy!):
 
-<ins><b><i>TPT Collections</b></i></ins>
+<ins>**_TPT Collections_**</ins>
 <br>For Collections in the TPT project:
 * → Go to [GloBI’s Parasite Tracker page](https://www.globalbioticinteractions.org/parasitetracker/).
 * → Find the collection with the names that you want to examine.
