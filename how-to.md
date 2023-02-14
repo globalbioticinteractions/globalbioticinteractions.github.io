@@ -294,7 +294,7 @@ To review all the name matches in one place for collections involved in the TPT 
 * → Click [names.tsv](https://github.com/jhpoelen/align-tpt-names-with-tpt-taxonomy/blob/main/names.tsv) link to view a raw name alignment comparison file or the [names-parsed.tsv](https://github.com/jhpoelen/align-tpt-names-with-tpt-taxonomy/blob/main/names-parsed.tsv) link for a scrubbed and parsed version of the name alignment comparison file.
   * You can download this file by right clicking the link and selecting “save this file as”.
   * The file will look something like this:
-![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/img/names1.png)
+![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/assets/names1.png)
   * The first column, _total_, is the total number of names associated with a collection’s dataset. 
   * The next unlabeled column is the collection or dataset associated with a set of names (each row is a different collection or dataset with names).
   * The column, _hits_, shows how many of the names in the dataset aligned/matched with the comparison name catalog (in this case the default is set to compare against names in ITIS). 
@@ -311,11 +311,11 @@ To review YOUR specific collection or dataset name matches, follow these instruc
 * → Go to [GloBI’s Parasite Tracker page](https://www.globalbioticinteractions.org/parasitetracker/).
 * → Find the collection with the names that you want to examine.
 * → Click the “names” button next to the collection you are interested in:
-![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/img/names2.png)
+![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/assets/names2.png)
   * This will prompt you to download a .csv file.
   * Save the file somewhere you can find it.
   * The file will look like this:
-![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/img/names3.png)
+![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/assets/names3.png)
 * There are a lot of informative columns in this dataset, however, here a few of the key ones you will want to be aware of:
   * **_providedName_** this is the name that was given in the downloaded collection’s dataset. 
   * **_relationName_** this tells you if the name from the downloaded collection’s dataset matches the taxon names in the alignment/comparison catalog (in this case we are comparing names with those in ITIS).
@@ -331,7 +331,7 @@ To review YOUR specific collection or dataset name matches, follow these instruc
 * → Go to [GloBI’s Big-Bee page](https://www.globalbioticinteractions.org/bigbee/).
 * → Find the collection with the names that you want to examine.
 * → Click the “names” button next to the collection you are interested in:
-![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/img/names-bigbee.png)
+![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/assets/names-bigbee.png)
   * This will prompt you to download a .csv file.
   * Save the file somewhere you can find it.
 * Follow remaining steps as in the above _TPT Collections_ instructions. 
