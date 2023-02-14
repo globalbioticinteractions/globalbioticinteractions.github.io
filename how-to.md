@@ -27,6 +27,11 @@ Do you have web programing skills? Extra time on your hands? Want to help make e
 * [GloBI Hacks](#hacks)
    * [No-download data viewing](#no-download) 
    * [Name matching with other databases](#nomer)
+* [Name Alignment Tool](#names)
+   * [TPT Group Name Matches](#names-TPT)
+   * [Individual Collection/Dataset Name Matches](#names-individual)
+   * [Customized Name List Comparisons](#names-custom)
+   * [More name matching with Nomer](#nomer)
 * [GloBI related projects!](#projects)
    * [Current projects](#current-projects) 
    * [GloBI Related Workshops](#workshops)
@@ -272,8 +277,78 @@ You can view datasets from GloBI (or any other .csv/.tsv files online) without a
 ```
 - Don't forget the quotation marks in the formula!
 
-### **Name matching with other databases** <span id="nomer"/>
-To match or cross-reference names in GloBI to names in other databases such as ITIS or NCBI, check out the tool [Nomer](https://github.com/globalbioticinteractions/nomer)...
+#### <sub> [Top of Page](#top) </sub>
+
+
+---
+<br>
+
+## **Name Alignment Tool** <span id="names"/>
+The Name Alignment Tool allows us to compare a list of names we may want to review (e.g., the association names we’ve shared with GloBI; list of names in a collection’s database) with a different or “accepted” or preexisting list of taxonomic names (e.g., ITIS; GBIF; Catalog of Life; TPT’s taxonomy; etc.). There are several different ways we can use the Alignment Tool and Jorrit has automated much of the process for us so we can just click a button to download or view different name alignments file(s) for comparison. Of course there are also a number of ways to customize the name comparisons relatively easily with GitHub and some simple command line prompts if you are so inclined 🙂
+
+Here are some different ways to use the Alignment Tool: 
+
+### **TPT Group Name Matches** <span id="names-TPT"/>
+To review all the name matches in one place for collections involved in the TPT project, follow these instructions (super easy!): 
+* → Go to the [Aligning TPT Collection Names with TPT Taxonomy](https://github.com/jhpoelen/align-tpt-names-with-tpt-taxonomy) page. 
+* → Click [names.tsv](https://github.com/jhpoelen/align-tpt-names-with-tpt-taxonomy/blob/main/names.tsv) link to view a raw name alignment comparison file or the [names-parsed.tsv](https://github.com/jhpoelen/align-tpt-names-with-tpt-taxonomy/blob/main/names-parsed.tsv) link for a scrubbed and parsed version of the name alignment comparison file.
+  * You can download this file by right clicking the link and selecting “save this file as”.
+  * The file will look something like this:
+![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/img/names1.png)
+  * The first column, _total_, is the total number of names associated with a collection’s dataset. 
+  * The next unlabeled column is the collection or dataset associated with a set of names (each row is a different collection or dataset with names).
+  * The column, _hits_, shows how many of the names in the dataset aligned/matched with the comparison name catalog (in this case the default is set to compare against names in ITIS). 
+  * The _miss_ column shows how many names did not align with or match names in the comparison name file (again, the default is set to match with names in ITIS).
+    * It should be noted that names may miss or not align with the comparison catalog for a number of different reasons…
+    * ⇒ This is a really good way to double check the dataset you have linked to GloBI. Most names should be able to be aligned with the ITIS catalog. **If less than 50% of your names are a “_hit_” you should consider checking the data** you have uploaded/linked/shared! See the: [Pre-Compiled Datasets](#datasets)) section for instructions on how to pull up the data your collection has shared with GloBI. ⇐
+  * To review the specific details of name alignments that “_hit_” or “_miss_” for a particular collection or dataset, see the next option…
+
+### **Individual Collection/Dataset Name Matches** <span id="names-individual"/>
+To review YOUR specific collection or dataset name matches, follow these instructions (super easy!):
+
+<ins><b><i>TPT Collections</b></i></ins>
+<br>For Collections in the TPT project:
+* → Go to [GloBI’s Parasite Tracker page](https://www.globalbioticinteractions.org/parasitetracker/).
+* → Find the collection with the names that you want to examine.
+* → Click the “names” button next to the collection you are interested in:
+![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/img/names2.png)
+  * This will prompt you to download a .csv file.
+  * Save the file somewhere you can find it.
+  * The file will look like this:
+![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/img/names3.png)
+* There are a lot of informative columns in this dataset, however, here a few of the key ones you will want to be aware of:
+  * **_providedName_** this is the name that was given in the downloaded collection’s dataset. 
+  * **_relationName_** this tells you if the name from the downloaded collection’s dataset matches the taxon names in the alignment/comparison catalog (in this case we are comparing names with those in ITIS).
+    * **_NONE_** means the dataset name didn’t align with any names in the catalog
+    * **_HAS_ACCEPTED_NAME_** means the dataset name matched an accepted name in the catalog
+    * **_SYNONYM_OF_** means the dataset name matched a synonymized name in the catalog
+   * _**resolvedExternalId**_ is the taxon ID number in the comparison catalog if a dataset name matches an accepted or synonymized name.
+   * **_resolvedName_** is the name in the catalog that aligned/matched with the providedName.
+  * Currently the names for each collection’s dataset are aligned and compared to the taxonomic name list from ITIS by default. If you want the names compared to a different list (like GBIF or TPT names), see the next section, [Customized Name List Comparisons](#names-custom), to customize list alignment comparisons…. 
+
+<ins> **_Big-Bee Collections_** </ins>
+<br>For Collections in the Big-Bee project:
+* → Go to [GloBI’s Big-Bee page](https://www.globalbioticinteractions.org/bigbee/).
+* → Find the collection with the names that you want to examine.
+* → Click the “names” button next to the collection you are interested in:
+![](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/img/names-bigbee.png)
+  * This will prompt you to download a .csv file.
+  * Save the file somewhere you can find it.
+* Follow remaining steps as in the above _TPT Collections_ instructions. 
+  
+<ins> **_All Collections & Datasets_** </ins>
+<br>For all other collections and datasets this button is still being developed. Find your collection or dataset and see what options are availble by going to the [GloBI datasets page](https://www.globalbioticinteractions.org/datasets).
+
+### **Customized Name List Comparisons** <span id="names-custom"/>
+The Name Alignment Tool is set up so that it can be customized to align and compare any list of taxon names (must be appropriately formatted) to a number of different name catalogs including but not limited to: ITIS, NCBI, discoverlife, GBIF, COL, Open Tree of Life, GloBI taxon graph. There is a whole **[detailed workshop tutorial](https://big-bee-network.github.io/name-alignment-workshop/)** on how to customize name list alignments for comparison provided by the Big-Bee TCN (thanks Big-Bee!). The workshop has step-by-step instructions with lots of screenshots on how to customize the both lists of names to compare. 
+
+A GitHub account (free!) and a minimal amount of copying, pasting, and uploading files to GitHub will be necessary for these customizations, but everything is explained in great detail on the [workshop website](https://big-bee-network.github.io/name-alignment-workshop/) so that anyone can successfully customize their list comparisons - even with no previous experience using GitHub, coding, or a terminal.
+* → Go to the [Name Alignment Workshop website](https://big-bee-network.github.io/name-alignment-workshop/) (this is a self-guided, go at your own pace workshop/tutorial).
+* → Follow the instructions given on the workshop website.
+* → Email Jorrit if you run into any trouble! 
+
+### **More name matching with Nomer** <span id="nomer"/>
+Want more name alignment options? Check out the tool [Nomer](https://github.com/globalbioticinteractions/nomer)...
 
 
 <br>
