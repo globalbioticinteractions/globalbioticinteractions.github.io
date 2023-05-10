@@ -65,6 +65,8 @@ The information on this page does not aim to be a complete overview of activitie
 
 **17 Nov 2022** - Nathan S Upham gives invited talk at EcoHealth Alliance: Upham, Nathan S. (2022, November 17). Mammal-centric spillover risk modeling: species meaning and ecological context are key. Zenodo. [doi:10.5281/zenodo.7414998](https://doi.org/10.5281/zenodo.7414998). [pdf](https://zenodo.org/record/7414998/files/Nathan-Upham-EcoHealthAlliance-talk-2022-11-17.pdf) / [mp4](https://zenodo.org/record/7414998/files/Nathan-Upham-EcoHealthAlliance-talk-2022-11-17.mp4) / [streaming video](https://vimeo.com/779248288) 
 
+**9 May 2023** - published for internal review - Sherman, Aja, Geiselman, Cullen, & Poelen, Jorrit. (2023). A Standardized Review of Bat Names Across Multiple Taxonomic Authorities (0.1) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.7915722](https://doi.org/10.5281/zenodo.7915722) . Please contact authors for updates to author list, comments etc. 
+
 
 # Publications
 
