@@ -69,11 +69,11 @@ The information on this page does not aim to be a complete overview of activitie
 
 **5 June 2023** - Nathan Upham presents "Taxonomic translation of bat-virus interaction data via automated alignment tools" at Digital Data in Biodiversity Research Conference 2023 at Arizona State University, Tempe, AZ. 
 
+**5 June 2023** - Jorrit Poelen presents Poelen, Jorrit H., & Best, Jason. (2023, June 2). Signed Biodiversity Data Packages: A Method to Cite, Verify, Mobilize, and Future Proof, Large Image Corpora. hash://sha256/0154b9ddce4d2e280e627a08d1a2d42884201af6ac1ec19606e393deda57f4bb hash://md5/bae7f441cdd2648d2356b2330e4b71e8. Zenodo. [doi:10.5281/zenodo.7998190](https://doi.org/10.5281/zenodo.7998190) at Digital Data in Biodiversity Research Conference 2023 at Arizona State University, Tempe, AZ. [slides](https://zenodo.org/record/7998190/files/00_Poelen_DD2023.pdf) [recorded presentation](https://zenodo.org/record/7998190/files/00_Poelen_DD2023.mp4) [streaming presentation](https://vimeo.com/832006741). 
+
 **7 June 2023** - Aja Sherman presents Sherman, Aja, Geiselman, Cullen, Simmons, Nancy, Poelen, Jorrit, Reeder, DeeAnn, Upham, Nathan, Phelps, Kendra, & Agosti, Donat. (2023, June 27). Harmonizing taxonomic resources is necessary for novel insights into bat roosting dataset. Zenodo. https://doi.org/10.5281/zenodo.8087069 at Digital Data in Biodiversity Research Conference 2023 at Arizona State University, Tempe, AZ. [recorded presentation](https://vimeo.com/840097528)/ [slide](https://zenodo.org/record/8087069/files/Sherman_DD2023.pptx.pdf) . 
 
 **7 June 2023** - Donat Agosti presents "Matching material citations to occurrences: extending the biodiversity knowledge graph" at Digital Data in Biodiversity Research Conference 2023 at Arizona State University, Tempe, AZ. 
-
-**5 June 2023** - Jorrit Poelen presents Poelen, Jorrit H., & Best, Jason. (2023, June 2). Signed Biodiversity Data Packages: A Method to Cite, Verify, Mobilize, and Future Proof, Large Image Corpora. hash://sha256/0154b9ddce4d2e280e627a08d1a2d42884201af6ac1ec19606e393deda57f4bb hash://md5/bae7f441cdd2648d2356b2330e4b71e8. Zenodo. [doi:10.5281/zenodo.7998190](https://doi.org/10.5281/zenodo.7998190) at Digital Data in Biodiversity Research Conference 2023 at Arizona State University, Tempe, AZ. [slides](https://zenodo.org/record/7998190/files/00_Poelen_DD2023.pdf) [recorded presentation](https://zenodo.org/record/7998190/files/00_Poelen_DD2023.mp4) [streaming presentation](https://vimeo.com/832006741). 
 
 # Publications
 
