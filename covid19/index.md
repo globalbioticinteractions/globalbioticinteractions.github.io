@@ -69,7 +69,7 @@ The information on this page does not aim to be a complete overview of activitie
 
 **5 June 2023** - Nathan Upham presents "Taxonomic translation of bat-virus interaction data via automated alignment tools" at Digital Data in Biodiversity Research Conference 2023 at Arizona State University, Tempe, AZ. 
 
-**7 June 2023** - Aja Sherman presents "Harmonizing taxonomic resources is necessary for novel insights into bat roosting dataset" at Digital Data in Biodiversity Research Conference 2023 at Arizona State University, Tempe, AZ. [recorded presentation](https://drive.google.com/file/d/1wOFqMKgkOTLPeQ1I09eCsOA_N9QCTUE-/view?usp=sharing). 
+**7 June 2023** - Aja Sherman presents Sherman, Aja, Geiselman, Cullen, Simmons, Nancy, Poelen, Jorrit, Reeder, DeeAnn, Upham, Nathan, Phelps, Kendra, & Agosti, Donat. (2023, June 27). Harmonizing taxonomic resources is necessary for novel insights into bat roosting dataset. Zenodo. https://doi.org/10.5281/zenodo.8087069 at Digital Data in Biodiversity Research Conference 2023 at Arizona State University, Tempe, AZ. [recorded presentation](https://vimeo.com/840097528)/ [slide](https://zenodo.org/record/8087069/files/Sherman_DD2023.pptx.pdf) . 
 
 **7 June 2023** - Donat Agosti presents "Matching material citations to occurrences: extending the biodiversity knowledge graph" at Digital Data in Biodiversity Research Conference 2023 at Arizona State University, Tempe, AZ. 
 
