@@ -42,9 +42,17 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **28 September 2022** - Publication of Seltmann, K. (2022). Extended Thoughts about the Extended Specimen. UC Santa Barbara: Cheadle Center for Biodiversity and Ecological Restoration. Retrieved from [https://escholarship.org/uc/item/0g99h7kf](https://escholarship.org/uc/item/0g99h7kf). [mp4](https://escholarship.org/content/qt0g99h7kf/supp/Seltmann-BioDigiCon-ExtendedSpecimen.mp4)
 
+**7 November 2022** - Publication of: Katja C. Seltmann, & Global Biotic Interaction Community. (2022). Global Bee Interaction Data (v2.02) [Data set]. Zenodo. <a href="https://doi.org/10.5281/zenodo.7315159">10.5281/zenodo.7315159</a>
+
 **4 January 2023** - Publication of: Baskauf SJ, Girón Duque JC, Nielsen M, Cobb NS, Singer R, Seltmann KC, Kachian Z, Pérez M, Agosti D, Klompen AML (2023) Implementation Experience Report for Controlled Vocabularies Used with the Audubon Core Terms subjectPart and subjectOrientation. Biodiversity Information Science and Standards 7: e94188. https://doi.org/10.3897/biss.7.94188 .
 
 **6 January 2023** - Publication of: Seltmann, Katja, Poelen, Jorrit H., UCSB Natural History Collections, & Big Bee Community. (2023). Halictus ligatus Halictidae UCSB-IZC00036803 https://library.big-bee.net/portal/collections/individual/index.php?occid=72096 Male - Bee Library - 73e389aa-5886-4c48-8778-ba8932d1bd7e hash://sha256/3a178bd2f588c35eb9729309d1baa769ea819bcd5bb5142c2de208dd8e299d1a hash://md5/88a7c9b9b2df777a17e707aab635b3ef [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7510912 . <a href="https://doi.org/10.5281/zenodo.7510912"><img src="https://github.com/Big-Bee-Network/UCSB-IZC00036803/raw/main/bee.gif" style="height:3em"/></a>
+
+**18 January 2023** - Miller, JT, Poelen, Jorrit, & Seltmann, Katja. (2023). Big Bee Name Alignment Workshop. Zenodo. <a href="https://doi.org/10.5281/zenodo.7829969">10.5281/zenodo.7829969</a>. See also <a href="https://big-bee-network.github.io/name-alignment-workshop/">workshop webpage</a> and <a href="https://github.com/big-bee-network/name-alignment-workshop">versioned workshop resources</a>.
+
+**31 January 2023** Publication of: Seltmann, Katja C., Poelen, Jorrit H., Allen, Julie, Eldredge, K. Taro, Engel, Michael, Gonzalez, Victor, Knowles, L. Lacey, & Horsley, Pam. (2023). Big Bee indexed biotic interactions and review summary (0.7.0) [Data set]. Zenodo. <a href="https://doi.org/10.5281/zenodo.7865367">doi:10.5281/zenodo.7865367</a>
+
+**30 March 2023** Publication of: Brianne Du Clos, Julien Brun, Sam Droege, Jen Hammock, Andrew Johnston, Jonathan Koch, Clare Maffei, Cynthia Sims Parr, Jorrit H. Poelen, Katja C. Seltmann, & Erika M. Tucker. (2023, March 30). US National Native Bee Monitoring RCN Data Management Workshop: Public Domain Videos (1.0.0). Zenodo. <a href="https://doi.org/10.5281/zenodo.7868217">doi:10.5281/zenodo.7868217</a>.
 
 # Collections Status
 
