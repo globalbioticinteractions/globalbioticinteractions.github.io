@@ -52,6 +52,10 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **31 January 2023** Publication of: Seltmann, Katja C., Poelen, Jorrit H., Allen, Julie, Eldredge, K. Taro, Engel, Michael, Gonzalez, Victor, Knowles, L. Lacey, & Horsley, Pam. (2023). Big Bee indexed biotic interactions and review summary (0.7.0) [Data set]. Zenodo. <a href="https://doi.org/10.5281/zenodo.7865367">doi:10.5281/zenodo.7865367</a>
 
+**28 February 2023** Part 1/2 of Jorrit Poelen on "How Big is that Bee? On Distributed Publishing of Existing Digitized Specimen Records and Their Derived Knowledge" at <a href="https://nanopub.net/sessions#nano-session-1">Nanosessions #1</a>. See also <a href="https://github.com/Big-Bee-Network/UCSB-IZC00012194/blob/6a0e2d42198e1cab70ee414a0f749e65e5eff892/nanosessions-presentation-2023-02-28.md">nanosessions-presentation-2023-02-28.md</a> and <a href="https://linker.bio/hash://sha256/e537ca09b318fe2f314cdda85f7e166d7ea360902cf5724fc41acc0d7e48015d">hash://sha256/e537ca09b318fe2f314cdda85f7e166d7ea360902cf5724fc41acc0d7e48015d</a>.
+
+**28 March 2023** Part 2/2 of Jorrit Poelen on "How Big is that Bee? On Distributed Publishing of Existing Digitized Specimen Records and Their Derived Knowledge" at <a href="https://nanopub.net/sessions#nano-session-2">Nanosessions #2</a>. See also <a href="https://github.com/Big-Bee-Network/UCSB-IZC00012194/blob/6a0e2d42198e1cab70ee414a0f749e65e5eff892/nanosessions-presentation-2023-03-28.md">nanosessions-presentation-2023-03-28.md</a> and <a href="https://linker.bio/hash://sha256/ae046add7e565b9e72e69e9fafad8d615ef75d0e77c842e1bf135ba4f5f06704">hash://sha256/ae046add7e565b9e72e69e9fafad8d615ef75d0e77c842e1bf135ba4f5f06704</a>. 
+
 **30 March 2023** Publication of: Brianne Du Clos, Julien Brun, Sam Droege, Jen Hammock, Andrew Johnston, Jonathan Koch, Clare Maffei, Cynthia Sims Parr, Jorrit H. Poelen, Katja C. Seltmann, & Erika M. Tucker. (2023, March 30). US National Native Bee Monitoring RCN Data Management Workshop: Public Domain Videos (1.0.0). Zenodo. <a href="https://doi.org/10.5281/zenodo.7868217">doi:10.5281/zenodo.7868217</a>.
 
 # Collections Status
