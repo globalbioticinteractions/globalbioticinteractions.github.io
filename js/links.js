@@ -20,7 +20,7 @@ let getArchiveURIBase = function(archiveURI) {
 
 let decorateReviewLink = function(aElem, namespace) {
   var reviewUrlPrefix = 'https://depot.globalbioticinteractions.org/reviews/' +  namespace;
-  var reviewUrl = reviewUrlPrefix + '/README.txt';
+  var reviewUrl = reviewUrlPrefix;
   aElem.setAttribute('href', reviewUrl);
   aElem.setAttribute('title', 'data review');
   var img = aElem.appendChild(document.createElement('img'));
