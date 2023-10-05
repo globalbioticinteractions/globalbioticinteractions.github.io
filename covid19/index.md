@@ -99,9 +99,9 @@ Mast, A. R., Paul, D. L., Rios, N., Krimmel, E. R., Bruhn, R., Shorthouse, D. P.
 
 ## Presentations
 
-Sherman, Aja C., Geiselman, Cullen, Simons, Nancy B., Upham, Nathan S., Poelen, Jorrit H., Reeder, DeeAnn M., Bertolino, Sandro, Groom, Quentin, Phelps, Kendra, Agosti, Donat, & Willoughby, Anna R. (2022, August 7). What do we not know? Quantifying data gaps and biases in knowledge of bat co-roosting. 19th International Bat Research Conference, Austin, Texas, USA. Zenodo. https://doi.org/10.5281/zenodo.6959687
+Sherman, Aja C., Geiselman, Cullen, Simons, Nancy B., Upham, Nathan S., Poelen, Jorrit H., Reeder, DeeAnn M., Bertolino, Sandro, Groom, Quentin, Phelps, Kendra, Agosti, Donat, & Willoughby, Anna R. (2022, August 7). What do we not know? Quantifying data gaps and biases in knowledge of bat co-roosting. 19th International Bat Research Conference, Austin, Texas, USA. Zenodo. [https://doi.org/10.5281/zenodo.6959687](https://doi.org/10.5281/zenodo.6959687).
 
-
+Upham, N., Sherman, A., Geiselman, C., Simmons, N., Phelps, K., Willoughby, A., Groom, Q., Agosti, D., Reeder, D., & Poelen, J. (2023, October 5). Taxonomic translation of bat-virus interaction data via automated alignment tools. [https://doi.org/10.5281/zenodo.8409181](https://doi.org/10.5281/zenodo.8409181).
 
 ## Grants
 
