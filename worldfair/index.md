@@ -12,7 +12,7 @@ In the [WorldFAIR project](https://worldfair-project.eu/), [CODATA](https://coda
 
 This page shoes the current state of integration between GloBI and WorldFAIR affiliated datasets, with a special focus on pollination datasets.  
 
-[ask a question about the project](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new?title=WorldFAIR&body=Hi,%20I%20am%20wondering%20about...) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
+[edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/worldfair/index.md) / [ask a question about the project](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new?title=WorldFAIR&body=Hi,%20I%20am%20wondering%20about...) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
 
 [events](#events)
 / [dataset status](#dataset-status)
@@ -30,7 +30,7 @@ This page shoes the current state of integration between GloBI and WorldFAIR aff
 
 Click on badges to browse/download indexed records or inspect automated reviews.
 
-[edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/_data/worldfair.tsv)
+[edit dataset list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/_data/worldfair.tsv)
 
 {% assign cols = site.data.worldfair | sort: "institution" -%}
 {% for c in cols -%}
