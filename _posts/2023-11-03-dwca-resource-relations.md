@@ -3,7 +3,7 @@ layout: post
 title: Field Museum and iNaturalist Adopt Darwin Core Resource Relationship Standard to Share Species Interaction Records 
 author: Jorrit Poelen
 date: 2023-11-03
-excerpt: The Field Museum in Chicago and iNaturalist capture detailed records on how species interact. Both the Field Museum and iNaturalist showed their capacity to innovate by using the recently improved Darwin Core Resource Relationship extensions to publish their interaction records. In using this standards based approach, they helped make it easier to access the valueable knowledge they keep, and provide examples for others to follow. 
+excerpt: The Field Museum in Chicago and iNaturalist capture detailed records on how species interact. They both showed their capacity to innovate by using the recently improved Darwin Core Resource Relationship extensions to publish their interaction records. By using this standards based approach, they facilitate access to the valueable biodiversity knowledge they keep, and provide examples for others to follow. 
 categories:
 - bioinformatics
 - biology
@@ -89,3 +89,5 @@ Big thanks to [Sharon Grant](https://orcid.org/0000-0002-0201-732X), [Kate Webbi
 Also, thanks to TDWG contributors like [John Wieczorek](https://orcid.org/0000-0003-1144-0290), [Peter Desmet](https://orcid.org/0000-0002-8442-8025), [Quentin Groom](https://orcid.org/0000-0002-0596-5376), [Steve Baskauf](https://orcid.org/0000-0003-4365-3135) and many others for helping to review and approve an improvement to Resource Relationship extension that enabled machine readability of relationship types. If you'd like, you can review the history of the discussion threads related to this one seemingly small change to the Darwin Core standards at [tdwg/dwc/issue#186](https://github.com/tdwg/dwc/issues/186) and [tdwg/dwc/issue#283](https://github.com/tdwg/dwc/issues/283) - it takes a village to keep a standard alive!
 
 Finally, this work was, in part, made possible with the financial support of NSF through projects like the [Parasite Tracker Thematic Collections Network](https://www.globalbioticinteractions.org/parasitetracker/) led by [Jen Zaspel (PI)](https://orcid.org/0000-0003-3960-0364) and [Katja Seltmann (co-PI)](https://orcid.org/0000-0001-5354-6048) via award numbers [DBI:1901932](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1901932) and [DBI:1901926](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1901926).
+
+
