@@ -22,7 +22,7 @@ Life on earth is sustained by a complex interplay between organisms and their en
 The Field Museum holds millions of preserved specimen in their natural history collections. And some of these specimen are parasites that were found on their host. For instance, the Field Museum Insect collection contain a preserved specimen of an adult male flea Trichopsylloides oregonensis Ewing, 1938 [FMNH FMNHINS 0004 345 536](https://db.fieldmuseum.org/65167e0f-0e31-4884-a34e-577ffdb54545) collected on 17 April 1971 by C. O. Maser in Tillamook, Oregon, USA at the Cascade Head Experimental Forest. And, according to their records this flea was found on a mountain beaver (_Aplodontia rufa_  (Rafinesque, 1817) ).
 
 <table>
-<caption><p><em>Table 1. Top 5 most frequently reported interaction claims in Field Museum Collections are parasitic interactions between flies (Diptera) and bats (Chiroptera). Data was extracted from a <a href="/assets/fmnh-review-2023-10-30.pdf">A data review report produced on 30 October 2023</a>.</em></p></caption>
+<caption><p><em>Table 1. Top 5 most frequently reported interaction claims in Field Museum Collections are parasitic interactions between flies (Diptera) and bats (Chiroptera). Data was extracted from a <a href="/assets/fmnh-review-2023-10-30.pdf">data review report produced on 30 October 2023</a>.</em></p></caption>
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
