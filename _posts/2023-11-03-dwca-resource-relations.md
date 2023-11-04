@@ -3,7 +3,7 @@ layout: post
 title: Field Museum and iNaturalist Adopt Darwin Core Resource Relationship Standard to Share Species Interaction Records 
 author: Jorrit Poelen
 date: 2023-11-03
-excerpt: The Field Museum in Chicago and iNaturalist capture detailed records on how species interact. They both showed their capacity to innovate by using the recently improved Darwin Core Resource Relationship extensions to publish their interaction records. By using this standards based approach, they facilitate access to the valueable biodiversity knowledge they keep, and provide examples for others to follow. 
+excerpt: The Field Museum and iNaturalist capture detailed records on how species interact. They both showed their capacity to innovate by using the recently improved Darwin Core Resource Relationship extensions to publish their interaction records. By using this standards based approach, they facilitate access to the valueable biodiversity knowledge they keep, and provide examples for others to follow. 
 categories:
 - bioinformatics
 - biology
