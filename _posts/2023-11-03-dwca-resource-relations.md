@@ -41,31 +41,31 @@ The Field Museum holds millions of preserved specimen in their natural history c
 <tr class="odd">
 <td><a href="https://www.catalogueoflife.org/data/taxon/7CQFK"><em>Trichobius joblingi</em> Wenzel, 1966</a></td>
 <td><a href="http://purl.obolibrary.org/obo/RO_0002632">ectoparasite of</a></td>
-<td><a href="https://en.wikipedia.org/wiki/Seba's_short-tailed_bat">Seba's short-tailed bat (<em>Carollia perspicillata</em>)</a></td>
+<td><a href="https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=631822">Seba's short-tailed bat (<em>Carollia perspicillata</em>)</a></td>
 <td>1377</td>
 </tr>
 <tr class="even">
 <td><a href="https://www.catalogueoflife.org/data/taxon/3Z25Q"><em>Megistopoda proxima</em> (Séguy, 1926)</a></td>
 <td><a href="http://purl.obolibrary.org/obo/RO_0002632">ectoparasite of</a></td>
-<td><a href="https://en.wikipedia.org/wiki/Little_yellow-shouldered_bat">Little yellow-shouldered bat (<em>Sturnira lilium</em>)</a></td>
+<td><a href="https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=631860">Little yellow-shouldered bat (<em>Sturnira lilium</em>)</a></td>
 <td>906</td>
 </tr>
 <tr class="odd">
 <td><a href="https://www.catalogueoflife.org/data/taxon/3Z25L"><em>Megistopoda aranea</em> (Coquillétt, 1899)</a></td>
 <td><a href="http://purl.obolibrary.org/obo/RO_0002632">ectoparasite of</a></td>
-<td><a href="https://en.wikipedia.org/wiki/Jamaican_fruit_bat">Jamaican fruit bat (<em>Artibeus jamaicensis</em>)</a></td>
+<td><a href="https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=180058">Jamaican fruit bat (<em>Artibeus jamaicensis</em>)</a></td>
 <td>793</td>
 </tr>
 <tr class="even">
 <td><a href="https://www.catalogueoflife.org/data/taxon/7D2FV"><em>Trichobius parasiticus</em> Gervais, 1844</a></td>
 <td><a href="http://purl.obolibrary.org/obo/RO_0002632">ectoparasite of</a></td>
-<td><a href="https://en.wikipedia.org/wiki/Common_vampire_bat">Common vampire bat (<em>Desmodus rotundus</em>)</a></td>
+<td><a href="https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=631886">Common vampire bat (<em>Desmodus rotundus</em>)</a></td>
 <td>775</td>
 </tr>
 <tr class="odd">
 <td><a href="https://www.catalogueoflife.org/data/taxon/52WST"><em>Strebla wiedemanni</em> Kolenati, 1856</a></td>
 <td><a href="http://purl.obolibrary.org/obo/RO_0002632">ectoparasite of</a></td>
-<td><a href="https://en.wikipedia.org/wiki/Common_vampire_bat">Common vampire bat (<em>Desmodus rotundus</em>)</a></td>
+<td><a href="https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=631886">Common vampire bat (<em>Desmodus rotundus</em>)</a></td>
 <td>697</td>
 </tr>
 </tbody>
