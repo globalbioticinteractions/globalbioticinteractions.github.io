@@ -61,6 +61,8 @@ This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status pa
 
 **13 October 2022** - GloBI's Nomer [v0.3.2](https://github.com/globalbioticinteractions/nomer/releases/tag/0.3.2) now supports a first version to align names to the Foundational Taxonomic Resources For The Terrestrial Parasite Tracker (TPT) Project .
 
+**3 November 2023** - blog post published: "Field Museum and iNaturalist Adopt Darwin Core Resource Relationship Standard to Share Species Interaction Records":
+The Field Museum and iNaturalist capture detailed records on how species interact. They both showed their capacity to innovate by using the recently improved Darwin Core Resource Relationship extensions to publish their interaction records. By using this standards based approach, they facilitate access to the valueable biodiversity knowledge they keep, and provide examples for others to follow. [More ...](https://www.globalbioticinteractions.org/2023/11/03/dwca-resource-relations/)
 
 # TPT Collections Status
 
