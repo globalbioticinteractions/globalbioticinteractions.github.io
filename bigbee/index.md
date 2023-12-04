@@ -58,6 +58,8 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **30 March 2023** Publication of: Brianne Du Clos, Julien Brun, Sam Droege, Jen Hammock, Andrew Johnston, Jonathan Koch, Clare Maffei, Cynthia Sims Parr, Jorrit H. Poelen, Katja C. Seltmann, & Erika M. Tucker. (2023, March 30). US National Native Bee Monitoring RCN Data Management Workshop: Public Domain Videos (1.0.0). Zenodo. <a href="https://doi.org/10.5281/zenodo.7868217">doi:10.5281/zenodo.7868217</a>.
 
+**4 December 2023** Symbiota Support Group talk "Image Tagging in Symbiota Portals" by Colleen Smith of the UC Santa Barbara Cheadle Center for Biodiversity and Ecological Restoration.  
+
 # Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
