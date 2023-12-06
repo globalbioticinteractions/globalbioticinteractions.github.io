@@ -45,7 +45,7 @@ permalink: about
         like <a href="http://www.mendeley.com/profiles/chris-mungall/">Chris Mungall</a>, data managers like <a href="http://github.com/millerse">Sarah E. Miller</a> and biologists like <a
                 href="http://ccs.tamucc.edu/people/dr-james-d-simons/">Jim Simons</a>, <a
                 href="http://ronininstitute.org/research-scholars/anne-thessen/">Anne Thessen</a>, <a href="https://orcid.org/0000-0002-9943-2342">Jen Hammock</a> and <a
-                href="https://sites.google.com/site/haydenresearch/">Brian Hayden</a> to capture, provide access to and use interaction data
+                href="https://sites.google.com/view/brianhayden/home">Brian Hayden</a> to capture, provide access to and use interaction data
         that is provided by <a href="/references.html">biologists and community scientists around the world</a>. <b>GloBI is sustained by an intricate network of  thriving open source, open data and open science communities</b> in addition to receiving donations, grants, awards or being written into grants, including, but not limited to, EOL's <a href="http://eol.org/info/485">EOL Rubenstein Fellows Program</a> (CRDF EOL-33066-13/F33066, 2013) and the David M. Rubenstein Grant (FOCX-14-60988-1, 2014), and the Smithsonian Institution (SI) (T15CC10297-002, 2016). If you would like to contribute to GloBI please visit our <a href="contribute" target="_blank">contribute</a> page. </p>
 
     <h3 id="process">How does GloBI work?</h3>
