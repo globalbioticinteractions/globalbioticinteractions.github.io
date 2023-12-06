@@ -17,13 +17,14 @@ permalink: about
     <h3 id="why">Why GloBI?</h3>
 
     <p><i>
-      “The various books and journals of ornithology and entomology are like a row of beehives containing an immense amount of valuable honey, which has been stored up in separate cells by the bees that made it. The advantage, and at the same time the difficulty, of ecological work is that it attempts to provide conceptions which can link up into some complete scheme the colossal store of facts about natural history which has accumulated up to date in this rather haphazard manner. This applies with particular force to facts about the food habits of animals. Until more organised information about the subject is available, it is only possible to give a few instances of some of the more clear­cut niches which happen to have been worked out.”</i> - <a href="https://biodiversitylibrary.org/page/7236467">Charles Elton, 1927. <em>Animal Ecology</em>. pp 65-66. </a></p>
-    <p><i>“Biodiversity researchers have focused on diversity at the cost of ignoring the networks of interactions between organisms that characterize ecosystems.”</i> - <a href="https://doi.org/10.1038/446029a">Kevin McCann,
-        2007</a></p>
+      “The various books and journals of ornithology and entomology are like a row of beehives containing an immense amount of valuable honey, which has been stored up in separate cells by the bees that made it. The advantage, and at the same time the difficulty, of ecological work is that it attempts to provide conceptions which can link up into some complete scheme the colossal store of facts about natural history which has accumulated up to date in this rather haphazard manner. This applies with particular force to facts about the food habits of animals. Until more organised information about the subject is available, it is only possible to give a few instances of some of the more clear­cut niches which happen to have been worked out.”</i> — <a href="https://biodiversitylibrary.org/page/7236467">Charles Elton, 1927. <em>Animal Ecology</em>. pp 65-66. </a></p>
+    <p><i>“Biodiversity researchers have focused on diversity at the cost of ignoring the networks of interactions between organisms that characterize ecosystems.”</i> — <a href="https://doi.org/10.1038/446029a">Kevin McCann, 2007</a></p>
 
     <p><i>“An essential element of a truly inclusionary and democratic approach to science is to share data through
-        publicly accessible data sets.”</i> - <a href="https://doi.org/10.1093/biosci/biu169">Soranno et al., 2014</a>
+        publicly accessible data sets.”</i> — <a href="https://doi.org/10.1093/biosci/biu169">Soranno et al., 2014</a>
     </p>
+    
+    <p><i>“As scientific data users, we take the standpoint that scientific data are not copyrightable and, furthermore, they can be accessed, shared and reused freely. Thus, once legal access has been gained to copyrighted publications, the data within those scholarly publications can be considered to be open data that is freely extractable. This set of recommendations has been reached specifically for scientific use and societal benefits.”</i> — <a href="https://doi.org/10.3897/rio.9.e115466">Benichou et al., 2023</a></p>
 
     <p>Now that folks have mapped the <a href="https://en.wikipedia.org/wiki/Human_Genome_Project">human genome</a>, put
         <a href="https://en.wikipedia.org/wiki/Neil_Armstrong">a man on the moon</a>, isn't it time to provide easy
