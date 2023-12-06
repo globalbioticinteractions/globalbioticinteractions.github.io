@@ -60,37 +60,6 @@ permalink: about
     <h3 id="education">How to use GloBI as an educational tool?</h3>
 
     <p>Partner collaborators at the <a href="https://eol.org">Encyclopedia of Life</a> have <a href="https://eol.org/docs/discover/food-webs">developed tools</a> to better understand food webs in specific and ecosystems in general. Also, Daniela Baron <em>et al.</em> created an <a href="http://danielabar.github.io/globi-proto/">Interactive Ecosystem Explorer</a> for high school students. In addition, many other educational resources exist including, but not limited to, <a href="http://hhmi.org">hhmi</a>'s <a href="https://www.hhmi.org/biointeractive/exploring-trophic-cascades">Trophic Cascades</a> and <a href="https://www.hhmi.org/biointeractive/earthviewer">Earth Viewer</a>. Ideally, GloBI will help facilitate to create, and improve, these openly accessible educational resources.</p>
-
-    <h3 id="in-the-wild">GloBI in the wild</h3>
-
-    <p>The <a href="http://eol.org">Encyclopedia of Life</a> (see <a
-            href="http://blog.globalbioticinteractions.org/2014/01/24/what-parasites-do-atlantic-croaker-host-find-it-on-the-encyclopedia-of-life/">blog
-        post</a>) and <a href="http://gomexsi.tamucc.edu">Gulf of Mexico Species Interaction Database</a> (see <a
-            href="http://blog.globalbioticinteractions.org/2013/09/17/want-to-explore-marine-foodwebs-in-the-gulf-of-mexico-visit-gomexsi/">blog
-        post</a>) are currently using GloBI's data services. We also built some web apps on top of our data services: <a
-            href="/references.html">list references and data sources</a>, <a href="/index.html">figure out who eats
-        what</a> and <a href="/browse">browse interactions around the globe</a>.</p>
-
-    <p>The <a href="http://r-project.org">R</a> community uses <a
-            href="https://cran.r-project.org/web/packages/rglobi/index.html">rGloBI</a> (part of <a
-            href="http://ropensci.org">rOpenSci</a>) to access interaction data (see <a
-            href="http://timotheepoisot.fr/2015/05/10/hungry-caterpillars/">Hungry Caterpillars</a> for example). Also,
-        students of <a href="http://iu.edu">Indiana University's</a> <a href="http://ivmooc.cns.iu.edu/">Information
-            Visualization MOOC</a> created a <a href="https://doi.org/10.6084/m9.figshare.1297762">Food-Web Map of the
-            World</a> (class of 2014) and an <a href="http://danielabar.github.io/globi-proto">interactive ecosystem
-            explorer</a> (class of 2015) (<a href="https://doi.org/10.6084/m9.figshare.1414252">poster</a>, <a
-                href="https://doi.org/10.6084/m9.figshare.1414253">paper</a>) using GloBI data.</p>
-    <p>Some more mentions include <a
-        href="http://www.bigbio.com.mx/bigbio/articulos/global-biotic-interactions-globi-bichos-vemos-relaciones-si-sabemos/">Global
-    Biotic Interactions (GloBI). Bichos vemos, relaciones sí sabemos.</a>, <a
-        href="http://aprendizajedistancia.blogspot.com/2015/05/datos-global-biotic-interactions.html">Datos: Global
-        Biotic Interactions</a>, <a href="http://blog.openhelix.eu/?p=22003">OpenHelix's Video Tip of the Week</a>, <a
-        href="http://nbviewer.ipython.org/github/Py4Life/TAU2015/blob/master/minilecture_API_globi.ipynb">Py4Life's
-    mini-lecture using Python and GloBI</a> as part of <a href="http://py4life.github.io/TAU2015/">Python Programming
-    for Biologist course at Tel-Aviv University</a> and <a href="https://github.com/terschure/reimagined-lamp">a colorful network visualization by Anneke ter Schure</a> (see <a href="https://rawgit.com/terschure/reimagined-lamp/master/BioticInteractions/index.html">live example</a>).</p>
-    <p>In addition, the <em><a href="http://www.gbif.org/resource/82612" target="_blank">Report of the Task Group on GBIF Data Fitness for Use in Distribution Modelling</a></em> published by the GBIF Secretariat on 22 March 2016 suggested that GloBI should be linked and integrated with major biodiversity portals to facilitate modeling of biotic interactions.</p>
-Also, <a href="http://www.nhm.ac.uk/our-science/departments-and-staff/staff-directory/vincent-smith.html">Vince Smith</a> of the <a href="http://nhm.ac.uk">Natural History Museum, London</a> mentioned GloBI as part of his talk <em>NHM Data Portal: first steps toward the Graph-of-Life</em> (see <a href="http://www.slideshare.net/vsmithuk/nhm-data-portal-first-steps-toward-the-graphoflife/26">slides pp.26-30</a>, <a href="http://idigbio.adobeconnect.com/p40okmceb6d/">video at 35min</a>) at the <a href="http://www.spnhc2016.berlin/index.html">31st annual meeting</a> of the <a href="http://www.spnhc.org">Society for Preservation of Natural History Collections (SPNCH)</a> on 23 June 2016 in Berlin, Germany.</p> 
-<p>And, <a href="https://www.researchgate.net/profile/Katja_Schulz" target="_blank">Katja Schulz</a> of the <a href="https://si.edu" target="_blank">Smithsonian Institution</a> and <a href="http://eol.org" target="_blank">Encyclopedia of Life</a> presented a poster <em><a href="https://doi.org/10.6084/m9.figshare.4495130.v1" target="_blank">Pragmatic, scalable aggregation of organismal interaction data</a></em> at <a href="http://www.tdwg.org/conference2016/" target="_blank">TDWG 2016</a> in an effort to help build a community to provide open access to, and use, organismal interaction data.</p>
       
       <h3 id="cite">How to cite GloBI?</h3>
     <p><b>GloBI is made possible by researchers, collections, projects and institutions openly sharing their datasets. When using this data, please make sure to attribute these original data contributors, including citing the specific datasets in derivative work.</b> Each species interaction record indexed by GloBI contains a reference and dataset citation. If you have ideas on how to make it easier to cite original datasets, please <a href="/contribute#join-a-discussion">open/join a discussion</a>.</p>
