@@ -59,7 +59,7 @@ permalink: about
 
     <h3 id="education">How to use GloBI as an educational tool?</h3>
 
-    <p>Education experts such as Marie Studer and Jeff Holmes at <a href="http://education.eol.org">EOL Learning + Education</a> have developed tools and lession plans to better understand food webs in specific and ecosystems in general. Also, Daniela Baron <em>et al.</em> created an <a href="http://danielabar.github.io/globi-proto/">Interactive Ecosystem Explorer</a> for high school students. In addition, many other educational resources exist including, but not limited to, <a href="http://hhmi.org">hhmi</a>'s <a href="https://www.hhmi.org/biointeractive/exploring-trophic-cascades">Trophic Cascades</a> and <a href="https://www.hhmi.org/biointeractive/earthviewer">Earth Viewer</a>. Ideally, GloBI will help facilitate to create, and improve, these openly accessible educational resources.</p>
+    <p>Partner collaborators at the <a href="https://eol.org">Encyclopedia of Life</a> have <a href="https://eol.org/docs/discover/food-webs">developed tools</a> to better understand food webs in specific and ecosystems in general. Also, Daniela Baron <em>et al.</em> created an <a href="http://danielabar.github.io/globi-proto/">Interactive Ecosystem Explorer</a> for high school students. In addition, many other educational resources exist including, but not limited to, <a href="http://hhmi.org">hhmi</a>'s <a href="https://www.hhmi.org/biointeractive/exploring-trophic-cascades">Trophic Cascades</a> and <a href="https://www.hhmi.org/biointeractive/earthviewer">Earth Viewer</a>. Ideally, GloBI will help facilitate to create, and improve, these openly accessible educational resources.</p>
 
     <h3 id="in-the-wild">GloBI in the wild</h3>
 
