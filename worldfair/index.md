@@ -34,24 +34,23 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 
 [edit dataset list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/_data/worldfair.tsv)
 
-{% assign cols = site.data.worldfair | sort: "institution" -%}
+{% assign cols = site.data.worldfair | sort: "pilot" -%}
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%}
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
-[![badge]({{ globi-badge }})]({{ globi-url }}) <a href="#{{ c.institution_code }}">{{ c.institution_code }}</a> {{ " / " }}
+[![badge]({{ globi-badge }})]({{ globi-url }}) <a href="#{{ c.pilot }}">{{ c.pilot }}</a> {{ " / " }}
 {%- endfor %}
 
-|status|institution/collection|platform|contact|
-|---|---|---|---|---
-{% assign cols = site.data.worldfair | sort: "institution" -%}
+|status|pilot|contact|
+|---|---|---
+{% assign cols = site.data.worldfair | sort: "pilot" -%}
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
 {%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
-{%- if c.review_id -%}
+{%- if c.review_id and c.review_id != "NA" -%}
 {%- assign review-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" -%}
 {%- assign review-badge = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review.svg" -%}
 {%- assign names-url = c.review_id | trim | uri_escape | prepend: "https://api.globalbioticinteractions.org/interaction.csv?type=csv&sourceTaxon=no%3Amatch&includeObservations=true&accordingTo=globi%3A" -%}
-{%- assign names-badge = "assets/suspicious_names.svg" -%}
 {%- assign config-badge = "assets/config.svg" -%}
 {%- assign config-url = c.review_id | trim | prepend: "https://github.com/" -%}
 {%- assign issues-badge = c.review_id | trim | prepend: "https://img.shields.io/github/issues/" | append: ".svg" -%}
@@ -66,7 +65,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign issues-badge = "assets/issues_none.svg" -%}
 {%- assign issues-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- endif -%}
-[![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) [![badge]({{ names-badge }})]({{ names-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
+[![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span id="{{ c.pilot }}">{{ c.pilot }}</span> | {{ c.contact }} | 
 {% endfor %}
 
 # Integration Profiles

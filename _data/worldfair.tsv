@@ -1,4 +1,12 @@
-institution_code	institution	collection_code	collection	contact	email	platform	platform_detail	globi_id	review_id
-REBIPP	Rede Brasileira de Interações Planta-Polinizador	LIT	Literature Review	Rocio, Chris	rebipp2016@gmail.com			globi:globalbioticinteractions/rebipp	globalbioticinteractions/rebipp
-KALRO	KALRO	LIT	Literature Review	Muo				globi:globalbioticinteractions/kalro	globalbioticinteractions/kalro
-CAMPINAS	University of Campinas, São Paulo, Brazil	OBS	Observations	José Augusto Salim	joseasalim@usp.br			globi:globalbioticinteractions/calvalheiro2023	globalbioticinteractions/calvalheiro2023
+pilot	contact	globi_id	review_id
+Argentina		NA	NA
+HiveTracks	Max	NA	NA
+KALRO	Muo	NA	NA
+REBIPP-Louisa-Carvalheiro	José Augusto Salim	globi:globalbioticinteractions/carvalheiro2023	globalbioticinteractions/carvalheiro2023
+REBIPP-Pedro-Bergamo		NA	NA
+REBIPP-Carla-Tinoco		NA	NA
+REBIPP-Denise-Alvis		NA	NA
+REBIPP-Isabella-Varassin		NA	NA
+REBIPP-Bruno-Ferreira		NA	NA
+USDA-PLANTS-Pollinator	Cyndy	NA	NA
+SIB Colombia		NA	NA
