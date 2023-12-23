@@ -8,7 +8,7 @@ status: unlisted
 </div>
 
 
-In the [WorldFAIR project](https://worldfair-project.eu/), [CODATA](https://codata.org/) (the Committee on Data of the International Science Council) and [RDA](https://www.rd-alliance.org/) (the Research Data Alliance) work with a set of 11 disciplinary and cross-disciplinary case studies to advance implementation of the FAIR principles and, in particular, to improve interoperability and reusability of digital research objects, including data. Particular attention is paid to the articulation of an interoperability framework for each case study and research domain.
+In the [WorldFAIR project](https://worldfair-project.eu/), the Committee on Data of the International Science Council ([CODATA](https://codata.org/)) and the Research Data Alliance ([RDA](https://www.rd-alliance.org/)) work with a set of 11 disciplinary and cross-disciplinary case studies to advance implementation of the FAIR principles and, in particular, to improve interoperability and reusability of digital research objects, including data. Particular attention is paid to the articulation of an interoperability framework for each case study and research domain.
 
 Related meeting notes available at [https://docs.google.com/document/d/1MKUFLdGscFODvkW8NfzrP8LhJbDks3L0FXLyae6yZ34](https://docs.google.com/document/d/1MKUFLdGscFODvkW8NfzrP8LhJbDks3L0FXLyae6yZ34) . 
 
