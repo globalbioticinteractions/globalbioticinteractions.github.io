@@ -67,21 +67,25 @@ li {
 
 .closed:before {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Lock-red.svg/38px-Lock-red.svg.png);
-  background-size: 1em 1em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   display: inline-block;
-  width: 1em; 
+  width: 1em;
   height: 1em;
-  margin-right: 0.5em;
+  margin-right: 0.3em;
   content: "";
 }
 
 .open:before {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/38px-Lock-green.svg.png);
-  background-size: 1em 1em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   display: inline-block;
-  width: 1em; 
+  width: 1em;
   height: 1em;
-  margin-right: 0.5em;
+  margin-right: 0.3em;
   content: "";
 }
 
