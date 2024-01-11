@@ -1,12 +1,12 @@
 pilot	contact	metadata_access	data_access	review_report_access	globi_id	review_id
-Argentina	Rocío Ana González-Vaquero (rvaquero@agro.uba.ar), Mariano Devoto (mdevoto@agro.uba.ar)	closed	closed	closed	globi:globalbioticinteractions/gonzalez-vaquero2023	globalbioticinteractions/gonzalez-vaquero2023
-HiveTracks	Max Rünzel (max@hivetracks.com), Drew Robinson (drew@hivetracks.com)	closed	closed	closed	globi:globalbioticinteractions/hivetracks2023	globalbioticinteractions/hivetracks2023
+Argentina	Rocío Ana González-Vaquero (rvaquero@agro.uba.ar), Mariano Devoto (mdevoto@agro.uba.ar)	open	closed	open	globi:globalbioticinteractions/gonzalez-vaquero2023	globalbioticinteractions/gonzalez-vaquero2023
+HiveTracks	Max Rünzel (max@hivetracks.com), Drew Robinson (drew@hivetracks.com)	open	closed	open	globi:globalbioticinteractions/hivetracks2023	globalbioticinteractions/hivetracks2023
 KALRO	Muo Kasina (muo.kasina@kalro.org)	open	open	open	globi:globalbioticinteractions/kalro2023	globalbioticinteractions/kalro2023
 REBIPP-Luisa-Carvalheiro	Luisa Gigante Carvalheiro (lgcarvalheiro@gmail.com)	open	open	open	globi:globalbioticinteractions/carvalheiro2023	globalbioticinteractions/carvalheiro2023
-REBIPP-Pedro-Bergamo	Pedro Bergamo (pjbergamo@gmail.com)	closed	closed	closed	globi:globalbioticinteractions/bergamo2020	globalbioticinteractions/bergamo2020
+REBIPP-Pedro-Bergamo	Pedro Bergamo (pjbergamo@gmail.com)	open	closed	open	globi:globalbioticinteractions/bergamo2020	globalbioticinteractions/bergamo2020
 REBIPP-Carla-Tinoco	Carla Tinoco (carlaftinoco@gmail.com)	closed	closed	closed	globi:globalbioticinteractions/tinoco2023	globalbioticinteractions/tinoco2023
-REBIPP-Denise-Alves	Denise Araujo Alves (daalves@usp.br)	closed	closed	closed	globi:globalbioticinteractions/alves2023	globalbioticinteractions/alves2023
-REBIPP-Isabella-Varassin	Isabella Varassin (isagalarda@gmail.com)	closed	closed	closed	globi:globalbioticinteractions/varassin2023	globalbioticinteractions/varassin2023
-REBIPP-Bruno-Ferreira	Bruno Ferreira (fbmqs@egresso.ufg.br)	closed	closed	closed	globi:globalbioticinteractions/ferreira2023	globalbioticinteractions/ferreira2023
+REBIPP-Denise-Alves	Denise Araujo Alves (daalves@usp.br)	open	closed	open	globi:globalbioticinteractions/alves2023	globalbioticinteractions/alves2023
+REBIPP-Isabella-Varassin	Isabella Varassin (isagalarda@gmail.com)	open	closed	open	globi:globalbioticinteractions/varassin2023	globalbioticinteractions/varassin2023
+REBIPP-Bruno-Ferreira	Bruno Ferreira (fbmqs@egresso.ufg.br)	open	closed	open	globi:globalbioticinteractions/ferreira2023	globalbioticinteractions/ferreira2023
 USDA-PLANTS-Pollinator	Christine Taliga (chris.taliga@usda.gov)	closed	closed	closed	globi:globalbioticinteractions/usda2023	globalbioticinteractions/usda2023
 University CES	Carolina Bedoya Duque, Catalina Maria Correa Álvarez, Esteban Marentes Herrera (emarentes@humboldt.org.co), Juliana Cardona Duque (jcardonad@ces.edu.co), Alberto Molina, Juan Fernando Acevedo, Maria Camila Agudelo Zapata (magudeloz@ces.edu.co) & Mileidy Cristina Idárraga Giraldo (idarraga.mileidy@uces.edu.co)	open	open	open	globi:globalbioticinteractions/sibcolombia2023	globalbioticinteractions/sibcolombia2023
