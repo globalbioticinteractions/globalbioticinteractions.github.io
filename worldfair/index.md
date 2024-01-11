@@ -41,8 +41,8 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 [![badge]({{ globi-badge }})]({{ globi-url }}) <a href="#{{ c.pilot }}">{{ c.pilot }}</a> {{ " / " }}
 {%- endfor %}
 
-|status|pilot|contact|
-|---|---|---
+|status|<ins>M</ins>etadata\|<ins>D</ins>ata\|<ins>R</ins>eview|pilot|contact|
+|---|---|---|---
 {% assign cols = site.data.worldfair | sort: "pilot" -%}
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
@@ -65,7 +65,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign issues-badge = "assets/issues_none.svg" -%}
 {%- assign issues-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- endif -%}
-[![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span id="{{ c.pilot }}">{{ c.pilot }}</span> | {{ c.contact }} | 
+[![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span class="{{ c.metadata_access }}" title="At this time, access to metadata of {{ c.pilot }} WorldFAIR pilot is {{ c.metadata_access }}.">M</span> \| <span class="{{ c.data_access }}" title="At this time, access to data of {{ c.pilot }} WorldFAIR pilot is {{ c.data_access }}.">D</span> \| <span class="{{ c.review_report_access }}" title="At this time, access to review reports of {{ c.pilot }} WorldFAIR pilot is {{ c.review_report_access }}.">R</span> | <span id="{{ c.pilot }}">{{ c.pilot }}</span> | {{ c.contact }} | 
 {% endfor %}
 
 # Integration Profiles

@@ -65,7 +65,7 @@ li {
   font-size: 1.2em;
 }
 
-li.closed:before {
+.closed:before {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/67/Closed_Access_logo_white.svg);
   background-size: 1em 1em;
   display: inline-block;
@@ -75,7 +75,7 @@ li.closed:before {
   content: "";
 }
 
-li.open:before {
+.open:before {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/77/Open_Access_logo_PLoS_transparent.svg);
   background-size: 1em 1em;
   display: inline-block;
