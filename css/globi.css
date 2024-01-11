@@ -66,7 +66,7 @@ li {
 }
 
 .closed:before {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/67/Closed_Access_logo_white.svg);
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Lock-red.svg/38px-Lock-red.svg.png);
   background-size: 1em 1em;
   display: inline-block;
   width: 1em; 
@@ -76,7 +76,7 @@ li {
 }
 
 .open:before {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/77/Open_Access_logo_PLoS_transparent.svg);
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/38px-Lock-green.svg.png);
   background-size: 1em 1em;
   display: inline-block;
   width: 1em; 
