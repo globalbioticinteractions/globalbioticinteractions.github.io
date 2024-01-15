@@ -6,7 +6,9 @@ status: unlisted
 
 <a class="logos" href="https://parasitetracker.org/"><img src="/assets/TPTlogo_wide.png" alt="Terrestrial Parasite Tracker"/></a>
 
-This [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT) status page shows the current state of integration between TPT affiliated collections and GloBI.
+> [Terrestrial Parasite Tracker](https://parasitetracker.org) (TPT, a NSF funded Thematic Collection Network) mobilizes non-digitally and digitally captured vector and ectoparasite collections to data aggregators to help build a comprehensive picture of ectoparasite host-association evolution, distributions, and the ecological interactions of disease vectors which will assist scientists, educators, land managers, and policy makers.
+
+This TPT status page shows the current state of integration between TPT affiliated collections and GloBI.
 
 [edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/parasitetracker/index.md) / [edit collection list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/_data/parasitetracker.tsv) / [ask a question](https://github.com/ParasiteTracker/data-issues-observations-and-questions/issues) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
 
