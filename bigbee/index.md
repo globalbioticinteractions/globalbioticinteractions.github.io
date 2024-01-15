@@ -3,6 +3,7 @@ layout: default
 title: "big bee"
 status: unlisted
 ---
+<div class="figure figure-globi right"><a href="https://big-bee.net/"><img src="/assets/big-bee.png" alt="Big Bee"/></a></div>
 
 The [Big Bee](https://big-bee.net) network is a project to create and openly share trait information about global bees. This status page shows the current state of integration between Big Bee affiliated collections and GloBI. 
 
