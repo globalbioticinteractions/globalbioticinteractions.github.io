@@ -92,7 +92,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign names-badge = "assets/suspicious_names.svg" -%}
 {%- assign config-badge = "assets/config.svg" -%}
 {%- assign config-url = c.review_id | trim | prepend: "https://github.com/" -%}
-{%- assign issues-badge = c.review_id | trim | prepend: "https://img.shields.io/github/issues/" | append: ".svg" -%}
+{%- assign issues-badge = c.review_id | trim | prepend: "https://img.shields.io/github/issues/" | append: ".svg?color=green" -%}
 {%- assign issues-url = c.review_id | trim | prepend: "https://github.com/" | append: "/issues" -%}
 {%- else -%}
 {%- assign review-url = "https://globalbioticinteractions.org/contribute" -%}
