@@ -12,7 +12,7 @@ In the [WorldFAIR project](https://worldfair-project.eu/), the Committee on Data
 
 Related meeting notes available at [https://docs.google.com/document/d/1MKUFLdGscFODvkW8NfzrP8LhJbDks3L0FXLyae6yZ34](https://docs.google.com/document/d/1MKUFLdGscFODvkW8NfzrP8LhJbDks3L0FXLyae6yZ34) . 
 
-This page shoes the current state of integration between GloBI and WorldFAIR affiliated datasets, with a special focus on pollination datasets.  
+This page shows the current state of integration between GloBI and WorldFAIR affiliated datasets, with a special focus on pollination datasets.  
 
 [edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/worldfair/index.md) / [ask a question about the project](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new?title=WorldFAIR&body=Hi,%20I%20am%20wondering%20about...) / [contribute data](https://github.com/globalbioticinteractions/globalbioticinteractions/issues)
 
