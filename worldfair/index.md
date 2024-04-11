@@ -10,7 +10,7 @@ status: unlisted
 
 In the [WorldFAIR project](https://worldfair-project.eu/), the Committee on Data of the International Science Council ([CODATA](https://codata.org/)) and the Research Data Alliance ([RDA](https://www.rd-alliance.org/)) work with a set of 11 disciplinary and cross-disciplinary case studies to advance implementation of the FAIR principles and, in particular, to improve interoperability and reusability of digital research objects, including data. Particular attention is paid to the articulation of an interoperability framework for each case study and research domain.
 
-Related meeting notes available at [https://docs.google.com/document/d/1MKUFLdGscFODvkW8NfzrP8LhJbDks3L0FXLyae6yZ34](https://docs.google.com/document/d/1MKUFLdGscFODvkW8NfzrP8LhJbDks3L0FXLyae6yZ34) . 
+Related meeting notes available [here](https://docs.google.com/document/d/1MKUFLdGscFODvkW8NfzrP8LhJbDks3L0FXLyae6yZ34) and [here](https://docs.google.com/document/d/1QZjtZeYOT-Mn5IwdeGfkVmKzOy39rrc1ebnBXeVWtiA/edit). 
 
 This page shows the current state of integration between GloBI and WorldFAIR affiliated datasets, with a special focus on pollination datasets.  
 
@@ -33,6 +33,8 @@ This page shows the current state of integration between GloBI and WorldFAIR aff
 **26 February 2024** Publication of D10.2 (Version 1): Drucker, D., Salim, J. A., Poelen, J., Soares, F. M., Gonzalez-Vaquero, R. A., Ollerton, J., Devoto, M., Rünzel, M., Robinson, D., Kasina, M., Taliga, C., Parr, C., Cox-Foster, D., Hill, E., Maues, M. M., Saraiva, A. M., Agostini, K., Carvalheiro, L. G., Bergamo, P., … Trekels, M. (2024). WorldFAIR (D10.2) Agricultural Biodiversity Standards, Best Practices and Guidelines Recommendations (Version 1). Zenodo. [doi:10.5281/zenodo.10666593](https://doi.org/10.5281/zenodo.10666593).
 
 **5 March 2024** Publication of D10.3 (Version 1): Drucker, D. P., Salim, J. A., Poelen, J., Soares, F. M., Gonzalez-Vaquero, R. A., Devoto, M., Ollerton, J., Kasina, M., Carvalheiro, L. G., Bergamo, P. J., Alves, D. A., Varassin, I., Tinoco, F. C., Rünzel, M., Robinson, D., Cardona-Duque, J., Idárraga, M., Agudelo-Zapata, M. C., Marentes Herrera, E., Taliga, C., Parr, C.S., Cox-Foster, D., Hill, E., Maués, M.M. Agostini, K. Rech, A.R., Saraiva, A. (2024). WorldFAIR (D10.3) Agricultural biodiversity FAIR data assessment rubrics (Version 1). Zenodo. [https://doi.org/10.5281/zenodo.10719265](https://doi.org/10.5281/zenodo.10719265).
+
+**18 April 2024** The WorldFAIR webinar series- "Reusing Plant-Pollinator Datasets: a Global Perspective with Guidelines and Recommendations inspired by Pilot Studies from Africa, the Americas and Europe". It will be held on April 18 at 2:00 pm – 3:00 pm (Times in UTC) - register here: https://worldfair-project.eu/event/the-worldfair-webinar-series-reusing-plant-pollinator-datasets-a-global-perspective-with-guidelines-and-recommendations-inspired-by-pilot-studies-from-africa-the-americas-and-europe/
 
 # Dataset Status
 
