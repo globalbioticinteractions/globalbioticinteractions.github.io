@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: "Bees Only Please: Selecting Over a Million of Possible Bee Interactions Using My Laptop, Open Datasets, and Small (but Mighty) Commandline Tools." 
+title: "Bees Only Please: Selecting Over a Million of Possible Bee Interactions Using a Laptop, Open Datasets, and Small (but Mighty) Commandline Tools." 
 author: Jorrit Poelen
 date: 2024-06-07
 excerpt: "As pollinators, bees play a major role in food production. And, more and more datasets describing bee-plant interactions are becoming openly available. In their partnership, the Big Bee project and GloBI work together to facilitate access to these valuable bee interaction records. Here, we describe a method for accessing biotic interactions that bees. This includes records of bees visiting flowers, parasites of bees as well as hosts of parasites. Using commonly available tools and open resources, we show how to build a bee interaction dataset using a known, and customizeable, data processing workflow that runs on a laptop." 
@@ -43,11 +43,11 @@ Figure 1. shows an approach to select biotic interactions involving bees in a ve
 
 This approach was implemented in a bash script [`select-bee-interactions.sh`](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/main/select_bee_interactions.sh). This scripts combines openly available tools (e.g., GloBI's Nomer [`[5]`](#5), GNU's Grep) to process openly available interaction data [`[3]`](#3). 
 
-This script was run on two different interaction datasets (GloBI v0.6/v0.7) and the results can be found at https://github.com/Big-Bee-Network/select-bee-interactions.sh and in the table below.
+This script was run on two different interaction datasets (GloBI v0.6/v0.7) and the results can be found at (https://github.com/Big-Bee-Network/select-bee-interactions.sh)[https://github.com/Big-Bee-Network/select-bee-interactions.sh] and in the table below.
 
  *output / version* | **GloBI Data [v0.7](https://doi.org/10.5281/zenodo.11552565)** | **GloBI Data [v0.6](https://doi.org/10.5281/zenodo.8284068)**
- **input data** | [`verbatim-interactions.tsv`](https://linker.bio/gz:hash://md5/7e11573d83b2bac6425ee2482c4d73bc!/verbatim-interactions.tsv) | [`verbatim-interactions.tsv`](https://linker.bio/gz:hash://md5/a18697d59e5f6756c22d8c4a1346685e!/verbatim-interactions.tsv)
- **filtered interactions** | [`bees-only-interactions.tsv`](https://linker.bio/gz:hash://sha256/85aef194ba1e084c2c02d409929bba28d7f1bf051a27a8889543d071868cb729!/bees-only-interactions.tsv) (also [here](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/5f6536c10f251b42fff370c8bb6be092d8d30fc8/examples/2024-06-07/bees-only-interactions.tsv.gz)) | [`bees-only-interactions.tsv`](https://linker.bio/gz:hash://sha256/655dab8ccb6ac71206c52fca2a8d6637eaafa32b52c21bf2783e222cc5d67f02!/bees-only-interactions.tsv) (also [here](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/5f6536c10f251b42fff370c8bb6be092d8d30fc8/examples/2023-08-25/bees-only-interactions.tsv.gz))
+ **input data** | [`verbatim-interactions.tsv`](https://linker.bio/gz:hash://md5/7e11573d83b2bac6425ee2482c4d73bc!/verbatim-interactions.tsv) 13.9M records | [`verbatim-interactions.tsv`](https://linker.bio/gz:hash://md5/a18697d59e5f6756c22d8c4a1346685e!/verbatim-interactions.tsv) 20.0M records
+ **filtered interactions** | [`bees-only-interactions.tsv`](https://linker.bio/gz:hash://sha256/85aef194ba1e084c2c02d409929bba28d7f1bf051a27a8889543d071868cb729!/bees-only-interactions.tsv) (also [here](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/5f6536c10f251b42fff370c8bb6be092d8d30fc8/examples/2024-06-07/bees-only-interactions.tsv.gz)) 1.4M records | [`bees-only-interactions.tsv`](https://linker.bio/gz:hash://sha256/655dab8ccb6ac71206c52fca2a8d6637eaafa32b52c21bf2783e222cc5d67f02!/bees-only-interactions.tsv) 1.1M records (also [here](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/5f6536c10f251b42fff370c8bb6be092d8d30fc8/examples/2023-08-25/bees-only-interactions.tsv.gz))
  **review report** | [`bees-only-review.pdf`](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/5f6536c10f251b42fff370c8bb6be092d8d30fc8/examples/2024-06-07/bees-only-review.pdf) | [`bees-only-review.pdf`](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/5f6536c10f251b42fff370c8bb6be092d8d30fc8/examples/2023-08-25/bees-only-review.pdf)
 
 These results suggests that relatively complex and custom biodiversity data integrations with large datasets (>1M records) can be achieved on modest hardware with carefully selected tools, openly available datasets, using the nible yet powerful Unix shell, and leveraging available data publication platforms. 
