@@ -32,14 +32,22 @@ As pollinators, bees play a major role in food production. And, many datasets de
 ## Ingredients
 
  * GloBI's verbatim interaction records [`[3]`](#3) 
- * DiscoverLife Bee Checklist as made available via Nomer [`[4]`](#4), [`[5]`](#5)]
+ * DiscoverLife Bee Checklist as made available via Nomer [`[4]`](#4), [`[5]`](#5)
  * Lenovo T480s Laptop running Ubuntu 22.04.1 LTS 
  * Familiarity with the Unix Shell [`[6]`](#6), [`[7]`](#7)
  * GloBI's Interaction Data Review Report Framework
 
 ## Selecting Bee Interactions
 
-Figure 1. shows an approach to select biotic interactions involving bees in a verbatim interactions table from GloBI's Interpreted Data Products. First (Fig 1a), the taxonomic names are parsed using GBIF's taxonomic name parser. Following (Fig 1b), the parsed names are aligned with the DiscoverLife Bee Taxonomic Checklist as defined in Nomer's Corpus of Taxonomic Resources. Finally (Fig 1c), interactions are only included when one or more known bee family name (i.e., Andrenidae, Apidae, Colletidae, Halictidae, Megachilidae, Melittidae, Stenotritidae) are mentioned.
+Figure 1. shows an approach to select biotic interactions involving bees in a verbatim interactions table from GloBI's Interpreted Data Products. 
+
+First (Fig 1a), the taxonomic names are parsed using GBIF's taxonomic name parser. 
+
+Following (Fig 1b), the parsed names are aligned with the DiscoverLife Bee Taxonomic Checklist as defined in Nomer's Corpus of Taxonomic Resources. 
+
+Then (Fig 1c), interactions are only included when one or more known bee family name (i.e., Andrenidae, Apidae, Colletidae, Halictidae, Megachilidae, Melittidae, Stenotritidae) are mentioned.
+
+Finally (Fig 1d), a review report is generated for the generated specific subset of biotic interactions that mention at least one bee name per interaction.
 
 This approach was implemented in a bash script [`select-bee-interactions.sh`](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/main/select_bee_interactions.sh). This scripts combines openly available tools (e.g., GloBI's Nomer [`[5]`](#5), GNU's Grep) to process openly available interaction data [`[3]`](#3). 
 
