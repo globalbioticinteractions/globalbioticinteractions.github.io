@@ -1,0 +1,12 @@
+digraph bees_only {
+
+  interactions [label="verbatim-interactions.tsv\n(GloBI v0.6/v0.7)", shape=box];
+  parse [label="(a) parse taxonomic names\n(GBIF Parser v3.12.0)"];
+  align [label="(b) align with\nDiscoverLife Bee Checklist\n(Nomer v0.5.8)"];
+  select [label="(c) select bee families only"];
+  bees_only_interactions [label="bees-only-interactions.tsv", shape=box]; 
+  review [label="(d) generate review report\n(check-dataset.sh @09d2f68)"]; 
+  review_report [label="bees-only-review.pdf", shape=box]; 
+
+  interactions -> parse -> align -> select-> bees_only_interactions -> review -> review_report;
+}
