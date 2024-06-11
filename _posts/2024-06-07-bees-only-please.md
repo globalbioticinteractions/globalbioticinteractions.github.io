@@ -4,7 +4,7 @@ layout: post
 title: "Bees Only Please: How I Selected Over a Million of Possible Bee Interactions Using My Laptop, Open Datasets, and Small (but Mightly) Commandline Tools." 
 author: Jorrit Poelen
 date: 2024-06-07
-excerpt: "As pollinators, bees play a major role in food production. And, more and more datasets describing bee-plant interactions are becoming openly available. In their partnership, the Big Bee project and GloBI work together to facilitate access to these valuable bee interaction records. Here, we describe a method for accessing biotic interactions that involve Apoidea, commonly known as  bees and wasps. This includes records of bees visiting flowers, parasites of bees as well as hosts of parasitic wasps. Using commonly available tools and open resources, we show how to build an interaction dataset only involving Apoidea (bees and wasps) using a known, and customizeable, data processing workflow and commonly available hardware." 
+excerpt: "As pollinators, bees play a major role in food production. And, more and more datasets describing bee-plant interactions are becoming openly available. In their partnership, the Big Bee project and GloBI work together to facilitate access to these valuable bee interaction records. Here, we describe a method for accessing biotic interactions that bees. This includes records of bees visiting flowers, parasites of bees as well as hosts of parasites. Using commonly available tools and open resources, we show how to build a bee interaction dataset using a known, and customizeable, data processing workflow that runs on a laptop." 
 categories:
 - bioinformatics
 - biology
@@ -50,6 +50,13 @@ This script was run on two different interaction datasets (GloBI v0.6/v0.7) and 
  **filtered interactions** | [`bees-only-interactions.tsv`](https://linker.bio/gz:hash://sha256/85aef194ba1e084c2c02d409929bba28d7f1bf051a27a8889543d071868cb729!/bees-only-interactions.tsv) (also [here](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/5f6536c10f251b42fff370c8bb6be092d8d30fc8/examples/2024-06-07/bees-only-interactions.tsv.gz)) | [`bees-only-interactions.tsv`](https://linker.bio/gz:hash://sha256/655dab8ccb6ac71206c52fca2a8d6637eaafa32b52c21bf2783e222cc5d67f02!/bees-only-interactions.tsv) (also [here](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/5f6536c10f251b42fff370c8bb6be092d8d30fc8/examples/2023-08-25/bees-only-interactions.tsv.gz))
  **review report** | [`bees-only-review.pdf`](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/5f6536c10f251b42fff370c8bb6be092d8d30fc8/examples/2024-06-07/bees-only-review.pdf) | [`bees-only-review.pdf`](https://github.com/Big-Bee-Network/select-bee-interactions.sh/blob/5f6536c10f251b42fff370c8bb6be092d8d30fc8/examples/2023-08-25/bees-only-review.pdf)
 
+These results suggests that relatively complex and custom biodiversity data integrations with large datasets (>1M records) can be achieved on modest hardware with carefully selected tools, openly available datasets, using the nible yet powerful Unix shell, and leveraging available data publication platforms. 
+
+I suspect I'll be reusing the [`select-bee-interactions.sh`](https://github.com/big-bee-network/select-bee-interactions.sh) script in the future to create similar custom data processing workflows. . . and I am curious how others approach the challenge of integration biodiversity data to answer a specific (research) question. So, I'll close out by asking a question:
+
+> What other approach can you think of get an extensive list of species interaction data involving bees compiled from known and open datasets? 
+
+
 ## References
 
 #### [1] 
@@ -66,7 +73,6 @@ Ascher, J. S. and J. Pickering. 2024. Discover Life bee species guide and world 
 
 #### [5]
 Poelen, J. H. (ed . ) . (2024). Nomer Corpus of Taxonomic Resources hash://sha256/83617875e84bb8ae7ac2a257ad50eb8e82d8935d975f465b8ee8f3a803f72b48 hash://md5/c639d7e3fcd5603f6c48e9d5e6c49672 (0.24) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.11105453](https://doi.org/10.5281/zenodo.11105453)
-
 
 #### [6] 
 Danielle Kane (Ed.), Anna Oates (Ed.), John Wright (Ed.), Nilani Ganeshwaran (Ed.), Tim Dennis (Ed.), Belinda Weaver (Ed.), James Baker, Christopher Erdmann, Dan Michael Heggø, Katrin Leinweber, hugolio, … Vikram Chhatre. (2019, July). LibraryCarpentry/lc-shell: Library Carpentry: The UNIX Shell, June 2019 (Version v2019.06.1). Zenodo. [https://doi.org/10.5281/zenodo.3266085](https://doi.org/10.5281/zenodo.3266085) Accessed at [https://librarycarpentry.org/lc-shell/](https://librarycarpentry.org/lc-shell/) on 2024-06-11 .
