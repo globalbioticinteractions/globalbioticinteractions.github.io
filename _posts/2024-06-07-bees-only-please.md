@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: "Bees Only Please: How I Selected Over a Million of Possible Bee Interactions Using My Laptop, Open Datasets, and Small (but Mighty) Commandline Tools." 
+title: "Bees Only Please: Selecting Over a Million of Possible Bee Interactions Using My Laptop, Open Datasets, and Small (but Mighty) Commandline Tools." 
 author: Jorrit Poelen
 date: 2024-06-07
 excerpt: "As pollinators, bees play a major role in food production. And, more and more datasets describing bee-plant interactions are becoming openly available. In their partnership, the Big Bee project and GloBI work together to facilitate access to these valuable bee interaction records. Here, we describe a method for accessing biotic interactions that bees. This includes records of bees visiting flowers, parasites of bees as well as hosts of parasites. Using commonly available tools and open resources, we show how to build a bee interaction dataset using a known, and customizeable, data processing workflow that runs on a laptop." 
