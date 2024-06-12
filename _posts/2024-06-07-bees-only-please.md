@@ -12,8 +12,7 @@ categories:
 - open data
 - species interactions
 - bees
-- wasps
-- Apoidea
+- Anthophila
 tags: []
 status: draft
 type: post
@@ -60,9 +59,14 @@ This script was run on two different interaction datasets (GloBI v0.6/v0.7) and 
 
 These results suggests that relatively complex and custom biodiversity data integrations with large datasets (>1M records) can be achieved on modest hardware with carefully selected tools, openly available datasets, using the nible yet powerful Unix shell, and leveraging available data publication platforms. 
 
+The output from this work is currently being used by Big Bee to create a global dataset of bee interactions that includes taxon name alignment based on DiscoverLife. That dataset currently includes over half a million records of global bee species interacting with plants, parasites and other organisms [`[8]`](#8).
+
+## Future Work
+
 I suspect I'll be reusing the [`select-bee-interactions.sh`](https://github.com/big-bee-network/select-bee-interactions.sh) script in the future to create similar custom data processing workflows. . . and I am curious how others approach the challenge of integration biodiversity data to answer a specific (research) question. So, I'll close out by asking a question:
 
-> What other approach can you think of get an extensive list of species interaction data involving bees compiled from known and open datasets? 
+> What other approach can you think of get an extensive list of species interaction data involving bees compiled from known and open datasets?
+
 
 
 ## References
@@ -87,3 +91,6 @@ Danielle Kane (Ed.), Anna Oates (Ed.), John Wright (Ed.), Nilani Ganeshwaran (Ed
 
 #### [7] 
 Seltmann & Poelen. 2021. A Practical Exploration of Biotic Interaction Data Management and Information Retrieval through Terrestrial Parasite Tracker (TPT) and Global Biotic Interactions (GloBI) [Workshop]. Zenodo. [doi:10.5281/zenodo.4759060](https://doi.org/10.5281/zenodo.4759060) Access at [https://www.globalbioticinteractions.org/interaction-data-workshop/03-ixodes-whole-dataset/](https://www.globalbioticinteractions.org/interaction-data-workshop/03-ixodes-whole-dataset/) on 2024-06-11 . 
+
+#### [8]
+Katja C. Seltmann, & Global Biotic Interaction Community. (2024). Global Bee Interaction Data (v3.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.10552937
