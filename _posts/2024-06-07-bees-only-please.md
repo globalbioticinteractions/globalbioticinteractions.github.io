@@ -19,8 +19,6 @@ type: post
 published: true
 ---
 
-⚠️ Work in Progress ⚠️
-
 <div class="figure figure-globi right">
   <img src="/assets/bees-only.svg" alt=""/>
     <div class="figcaption"><em>Figure 1.</em> A method for selecting interactions involving at least one bee using openly available data and tools.</div> 
