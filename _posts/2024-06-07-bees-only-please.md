@@ -2,9 +2,9 @@
 layout: post
 
 title: "Bees Only Please: Selecting Hundreds of Thousands of Possible Bee Interactions Using a Laptop, Open Datasets, and Small (but Mighty) Commandline Tools." 
-author: Jorrit Poelen and Katja Seltmann
+author: Jorrit Poelen and Katja C. Seltmann
 date: 2024-06-07
-excerpt: "As pollinators, bees play a major role in food production. And, more and more datasets describing bee-plant interactions are becoming openly available. In their partnership, the Big Bee project and GloBI work together to facilitate access to these valuable bee interaction records. Here, we describe a method for accessing biotic interactions that bees. This includes records of bees visiting flowers, parasites of bees as well as hosts of parasites. Using commonly available tools and open resources, we show how to build a bee interaction dataset using a known, and customizeable, data processing workflow that runs on a laptop." 
+excerpt: "Bees play a crucial role in food production and as pollinators of wild plants. Increasingly, datasets describing bee-plant interactions are becoming openly available. The Big Bee project and GloBI collaborate to facilitate access to these valuable bee interaction records. In this context, we outline a method for accessing biotic interactions involving bees, including records of bees visiting flowers, bee parasites, and hosts of these parasites. Using commonly available tools and open resources, we demonstrate how to build a bee interaction dataset using a known and customizable data processing workflow that can run on a laptop." 
 categories:
 - bioinformatics
 - biology
@@ -27,7 +27,7 @@ published: true
     <div class="figcaption"><em>Figure 1.</em> A method for selecting interactions involving at least one bee using openly available data and tools.</div> 
 </div>
 
-As pollinators, bees play a major role in food production. And, many datasets describing bee-plant interactions are becoming openly available. In their partnership, the [Big Bee project](https://big-bee.net) [`[1]`](#1) and [Global Biotic Interactions (GloBI)](https://globalbioticinteractions.org/bigbee) [`[2]`](#2) work together to facilitate access to these valuable bee interaction records. Here, we outline a method for accessing biotic interactions that involve Apoidea, commonly known as bees and wasps. These interactions includes records of bees visiting flowers, parasites of bees as well as hosts of parasitic wasps. Using commonly available tools and open resources, we show how to build an interaction dataset only involving Apoidea (bees and wasps) using a known, and customizeable, data processing workflow and commonly available hardware.
+As pollinators, bees play a major role in food production and ecosystems. Many datasets describing bee-plant interactions are becoming openly available. In their partnership, the [Big Bee project](https://big-bee.net) [`[1]`](#1) and [Global Biotic Interactions (GloBI)](https://globalbioticinteractions.org/bigbee) [`[2]`](#2) work together to facilitate access to these valuable bee interaction records. Here, we outline a method for accessing biotic interactions that involve Anthophila, commonly known as bees. These interactions includes records of bees visiting flowers, parasites of bees as well as hosts of social parasitic bees. Using commonly available tools and open resources, we show how to build an interaction dataset only involving Anthophila (bees) using a known, and customizeable, data processing workflow and commonly available hardware.
 
 ## Ingredients
 
