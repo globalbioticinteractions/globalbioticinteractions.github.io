@@ -75,6 +75,11 @@ The information on this page does not aim to be a complete overview of activitie
 
 **7 June 2023** - Donat Agosti presents "Matching material citations to occurrences: extending the biodiversity knowledge graph" at Digital Data in Biodiversity Research Conference 2023 at Arizona State University, Tempe, AZ. 
 
+**30 May 2024** - Kendra Phelps presents "A harmonized taxonomic resource is critical for accurately interpreting host-pathogen interactions" at Digital Data in Biodiversity Research Conference 2024 at University of Kansas, Lawrence, KS. [slides](Phelps_DD2024.pdf) by Kendra Phelps and [summary graphic](Phelps_DD2024_summary.jpg) by Courtney Foat from the University of Kansas .
+
+<a href="Phelps_DD2024.pdf"><img src="Phelps_DD2024_title.jpg" style="width: 25%"/></a>
+<a href="Phelps_DD2024_summary.jpg"><img src="Phelps_DD2024_summary.jpg" style="width: 25%"/></a>
+
 # Publications
 
 ## Peer-Review Publications
