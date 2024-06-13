@@ -69,26 +69,18 @@ I suspect I'll be reusing the [`select-bee-interactions.sh`](https://github.com/
 
 ## References
 
-#### [1] 
-Seltmann, K., Allen, J., Brown, B. V, Carper, A., Engel, M. S, Franz, N., et al. (2021). Announcing Big-Bee: An initiative to promote understanding of bees through image and trait digitization. Biodiversity Information Science and Standards, 5(e74037). [doi:10.3897/biss.5.74037](https://doi.org/10.3897/biss.5.74037) Retrieved from [https://escholarship.org/uc/item/0937b5gp](https://escholarship.org/uc/item/0937b5gp)
+<span id="1">[1]</span> Seltmann, K., Allen, J., Brown, B. V, Carper, A., Engel, M. S, Franz, N., et al. (2021). Announcing Big-Bee: An initiative to promote understanding of bees through image and trait digitization. Biodiversity Information Science and Standards, 5(e74037). [doi:10.3897/biss.5.74037](https://doi.org/10.3897/biss.5.74037) Retrieved from [https://escholarship.org/uc/item/0937b5gp](https://escholarship.org/uc/item/0937b5gp)
 
-#### [2]
-Jorrit H. Poelen, James D. Simons and Chris J. Mungall. (2014). Global Biotic Interactions: An open infrastructure to share and analyze species-interaction datasets. Ecological Informatics. [https://doi.org/10.1016/j.ecoinf.2014.08.005](https://doi.org/10.1016/j.ecoinf.2014.08.005).
+<span id="2">[2]</span> Jorrit H. Poelen, James D. Simons and Chris J. Mungall. (2014). Global Biotic Interactions: An open infrastructure to share and analyze species-interaction datasets. Ecological Informatics. [https://doi.org/10.1016/j.ecoinf.2014.08.005](https://doi.org/10.1016/j.ecoinf.2014.08.005).
 
-#### [3]
-GloBI Community. (2024). Global Biotic Interactions: Interpreted Data Products hash://md5/946f7666667d60657dc89d9af8ffb909 hash://sha256/4e83d2daee05a4fa91819d58259ee58ffc5a29ec37aa7e84fd5ffbb2f92aa5b8 (0.7) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.11552565](https://doi.org/10.5281/zenodo.11552565)
+<span id="3">[3]</span> GloBI Community. (2024). Global Biotic Interactions: Interpreted Data Products hash://md5/946f7666667d60657dc89d9af8ffb909 hash://sha256/4e83d2daee05a4fa91819d58259ee58ffc5a29ec37aa7e84fd5ffbb2f92aa5b8 (0.7) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.11552565](https://doi.org/10.5281/zenodo.11552565)
 
-#### [4]
-Ascher, J. S. and J. Pickering. 2024. Discover Life bee species guide and world checklist (Hymenoptera: Apoidea: Anthophila). [http://www.discoverlife.org/mp/20q?guide=Apoidea_species](http://www.discoverlife.org/mp/20q?guide=Apoidea_species).
+<span id="4">[4]</span> Ascher, J. S. and J. Pickering. 2024. Discover Life bee species guide and world checklist (Hymenoptera: Apoidea: Anthophila). [http://www.discoverlife.org/mp/20q?guide=Apoidea_species](http://www.discoverlife.org/mp/20q?guide=Apoidea_species).
 
-#### [5]
-Poelen, J. H. (ed . ) . (2024). Nomer Corpus of Taxonomic Resources hash://sha256/83617875e84bb8ae7ac2a257ad50eb8e82d8935d975f465b8ee8f3a803f72b48 hash://md5/c639d7e3fcd5603f6c48e9d5e6c49672 (0.24) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.11105453](https://doi.org/10.5281/zenodo.11105453)
+<span id="5">[5]</span> Poelen, J. H. (ed . ) . (2024). Nomer Corpus of Taxonomic Resources hash://sha256/83617875e84bb8ae7ac2a257ad50eb8e82d8935d975f465b8ee8f3a803f72b48 hash://md5/c639d7e3fcd5603f6c48e9d5e6c49672 (0.24) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.11105453](https://doi.org/10.5281/zenodo.11105453)
 
-#### [6] 
-Danielle Kane (Ed.), Anna Oates (Ed.), John Wright (Ed.), Nilani Ganeshwaran (Ed.), Tim Dennis (Ed.), Belinda Weaver (Ed.), James Baker, Christopher Erdmann, Dan Michael Heggø, Katrin Leinweber, hugolio, … Vikram Chhatre. (2019, July). LibraryCarpentry/lc-shell: Library Carpentry: The UNIX Shell, June 2019 (Version v2019.06.1). Zenodo. [https://doi.org/10.5281/zenodo.3266085](https://doi.org/10.5281/zenodo.3266085) Accessed at [https://librarycarpentry.org/lc-shell/](https://librarycarpentry.org/lc-shell/) on 2024-06-11 .
+<span id="6">[6]</span> Danielle Kane (Ed.), Anna Oates (Ed.), John Wright (Ed.), Nilani Ganeshwaran (Ed.), Tim Dennis (Ed.), Belinda Weaver (Ed.), James Baker, Christopher Erdmann, Dan Michael Heggø, Katrin Leinweber, hugolio, … Vikram Chhatre. (2019, July). LibraryCarpentry/lc-shell: Library Carpentry: The UNIX Shell, June 2019 (Version v2019.06.1). Zenodo. [https://doi.org/10.5281/zenodo.3266085](https://doi.org/10.5281/zenodo.3266085) Accessed at [https://librarycarpentry.org/lc-shell/](https://librarycarpentry.org/lc-shell/) on 2024-06-11 .
 
-#### [7] 
-Seltmann & Poelen. 2021. A Practical Exploration of Biotic Interaction Data Management and Information Retrieval through Terrestrial Parasite Tracker (TPT) and Global Biotic Interactions (GloBI) [Workshop]. Zenodo. [doi:10.5281/zenodo.4759060](https://doi.org/10.5281/zenodo.4759060) Access at [https://www.globalbioticinteractions.org/interaction-data-workshop/03-ixodes-whole-dataset/](https://www.globalbioticinteractions.org/interaction-data-workshop/03-ixodes-whole-dataset/) on 2024-06-11 . 
+<span id="7">[7]</span> Seltmann & Poelen. 2021. A Practical Exploration of Biotic Interaction Data Management and Information Retrieval through Terrestrial Parasite Tracker (TPT) and Global Biotic Interactions (GloBI) [Workshop]. Zenodo. [doi:10.5281/zenodo.4759060](https://doi.org/10.5281/zenodo.4759060) Access at [https://www.globalbioticinteractions.org/interaction-data-workshop/03-ixodes-whole-dataset/](https://www.globalbioticinteractions.org/interaction-data-workshop/03-ixodes-whole-dataset/) on 2024-06-11 . 
 
-#### [8]
-Katja C. Seltmann, & Global Biotic Interaction Community. (2024). Global Bee Interaction Data (v3.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.10552937
+<span id="8">[8]</span> Katja C. Seltmann, & Global Biotic Interaction Community. (2024). Global Bee Interaction Data (v3.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.10552937
