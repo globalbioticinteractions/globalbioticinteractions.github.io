@@ -2,7 +2,7 @@
 layout: default
 title: "GBatNet Eco-Interactions Working Group"
 status: unlisted
-permalink: covid19
+permalink: gbatnet
 ---
 
 {% include gbatnet.html %}
