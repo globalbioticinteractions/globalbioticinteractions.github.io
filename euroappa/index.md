@@ -28,7 +28,7 @@ This page contains references to EuroAPPA and related projects with a specific f
 
 # Related
 
-[The Database of Pollinator Interactions (DoPI)](https://www.sussex.ac.uk/lifesci/ebe/dopi/about)
+[The Database of Pollinator Interactions (DoPI)](https://www.sussex.ac.uk/lifesci/ebe/dopi/about) see also [#780](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/780) . 
 
 [BeeLife.eu](https://bee-life.eu) / [EU Pollinator Hub](https://pollinatorhub.eu). See also [#991](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991).
 
