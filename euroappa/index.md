@@ -28,9 +28,15 @@ This page contains references to EuroAPPA and related projects with a specific f
 
 # Related
 
+[The Database of Pollinator Interactions (DoPI)](https://www.sussex.ac.uk/lifesci/ebe/dopi/about)
+
 [BeeLife.eu](https://bee-life.eu) / [EU Pollinator Hub](https://pollinatorhub.eu). See also [#991](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991).
 
 [SafeGuard](https://www.safeguard.biozentrum.uni-wuerzburg.de) / [SafeHub](https://www.safeguard.biozentrum.uni-wuerzburg.de/Project/SafeHub.aspx) (used by VALOR developed by Pensoft). See also [#989](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/989)
 
 
 [SafeGuard Database Download ](https://www.safeguard.biozentrum.uni-wuerzburg.de/Download/Download.aspx)
+
+[Big Bee](https://big-bee.net) see also [GloBI's Big Bee Page](https://globalbioticinteractions.org/bigbee). 
+
+[WorldFAIR WP10 on Agricultural Biodiversity](https://globalbioticinteractions.org/worldfair) - The WorldFAIR Case Study on Agricultural Biodiversity (WP10) addresses the challenges of advancing interoperability and mobilising plant-pollinator interactions data for reuse.  
