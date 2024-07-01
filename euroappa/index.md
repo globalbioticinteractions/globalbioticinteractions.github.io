@@ -21,16 +21,28 @@ This page contains references to EuroAPPA and related projects with a specific f
 # Events
 
  **2024-02-22** - Deadline EU Horizon's [Biodiversity and ecosystem services (HORIZON-CL6-2024-BIODIV-01)](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/horizon-cl6-2024-biodiv-01-2)  
+
+ **2024-07-01** - EuroAPPA meeting to discuss ways to collaborate and organize within BUTTERFLY and across other initiatives. See  [meeting notes](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit).
  
  **TDB** - BUTTERFLY official start date
 
  **...**
 
-# Related
+# Partners 
+
+EuroAPPA aims to work with the 24 BUTTERFLY partners to help (1) mobilizing existing data (2) access to newly collected data (3), to facilitate processing datasets into model output. 
+
+## List of Partners 
 
 [The Database of Pollinator Interactions (DoPI)](https://www.sussex.ac.uk/lifesci/ebe/dopi/about) see also [#780](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/780) . 
 
-[BeeLife.eu](https://bee-life.eu) / [EU Pollinator Hub](https://pollinatorhub.eu). See also [#991](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991).
+[BeeLife.eu](https://bee-life.eu) 
+
+...
+
+# Related Initiatives
+
+[EU Pollinator Hub](https://pollinatorhub.eu). See also [#991](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991).
 
 [SafeGuard](https://www.safeguard.biozentrum.uni-wuerzburg.de) / [SafeHub](https://www.safeguard.biozentrum.uni-wuerzburg.de/Project/SafeHub.aspx) (used by VALOR developed by Pensoft). See also [#989](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/989) and [SafeGuard Database Download ](https://www.safeguard.biozentrum.uni-wuerzburg.de/Download/Download.aspx)
 
