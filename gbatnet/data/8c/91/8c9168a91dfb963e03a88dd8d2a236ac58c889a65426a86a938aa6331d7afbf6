@@ -1,0 +1,838 @@
+﻿Weekly Notes - Bat Eco-Interactions Working Group 
+Meeting zoom: https://deic.zoom.us/j/7588563077 
+Meeting time: 5pm CET / 11am ET / 8am PT
+Whimsical board for brainstorming: 
+https://whimsical.com/biodiversity-knowledge-hub-WyqgfhD1V4rMg5W7d6CnYY 
+
+
+3 Jul 2024        1
+26 June 2024        3
+19 June 2024        5
+12 June 2024        7
+05 June 2024        7
+● Introductions for guests        7
+10 May 2024        9
+8 May 2024        9
+1 May 2024        11
+24 April 2024        12
+17 April 2024        13
+3 April 2024        14
+27 March 2024        15
+20 March 2024        16
+6 March 2024        17
+28 Feb 2024        17
+21 Feb 2024        18
+3 Jul 2024
+Present: Hernani, Nancy, Nate, Cullen, Cecilia, Donat, Kendra, Aja
+
+
+NASBR symposium abstracts
+* Deadline now to Jul 10th
+* We currently have 8 symposium abstracts
+* Impact of taxonomic splits on bat-viral data
+* https://docs.google.com/document/d/1TFPWLNxf5KrczCNGQzybiru93AwRtbx7l6NNWVgRcbY/edit – Current doc
+
+
+* BatLit abstract
+   * Could be edited more
+   * Have the website: https://batlit.org/
+      * Now 5.5k of the 20k+ PDFs from Van Cakenburge
+      * All now uploaded via the cloud
+      * AfricaBat Report, e.g., 2016: https://www.researchgate.net/publication/311888337_African_Chiroptera_Report_2016
+         * Lots of data here, difficult to access
+         * I think this is the latest one: https://www.researchgate.net/publication/364943183_African_Chiroptera_Report_2022_Complete_Report
+         * Perhaps there is a structured database that underlies this?
+
+
+Jorrit is additionally processing the BHL bat publications
+* 25k articles that cover bats, but also some other taxa (Jorrit: 2024-07-05 an initial assessment suggests about 6k works that mention "Chiroptera". https://github.com/bat-literature/bat-literature.github.io/issues/15 . Please cite sources for the 25k articles to that I can understand the discrepancies)
+* Part of the Plazi workflow – but Jorrit is helping to optimize in some ways
+* Data in supplements in PubMedCentral – OCR and using the figures and tables
+* Could import these via JATS etc
+* OR import the articles as supplements – into Biodiversity PMC
+   * Shortcut for getting data in – still searchable and parseable 
+   * Jorrit helping with versioning of those data
+   * Donat wanting to make the data accessible for search
+* Cullen and Donat are sponsoring for now – until we get further funding (R01?)
+* Targets: https://docs.google.com/spreadsheets/d/1fxi-ndcZJymKiAJx0XiIllx29UuIO5Ndzo0vo9uEZxg/edit?gid=0#gid=0
+* 
+
+Initial BatLit uploads
+* https://github.com/bat-literature/bat-literature.github.io/issues/14
+* In Zenodo Sandbox, with metadata – for checking now
+* Could we also add the Supplementary Files?
+   * E.g., scan documents for “supplement” and then have a part of the pipeline that brings in those files as well
+   * Currently not being dealt with – but it is a big issue
+* Could we pull out full text of all these articles in a batch way – if OCRed
+* 
+
+Cullen linked to – https://www.nature.com/articles/s41597-023-02472-w
+* A dataset on African bats’ functional traits
+* “Here, we present the AfroBaT dataset, a compilation of trait data on 320 African bat species containing 76,914 values for 86 traits focusing on morphology, reproduction, life-history, trophic ecology, and species distributions.”
+
+
+
+
+
+
+
+
+26 June 2024
+Present: Hernani, Aja, Nancy, Nate, Ariadna, Anna, Cullen, Cecilia, Donat, Jorrit
+
+
+
+
+Bat literature
+* Data from Cakenburghe
+   * 1400 articles just starting with E
+* OSF library is having difficulty with the size of the data – 50 Gb, likely more than that, of PDFs
+   * Jorrit has 10 TB for 20 euros a month https://www.hetzner.com/de/storage/storage-box/.
+* Zotero shared library
+   * Jorrit is indexing from here: https://bat-literature.github.io/#version-history
+      * https://bat-literature.github.io v0.3 just released today.
+      * refs.csv has limited metadata of ~1000 paper 
+* Swiss-based bat literature repository
+   * These were all file cabinets of non-digitized literature
+   * Similar to what is at major museums
+   * From Manuel Ruedi        
+      * “Well, as I said, I don't have so many pdfs, mostly from the last 15 years (which you certainly already have). Before that, had my private collection of reprints, but not digitalized, and not so many (if you want them all, you can can get them; most will be destroyed anyway upon my retirement, in 3 years from now...). But the most complete library of paper reprints of bats of the World (former private colelction of Villy Aellen + many more since Pascal's rule), are in our Museum library; for this, contact our chief librarian Laura.Zbinden@ville-ge.ch. As our museum in now under repare for the next few months, she will also tell you if and when those bat reprints will be again available (currently, they are in boxes and inaccessible).Hope it helps. Manuel Ruedi”
+      * “Dear Manuel– Do you happen to have Pascal Möschler’s email – or is he not anymore involved in bat and the global bat library? His email seems not to work anymore. pascal.moeschler@ville-ge.ch Thanks for a hint Donat”
+        
+   * Searching DOIs
+   * Looking up open access or not: 
+   * R Package Open Alex: https://docs.ropensci.org/openalexR/
+   * Also the RCrossRef package
+   * https://ciakovx.github.io/rcrossref.html
+   * Jorrit already did this query in OpenAlex: https://github.com/bat-literature/bat-literature.github.io/issues/2
+   * Not 100% reliable though
+   * Donat helped follow this up:
+   * https://github.com/bat-literature/bat-literature.github.io/issues/2#issuecomment-2153428532
+   * Unpaywall is another option
+   * https://unpaywall.org/products/simple-query-tool
+   * Up to 1000 queries at a time
+   * “Reference-extract sheet that is incomplete and using Zotero tools/platform to fill gaps. This open access column is not in the Zotero references.csv  https://docs.google.com/spreadsheets/d/1y5uBKvyzDQgQUtyRHvn5f20IOA7LoMho/edit?usp=sharing&ouid=111971835458035348757&rtpof=true&sd=true ”
+   * Aim is to emulate this TaxoDros:
+   * https://zenodo.org/communities/taxodros/records?q=&l=list&p=1&s=10&sort=newest
+   * https://taxodros.github.io/ << view on how to query these things
+   * Donat: “cakenberg has 34480 bibliographic references” !
+
+
+Big Bat Database work
+   * They have 100 databases that they are extracting from
+   * Taking all the verbatim names and locations from the databases
+   * Not as broad as PanTHERIA, etc
+   * More primary syntheses of individual traits from the literature
+   * @Hernani (he/him) @Ariadna Morales (she/her) @Cecilia Montauban et al. do you consider species interactions a trait? (e.g., parasite, fruit plant, prey etc.)
+   * Yes, to some extent – not an entire focus, but does include this
+   * Initially related to the genomes of the bats – for the Bat1K folks
+
+
+Abstracts for the symposium
+   * https://docs.google.com/document/d/1TFPWLNxf5KrczCNGQzybiru93AwRtbx7l6NNWVgRcbY/edit
+   * Guidelines doc: https://cdn.wildapricot.com/214854/resources/docs/meetings/year/2017/2017%20NASBR%20Abstract%20Checklist.pdf?version=1495429744000&Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLndpbGRhcHJpY290LmNvbS8yMTQ4NTQvcmVzb3VyY2VzL2RvY3MvbWVldGluZ3MveWVhci8yMDE3LzIwMTclMjBOQVNCUiUyMEFic3RyYWN0JTIwQ2hlY2tsaXN0LnBkZj92ZXJzaW9uPTE0OTU0Mjk3NDQwMDAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3MTk0MTQ5NDd9LCJJcEFkZHJlc3MiOnsiQVdTOlNvdXJjZUlwIjoiMC4wLjAuMC8wIn19fV19&Signature=YODu-S8zff4028Koms3ZRbZIw8WfSVUSTa0SNLJJaYL4O-Hk9k8a~Qh2yZi8GhsQTYcZ4-VR7fgRfsMP63bcaF3WLGlDy7zWfCrmQH-6MQbPb7RpP1kJQC-foxCrjyZj4MGlbdrccqvpuexA23qrkksTWnPUR~Vz87jSfeQNCMoitX9F-k4jSub3kPvNCrwgYst3UB1Y9OE6cgdFc5CM9~IdccoGYKu1MNeH-6OP0sx~RahYD3RiTGXxHQeD0ZM853X8Oz9he1e01DoFAryQL4CzcPVyKi1VpuhfJTsYgrgrwr5m-6Fo7~QPpf2V9gLMkMRLg3DHvuDBFVreSNx~1w__&Key-Pair-Id=K27MGQSHTHAGGF
+   * 
+
+
+
+
+
+19 June 2024
+Present: Quentin, Hernani, Aja, Nancy, Nate, Ariadna, Anna, Cullen, Hernani, Cecilia, Kendra, Donat
+
+
+NASBR Symposium abstracts
+   * Cullen to submit collation in two weeks (July 3 – but abstracts to her by July 1)
+   * Most pressing 
+
+
+Jorrit is open to going to NASBR
+   * But we could also re-invest those funds into more data extraction
+   * Work has been to get all those publications up on Zenodo
+   * Then following the Drosophila workflow
+   * We could have a pre-meeting workday
+   * Oct 24-26 are the main meeting days (https://www.nasbr.org/annual-meetings)
+   * Oct 23 we could have a meeting everyone together
+   * Ask the group about to what extent want to interact in person versus keep that into the repository
+   * If he goes – maximize his impact – advertise the initiative        
+   * Could make a poster for the purposes
+   * Recruit PDFs from meeting attendees
+
+
+Bat literature digitization work
+   * Uploading to BiodiversityPMC
+   * Not only taxonomic papers
+   * Ecological papers
+   * Shared archive of Bat Cons International
+   * OSF folder where collecting PDFs: https://osf.io/28cvq/files/googledrive
+   * Want to start uploading documents
+   * Do we have a quality control pre-check? Could be above the technical capabilities of the folks with the PDF libraries
+   * Journals: 
+   * From web of science journal list: 
+   * African Bat Conservation News https://www.africanbats-npc.org/abcn
+   * AFRICAN CHIROPTERA REPORT https://www.africanbats-npc.org/acr 
+   * Bat Research News
+   *    * Donat is at Davos meeting - https://www.worldbiodiversityforum.org/en/wbf-2024 
+   * Market out there for environmental assessments
+   * Map of Life folks are there
+   * But not currently sending data back to GBIF
+   * GBIF, CoL folks are at the meeting – Tim Robertson
+   * Plazi aims to get new names into CoL
+   * Question
+   * How to resolve all the names
+   * Need to cite taxonomic treatments
+   * COI as possible ‘type’ for names / taxa
+
+
+Bouchout Declaration meeting
+   * Hackathon-like meeting
+   * Integrating publications into CoL
+   * https://bouchoutdeclaration2024.org/
+   * Tim Robertson, Marcus Deiring, Olaf Banki
+   * Goals
+   * Get more names in CoL
+   * Make names databases more FAIR
+   * Trying to get nomenclature folks to talk to each other
+   * Plant folks working on this too
+   * Schellenberger Costa, D., Boehnisch, G., Freiberg, M., Govaerts, R., Grenié, M., Hassler, M., Kattge, J., Muellner-Riehl, A.N., Rojas Andrés, B.M., Winter, M., Watson, M., Zizka, A. and Wirth, C. (2023), The big four of plant taxonomy – a comparison of global checklists of vascular plant names. New Phytol, 240: 1687-1702. https://doi.org/10.1111/nph.18961
+   * CoL is trying to enable cross-linking / translation across taxonomies
+   * Not going for “one taxonomy” to rule them all
+   * Don;t want just another wishful thinking list
+   * Want actual needs from stakeholders
+   * What is needed, how to achieve
+   * Time to actually make an impact
+
+
+
+
+
+
+
+
+12 June 2024
+Present: Kendra, Quentin, Aja, Cullen, Ariadna, Hernani
+
+
+Quentin scored $6 million grant to study invasive species for 3.5 years
+
+
+Dave Waldien shared a spreadsheet of IUCN bat species - Aja has updated the taxonomic alignment
+
+
+Ariadna possibly to attend NASBR, would present on the integration of Bat1K and other genomic data with the Big Bat Database for data mining
+
+
+05 June 2024
+Present: Nancy, DeeAnn, Kendra, Quentin, Aja, Ariadna Morales, Hernani Oliveira, Cecilia Montauban, Nate (late)
+   * Introductions for guests
+   * Discussing NASBR 2024 Symposium: 
+
+
+Potential Presenters and Proposed Titles:
+
+
+Presenter:  Nancy B. Simmons – American Museum of Natural History (USA)
+Proposed Title:  Key links in the global bat data chain
+
+
+Presenter: Hernani F. M. Oliveira - Universidade de Brasília (Brazil). 
+Proposed title: Challenges and perspectives in collating bat trait data worldwide.
+
+
+Presenter: Winifred Frick - Bat Conservation International (USA) 
+Proposed Title:  Bat data for conservation planning: the What, How, and Why
+
+
+Presenter: Nathan Upham - Arizona State University (USA)
+Proposed Title:  When do taxonomic splits matter for bat biodiversity and viral risk analyses?
+
+
+Presenter: Aja Sherman - Bat Eco-Interactions Project (USA)
+Proposed title: The Bat Taxonomic Alignment (BTA), A Standardized Review of Bat Names Across Multiple Taxonomic Authorities 
+
+
+Presenter: Cullen Geiselman - Bat Eco-Interactions Project (USA)
+Proposed Title: Liberating literature and the data within: the Bat Literature Repository and evolution of data extraction and curation
+
+
+   * Cullen suggested offline “Perhaps we should consider the main points we'd like participants that attend the whole thing will take away instead of talking about BTA, Co-roosting dataset, etc in separate talks.”
+   * Aja suggested one talk on liberating inaccessible literature and dark data (as well as linking) and another on taxonomy for this process, the BTA, and struggles with keeping up with taxonomic changes.
+   * Hernani will present on Big Bat Database, traits that colleagues are measuring, and how to link.
+   * Nancy was concerned that Nate and Aja’s talks will be too similar. Let’s discuss this with Nate when he returns. Also concern that 3 taxonomy talks might be redundant. Agreed that Nancy’s talk will still be relevant since some friends don’t know about existing databases, darwin core, or other available resources. 
+   * Kendra asked about the status of the Big Bat Database. Members gave us background and informed us that changes are happening with new management…
+   * Nancy recommends Hernani presents on the Big Bat Database, the history, and current challenges
+   * Aja introduced the co-roosting
+   * Hernani will share literature associated with best practices for data mining
+   * Hernani asked if we document unpublished anecdotal interactions, Nancy recommends to leave these out unless published evidence
+   * Cecilia interested in how we keep track of where the interactions are documented from, Aja shared citation lists and internal identifiers
+   * https://www.nature.com/articles/s44185-024-00043-9
+   * https://libguides.derby.ac.uk/literature-reviews/prisma-lr
+   * https://biotxplorer.text-analytics.ch/?species1=Rhinolophus&size=1
+   * https://zenodo.org/communities/coviho/records?q=&l=list&p=1&s=10&sort=newest
+   * DeeAnn emphasizing gray literature from conservation organizations
+   * How to access this?
+   * E.g., interactions noted from non-peer reviewed literature
+   * Could flag this in the data matrix
+   * https://smartconservationtools.org/en-us/
+   * “SMART platform consists of a set of software and analysis tools designed to help conservationists manage and protect wildlife and wild places. SMART can help standardize and streamline data collection, analysis, and reporting, making it easier for key information to get from the field to decision-makers.”
+   * Nate parsing his talk relative to Aja’s
+   * Will be a use case of the BTA on bat-virus interaction data – so will follow logically after Aja’s BTA talk
+   * Interfacing with Kendra too
+   * Nancy and Aja mentioned the IUCN integration of the Batnames.org / MDD taxonomy for bats – feeding this into conservation action
+
+
+
+
+
+
+
+
+10 May 2024
+Present: Nate
+
+
+Brainstorming for the GBatNet meeting – name of group and notes on the “short blurb” that we need prior to Weds to be included in the printed materials:
+   * Name ideas
+   * Bat Biotic Interactions for Organizing Mammal Ecology (BatBIOME)
+   * Bio Biotic Interactions Organized by Species (BatBIOS)
+
+
+   * Blurb [sent to Susan Tsang on 16 May]
+   * Our mission is to digitally liberate and organize all knowledge of bat biotic interactions – including that contained in taxonomic and ecological literature, databases, biocollections, and other archives – for studying the multifaceted ecological roles of bats worldwide. We are a group of biodiversity collections-related scientists that have been meeting weekly since April 2020. The Covid-19 pandemic reminded us that much of the knowledge of bats interacting with other bats, as well as with parasites, predators, prey, and habitats, are locked in offline books or paywalled PDFs and thus constitute ‘dark data’ that are digitally unavailable for synthetic analyses. These data are central to building robust models of viral spillover risk and other complex ecological dynamics, the predictive abilities of which are increasingly critical to society. Additionally, the pace at which taxonomic changes to bats and other taxa are occurring has brought considerable instability to sources of genetic and ecological data that are linked by species names and inform these models. Therefore, our group endeavors to both improve the digital access and taxonomic linking of biotic interaction data for bat species globally.
+
+
+
+
+8 May 2024
+Present: Aja, Kendra, DeeAnn, Cullen, Quentin
+Aja caught DeeAnn up on what happened last week
+Kendra notes that she will be attending the iDigBio meeting - will give a presentation at the “Digital Collections Data and Tracking Disease Workshop” - really interested in bat synonymy and in co-species data [so, this is us]
+
+
+Kendra asked for slides to help - Aja shared prior slides, Cullen also has some…
+
+
+DeeAnn - we really need to settle on our working group name. 
+   * Bat Biotic Interactions and Taxonomy[a] Working Group [or are we a network - GBatNet categorization] - Cullen will ask Tigga for advice on working group or network. Or consortium?
+   * Bat Biotic Interactions and Taxonomic Alignment[b] Consortium?
+   * Need greater group input; should have this settled by next week’s meeting
+Aja/ChatGPT suggestions:
+Global Bat Taxonomy and Ecology Network (GB-TEN)
+Bat Taxonomic Interactions Initiative (BTII)
+International Bat Biodiversity and Interaction Consortium (IB-BIC)
+Bat Taxonomy and Ecological Network (BTEN)
+Global Bat Diversity and Interaction Project (GBDIP)
+Bat Taxonomy and Ecological Dynamics Consortium (B-TEDC)
+International Bat Taxonomy and Ecological Nexus (IB-TEN)
+Bat Taxonomy and Interaction Collaborative Hub (BATICH)
+Worldwide Bat Taxonomy and Ecological Exchange (W-BTEE)
+Bat Taxonomy and Interaction Assessment Network (BTIAN)
+As a grou, we reviewed the current GBatNet networks and “Interdisciplinary Projects” [AKA working groups]. We are akin to the “Bat Phenotypes and Evolution Network (BPEN)”??
+Aja news: BTA done (will step aside for a bit, then review); will work on making it a relational database as next steps. Co-roosting and BTA manuscripts are in the works. She is also creating how-to videos and tutorials for the BTA. 
+Aja invited the team to review both datasets while she is writing, but plans to review one more time before publication. 
+We are still tackling the landing site for the searchable platform for the literature collection and BTA (probably batbase).
+
+
+
+
+Co-roosting data and BTA are done!
+Zotero goals: 20K more by end of summer
+
+
+Aja - to DeeAnn and Nancy - need more examples of lineages with lots of change/unusual scenarios (e.g., Pteronotus, Miniopterus)
+
+
+Aja will work with Quentin on Gephi interaction models, species accumulation curve, and possible data mining automation resources.
+
+
+Aja asked the group: When making co-roosing dataset - was there a plan for automating it? Cullen thought we would be able to use our data as a training set…
+
+
+Cullen - provided some funds for Jorrit to work with Zotero collection - pdfs to zenodo etc….
+
+
+Discussed NASBR symposium proposal: https://docs.google.com/document/d/1TFPWLNxf5KrczCNGQzybiru93AwRtbx7l6NNWVgRcbY/edit 
+
+
+Will submit the 14th
+
+
+Quentin new business: recently had a meeting with a group that wants to push forward a IUCN working group on parasites. Interesting to think about what IUCN status might look like for parasites. Endo and ectoparasites etc… will keep our group apprised as to how it progresses. 
+1 May 2024
+Present: Aja, Anna, Nate, Kendra, Cullen
+
+
+Anna planning to defend her PhD in early Fall
+   * Still doing some data collection
+   * Looking at isotope signatures of processed vs natural food
+
+
+Kendra taking notes through this OtterPop app:
+https://otter.ai/u/haFT-sl_mGZPjC_o7IJJUg8SxqA?utm_source=va_chat_link_1 
+
+
+AI translation / transcripts have gotten very good lately
+   * https://sonix.ai/  this is the website I was using
+   * https://www.linguee.com/ 
+   * Seems much better than Google Translate
+   * Helpful for her Zooniverse project: Canyon Critters
+
+
+NASBR meetings in October
+   * Cullen has been organizing
+   * We have 6 talks, could be ready to submit already
+   * Potential for Jorrit to be invited too
+   * Digitization of bat literature
+   * Lots of PDFs and metadata available now
+   * Bringing the publications to Zenodo → Plazi method for this
+   * But then additional steps needed to index and search
+   * Modeling it off of Drosophila:
+   * https://zenodo.org/communities/taxodros/records?q=&l=list&p=1&s=10&sort=newest 
+   *  https://www.taxodros.uzh.ch/ 
+   * Building the search feature is the part that Jorrit will help with – also creating the digital signatures from that
+
+
+
+
+   * NA bat people at doing their own symposium 
+   * EuroBat people don’t have their own funding
+   * https://www.nature.com/articles/s41597-023-02157-4 
+
+
+
+
+
+
+
+
+24 April 2024
+Present: Aja, Nancy, Nate, DeeAnn
+   * DeeAnn is back from fieldwork in NW corner of Uganda
+   * Flight cages, molecular lab – now just need bats to eat / 
+
+
+   * We will all be in Houston for the GbatNet meetings in ~1 month
+   * Prep?
+   * Everyone is representing a working group here
+   * Bringing these together with the networks
+
+
+   * Symposium at NASBR
+   * Bringing bat datasets together
+   * Projects
+   * Aja
+   * BTA
+   * Cullen:
+   * Co-roosting dataset
+   * Jorrit: 
+   * Bat Literature group
+   * Other talks
+   * Nancy
+   * Intro to symposium, progress on BatNames and MDD alignment
+   * Nate
+   * When do taxonomic splits matter / range maps changing through time and intersecting that with observational data
+   * Outside folks
+   * BCI – Fred Frick – Teague O’Mara
+   * Ash Malmlov; Anna Fagre – ash@bathealthfoundation.org; anna.fagre@gmail.com
+
+
+   * BTA updates
+   * Making a website for the BTA – 
+   * Setting up a peer review system for that
+   * Flagging the content by Nancy, DeeAnn, Nate – Connor B too
+   * Making subsets of the BTA too
+   * Automate this process
+   * Use SQL to select fields – the underlying database would always be the same
+   * 
+
+
+
+
+
+17 April 2024
+Present: Aja, Nancy, Cullen, Donat, Nate, 
+   * Nancy doing fieldwork in Belize in May
+   * 85 people going over the course of 2-3 weeks
+   * Becker lab, Melissa Ingala, Kelly Spear, all taking samples at different time points – aiming for recaptures to get data through time
+   * How many re-captures are they getting?
+   * PIT tagging started in 2021 – 13% recapture rate – arm banding the vampire bats
+   * Bats tend to have 5-6 years life span in some species, or 40+ years in Myotis in the wild
+   * Collecting animals for whole genome work – 23 genomes being targeted
+   * Air samplers for collecting eDNA in the caves / hollow trees / human structures
+
+
+
+
+Other agenda items:
+   * Potential symposium at NASBR in Oct 2024
+   * Guadalajara, Jalisco between 23-26rd October 2024
+   * Due May 15th: https://form.jotform.com/231825735583160
+   * Ideas
+   * Considering how the databases can be used in planning and decision making
+   * Databases in bat biodiversity science
+   * Inviting Jorrit
+   * Topic – bats and databases – linking networking databasing – what questions are uniquely enabled by aggregating data
+   * Uses for informing bat research priorities
+   * Liberating, linking, leveraging bat data for research and conservation priorities
+   * Leveraging = taking advantage of something existing for a new purpose / scale of questions
+   * Liberating side – how could I contribute to this – how could I use it?
+   * Roundtable as part of this
+   * Symposium + workshop 
+   * Workshop could focus more on “how to” of liberating and linking
+   * Panel discussion – bringing ideas together
+   * Hernani Olivera
+
+
+3 April 2024
+Present: Aja, Nancy, Cullen, Kendra
+   * GBatNet meeting
+   * Possibly include NABat, Hernani Oliveira (oliveira.hfm@gmail.com), Orly Razgour, and/or Ariadna Morales (ariadna.biologia@gmail.com)
+   * There will be a questionnaire soon for travel details. Reservations will be made through GBatNet, not individuals
+   * Need catchy title 
+   * Big Bat Databases: Easier Said Than Done
+   * Speaking with facilitators
+   * Bat Literature Project 
+   * If Aja finds manuscripts, she will omit
+   * Kendra will add literature
+   * BTA
+   * Spoke about species country lists and if it was possible to solve island only issues - maybe revisit this topic, maybe not
+   * Kendra brought to our attention this grant opportunity
+   * https://www.nsf.gov/pubs/2024/nsf24069/nsf24069.jsp
+   * She also apologized for using the saying “negative Nancy” during previous meeting
+27 March 2024
+Present: Quentin, Aja, Nancy, DeeAnn, Nate, Anna
+
+
+GBatNet connections
+   * Meeting in Houston – Week of the 20th of May – 21-24/25
+   * New name needed
+   * Bat-Pathogen Working Group?
+   * Other groups: https://www.gbatnet.org/interdisciplinary-projects/ 
+   * Big Bat Database is taking off
+   * Hernani Olvera, and Ariadna Morales leading this
+   * How old is this bat?
+   * Evo-devo group
+   * Population sizes of bats
+   * Bats in habitats – parasites/microbiomes
+   * Stress in bats (DeeAnn)
+   * Immune systems in bats (Dan Becker)
+   * Key habitats
+   * SciComm of bat science
+   * Socioeconomics group
+   * 11 of original 15 – 
+   * Our group
+   * Co-roosting dataset
+   * Bat taxonomic alignment
+   * Ecological interaction
+   * Bat Biotic Interactions Working Group
+   * Biodiversity Exchange on Bat Biotic Interactions
+   * Chirocosmos!
+   * Bat Interactions and Digital Knowledge
+   * Bat Biotic Interactions and Taxonomy Exchange (Bat BITE)
+
+
+   * Asdell’s Patterns of Mammalian Reproduction
+   * Punch cards burned in a fire 
+   * Digitized? 
+   * Nate has mammae number and litter size data digitized – and collaborator Tom Stewart does have a scanned copy of the volume – planning to upload to Zenodo in the near future
+
+
+Moth defenses against bats 
+   * New employee at AMNH: Jesse Barber 
+   * Barber, J.R., Plotkin, D., Rubin, J.J., Homziak, N.T., Leavell, B.C., Houlihan, P.R., Miner, K.A., Breinholt, J.W., Quirk-Royal, B., Padrón, P.S. and Nunez, M., 2022. Anti-bat ultrasound production in moths is globally and phylogenetically widespread. Proceedings of the National Academy of Sciences, 119(25), p.e2117485119.  https://www.pnas.org/doi/10.1073/pnas.2117485119 
+
+
+DeeAnn wrote a book:  
+   * “Lives of” Bats; series Princeton University Press 
+   * “Lives of Bats” book
+   * Out in October 2024!
+
+
+Co-roosting dataset
+   * https://docs.google.com/spreadsheets/d/1y5uBKvyzDQgQUtyRHvn5f20IOA7LoMho/edit#gid=691336520
+   * Looking at the GBIF matched names vs others
+   * Record secondary authorities in “interpretted_name” column 
+   * Migrate (*) in GBIF 
+   * Plants: Quentin
+   * Macroparasites: Anna 
+   * Ants: Donat? 
+   * Aja working on manuscripts: 
+   * Methods for co-roosting 
+   * Methods for bax taxonomic alignment 
+20 March 2024
+Present: Quentin, Aja, Cullen, Nate, Donat at the end
+
+
+IPBES reports – species assessment
+   * Figuring out baselines vs monitoring of species 
+
+
+Co-roosting data – Aja is cleaning up the names relative to the GBIF backbone
+
+
+iDigBio meeting 2024 in Kansas: https://www.idigbio.org/content/digital-data-biodiversity-research-conference-2024
+
+
+TDWG in Japan in Sept: https://www.tdwg.org/conferences/2024/call-for-abstracts/
+
+
+NASBR in Mexico / Guadalajara in Oct: https://www.nasbr.org/
+   * We could do a symposium? https://www.nasbr.org/symposia24
+   * NA bat people
+   * Occurrence data
+   * Data aggregating – movement data aggregation
+   * Ask Nancy who all could be giving talks
+   * Way for our talks to not be lost
+   * Roundtable possibly
+   * Bat morphometric data possibly
+   * Bat data aggregation and synthesis generally
+   * May 15 – deadline – time to assemble
+
+
+Oscar project
+   * https://oscars-project.eu/ 
+   * Covers all disciplines (not just biodiversity) but there is a life sciences cluster
+   * Could be good for Jorrit – 
+
+
+iNaturalist data on degree of establishment of invasive species in a given country
+   * Current issue with iNaturalist not pushing these data to GBIF
+
+
+Donat talked to Jorrit – going to get all of these bat publications in Zenodo
+   * Scope for upload: 
+   * Taxonomy and ecology initially
+   * Nancy, DeeAnn, Nate (MDD), Victor Van Cakenburgh
+   * Gabor Scorba and Sandro Bertolino would be good to contact too
+
+
+6 March 2024
+Present: Quenting, DeeAnn, Aja, Nancy, Kendra, Donat
+
+
+Aja explaining 
+   * the biotic interactions table and what she needs from the team 
+   * Cleaning up the mammal database synonyms, priority
+   * Starts writing the ms biotic and coroosting
+   * Andrea has not change document for BTA
+   * Writing the BTA paper by summer
+Bat literature list 
+   * Zootero add keywords automatically? If not possible do it later
+
+
+28 Feb 2024
+Present: Quentin, Donat, Aja, Cullen, Kendra
+
+
+Reviewed top priorities with the group that wasn’t present last week
+
+
+Aja compared taxonomy (of interaction dataset) against Checklist Bank & GBIF for agreement
+
+
+BiCIKL+ submission by Donat & Quentin (will know if funded by July)
+
+
+Donat to send template to Aja for organizing citations stored on Zotero
+
+
+
+
+21 Feb 2024
+Present: Quentin, Aja, Nate
+
+
+Camping gear
+   * https://www.outdoorgearlab.com/  
+   * https://www.bioliteenergy.com/products/campstove-2-plus 
+
+
+Top priorities right now
+   * Taxonomy for the co-roosting dataset
+   * Did a check against the GBIF backbone – using this to verify
+   * Bat-bat interactions
+   * We can dig into this part of the dataset to a greater extent
+   * Plot the two phylogenies facing each other
+   * Make line thickness proportional to the frequency of interactions
+   * Rarefaction analysis as well
+   * Are these sampling curves saturating?  Or will it go on and on depending on increased sampling
+   * BTA manuscript
+   * How-to for the BTA
+
+
+
+
+
+
+14 Feb 2024
+Present: DeeAnn, Nancy, Aja, Nate
+
+
+AirTags – helpful for tagging the field supplies when traveling
+
+
+Ebola virus-like particles – just have the protein on the outside to be recognized by the bats – 
+
+
+Using DNA/RNA shield – also BAMM Banker for tissue culture
+   * Slowly make way into freezing
+   * Needs new -80C
+
+
+Aja update
+   * BTA versions – batNames – 
+
+
+
+
+7 Feb 2024
+Present: Cullen, Kendra, Nate, Nancy, Anna, Donat, Quentin
+
+
+Anna presenting on ringtail omnivory at the University of Georgia, Odum School of Ecology annual student symposium
+   * Rank abundance curves of dietary items in scat
+   * Being an omnivore is on a big spectrum
+   * https://www.inaturalist.org/observations?place_id=any&taxon_id=41676
+   * Includes lots of feces images
+   * Early ASM poster about this work (Speir et al. 2022)
+
+
+Cullen / Donat / Aja / Nancy
+   * Digitization of bat literature – all literature is the plan there – 
+   * First working on 20k Drosophila publications
+   * Will figure out full workflow there
+   * Bat literature library in Switzerland – in Geneva – Can order PDFs from them
+   * Muséum in Geneva https://www.ville-ge.ch/musinfo/bd/mhng/cco/accueil.php , and was founded by the now retired Pascal Moeschler.
+   * Lots of low hanging fruit here
+   * Victor Van Calkenburgh has a massive PDF library that he gave access to
+   * What are the goals?
+   * Every publication ever on a bat?
+   * Can be a parallel bibliographic effort and PDF ect
+   * Multiple goals
+   * 1. Get full bibliography reference for all publications
+   * 2. Get PDFs for those papers
+   * 3. Upload PDFs to Zenodo
+   * 4. Tag / annotate / extract PDFs for forming digital knowledge
+   * For 2-3-4 steps, can target a specific topic / clade
+   * What metadata do we need? 
+   * Some columns already developed on the “reference-extract” sheet of the co-roosting data. 
+
+
+   * Nate / MDD can send literature on bats from the Zotero of the MDD
+   * Will send to Aja
+
+
+Bat Libraries:
+ 
+   * Bat bibliographies generated from the General Index subset: 
+   * Special Index to Species: https://archive.org/details/IndexGenerium 
+Other Internet Archive scans: 
+   * BioStor https://archive.org/details/biostor-127588/page/438/mode/2up 
+   * Big issue with bioheritage library is the lack of separated articles. Volumes are scanned and not parsed by article metadata. 
+   * Lack of funding/staff to do this. Priority is Smithosonians own stuff
+
+
+
+
+24 Jan 2024
+Present: Donat, Cullen, Kendra, Nate, Nancy, Aja, Quentin
+
+
+Our collective bodily injuries and aging
+   * Nancy retiring – getting rid of administrative things
+
+
+Liberating large amounts of bat literature
+   * Could we take all the PDFs from Nancy’s computer – plus the files from batBase
+   * Possible to have a drag and drop?
+   * Nancy has a combined folder for the first time – just joined things across computers
+   * Aja can help to create the Zotero record – BibTex or other –
+   * Then Donat can work with Plazi team to automate the uploads to Zenodo
+   * Also add the MDD references in this context
+   * 196 “bat” references included – not updated for the v1.12 version
+
+
+Philippines project work – aiming to get more funding via EcoHealth
+   * https://www.washingtonpost.com/national-security/2023/09/07/deep-vzn-virus-wild-usaid-program/
+   * https://stopspillover.org/ (program that is funded by USAID)
+   * Lots of in country work being done – 
+   * Capacity building ultimately
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10 Jan 2024
+Present: Quentin, Cullen, Kendra, Aja, Nate, Donat
+
+
+Updating the taxonomy of the bat co-roosting data
+   * Quentin took all the names included + matched it against the GBIF taxonomy backbone
+   * https://docs.google.com/spreadsheets/d/1y5uBKvyzDQgQUtyRHvn5f20IOA7LoMho/edit#gid=691336520
+   * WorkingDoc_Raw-Data-Extraction_ExpertLiterature_8_8
+   * Steps were to use the GBIF taxonomy matcher tool
+   * Species lookup: https://www.gbif.org/tools/species-lookup
+   * ChecklistBank has something different – provides stable identifiers – 
+   * https://www.checklistbank.org/tools/name-match
+   * Will return “valid” species names – but the species could still definitely be split
+   * Kendra example with Miniopterus schreibersii – used to be widespread species, now restricted to Europe – so all the records in the Philippines are inaccurate
+   * Sources for digitizing all the bat literature
+   * Try different sources
+   * Private funding
+   * Swiss Govt – RDF version of checklist bank – $300k for these conversion services – just for the Swiss bats for the starter
+   * Proof of what can be done for the swiss species
+   * BiCikL – Arcadia
+   * Working with Nancy – to get all the bat literature – leverage to get more funds to expand further
+   * Gathering PDFs from her, batnames, MDD
+   * Some of the bibliographic data contain errors currently
+
+
+   * Knowledge Hub with the BiCiKL
+   * https://bicikl-project.eu/biodiversity-knowledge-hub
+   * Pensoft is involved because of the JATS conversion needed for PMC – Biodiversity PMC
+   * https://sibils.text-analytics.ch/search/ (SibIs portal)
+   * Also this “Knowledge Centre for Biodiversity”: https://knowledge4policy.ec.europa.eu/biodiversity_en
+
+
+   * Locality information for the bat co-roosting information
+   * There is a need to consider the “localityCountry” field in comparing to the BTA for taxonomic translation
+   * Compare this to the “countryDistribution” field in the MDD for example – create a pairwise country matrix for doing this
+   * >> Then have logic for the subsequent comparisons
+   * E.g., if nameA exists in countryX in taxonomyY, then we have the possibility of properly translating taxonomic splits
+
+
+03 Jan 2024
+Present: Kendra, Nancy, Quintin, Anna 
+
+
+   * Hellos from the holidays 
+   * Quintin working on
+   * flora online : no global one available that’s great; need for more specific areas (e.g., Congo) 
+   * Difficult to acquire funding for the projects
+   * IUCN invasive species as threat 
+   * Data available through rredlist R package 
+   * Role of reference books 
+   * ICTV virus taxonomy still heavily referenced book 
+   * Walker’s large bat book: almost 25 lbs
+   * Walker’s Mammals of the World may have had last version in 2018
+   * Interesting/Harsh Review broaching the topic https://www.mammalwatching.com/2018/07/17/a-review-a-long-review-of-the-latest-version-of-walkers-mammals-of-the-world/ 
+   * Out of date by the time their published?  
+   * IUCN
+   * embedded citations + species-specific authors can give idea of when updated 
+   * 2000 was when all animals started to be assessed
+   * Many bats that were listed covered since the ‘80s
+   * Taxonomy always an issue in any of the records 
+   * How to deal with rejection/controversy 
+
+
+[a]Doesn't really capture what we do - not to be confused with Bat Taxonomy Working Group... Need Nancy's advice
+[b]Harmony?
