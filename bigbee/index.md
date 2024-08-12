@@ -61,7 +61,7 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **4 December 2023** Symbiota Support Group talk "Image Tagging in Symbiota Portals" by Colleen Smith of the UC Santa Barbara Cheadle Center for Biodiversity and Ecological Restoration. [streaming video](https://youtu.be/ipSYqwgorVU?si=k3tVTKEJtvE9oRWx). 
 
-**2 February 2024** Seltmann, K. (2024). Exhibit at California Nature Art Museum, San Luis Obispo, CA: the The Birds and the Bees and More: Pollinators hash://md5/4f552ae78473131eafb39657f95c6260. Zenodo. https://doi.org/10.5281/zenodo.10612006
+**2 February 2024** Seltmann, K. (2024). Exhibit at California Nature Art Museum, San Luis Obispo, CA: the The Birds and the Bees and More: Pollinators hash://md5/4f552ae78473131eafb39657f95c6260. Zenodo. [doi:10.5281/zenodo.10612006](https://doi.org/10.5281/zenodo.10612006) .
 
 # Collections Status
 
