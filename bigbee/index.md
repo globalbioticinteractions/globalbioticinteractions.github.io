@@ -63,6 +63,8 @@ The [Big Bee](https://big-bee.net) network is a project to create and openly sha
 
 **2 February 2024** Seltmann, K. (2024). Exhibit at California Nature Art Museum, San Luis Obispo, CA: the The Birds and the Bees and More: Pollinators hash://md5/4f552ae78473131eafb39657f95c6260. Zenodo. [doi:10.5281/zenodo.10612006](https://doi.org/10.5281/zenodo.10612006) .
 
+**3 July 2024** Seltmann, K. C., Poelen, J. H., & Global Biotic Interaction Community. (2024). Global Bee Interaction Data (v4.0) [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.12639658](https://doi.org/10.5281/zenodo.12639658) .
+
 # Collections Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
