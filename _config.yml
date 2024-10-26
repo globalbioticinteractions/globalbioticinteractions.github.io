@@ -462,6 +462,11 @@ t:
         pt: "possui patógeno"
         ja: "病原体を持っている"
         es: "tiene patógeno"
+    allelopathOf:
+        en: "allelopath of"
+        pt: "allelopath of"
+        ja: "allelopath of"
+        es: "allelopath of"
     vectorOf:
         en: "vector of"
         pt: "vetor de"
