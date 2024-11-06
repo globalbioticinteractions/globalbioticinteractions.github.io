@@ -18,6 +18,14 @@ The BUTTERFLY project is about "Mainstreaming pollinator stewardship in view of 
 
 This page contains references to EuroAPPA and related projects with a specific focus on species interactions (e.g., plant-pollinator) datasets.  
 
+# Monthly Meeting
+
+First Tuesdays at 08:00 US Central / 14:00 Sussex / 15:00 Central European Time.
+
+[rolling meeting notes (google doc)](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit), [notes.pdf (versioned snapshot)](./notes.pdf)
+
+
+
 # Events
 
  **2024-02-22** - Deadline EU Horizon's [Biodiversity and ecosystem services (HORIZON-CL6-2024-BIODIV-01)](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/horizon-cl6-2024-biodiv-01-2)  
