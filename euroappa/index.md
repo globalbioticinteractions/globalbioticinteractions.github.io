@@ -57,3 +57,5 @@ EuroAPPA aims to work with the 24 BUTTERFLY partners to help (1) mobilizing exis
 [Big Bee](https://big-bee.net) see also [GloBI's Big Bee Page](https://globalbioticinteractions.org/bigbee). 
 
 [WorldFAIR WP10 on Agricultural Biodiversity](https://globalbioticinteractions.org/worldfair) - The WorldFAIR Case Study on Agricultural Biodiversity (WP10) addresses the challenges of advancing interoperability and mobilising plant-pollinator interactions data for reuse.  
+
+[BatBase](https://batbase.org) - formerly called ```batplant.org``` this project indexes bat interactions including bat pollinations. BatBase is part of  [GBatNet's Eco-interactions Working Group](https://globalbioticinteractions.org/gbatnet). 
