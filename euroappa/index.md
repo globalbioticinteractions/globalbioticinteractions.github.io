@@ -12,9 +12,9 @@ EuroAPPA aims to be a
 
 > [...] One-stop shop for animal pollinator ecology: BUTTERFLY’s European Atlas of Plant-Pollinator Associations (EuroAPPA) will provide user-friendly access for all stakeholders to the most complete taxonomically-harmonised well-curated database of plant-pollinator interactions ever produced for Europe and three Overseas Territories/Outermost Regions. [...]
 
-and is a key result defined in the BUTTERFLY proposal. 
+and is a key result defined in the [BUTTERFLY](https://cordis.europa.eu/project/id/101181930) proposal. 
 
-The BUTTERFLY project is about "Mainstreaming pollinator stewardship in view of cascading ecological, societal and economic impacts of pollinator decline" and relates to the EU Horizon call: [HORIZON-CL6-2024-BIODIV-01-3](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/horizon-cl6-2024-biodiv-01-2) — `Biodiversity and ecosystem services (HORIZON-CL6-2024-BIODIV-01) / Dependence of society and the economy on pollinators`.
+The [BUTTERFLY](https://cordis.europa.eu/project/id/101181930) project is about "Mainstreaming pollinator stewardship in view of cascading ecological, societal and economic impacts of pollinator decline" and relates to the EU Horizon call: [HORIZON-CL6-2024-BIODIV-01-3](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/horizon-cl6-2024-biodiv-01-2) — `Biodiversity and ecosystem services (HORIZON-CL6-2024-BIODIV-01) / Dependence of society and the economy on pollinators`.
 
 This page contains references to EuroAPPA and related projects with a specific focus on species interactions (e.g., plant-pollinator) datasets.  
 
@@ -32,7 +32,7 @@ First Tuesdays at 08:00 US Central / 14:00 Sussex / 15:00 Central European Time.
 
  **2024-07-01** - EuroAPPA meeting to discuss ways to collaborate and organize within BUTTERFLY and across other initiatives. See  [meeting notes](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit).
  
- **TDB** - BUTTERFLY official start date
+ **2025-03-01** - [BUTTERFLY](https://cordis.europa.eu/project/id/101181930) official start date see also [https://cordis.europa.eu/project/id/101181930](https://cordis.europa.eu/project/id/101181930).
 
  **...**
 
