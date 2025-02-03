@@ -2,7 +2,7 @@
 layout: default
 title: "Nomer, a GloBI tool"
 status: unlisted
-permalink: elton
+permalink: nomer
 ---
 
 Nomer maps identifiers and names to other identifiers and names.
