@@ -52,7 +52,7 @@ EuroAPPA aims to work with the 24 BUTTERFLY partners to help (1) mobilizing exis
 # Related Initiatives
 
 
-[Running List of Related Initiatives](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit?tab=t.bcaxfrmawmxl). For a versioned snapshot of this list, see [related-initiatives.pdf](related-initiatives.pdf).
+[Running List of Related Initiatives](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit?tab=t.bcaxfrmawmxl). For a versioned snapshot of this list, see [related-projects.pdf](related-project.pdf).
 
 [EU Pollinator Hub](https://pollinatorhub.eu). See also [#991](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991).
 
