@@ -52,13 +52,13 @@ EuroAPPA aims to work with the 24 BUTTERFLY partners to help (1) mobilizing exis
 # Related Initiatives
 
 
-[Running List of Related Initiates](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit?tab=t.bcaxfrmawmxl) [related-initiatives.pdf](related-initiatives.pdf) (versioned snapshot).
+[Running List of Related Initiatives](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit?tab=t.bcaxfrmawmxl). For a versioned snapshot of this list, see [related-initiatives.pdf](related-initiatives.pdf).
 
 [EU Pollinator Hub](https://pollinatorhub.eu). See also [#991](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991).
 
 [SafeGuard](https://www.safeguard.biozentrum.uni-wuerzburg.de) / [SafeHub](https://www.safeguard.biozentrum.uni-wuerzburg.de/Project/SafeHub.aspx) (used by VALOR developed by Pensoft). See also [#989](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/989) and [SafeGuard Database Download ](https://www.safeguard.biozentrum.uni-wuerzburg.de/Download/Download.aspx) and [EuPPollNet](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/1041).
- - 
-VALOR - see [synergy meeting notes](https://docs.google.com/document/d/1kMT17tVcH-hU1dBYdEbIoYHyELvNHpwPH9WoLwefqNI/edit?usp=sharing)
+ 
+[VALOR](https://cordis.europa.eu/project/id/101181169) - see [synergy meeting notes](https://docs.google.com/document/d/1kMT17tVcH-hU1dBYdEbIoYHyELvNHpwPH9WoLwefqNI/edit?usp=sharing)
 
 [Big Bee](https://big-bee.net) see also [GloBI's Big Bee Page](https://globalbioticinteractions.org/bigbee). 
 
