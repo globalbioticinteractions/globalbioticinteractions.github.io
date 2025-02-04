@@ -8,7 +8,7 @@ status: unlisted
 
 [edit](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/edit/main/euroappa/index.md) / [contact via GitHub](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new?title=about%20EuroAPPA%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2FEuroAPPA%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D) / [contact via email](mailto:euroappa@globalbioticinteractions.org?subject=about%20EuroAPPA%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2FEuroAPPA%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D)
 
-EuroAPPA aims to be a
+EuroAPPA aims to be a:
 
 > [...] One-stop shop for animal pollinator ecology: BUTTERFLY’s European Atlas of Plant-Pollinator Associations (EuroAPPA) will provide user-friendly access for all stakeholders to the most complete taxonomically-harmonised well-curated database of plant-pollinator interactions ever produced for Europe and three Overseas Territories/Outermost Regions. [...]
 
@@ -50,12 +50,17 @@ EuroAPPA aims to work with the 24 BUTTERFLY partners to help (1) mobilizing exis
 
 # Related Initiatives
 
+[Running List of Related Initiates](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit?tab=t.bcaxfrmawmxl)
+
 [EU Pollinator Hub](https://pollinatorhub.eu). See also [#991](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991).
 
 [SafeGuard](https://www.safeguard.biozentrum.uni-wuerzburg.de) / [SafeHub](https://www.safeguard.biozentrum.uni-wuerzburg.de/Project/SafeHub.aspx) (used by VALOR developed by Pensoft). See also [#989](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/989) and [SafeGuard Database Download ](https://www.safeguard.biozentrum.uni-wuerzburg.de/Download/Download.aspx)
+ - 
 
 [Big Bee](https://big-bee.net) see also [GloBI's Big Bee Page](https://globalbioticinteractions.org/bigbee). 
 
 [WorldFAIR WP10 on Agricultural Biodiversity](https://globalbioticinteractions.org/worldfair) - The WorldFAIR Case Study on Agricultural Biodiversity (WP10) addresses the challenges of advancing interoperability and mobilising plant-pollinator interactions data for reuse.  
 
 [BatBase](https://batbase.org) - formerly called ```batplant.org``` this project indexes bat interactions including bat pollinations. BatBase is part of  [GBatNet's Eco-interactions Working Group](https://globalbioticinteractions.org/gbatnet). 
+
+AGRI4Poll 
