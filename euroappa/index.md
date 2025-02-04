@@ -46,6 +46,8 @@ EuroAPPA aims to work with the 24 BUTTERFLY partners to help (1) mobilizing exis
 
 [BeeLife.eu](https://bee-life.eu) 
 
+VALOR - see [synergy meeting notes](https://docs.google.com/document/d/1kMT17tVcH-hU1dBYdEbIoYHyELvNHpwPH9WoLwefqNI/edit?usp=sharing)
+
 ...
 
 # Related Initiatives
@@ -63,4 +65,3 @@ EuroAPPA aims to work with the 24 BUTTERFLY partners to help (1) mobilizing exis
 
 [BatBase](https://batbase.org) - formerly called ```batplant.org``` this project indexes bat interactions including bat pollinations. BatBase is part of  [GBatNet's Eco-interactions Working Group](https://globalbioticinteractions.org/gbatnet). 
 
-AGRI4Poll 
