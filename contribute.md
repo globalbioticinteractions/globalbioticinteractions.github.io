@@ -23,7 +23,7 @@ Various methods exist to share existing interaction data through Global Biotic I
 1. In case you are publishing a (data) paper that contains species interaction data, cite [Poelen et al. 2014](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005). The GloBI citation helps us to easily find your paper and make the published data easy to access.
 1. In case the data is not (yet) web accessible, please [open an issue](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new) in which you describe the dataset, and we can have a discussion on how to make the data available through GloBI.
 
-As the automated updates occur on a daily basis, it may take a day or two for updates or corrections to be available through GloBI and related libraries like [rglobi](http://github.com/ropensci/rglobi). For more information, see [GloBI's Data Integration Process page](/process) or [Poelen et al. 2014](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005).
+As the automated updates occur on a weekly basis, it may take a week or two for updates or corrections to be available through GloBI and related libraries like [rglobi](http://github.com/ropensci/rglobi). For more information, see [GloBI's Data Integration Process page](/process) or [Poelen et al. 2014](http://dx.doi.org/10.1016/j.ecoinf.2014.08.005).
 
 ## Contribute Code
 
