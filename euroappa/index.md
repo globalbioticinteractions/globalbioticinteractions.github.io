@@ -88,7 +88,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign issues-badge = "assets/issues_none.svg" -%}
 {%- assign issues-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- endif -%}
-[![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span class="{{ c.metadata_access }}" title="At this time, metadata of dataset {{ c.dataset }} is {{ c.metadata_access }} access.">M</span> \| <span class="{{ c.data_access }}" title="At this time, data of dataset {{ c.dataset }} is {{ c.data_access }} access.">D</span> \| <a href="https://doi.org/{{ c.review_doi }}"><span class="{{ c.review_report_access }}" title="At this time, the review report of dataset {{ c.dataset }} is {{ c.review_report_access }} access.">R</span></a> | <span id="{{ c.dataset }}">{{ c.dataset }}</span> | {{ c.contact }} | 
+[![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span class="{{ c.metadata_access }}" title="At this time, metadata of dataset {{ c.dataset }} is {{ c.metadata_access }} access.">M</span> \| <span class="{{ c.data_access }}" title="At this time, data of dataset {{ c.dataset }} is {{ c.data_access }} access.">D</span> \| <span class="{{ c.review_report_access }}" title="At this time, the review report of dataset {{ c.dataset }} is {{ c.review_report_access }} access.">R</span> | <span id="{{ c.dataset }}">{{ c.dataset }}</span> | {{ c.contact }} | 
 {% endfor %}
 
 
