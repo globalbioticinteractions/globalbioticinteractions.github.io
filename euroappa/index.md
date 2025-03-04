@@ -20,7 +20,7 @@ This page contains references to EuroAPPA and related projects with a specific f
 
 # Monthly Meeting
 
-First Tuesdays at 08:00 US Central / 14:00 Sussex / 15:00 Central European Time.
+First Tuesdays at 07:00 US Central / 13:00 Sussex / 14:00 Central European Time.
 
 [rolling meeting notes (google doc)](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit), [notes.pdf (versioned snapshot)](./notes.pdf)
 
