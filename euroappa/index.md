@@ -49,6 +49,49 @@ EuroAPPA aims to work with the 24 BUTTERFLY partners to help (1) mobilizing exis
 
 ...
 
+# Dataset Review
+
+To help better understand existing datasets, EuroAPPA aims to review datasets. The list below contains the list of dataset selected for review.
+
+Click on badges to browse/download indexed records or inspect automated reviews.
+
+[edit dataset list](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/_data/euroappa.tsv)
+
+{% assign cols = site.data.euroappa | sort: "dataset" -%}
+{% for c in cols -%}
+{%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%}
+{%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
+[![badge]({{ globi-badge }})]({{ globi-url }}) <a href="#{{ c.dataset }}">{{ c.dataset }}</a> {{ " / " }}
+{%- endfor %}
+
+|status|<ins>M</ins>etadata\|<ins>D</ins>ata\|<ins>R</ins>eview|dataset|contact|
+|---|---|---|---
+{% assign cols = site.data.euroappa | sort: "dataset" -%}
+{% for c in cols -%}
+{%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
+{%- assign globi-url = c.globi_id | url_encode | prepend: "https://globalbioticinteractions.org/?accordingTo=" -%}
+{%- if c.review_id and c.review_id != "NA" and c.review_report_access != "closed" -%}
+{%- assign review-url = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" -%}
+{%- assign review-badge = c.review_id | trim | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/review.svg" -%}
+{%- assign names-url = c.review_id | trim | uri_escape | prepend: "https://api.globalbioticinteractions.org/interaction.csv?type=csv&sourceTaxon=no%3Amatch&includeObservations=true&accordingTo=globi%3A" -%}
+{%- assign config-badge = "assets/config.svg" -%}
+{%- assign config-url = c.review_id | trim | prepend: "https://github.com/" -%}
+{%- assign issues-badge = c.review_id | trim | prepend: "https://img.shields.io/github/issues/" | append: ".svg?color=#4c1" -%}
+{%- assign issues-url = c.review_id | trim | prepend: "https://github.com/" | append: "/issues" -%}
+{%- else -%}
+{%- assign review-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- assign review-badge = "assets/review_none.svg" -%}
+{%- assign names-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- assign names-badge = "assets/suspicious_names_none.svg" -%}
+{%- assign config-badge = "assets/config_none.svg" -%}
+{%- assign config-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- assign issues-badge = "assets/issues_none.svg" -%}
+{%- assign issues-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- endif -%}
+[![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span class="{{ c.metadata_access }}" title="At this time, metadata of dataset {{ c.dataset }} is {{ c.metadata_access }} access.">M</span> \| <span class="{{ c.data_access }}" title="At this time, data of dataset {{ c.dataset }} is {{ c.data_access }} access.">D</span> \| <a href="https://doi.org/{{ c.review_doi }}"><span class="{{ c.review_report_access }}" title="At this time, the review report of dataset {{ c.dataset }} is {{ c.review_report_access }} access.">R</span></a> | <span id="{{ c.dataset }}">{{ c.dataset }}</span> | {{ c.contact }} | 
+{% endfor %}
+
+
 # Related Initiatives
 
 
