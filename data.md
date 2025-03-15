@@ -35,6 +35,7 @@ Table below is available as tab-separated values table via [data.tsv](data.tsv).
 {% endif -%}
 {% endfor -%} 
  [sqlite](https://sqlite.org), the most used database engine in the world. | create a sqlite3 database using:<br/> ```cat interactions.csv.gz | gunzip | sqlite3 -csv globi.db '.import /dev/stdin interactions'``` . <br/>If you'd like to reduce your database size, you can drop columns before importing them using powertools like [```cut```](https://en.wikipedia.org/wiki/Cut_(Unix)) or [```mlr/miller```](https://github.com/johnkerl/miller). See also [importing csv files](https://sqlite.org/cli.html#importing_csv_files).
+ [DuckDB](https://duckdb.org) is a high-performance analytical database system. | Create a DuckDB database using:<br/> ```curl -L https://zenodo.org/record/14640564/files/interactions.tsv.gz | gunzip | duckdb interactions.db -c "CREATE TABLE interactions AS SELECT * FROM read_csv('/dev/stdin');"``` which populates a local duckdb db in a file ```interactions.db``` . 
 
 If you'd like to better understand how the above integrated data products came about, please visit the [Data Integration Process](/process) page.  Also, see the [Accessing Species Interaction Data](https://github.com/globalbioticinteractions/globalbioticinteractions/wiki#accessing-species-interaction-data) wiki page for additional information about data access methods.
 
