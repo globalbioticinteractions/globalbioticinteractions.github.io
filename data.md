@@ -13,6 +13,13 @@ Exploratory, interactive queries can be executed through GloBI [Search](/index.h
 
 For research or other data intensive project, please use GloBI's stable versioned integrated data published via [doi:10.5281/zenodo.3950589](https://doi.org/10.5281/zenodo.3950589) or, perhaps even better, consider using the original underlying datasets. Please see the [process](/process) page to better understand how GloBI integrates data so that you can make an informed decision on what data to use for your studies. These data products also include a neo4j archive as well as a rdf/nquads if you'd like to load GloBI data into your own graph/triple store. 
 
+Other alternatives to independently discover the indexed GloBI interaction data include using small, but mighty, database technologies like DuckDB and SQLite. You'd be surprised how much you can do on your own laptop, especially with [DuckDB](https://duckdb.org). 
+
+| database technology | example | 
+| --- | --- |
+ [DuckDB](https://duckdb.org) is a high-performance analytical database system. | Create a DuckDB database using:<br/> ```curl -L https://zenodo.org/record/14640564/files/interactions.tsv.gz | gunzip | duckdb interactions.db -c "CREATE TABLE interactions AS SELECT * FROM read_csv('/dev/stdin');"``` which populates a local duckdb db in a file ```interactions.db``` . 
+ [sqlite](https://sqlite.org), the most used database engine in the world. | create a sqlite3 database using:<br/> ```cat interactions.csv.gz | gunzip | sqlite3 -csv globi.db '.import /dev/stdin interactions'``` . <br/>If you'd like to reduce your database size, you can drop columns before importing them using powertools like [```cut```](https://en.wikipedia.org/wiki/Cut_(Unix)) or [```mlr/miller```](https://github.com/johnkerl/miller). See also [importing csv files](https://sqlite.org/cli.html#importing_csv_files).
+
 If you feel adventurous and would like to have the most recent data, you can use provided instable snapshots.  
 
 ## Data Schema and Definitions
@@ -34,8 +41,6 @@ Table below is available as tab-separated values table via [data.tsv](data.tsv).
 [{{ product.name }}]({{ product.url_stable }}) <br/> [stable]({{ product.url_stable }}) / [snapshot]({{ product.url_snapshot }}) | {{ product.description }}
 {% endif -%}
 {% endfor -%} 
- [sqlite](https://sqlite.org), the most used database engine in the world. | create a sqlite3 database using:<br/> ```cat interactions.csv.gz | gunzip | sqlite3 -csv globi.db '.import /dev/stdin interactions'``` . <br/>If you'd like to reduce your database size, you can drop columns before importing them using powertools like [```cut```](https://en.wikipedia.org/wiki/Cut_(Unix)) or [```mlr/miller```](https://github.com/johnkerl/miller). See also [importing csv files](https://sqlite.org/cli.html#importing_csv_files).
- [DuckDB](https://duckdb.org) is a high-performance analytical database system. | Create a DuckDB database using:<br/> ```curl -L https://zenodo.org/record/14640564/files/interactions.tsv.gz | gunzip | duckdb interactions.db -c "CREATE TABLE interactions AS SELECT * FROM read_csv('/dev/stdin');"``` which populates a local duckdb db in a file ```interactions.db``` . 
 
 If you'd like to better understand how the above integrated data products came about, please visit the [Data Integration Process](/process) page.  Also, see the [Accessing Species Interaction Data](https://github.com/globalbioticinteractions/globalbioticinteractions/wiki#accessing-species-interaction-data) wiki page for additional information about data access methods.
 
