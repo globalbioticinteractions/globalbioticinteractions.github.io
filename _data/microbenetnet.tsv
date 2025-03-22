@@ -1,0 +1,5 @@
+dataset	contact	metadata_access	data_access	review_report_access	globi_id	review_id	review_doi
+MaarjAM	Maarja Öpik	open	open	open	globi:globalbioticinteractions/maarjam	globalbioticinteractions/maarjam	
+FRED	Luke McCormack	open	open	open	globi:globalbioticinteractions/fred	globalbioticinteractions/fred	
+MycoPortal	Andrew Miller	open	open	open	globi:globalbioticinteractions/mycoportal	globalbioticinteractions/mycoportal	
+USDA Fungus Host Database	Lisa Castlebury	open	open	open	globi:globalbioticinteractions/usda-fungus-host	globalbioticinteractions/usda-fungus-host	
