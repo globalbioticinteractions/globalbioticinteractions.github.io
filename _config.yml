@@ -56,6 +56,12 @@ defaults:
     values:
       lang: pt
       base-url: "/pt/"
+  -
+    scope:
+      path: fr
+    values:
+      lang: fr
+      base-url: "/fr/"
 
 # Value to use into url per language
 langs-value:
@@ -63,6 +69,7 @@ langs-value:
     es: es
     ja: ja
     pt: pt
+    fr: fr
 
 # Translation
 t:
@@ -71,51 +78,62 @@ t:
         pt: "Português"
         ja: "日本語"
         es: "Español"
+        fr: "Français"
     example-query:
         en: "Example query"
         pt: "Por exemplo"
         ja: "検索例"
         es: "Por ejemplo"
+        fr: "Example query"
     what-do-sea-otters-eat:
         en: "What do sea otters (<em>Enhydra lutris</em>) eat?"
         pt: "Do que a lontra (<em>Enhydra lutris</em>) se alimenta?"
         ja: "ラッコ (<em>Enhydra lutris</em>) は何を食べますか?"
         es: "Qué come la nutria (<em>Enhydra lutris</em>)?"
+        fr: "What do sea otters (<em>Enhydra lutris</em>) eat?"
+
     or:
         en: "or"
         pt: "ou"
         ja: "あるいは"
         es: "o"
+        fr: "or"
     what-do-honey-bees-pollinate:
         en: "What do honey bees (<em>Apis</em>) pollinate?"
         pt: "Quais plantas a abelha melífera (<em>Apis</em>) poliniza?"
         ja: "ミツバチ (<em>Apis</em>)は,何に受粉しますか?"
         es: "Qué plantas poliniza la abeja mielera (<em>Apis</em>)?"
+        fr: "What do honey bees (<em>Apis</em>) pollinate?"
     what-kind-of:
         en: "What kind of"
         pt: "Que tipo de"
         ja: "どんな"
         es: "Qué tipo de"
+        fr: "What kind of"
     do:
         en: "do"
         pt: "faz"
         ja: "と"
         es: "hace"
+        fr: "do"
     more:
         en: "more"
         pt: "mais"
         ja: "より多くの"
         es: "más"
+        fr: "more"
     none:
         en: "None"
         pt: "Nenhum"
         ja: "無し"
         es: "Ninguno"
+        fr: "None"
     nothing:
         en: "nothing"
         pt: "nada"
         ja: "何も無い"
         es: "nada"
+        fr: "nothing"
     footer-text:
         en: >
           Global Biotic Interactions is an <a href="http://opendefinition.org/ossd/" title="open service definition">open service</a> providing <a href="http://opendefinition.org/od/" title="open data definition">open data</a> using <a href="https://opensource.org/osd" title="open source definition">open source</a> software.
@@ -125,6 +143,8 @@ t:
           Global Biotic Interactions は、 オープン・データ</a> と <a href="https://opensource.org/osd" title="open source definition">オープンソース</a> を利用したソフトウェアを使用した<a href="http://opendefinition.org/ossd/" title="open service definition">オープン・サービス</a> を提供しています <a href="http://opendefinition.org/od/" title="open data definition">.
         es: >
           GloBI es una iniciativa <a href="http://opendefinition.org/ossd/" title="open service definition"> abierta</a> que promueve <a href="http://opendefinition.org/od/" title="open data definition"> datos abiertos</a> utilizando <a href="https://opensource.org/osd" title="open source definition">código abierto</a> para su funcionamiento.
+        fr: >
+          Global Biotic Interactions is an <a href="http://opendefinition.org/ossd/" title="open service definition">open service</a> providing <a href="http://opendefinition.org/od/" title="open data definition">open data</a> using <a href="https://opensource.org/osd" title="open source definition">open source</a> software.
     search-suggestion:
         en: >
           nothing that we are aware of. Please make sure to use <a href="https://en.wikipedia.org/wiki/Taxon">scientific taxon names</a> to describe the organism that you are interested in. For instance, instead of searching for "guppy", use <a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>.
@@ -134,6 +154,8 @@ t:
           該当しません. 関心がある生物を検索する際に、必ず <a href="https://en.wikipedia.org/wiki/Taxon">学名</a> を使用してください。例えば、”グッピー”という熱帯魚と入力する代わりに、学名である<a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>を入力してください.
         es: >
           no encontramos ningún resutado. Asegurate de utilizar el <a href="https://es.wikipedia.org/wiki/Taxon">nombre científico</a> del taxón de interes. Por ejemplo, en lugar de buscar por "guppy", utiliza <a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>.
+        fr: >
+          nothing that we are aware of. Please make sure to use <a href="https://en.wikipedia.org/wiki/Taxon">scientific taxon names</a> to describe the organism that you are interested in. For instance, instead of searching for "guppy", use <a href="?sourceTaxon=Poecilia%20reticulata"><em>Poecilia reticulata</em></a>.
     want-data-pre:
         en: >
           Want data? Get <a href="
@@ -142,6 +164,8 @@ t:
         ja: > 
           Want data? Get <a href="
         es: >
+          Want data? Get <a href="
+        fr: >
           Want data? Get <a href="
     want-data-post:
         en: >
@@ -152,413 +176,497 @@ t:
           ">csv sample</a> or <a href="/data#interaction-data-indexes">all data</a>.
         es: >
           ">csv sample</a> or <a href="/data#interaction-data-indexes">all data</a>.
+        fr: >
+          ">csv sample</a> or <a href="/data#interaction-data-indexes">all data</a>.
     refuted-by:
         en: "Refuted by"
         pt: "Refutado por"
         ja: "反論"
         es: "Rechazado por"
+        fr: "Refuted by"
     supported-by:
         en: "Supported by"
         pt: "Aprovado por"
         ja: "支持"
         es: "Aprobado por"
+        fr: "Supported by"
     according-to:
         en: "according to"
         pt: "de acordo com"
         ja: "によると"
         es: "de acuerdo a"
+        fr: "according to"
     organisms:
         en: "organisms"
         pt: "organismos"
         es: "organismos"
         ja: "生物"
+        fr: "organisms"
     any-study-or-source:
         en: "a DOI, URI or other identifiers"
         pt: "um DOI, URI ou outro identificador"
         ja: "研究論文または情報源"
         es: "cualquier estudio o fuente"
+        fr: "a DOI, URI or other identifiers"
     plenty-of-things:
         en: "plenty of things"
         pt: "muitas coisas"
         ja: "たくさん存在します"
         es: "muchas cosas"
+        fr: "plenty of things"
     missing-some-results:
         en: "Missing some results?"
         pt: "Está faltando algum resultado?"
         ja: "結果が見つかりません"
         es: "Falta algún resultado?"
+        fr: "Missing some results?"        
     please-share-your-dataset:
         en: "Please share your dataset!"
         pt: "Por favor compartilhe seus dados!"
         ja: "あなたのデータセットを是非共有してください!"
         es: "¡Por favor comparte tus datos!"
+        fr: "Please share your dataset!"
     have-suggestions:
         en: "Have suggestions?"
         pt: "Tem sugestões?"
         ja: "提案がありますか?"
         es: "¿Tienes alguna sugerencia?"
+        fr: "Have suggestions?"
     let-us-know:
         en: "Let us know."
         pt: "Informe-nos."
         ja: "我々にお知らせください."
         es: "Haznos saber."
+        fr: "Let us know."
     like-a-different-view:
         en: "Like a different view?"
         pt: "Gostaria de uma visualização diferente?"
         ja: "別のビューの方が良いですか?"
         es: "¿Te gustaría una vista diferente?"
+        fr: "Like a different view?"
     open-results-in-browser:
         en: "Open results in interaction browser"
         pt: "Abrir resultados em navegador interativo"
         ja: "インタラクション・ブラウザーの結果を開いてください。"
         es: "Resultados en el navegador de interacciones"
+        fr: "Open results in interaction browser"
     list-the-references:
         en: "list the references"
         pt: "lista de referências"
         ja: "参照情報をリストします"
         es: "lista de referencias"
+        fr: "list the references"
     lookup-term-definition-for:
         en: "lookup term definition for"
         pt: "definição de"
         ja: "検索用語の定義"
         es: "definición de"
+        fr: "lookup term definition for"        
     commensalistOf:
         en: "commensalist of"
         pt: "comensalista de"
         ja: "commensalist of"
         es: "commensalista de"
+        fr: "commensalist of"
     mutualistOf:
         en: "mutualist of"
         pt: "mutualista de"
         ja: "mutualist of"
         es: "mutualista de"
+        fr: "mutualist of"
     interactsWith:
         en: "interacts with"
         pt: "interage com"
         ja: "相互作用する"
         es: "interactua con"
+        fr: "interacts with"
     interacts-with:
         en: "interacts with"
         pt: "interage com"
         ja: "相互作用する"
         es: "interactua con"
+        fr: "interacts with"
     adjacentTo:
         en: "adjacent to"
         pt: "adjacente a"
         ja: "adjacent to"
         es: "adyacente a"
+        fr: "adjacent to"
     adjacent-to:
         en: "adjacent to"
         pt: "adjacente a"
         ja: "adjacent to"
         es: "adyacente a"
+        fr: "adjacent to"
     relate-to:
         en: "relate to"
         pt: "relacionado com"
         ja: "と関連する"
         es: "relacionado con"
+        fr: "relate to"
     eat:
         en: "eat"
         pt: "come"
         ja: "食べる（捕食）"
         es: "come"
+        fr: "eat"
     eats:
         en: "eats"
         pt: "come"
         ja: "食べる（捕食）"
         es: "come"
+        fr: "eats"
     eatenBy:
         en: "eaten by"
         pt: "é comido por"
         ja: "食われる（被食）"
         es: "es comida de"
+        fr: "eaten by"
     epiphyteOf:
         en: "epiphyte of"
         pt: "epífita de"
         ja: "epiphyte of"
         es: "epífita de"
+        fr: "epiphyte of"
     hasEpiphyte:
         en: "has epiphyte"
         pt: "tem epífita"
         ja: "has epiphyte"
         es: "tienes epífita"
+        fr: "has epiphyte"
     get-eaten-by:
         en: "get eaten by"
         pt: "é comido por"
         ja: "食われる（被食）"
         es: "es comida de"
+        fr: "get eaten by"
     preys-on:
         en: "preys on"
         pt: "é presa de"
         ja: "を捕食する"
         es: "es presa de"
+        fr: "preys on"
     preysOn:
         en: "preys on"
         pt: "é presa de"
         ja: "を捕食する"
         es: "es presa de"
+        fr: "preys on"
     get-preyed-on-by:
         en: "get preyed on by"
         pt: "é predado por"
         ja: "に食われる"
         es: "es comida de"
+        fr: "get preyed on by"
     preyedUponBy:
         en: "preyed upon by"
         pt: "predador por"
         ja: "よって食われる"
         es: "es presa de"
+        fr: "preyed upon by"
     providesNutrientsFor:
         en: "provides nutrients for"
         pt: "fornece nutrientes para"
         ja: "provides nutrients for"
         es: "proporciona nutrientes para"
+        fr: "provides nutrients for"
     acquiresNutrientsFrom:
         en: "acquires nutrients from"
         pt: "adquire nutrientes de"
         ja: "acquires nutrients from"
         es: "adquiere nutrientes de"
+        fr: "acquires nutrients from"
     kills:
         en: "kills"
         pt: "mata um"
         ja: "を殺す"
         es: "mata a"
+        fr: "kills"
     killedBy:
         en: "killedBy"
         pt: "é morto por"
         ja: "によって殺される"
         es: "lo mata"
+        fr: "killedBy"
     parasiteOf:
         en: "parasite of"
         pt: "é parásita de"
         ja: "の寄生虫"
         es: "es parásito de"
+        fr: "parasite of"
     hasParasite:
         en: "has parasite"
         pt: "é parasitado por"
         ja: "寄生虫を持っている"
         es: "es parasitado por"
+        fr: "has parasite"
     hasHyperparasite:
         en: "has hyperparasite"
         pt: "possui hiperparasita"
         ja: "寄生虫を持っている"
         es: "es parasitado por"
+        fr: "has hyperparasite"
     hyperparasiteOf:
         en: "hyperparasite of"
         pt: "hiperparasita de"
         ja: "の寄生虫"
         es: "es parásito de"
+        fr: "hyperparasite of"
     endoparasiteOf:
         en: "endoparasite of"
         pt: "endoparasite de"
         ja: "endoparasite of"
         es: "endoparasite of"
+        fr: "endoparasite of"
     hosts:
         en: "hosts"
         pt: "é hospedeiro de"
         ja: "hosts"
         es: "hosts"
+        fr: "hosts"
     get-hosted-by:
         en: "get hosted by"
         pt: "é hospedado por"
         ja: "get hosted by"
         es: "get hosted by"
+        fr: "get hosted by"
     hasEndoparasite:
         en: "has endoparasite"
         pt: "possui endoparasita"
         ja: "has endoparasite"
         es: "has endoparasite"
+        fr: "has endoparasite"
     ectoparasiteOf:
         en: "ectoparasite of"
         pt: "ectoparasite de"
         ja: "ectoparasite of"
         es: "ectoparasite of"
+        fr: "ectoparasite of"
     hasEctoparasite:
         en: "has ectoparasite"
         pt: "possui ectoparasita"
         ja: "has ectoparasite"
         es: "has ectoparasite"
+        fr: "has ectoparasite"
     parasitoidOf:
         en: "parasitoid of"
         pt: "parasitoide de"
         ja: "parasitoid of"
         es: "parasitoid of"
+        fr: "parasitoid of"
     hasParasitoid:
         en: "has parasitoid"
         pt: "possui parasitoide"
         ja: "has parasitoid"
         es: "has parasitoid"
+        fr: "has parasitoid"
     hostOf:
         en: "host of"
         pt: "hospedeiro de"
         ja: "の宿主"
         es: "hospedero de"
+        fr: "host of"
     hasHost:
         en: "has host"
         pt: "tem como hospedeiro um"
         ja: "宿主を持つ"
         es: "tiene como hospedero a"
+        fr: "has host"
     parasitize:
         en: "parasitize"
         pt: "é parásita de"
         ja: "に寄生する"
         es: "es parasito de"
+        fr: "parasitize"
     get-parasitized-by:
         en: "get parasitized by"
         pt: "é parasitado por"
         ja: "に寄生される"
         es: "es parasitado por"
+        fr: "get parasitized by"
     is-symbiont-of:
         en: "is symbiont of"
         pt: "é simbionte de"
         ja: "の共生です"
         es: "es simbionte de"
+        fr: "is symbiont of"
     visitsFlowersOf:
         en: "visits flowers of"
         pt: "vista flores de"
         ja: "を訪花する"
         es: "visita las flores de"
+        fr: "visits flowers of"
     visits-flowers-of:
         en: "visits flowers of"
         pt: "visita flores de"
         ja: "を訪花する"
         es: "visita las flores de"
+        fr: "visits flowers of"
     flowersVisitedBy:
         en: "flowers visited by"
         pt: "flores visitadas por"
         ja: "によって訪花される"
         es: "flores visitadas por"
+        fr: "flowers visited by"
     flowers-visited-by:
         en: "flowers visited by"
         pt: "flores visitadas por"
         ja: "によって訪花される"
         es: "flores visitadas por"
+        fr: "flowers visited by"
     pollinates:
         en: "pollinates"
         pt: "poliniza"
         ja: "を受粉する"
         es: "poliniza a"
+        fr: "pollinates"
     pollinate:
         en: "pollinate"
         pt: "poliniza"
         ja: "を受粉する"
         es: "poliniza a"
+        fr: "pollinate"
     pollinatedBy:
         en: "pollinated by"
         pt: "é polinizador por"
         ja: "によって受粉される"
         es: "es polinizado por"
+        fr: "pollinated by"
     get-pollinated-by:
         en: "get pollinated by"
         pt: "é polinizador por"
         ja: "によって受粉される"
         es: "es polinizado por"
+        fr: "get pollinated by"
     pathogenOf:
         en: "pathogen of"
         pt: "patógeno de"
         ja: "の病原体"
         es: "patógeno de"
+        fr: "pathogen of"
     hasPathogen:
         en: "has pathogen"
         pt: "possui patógeno"
         ja: "病原体を持っている"
         es: "tiene patógeno"
+        fr: "has pathogen"
     allelopathOf:
         en: "allelopath of"
         pt: "allelopath of"
         ja: "allelopath of"
         es: "allelopath of"
+        fr: "allelopath of"
     vectorOf:
         en: "vector of"
         pt: "vetor de"
         ja: "のベクター"
         es: "vector de"
+        fr: "vector of"
     hasVector:
         en: "has vector"
         pt: "possui vetor"
         ja: "ベクターを持っている"
         es: "es vector"
+        fr: "has vector"
     dispersalVectorOf:
         en: "dispersal vector of"
         pt: "vetor de disperão de"
         ja: "の拡散ベクター"
         es: "vector de dispersión de"
+        fr: "dispersal vector of"
     hasDispersalVector:
         en: "has dispersal vector"
         pt: "possui como vetor de dispersão"
         ja: "拡散ベクターを持っている"
         es: "es vector de dispersión"
+        fr: "has dispersal vector"
     symbiontOf:
         en: "symbiont of"
         pt: "simbionte de"
         ja: "の共生"
         es: "simbionte de"
+        fr: "symbiont of"
     ecologicallyRelatedTo:
         en: "related to"
         pt: "relacionado a"
         ja: "と関連する"
         es: "relacionado con"
+        fr: "related to"
     coOccursWith:
         en: "co-occurs with"
         pt: "co-ocorre com"
         ja: "と共起する"
         es: "coocurre con"
+        fr: "co-occurs with"
     coRoostsWith:
         en: "co-roosts with"
         pt: "empoleira-se junto com"
         ja: "co-roosts with"
         es: "co-roosts with"
+        fr: "co-roosts with"        
     co-roosts-with:
         en: "co-roosts with"
         pt: "empoleira-se junto com"
         ja: "co-roosts with"
         es: "co-roosts with"
+        fr: "co-roosts with"
     infect:
         en: "infect"
         pt: "infecta um"
         ja: "に感染する"
         es: "infecta a"
+        fr: "infect"
     get-infected-by:
         en: "get infected by"
         pt: "é infectado por"
         ja: "によって感染される"
         es: "es infectado por"
+        fr: "get infected by"
     spread:
         en: "spread"
         pt: "é dispersor de"
         ja: "伝播する"
         es: "dispersa a"
+        fr: "spread"
     get-spread-by:
         en: "get spread by"
         pt: "é dispersado por"
         ja: "によって広がる"
         es: "es dispersado por"
+        fr: "get spread by"
     kill:
         en: "kill"
         pt: "mata"
         ja: "を殺す"
         es: "mata a"
+        fr: "kill"
     is-killed-by:
         en: "is killed by"
         pt: "é morto por"
         ja: "によって殺される"
         es: "lo mata"
+        fr: "is killed by"
     hasHabitat:
         en: "has habitat"
         pt: "possui habitat"
         ja: "has habitat"
         es: "has habitat"
+        fr: "has habitat"
     createsHabitatFor:
         en: "habitat of"
         pt: "é habitat de"
         ja: "habitat of"
         es: "habitat of"
+        fr: "habitat of"
     hasEpiphite:
         en: "has epiphite"
         pt: "possui epífita"
         ja: "has epiphite"
         es: "has epiphite"
+        fr: "has epiphite"
     epiphiteOf:
         en: "epiphite of"
         pt: "epítifa de"
         ja: "epiphite of"
         es: "epiphite of"
+        fr: "epiphite of"
