@@ -9,7 +9,7 @@ status: unlisted
 [edit](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/edit/main/microbenetnet/index.md) / [contact via GitHub](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new?title=about%20MicrobeNetNet%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2FMicrobeNet^Net%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D) / [contact via email](mailto:microbenetnet@globalbioticinteractions.org?subject=about%20MicrobeNetNet%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2Fmicrobenetnet%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D)
 
 
-MICROBENet-Net: Multi-Institute Collaborative Research on BElowground plant-microbial interactions Network of Networks. 2024/2028 https://www.nsf.gov/awardsearch/showAward?AWD_ID=2412561 .
+MICROBENet-Net: Multi-Institute Collaborative Research on BElowground plant-microbial interactions Network of Networks. 2024/2028 [NSF AccelNet Award 2412561](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2412561).
 
 MicrobeNet^Net 
 
@@ -19,12 +19,7 @@ MicrobeNet^Net
 
  **2025-03-20/2025-03-24** - MicrobeNet^Net colloquium hosted by the University of Tennessee Knoxville. 
 
- **2025-03-21** - A prototype to show overlap of taxonomic plant names of possible fungal hosts across various plant-fungus datasets. See https://github.com/jhpoelen/fungal-plant-host-overlap?tab=readme-ov-file#microbenetnet-prototype---common-plant-taxa-across-databases.
-
-# Partners 
-
-MicrobeNet^Net aims to work with the 24 BUTTERFLY partners to help (1) mobilizing existing data (2) access to newly collected data (3), to facilitate processing datasets into model output. 
-
+ **2025-03-21** - A prototype to show overlap of taxonomic plant names of possible fungal hosts across various plant-fungus datasets. See [Shared Plant Taxa across MicrobeNetNet Databases (prototype)](https://github.com/jhpoelen/fungal-plant-host-overlap?tab=readme-ov-file#microbenetnet-prototype---common-plant-taxa-across-databases).
 
 # Dataset Review
 
@@ -42,7 +37,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- endfor %}
 
 |status|<ins>M</ins>etadata\|<ins>D</ins>ata\|<ins>R</ins>eview|dataset|contact|
-|---|---|---|---
+|---|---|---|---|
 {% assign cols = site.data.microbenetnet | sort: "dataset" -%}
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
@@ -56,6 +51,8 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign issues-badge = c.review_id | trim | prepend: "https://img.shields.io/github/issues/" | append: ".svg?color=#4c1" -%}
 {%- assign issues-url = c.review_id | trim | prepend: "https://github.com/" | append: "/issues" -%}
 {%- else -%}
+{%- assign globi-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- assign globi-badge = "assets/indexed_none.svg" -%}
 {%- assign review-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- assign review-badge = "assets/review_none.svg" -%}
 {%- assign names-url = "https://globalbioticinteractions.org/contribute" -%}
