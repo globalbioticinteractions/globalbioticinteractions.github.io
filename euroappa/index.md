@@ -40,6 +40,8 @@ First Tuesdays at 07:00 US Central / 13:00 Sussex / 14:00 Central European Time.
  
  **2025-04-03** presentation "EuroAPPA: Mobilizing BUTTERFLY Pollinator Data Through Continuous Data Review" by Jorrit Poelen [google slides](https://docs.google.com/presentation/d/1PhiklCR0c-IkieZlvpCV95e1Z4BFr49h/edit?slide=id.g340130fcc5d_0_194#slide=id.g340130fcc5d_0_194)/ [pdf](assets/BUTTERFLY-GloBI-EuroAPPA-Poelen-2025-04-03.pdf) 
 
+ **2025-04-07** [Project ‘Butterfly’ takes flight in Paris! by prof. Jeff Ollerton](https://jeffollerton.co.uk/2025/04/07/project-butterfly-takes-flight-in-paris/) . 
+
  **...**
 
 # Partners 
