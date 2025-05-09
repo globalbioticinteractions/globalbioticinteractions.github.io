@@ -97,6 +97,8 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign config-url = c.review_id | trim | prepend: "https://github.com/" -%}
 {%- assign issues-badge = c.review_id | trim | prepend: "https://img.shields.io/github/issues/" | append: ".svg?color=#4c1" -%}
 {%- assign issues-url = c.review_id | trim | prepend: "https://github.com/" | append: "/issues" -%}
+{%- assign zenodo-review-badge = "assets/zenodo.svg" -%}
+{%- assign zenodo-review-url = c.review_id | trim | urlencode | prepend: "https://zenodo.org/communities/globi-review/records?q=%22urn%3Alsid%3Aglobalbioticinteractions.org%3Adataset%3A" | append: "%22" -%}
 {%- else -%}
 {%- assign review-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- assign review-badge = "assets/review_none.svg" -%}
@@ -106,8 +108,10 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign config-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- assign issues-badge = "assets/issues_none.svg" -%}
 {%- assign issues-url = "https://globalbioticinteractions.org/contribute" -%}
+{%- assign zenodo-review-badge = "assets/zenodo_none.svg" -%}
+{%- assign zenodo-review-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- endif -%}
-[![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) [![badge]({{ names-badge }})]({{ names-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
+[![zenodo-review-badge]({{ zenodo-review-badge }})]({{ zenodo-review-url }}) [![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) [![badge]({{ names-badge }})]({{ names-url }}) | <span id="{{ c.institution_code }}">{{ c.institution_code }}</span> / {{ c.institution }} {{ c.collection_code }} / {{ c.collection }} | [{{ c.platform }}](#{{ c.platform | downcase }}) | {{ c.contact }} | 
 {% endfor %}
 
 # Integration Profiles
