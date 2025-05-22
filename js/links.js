@@ -22,7 +22,7 @@ let decorateReviewLink = function(aElem, namespace) {
   var reviewUrlPrefix = 'https://depot.globalbioticinteractions.org/reviews/' +  namespace;
   var reviewUrl = reviewUrlPrefix;
   aElem.setAttribute('href', reviewUrl);
-  aElem.setAttribute('title', 'data review');
+  aElem.setAttribute('title', 'snapshot review');
   var img = aElem.appendChild(document.createElement('img'));
   img.setAttribute('src', reviewUrlPrefix + '/review.svg');
 }
@@ -31,7 +31,7 @@ let decorateZenodoLink = function(aElem, namespace) {
   var reviewUrlPrefix = 'https://zenodo.org/communities/globi-review/?q=%22urn:lsid:globalbioticinteractions.org:dataset:' +  namespace + "%22";
   var reviewUrl = reviewUrlPrefix;
   aElem.setAttribute('href', reviewUrl);
-  aElem.setAttribute('title', 'review on Zenodo');
+  aElem.setAttribute('title', 'show published reviews on Zenodo');
   var img = aElem.appendChild(document.createElement('img'));
   img.setAttribute('src', 'assets/zenodo.svg');
 }
@@ -165,13 +165,6 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
 
     appendSpan(citationElem);
     
-    let zenodoElem = document.createElement('span');
-    zenodoElem.setAttribute('class', 'badge-in-text');
-    let zenodoLink = reviewElem.appendChild(document.createElement('a'));
-    decorateZenodoLink(zenodoLink, study.namespace);
-    citationElem.appendChild(zenodoElem);
-
-    appendSpan(citationElem);
 
     let feedbackElem = document.createElement('span');
     let githubRepoName = getRepoNameOrDefault(study.archiveURI);
@@ -182,6 +175,12 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     newIssueLink.setAttribute('title', 'start a discussion by opening an issue');
     newIssueLink.textContent = 'discuss...';
     citationElem.appendChild(feedbackElem);
+    
+    let zenodoElem = document.createElement('span');
+    zenodoElem.setAttribute('class', 'badge-in-text');
+    let zenodoLink = zenodoElem.appendChild(document.createElement('a'));
+    decorateZenodoLink(zenodoLink, study.namespace);
+    citationElem.appendChild(zenodoElem);
 }
 
 function collectSearchParams($) {
