@@ -27,6 +27,15 @@ let decorateReviewLink = function(aElem, namespace) {
   img.setAttribute('src', reviewUrlPrefix + '/review.svg');
 }
 
+let decorateZenodoLink = function(aElem, namespace) {
+  var reviewUrlPrefix = 'https://zenodo.org/communities/globi-review/?q=%22urn:lsid:globalbioticinteractions.org:dataset:' +  namespace + "%22";
+  var reviewUrl = reviewUrlPrefix;
+  aElem.setAttribute('href', reviewUrl);
+  aElem.setAttribute('title', 'review on Zenodo');
+  var img = aElem.appendChild(document.createElement('img'));
+  img.setAttribute('src', 'assets/zenodo.svg');
+}
+
 
 function appendLinkElem(parentElem, study) {
     if (study.url && study.url.match(/^http/)) {
@@ -153,6 +162,14 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     let reviewLink = reviewElem.appendChild(document.createElement('a'));
     decorateReviewLink(reviewLink, study.namespace);
     citationElem.appendChild(reviewElem);
+
+    appendSpan(citationElem);
+    
+    let zenodoElem = document.createElement('span');
+    zenodoElem.setAttribute('class', 'badge-in-text');
+    let zenodoLink = reviewElem.appendChild(document.createElement('a'));
+    decorateZenodoLink(zenodoLink, study.namespace);
+    citationElem.appendChild(zenodoElem);
 
     appendSpan(citationElem);
 
