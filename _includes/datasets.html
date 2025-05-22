@@ -158,6 +158,18 @@
 	  return a;
 	}
 
+
+	var zenodoLinkFor = function(source) {
+	  var a = document.createElement('a');
+          a.setAttribute('href', 'https://zenodo.org/communities/globi-review/?q=%22urn:lsid:globalbioticinteractions.org:dataset:' + source.name + '%22');
+          a.setAttribute('target', '_blank');
+          a.setAttribute('title', 'related Zenodo review publications');
+          var img = a.appendChild(document.createElement('img'));
+          img.setAttribute('src', 'assets/zenodo.svg');
+          img.setAttribute('style', 'padding-left:6px; height:1em;');
+	  return a;
+	}
+
         var appendImgForRepo = function (source, elem) {
             if (source.url === undefined) {
                 var sizePx = 18;
@@ -193,6 +205,7 @@
         githubReference.textContent = ' @' + source.name;
         a.parentElement.insertBefore(githubReference, a);
 
+	githubReference.after(zenodoLinkFor(source))
 	githubReference.after(nanopubLinkFor(source))
 	githubReference.after(archiveLinkFor(source))
 
