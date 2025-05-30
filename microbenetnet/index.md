@@ -21,6 +21,10 @@ MicrobeNet^Net
 
  **2025-03-21** - A prototype to show overlap of taxonomic plant names of possible fungal hosts across various plant-fungus datasets. See [Shared Plant Taxa across MicrobeNetNet Databases (prototype)](https://github.com/jhpoelen/fungal-plant-host-overlap?tab=readme-ov-file#microbenetnet-prototype---common-plant-taxa-across-databases).
 
+ **2025-05-29** - Holly Andres documents 2025 MicrobeNet^Net Colloquium by publishing: Sikes, B., Classen, A., Kivlin, S., Zanne, A., & Holly Andres. (2025). 2025 MicrobeNet^Net Colloquium. 2025 MicrobeNet^Net Colloquium, Knoxville, TN. Zenodo. [https://doi.org/10.5281/zenodo.15547951](https://doi.org/10.5281/zenodo.15547951)
+
+ **2025-05-30** - Daniel Mietchen publishes "2025 MicrobeNet^Net Colloquium" [https://scholia.toolforge.org/event/Q134609359](https://scholia.toolforge.org/event/Q134609359) and [https://www.wikidata.org/wiki/Q134609359](https://www.wikidata.org/wiki/Q134609359) including references to colloquium participants based on Sikes et al. 2025. [doi:10.5281/zenodo.15547951](https://doi.org/10.5281/zenodo.15547951).
+
 # Dataset Review
 
 To help better understand existing fungal-plant interaction datasets, MicroNet^Net aims to better connect and use these existing datasets. The list below contains the list of dataset selected for review.
