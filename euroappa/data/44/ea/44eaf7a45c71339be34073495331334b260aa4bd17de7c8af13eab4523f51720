@@ -1,0 +1,665 @@
+﻿EU Grants: Data management plan (HE):V1.1 – 01.04.2022
+ A black background with grey text
+
+AI-generated content may be incorrect. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+D.9.1 DATA MANAGEMENT PLAN Version 1
+
+
+
+
+Contributing Authors: 
+
+
+
+
+
+
+
+
+DISCLAIMER: This is a work in progress document and input is needed!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(To be filled in and uploaded as deliverable in the Portal Grant Management System, at the due date foreseen in the system (and regularly updated).
+  
+The template is recommended but not mandatory. If you do not use it, please make however sure that you comply with the research data management requirements under Article 17 of the Grant Agreement.)[a]
+PROJECT
+	Project number:
+	 101181930
+	Project acronym:
+	Butterfly
+	Project name:
+	Mainstreaming pollinator stewardship in view of cascading ecological, societal and economic impacts of pollinator decline.
+	
+
+DATA MANAGEMENT PLAN
+	Date:
+	[dd/mm/yyyy]
+	Version:
+	[1th DMP version]
+	
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Innhold
+1 Introduction        2
+2. Data          3
+2.1 Data Summary        3
+2.2 RE-use of data (see also table 2)        4
+2.3 Purpose of data generation in relation to objectives        5
+2.4 Size and origin of data        5
+2.5 Usefulness of data outside the project        7
+3. FAIR data management        8
+3.1 Making data findable, including provisions for metadata        8
+3.2 Making data accessible        9
+3.3 Making data interoperable        10
+3.4 Increase data re-use        10
+4. Other research outputs        11
+5. Allocation of resources        11
+6. Data security        12
+7. Ethics        12
+References        14
+Appendix A: General informed consent form        15
+
+
+
+
+
+
+1 Introduction
+This is the first version of the Data Management Plan (DMP) for project Butterfly[b]. Since this deliverable is submitted at an early stage of the project, it answers data management questions in a matter appropriate to this project stage. The DMP is a ‘living’ document that will be reviewed and updated over the course of the project, specifically in the months 24 and 48. The final version of the DMP submitted in month 48 will capture all changes and updates occurred during the project. As Butterfly is working closely with related projects, it will align and take inspiration from the DMPs of sister project VALOR (Breeze et al 2025; Breeze and Zurgic, 2025), and projects that we closely collaborate with; SAFEGUARD (Zhang and Steffan-Dewenter 2022) and RestPoll (Wintermantel et.al 2024).[c]
+This document will first provide an overview of over data that will be generated. [d]Butterfly is a transdisciplinary project, generating different types of data across the various Work Packages and tasks. Since all of the data outputs not are listed in the Deliverables, listing all generated, reused and curated data products is an important first step to enable referencing and cross-referencing.
+Secondly, this document will outline how the project will adhere to FAIR principles – making the data Findable, Accessible, Inter-operable, and Re-usable. Attention will be given to what kind of metadata the outputs should contain and how and where they will be stored. Further, Butterfly is designed to ensure accessible and reusable data through: a) the EuroAPPA portal which aims to provide user-friendly access for all stakeholders to the most complete taxonomically-harmonised well-curated database of plant-pollinator interactions for Europe and three Overseas Territories/Outermost Regions; and b) the projects co-creation approach in the Living Labs, facilitating ‘openness by design’- that data creation is a shared venture from the start (Mačiulien, 2022). 
+Third, ethical issues around the treatment of personal data will be discussed. Project Butterfly is committed to making the data ‘as open as possible, as limited as necessary’. Thus, attention will be given to how we deal with data that contains personal information, and how we ensure that all participants are giving informed consent to participate. A general informed consent sheet that can be adapted to each data collection activity in the different countries are added in the appendix.
+Suggestion for consortium: Although interaction between disciplines is central in Butterfly, adherence to FAIR principles and ethics issues will be overseen by expertise in specific disciplines (data stewardship). Thus, two teams will be established as contact points: 
+1. Team for overseeing FAIR data management of ecological data, consisting of the EuroAPPA team (Jorrit, Claus, Jeff, Joseph, Sara and ?), Lead of T1.4, and Noa Simon, Beelife, co-lead WP8), 
+2. Team for discussing and overseeing human participant data – attending to FAIR measures AND informed consent for participants, including: George Vlontos, UTH, T2.2 lead - MoU for the LLs and T8.4 + T8.5 co-lead, Nicola Gallai, ENEFSA, lead T2.3 pop-survey and T8.5), Martin WP6  Georgious, CIHEAM, lead data repository WP2 and educational part T8.5 Mirella Miettinen, UEF, WP4  May-Brith, UIA, T6.3 leader and/or Katharina Schwarz and AyeAye UT, T6.3 lead on psychological experiments?.  Laura Drivdal, UiB, WP8 and T9.3 - DMP,
+
+
+2. Data  [e]
+
+
+2.1 Data Summary 
+What types and formats of data will the project generate or re-use?
+Project Butterfly is fundamentally interdisciplinary / transdisciplinary, where many different types of data will be compiled and generated across various task. This includes collecting and reusing a) ecological/biological data, b) human participant data, and c) economic & production data. These three types of data carry different implications for data sharing and ethical approvals, and this will be outlined systematically throughout this document. 
+1. Ecological data: pollinator data, plant data, plant- pollinator interaction data
+WP1: The EuroAPPA “one-stop shop” web portal and database for information on plant-pollinator associations across Europe will include both re-used data and new data. T1.2.1. will review and reuse(?) data form existing databases and mobilise data that is not yet indexed in order to provide a Europe-wide synthesis of information on plant-pollinator databases.
+In T1.2.2, in collaboration with the LL’s (WP7), field-based data will be collected on pollinators, plant-pollinator interactions, pollinator services and pollinator dependencies. The FIELD PROTOCOL (WP1) (ref, 2025), specifies procedures for sampling and standards for labelling.  
+
+
+
+
+2. Human participant data, quantitative and qualitative: Participants perceptions and opinions, arising from surveys, interviews, workshops, field observations (of human behaviours?), engagement activities, stakeholder input, co-creation and psychological experiments  
+
+
+T2.3, together w. T6.3: Citizen perception data will be collected on a) willingness to pay for the preservation of pollinators a national scale through a large-scale population-based survey in least six European partner countries, and b) and qualitative workshops with students specializing in agricultural education.
+
+
+T4.1 and T4.4: Assessments by experts in five sectors (food/micronutrients (PS5, PS7), pharmaceuticals (PS5), cosmetics (PS5), biomaterials (PS5) and biomass energy) through sector-specific Delphi surveys. 
+T6.3: Data on general public’s basic knowledge of pollinators, the ecosystem services they provide and their importance for nature and humans, through a pan-EU (incl. overseas) survey.
+Attitude-behaviour data from experimental psychology set-ups: testing strategy will first involve controlled experiments in psychological laboratory set-ups, then in real life settings. Field observations and newly developed paradigms testing cognitive and social motivating strategies, skill sets and capacities, for furthering pollinator stewardship, eco literacy, historical agency and slow hope among everyday citizens. Quantitative surveys and educational interventions in agriculture/rural studies high school classes
+
+
+T7.1 together with T6.3: Data will be generated from the BUTTERFLY LLs through structured dialogues between stakeholders and participants, field observations of individual practices regarding pollinators and social and environmental interventions, citizen science participation, interviews, photography, video, document analysis, and other material produced in the different LL processes. The analysis will provide insights into how stakeholders and individuals produce, use and share knowledge about pollinators.
+
+
+T7.3 Participatory scenario planning and co-creation (?)
+
+
+3. Economic, land/agricultural production and climate data 
+
+
+T2.1 w. WP7 (LLs): Data on agricultural activities, value chains and other economic related to pollinators and ecosystems. Existing digital data sets of eg predicted climate (Eyring ea 2016) and land use and cover (Hoffmann ea 2023) under each of the Shared Socio-economic Pathways (IPCC 2023) will be re-used. In addition, data will be collected by each LL-leader through surveys, remote sensing, land uses, pollinator stress, and more. T2.1, asks each LL to collect data related to farm structures, key practices, sustainability measures, and market access. (data collection finished end of dec 2025. For the general survey, data collected include location, years of operation, farm size, key agricultural activities, annual yield, practises such as organic, integrated pest management, water conservation etc), types of fertilisers and pesticides, Vaule chain etc. 
+
+
+2.2 RE-use of data (see also table 2)
+Will you re-use any existing data and what will you re-use it for? State the reasons if re-use of any existing data has been considered but discarded.
+Ecological, economic, legal and policy data will be collected from existing sources and re-used, specifically in WP1, WP4 and WP6. 
+* T1.2.1 (“synthesis and mobilization of data sources”), will index and disseminate information contained within existing databases of biotic interactions (plant-pollinator networks). Specifically building on the Database of Pollinator Interactions – DoPI (Balfour ea 2022, currently focused on the UK), and the Global Biotic Interactions platform – GloBI (Poelen ea 2014). This is significant for producing a one-stop shop” (PS3) for plant-pollinator interactions. Further, data sources that are currently not indexed by the sources will be mobilized to provide a Europe-wide synthesis of information on plant-pollinator databases with a particular view to targeting lesser-known groups of pollinators.
+* T1.4.1: Information from existing digital products on the distribution of managed plants and pollinators (such as the EU Crop Map and the Eurostat dataset on main livestock indicators) information 
+* T1.4.2: digital data sets of predicted climate (Eyring ea 2016) and land use and cover (Hoffmann ea 2023) under each of the Shared Socio-economic Pathways (IPCC 2023) to produce estimates of plant-pollinator network structure across Europe under various scenarios of human development for 2050/2100
+* T1.4.3: carry out a systematic review and meta-analysis of the state-of-the-art field experiments in which plant and/or pollinator diversity and/or abundance have been manipulated and an assessment made of the impact on plant-pollinator networks
+
+
+* WP4 (T4.1?): Step 1 will be based on intensive literature, database and desk research on potential vulnerabilities in each supply chain to pollinator loss as well as potential tipping points, providing a long list of issues. 
+
+
+* T6.1: Collect and re-use existing data on human dimensions of pollinator decline from academic literature, including grey literature. 
+
+
+* T6.2 Openly accessible policy and legal documents will be compiled.
+
+
+* T6.4 Historical analysis attempts to systematically recapture the complex nuances, the people, meanings, events, and ideas of the past that have influenced and shaped the present. It relies on a wide variety of sources, both primary & secondary including unpublished material. Primary sources can be found in public records & legal documents, minutes of meetings, corporate records, recordings, letters, diaries, journals, drawings, located in university archives, libraries or privately run collections such as local historical society. Secondary sources can be found in textbooks, encyclopaedias, journal articles, newspapers, biographies and other media. The data and insights from these analyses will then be built together in an overall coherent analysis and synthesis presenting the human, social and historical (past-present-future) aspect of pollinator loss and restoration on micro, meso and macro level of society.
+
+
+2.3 Purpose of data generation in relation to objectives 
+What is the purpose of the data generation or re-use and its relation to the objectives of the project?
+Butterfly has eight specific objectives (SO) presented in Table 1.1 un The DoA. Data generation is specifically relevant in relation to: 
+SO1: Provide a holistic overview of actionable knowledge on animal pollination ecology and pollination services provided for wild and cultivated plants covering the European continent as well as EU overseas territories. 
+* For this, it is essential to provide and analyse biological/ecological data on plant-pollinator interaction. 
+SO3: To comprehensively model and quantify the macro- economic implications of pollinator decline, to model the country-specific economic butterfly effects of dependencies on pollinators, and to provide forward- looking analysis of policy options and scenarios. 
+
+
+* It is vital to collect and analyse economic data for the modelling
+
+
+SO5: Develop, test and implement transferable tools that enable systematic mainstreaming of proactive pollinator stewardship into key vulnerable sectors through multi-actor co-creation approaches and LLs 
+And SO7: Establishing a test-system of multi-actor communities across sectors to accelerate knowledge transfer and serve as field study sites, multi-actor co-creation of knowledge and solutions, and forum for continuous discussion and networking. 
+
+
+* The multi-actor dialogues and the co-creation approach implies the collection of feedback and data in workshops and seminars
+2.4 Size and origin of data 
+What is the expected size of the data that you intend to generate or re-use?
+The size of the biological/ecological data will be particularly extensive. Current assumption for data volumes would be  >10TB (?)
+What is the origin/provenance of the data, either generated or re-used?
+Table 1: Types and origins of ‘primary data’ that will be collected[f]
+Data type
+	Place/sector of collection
+	WP
+	Field-based data on pollinators, plant-pollinator interactions, pollinator services and pollinator dependencies. 
+Samples of 100 flowers from each of the B-plants, individuals of the S-pollinators, Flower-Insect Timed Counts
+	Region of Murcia (ES), Zeeland (NL), Northern Jutland (DK), Ile-de-France (IDF) (FR), Southern Norway (NO), Milano region (IT), Greenland, Curaçao, and Martinique.
+	WP1 w. WP7
+
+
+	
+
+	
+
+	
+
+	Qualitative workshops with students specializing in agricultural education. 100 students targeted per country 
+	France, Ireland and Greece with the support of the ENTER Network
+	WP2 
+	Survey on willingness to pay at a national scale  
+	at least six European partner countries (France, Greece, Ireland, Germany, Norway and Italy) (PS4). 
+	WP2 
+	Data on agricultural activities, value chains and other economic related to pollinators and ecosystems. 
+	Each LL-leader collects accurate local data through surveys, remote sensing, land uses, pollinator stress, and more.
+	WP2 w. WP7
+	Delphi Surveys assessing vulnerabilities of global supply chains in different sectors on pollinator loss, and how prepared actors in each sector are to the risks of pollinator loss. 
+	International - 15 most relevant experts in each sector: supply chains for food/micronutrients (PS5, PS7), pharmaceuticals (PS5), cosmetics (PS5), biomaterials (PS5) and biomass energy (PS5
+	WP4 
+	Co-creation workshops in WP7 (creating what kind of data?) 
+	Region of Murcia (ES), Zeeland (NL), Northern Jutland (DK), Ile-de-France (IDF) (FR), Southern Norway (NO), Milano region (IT),
+	WP7 
+	Controlled experiments in psychological laboratory set-ups, then in real life settings 
+	Citizens of the municipalities of participating universities (Trier and Munich)
+	WP6 
+	
+
+Table 2: Types and origins of ‘publicly available data that will be re-used
+Data Type
+	Source and link 
+	WP
+	Ecological baseline data on plant-pollinator networks from The Database of Pollinator Interactions (DoPI)
+	https://www.sussex.ac.uk/lifesci/ebe/dopi/ 
+	WP1
+	Ecological baseline data from Global Biotic Interactions (GloBI) 
+	https://www.globalbioticinteractions.org/ 
+	WP1
+	Data not currently indexed by existing databases on lesser-known pollinators such as birds, bats, and other insects than bees, wasps, or syrphid flies...
+	 (?)… 
+	
+
+WP1 
+	EU Crop Map and the Eurostat dataset on main livestock indicators
+
+
+	https://ec.europa.eu/eurostat/web/agriculture/database 
+	
+
+	Digital data sets of predicted climate (Eyring ea. 2016) 
+	https://gmd.copernicus.org/articles/9/1937/2016/ 
+	WP1 
+	Digital data sets of land use and cover (Hoffmann ea, 2023) 
+	https://essd.copernicus.org/articles/15/3819/2023/ 
+	
+
+	Shared Socio-economic Pathways (IPCC 2023) Future Global Climate: Scenario-based Projections and Near-term Information
+
+
+	https://www.cambridge.org/core/books/climate-change-2021-the-physical-science-basis/future-global-climate-scenariobased-projections-and-nearterm-information/309359EDDCFABB031C078AE20CEE04FD 
+	W 
+	Literature, database and desk research on potential vulnerabilities in each supply chain to pollinator loss as well as potential tipping points, providing a long list of issues.
+	
+
+	WP4 
+	Literature review on human dimensions 
+	
+
+	WP6, t 6.1 
+	key pieces of EU legislation, case law and implementation activities 
+	
+
+	WP6, T6.2 
+	Data for a historical (past-present-future) meta-analysis on human and social determinants and consequences of pollinator loss and restoration covering the period 1850-2050 (
+	Primary sources in public records & legal documents, minutes of meetings, corporate records, recordings, letters, diaries, journals, drawings, located in university archives, libraries or privately run collections such as local historical society. Secondary sources found in textbooks, encyclopaedias, journal articles, newspapers, biographies and other media
+	WP6, T6.4  
+	
+
+
+
+2.5 Usefulness of data outside the project 
+To whom might your data be useful ('data utility'), outside your project?
+BUTTERFLY researchers share new knowledge and data with relevant actors as early in the research process as possible to ensure beneficiaries, particularly the at-risk sectors, benefit from outcomes and learning as it emerges. Beyond BUTTERFLY, the consortium will actively share data and outputs with other initiatives (§1.2.2), including EU-funded projects. We acknowledge that effective knowledge exchange between initiatives can avoid duplicative or unnecessarily competing efforts and instead foster a collaborative culture of effective pollinator restoration research for impact.
+Data will also be used to shape the WP5 Decision support tools, maps, and guidelines. A key feature of these tools is that they will inform stakeholders about the risks of pollinator loss for their businesses (data from WP2 and WP3) and assess the impact of the measures on pollinators (task 5.2, task 5.4), within the framework of a global conservation strategy (data from WP1).
+TBA
+3. FAIR data management
+3.1 Making data findable, including provisions for metadata
+Will data be identified by a persistent identifier?
+Will rich metadata be provided to allow discovery? What metadata will be created? What disciplinary or general standards will be followed? In case metadata standards do not exist in your discipline, please outline what type of metadata will be created and how.
+Will search keywords be provided in the metadata to optimize the possibility for discovery and then potential re-use?
+Will metadata be offered in such a way that it can be harvested and indexed? 
+Every dataset will have a persistent and unique identifier throughout the entire project. Depositing datasets in Zenodo will automatically give them a Digital Object Identifier (DOI) for a record once you publish it [1]).
+In order to increase the findability of the data, all generated data will be accompanied by metadata. Metadata is commonly used to locate resources and to provide searchable information that helps users easily find existing data, and also as a bibliographic citation record. According to our Grant Agreement, annex 5 (add ref), metadata of deposited publications must be open under a Creative Common Public Domain Dedication (CC 0) or equivalent, in line with the FAIR principles (in particular machine-actionable) and provide information at least about the following: publication (author(s), title, date of publication, publication venue); Horizon Europe funding; grant project name, acronym and number; licensing terms; persistent identifiers for the publication, the authors involved in the action and, if possible, for their organisations and the grant. 
+1. Metadata for Ecological data
+The FIELD PROTOCOL (WP1) (ref, 2025) specifies the standardised naming and labelling of specimens, samples  and sampling events to enable data exchange and allow for syntheses. Ecological data sets archived by BUTTERFLY will adhere to the Darwin Core standard vocabulary (Wieczorek ea 2012) with a thorough description of the data generation process and its spatial, temporal, taxonomic, and thematic extent also adhering to current metadata standards, such as the Ecological Metadata Language standard. This ensures that the primary data sources are archived so that they are retrievable long after the project is completed (regardless of the status of EuroAPPA or its constituent databases), adhere to relevant standards to improve interoperability, and are visible to biodiversity data indexing services. In addition, we will improve the visibility of these datasets through the publication of the data through the Global Biodiversity Information Facility (GBIF) and the use of EuroAPPA as a web portal for all ecological deliverables, which will be integrated into the EU Pollinator Hub as well. Similarly, sequence data and their associated annotations generated from the genetic analysis conducted as part of task 1.2.2 will be deposited on an openly accessible sequence database (such as GenBank). Protocols on the archiving of data products generated in WP1 (both the intermediate data products generated as part of the mobilisation of grey literature in T1.2.1 and the new data generated as part of the field campaign in T1.2.2) in the open-access extension of the DoPI repositories. [g]
+2. Metadata for human participant and other data
+TBA… Publications will have bibliographic metadata attached. It will be in a standard format and include the terms "European Union (EU)" & "Horizon Europe"; the name of the action, acronym & grant number; publication date, length of the embargo period, if applicable; and a persistent identifier. The metadata will comply with anonymisation processes.  
+3.2 Making data accessible
+Will the data be deposited in a trusted repository?
+Have you explored appropriate arrangements with the identified repository where your data will be deposited? 
+Does the repository ensure that the data is assigned an identifier? Will the repository resolve the identifier to a digital object? 
+Will all data be made openly available? If certain datasets cannot be shared (or need to be shared under restricted access conditions), explain why, clearly separating legal and contractual reasons from intentional restrictions. Note that in multi-beneficiary projects it is also possible for specific beneficiaries to keep their data closed if opening their data goes against their legitimate interests or other constraints as per the Grant Agreement.
+If an embargo is applied to give time to publish or seek protection of the intellectual property (e.g. patents), specify why and how long this will apply, bearing in mind that research data should be made available as soon as possible.
+Will the data be accessible through a free and standardized access protocol?
+If there are restrictions on use, how will access be provided to the data, both during and after the end of the project?
+How will the identity of the person accessing the data be ascertained?
+Is there a need for a data access committee (e.g. to evaluate/approve access requests to personal/sensitive data)?
+Will metadata be made openly available and licenced under a public domain dedication CC0, as per the Grant Agreement? If not, please clarify why. Will metadata contain information to enable the user to access the data?
+How long will the data remain available and findable? Will metadata be guaranteed to remain available after data is no longer available?
+Will documentation or reference about any software be needed to access or read the data be included? Will it be possible to include the relevant software (e.g. in open source code)?[h] 
+It is an overarching aim of Butterfly to make data and results visible and freely accessible and to ensure long term data preservation. Access to research data should be ‘as open as possible, but as closed as necessary’, and here there are some differences between the types of data. 
+1. Ecological and economic data
+All ecological data sets that BUTTERFLY will assemble, such as the plant-pollinator network information garnered from the literature review and field campaigns undertaken as part of WP1, will be archived on at least two open-access repositories: Zenodo and EOSC and another platform that specializes in biodiversity data. The European Open Science Cloud (EOSC) enables the storage, sharing, processing and reuse of digital research outputs following FAIR practices. EOSC will support the long-term legacy of BUTTERFLY-initiated research, through the preservation of unpublished project knowledge and data.
+The EuroAPPA portal will provide open access to all ecological data gathered in WP1. 
+For BUTTERFLY’s source code of software for the APIs and R packages (WP1) GitHub will [i]be used as a repository for the archival of source code related to digital deliverables. 
+Curated data from T2.1 on agricultural practices, agricultural systems, value chains, other economic sectors, and ecosystems, will culminate in a Data Repository (D2.1).[j]
+2. Human participant data
+Main repositories: Zenodo and EOSC – or disciplinary repository?  
+For human participant data, the ‘as closed as necessary’ needs specific consideration. Specific measures will be taken to accommodate protection of privacy and GDPR. Anonymized and De-identified human participant data can be archived in EOSC and in repositories consortium partners’ home countries (e.g. the Norwegian Agency for Shared Services in Education and Research) to ensure transparency and reproducibility of our social science and humanities research in WP2, 4, 6 and 7 
+Quantitative data from the large-scale surveys on consumers’ perception and willingness to pay for preserving the pollinators and pollination services (6 countries, 1000 to 1500 respondents per country) will be anonymous, and the data can be deposited in Zenodo and …? 
+Qualitative data is more challenging to anonymize. Thus, the exact extent of openness can be amended. When in doubt, the consortium will refrain from publishing raw datasets and only report aggregate measures. Data that cannot be anonymised due to practical or technical reasons is excluded from publication to ensure sufficient protection of the fundamental rights and freedoms of the (potentially) affected data subjects. Data that can be curated and be made de-identifiable can be shared more broadly. Decisions will be made on a case-by-case basis to ensure that privacy, anonymity, and confidentiality are not breached by publication of datasets or any other type of publication. Consultation with the relevant Data Protection Offices can be sought during the lifetime of the project
+3.3 Making data interoperable[k]
+What data and metadata vocabularies, standards, formats or methodologies will you follow to make your data interoperable to allow data exchange and re-use within and across disciplines? Will you follow community-endorsed interoperability best practices? Which ones? 
+In case it is unavoidable that you use uncommon or generate project specific ontologies or vocabularies, will you provide mappings to more commonly used ontologies? Will you openly publish the generated ontologies or vocabularies to allow reusing, refining or extending them?
+Will your data include qualified references[2] to other data (e.g. other data from your project, or datasets from previous research)?
+‘Interoperability’ is ‘the ability of a system or a product to work with other systems or products without special effort on the part of the user’.
+File formats that are universal, cross platform, open source, with open standard will be applied, such as (xt, pdf, csv etc.). 
+As the project progresses and data is identified and collected, further information on making data interoperable will be outlined in subsequent versions of the DMP[l].
+3.4 Increase data re-use
+How will you provide documentation needed to validate data analysis and facilitate data re-use (e.g. readme files with information on methodology, codebooks, data cleaning, analyses, variable definitions, units of measurement, etc.)?
+Will your data be made freely available in the public domain to permit the widest re-use possible? Will your data be licensed using standard reuse licenses, in line with the obligations set out in the Grant Agreement?
+Will the data produced in the project be useable by third parties, in particular after the end of the project?
+Will the provenance of the data be thoroughly documented using the appropriate standards?
+Describe all relevant data quality assurance processes.
+
+
+TBA!
+4. Other research outputs[m]
+Further to the FAIR principles, DMPs should also address research outputs other than data, and should carefully consider aspects related to the allocation of resources, data security and ethical aspects.
+In addition to the management of data, beneficiaries should also consider and plan for the management of other research outputs that may be generated or re-used throughout their projects. Such outputs can be either digital (e.g. software, workflows, protocols, models, etc.) or physical (e.g. new materials, antibodies, reagents, samples, etc.).
+Beneficiaries should consider which of the questions pertaining to FAIR data above, can apply to the management of other research outputs, and should strive to provide sufficient detail on how their research outputs will be managed and shared, or made available for re-use, in line with the FAIR principles.
+Deliverable D1.4 will create a Europe-wide interactive prediction maps of plant-pollinator networks to access current and future trends in the spatial structure and function of plant-pollinator networks across Europe. 
+D 4.2 Toolbox for resilience thinking, which will be disseminated to businesses beyond BUTTERFLY stakeholders and to EU policymakers.
+Deliverables 5.1 to 5.5 will establish ‘pollination alert maps’ and landscape and ‘environmental mitigation tools’ that consolidate project-generated results and expert knowledge to raise awareness about the pollinator crisis and facilitate communication and evaluation of diverse mitigation actions. 
+
+
+5. Allocation of resources
+What will the costs be for making data or other research outputs FAIR in your project (e.g. direct and indirect costs related to storage, archiving, re-use, security, etc.) ?
+How will these be covered? Note that costs related to research data/output management are eligible as part of the Horizon Europe grant (if compliant with the Grant Agreement conditions)
+Who will be responsible for data management in your project?
+How will long term preservation be ensured? Discuss the necessary resources to accomplish this (costs and potential value, who decides and how, what data will be kept and for how long)?
+Managing data according to the FAIR brings two overarching types of costs: 
+1) fees for depositing data in global data repositories. Zenodo is free of charge to authors to upload their data. 
+2) article processing charges (APC) for publishing data in open access journals.
+Each beneficiary leading Work Packages or subtasks is responsible for preparing the datasets including metadata. All partners must shall create, manage, analyse, store and/or share data and/or datasets with respect to the applicable national and international legislation on data protection. Also, the quality control of these data falls under responsibility of the institution leading the respective Work Package. In the Consortium agreement, it is stated that the principal investigators and the Data Protection Officer of each beneficiary organization are considered responsible for the DMP actions
+Data collectors have the ultimate responsibility of complying with the specifics of the Data Management Plan, as well as with the related GPDR policiesand applicable local, government and international laws, regulations and guidelines.
+
+
+6. Data security
+What provisions are or will be in place for data security (including data recovery as well as secure storage/archiving and transfer of sensitive data)?[n]
+Will the data be safely stored in trusted repositories for long term preservation and curation?
+Following the UoB storage guide[3], and as mentioned in section 3.2, data will be stored in two trusted repositories. This will ensure data recovery if needed.  
+
+
+Personal data that is considered sensitive, according to the EC commissions definition[4], will not be collected in this project. No personal or identifying data will be stored with response data. Such personal/identifying data will be kept in a separate file by the members of the project team. It will not be shared between partners. 
+
+
+7. Ethics
+Are there, or could there be, any ethics or legal issues that can have an impact on data sharing? These can also be discussed in the context of the ethics review. If relevant, include references to ethics deliverables and ethics chapter in the Description of the Action (DoA).
+Will informed consent for data sharing and long term preservation be included in questionnaires dealing with personal data?
+Do you, or will you, make use of other national/funder/sectorial/departmental procedures for data management? If yes, which ones (please list and briefly describe them)?
+In Butterfly’s ‘Ethics self-assessment’ (chapter 4 in the DOA)), the following ethical issues were identified: 1) human participation, 2) personal data collection f data subjects. An initial assessment was included in the GA and summarised below:
+The consortium will ensure that all necessary procedures are followed, particularly with regard to the signing, collation, and storing of all necessary Informed Consent Forms prior to the collection of any data. All involved stakeholders and citizens will be informed in detail about measures and the consortium will obtain free and fully informed consent
+All necessary actions will be taken within the project management and by all beneficiaries to ensure compliance with applicable European and national regulations and professional codes of conduct relating to personal data protection. This will include in particular Directive 95/46/EC regarding data collection and processing, the General Data Protection Regulation (GDPR, 2016/679), and respective national requirements, ensuring legal and regulatory compliance. Ethics considerations will feed into research and data collection protocols used in the project. This will include the collecting and processing of personal data as well as surveys and interviews. For all identified issues, in line with the above standards, ethical approvals will be obtained from the relevant national data protection authorities and/or institutional boards.
+In addition to relevant national data protection authorities, the university partners have separate institutional ethics boards or respective national research boards, which will ensure the correct implementation of all human participation and data protection procedures and protocols around social science research. In detail, this includes for Norway (UiB, UiA) the Norsk senter for forskningsdata (Sikt)
+(Butterfly 2024, Description of the action (DoA) Part B, pp 34-35) 
+In order to follow up this summary, the following general measures will be taken:
+* Each time participants will be invited to provide data, an informed consent sheet will be provided that specifies the purpose of the data collection, how personal data will be anonymised and stored, etc. In the Appendix in this document, general informed consent sheet is provided that can be used, adapted and translated by the project members who are carrying out the different data collection activities. The consent sheets also contains information on how data will be shared and preserved, and that participants can decide to withdraw at any point. For WP7, a Memorandum of Collaboration (MoC) will clarify in detail the responsibilities and rights of participants, access to information and results obtained, and processes for resolving issues arising among members. However, it does not replace informed consent. When specific activities are set up for human participant data collection, such as a focus group interview, individual interviews, more detailed consent form has to be provided. 
+* All personal data will be anonymised by the person collecting the data in each country, and only anonymized data will be shared with other project members for analysis. No personal data will be transferred from the country where it is collected to the task leaders who will do the analysis it. This will be guaranteed trough Anonymisation: Each LL assig a unique ID number to each participant – store codes in a secure file, replace all names with ID numbers – only the anonymised data file with ID number will be sent to WP 2 for analysis 
+* Measures will be taken to avoid questions that provide recognisable data. As example, where information about gender, age or place of birth is not necessary, these questions will be avoided to ensure that participants are not so easy recognisable in the anonymised data. 
+* Where the data is intended to be open access, participants will be made aware of this fact, including the planned processes of anonymisation/pseudonymisation, and any potential risks to their identification. 
+* Since data collection will be carried out the different countries, ethics boards or similar must be consulted in each country, as rules and procedures differ between countries. 
+
+
+* To minimise research fatigue among participants, re-use of existing data is encouraged, such as farm data for WP 2. 
+
+
+Ethics and sample collection 
+As specified in The FIELD PROTOCOL (WP1), p17, it is the responsibility of every B-Site leader to obtain the collection permits for their sites and to ensure that sample collection and exportation comply with the Nagoya Protocol. 
+
+
+
+
+
+
+
+
+
+
+HISTORY OF CHANGES
+	VERSION
+	PUBLICATION  DATE
+	CHANGE
+	1.0
+	
+
+	Initial version (new MFF).
+	1.1
+	
+
+	Reformatted to align with other deliverables templates.
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+References
+
+
+Breeze T.D. and Zugic N.J. (2025). Outline of Issues raised by the External Independent Ethics Advisor. VALOR project deliverable D9.1 
+
+
+Breeze T.D., Bartomeus I., Damiens F., Kantelhardt J., Kleijn D., Klein A.M., Meinilä J., Schaak H., Sihvonen H., Stoyanova C. and Zugic N.J. (2025). VALOR Standard Operating Procedures. VALOR project deliverable D8.1.
+Butterfly (2024b) Description of the action, Part B 
+Mačiulienė, M. (2022). Beyond open access: conceptualizing open science for knowledge co-creation. Frontiers in communication, 7, 907745. Frontiers | Beyond Open Access: Conceptualizing Open Science for Knowledge Co-creation 
+Wintermantel, A., Thompson, A., Fornoff, F., Lenohart, S., Prucker, P., Basaran., Z., Kleoftodimos, G., Anderson, G., Rundoff, M., Schweiger, O., …. Breeze, T. (2024). RestPoll Data Management Plan 1. Available at https://restpoll.eu/publications/?term=deliverables 
+Zhang, J. and I. Steffan-Dewenter (2022). Data Management Plan. Deliverable D8.3
+
+
+ALLEA (2023) European Code of Conduct for Research Integrity 2023 Revised Edition. https://allea.org/portfolio-item/european-code-of-conduct-2023/ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Appendix A: General informed consent form 
+________________
+  
+
+	  
+
+	
+
+Information letter 
+Collection of data for research
+	
+
+About Project Butterfly
+The decline of pollinator populations poses a serious threat to ecosystems and food security, with cascading effects on biodiversity and economic stability. In this context, the EU-funded BUTTERFLY project will strengthen society’s ability to anticipate and respond to these challenges. More specifically, it will establish geographically diverse multi-stakeholder communities to collaborate on proactive restoration solutions for pollinators. The project aims to collect and share key ecological information, model the economic consequences of pollinator loss, and assess the dependence of key supply chains on pollination. Through innovative tools and strategic alliances, BUTTERFLY will integrate pollinator management across sectors, ultimately informing EU policies and promoting resilience in vulnerable communities.
+
+
+Consent form:
+
+
+Name and organization of data collector: (to be filled in by research team). 
+
+
+Name of the research participant:_______________________________________
+
+
+I,:  ________________________ (the research participant), have been informed that:
+
+
+1. Data is being collected as part of the project Butterfly.
+2. Data will be used for scientific analysis, publication and dissemination activities.
+3. Data will be anonymized for publication/dissemination purposes.
+4. Anonymised data will be analyzed by (insert task leader name).
+5. Participation is voluntary.
+6. Consent for participation in the project can be withdrawn by contacting the data collector, before (insert date), after which date the data will be anonymised. 
+7. (If applicable): The conversation will be voice recorded, for transcription[o], and will subsequently deleted.
+8. Data will be used by the [specify partner institution] and information containing personal identification will not be exchanged.
+
+
+Signature: ___________________________________ (participant)
+
+
+Signature: ___________________________________ (data collector)
+
+
+Date  ___________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+Article 13 - EU GDPR: "Information to be provided where personal data are collected from the data subject"
+1. Where personal data relating to a data subject are collected from the data subject, the controller shall, at the time when personal data are obtained, provide the data subject with all of the following information:
+(a) the identity and the contact details of the controller and, where applicable, of the controller's representative;
+(b) the contact details of the data protection officer, where applicable; Please contact Aarhus University at dpo@au.dk
+(c) the purposes of the processing for which the personal data are intended as well as the legal basis for the processing;
+(d) where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party;
+(e) the recipients or categories of recipients of the personal data, if any;
+(f) where applicable, the fact that the controller intends to transfer personal data to a third country or international organization and the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available.
+2. In addition to the information referred to in paragraph 1, the controller shall, at the time when personal data are obtained, provide the data subject with the following further information necessary to ensure fair and transparent processing:
+(a) the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period;
+(b) the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability;
+(c) where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal;
+(d) the right to lodge a complaint with a supervisory authority;
+(e) whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data and of the possible consequences of failure to provide such data;
+(f) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.
+3. Where the controller intends to further process the personal data for a purpose other than that for which the personal data were collected, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2.
+4. Paragraphs 1, 2 and 3 shall not apply where and insofar as the data subject already has the information.
+
+
+
+
+
+
+Read more about the Butterfly project here: (insert web page) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This project has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement No 101181930  Et billede, der indeholder stjerne, gul, Elektrisk blå, Majorelle-blå
+
+Automatisk genereret beskrivelse 
+
+
+	
+
+
+
+
+
+
+
+
+
+________________
+[1] https://help.zenodo.org/docs/deposit/about-records/ 
+[2]         A qualified reference is a cross-reference that explains its intent. For example, X is regulator of Y is a much more qualified reference than X is associated with Y, or X see also Y. The goal therefore is to create as many meaningful links as possible between (meta)data resources to enrich the contextual knowledge about the data. (Source: https://www.go-fair.org/fair-principles/i3-metadata-include-qualified-references-metadata/)
+[3] https://www.uib.no/en/foremployees/153608/storage-guide 
+[4] The following personal data is considered ‘sensitive’ and is subject to specific processing conditions:
+* personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs;
+* trade-union membership;
+* genetic data, biometric data processed solely to identify a human being;
+* health-related data;
+* data concerning a person’s sex life or sexual orientation.
+https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/legal-grounds-processing-data/sensitive-data/what-personal-data-considered-sensitive_en 
+[a]Throughout the document, the text in green are the questions from the template, these will be removed when DMP is ready
+[b]add citation to grant and full title
+[c]For those of you who participate in Restpoll, it would be interesting to hear how the data management has worked there - the DPM looks quite different but also specifically useful
+[d]hi @lauradrivdal@yahoo.no - thanks for providing some text to review. Would it be an idea to agree on the structure of the text first through writing a (short) introduction that describe the sections. I made a suggestion to make three sections ("Data Index", "Data reuse", and "Data Ethics"). Curious to hear your thoughts, -jorrit
+[e]All Task leaders, please check and edit where neccesary
+[f]Fill inn or add where needed
+In the final DMP, table 1 and 2  could be updated and expanded, to include information on when produced, a set of metadata, and who is involved
+[g]WP1  and EuroAPPA team: please check and edit this!
+[h]Check if all thse questions are answered below… I think not, please add suggestions
+[i]Add also, from milestones: WP3 CGE models where ” Code (GitHub). Code-based milestones will be accompanied by documentation that
+demonstrates its use in an interactive
+documentation format such as a Jupyter notebook or Quarto document
+[j]Deposit at Zenodo and EOSC?)
+[k]Chapter needs to be elaborated.  For ecological data, fill in from The FIELD PROTOCOL (WP1)
+[l]Suggestion that I have seen in other DMP version 1
+[m]I was unsure about this point but started adding some specific deliverables. Please add details and suggestions to this chapter,eg on  ‘how their research outputs will be managed and shared, or made available for re-use’
+[n]TBA! Need to check if sharepoint or onedrive - Nilgun and Jeoren to discuss with IT deparmnet
+[o]Note - will videos or pictures be taken? If yes, this too needs to be specified

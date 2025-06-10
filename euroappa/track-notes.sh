@@ -23,3 +23,13 @@ preston head\
  | preston cat\
  > related-projects.pdf
 
+preston track\
+ --message "Snapshot of Butterfly Data Management Plan (DPM)"\
+ "https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0"
+
+preston head\
+ | preston cat\
+ | grep hasVersion\
+ | grep pdf\
+ | preston cat\
+ > dpm.pdf

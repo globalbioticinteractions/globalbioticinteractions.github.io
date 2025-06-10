@@ -16,7 +16,7 @@ EuroAPPA aims to be a:
 
 and is a key result defined in the [BUTTERFLY](https://cordis.europa.eu/project/id/101181930) proposal. 
 
-The [BUTTERFLY](https://cordis.europa.eu/project/id/101181930) project is about "Mainstreaming pollinator stewardship in view of cascading ecological, societal and economic impacts of pollinator decline" and relates to the EU Horizon call: [HORIZON-CL6-2024-BIODIV-01-3](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/horizon-cl6-2024-biodiv-01-2) — `Biodiversity and ecosystem services (HORIZON-CL6-2024-BIODIV-01) / Dependence of society and the economy on pollinators`.
+The [BUTTERFLY](https://cordis.europa.eu/project/id/101181930) project is about "Mainstreaming pollinator stewardship in view of cascading ecological, societal and economic impacts of pollinator decline" and relates to the EU Horizon call: [HORIZON-CL6-2024-BIODIV-01-3](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/horizon-cl6-2024-biodiv-01-2) — `Biodiversity and ecosystem services (HORIZON-CL6-2024-BIODIV-01) / Dependence of society and the economy on pollinators`. A versioned snapshot of the Butterfly Data Management Plan can be found at [dpm.pdf](./dpm.pdf).
 
 This page contains references to EuroAPPA and related projects with a specific focus on species interactions (e.g., plant-pollinator) datasets.  
 
