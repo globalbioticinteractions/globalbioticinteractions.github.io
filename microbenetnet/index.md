@@ -25,6 +25,8 @@ MicrobeNet^Net
 
  **2025-05-30** - Daniel Mietchen publishes "2025 MicrobeNet^Net Colloquium" [https://scholia.toolforge.org/event/Q134609359](https://scholia.toolforge.org/event/Q134609359) and [https://www.wikidata.org/wiki/Q134609359](https://www.wikidata.org/wiki/Q134609359) including references to colloquium participants based on Sikes et al. 2025. [doi:10.5281/zenodo.15547951](https://doi.org/10.5281/zenodo.15547951).
 
+ **2025-06-11** - Follow-up meeting exploring research questions related AMF (Arbuscular Mycorrhizal Fungi) and fine root traits of their host plants using FRED and MaarjAM data. https://docs.google.com/document/d/1NIx1X24DW-z5e-MzNbNOccld1OTqO-ojYfwnDfw6lQA/edit?tab=t.0#heading=h.w7heqg8icqx8 . 
+
 # Dataset Review
 
 To help better understand existing fungal-plant interaction datasets, MicroNet^Net aims to better connect and use these existing datasets. The list below contains the list of dataset selected for review.
