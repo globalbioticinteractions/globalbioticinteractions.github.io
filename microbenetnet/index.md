@@ -6,10 +6,12 @@ status: unlisted
 
 ⚠️ this page is under construction, unofficial, and is likely incomplete ⚠️
 
+[![](assets/microbenetnet-logo.png)](https://microbenetwork.net)
+
 [edit](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/edit/main/microbenetnet/index.md) / [contact via GitHub](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new?title=about%20MicrobeNetNet%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2FMicrobeNet^Net%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D) / [contact via email](mailto:microbenetnet@globalbioticinteractions.org?subject=about%20MicrobeNetNet%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2Fmicrobenetnet%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D)
 
 
-MICROBENet-Net: Multi-Institute Collaborative Research on BElowground plant-microbial interactions Network of Networks. 2024/2028 [NSF AccelNet Award 2412561](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2412561).
+MICROBENet-Net: Multi-Institute Collaborative Research on BElowground plant-microbial interactions Network of Networks. 2024/2028 [NSF AccelNet Award 2412561](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2412561) [https://microbenetwork.net/](https://microbenetwork.net/).
 
 MicrobeNet^Net 
 
