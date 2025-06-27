@@ -8,6 +8,9 @@ status: unlisted
 
 [![](assets/microbenetnet-logo.png)](https://microbenetwork.net)
 
+<a href="https://scholia.toolforge.org/event/Q134609359"><img src="../assets/favicon_cache/scholia.png" style="height:1.3em"></a>
+<a href="https://www.wikidata.org/wiki/Q134609359"><img src="../assets/favicon_cache/wikidata.ico" style="height:1.3em"></a>
+
 [edit](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/edit/main/microbenetnet/index.md) / [contact via GitHub](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new?title=about%20MicrobeNetNet%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2FMicrobeNet^Net%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D) / [contact via email](mailto:microbenetnet@globalbioticinteractions.org?subject=about%20MicrobeNetNet%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2Fmicrobenetnet%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D)
 
 
