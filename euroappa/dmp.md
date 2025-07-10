@@ -1,5 +1,3 @@
----
----
 ![A black background with grey textAI-generated content may be incorrect.][image1]
 
 **D.9.1 DATA MANAGEMENT PLAN Draft**
