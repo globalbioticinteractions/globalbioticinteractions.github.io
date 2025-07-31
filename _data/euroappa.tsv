@@ -1,3 +1,4 @@
 dataset	contact	metadata_access	data_access	review_report_access	globi_id	review_id	review_doi
 DoPI	Nick Balfour, Maria Clara Castellanos dopi.contact@gmail.com	open	open	open	globi:globalbioticinteractions/dopi	globalbioticinteractions/dopi	
 EuPPollNet	Jose B. Lanuza barragansljose@gmail.com	open	open	open	globi:JoseBSL/EuPPollNet	JoseBSL/EuPPollNet	
+BeeFunc	Lucas Aubouin lucas.aubouin@cefe.cnrs.fr ; Benoît Geslin benoit.geslin@univ-rennes.fr ; Bertrand Schatz bertrand.schatz@cefe.cnrs.fr 	open	open	open	globi:globalbioticinteractions/beefunc	globalbioticinteractions/beefunc	
