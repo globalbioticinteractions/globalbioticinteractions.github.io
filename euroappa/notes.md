@@ -1,12 +1,47 @@
----
-status: unlisted
----
 # EuroAPPA meeting notes
 
 **EuroAPPA Meeting Notes**
 
 **First Tuesdays at 14:00 Sussex Time.  [https://universityofsussex.zoom.us/j/6388674885?pwd=Q3VxQnlQWWpjQmt2MTZ6K3RVbFVOUT09](https://universityofsussex.zoom.us/j/6388674885?pwd=Q3VxQnlQWWpjQmt2MTZ6K3RVbFVOUT09)**  
 [**https://globalbioticinteractions.org/euroappa**](https://globalbioticinteractions.org/euroappa)
+
+**2025-08-04  3pm CET monthly EuroAPPA meeting**  
+Cala, Jorrit, Noa & Jeff
+
+**For this meeting:** 
+
+- Review Data extracted from Pollinator Hub API as seen from GloBI’s perspective
+
+
+  
+[https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991)   
+Jorrit was unable to access the EU Pollinator datasets using an automated process in EU Pollinator Hub,  https://app.pollinatorhub.eu/ . 
+
+[https://github.com/globalbioticinteractions/globalbioticinteractions/issues/1091](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/1091)
+
+Aubouin, L., Genoud, D., Givord-Coupeau, B. et al. BeeFunc, a comprehensive trait database for French bees. Sci Data 12, 1302 (2025). [https://doi.org/10.1038/s41597-025-05626-0](https://doi.org/10.1038/s41597-025-05626-0)
+
+Elton, Nomer, & Preston. (2025). Versioned Archive and Review of Biotic Interactions and Taxon Names Found within globalbioticinteractions/beefunc hash://md5/0ad3a2c80410def6afcaceeddb88fba9. Zenodo. [https://doi.org/10.5281/zenodo.16738113](https://doi.org/10.5281/zenodo.16738113)
+
+How does Aubouin et al. 2025 overlap with Nick's Checklist of EU plant/Pollinator?   
+How does this overlap with GloBI?  
+How does this overlap with EU Pollinator Hub?  
+How does this **overlap** with DOPI?
+
+What does overlap mean? 
+
+Shared taxonomic names/references?  
+Shared data sources?  
+Shared researchers?   
+Similar geospatial ranges (localities, ecoregions)? 
+
+When discussing data readability for review (e.g. in GloBi) we considered how to share guidelines for good practice for data collectors who don´t have much experience in publishing accessible datasets – we can aim to create and share these guidelines as the result of what we learn from compiling and reviewing datasets in EuroAPPA. 
+
+From Jeff: issues around interpretation of what is “FAIR”, or even what words like “Accessible” really mean \- they have different connotations depending upon context/interpretation.
+
+**For next meeting:** 
+
+- Start discussion on what EuroAPPA’s interface should be like- who should be involved in this addition to us? (Noa and coms colleagues in BeeLife, Aye can help with accessibility to general public and other stakeholders)
 
 **2025-07-04  4pm CET monthly EuroAPPA meeting**
 
