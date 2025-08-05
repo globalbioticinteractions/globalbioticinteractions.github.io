@@ -39,3 +39,13 @@ latest pdf\
 
 latest md\
  > dmp.md
+
+preston track\
+ --message "Snapshot of meeting notes of Butterfly Data Management Plan (DMP)"\
+ "https://docs.google.com/document/d/1Uo27KvElyArCGN6YrWU0Xlcf74qKp9-zyeUj9p1-WDI/edit?tab=t.0"
+
+latest pdf\
+ > dmp-notes.pdf
+
+latest md\
+ > dmp-notes.md

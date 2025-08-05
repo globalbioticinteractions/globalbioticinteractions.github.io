@@ -21,7 +21,7 @@ The [BUTTERFLY](https://cordis.europa.eu/project/id/101181930) project is about 
 This page contains references to EuroAPPA and related projects with a specific focus on species interactions (e.g., plant-pollinator) datasets.  
 
 ## Data Management
-EuroAPPA is subject to the Butterfly Data Management Plan. A live copy, as well as versioned snapshots, of the Butterfly Data Management Plan can be found at [Google Docs (live copy)](https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0), or versioned copies at [dmp.pdf](./dmp.pdf) and [dmp](./dmp). Associated meeting notes at [DMP_Minutes_2025_06_07_final](DMP_Minutes_2025_06_07_final).
+EuroAPPA is subject to the Butterfly Data Management Plan. A live copy, as well as versioned snapshots, of the Butterfly Data Management Plan can be found at [Google Docs (live copy)](https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0), or versioned copies at [dmp.pdf](./dmp.pdf) and [dmp](./dmp). Associated meeting notes at [Google Docs (live copy)]() with versioned copies at [dmp-notes.pdf](./dmp-notes.pdf) and [dmp-notes](./dmp-notes).
 
 
 # Monthly Meeting
