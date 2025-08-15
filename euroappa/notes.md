@@ -1,6 +1,3 @@
----
-status: unlisted
----
 # EuroAPPA meeting notes
 
 **EuroAPPA Meeting Notes**
