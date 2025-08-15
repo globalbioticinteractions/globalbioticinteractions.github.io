@@ -2,6 +2,7 @@
 layout: default-how-to
 title: how-to
 permalink: how-to
+status: listed
 ---
 
 # **A 'How-To' Guide for Extracting GloBI Data** 😃 <span id="top"/>

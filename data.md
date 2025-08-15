@@ -2,6 +2,7 @@
 layout: default
 title: data
 permalink: data
+status: listed
 ---
 
 **Data indexed by GloBI is generously provided by researchers and collections openly sharing their datasets. When using this data, please make sure to attribute the original data contributors, including citing the specific datasets in derivative work.** Each record indexed by GloBI contains a reference and dataset citation. Also, please consider to [contribute](./contribute) to improve access to existing species interaction data.
