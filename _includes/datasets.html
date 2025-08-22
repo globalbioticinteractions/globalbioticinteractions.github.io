@@ -136,17 +136,6 @@
           return a;
         };
 
-	var archiveLinkFor = function(source) {
-	  var a = document.createElement('a');
-          a.setAttribute('href', 'https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/' + source.name);
-          a.setAttribute('target', '_blank');
-          a.setAttribute('title', 'archival status');
-          var img = a.appendChild(document.createElement('img'));
-          img.setAttribute('src', 'assets/softwareheritage.svg');
-          img.setAttribute('style', 'padding-left:6px');
-	  return a;
-	}
-
 	var nanopubLinkFor = function(source) {
 	  var a = document.createElement('a');
           a.setAttribute('href', 'https://depot.globalbioticinteractions.org/reviews/' + source.name + '/nanopub.trig.gz');
@@ -165,7 +154,7 @@
           a.setAttribute('target', '_blank');
           a.setAttribute('title', 'show published reviews on Zenodo');
           var img = a.appendChild(document.createElement('img'));
-          img.setAttribute('src', 'assets/zenodo.svg');
+          img.setAttribute('src', 'assets/archived-review.svg');
           img.setAttribute('style', 'padding-left:6px; height:1em;');
 	  return a;
 	}
@@ -205,9 +194,8 @@
         githubReference.textContent = ' @' + source.name;
         a.parentElement.insertBefore(githubReference, a);
 
-	githubReference.after(zenodoLinkFor(source))
 	githubReference.after(nanopubLinkFor(source))
-	githubReference.after(archiveLinkFor(source))
+	githubReference.after(zenodoLinkFor(source))
 
         a.parentElement.insertBefore(document.createElement('br'), a);
 
