@@ -8,3 +8,5 @@ preston track "https://docs.google.com/document/d/1yvOZVzv4hnr4E0p_0cNuISyF6c5Gd
 preston cat $(preston head) |grep hasVersion | grep docx | preston cat > notes.docx
 preston cat $(preston head) |grep hasVersion | grep pdf | preston cat > notes.pdf
 
+preston cat $(preston head) |grep hasVersion | grep pdf | preston cat > notes.md
+
