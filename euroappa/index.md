@@ -21,7 +21,16 @@ The [BUTTERFLY](https://cordis.europa.eu/project/id/101181930) project is about 
 This page contains references to EuroAPPA and related projects with a specific focus on species interactions (e.g., plant-pollinator) datasets.  
 
 ## Data Management
-EuroAPPA is subject to the Butterfly Data Management Plan. A live copy, as well as versioned snapshots, of the Butterfly Data Management Plan can be found at [Google Docs (live copy)](https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0), or versioned copies at [dmp.pdf](./dmp.pdf) and [dmp](./dmp). Associated meeting notes at [Google Docs (live copy)]() with versioned copies at [dmp-notes.pdf](./dmp-notes.pdf) and [dmp-notes](./dmp-notes).
+EuroAPPA is subject to the Butterfly Data Management Plan. Here, we keep track of the various drafts, released versions and snapshots of the Data Management Plant:
+
+ | name | live url | snapshot | 
+ | --- | --- | --- |
+ | DMP Draft | [google docs](https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0) | [dmp-draft](dmp-draft) / [pdf](dmp-draft.pdf) / [docx](dmp-draft.docx) |
+ | DMP Draft Alternate | [google docs](https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0) | [dmp-draft-alternate](dmp-draft-alternate) / [pdf](dmp-draft-alternate.pdf) / [docx](dmp-draft-alternate.docx) |
+ | DMP Version 1 | [butterfly wordpress](https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf) | [pdf](dmp-v1.pdf) |
+ | DMP Current | [butterfly wordpress](https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf) | [pdf](dmp.pdf) |
+
+Associated meeting notes at [Google Docs (live copy)]() with versioned copies at [dmp-notes.pdf](./dmp-notes.pdf) and [dmp-notes](./dmp-notes).
 
 
 # Monthly Meeting
@@ -46,6 +55,7 @@ First Tuesdays at 07:00 US Central / 13:00 Sussex / 14:00 Central European Time.
 
  **2025-04-07** [Project ‘Butterfly’ takes flight in Paris! by prof. Jeff Ollerton](https://jeffollerton.co.uk/2025/04/07/project-butterfly-takes-flight-in-paris/) . 
 
+ **2025-08-31** Release of [Butterfly Data Management Plan 9.1 Version 1](dmp-v1.pdf)
  **...**
 
 # Partners 

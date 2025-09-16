@@ -31,14 +31,30 @@ latest md\
  > related-projects.md
 
 preston track\
- --message "Snapshot of Butterfly Data Management Plan (DMP)"\
+ --message "Snapshot of Butterfly Data Management Plan (DMP) Draft"\
  "https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0"
 
 latest pdf\
- > dmp.pdf
+ > dmp-draft.pdf
 
 latest md\
- > dmp.md
+ > dmp-draft.md
+
+preston track\
+ --message "Snapshot of Butterfly Data Management Plan (DMP) Draft"\
+ "https://docs.google.com/document/d/1nt0fzQhqUNo51-VC6zbI5Wrs0dRAOFMU/edit"
+
+latest pdf\
+ > dmp-draft-alternate.pdf
+
+latest md\
+ > dmp-draft-alternate.md
+
+preston track\
+ --message "Drivdal et al. (2025). D9.1 Data Management Plan – Version 1"\
+ https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf
+
+preston head | preston cat | grep hasVersion | preston cat > dmp.pdf
 
 preston track\
  --message "Snapshot of meeting notes of Butterfly Data Management Plan (DMP)"\
