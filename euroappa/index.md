@@ -23,12 +23,12 @@ This page contains references to EuroAPPA and related projects with a specific f
 ## Data Management
 EuroAPPA is subject to the Butterfly Data Management Plan. Here, we keep track of the various drafts, released versions and snapshots of the Data Management Plant:
 
- | name | live url | snapshot | 
+ | name | live url | snapshot |  
  | --- | --- | --- |
- | DMP Draft | [google docs](https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0) | [dmp-draft](dmp-draft) / [pdf](dmp-draft.pdf) / [docx](dmp-draft.docx) |
- | DMP Draft Alternate | [google docs](https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0) | [dmp-draft-alternate](dmp-draft-alternate) / [pdf](dmp-draft-alternate.pdf) / [docx](dmp-draft-alternate.docx) |
- | DMP Version 1 | [butterfly wordpress](https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf) | [pdf](dmp-v1.pdf) |
- | DMP Current | [butterfly wordpress](https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf) | [pdf](dmp.pdf) |
+ | DMP Draft | [google docs](https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0) | [html](dmp-draft) / [markdown](dmp-draft.md) / [pdf](dmp-draft.pdf) / [docx](dmp-draft.docx) |
+ | DMP Draft Alternate | [google docs](https://docs.google.com/document/d/1eRsXw-bSWmz9mI1v1HHKdJez11sbjTsBtWsknAdkDF0/edit?tab=t.0) | [html](dmp-draft-alternate) / [markdown](dmp-draft-alternate.md) / [pdf](dmp-draft-alternate.pdf) / [docx](dmp-draft-alternate.docx) |
+ | DMP Version 1 | [butterfly wordpress](https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf) | ~~markdown~~ / [pdf](dmp-v1.pdf)/ ~~docx~~ |
+ | DMP Current | [butterfly wordpress](https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf) | ~~markdown~~ / [pdf](dmp.pdf) / ~~docx~~ |
 
 Associated meeting notes at [Google Docs (live copy)]() with versioned copies at [dmp-notes.pdf](./dmp-notes.pdf) and [dmp-notes](./dmp-notes).
 
