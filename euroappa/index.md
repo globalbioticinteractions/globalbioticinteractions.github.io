@@ -30,6 +30,7 @@ EuroAPPA is subject to the Butterfly Data Management Plan. Here, we keep track o
  | DMP Version 1 | [butterfly wordpress](https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf) | ~~html~~ / ~~markdown~~ / [pdf](dmp-v1.pdf) / ~~docx~~ |
  | DMP Current | [butterfly wordpress](https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf) | ~~html~~ / ~~markdown~~ / [pdf](dmp.pdf) / ~~docx~~ |
 
+
 Associated meeting notes at ~~Google Docs (live copy)~~ with versioned copies at [dmp-notes.pdf](./dmp-notes.pdf) and [dmp-notes](./dmp-notes).
 
 
@@ -55,7 +56,9 @@ First Tuesdays at 07:00 US Central / 13:00 Sussex / 14:00 Central European Time.
 
  **2025-04-07** [Project ‘Butterfly’ takes flight in Paris! by prof. Jeff Ollerton](https://jeffollerton.co.uk/2025/04/07/project-butterfly-takes-flight-in-paris/) . 
 
- **2025-08-31** Release of [Butterfly Data Management Plan 9.1 Version 1](dmp-v1.pdf)
+ **2025-08-31** Release of Butterfly's [Drivdal et al. (2025). D9.1 Data Management Plan – Version 1 –  (PDF, 859 KB)](https://butterfly-europe.eu/deliverable-9-1-data-management-plan-dmp-first-version/). See [dmp-v1.pdf](dmp-v1.pdf) for a versioned copy.
+
+
  **...**
 
 # Partners 
