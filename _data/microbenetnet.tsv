@@ -1,6 +1,7 @@
 dataset	contact	metadata_access	data_access	review_report_access	globi_id	review_id	review_doi
 MaarjAM	Maarja Öpik	open	open	open	globi:globalbioticinteractions/maarjam	globalbioticinteractions/maarjam	
 FRED	Luke McCormack	open	open	open	globi:globalbioticinteractions/fred	globalbioticinteractions/fred	
+GlobalFungi	Petr Baldrian	open	open	open	globi:globalbioticinteractions/globalfungi	globalbioticinteractions/globalfungi	
 MAPS	Stephanie Kivlin	open	open	open	globi:globalbioticinteractions/maps	globalbioticinteractions/maps	
 MycoDB	V. Bala Chaudhary	open	open	open	globi:globalbioticinteractions/mycodb	globalbioticinteractions/mycodb	
 MycoPortal	Andrew Miller	open	open	open	globi:globalbioticinteractions/mycoportal	globalbioticinteractions/mycoportal	
@@ -8,6 +9,6 @@ USDA Fungus Host Database	Lisa Castlebury	open	open	open	globi:globalbioticinter
 Unite	Kessy Abarenkov	open	open	open	globi:globalbioticinteractions/unite	globalbioticinteractions/unite	
 GenBank Fungi Host Accessions	Conrad Schoch?	open	open	open		NA	
 Policelli et al. 2023	Nahuel Policelli	open	open	open	globi:globalbioticinteractions/policelli2023	globalbioticinteractions/policelli2023	
- New Zealand Fungal and Plant Disease Collection (PDD) 	Aaron Wilton 	open	open	open	globi:globalbioticinteractions/pdd	globalbioticinteractions/pdd	
+New Zealand Fungal and Plant Disease Collection (PDD) 	Aaron Wilton 	open	open	open	globi:globalbioticinteractions/pdd	globalbioticinteractions/pdd	
 International Collection of Microorganisms from Plants (ICMP)	Aaron Wilton 	open	open	open	globi:globalbioticinteractions/icmp	globalbioticinteractions/icmp	
 Climate-linked biogeography of mycorrhizal fungal spore traits	Smriti Pehim Limbu	open	open	open	globi:globalbioticinteractions/limbu2025	globalbioticinteractions/limbu2025	
