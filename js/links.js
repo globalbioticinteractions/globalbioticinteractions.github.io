@@ -18,22 +18,13 @@ let getArchiveURIBase = function(archiveURI) {
   .replace(zenodoRegEx, prefixAndPath);
 }
 
-let decorateReviewLink = function(aElem, namespace) {
-  var reviewUrlPrefix = 'https://depot.globalbioticinteractions.org/reviews/' +  namespace;
-  var reviewUrl = reviewUrlPrefix;
-  aElem.setAttribute('href', reviewUrl);
-  aElem.setAttribute('title', 'snapshot review');
-  var img = aElem.appendChild(document.createElement('img'));
-  img.setAttribute('src', reviewUrlPrefix + '/review.svg');
-}
-
-let decorateZenodoLink = function(aElem, namespace) {
+let decorateArchivedReviewLink = function(aElem, namespace) {
   var reviewUrlPrefix = 'https://zenodo.org/communities/globi-review/?q=%22urn:lsid:globalbioticinteractions.org:dataset:' +  namespace + "%22";
   var reviewUrl = reviewUrlPrefix;
   aElem.setAttribute('href', reviewUrl);
   aElem.setAttribute('title', 'show published reviews on Zenodo');
   var img = aElem.appendChild(document.createElement('img'));
-  img.setAttribute('src', 'assets/zenodo.svg');
+  img.setAttribute('src', 'assets/archived-review.svg');
 }
 
 
@@ -157,30 +148,26 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
     sourceElem.textContent = ' ' + study.source + ' Accessed via <' + study.archiveURI + '> at ' + new Date(study.lastSeenAt).toISOString() + '. ';
     citationElem.appendChild(sourceElem);
 
-    let reviewElem = document.createElement('span');
-    reviewElem.setAttribute('class', 'badge-in-text');
-    let reviewLink = reviewElem.appendChild(document.createElement('a'));
-    decorateReviewLink(reviewLink, study.namespace);
-    citationElem.appendChild(reviewElem);
-
     appendSpan(citationElem);
     
 
-    let feedbackElem = document.createElement('span');
     let githubRepoName = getRepoNameOrDefault(study.archiveURI);
     
+    let archivedReviewElem = document.createElement('span');
+    archivedReviewElem.setAttribute('class', 'badge-in-text');
+    let archivedReviewLink = archivedReviewElem.appendChild(document.createElement('a'));
+    decorateArchivedReviewLink(archivedReviewLink, study.namespace);
+    citationElem.appendChild(archivedReviewElem);
     
+    appendSpan(citationElem);
+    
+    let feedbackElem = document.createElement('span');
     let newIssueLink = feedbackElem.appendChild(document.createElement('a'));
     newIssueLink.setAttribute('href', 'https://github.com/' + githubRepoName + '/issues/new?' + queryString.stringify({ title: 'your indexed records for ' + study.citation, body: 'Hi!\n\nThanks for helping to make existing biotic interaction data easier to find and access!\n\nI was just looking at your GloBI indexed record at ' + document.location + ' and I was wondering about ... (please add your own text)' }));
     newIssueLink.setAttribute('title', 'start a discussion by opening an issue');
     newIssueLink.textContent = 'discuss...';
     citationElem.appendChild(feedbackElem);
     
-    let zenodoElem = document.createElement('span');
-    zenodoElem.setAttribute('class', 'badge-in-text');
-    let zenodoLink = zenodoElem.appendChild(document.createElement('a'));
-    decorateZenodoLink(zenodoLink, study.namespace);
-    citationElem.appendChild(zenodoElem);
 }
 
 function collectSearchParams($) {
