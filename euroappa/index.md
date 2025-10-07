@@ -10,7 +10,7 @@ status: unlisted
 
 [edit](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/edit/main/euroappa/index.md) / [contact via GitHub](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new?title=about%20EuroAPPA%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2FEuroAPPA%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D) / [contact via email](mailto:euroappa@globalbioticinteractions.org?subject=about%20EuroAPPA%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2FEuroAPPA%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D)
 
-EuroAPPA aims to be a:
+[Butterfly's](https://butterfly-europe.eu/) EuroAPPA aims to be a:
 
 > [...] One-stop shop for animal pollinator ecology: BUTTERFLY’s European Atlas of Plant-Pollinator Associations (EuroAPPA) will provide user-friendly access for all stakeholders to the most complete taxonomically-harmonised well-curated database of plant-pollinator interactions ever produced for Europe and three Overseas Territories/Outermost Regions. [...]
 
@@ -48,7 +48,7 @@ First Tuesdays at 07:00 US Central / 13:00 Sussex / 14:00 Central European Time.
 
  **2024-07-01** - EuroAPPA meeting to discuss ways to collaborate and organize within BUTTERFLY and across other initiatives. See  [meeting notes](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit).
  
- **2025-03-01** - [BUTTERFLY](https://cordis.europa.eu/project/id/101181930) official start date see also [https://cordis.europa.eu/project/id/101181930](https://cordis.europa.eu/project/id/101181930).
+ **2025-03-01** - [BUTTERFLY](https://cordis.europa.eu/project/id/101181930) official start date see also [https://cordis.europa.eu/project/id/101181930](https://cordis.europa.eu/project/id/101181930) and [https://butterfly-europe.eu/](https://butterfly-europe.eu/) .
 
  **2025-04-03/2025-04-04** BUTTERFLY Project Kick-off. 3-4 April 2025, Norway House at CIUP, Paris, France. [Agenda](assets/Draft_BUTTERFLY_Project_KickoffAgenda_20250401.pdf)
  
