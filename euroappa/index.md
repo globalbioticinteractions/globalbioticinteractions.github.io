@@ -71,7 +71,9 @@ EuroAPPA aims to work with the 24 BUTTERFLY partners to help (1) mobilizing exis
 
 [BeeLife.eu](https://bee-life.eu) 
 
+## Affiliated projects
 
+ [ProPollSoil](../propollsoil) "Understanding and managing soil health impacts to protect soil-dependent pollinators" aims to reuse EuroAPPA 
 ...
 
 # Dataset Review
