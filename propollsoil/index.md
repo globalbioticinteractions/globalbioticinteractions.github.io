@@ -23,14 +23,22 @@ ProPollSoil aims to reuse outcomes of existing initatives such as [BUTTERFLY's E
 
 **17 Nov 2025** -  ProPollSoil kick-off
 
+**17 Nov 2025** - Poelen, J. H. (2025, November 17). Fairy Tales and Digital Research Data hash://md5/74cabb19c6dcf3e2eea27a38acf4fb76. Zenodo. https://doi.org/10.5281/zenodo.17625448 [slides pdf](https://zenodo.org/records/17625448/files/slides.pdf) [source repository](https://github.com/jhpoelen/fairy-tales-and-data).
+
 **20 Nov 2025** -  ProPollSoil Data Workshop
 
 # Data Management Plan 
 
 ## Data Reviews
 
+## Related Projects
+
+RestPoll / SafeGuard
+
+See also [BUTTERFLY/EuroAPPA's related initiatives](../euroappa/related-projects).
+
 ## (Data) Publications / Datasets
 
-## EuroBeesSoil
+### EuroBeesSoil
 
-A project using community science observations sourced from iNaturalist, GBIF, and others to associate soil in which bees nest. https://www.inaturalist.org/projects/eurobeesoil by Maya Gry Nielsdattar / Claus Rasmussen at Aarhus.    
+A project using community science observations sourced from iNaturalist, GBIF, and others to associate soil in which bees nest. [https://www.inaturalist.org/projects/eurobeesoil](https://www.inaturalist.org/projects/eurobeesoil) by Maya Gry Nielsdattar / Claus Rasmussen at Aarhus.    
