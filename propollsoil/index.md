@@ -29,6 +29,8 @@ ProPollSoil aims to reuse outcomes of existing initatives such as [BUTTERFLY's E
 
 ## Data Reviews
 
-## (Data) Publications
+## (Data) Publications / Datasets
 
+## EuroBeesSoil
 
+A project using community science observations sourced from iNaturalist, GBIF, and others to associate soil in which bees nest. https://www.inaturalist.org/projects/eurobeesoil by Maya Gry Nielsdattar / Claus Rasmussen at Aarhus.    
