@@ -1,9 +1,191 @@
 # EuroAPPA meeting notes
 
-**EuroAPPA Meeting Notes**
+# EuroAPPA Meeting Notes
 
-**First Tuesdays at 14:00 UK Time (15:00 CET)  [https://universityofsussex.zoom.us/j/6388674885?pwd=Q3VxQnlQWWpjQmt2MTZ6K3RVbFVOUT09](https://universityofsussex.zoom.us/j/6388674885?pwd=Q3VxQnlQWWpjQmt2MTZ6K3RVbFVOUT09)**  
-[**https://globalbioticinteractions.org/euroappa**](https://globalbioticinteractions.org/euroappa)
+## Nov 4, 2025 | [EuroAPPA monthly](https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2OG80YWhobzZrb2thZ2k0NjkzNDhnaGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnODRyM2NnYTY4Y3EzNmNxNTY4cTQ0ZTlrODkwamFjYTM2MHMzYWdpNDZ0MGo4Y3BwOG9xZ18yMDI1MTAwN1QxMzAwMDBaIHNpbW9uQGJlZS1saWZlLmV1)
+
+Attendees: Claus, Laura, Jeff, Jorrit
+
+Meeting link \-   
+[https://ucsb.zoom.us/j/88481803967?pwd=YefXyNBceh80e1Z4p6i2XBdmQPFQbq.1](https://ucsb.zoom.us/j/88481803967?pwd=YefXyNBceh80e1Z4p6i2XBdmQPFQbq.1)
+
+* **OBJECTIVE OF THE MEETING:** Focus on writing, as a group, a user case (as below) that will work as an example to request further user stories from other stakeholders. These stakeholders are potential users of EuroAPPA.   
+* **User cases description:** [https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/\&editing=false\&openfile=true](https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/&editing=false&openfile=true)  
+* GLOBI Data Management Reference about Butterfly Project: [https://www.globalbioticinteractions.org/euroappa\#data-management](https://www.globalbioticinteractions.org/euroappa#data-management) 
+
+Notes \- 
+
+Claus is still planning to share his updated literature corpus on bees (wide spectrum \- from identification to ecology). 
+
+Jeff's experience with last use case review \- useful exercise to go through the details of EuroAPPA use \- imaging use from a particular perspective and systematic approach to capture these. I am thinking about using it for other projects. 
+
+Claus shared a use case on homeowners seeking bee friendly plants "Use Case 6 \- Citizen or Gardener" 
+
+Jeff suggests to ask Cala for scheduling the next meeting. By default, we keep the regular monthly, unless Cala says otherwise. 
+
+## Oct 15, 2025 | [EuroAPPA monthly](https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2OG80YWhobzZrb2thZ2k0NjkzNDhnaGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnODRyM2NnYTY4Y3EzNmNxNTY4cTQ0ZTlrODkwamFjYTM2MHMzYWdpNDZ0MGo4Y3BwOG9xZ18yMDI1MTAwN1QxMzAwMDBaIHNpbW9uQGJlZS1saWZlLmV1)
+
+Attendees: Cala, Joe, Jeff, Jorrit
+
+**Notes** \- **Agenda items for next meeting (7/10/25) \- 14:00 UK Time (15:00 CET)**  
+
+**Meeting link: [https://universityofsussex.zoom.us/j/6388674885?pwd=Q3VxQnlQWWpjQmt2MTZ6K3RVbFVOUT09](https://universityofsussex.zoom.us/j/6388674885?pwd=Q3VxQnlQWWpjQmt2MTZ6K3RVbFVOUT09)**
+
+* **OBJECTIVE OF THE MEETING:** Focus on writing, as a group, a user case (as below) that will work as an example to request further user stories from other stakeholders. These stakeholders are potential users of EuroAPPA.   
+* **User cases description:** [https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/\&editing=false\&openfile=true](https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/&editing=false&openfile=true)  
+* GLOBI Data Management Reference about Butterfly Project: [https://www.globalbioticinteractions.org/euroappa\#data-management](https://www.globalbioticinteractions.org/euroappa#data-management) 
+
+For annual meeting in Aarhus, we are being asked if we need time for a plenary. We are not sure who of us will be there, but we will request time anyway because we can run a workshop online. The aim would be to get input for EuroAPPA from all potential stakeholders. 
+
+Joe warns that we might need lots of time for WP1 discussions in that meeting, so we might need to coordinate in advance and have a full WP1 meeting online. This reminded Jorrit of the Use Case that he has put in regarding communication. 
+
+Next:  
+1\. standardize use case format (Jeff volunteered)   
+2\. decide on which existing use cases to share  
+3\. prepare existing e.g., the Master student and EFSA use case  
+4\. send the existing use cases as examples for others to add or review  
+5\. asks specific folks to review: Noa (policy research), Robin Weijers, bioinformatics (e.g., Jorrit, GBIF, ...)
+
+Next meeting \- 4 November 2025 \- continue reviewing use cases.
+
+**Email addresses for Butterfly communication**: (from Nilgun in June 2025\)  
+ [butterfly.llleaders@uib.no](mailto:butterfly.llleaders@uib.no)
+
+butterfly.pi@uib.no
+
+[butterfly.wpleaders@uib.no](mailto:butterfly.wpleaders@uib.no)
+
+Butterfly.consortium list does not include our Advisory Board members, nor the EU advisor. I listed them below in case you like your message to reach them as well.
+
+ 
+
+| Name | email |
+| :---- | :---- |
+| Robin Weijers | info@robin-artwork.com |
+| Lorenzo Benini | Lorenzo.Benini@eea.europa.eu |
+| Ângela Guimarães Pereira | angela.pereira@ec.europa.eu |
+| Alexandra-Maria Klein | alexandra.klein@nature.uni-freiburg.de |
+| Tatiana Tallarico (EU advisor) | tatiana.tallarico@ec.europa.eu |
+
+Discussion of the different use cases followed. Including a discussion of assumptions of data quality/completeness.
+
+## Oct 7, 2025 | [EuroAPPA monthly](https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2OG80YWhobzZrb2thZ2k0NjkzNDhnaGc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnODRyM2NnYTY4Y3EzNmNxNTY4cTQ0ZTlrODkwamFjYTM2MHMzYWdpNDZ0MGo4Y3BwOG9xZ18yMDI1MTAwN1QxMzAwMDBaIHNpbW9uQGJlZS1saWZlLmV1)
+
+Attendees: Cala, Noa, Jeff, Nick, Jeroen,Jorrit, Andres
+
+**Notes** \- **Agenda items for next meeting (7/10/25) \- 14:00 UK Time (15:00 CET)**  
+
+**Meeting link: [https://universityofsussex.zoom.us/j/6388674885?pwd=Q3VxQnlQWWpjQmt2MTZ6K3RVbFVOUT09](https://universityofsussex.zoom.us/j/6388674885?pwd=Q3VxQnlQWWpjQmt2MTZ6K3RVbFVOUT09)**
+
+* **OBJECTIVE OF THE MEETING:** Focus on writing, as a group, a user case (as below) that will work as an example to request further user stories from other stakeholders. These stakeholders are potential users of EuroAPPA.   
+* **User cases description:** [https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/\&editing=false\&openfile=true](https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/&editing=false&openfile=true)  
+* GLOBI Data Management Reference about Butterfly Project: [https://www.globalbioticinteractions.org/euroappa\#data-management](https://www.globalbioticinteractions.org/euroappa#data-management) 
+
+**Action items**
+
+- [ ] Jeroen/Nilgun/Laura \- Publish in Zenodo and our website all the publications of the deliverables is 4 formats: .docx, .pdf, .md, odt  
+- [ ] All \- Do some Use Cases, each of us  
+- [ ] Next meeting \- 15/10/2025. 16:00 (CET)
+
+**2025-09-17 EuroAPPA meeting re: SafeHub Review**
+
+Attendees: Cala, Nilgun, Jorrit, Jeff, with apologies from Joe.
+
+Agenda Items:  
+	\* Review [SafeHub](https://safeguard-pollinators.eu/) in context of future EuroAPPA design/user interface  
+		(e.g., see Jorrit's initial look as shared by email sent on 2025-09-02, also below)  
+	\* EuroAPPA design and review strategy (e.g., roadmap, development methodology)
+
+**Desired EuroAPPA Requirements**
+
+	**Non-functional \-** 
+
+/ should last beyond the lifetime of the EU Horizon Butterfly project 
+
+/ maintain a list of [use cases](https://en.wikipedia.org/wiki/Use_case) / [user stories](https://en.wikipedia.org/wiki/User_story) and their associations what we promised in WP1 (EuroAPPA) Atlas of Plant Pollinator Associations / 
+
+// User Stories \- 
+
+(1) What kind of native plants should Jeroen plant in his backyard in Bergen, Norway to help native pollinators? (Jeroen tried to find an answer in [https://safeguard-pollinators.eu/distribution-map](https://safeguard-pollinators.eu/distribution-map) and failed to find which pollinators are found in western Norway)
+
+(2) What pollinates Rapeseed in Poland vs. Germany vs. France? (we need this in WP4 for the biomass energy supply chain vulnerability assessment) 
+
+(3) When creating evidence for policy change, which interactions / plant-pollinator communities inhabit specific locations and do we have evidence of change over time?
+
+(4) How would the European Environment Agency use EuroAPPA? (Lorenzo Benini, IAB) (e.g. for reports such as [https://www.eea.europa.eu/en/analysis/publications/protecting-and-restoring-europes-wild-pollinators-and-their-habitats](https://www.eea.europa.eu/en/analysis/publications/protecting-and-restoring-europes-wild-pollinators-and-their-habitats) )
+
+(5) How would IPBES use EuroAPPA for the second global assessment (first here: [https://www.ipbes.net/global-assessment](https://www.ipbes.net/global-assessment) )
+
+**/ In EuroAPPA we will focus on reusing two existing systems: DoPI and tools within GloBI, plus add results from modelling and mapping exercises in WP1 (we don’t aim to build new infrastructures to help support functionality we need, except what we need for the modelling results).** 
+
+/ We need representatives of stakeholders to decide on what the interface will look like
+
+/ be interfacing with humans as well as machines to allow for automated workflows 
+
+/ the atlas itself should be citable such that derived results can be reproduced
+
+**Functional** \- (for scientists) spreadsheet for common species Bumbus lucorum geospatial-temporal coordinates / link to soil databases relevant for a specific plant-pollinator geospatial-temporal context 
+
+User groups \- "scientists", "someone interested in pollinators", "policy makers", “gardeners/food growers”, “environmental agencies”, NGOs (eg. buglife, Bumblebee Conservation Trust)
+
+Strategy \- try to focus on specific use cases tied to our work packages. 
+
+**Out-of-scope for EuroAPPA, but in-scope for BUTTERFLY \-**   
+	discovery of social science data (fits better in [pollinatorhub.eu](http://pollinatorhub.eu) and in Butterfly’s web portal ([https://butterfly-europe.eu/](https://butterfly-europe.eu/)))
+
+Cala’s notes on SafeHub previous to meeting:   
+We think VALOR will use SafeHub as a one-stop-shop. We are taking a look at its current contents (but note that VALOR started this year, like Butterfly)
+
+ SafeHub pros as one-stop-shop:
+
+* Idea of directing visitors by “need” is good (but see below)  
+* Collection of initiatives and projects is useful  
+* User-friendly look
+
+ Cons:
+
+* Safe-Hub – not the most informative name – I guess we’ll have a similar problem  
+* Knowledge library just has project outputs (so useful internally mostly) – similar to “Safeguard outputs”  
+* Some links are empty, like the “national pollinator strategies”  
+* “How to help pollinators” section is very superficial
+
+Jeff’s notes on SafeHub previous to meeting: 
+
+* Perhaps a little wordy & academic in tone in places.  
+* Distribution maps very interesting, though could give more details of the output. Also the country search doesn’t seem to work, e.g. no records for UK. Also doesn’t work for some taxa, e.g. common Bombus species.  
+* I like the way that information is filtered by stakeholder, i.e academic, policy maker, etc.  
+* Some pages have no information, e.g.  National pollinator strategies.
+
+**2025-09-02 Jorrit's Initial Look at SafeHub** 
+
+From: Jorrit Poelen  
+Sent: 02 September 2025 18:28
+
+Hey Cala et al.
+
+Here's some of my preliminary notes on SafeHub
+
+1\. consists of informational non-peer non-peer-reviewed content
+
+2\. provides access to a human-searchable list of publications, with only one marked as "dataset". As far as I know, no machine readable way to extract data or references list is available
+
+3\. provides (as noted by Joe) a map and search to visualize occurrences of pollinators as recorded in GBIF
+
+4\. links to a Pensoft Publication Collection https://riojournal.com/topical\_collection/229 in the Journal Research Ideas and Outcomes. In this collection, only authors are provided when downloading the reference list in RIS / bibtex format (see https://github.com/globalbioticinteractions/globalbioticinteractions/issues/989\#issuecomment-3246133857) .
+
+Overall, as far as I can tell, the "one stop shop" as currently implemented by SafeHub is a list of references along with a search widget that taps into GBIFs Web APIs. And, re-using the results of this requires manual work (e.g., reading articles, clicking on buttons etc).
+
+Question for Cala, Jeff, Joe, Noa, Jeroen etc:
+
+Q1. How would you like to collect these review notes in a systematic way similar to journals collect review notes? I imagine that these review notes can serve as data points similar to how questionnaires can.  
+
+Q2. Are these the kinds of meeting notes that you had in mind?
+
+Please let me know how you'd like to proceed.
+
+\-jorrit 
+
+**—---------**
 
 **2025-09-02   3pm CET monthly EuroAPPA meeting**
 
