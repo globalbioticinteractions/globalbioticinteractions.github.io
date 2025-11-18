@@ -19,9 +19,11 @@ ProPollSoil aims to reuse outcomes of existing initatives such as [BUTTERFLY's E
 
 # Events 
 
+**1 Oct 2025** - Official start date of ProPollSoil
+
 **23 Oct 2025** - ProPollSoil [press release](https://propollsoil.eu/): "EU Research Project ProPollSoil Just Launched: Understanding the Relationship Between Soil Health and Soil-dependent Pollinators"
 
-**17 Nov 2025** -  ProPollSoil kick-off
+**17-19 Nov 2025** -  ProPollSoil kick-off meeting in Freising, Germany.
 
 **17 Nov 2025** - Poelen, J. H. (2025, November 17). Fairy Tales and Digital Research Data hash://md5/74cabb19c6dcf3e2eea27a38acf4fb76. Zenodo. https://doi.org/10.5281/zenodo.17625448 [slides pdf](https://zenodo.org/records/17625448/files/slides.pdf) [source repository](https://github.com/jhpoelen/fairy-tales-and-data).
 
