@@ -1,0 +1,1262 @@
+﻿EuroAPPA meeting notes
+EuroAPPA Meeting Notes
+
+
+Nov 4, 2025 | EuroAPPA monthly
+Attendees: Claus, Laura, Jeff, Jorrit
+
+
+Meeting link - 
+https://ucsb.zoom.us/j/88481803967?pwd=YefXyNBceh80e1Z4p6i2XBdmQPFQbq.1
+* OBJECTIVE OF THE MEETING: Focus on writing, as a group, a user case (as below) that will work as an example to request further user stories from other stakeholders. These stakeholders are potential users of EuroAPPA. 
+* User cases description: https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/&editing=false&openfile=true
+* GLOBI Data Management Reference about Butterfly Project: https://www.globalbioticinteractions.org/euroappa#data-management 
+
+
+
+
+Notes - 
+
+
+Claus is still planning to share his updated literature corpus on bees (wide spectrum - from identification to ecology). 
+
+
+Jeff's experience with last use case review - useful exercise to go through the details of EuroAPPA use - imaging use from a particular perspective and systematic approach to capture these. I am thinking about using it for other projects. 
+
+
+Claus shared a use case on homeowners seeking bee friendly plants "Use Case 6 - Citizen or Gardener" 
+
+
+Jeff suggests to ask Cala for scheduling the next meeting. By default, we keep the regular monthly, unless Cala says otherwise. 
+Oct 15, 2025 | EuroAPPA monthly
+Attendees: Cala, Joe, Jeff, Jorrit
+
+
+Notes - Agenda items for next meeting (7/10/25) - 14:00 UK Time (15:00 CET)  
+
+
+Meeting link: https://universityofsussex.zoom.us/j/6388674885?pwd=Q3VxQnlQWWpjQmt2MTZ6K3RVbFVOUT09
+* OBJECTIVE OF THE MEETING: Focus on writing, as a group, a user case (as below) that will work as an example to request further user stories from other stakeholders. These stakeholders are potential users of EuroAPPA. 
+* User cases description: https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/&editing=false&openfile=true
+* GLOBI Data Management Reference about Butterfly Project: https://www.globalbioticinteractions.org/euroappa#data-management 
+
+
+
+
+For annual meeting in Aarhus, we are being asked if we need time for a plenary. We are not sure who of us will be there, but we will request time anyway because we can run a workshop online. The aim would be to get input for EuroAPPA from all potential stakeholders. 
+
+
+Joe warns that we might need lots of time for WP1 discussions in that meeting, so we might need to coordinate in advance and have a full WP1 meeting online. This reminded Jorrit of the Use Case that he has put in regarding communication. 
+
+
+Next:
+1. standardize use case format (Jeff volunteered) 
+2. decide on which existing use cases to share
+3. prepare existing e.g., the Master student and EFSA use case
+4. send the existing use cases as examples for others to add or review
+5. asks specific folks to review: Noa (policy research), Robin Weijers, bioinformatics (e.g., Jorrit, GBIF, ...)
+
+
+Next meeting - 4 November 2025 - continue reviewing use cases.
+
+
+
+
+Email addresses for Butterfly communication: (from Nilgun in June 2025)
+ butterfly.llleaders@uib.no
+butterfly.pi@uib.no
+butterfly.wpleaders@uib.no
+Butterfly.consortium list does not include our Advisory Board members, nor the EU advisor. I listed them below in case you like your message to reach them as well.
+ 
+Name
+	email
+	Robin Weijers
+	info@robin-artwork.com
+	Lorenzo Benini
+	Lorenzo.Benini@eea.europa.eu
+	Ângela Guimarães Pereira
+	angela.pereira@ec.europa.eu
+	Alexandra-Maria Klein
+	alexandra.klein@nature.uni-freiburg.de
+	Tatiana Tallarico (EU advisor)
+	tatiana.tallarico@ec.europa.eu
+	
+
+
+
+Discussion of the different use cases followed. Including a discussion of assumptions of data quality/completeness.
+
+
+
+
+Oct 7, 2025 | EuroAPPA monthly
+Attendees: Cala, Noa, Jeff, Nick, Jeroen,Jorrit, Andres
+
+
+Notes - Agenda items for next meeting (7/10/25) - 14:00 UK Time (15:00 CET)  
+
+
+Meeting link: https://universityofsussex.zoom.us/j/6388674885?pwd=Q3VxQnlQWWpjQmt2MTZ6K3RVbFVOUT09
+* OBJECTIVE OF THE MEETING: Focus on writing, as a group, a user case (as below) that will work as an example to request further user stories from other stakeholders. These stakeholders are potential users of EuroAPPA. 
+* User cases description: https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/&editing=false&openfile=true
+* GLOBI Data Management Reference about Butterfly Project: https://www.globalbioticinteractions.org/euroappa#data-management 
+
+
+
+
+Action items
+* Jeroen/Nilgun/Laura - Publish in Zenodo and our website all the publications of the deliverables is 4 formats: .docx, .pdf, .md, odt
+* All - Do some Use Cases, each of us
+* Next meeting - 15/10/2025. 16:00 (CET)
+
+
+
+
+
+
+2025-09-17 EuroAPPA meeting re: SafeHub Review
+
+
+Attendees: Cala, Nilgun, Jorrit, Jeff, with apologies from Joe.
+
+
+Agenda Items:
+        * Review SafeHub in context of future EuroAPPA design/user interface
+                (e.g., see Jorrit's initial look as shared by email sent on 2025-09-02, also below)
+        * EuroAPPA design and review strategy (e.g., roadmap, development methodology)
+
+
+Desired EuroAPPA Requirements
+        Non-functional - 
+/ should last beyond the lifetime of the EU Horizon Butterfly project 
+/ maintain a list of use cases / user stories and their associations what we promised in WP1 (EuroAPPA) Atlas of Plant Pollinator Associations / 
+// User Stories - 
+(1) What kind of native plants should Jeroen plant in his backyard in Bergen, Norway to help native pollinators? (Jeroen tried to find an answer in https://safeguard-pollinators.eu/distribution-map and failed to find which pollinators are found in western Norway)
+(2) What pollinates Rapeseed in Poland vs. Germany vs. France? (we need this in WP4 for the biomass energy supply chain vulnerability assessment) 
+(3) When creating evidence for policy change, which interactions / plant-pollinator communities inhabit specific locations and do we have evidence of change over time?
+(4) How would the European Environment Agency use EuroAPPA? (Lorenzo Benini, IAB) (e.g. for reports such as https://www.eea.europa.eu/en/analysis/publications/protecting-and-restoring-europes-wild-pollinators-and-their-habitats )
+(5) How would IPBES use EuroAPPA for the second global assessment (first here: https://www.ipbes.net/global-assessment )
+/ In EuroAPPA we will focus on reusing two existing systems: DoPI and tools within GloBI, plus add results from modelling and mapping exercises in WP1 (we don’t aim to build new infrastructures to help support functionality we need, except what we need for the modelling results). 
+/ We need representatives of stakeholders to decide on what the interface will look like
+/ be interfacing with humans as well as machines to allow for automated workflows 
+/ the atlas itself should be citable such that derived results can be reproduced
+
+
+Functional - (for scientists) spreadsheet for common species Bumbus lucorum geospatial-temporal coordinates / link to soil databases relevant for a specific plant-pollinator geospatial-temporal context 
+User groups - "scientists", "someone interested in pollinators", "policy makers", “gardeners/food growers”, “environmental agencies”, NGOs (eg. buglife, Bumblebee Conservation Trust)
+Strategy - try to focus on specific use cases tied to our work packages. 
+
+
+Out-of-scope for EuroAPPA, but in-scope for BUTTERFLY - 
+        discovery of social science data (fits better in pollinatorhub.eu and in Butterfly’s web portal (https://butterfly-europe.eu/))
+
+
+Cala’s notes on SafeHub previous to meeting: 
+We think VALOR will use SafeHub as a one-stop-shop. We are taking a look at its current contents (but note that VALOR started this year, like Butterfly)
+ SafeHub pros as one-stop-shop:
+* Idea of directing visitors by “need” is good (but see below)
+* Collection of initiatives and projects is useful
+* User-friendly look
+ Cons:
+* Safe-Hub – not the most informative name – I guess we’ll have a similar problem
+* Knowledge library just has project outputs (so useful internally mostly) – similar to “Safeguard outputs”
+* Some links are empty, like the “national pollinator strategies”
+* “How to help pollinators” section is very superficial
+
+
+Jeff’s notes on SafeHub previous to meeting: 
+* Perhaps a little wordy & academic in tone in places.
+* Distribution maps very interesting, though could give more details of the output. Also the country search doesn’t seem to work, e.g. no records for UK. Also doesn’t work for some taxa, e.g. common Bombus species.
+* I like the way that information is filtered by stakeholder, i.e academic, policy maker, etc.
+* Some pages have no information, e.g.  National pollinator strategies.
+2025-09-02 Jorrit's Initial Look at SafeHub 
+
+
+From: Jorrit Poelen
+Sent: 02 September 2025 18:28
+
+
+Hey Cala et al.
+
+
+Here's some of my preliminary notes on SafeHub
+
+
+1. consists of informational non-peer non-peer-reviewed content
+
+
+2. provides access to a human-searchable list of publications, with only one marked as "dataset". As far as I know, no machine readable way to extract data or references list is available
+
+
+3. provides (as noted by Joe) a map and search to visualize occurrences of pollinators as recorded in GBIF
+
+
+4. links to a Pensoft Publication Collection https://riojournal.com/topical_collection/229 in the Journal Research Ideas and Outcomes. In this collection, only authors are provided when downloading the reference list in RIS / bibtex format (see https://github.com/globalbioticinteractions/globalbioticinteractions/issues/989#issuecomment-3246133857) .
+
+
+Overall, as far as I can tell, the "one stop shop" as currently implemented by SafeHub is a list of references along with a search widget that taps into GBIFs Web APIs. And, re-using the results of this requires manual work (e.g., reading articles, clicking on buttons etc).
+
+
+Question for Cala, Jeff, Joe, Noa, Jeroen etc:
+
+
+Q1. How would you like to collect these review notes in a systematic way similar to journals collect review notes? I imagine that these review notes can serve as data points similar to how questionnaires can.  
+
+
+Q2. Are these the kinds of meeting notes that you had in mind?
+
+
+Please let me know how you'd like to proceed.
+
+
+-jorrit 
+
+
+—---------
+
+
+2025-09-02   3pm CET monthly EuroAPPA meeting
+Attendees: Cala, Noa, Jorrit, Joe, Jeff
+Proposed Agenda Items:
+1. EuroAPPA user interface planning  
+* Who to involve in design:
+already in team: Jorrit, Jeff, Nick, Cala, Noa, Jeroen, Joe
+representing the different endusers: ??
+* Where will it be hosted?
+   * For European projects and security issues, normally, the host should be European.
+* What is the aim of a user interface? How does this integrate with existing user interfaces (e.g., scholarly communication protocols, journals, existing websites, etc.)
+
+
+Jorrit points out that webpages are short-lived, so we shouldn’t spend too much time designing something fancy.
+
+
+Noa suggests reusing existing resources and using Butterfly to promote them.
+
+
+Jeff suggests we go back to basics and decide who the stakeholders are that will be using EuroAPPA AND look back at what we promised in the Butterfly proposal. Regarding hosting, JO suggested the European Commission. Noa said that the EC will host it but not maintain it.
+
+
+Jorrit can help with the portal, but we need to clarify the content. Are we building a static resource? A fancy webpage? 
+
+
+Jorrit suggests we create a wikipedia page with the content we expect. JO concerned (from bitter experience!) that the level of gatekeeping at Wikipedia may mean that a EuroAPPA page never gets accepted. Jorrit thinks it’s still worthwhile to get feedback from the Wikigoblins. JO sceptical…
+
+
+Noa suggests that everybody present their vision of what EuroAPPA should be, including the tools' functionalities, end-users, interaction with data, etc.
+
+
+Jorrit suggests evaluating the Safeguard to see what things are to be kept/inspired for EuroAPPA-
+
+
+  
+
+Joe - this is how the ‘distribution’ maps look for pollinators in Safe-Hub. Looking at the code it is served using a javascript call to GBIF’s mapping API and then visualised using the maptiler plugin. I can imagine having a species page that has modelled distribution outputs (to account for known distributional biases in raw occurrence data) with information relating to plant-pollinator network at locations.
+
+
+Jeff - I'd see it not just as something which is "used" immediately by "users", but also as an archive of information/data that will be useful for other, as yet unidentified "users" in the future.
+For example, understanding how interactions might change over time - can the data be used 100 years in the future when Europe has a very different climate, for instance.
+
+
+
+
+
+
+2. Data reviews 
+BeeFunc Elton, Nomer, & Preston. (2025). Versioned Archive and Review of Biotic Interactions and Taxon Names Found within globalbioticinteractions/beefunc hash://md5/4ddec69134bf17d4de2b8db8a4337879. Zenodo. https://doi.org/10.5281/zenodo.16739585
+EUPollinatorHub Elton, Nomer, & Preston. (2025). Versioned Archive and Review of Biotic Interactions and Taxon Names Found within globalbioticinteractions/eupollinatorhub hash://md5/20cf2922b53db5bd9c055e4b4e0955ec. Zenodo. https://doi.org/10.5281/zenodo.16989967
+
+
+3. DoPIs relation to other datasets
+Using DoPI as a way to measure overlap (literature, taxonomic, geographic) with other datasets (e.g., BeeFunc, EUPollinatorHub)
+
+
+
+
+Notes
+
+
+Talking about pesticides - limitations of current knowledge about when to spray. Should something about pesticides be added to EuroAPPA? Possible agenda item for a later meeting?
+Discussion of lacewings as pollinators - JO suggested recent work that includes references to lacewings: 
+
+
+Peris, D., Ollerton, J., Sauquet, H., Hidalgo, O., Peñalver, E., Magrach, A., Álvarez-Parra, S., Peña-Kairath, C., Condamine, F.L., Delclòs, X. & Pérez-de la Fuente, R. (2025) Evolutionary implications of a deep-time perspective on insect pollination. Biological Reviews (in press).  
+
+
+Ollerton, J. (2025) What are the phylogenetic limits to pollinator diversity? Journal of Applied Entomology 149: 697–703. 
+
+
+Peña-Kairath, C., Delclòs, X., Álvarez-Parra, S., Peñalver, E., Engel, M.S., Ollerton, J. & Peris, D. (2023) Insect pollination in deep time. Trends in Ecology & Evolution 38: 749-759.
+
+
+https://www.safeguard.biozentrum.uni-wuerzburg.de/Project/SafeHub.aspx - The one-stop-shop for VALOR is the one for Safeguard, SafeHub 
+https://environment.ec.europa.eu/topics/nature-and-biodiversity/pollinators_en - another one-stop-shop .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2025-08-04  3pm CET monthly EuroAPPA meeting
+Cala, Jorrit, Noa & Jeff
+
+
+For this meeting: 
+
+
+* Review Data extracted from Pollinator Hub API as seen from GloBI’s perspective
+
+
+
+
+https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991 
+Jorrit was unable to access the EU Pollinator datasets using an automated process in EU Pollinator Hub,  https://app.pollinatorhub.eu/ . 
+
+
+https://github.com/globalbioticinteractions/globalbioticinteractions/issues/1091
+
+
+Aubouin, L., Genoud, D., Givord-Coupeau, B. et al. BeeFunc, a comprehensive trait database for French bees. Sci Data 12, 1302 (2025). https://doi.org/10.1038/s41597-025-05626-0
+
+
+Elton, Nomer, & Preston. (2025). Versioned Archive and Review of Biotic Interactions and Taxon Names Found within globalbioticinteractions/beefunc hash://md5/0ad3a2c80410def6afcaceeddb88fba9. Zenodo. https://doi.org/10.5281/zenodo.16738113
+
+
+How does Aubouin et al. 2025 overlap with Nick's Checklist of EU plant/Pollinator? 
+How does this overlap with GloBI?
+How does this overlap with EU Pollinator Hub?
+How does this overlap with DOPI?
+
+
+What does overlap mean? 
+
+
+Shared taxonomic names/references?
+Shared data sources?
+Shared researchers? 
+Similar geospatial ranges (localities, ecoregions)? 
+
+
+
+
+When discussing data readability for review (e.g. in GloBi) we considered how to share guidelines for good practice for data collectors who don´t have much experience in publishing accessible datasets – we can aim to create and share these guidelines as the result of what we learn from compiling and reviewing datasets in EuroAPPA. 
+
+
+From Jeff: issues around interpretation of what is “FAIR”, or even what words like “Accessible” really mean - they have different connotations depending upon context/interpretation.
+
+
+
+
+For next meeting: 
+* Start discussion on what EuroAPPA’s interface should be like- who should be involved in this addition to us? (Noa and coms colleagues in BeeLife, Aye can help with accessibility to general public and other stakeholders)
+
+
+
+
+
+
+2025-07-04  4pm CET monthly EuroAPPA meeting
+Participants: Jeff, Jeroen, Jorrit, Cala, Nick, Aye, Claus, Noa
+Agenda:
+ - updates on project deliverable
+ - DoPI review
+ - Plazi collaboration
+
+
+Notes:
+Jeroen: Our website is live since 30 Jun  - https://butterfly-europe.eu 
+(If you have content to contribute to the website or want to change text there, mail Harry harry.lawford@uib.no )
+Deliverable D8.1 has been officially delivered in the EU portal:
+https://butterfly-europe.eu/en/wp-content/uploads/2025/07/Butterfly_D8_point_1_final_submitted.pdf 
+Noa: Asking for feedback on deliverable 8.2 (Dissemination, Exploitation, Communication and Engagement (DECE) Plan) due on 31 Aug 2025.
+D8.2 - DECE Plan draft: https://docs.google.com/document/d/1jJNZudBBbjZ2uu2dGdiPVs9FEFNp8biWzH5KY0s8Xow/edit?tab=t.0#heading=h.50xi76uhz9jz 
+Presentation summary of DECE Plan status quo: https://docs.google.com/presentation/d/1uhKrQ-pwQhomDuFVYi1Ey97LjfxUJLrHvaXBncg7Ez8/edit?usp=sharing 
+
+
+
+
+Noa: API for Pollinator Hub is ready for indexing in GloBI. 
+Documentation here: https://app.pollinatorhub.eu/api/documentation (jhpoelen@gmail.com let me know if you have any issues using it) (ed. Jorrit: https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991#issuecomment-3036622027)
+
+
+Jorrit showed us the review of DoPI generated by GloBI and how it can detect useful aspects to improve, e.g. name of Bombus leucorum complex, etc
+
+
+Noa: Can GloBi also extract the metadata of the studies, including the information about the methodology that was followed to create the dataset?
+Jorrit: Not yet, but it is an interesting conversation to have.
+
+
+Here's the GloBI review of the Ollerton Covid dataset - https://zenodo.org/records/15211837
+
+
+Elton, Nomer, & Preston. (2025). A Review of Biotic Interactions and Taxon Names Found in globalbioticinteractions/ollerton2022 hash://md5/78ac6170f368b222a1c505fd24a860ca. Zenodo. https://doi.org/10.5281/zenodo.15211837
+
+
+https://www.globalbioticinteractions.org/?accordingTo=globi%3Aglobalbioticinteractions%2Follerton2022&interactionType=ecologicallyRelatedTo
+
+
+
+
+For next meeting: 
+
+
+* Review Data extracted from Pollinator Hub API as seen from GloBI’s perspective
+* Start discussion on what EuroAPPA’s interface should be like- who should be involved in this addition to us? (Noa and coms colleagues in BeeLife, Aye can help with accessibility to general public and other stakeholders)
+
+
+
+
+
+
+2025-07-04  3pm CET EuroAPPA <> Plazi collaboration specific
+Participants: Jeff, Jeroen, Jorrit, Cala, Nick, Aye, Claus
+
+
+Plazi (introduction from Jorrit) 
+aim: making scientific literature more accessible - “liberating” data buried in the literature:
+* E.g. Treatment Bank taxonomic treatments that are then integrated into the taxonomic pages in Zenodo
+* Close collaboration with Zenodo - Biodiversity Literature Repository, https://zenodo.org/communities/biosyslit/    - access to pdfs to members of the community
+* TaxoDros (database of Drosophilidae taxonomy), https://www.taxodros.uzh.ch/ with Jorrit. 20K pdfs collected by one expert over the years. Now searchable with associated metadata, deposited in Zenodo: https://zenodo.org/communities/taxodros/records?q=&l=list&p=1&s=10&sort=newest
+* anything published <2000 can be made openly accessible, anything more recent will be open to members only
+* Plazi - provides support from the biosyslit community, funds the activity and can provide the legal framework 
+
+
+Claus asks about access to content in the text of PDFs - Jorrit 
+
+
+For new projects: Jorrit advices not waiting until everything is perfect to publish 
+
+
+Claus - sharing his 15K PDF collection on bees and pollination. 
+
+
+Plazi working on Biotic explorer - mines papers to find and extract pairwise interactions 
+
+
+Jeff: A critical question is how are we going to decide what sources are suitable for inclusion in DoPI? We can't manually go through 10s of thousands of references - how can we automate this? What keywords would we use?
+Nick/Cala: yes, this is the next decision we need to make and getting some automatic process would be helpful
+Jorrit - GloBi fills this gap to some extent
+
+
+Jorrit hopes EuroAPPA can find links across datasets so that there can be links to pdfs (not only DOIs, that are not machine readable)
+
+
+Nick: decisions on how to proceed in our process to populate DoPI- can we automate searches for sources that give us more than a couple of interactions. 
+
+
+Action: write a specific paragraph for plazi with what we want (extract pairwise interactions) and where from, to find out if they have experience with an automated way to do this. We can propose a specific task (e.g. for Jorrit using Claus’ collection) to see if they can fund it.  
+We could use older resources in Claus’ dataset 
+
+
+Knut’s old volumes have a taxonomic division that makes is a bit more challenging. 
+
+
+
+
+
+
+2025-06-03
+Participants: Jeff, Jeroen, Jorrit, Cala, Nick
+Topics to discuss today:
+* plazi collaboration 
+* EuroAPPA interface
+* Rasmussen <> DoPI <> GloBI integration 
+* Jeroen's NextCloud (https://cloud.butterfly-europe.eu/ , Jeroen can give you access if you would like to test it)
+
+
+Jorrit might attend Biodiversity informatics conference, TDWG in October - could be relevant for EuroAPPA
+Jeff & Jorrit got sidetracked in a conversation about bookbinding…. TDWG 2025 - Book Binding for the Digital Age
+
+
+Jeroen - discussion with Bergen IT - lead to the creation of a virtual linux machine on an unmanaged server, with 1TB of storage running "nextcloud" and Jorrit was able to access it using Jeroen's instruction, also through rclone. Background - the OneDrive at UofB was causing access issues for some, and Jorrit was unable to use "rclone" . 
+Butterfly nextcloud server now set up but backup server still required. The system is available for testing. 
+
+
+Jeroen solicits some feedback - lets try and use for EuroAPPA meeting notes
+
+
+EuroAPPA meeting notes data plan: use GoogleDrive/ NextCloud as a scratch pad (temporary editing environment) and have an automated workflow to take snapshot version to publish in Zenodo, Software Heritage Library etc. 
+
+
+Rasmussen literature collection - 15k literature in PDFs. Jorrit working with https://plazi.org to make openly accessible.
+Similar efforts: Drosophila taxonomy collection:  Taxodros.github.io -> https://zenodo.org/communities/taxodros  This is a closed Zenodo community, that people can sign up to. 
+Bat Literature Project is a similar idea, PDFs came from Zotero - copyright issues? 
+
+
+We plan to invite Donat Agosti from plazi to our next meeting so we can talk about dealing with copyright and digitizing old literature to contribute to DoPi. 
+
+
+Can we link Claus’ collection to DoPI as links to the references, then have GloBi do reference alignment in a similar way as it does taxonomic alignment  
+
+
+Actions:
+* Test Butterfly server
+* Invite Donat to our next meeting
+
+
+
+
+
+
+2025-05-06
+Participants: Claus, Jeff, Laura, Jorrit, Cala
+Update on Kick-off meeting - Jorrit updating EuroAPPA page in GloBI with blogs, etc
+Cala - re: in preparing to update DoPI to include pollinators beyond UK to include all of Europe. Which checklist should we use? We'll have students extracting names from literature, starting next week.   
+Jorrit - suggests have students use verbatim names from publications, alignment of taxonomic names is subjective, and evolves over time, so good to have original names and align later (can be automated)
+
+
+Jeff - new species of bees from Europe, just published (check for pollen/nectar host plant information): https://www.mapress.com/zt/article/view/zootaxa.5631.1.3
+
+
+Jorrit- alignments in resulting data sets can be done from different sources, ideally do more than once (see data reviews) 
+
+
+So, have students simply copy and not do any interpretation.
+
+
+Cala - we are training students on data extraction, first with simple datasets (UK), then working with a readily available literature ready for transcription. 
+
+
+Claus - ZooTaxa may have some relevant papers. 
+
+
+Jorrit - asks what DoPI’s approach is for transcribing the sources, and how are you/the students going to list/ record the sources, and keep track of the ‘digital evidence’? URLs and DOIs are not permanent, no guarantees that you get the same content.
+Solution for unreliable internet address: keep copy of PDFs and appendices associated with entries.
+
+
+Jorrit - suggests to look into existing initiatives that have digitized literature. For instance, https://plazi.org 's Treatment Bank, pensoft publishes data appendices and registers them with GBIF. https://plazi.org/treatmentbank/ 
+Q. from Jeff: Is the information in the three Knuth volumes (1906-1909?) in DoPI? (Handbook of Flower Pollination?) E.g., one article https://www.biodiversitylibrary.org/part/349674 .  (see https://github.com/globalbioticinteractions/globalbioticinteractions/issues/1068 to open discussion with Plazi and other GloBI collaborators). 
+
+
+Jeff - how are you planning to verify / curate the students transcription work? 
+
+
+Cala - students will be given a structured way to extract the information, all will be checked before incorporating into DOPI.
+
+
+Jorrit - opportunity to collaborate with plazi.org to index information in old publications (e.g. Knuth’s volumes) by giving them a good reason to do it (DoPI) - keep track of interesting publications for this
+
+
+Cala- resources for feeding DoPI are limited so we’ll give priority to existing large data sets to begin with. We are working on an approach to prioritize after that
+
+
+Jorrit - two parallel avenues - 1) large existing datasets from published networks and 2) locate valuable but less data-rich sources (e.g. old books) that can be indexed in collaboration with other initiatives
+
+
+Jeff - how are you planning to cross-reference to ensure that resources scheduled for DoPI digitization are not already sufficiently accessed? 
+How are we going to assess completeness? We can use checklists for some taxonomic groups. Rarefaction analysis? 
+
+
+Cala- a rarefaction analysis mid-project is a great idea
+
+
+Jorrit: A measure of completeness can be incorporated to the data reviews, including but not limited to a rarefaction analysis
+
+
+Jorrit - asks Jeff and Cala to review the review and suggest additional items to increase reviewer satisfaction with additional information like "completeness" etc. - 
+
+
+Elton, Nomer, & Preston. (2025). A Review of Biotic Interactions and Taxon Names Found in globalbioticinteractions/dopi hash://md5/1b7d40fb341b374bc302b9cd74b537a5. Zenodo. https://doi.org/10.5281/zenodo.15191986
+
+
+Checklists:
+- bee checklist form Discover Life
+
+
+
+
+Jeff: Cockroach pollination - https://www.globalbioticinteractions.org/?interactionType=pollinates&sourceTaxon=Blattodea . Might be an interesting subject to aim to for completeness, because there's relatively fiew species. 
+
+
+2025-04-25
+Participants:
+Nilgun, Jeroen, Line, Jonar, 
+
+
+Point to discuss 
+IT Infrastructure needs for share 
+Requirement ways to share data.
+
+
+Jorrit - I'd like to be able to move data (documents, data) in and out of the infrastructure we use in an automated way. I am trying to figure out how to do this with 
+Jonar - onedrive / google docs are intended for excel / word / pictures. Not so much for datasets ~TB 
+Jonar - we can offer https://nrec.no a way to setup virtual servers. These servers may be connected to storage infrastructure at the University of Bergen. Two options - 1. public access virtual machines (server hosted at the University of Bergen) 2. We did not get into the second option.
+Jonar - on https://nrec.no we can run nextcloud . Connecting to the storage on the ?
+Jorrit - Butterfly project does not have IT staff to maintain these servers.
+Jorrit - we need roughly two things 1. 
+Jonar - different needs for different types of shared files, e.g., documents, assets (images, etc.), and data. Suggests: MS for documents, NREC for data
+Jonar - suggests to use a OneDrive synchronization command-line tool 
+Line - is using an automated OneDrive synchronization running on Linux. OneDrive application. In Teams: https://github.com/abraunegg/onedrive
+Sinking can be done manually when needed or set up with regular intervals. 
+Jonar - https://orchestrator.naic.no/ ways to create virtual machines
+Jeroen - what is the free tier ? 
+Jonar - 2 virtual CPU with 8GB memory and 20GB storage. 
+Jorrit - this free tier may be sufficient to run DOPI or other partner projects.
+Line and Jonar left by the end of the meeting which was scheduled for 13:30 CET (around 14:00), Jorrit, Jeroen and Nilgun continued the discussion for another 30 minutes or so.
+Conclusions: 
+1. We do not have the technical expertise or the resources necessary to maintain servers. 
+2. Sync tool is an interesting option. But, OneDrive does not have capacity to store the data. It is adequate only for documents (e.g., reports, meeting minutes, etc.).
+3. It is more democratic to let people work in their preferred environment, such as GDrive, OneDrive, then save the links in a document which will be updated / reviewed regularly. Links to docs, spreadsheets disappear or get lost over time. Who should take this task? Nilgun? Data manager?
+2025-04-01
+
+
+Participants:
+Laura, Cala, Jorrit, Nuria, Claus
+
+
+Point to discuss 
+Cala - shares a recap of the 2025-03-14 Q&A on GloBI. EuroAPPA is a registry of existing openly available datasets associated with BUTTERFLY. EuroAPPA provides services and data products on top of 
+
+
+Example of report prototype at https://sandbox.zenodo.org/records/175893 . 
+
+
+  
+
+
+
+Nuria - EuroAPPA / GloBI as a data diary . . . keeping track of data over time.
+Claus - suggest to make it clear how folks can contribute, following prototype
+Laura - be aware of the cross disciplinary audience (social scientists don’t use the same vocabulary)
+
+
+
+
+Laura on Data Management Plan: can someone summarise plans for different types of biological data in session on DMP (Friday afternoon)? 
+
+
+Jorrit: suggests we use data review tools in GloBi to track different types of data and documents
+
+
+From an email by Jorrit:
+Two leading qualities of a storage solution are:
+1. ease at which you can migrate into it (e.g., migrate from google docs to mycloud or onedrive)
+2. ease at which you can migrate out of it (e.g., migrate from onedrive to mycloud)
+I consider any storage solution / data publication platform as some temporary way to keep our digital assets. Also, I think an effective data management plan account for the temporary and fickle nature of these (online) storage methods by: 1. keeping many copies across different on-/offline media and 2. implement methods to synchronize across these platforms. 
+
+
+Cala asks for differences between social and ecological data. Laura: they can vary in complexity and how easy it is to write metadata. 
+
+
+For the DMP session, Laura listing all the types of data could be a good start. 
+
+
+
+
+2025-03-14  (Q&A) 
+
+
+Note: adhoc q&a meeting discussing GloBI design / implementation / vision
+
+
+Participants:
+Cala, Jorrit
+
+
+Point to discuss 
+Jorrit H. Poelen, James D. Simons and Chris J. Mungall. (2014). Global Biotic Interactions: An open infrastructure to share and analyze species-interaction datasets. Ecological Informatics. https://doi.org/10.1016/j.ecoinf.2014.08.005.
+
+No significant changes to GloBi processes from what is described in 2014 paper
+re: Poelen et al. 2014 2.1 ingestion framework - Cala asks what “ingestion” means here
+Jorrit: I would rephrase "ingestion" to be more like "tracking" to emphasize that the original data remains in their original location and that GloBI tracks, indexes, aligns, reviews etc and relate the results back to the original .
+https://www.globalbioticinteractions.org/process 
+  
+
+
+
+About data stored in GloBI: there is an archive but this is not the main purpose of GloBi, still, Jorrit explains that versioning is very important because datasets change- Elton Dataset Cache: https://zenodo.org/records/3950557. Not fully updated now but Jorrit considering a new format for GloBI reviews.
+https://www.globalbioticinteractions.org/data - one of the products of the GloBI data processing workflow is a graph database "neo4j graph db". This ~8GB dataset is copied onto a server that runs a read-only database (that happens to be a neo4j graph database / compare with a mysql mariadb relational database). This allows for interactive queries that help power https://globalbioticinteractions.org web pages and rglobi.  
+https://hetzner.de is used to rent general server services "bare rent." Jorrit pays ~Eur 90/year for this service (much more affordable than other cloud service), but uses it for more than GloBI.
+But GloBI could run from any server - requirements are not huge, it is designed to be easy to run. 
+How does EuroAPPA relate to GloBI? https://www.globalbioticinteractions.org/euroappa/
+Jorrit: EuroAPPA offers a curated list of existing datasets that are also indexed by GloBI so that you can search and review them. Publish reviews regularly in several locations, one of them e.g. Zenodo. Anything new we find on pollination, we will index in GloBi (or try to), that is, in EuroAPPA. 
+Resources that GloBI can run on in BUTTERFLY partners- could be interesting to explore hosting GloBI at Sussex or Jagiellonian U (as well as in its usual location) - at least temporarily
+Jorrit sees the GloBI website as a proof of concept - in the sense that all data services are temporary! 
+We discussed how EuroAPPA will need its own nice-looking website as an interface for users who expect that and also as output of the project (this is in addition to any publications). 
+
+
+
+
+4/03/2025  (seventh meeting) BUTTERFLY has now officially started) Yay! 
+
+
+Note: cc Butterfly’s Project Manager Nilgun (Nilgun.Kulan@uib.no) in all emails to Jeroen in his capacity of coordinator
+
+
+Participants:
+Cala, Claus, Nick, Jeff, Jorrit, Jeroen, Nilgun, Laura Drivdal 
+
+
+Points to discuss today
+* Work on DoPI begins
+   * Cala and Nick - hiring undergrad students to start adding data to DoPI - need a lead time to hire because of University of Sussex new hiring process
+   * Jorrit: keep a list of publications
+      * Keep track of publications with well-structured data in appendices versus data embedded in the paper (sorting - low hanging fruit / )
+      * Plan storage of PDFs - publish the list in EuroAPPA
+      * similar project ~ https://batlit.org -   Zotero library accessible to the project community only (updates are published in Zenodo) - a collaboration with https://plazi.org .. Similar project - https://taxodros.github.io . 
+   * Claus has ~15k bee literature references as well as their pdfs, uses Endnote to manage the corpus. Potential collaboration with DoPI existing / projected reference lists. 
+   * Cala: We will next make decisions about time allocation to new versus older data (or recycled - reused data vs original data), geographical regions and less-studied pollinators. We will report back on how much help time we really have (after seeing new contract rules)
+   * Jeff thinks there are lots of new data, at least for non-bees, especially Diptera and moths. Also, for European plants he estimates that perhaps no more than 50% of species have pollinator data.
+* Jorrit suggests we start with reviews of the existing datasets - use first meetings for this. 
+
+
+* Steps to build EuroAPPA
+   * https://globalbioticinteractions.org/euroappa
+
+
+Post meeting - Jorrit created a first pass at table "Dataset Review" on the GloBI EuroAPPA page - https://globalbioticinteractions.org/euroappa#data-review . This table aims to facilitate data review of existing datasets of interest to EuroAPPA and record observations.  
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+04-2-2025 (sixth meeting)
+
+
+Agenda
+Participants
+Cala, Noa, Jeff, Claus, Nicolas, Jorrit, Nuria, Laura 
+
+
+* Cala requests input about EuroAPPA for VALOR’s kick-off meeting
+* Jeff sent a link to newly published: EuPPollNet: A European database of plant-pollinator networks
+   * Zenodo page: https://zenodo.org/records/14747448
+   * Paper https://onlinelibrary.wiley.com/doi/10.1111/geb.70000 
+   * GloBI issue tracker https://github.com/globalbioticinteractions/globalbioticinteractions/issues/1041
+   * GitHub repository https://github.com/JoseBSL/EuPPollNet
+
+
+* Jorrit: citation trackers in EuroAPPA
+* Communication strategy for EuroAPPA working group (alternatives to email?)
+
+
+
+
+Nuria of Iberian Web of Life joins the call to get introduced to BUTTERFLY/EuroAPPA and associated projects
+Noa: asks if she has considered standardisation of terminology in the activities integrated in their project. 
+Nuria answered that one WP is about data harmonisation, so she would be happy to integrate. 
+Claus: Aarhus University - collecting data BUTTERFLY - collect
+Cala: University of Sussex, UK - our role in BUTTERFLY is to summarize existing and new plant-pollinator data in several ways. This subproject is called EuroAPPA
+Jeff: pollination ecologist - mutualistic interactions - working with Cala and Jorrit and others to put data into EuroAPPA and involved in data collection in the Caribbean (Martinique, Curacao) 
+Laura: University of Bergen (Norway) University Library 
+Nick - University of Sussex working on plant-pollinator postdoc - curating data coming in Database of Pollinator Interactions (DoPI)
+
+
+Cala - New project led by Sarah Leonhardt - Soil Dependent Pollinators (ProPollSoil) - pollinator-relevant soil  data to be integrated into EurAPPA
+VALOR - Sister project of BUTTERFLY (Coordinator Tom Breeze) - Currently celebrating their Kick-Off. Sharing efforts on other data on pollinator networks. (website? grant project page?)
+AGRI4Poll -  (Coordinator Adam VANBERGEN)
+
+
+
+
+Cala - talks about slides for the VALOR kick-off. 
+        Jorrit suggests emphasising the difference between data (versioned digital objects) and search indexes (dynamic, not versioned, portals and services). 
+        Noa - BUTTERFLY includes many different kinds of data beyond plant-pollinator, specifically into the sociological aspects - looking at the sociological dimension of pollinators (e.g., cultural heritage).
+        Claus - who is coordinating the sociological data collection and their relation to EuroAPPA. 
+        
+
+
+
+
+07-1-2025 (fifth meeting)
+
+
+Participants 
+Cala, Jeff, Jeroen, Ugo Mendes, Jorrit, Joe
+
+
+Initial discussion of ancient database history: https://jeffollerton.co.uk/2025/01/07/was-this-the-first-online-database-of-plant-pollinator-interactions/
+This highlights the importance of preserving data for the longer term!
+
+
+Ugo is sharing that he's planning to lead the bat field collection in Curacao / Martinique. Jeff is planning to join. Jorrit shares he had some bat connections through https://globalbioticinteractions.org/gbatnet and https://batbase.org . Perhaps something to collaborate ?
+
+
+Joe reports about a short pre-Christmas meeting with Claus about field sampling protocols for upcoming field season. Draft protocol in preparation now, to be circulated among small group of PIs in charge of the 6 living labs plus overseas territories. The plan is to co-create protocol in collaboration with all LL PI´s and standardize as much as the different environments allow. 
+
+
+Cala suggests to design the data formats used to digitally capture the measurements and wonders how to best coordinate. 
+
+
+Jorrit asks - how are you planning to align your protocol with downstream data publication and indexing? Is there a way to do a "line check" to work towards smoother digital dissemination and reuse. 
+
+
+Jorrit suggests using existing datasets (e.g. Dopi) to generate data reviews and use this to plan for data sharing, rather than focusing too much on collecting all data in exactly the same formats (not realistic). (jorrit: a data review can include how data elements and methods align with agreed upon sampling protocols for our project) 
+
+
+Jeroen reported that The location of the Kick-off meeting will most likely (waiting for formal green light from UiB procurement) be the Norway house in Paris at the Cite Internationale Universitaire Paris in the 14th district.
+https://www.ciup.fr/maisons/maison-de-norvege/
+On google maps:
+https://maps.app.goo.gl/9EsqMmr6M1FmZxs38
+(The UiB team is investigating whether CIUP also can offer accommodation at the CIUP campus)
+
+
+
+
+Jeff & Joe discussed differences/similarities in the sampling protocols in the European v Caribbean (insects v vertebrates) field work.
+
+
+
+
+Actions: 
+* Joe to invite us (one of us?) to protocol planning meeting so we can contribute to data formats. This can be later on once a smaller team has planned the field work, or as convenient (Joe to decide when to invite us)
+
+
+
+
+
+
+03-12-2024 (fourth meeting)
+
+
+Participants 
+Cala, Jorrit, Claus, Jeff, Nick, Noa, Jeroen
+
+
+agenda
+1. data management status quo
+2. (proposed by Jorrit) outcome of code review of DOPI
+
+
+Question: Who is in charge of data management for Butterfly? 
+
+
+Jeroen: WP9.1 - Laura Drivdal (University of Bergen) is the Data Management lead. Data Management Plan (DPM) will be included in Deliverable 9.1 (M6), which will be updated mid-term (M24), and a final DMP will be published (M48).
+  
+
+
+
+Question: What is the relationship between EuroAPPA and the Data Management Plan (DMP) planning activities? 
+
+
+Noa - For the drafting and defining activities in the DMP, we need an internal (within BUTTERFLY partners) review of data needs, flows and production. Laura may want to ask the partners (via the WP Leaders or tasks) what data they'd need (use) and deliver (produce). The consultation would include the needs regarding embargo or data sharing within the WP or tasks. 
+
+
+Cala - let’s add Data Management to the agenda of kick-off meeting in April 
+
+
+Jorrit - Is the Butterfly "Description of Action" Part B planned to be openly accessible? 
+Jeroen - Currently, not, but this can be revisited as a consortium. 
+Noa- Suggest polling this decision to open access "Butterfly Description of Action Part B", as has been done for PollinERA (https://riojournal.com/article/127485/ ) in the kickoff meeting agenda.
+Jeroen hints at publishing parts of the "Butterfly Description of Action Part B" separately. 
+Jorrit - could be published in parts, promising to publish it all when everyone is ready.
+Claus - LL meeting later in December about field protocols and standardised data collection (this can link back to the Data Management Plan (DMP)
+Noa - Would it be an idea to create an internal data review board (Jorrit: what data would be under review? field data? Any data generated by the project)  within BUTTERFLY to help keep track of FAIRness and data quality. The concept of FAIR will be agreed in practice within the group.  (Jorrit: I think we need to define what we mean by "FAIR" - I'd prefer to be specific, e.g., show 2 examples of how your data was reused.)
+Jeff - Need to have two time points before the peer review: prior to data collection and at the point of data collation.
+
+
+Jorrit - He reviewed the DOPI source code and documentation (thanks for sharing). 
+Code is tightly connected to data, but the data reviewed is incomplete; both need to be analysed together (code + data). DOPI uses stack technologies (PHP + MariaDB + WordPress) - common technologies used by many so it is versatile in terms of the people that eventually would need to deal with the system. Software development practices are old-school - challenges for other developers to work with code (ideally, version control systems (e.g., GitHub or others) would be used, but this seems not to be the case?). Even the code would require some improvement in its FAIRness, documentation, version control, etc.   
+It should be easy to fix current problems with large databases by avoiding the current path of saving before processing. 
+Proposes review of data, code and tools. 
+Proposes to get a common vocabulary and standards for revisions 
+
+
+Jeroen - Tom Breeze (VALOR coordinator) wants to meet in January to discuss data sharing. It is possible for Tom and the WP leaders to meet the discussion group in relation to the data. 
+
+
+
+
+IDEAS FROM TODAY TO BE INCLUDED IN BUTTERFLY:
+* DMP that includes the view of all the partners
+* Create a Data peer-review board
+* Agree on a common vocabulary and standards for revisions
+* Peer-review data, but also code
+* If possible, add this as agenda point in kick off meeting
+
+
+
+
+
+
+
+
+
+
+05-11-2024 (third meeting)
+
+
+Participants 
+Cala, Jorrit, Jeff, Laura, Nick, Joe
+
+
+agenda (tentative)
+1. introductions
+2. first steps for building the platform including the FAIR aspects that Noa mentioned after the last meeting
+3. update on DoPI (Nick/Cala)
+4. update on GloBI (Jorrit)
+5. update on EU Pollinator Hub (Noa)
+ 
+Cala - question - Do we have clear data management plans for data collection, for example Living Labs? How does this relate to FAIR? 
+
+
+Laura - In BUTTERFLY proposal: plan was to make the plan. 
+
+
+Joe - I am about to teach a course on Open Science/ FAIR data - Findable Accessible Interoperable Reuse - applicable standards - DwC-A - we are writing packages to facilitate R packages to make them "FAIR" . Make sure to "package" data in a way to make them FAIR. 
+https://github.com/LivingNorway/LivingNorwayR  - Is the package I was referring to.  We have a replacement package that is coming out very soon though that allows for packaging datasets using any controlled vocabulary and not just Darwin Core though.  I'd be really happy to implement the plant-pollinator vocabulary.
+
+
+Jeff- specific vocabulary for plant-pollinator interactions - good starting point for DoPI 
+Here it is: https://ppi.rebipp.org.br/
+The WorldFAIR reports can be downloaded from here: https://worldfair-project.eu/agricultural-biodiversity/
+ 
+Jorrit - in my view, the most important part of FAIR is the last letter ”R” - data review where data review is a first demonstration of data reuse, that should be done by someone who did not collect the data. I suggest data reviews from day 1 
+
+
+Noa - I think the best would be to have a two entries to the FAIR principles: 1. train and request the partners about FAIR principles and how to build up databases and 2. peer review the datasets going out the be published in to FAIR principles. 
+In the EU Pollinator Hub we create machine generated reviews as well as human reviews. Talking about EU Pollinator Hub integrating with B-Good Bee Health Monitoring. 
+
+
+  
+
+example of report - 
+  
+
+
+
+
+
+
+
+Cala- from DoPi’s perspective, it would be a good investment of time to get LL leaders to agree early on about data collection formats, for internal sharing and for integration into open access repositories. Noa is part of the Data Management team. 
+
+
+Jorrit: status of GloBI <> EU Pollinator Hubs - https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991
+
+
+Jorrit - showed an example of a review of Jeff’s Apocynaceae paper: https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/pollinators-of-apocynaceae-database/
+also one for DoPI: https://depot.globalbioticinteractions.org/reviews/globalbioticinteractions/dopi/
+
+
+Nick- DoPI update: new small funding grant from Eva Crane bee charity will fund Nick (for new data analysis) and web developer to update import and export so DoPI can handle the large datasets expected from BUTTERFLY (and hopefully PropPollSoil). 
+Jorrit offers to take a look at DoPI’s code 
+
+
+Cala mentioned SafeGUARD and how their work is similar to DoPI  https://github.com/globalbioticinteractions/globalbioticinteractions/issues/989
+
+
+Joe - will propose WP1 in-person meeting right before or after kick-off meeting in April (Jorrit will not be attending in person due to anniversary and other engagement). 
+
+
+DoPI<>GloBI - https://github.com/globalbioticinteractions/dopi/  with make.sh being the script that grabs data and turns it into interactions.tsv . 
+
+
+All agree to do recurring monthly meetings first Tuesdays of each month at same time (2pm UK).
+
+
+
+
+
+
+
+
+28-08-2024 (second meeting)
+
+
+Participants 
+Cala, Jorrit, Jeff, Noa, Jeroen, Claus, Joe 
+
+
+
+
+Notes
+
+
+* Jorrit - presentation of GloBI functionalities and how to use it in BUTTERFLY + vision for EuroAPPA
+   * BallroomA_Tuesday_1700_Poelen(reused from 2017) as presented at Poelen, J., 2017. Global Biotic Interactions: A Catalyst for Integrating Existing Interaction Datasets, Connecting Data Curators and Developing Data Exchange Methods. Proceedings of TDWG, 1, p.e20214. Available at: https://doi.org/10.3897/tdwgproceedings.1.20214.
+   * Review paper created by bots in GloBi
+   * https://depot.globalbioticinteractions.org/reviews/Extended-Bee-Network/bee-interaction-database/
+   * Q. from Joe: Is there any scope in GloBI's current data model for placing estimates of the strength of the relationship?  So that "eats" in this example could be qualified (sort of like "sometimes eats", "rarely eats").
+   * A. from Jorrit: not easy, better to keep the original data linked to GloBI.
+   * A. from Jeff: It’s challenging because the strength of interactions can vary a lot in space and time.
+   * Q. from Noa: Is this a manual or automatic review? A. from Jorrit: Automated, but “nudged” by a human.
+
+
+
+
+* Cala - presentation of DoPI functionalities and how to use it in BUTTERFLY + vision for EuroAPPA 
+   * hired a bunch of students to process datasets of scientific quality data.
+   * every single data point has been entered manually with to DoPI schema specifically designed for pollination interactions
+   *    
+   * every taxonomic name is linked to a name identifier, so that information can be looked up on a separate website
+   * strength of interactions ~ quality of the datapoint (visit vs. flower visitation vs pollen seen on insect etc) expressed in various levels 1-5. 
+   * data in spreadsheets and databases
+   * uses "simple" web technologies - https://en.wikipedia.org/wiki/MySQL with a web interface
+   * workflow spreadsheets -> mysql -> web interface
+   * possible for folks to submit their data for inclusion in DoPI
+   * Balfour, N.J., Castellanos M.C., Goulson, D., Philippides, A. & Johnson, C. (2022) DoPI: The Database of Pollinator Interactions. Ecology, e3801. https://doi.org/10.1002/ecy.3801
+   *  working with "computer engineer" to help improve DoPI
+   * Jorrit Asks: where do you keep the original data - Cala Answer: Sussex hosts DoPI websites as well as the original spreadsheets.
+   * Noa - how do you manage to make the DoPI data FAIR - what is your protocol for including data in DoPI? How do you assess the datasets for their FAIR-ness? - Cala Answer: Most datasets are published and openly available.  We tried to include each datapoint published in a scientific dataset. 
+   * Noa - how to best reuse tables / datasets in publications - some additional metadata is sometimes needed to fully understand the data? - Cala: we categorized the "quality" of the pollination interaction (see above). 
+   *  Claus - I often introduce errors or mistakes every time I move data. 
+   * Jorrit - We need to keep track of all the processing we do from data in datasets when we reuse them for other things.
+   * Noa - presentation of EU Pollinator Hub functionalities and how to use it in BUTTERFLY + vision for EuroAPPA (10 minutes)
+   * Presentation page: https://pollinatorhub.eu/
+   * Data Platform: https://app.pollinatorhub.eu/ 
+   * BeeXML Standard for data sharing: https://beexml.org/ 
+   * Notes:
+   * Pollinator Hub is an infrastructure that aims to bring datasets together - scope: integrating any data related to pollinators, pollination, bees and beekeepers. 
+   *      * data is coming from many different sources academics, industry, field experts, and community scientists with very different ways of expressing and collecting the data
+   * create a dictionary to help standardize data integration and classify specific concerns. This dictionary also helps to translate the terms into different languages (CSV, JSON, XML). The dictionary is a community resource.
+   * the Hub is an open-source community tool with collaboration features like working in close teams, discussions etc.
+   *    
+   *      * Whenever we see overlapping concepts, an associated descriptor is created in the Pollinator Hub dictionary. These descriptors help to link datasets and their records that use these concepts. Example: below for concept "Belgium"
+   *      * Some datasets are open access, and the provider decides how to publish the dataset (open / closed, lisence, etc. ).
+   *      * Pollinator Hub provides a tool for data profiling (e.g., describing the dataset and specifying the license, column descriptions, as specified by the data provider). 
+   * Pollinator Hub produces downloadable reviews/descriptors of the datasets.
+   *      * Note by Jorrit - pollinator hub folks have been responsive in helping to link their data across other projects (like GloBI) - https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991 - with some follow-up items to help work towards a first link between GloBI <> EU Pollinator Hub. A similar initiative led to an initial integration with GloBI <> DoPI (see https://github.com/globalbioticinteractions/globalbioticinteractions/issues/780 ). Pollinator Hub API is on the way.
+   * Addition on the quality assessment of the Pollinator Hub:
+      * Product Directory (with documentation explaining how to use the different features of the Hub): https://app.pollinatorhub.eu/pages/documentation
+      * Guideline Directory: https://app.pollinatorhub.eu/pages/guideline-directory
+      * Quality Asset Directory (Including the SOPs, WIs and Methods): https://app.pollinatorhub.eu/pages/sop-directory
+      * Criteria Catalogue: https://app.pollinatorhub.eu/pages/criteria-catalog
+Commonalities of the three platforms (and teams behind them):
+We all agree that we care about data sharing and data quality
+We all aim to preserve the original data
+And be able to review data - this implies comparing datasets and therefore having them in common categories
+
+
+Jeroen: 
+Quality of the data has three angles: 
+      * Quality of the data itself
+      * Assessment of the quality of the data
+      * Attributes of the data and their quality
+For next meeting: 
+      * List of the other components that will need to be in EuroAPPA beyond datasets (eg. code, model results, maps, any other results of the project and beyond) (20 minutes)
+
+
+—------------------------------
+
+
+EuroAPPA  Meeting 01-07-2024 (first meeting)
+
+
+
+
+Notes
+
+
+Participants 
+Cala, Jorrit, Jeff, Noa, Jeroen, Claus, Joe 
+Agenda
+      * Discuss existing EU hubs on pollinators
+      * Ideas on how we can approach the one-stop-shop pollinator information hub to suggest to VALOR
+
+
+Action Items
+(Noa) check on the availability of BeeLife overview of the EU pollinator project
+
+
+(Jorrit, done) setup EuroAPPA GloBI project page 
+https://www.globalbioticinteractions.org/euroappa/ include Butterfly 24 partners. In addition, make a list of related initiatives shared in this meeting. A place where everything is linked. 
+
+
+(Cala) create poll using  https://framadate.org/abc/en/ or similar for the internal BUTTERFLY/EuroAPPA meeting in late August, propose an agenda, etc. Tentative points for the late August meeting Agenda:
+      * Jorrit - presentation of GloBI functionalities and how to use it in BUTTERFLY + vision for EuroAPPA
+      * Cala (+Nick) - presentation of DOPI functionalities and how to use it in BUTTERFLY + vision for EuroAPPA
+      * Noa - presentation of EU Pollinator functionalities and how to use it in BUTTERFLY + vision for EuroAPPA
+      * Other visions of EuroAPPA?
+      * List of the other components that will need to be in EuroAPPA beyond datasets (eg. code, model results, maps, any other results of the project and beyond)
+      * Other points: 
+      * decide when/if to propose a meeting with VALOR pollinator hub team
+
+
+(TBD) - organise a meeting to find a way to deal with data sharing among BUTTERFLY members and (potentially) with other non-POLLINATOR projects within the project(s) like VALOR etc - close to project start (December/January). 
+
+
+
+
+Notes
+
+
+Cala -  SafeHub derived from SafeGuard, involves folks from VALOR. Pensoft is developing the SafeHub infrastructure. Pensoft has received funding from various EU projects to develop. Cala is editor in chief for Journal of Pollination Ecology and was approached by Pensoft with a business proposal and rejected their offer. 
+
+
+Think this got shared in previous emails already but here is the Safeguard web page: https://www.safeguard.biozentrum.uni-wuerzburg.de/Project/SafeHub.aspx
+
+
+Noa - BeeLife developed the EU Pollinator Hub for the EFSA (European Food Safety Authority). EFSA is the owner but has not committed to long-term maintenance. It aims to bring together all pollinator data that can be used for example pesticide risk assessment. ECHA (European Chemicals Agency) will use the same framework for chemical risk assessment. Used as a repository with data curation.
+Pollinator Hub is in contact with SafeHub. Not linked to any specific project, but is used by many.
+
+
+Simon Potts
+
+
+Noa - suggested not developing anything new, but reusing existing. 
+
+
+Jorrit - suggests a sustainability model where we use EuroAPPA as an opportunity to provide links to all existing resources and certify that the resources (data, websites, etc) are standardized, movable, reusable and transferable (give them a “sticker” confirming this)
+
+
+Jeff - let EuroAPPA focus on plant pollinator interactions. Looking at all of this, DOPI and GloBI stand out because they deal with INTERACTIONS, not just "pollinators", and provide important resources for the pollinators, and the pollinators that service the plants.
+
+
+Joe - three different components - (1) mobilizing existing data (2) collecting raw data (3) processing datasets into model output (data synthesis). Our very specific BUTTERFLY use-case-driven "one-stop shop" (EuroAPPA) should enable the distribution of the data and the model results. We need the functionality and can reuse existing initiatives when needed. 
+
+
+
+
+Noa - Questions: 
+      * Do we have any software developers in the team?  Jorrit + 
+      * How will we share the data among the 24 partners during the project in a standardised way? (daily data-sharing work)  - The EU Pollinator Hub allows this team to work on datasets.
+      * about modelling - How will we present the outcome of the modelling efforts in a reusable way? 
+
+
+
+
+
+
+List of Various Initiatives
+1. EU Pollinator Hub / EFSA owns it https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991  
+2. SafeGuard https://github.com/globalbioticinteractions/globalbioticinteractions/issues/989
+3. EU Pollinator Information Hive
+4. Simon Potts keeps a website links to various initiatives
+6. BeeLife keeps track of everything pollinator-related in the EU (Noa to check available)
+7. Leon Marshall’s project (“Beeconnected: decoding interactions in space and time through predictive ecology”) https://www.nwo.nl/en/projects/viveni222141
+8. B-Good - https://b-good-project.eu/  
+9. PoshBee - https://poshbee.eu/ 
+10. EUPoMS - https://wikis.ec.europa.eu/pages/viewpage.action?pageId=23462107 
+11. eBMS - https://butterfly-monitoring.net/ 
+12. Nordic Pollinator Project - coordinated by KEMI
+13. STEP
+14. SUPER-B
+15. B-THENET
+16. BeSafeBeeHoney
+17. iPOL-ERA
+18. Better-B
+19. ApiGuards - 
+20. WorldFAIR - https://worldfair-project.eu/agricultural-biodiversity/ 
+21. PollinERA - https://pollinera-horizon.eu/ + WildPosh - https://wildposh.eu/ 
+22. VALOR + BUTTERFLY
+23. Pollinator Academy - https://pollinatoracademy.eu/ 
+24. COLOSS
+25. SURPASS - https://bee-surpass.org/
+26. RestPoll - https://restpoll.eu/ 
+….
+
+
+
+
+
+
+from Simon Potts website [a]   
+      * Safeguard: Safeguarding European wild pollinators
+      * DRUID: Drivers and Repercussions of UK Insect Declines (NERC)
+      * EU-PoMS: Design of the European Pollinator Monitoring Scheme (EU DG ENV)
+      * EuropaBON: Europa Biodiversity Observation Network: integrating data streams to support policy (EU H2020)
+      * PoshBee: Pan-European Assessment, Monitoring, and Mitigation of Stressors on the Health of Bees (EC H2020)
+      * Showcase: Showcasing synergies between agriculture, biodiversity and ecosystem services to help farmers capitalising on native biodiversity (EU H2020)
+      * SMOOPS: Sustainable Management of Orchard Pollination Services (BBSRC/NERC, Syngenta, Avalon and Worldwide Fruit)
+      * SPRING: Supporting Pollinator Recovery through Indicators and Monitoring (DG ENV)
+      * ORBIT: Developing resources for European bee inventory and taxonomy (DG ENV)
+      * BBSRC Waitrose Collaborative Training Partnership (Reading lead)
+      * PMRP Pollinator Monitoring and Research Partnership (Defra, JNCC, the Welsh Government, Scottish Government and project partners)
+      * Tropical: Translating Research Opportunities to enhance Pollination benefits to economically Important Crops And improve Livelihoods (GCRF)
+      * SuperFarm: Sustainable farming through effective pollination and pest regulation in India (GCRF)
+      * RestPoll: Restoring Pollinator habitats across European agricultural landscapes based on multi-actor participatory approaches (Horizon EU)
+      * WildPosh: Pan European assessment, monitoring, and mitigation of chemical stressors on the health of wild pollinators (Horizon EU)
+      * MAMBO: Modern Approaches to the Monitoring of Biodiversity (Horizon EU)
+      * STING: Science and Technology for Pollinating Insect0073
+      * Nature positive finance (NERC)
+Recently completed Projects:
+      * STEP: Status and Trends of European Pollinators (Coordinator, EU Framework 7)
+      * LIBERATION - Linking farmland biodiversity to ecosystem services for effective ecological intensification (EU FP7)
+      * SCALES: Securing the Conservation of biodiversity across Administrative Levels and spatial, temporal, and Ecological Scales (EU Framework 7)
+      * SUPER-B - Sustainable Pollination in Europe (EU COST Action)
+      * NPPMF - National Pollinator and Pollination Service Monitoring Framework (Defra)
+      * Crop pollination: Sustainable Pollination services for UK Crops (Insect Pollinator Initiative project, RCUK)
+      * AgriLand: Linking agriculture and land use change to pollinator populations (Insect Pollinator Initiative project, RCUK)
+      * Urban Pollinators: Urban Pollinators: their ecology and conservation (Insect Pollinator Initiative project, RCUK)
+      * Landscape food webs: structure and function (NERC)
+      * Closing the gap: bigger, healthier, and better-connected hedgerows (Green Recovery Challenge Fund)
+      * Resilient Pollination: Modelling Landscapes for Resilient Pollination Services (BBSRC Global Food Security)
+      * Optimising multifunctional land-use decisions: combining environmental, economic and social models for pollinators (NERC)
+      * Economic benefits of pollination to global food systems: Evidence and knowledge gaps (NERC)
+
+
+EU Projects on Pollinators
+
+
+List of Various Initiatives
+      1. Soil Dependent Pollinators (ProPollSoil) - New project led by Sarah Leonhardt - pollinator-relevant soil  data to be integrated into EurAPPA
+      2. VALOR - Sister project of BUTTERFLY (Coordinator Tom Breeze) - Currently celebrating their Kick-Off. Sharing efforts on other data on pollinator networks. (website? grant project page?)
+      3. AGRI4Poll -  (Coordinator Adam VANBERGEN)
+      4. EU Pollinator Hub / EFSA owns it https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991 and EU Pollinator Hub - https://pollinatorhub.eu and the APP https://app.pollinatorhub.eu 
+      5. SafeGuard https://github.com/globalbioticinteractions/globalbioticinteractions/issues/989 Safeguarding European wild pollinators
+      6. EU Pollinator Information Hive
+      7. Leon Marshall’s project (“Beeconnected: decoding interactions in space and time through predictive ecology”) https://www.nwo.nl/en/projects/viveni222141
+      8. B-Good - https://b-good-project.eu/  Pan-European Assessment, Monitoring, and Mitigation of Stressors on the Health of Bees (EC H2020)
+      9. PoshBee - https://poshbee.eu/ 
+      10. EUPoMS - https://wikis.ec.europa.eu/pages/viewpage.action?pageId=23462107 Design of the European Pollinator Monitoring Scheme (EU DG ENV)
+      11. eBMS - https://butterfly-monitoring.net/ 
+      12. Nordic Pollinator Project - coordinated by KEMI
+      13. STEP: Status and Trends of European Pollinators (Coordinator, EU Framework 7)
+      14. B-THENET
+      15. BeSafeBeeHoney
+      16. iPOL-ERA
+      17. Better-B
+      18. ApiGuards - 
+      19. WorldFAIR - https://worldfair-project.eu/agricultural-biodiversity/ 
+      20. PollinERA - https://pollinera-horizon.eu/ 
+      21. WildPosh - https://wildposh.eu/ Pan-European assessment, monitoring, and mitigation of chemical stressors on the health of wild pollinators (Horizon EU)
+      22. BUTTERFLY
+      23. Pollinator Academy - https://pollinatoracademy.eu/ 
+      24. COLOSS
+      25. SURPASS - https://bee-surpass.org/
+      26. RestPoll - https://restpoll.eu/ 
+      27. DRUID: Drivers and Repercussions of UK Insect Declines (NERC)
+      28. EuropaBON: Europa Biodiversity Observation Network: integrating data streams to support policy (EU H2020)
+      29. Showcase: Showcasing synergies between agriculture, biodiversity and ecosystem services to help farmers capitalising on native biodiversity (EU H2020)
+      30. SMOOPS: Sustainable Management of Orchard Pollination Services (BBSRC/NERC, Syngenta, Avalon and Worldwide Fruit)
+      31. SPRING: Supporting Pollinator Recovery through Indicators and Monitoring (DG ENV)
+      32. ORBIT: Developing resources for European bee inventory and taxonomy (DG ENV)
+      33. BBSRC Waitrose Collaborative Training Partnership (Reading lead)
+      34. PMRP Pollinator Monitoring and Research Partnership (Defra, JNCC, the Welsh Government, Scottish Government and project partners)
+      35. Tropical: Translating Research Opportunities to Enhance Pollination Benefits to Economically Important Crops and Improve Livelihoods (GCRF)
+      36. SuperFarm: Sustainable farming through effective pollination and pest regulation in India (GCRF)
+      37. RestPoll: Restoring Pollinator habitats across European agricultural landscapes based on multi-actor participatory approaches (Horizon EU)
+      38. MAMBO: Modern Approaches to the Monitoring of Biodiversity (Horizon EU)
+      39. STING: Science and Technology for Pollinating Insect0073
+      40. Nature positive finance (NERC)
+      41. LIBERATION - Linking farmland biodiversity to ecosystem services for effective ecological intensification (EU FP7)
+      42. SCALES: Securing the Conservation of biodiversity across Administrative Levels and spatial, temporal, and Ecological Scales (EU Framework 7)
+      43. SUPER-B - Sustainable Pollination in Europe (EU COST Action)
+      44. NPPMF - National Pollinator and Pollination Service Monitoring Framework (Defra)
+      45. Crop pollination: Sustainable Pollination services for UK Crops (Insect Pollinator Initiative project, RCUK)
+      46. AgriLand: Linking agriculture and land use change to pollinator populations (Insect Pollinator Initiative project, RCUK)
+      47. Urban Pollinators: Urban Pollinators: their ecology and conservation (Insect Pollinator Initiative project, RCUK)
+      48. Landscape food webs: structure and function (NERC)
+      49. Closing the gap: bigger, healthier, and better-connected hedgerows (Green Recovery Challenge Fund)
+      50. Resilient Pollination: Modelling Landscapes for Resilient Pollination Services (BBSRC Global Food Security)
+      51. Optimising multifunctional land-use decisions: combining environmental, economic and social models for pollinators (NERC)
+      52. Economic benefits of pollination to global food systems: Evidence and knowledge gaps (NERC)
+
+
+[a]https://www.reading.ac.uk/sustainable-land-management/our-staff/simon-potts
