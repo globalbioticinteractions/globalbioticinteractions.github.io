@@ -27,15 +27,19 @@ ProPollSoil aims to reuse outcomes of existing initatives such as [BUTTERFLY's E
 
 **17 Nov 2025** - Poelen, J. H. (2025, November 17). Fairy Tales and Digital Research Data hash://md5/74cabb19c6dcf3e2eea27a38acf4fb76. Zenodo. https://doi.org/10.5281/zenodo.17625448 [slides pdf](https://zenodo.org/records/17625448/files/slides.pdf) [source repository](https://github.com/jhpoelen/fairy-tales-and-data).
 
-**20 Nov 2025** -  ProPollSoil Data Workshop
+**19 Nov 2025** - Poelen, J. H. (2025, November 19). Fairy Tales and Data Reuse hash://md5/81421f5597446b9a3eacc8f9991f4bff. Zenodo. https://doi.org/10.5281/zenodo.17646740 [slides pdf](https://zenodo.org/records/17646740/files/slides.pdf) [source repository](https://github.com/jhpoelen/fairy-tales-and-data-reuse).
+
+**20 Nov 2025** -  ProPollSoil Data Workshop. See GitHub organization at https://github.com/ProPollSoil and note that some repositories are set to private as resources like the data management plan are developed.  
 
 # Data Management Plan 
+
+See https://github.com/ProPollSoil/data-management-plan for details in the data management plan. 
 
 ## Data Reviews
 
 ## Related Projects
 
-RestPoll / SafeGuard
+RestPoll / SafeGuard / VALOR
 
 See also [BUTTERFLY/EuroAPPA's related initiatives](../euroappa/related-projects).
 
