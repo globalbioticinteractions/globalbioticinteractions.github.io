@@ -1,0 +1,20 @@
+<https://preston.guoda.bio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#SoftwareAgent> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<https://preston.guoda.bio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Agent> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<https://preston.guoda.bio> <http://purl.org/dc/terms/description> "Preston is a software program that finds, archives and provides access to biodiversity datasets."@en <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Activity> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> <http://purl.org/dc/terms/description> "Snapshot of EuroAPPA use cases"@en <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> <http://www.w3.org/ns/prov#startedAtTime> "2025-12-02T15:18:30.722Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> <http://www.w3.org/ns/prov#wasStartedBy> <https://preston.guoda.bio> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<https://doi.org/10.5281/zenodo.1410543> <http://www.w3.org/ns/prov#usedBy> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<https://doi.org/10.5281/zenodo.1410543> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/dcmitype/Software> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<https://doi.org/10.5281/zenodo.1410543> <http://purl.org/dc/terms/bibliographicCitation> "Jorrit Poelen, Icaro Alzuru, & Michael Elliott. 2018-2024. Preston: a biodiversity dataset tracker (Version 0.11.2-SNAPSHOT@cbfe947717e80e5dcff9235dd3c2315c52ed430c) [Software]. Zenodo. https://doi.org/10.5281/zenodo.1410543"@en <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<urn:uuid:0659a54f-b713-4f86-a917-5be166a14110> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<urn:uuid:0659a54f-b713-4f86-a917-5be166a14110> <http://purl.org/dc/terms/description> "A biodiversity dataset graph archive."@en <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<hash://sha256/2571e4bf594989a9764d39ec9be3902c758121c33fafdfb044b5fd535efc246b> <http://www.w3.org/ns/prov#usedBy> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> .
+<hash://sha256/4dda861a192239cd61434e047657d682eb4ccef9947f6826fcc25fa6b352b3fd> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> <urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> .
+<hash://sha256/4dda861a192239cd61434e047657d682eb4ccef9947f6826fcc25fa6b352b3fd> <http://www.w3.org/ns/prov#qualifiedGeneration> <urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> <urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> .
+<urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> <http://www.w3.org/ns/prov#generatedAtTime> "2025-12-02T15:18:31.888Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> <urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> .
+<urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Generation> <urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> .
+<urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> <http://www.w3.org/ns/prov#wasInformedBy> <urn:uuid:98f28dcc-62cf-4dd4-afd1-18996240202a> <urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> .
+<urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> <http://www.w3.org/ns/prov#used> <https://cloud.butterfly-europe.eu/public.php/dav/files/gdtwJsfTddCXd85/> <urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> .
+<https://cloud.butterfly-europe.eu/public.php/dav/files/gdtwJsfTddCXd85/> <http://purl.org/pav/hasVersion> <hash://sha256/4dda861a192239cd61434e047657d682eb4ccef9947f6826fcc25fa6b352b3fd> <urn:uuid:9ecdca75-b525-4de2-9ec9-d92c72db7930> .
