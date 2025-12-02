@@ -33,6 +33,7 @@ EuroAPPA is subject to the Butterfly Data Management Plan. Here, we keep track o
 
 Associated meeting notes at ~~Google Docs (live copy)~~ with versioned copies at [dmp-notes.pdf](./dmp-notes.pdf) and [dmp-notes](./dmp-notes).
 
+A versioned snapshot of EuroAPPA associated use cases (under development!) are available at [use-cases](./use-cases). 
 
 # Monthly Meeting
 
