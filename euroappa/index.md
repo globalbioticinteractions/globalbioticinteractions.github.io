@@ -146,4 +146,4 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 ## Platforms of interest
 
  * [Big Data Analytics Platform](https://jeodpp.jrc.ec.europa.eu/bdap/) https://jeodpp.jrc.ec.europa.eu/bdap/ - The [JRC Big Data Analytics Platform (BDAP)](https://jeodpp.jrc.ec.europa.eu/bdap/) links data, data services, data scientists and thematic experts for generating policy relevant insights and foresight. It will play an instrumental role in advancing JRC to better mobilise and synthesise its collective knowledge and expertise in support to the EC priorities.  
-
+ ** with hosted map being - European Commission, Joint Research Centre (JRC) (2022): EUCROPMAP 2022. European Commission, Joint Research Centre (JRC) [Dataset] doi: 10.2905/555e5d1d-1aae-4320-a716-2e6d18aa1e7c PID: http://data.europa.eu/89h/555e5d1d-1aae-4320-a716-2e6d18aa1e7c
