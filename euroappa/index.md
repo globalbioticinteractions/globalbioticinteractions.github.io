@@ -61,6 +61,7 @@ First Tuesdays at 07:00 US Central / 13:00 Sussex / 14:00 Central European Time.
 
  **2025-08-31** Release of Butterfly's [Drivdal et al. (2025). D9.1 Data Management Plan – Version 1 –  (PDF, 859 KB)](https://butterfly-europe.eu/deliverable-9-1-data-management-plan-dmp-first-version/). See [dmp-v1.pdf](dmp-v1.pdf) for a versioned copy.
 
+ **2026-01-28/30** BUTTERFLY Annual General Meeting (AGM) and General Assembly (GA), 28-30 January 2026, Aarhus, Denmark. [agenda (draft)](https://cloud.butterfly-europe.eu/index.php/s/NpbfmQ4433kY23E) . 
 
  **...**
 
