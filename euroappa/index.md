@@ -143,3 +143,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 
 [BatBase](https://batbase.org) - formerly called ```batplant.org``` this project indexes bat interactions including bat pollinations. BatBase is part of  [GBatNet's Eco-interactions Working Group](https://globalbioticinteractions.org/gbatnet). 
 
+## Platforms of interest
+
+ * [Big Data Analytics Platform](https://jeodpp.jrc.ec.europa.eu/bdap/) https://jeodpp.jrc.ec.europa.eu/bdap/ - The [JRC Big Data Analytics Platform (BDAP)](https://jeodpp.jrc.ec.europa.eu/bdap/) links data, data services, data scientists and thematic experts for generating policy relevant insights and foresight. It will play an instrumental role in advancing JRC to better mobilise and synthesise its collective knowledge and expertise in support to the EC priorities.  
+
