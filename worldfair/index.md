@@ -36,6 +36,8 @@ This page shows the current state of integration between GloBI and WorldFAIR aff
 
 **18 April 2024** The WorldFAIR webinar series- "Reusing Plant-Pollinator Datasets: a Global Perspective with Guidelines and Recommendations inspired by Pilot Studies from Africa, the Americas and Europe". It will be held on April 18 at 2:00 pm – 3:00 pm (Times in UTC) - register here: https://worldfair-project.eu/event/the-worldfair-webinar-series-reusing-plant-pollinator-datasets-a-global-perspective-with-guidelines-and-recommendations-inspired-by-pilot-studies-from-africa-the-americas-and-europe/
 
+**3 Dec 2025** Publication of extended abstract of talk presented at [Datos Vivos/Living Data 2025](https://www.livingdata2025.com/), Bogotá, Colombia, 21-24 October 2025: Drucker D, Soares F, Poelen J, Salim JA (2025) Machine-Actionable Metadata in Practice: Lessons From Automating FAIR Assessment in Plant-Pollinator Datasets. Biodiversity Information Science and Standards 9: e180280. [https://doi.org/10.3897/biss.9.180280](https://doi.org/10.3897/biss.9.180280)
+
 # Dataset Status
 
 Click on badges to browse/download indexed records or inspect automated reviews.
