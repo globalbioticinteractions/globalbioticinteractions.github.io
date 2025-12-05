@@ -12,6 +12,10 @@ status: unlisted
 
 ProPollSoil aims to reuse outcomes of existing initatives such as [BUTTERFLY's European Atlas of Plant Pollinator Associations EuroAPPA](../euroappa). 
 
+ProPollSoil is structured in many work packages with specific goals. These include: Work Package (WP) 1 - Project and Data Management and WP 2 - Consolidating existing knowledge on biology, ecology and threats for soil dependent pollinators
+
+WP2 meets every 3rd Thursday of the month at 2pm Central European Time [meeting notes](https://docs.google.com/document/d/1gz-Oi7wD7eEHb_WN_pK29io9hltztt3rZYEcInvRBlw/edit?tab=t.0).
+
 [edit this page](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/blob/main/propollsoil/index.md) 
 
 [events](#events)
