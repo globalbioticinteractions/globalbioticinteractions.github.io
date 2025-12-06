@@ -128,6 +128,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 
 # Related Initiatives
 
+[INC-STEP – Creating a National Reference Collection for Spain’s Threatened Pollinators](https://tettris.eu/2024/10/25/inc-step-creating-a-national-reference-collection-for-spains-threatened-pollinators/) funded through https://tettris.eu . https://tettris.eu/awarded-projects/ . 
 
 [Running List of Related Initiatives](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit?tab=t.bcaxfrmawmxl). For a versioned snapshot of this list, see [related-projects.pdf](related-projects.pdf).
 
