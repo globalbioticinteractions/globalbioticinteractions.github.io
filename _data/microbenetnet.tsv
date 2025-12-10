@@ -2,7 +2,7 @@ dataset	contact	metadata_access	data_access	review_report_access	globi_id	review
 MaarjAM	Maarja Öpik	open	open	open	globi:globalbioticinteractions/maarjam	globalbioticinteractions/maarjam	
 FRED	Luke McCormack	open	open	open	globi:globalbioticinteractions/fred	globalbioticinteractions/fred	
 GlobalFungi	Petr Baldrian	open	open	open	globi:globalbioticinteractions/globalfungi	globalbioticinteractions/globalfungi	
-GlobalAMFungi		open	open	open		NA	
+GlobalAMFungi	?	open	open	open	globi:globalbioticinteractions/globalamfungi	globalbioticinteractions/globalamfungi	
 MAPS	Stephanie Kivlin	open	open	open	globi:globalbioticinteractions/maps	globalbioticinteractions/maps	
 MycoDB	V. Bala Chaudhary	open	open	open	globi:globalbioticinteractions/mycodb	globalbioticinteractions/mycodb	
 MycoPortal	Andrew Miller	open	open	open	globi:globalbioticinteractions/mycoportal	globalbioticinteractions/mycoportal	
@@ -15,4 +15,4 @@ International Collection of Microorganisms from Plants (ICMP)	Aaron Wilton 	open
 Climate-linked biogeography of mycorrhizal fungal spore traits	Smriti Pehim Limbu	open	open	open	globi:globalbioticinteractions/limbu2025	globalbioticinteractions/limbu2025	
 FungalTraits	Sergei Põlme	open	open	open	globi:globalbioticinteractions/fungaltraits	globi:globalbioticinteractions/fungaltraits	
 AusTraits	Daniel Falster / Rachael Gallagher	open	open	open	globi:globalbioticinteractions/austraits	globi:globalbioticinteractions/austraits	
-Fun2Fun		open	open	open		NA	
+FunFun (aka Fun2Fun)	Amy Zanne? 	open	open	open	globi:globalbioticinteractions/funfun	globalbioticinteractions/funfun	
