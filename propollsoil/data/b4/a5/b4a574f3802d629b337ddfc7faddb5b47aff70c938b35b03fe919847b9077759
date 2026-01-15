@@ -1,0 +1,580 @@
+﻿Plan Overview
+A Data Management Plan created using DMPonline[a]
+
+
+Title: ProPollSoil
+
+
+Creator:Alejandra Parreno[b]
+
+
+Principal Investigator: Alexander Keller, Edward Mitchell, Nenad Zarić, Michael Schloter, Maria Clara Castellanos, Nigel Raine, Johannes Lückmann, Adele Maria Muscolo, Markus Sydenham, Pilar De la Rúa Tarín, Péter I. Nagy, Anne Mupepele, Dara Stanley, Aleksandra Splitt, Olaf Schmidt, Michał Filipiak, Ivan Meeus, Fabrice Requier, Georgios Kleftodimos, Fabio Manfredini, Paolo Biella, Claus Rasmussen, George Vlontzos, Sara Diana Leonhardt
+
+
+Data Manager: Alexander Keller, Carmen Nebauer, Astrid Neumann
+
+
+Project Administrator: Carmen Nebauer, Astrid Neumann, Sara Diana Leonhardt, Sonja Bergner[c]
+
+
+Contributor: Alejandra Parreno
+
+
+Affiliation: Technical University of Munich
+
+
+Funder: European Commission 
+
+
+Template: Horizon Europe Template
+
+
+Project abstract: 
+ProPollSoil is a pan-European project that investigates how soil health and management practices affect soil-dependent pollinators, aiming to halt their decline. It combines multidisciplinary approaches, including soil science, pollinator ecology, biodiversity monitoring, modeling, and socio-economic analysis, to identify threats and develop pollinator-safe soil management strategies. The project supports the EU Mission “A Soil Deal for Europe” and the Pollinators Initiative by improving monitoring methods, reducing soil pollution, and promoting soil literacy. Through collaboration with Living Labs and stakeholders, ProPollSoil will deliver practical guidelines, tools, and policy recommendations for soil and pollinator conservation.
+
+
+ID: 191074[d]
+
+
+Start date: 01-10-2025
+
+
+End date: 01-11-2029
+
+
+Last modified: 04-12-2025[e]
+
+
+
+
+
+
+ProPollSoil
+
+
+
+
+Data Summary
+
+
+Will you re-use any existing data and what will you re-use it for? [f]
+ 
+
+
+ProPollSoil will re-use existing data from published literature, grey sources, expert surveys, and established databases (e.g., EuroAPPA[g][h][i], GBIF, EUSO, SOB4ES). These datasets include soil properties, pollinator occurrence records, and time-series data on pollinator abundances from previous monitoring campaigns. Reused data will be integrated with newly collected data to synthesize knowledge on soil-pollinator interactions, identify threats, and support modeling of population dynamics, spatial mapping, and the development of policy recommendations and best practices for soil management. All re-used data will be properly referenced, harmonized, and documented to ensure provenance and compliance with FAIR principles.
+
+
+
+
+What types and formats of data will the project generate or re-use?[j][k]
+
+
+ProPollSoil will generate and re-use multiple data types:
+* Observational and experimental data: Soil physical, chemical, and biological measurements; pollinator abundance and diversity; land-use and management practices.
+
+
+Formats: CSV, XLSX, shapefiles, text files.
+* Geospatial data: Maps of soil properties, land use, and pollinator distributions.
+
+
+Formats: GeoTIFF, shapefiles, JSON.
+* Genomic and molecular data: DNA sequences, metagenomics, gene expression profiles.
+
+
+Formats: FASTA, FASTQ, CSV.
+* Image and video data: High-resolution images of specimens, monitoring footage, scans.
+
+
+Formats: JPG, TIFF, MP4.
+* Citizen science data: Species occurrence records and nest observations.
+
+
+Formats: Darwin Core Archive, CSV.
+* Models and code: Predictive models, AI image processing scripts, and decision-support tools.
+
+
+Formats: R scripts (.R), Python scripts (.py).
+All data will follow FAIR principles, using non-proprietary, machine-readable formats wherever possible.
+ 
+ 
+
+
+
+
+What is the purpose of the data generation or re-use and its relation to the objectives of the project?[l][m]
+
+
+Existing data from literature, databases, and monitoring networks will be synthesized to fill knowledge gaps and provide a baseline for modelling pollinator population dynamics and soil health indicators. Newly generated data from field campaigns, laboratory experiments, and Living Labs[n] will enable the assessment of soil properties, pollinator diversity, and management impacts under real-world conditions. Together, these datasets will feed into predictive models, spatial maps, and decision-support tools, to form evidence-based recommendations for soil and pollinator conservation.
+
+
+
+
+What is the expected size of the data that you intend to generate or re-use?[o][p]
+
+
+The project anticipates generating and re-using approximately 75–100 TB of data over its 48-month duration. This estimate encompasses large volumes of high-resolution images and videos from monitoring and scans, as well as genomic and metagenomic sequencing data, geospatial layers for soil and pollinator mapping, and observational datasets from both field and laboratory experiments. While most tabular and metadata files are relatively small (MB to GB), imaging and sequencing datasets dominate storage needs, and make up the bulk of the total size.
+
+
+
+
+What is the origin/provenance of the data, either generated or re-used?
+
+
+Data will originate from two main sources:
+Re-used data from published literature, grey sources, expert surveys[q], and established repositories such as EuroAPPA, GBIF, EUSO, and SOB4ES monitoring sites
+Newly generated data from ProPollSoil’s field campaigns, laboratory experiments, Living Labs, and citizen science initiatives (e.g., iNaturalist). All data will be documented with metadata that details collection methods, source references, and processing steps to ensure traceability and compliance with the FAIR principles.
+
+
+
+
+To whom might your data be useful ('data utility'), outside your project?[r][s]
+
+
+Outside the project, the data will be valuable to scientists and research institutions working on soil health, pollinator ecology, biodiversity monitoring, and agroecology. It will also support policy makers, land managers, and farmers in developing sustainable soil management practices. Additionally, environmental NGOs, educators, and citizen science platforms can use the data for awareness campaigns, training, and conservation planning. Integration into open repositories (e.g., EuroAPPA, GBIF, EUSO) ensures broad accessibility for future research and policy development.
+
+
+
+
+
+
+FAIR data
+
+
+2.1.    Making data findable, including provisions for metadata: Will data be identified by a persistent identifier?[t][u]
+
+
+Yes, all datasets will be assigned a persistent identifier (DOI)[v] upon deposition in a trusted repository. The project will utilize Zenodo, where a dedicated ProPollSoil community will be established to organize all project outputs. Additionally, Dryad and GitHub may be used for specific datasets. Persistent identifiers will ensure long-term findability and citation, and each DOI will be linked to rich metadata in accordance with[w] community standards (e.g., Dublin Core, Darwin Core[x], ISO 19115).
+
+
+
+
+2.1.    Making data findable, including provisions for metadata: Will rich metadata be provided to allow discovery? What metadata will be created? What disciplinary or general standards will be followed? In case metadata standards do not exist in your discipline, please outline what type of metadata will be created and how.[y]
+
+
+Rich metadata will be provided to ensure data discovery and reuse. Metadata will include dataset title, authors, DOI, collection methodology, variables, units, file formats, software used, and assumptions[z]. We will adhere to established community standards, including Dublin Core for general metadata, Darwin Core for biodiversity data, and international standards for geospatial datasets. Where no standard exists, we will create descriptive metadata that covers methodology, analytical procedures, variable definitions, and data structure. This information will be captured in readme files[aa], embedded in file headers[ab], and linked to persistent identifiers in the Zenodo ProPollSoil community.
+
+
+
+
+2.1.    Making data findable, including provisions for metadata: Will search keywords be provided in the metadata to optimize the possibility for discovery and then potential re-use?[ac]
+
+
+We will use a controlled vocabulary to ensure consistency across all partners. The keyword list will include: soil health, soil biodiversity, pollinators, ground-nesting bees, hoverflies, soil contamination, agroecology, land management, EU Soil Mission, ProPollSoil, genomic data, geospatial mapping, and imaging. To enforce uniformity, the consortium will maintain a shared keyword guideline document and integrate it into the Zenodo ProPollSoil community submission workflow, requiring members to select keywords from the approved list when uploading datasets which would be curated by community moderators. This approach guarantees standardized metadata and improves interoperability across repositories.
+
+
+
+
+2.1.    Making data findable, including provisions for metadata: Will metadata be offered in such a way that it can be harvested and indexed?[ad]
+
+
+By depositing datasets in Zenodo under the ProPollSoil community, metadata will be exposed through OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting), which Zenodo supports. This ensures that metadata can be automatically indexed by aggregators such as OpenAIRE, disciplinary portals, and search engines. Metadata will follow standards and include persistent identifiers (DOIs)[ae], keywords, and descriptive fields to maximize interoperability and discoverability.
+
+
+
+
+2.2.        Making data accessible - Repository: Will the data be deposited in a trusted repository?[af]
+
+
+Yes, data will be deposited in trusted repositories to ensure long-term accessibility. The main repository will be Zenodo, under a dedicated ProPollSoil community, which supports open access and persistent identifiers. Additional disciplinary repositories (e.g., GBIF for biodiversity data, ENA for genomic sequences) will be used where appropriate[ag]. Copies will also be maintained on secure servers of partner institutions for redundancy, and datasets will be referenced in all related publications with their DOI and repository link.
+
+
+
+
+2.2. Making data accessible - Repository: Have you explored appropriate arrangements with the identified repository where your data will be deposited?[ah]
+
+
+We set up an "arrangement" in Zenodo, where a dedicated ProPollSoil community has already been created and successfully used by team members in previous major collaborative projects. This community supports version control, allows depositing multiple data types (including large files, code, and documentation). Internal guidelines will mandate the use of this community for all project datasets, guaranteeing consistency in metadata, keyword structure, and access settings.
+
+
+
+
+2.2. Making data accessible - Repository: Does the repository ensure that the data is assigned an identifier? Will the repository resolve the identifier to a digital object?
+
+
+Zenodo allowes the assignation of a persistent Digital Object Identifier[ai] (DOI) to each dataset upon deposition. This DOI is resolvable, meaning it can be entered in a browser or DOI resolver (e.g., https://doi.org) and will redirect to the dataset’s landing page, ensuring long-term accessibility and traceability. 
+
+
+
+
+2.2.    Making data accessible - Data: 
+Will all data be made openly available? If certain datasets cannot be shared (or need to be shared under restricted access conditions), explain why, clearly separating legal and contractual reasons from intentional restrictions. Note that in multi-beneficiary projects it is also possible for specific beneficiaries to keep their data closed if opening their data goes against their legitimate interests or other constraints as per the Grant Agreement.[aj]
+
+
+Data: Most ProPollSoil datasets will be made openly available through Zenodo under a Creative Commons license (CC-BY or CC0) upon publication of the respective manuscripts associated with them. However, certain datasets may require restricted access due to: Legal or ethical reasons: Data containing personal information from stakeholders or citizen scientists (e.g., names, contact details) will be anonymized or shared under controlled access; Contractual obligations: Some industry partner data (e.g., proprietary monitoring methods or pesticide residue analyses) may have restrictions as per the Consortium Agreement;  Legitimate interests: Specific beneficiaries may keep data closed if disclosure would compromise intellectual property or ongoing commercialization plans, in line with Horizon Europe Grant Agreement provisions. 
+Metadata: it will be made available in Zenodo under the most open license allowed. 
+
+
+
+
+2.2.    Making data accessible - Data: 
+If an embargo is applied to give time to publish or seek protection of the intellectual property (e.g. patents), specify why and how long this will apply, bearing in mind that research data should be made available as soon as possible.
+
+
+If an embargo is applied, it will only be for the minimum time necessary to allow publication of scientific results or to seek intellectual property protection (e.g., patents). For ProPollSoil, this period will typically not exceed 5 years after data generation. The reason for the embargo is to ensure that researchers have the opportunity to publish their findings in peer-reviewed journals and, where relevant, to protect innovations before their public release. After the embargo, all data will be made openly available in Zenodo under a Creative Commons license, with metadata accessible from the start.
+
+
+
+
+2.2.    Making data accessible - Data:
+Will the data be accessible through a free and standardized access protocol?
+
+
+After publications, all openly shared data will be accessible through a free and standardized access protocol. When deposited in Zenodo, datasets are available via HTTPS and linked to a persistent DOI, [ak]ensuring reliable and secure access. Users can download data without any subscription or payment, and metadata will remain openly accessible even for datasets under embargo or restricted access. This approach complies with Horizon Europe’s Open Science requirements and FAIR principles.
+
+
+
+
+2.2.    Making data accessible - Data:
+If there are restrictions on use, how will access be provided to the data, both during and after the end of the project?
+
+
+If certain datasets cannot be shared openly, access will be provided under controlled conditions both during and after the project. During the project, restricted data will be stored in Zenodo with metadata openly available and access granted upon request through a formal procedure (e.g., data sharing agreements or NDAs). After the project ends, the same controlled access mechanism will remain in place, ensuring compliance with legal, ethical, or contractual obligations while maintaining transparency. All restrictions will be clearly documented in the Data Management Plan, and wherever possible, anonymized or aggregated versions of sensitive data will be shared to maximize usability.
+
+
+
+
+2.2.    Making data accessible - Data:
+
+
+How will the identity of the person accessing the data be ascertained?
+
+
+If access to certain datasets is restricted, the identity of the person requesting access will be verified through the Zenodo request system or via a formal data sharing agreement managed by the project coordinator (TUM partner). This process will require the requester to provide institutional affiliation and contact details, and agree to the terms of use (e.g., signing a Non-Disclosure Agreement if needed). Authentication will rely on secure email verification and, where applicable, institutional credentials. All requests and approvals will be documented for transparency and compliance purposes.
+
+
+
+
+2.2.    Making data accessible - Data:
+
+
+Is there a need for a data access committee (e.g. to evaluate/approve access requests to personal/sensitive data)?
+
+
+No separate Data Access Committee will be established because ProPollSoil already has a Data Management Board (/// name partners///[al]) responsible for overseeing data governance. The TUM partner (project coordinator) will handle access requests for restricted datasets and, if necessary, consult the DMB for advice to ensure compliance with legal, ethical, and contractual obligations.
+
+
+
+
+2.2.    Making data accessible - Metadata:
+
+
+Will metadata be made openly available and licenced under a public domain dedication CC0, as per the Grant Agreement? If not, please clarify why. Will metadata contain information to enable the user to access the data?
+
+
+All metadata will be made openly available and licensed under CC0 (public domain dedication), as required by the Horizon Europe Grant Agreement. Metadata will include sufficient information to enable users to access the data, such as dataset title, description, authors, DOI, version, file formats, and access conditions (open or restricted). Even if some datasets are under embargo or restricted access, their metadata will remain publicly accessible to ensure transparency and compliance with FAIR principles.
+
+
+
+
+2.2.    Making data accessible - Metadata:
+
+
+How long will the data remain available and findable? Will metadata be guaranteed to remain available after data is no longer available?
+
+
+All data will remain available and findable for the long term. Primary datasets will be deposited in Zenodo, which guarantees[am] persistent DOI resolution and long-term storage. In addition, local institutional servers (e.g., TUM and partner institutions) will maintain backups of the latest versions to ensure redundancy and security[an]. Metadata will always remain openly accessible under CC0, even if the underlying data becomes unavailable, and will include links to related publications and project outputs to support discoverability and reuse.
+
+
+
+
+2.2.    Making data accessible - Metadata: 
+Will documentation or reference about any software be needed to access or read the data be included? Will it be possible to include the relevant software (e.g. in open source code)?
+
+
+The documentation about any software needed to access or read the data will be included in the metadata. For example, if specialized formats are used, the metadata will specify the required software and version. Where possible, open-source software (such as R scripts and Python code) developed in ProPollSoil will be shared alongside the data in Zenodo and GitHub under an open license
+
+
+
+
+2.3.    Making data interoperable: 
+What data and metadata vocabularies, standards, formats or methodologies will you follow to make your data interoperable to allow data exchange and re-use within and across disciplines? Will you follow community-endorsed interoperability best practices? Which ones?
+
+
+ProPollSoil will ensure interoperability by utilizing community-endorsed standards, such as Darwin Core (DwC[ao]) and Ecological Metadata Language (EML) for biodiversity data, as well as ISO standards for soil measurements (e.g., ISO 11277 for texture, ISO 10390 for pH), and compliant geospatial formats. Metadata will follow FAIR principles, include persistent DOIs, and use controlled vocabularies from GBIF (/// maybe more needed)[ap]
+Data will be stored in open, widely accepted formats to guarantee long-term usability:
+* Tabular: CSV for measurements and observations
+* Text: TXT for documentation
+* Geospatial: GeoTIFF and shapefiles
+* Images/Videos: JPG, TIFF, MP4
+* Genomic: FASTA, FASTQ
+* Scripts/Models: R (.R) and Python (.py)
+These formats are chosen for their non-proprietary nature, broad community adoption, and compliance with FAIR and repository standards, for easy sharing, archiving, and reuse across disciplines.
+
+
+
+
+2.3.    Making data interoperable: 
+In case it is unavoidable that you use uncommon or generate project specific ontologies or vocabularies, will you provide mappings to more commonly used ontologies? Will you openly publish the generated ontologies or vocabularies to allow reusing, refining or extending them?
+
+
+ProPollSoil does not anticipate creating project-specific ontologies or vocabularies. All data will utilize community-endorsed standards, including Darwin Core (DwC), Ecological Metadata Language (EML), ISO soil standards, and standard geospatial formats. This ensures interoperability without requiring custom mappings. If unforeseen circumstances require new terms, they will be documented and mapped to existing standards.
+
+
+
+
+2.3.    Making data interoperable: 
+Will your data include qualified references[1] to other data (e.g. other data from your project, or datasets from previous research)?
+ 
+[1]A qualified reference is a cross-reference that explains its intent. For example, X is regulator of Y is a much more qualified reference than X is associated with Y, or X see also Y. The goal therefore is to create as many meaningful links as possible between (meta)data resources to enrich the contextual knowledge about the data. (Source: https://www.go-fair.org/fair-principles/i3-metadata-include-qualified-references-metadata/)
+
+
+The ProPollSoil metadata will include qualified references (meaninful links) to related datasets and outputs to enrich contextual knowledge and support reuse. This will cover:
+* Links between datasets generated within the project (e.g., soil measurements linked to pollinator observations and genomic data).
+* References to external datasets from previous research or repositories (e.g., SOB4ES soil data, pollinator interaction records).
+* Connections to related publications and models using persistent identifiers (DOIs).
+These references will be expressed in a structured way following FAIR principles and community standards (Darwin Core, EML), ensuring that relationships are meaningful (e.g., “soil parameter X influences pollinator Y”) rather than generic associations.
+
+
+
+
+2.4.    Increase data re-use: 
+How will you provide documentation needed to validate data analysis and facilitate data re-use (e.g. readme files with information on methodology, codebooks, data cleaning, analyses, variable definitions, units of measurement, etc.)?
+
+
+Each dataset will include a README[aq] file detailing methodology, data collection protocols, variable definitions, units of measurement, and any data cleaning steps. Where applicable, codebooks will describe data structures and coding schemes. Scripts for data processing and analysis (R and Python) will be shared in open repositories (Zenodo/GitHub) with clear instructions. Metadata will link to related publications and include persistent identifiers (DOIs).
+
+
+
+
+2.4.    Increase data re-use: 
+Will your data be made freely available in the public domain to permit the widest re-use possible? Will your data be licensed using standard reuse licenses, in line with the obligations set out in the Grant Agreement?
+
+
+All data that can be shared will be made freely available in the public domain to permit the widest possible reuse. ProPollSoil will use standard reuse licenses in line with Horizon Europe requirements: CC-BY for most datasets to allow reuse with attribution; CC0 for metadata and selected datasets where full public domain dedication is appropriate. If any data cannot be shared openly (due to legal, ethical, or contractual constraints), this will be clearly documented in the DMP, and metadata will remain openly accessible.
+
+
+
+
+2.4.    Increase data re-use:
+Will the data produced in the project be useable by third parties, in particular after the end of the project?[ar]
+
+
+The data produced by ProPollSoil will remain usable by third parties beyond the project’s lifetime. All datasets will be deposited in Zenodo[as] with persistent DOIs and licensed under CC-BY or CC0, ensuring clear reuse conditions. Comprehensive documentation (methodology, variable definitions, codebooks, and scripts) will accompany the data, and metadata will remain openly accessible. Backups of the latest versions will also be maintained on institutional servers to guarantee long-term availability.
+
+
+
+
+2.4.    Increase data re-use:
+
+
+Will the provenance of the data be thoroughly documented using the appropriate standards?
+
+
+The provenance of all data will be thoroughly documented in accordance with community standards (///).[at] Metadata will include details on origin, collection methods, processing steps, and version history, following the Darwin Core (DwC) standard for biodiversity and the ISO soil standards for soil data. Each dataset will have a README file and structured metadata in Zenodo, ensuring traceability and reproducibility.
+
+
+
+
+2.4.    Increase data re-use:
+
+
+Describe all relevant data quality assurance processes.[au]
+
+
+ProPollSoil will apply practical quality assurance measures to ensure data reliability and traceability. We will use standardized protocols for soil sampling and biodiversity monitoring based on ISO and recognized guidelines. During data entry and processing, validation checks will detect errors, inconsistencies, and missing values. Version control for datasets and scripts will be maintained through GitHub and institutional servers. Internal peer review of datasets will confirm accuracy before publication. Metadata will be checked against FAIR principles and standards, such as the Darwin Core and EML standards, and each dataset will include clear documentation (README files, codebooks) to support transparency and reproducibility. These steps are achievable within our time constraints and guarantee that data is suitable for reuse.
+
+
+
+
+2.4.    Increase data re-use:
+
+
+Further to the FAIR principles, DMPs should also address research outputs other than data, and should carefully consider aspects related to the allocation of resources, data security and ethical aspects.[av]
+
+
+In addition to ensuring FAIR data, ProPollSoil will also address other research outputs, such as protocols, scripts, and workflows, by storing them in version-controlled repositories (e.g., GitHub) with clear documentation. Resource allocation will be managed by dedicating time to metadata creation and internal reviews within the project timeline. Data security will be ensured through institutional servers with controlled access and regular backups. Ethical aspects will be considered by anonymizing sensitive data and obtaining necessary permits for soil and biodiversity sampling. 
+
+
+
+
+
+
+Other research outputs
+
+
+In addition to the management of data, beneficiaries should also consider and plan for the management of other research outputs that may be generated or re-used throughout their projects. Such outputs can be either digital (e.g. software, workflows, protocols, models, etc.) or physical (e.g. new materials, antibodies, reagents, samples, etc.).
+
+
+ProPollSoil will generate physical research outputs such as soil samples, pollinator specimens, and associated biological material collected during field campaigns and Living Lab[aw] experiments. All samples will be catalogued with unique identifiers and linked to metadata describing location, date, sampling method, and environmental conditions. Soil samples will be air-dried, sieved, and stored in institutional facilities under controlled conditions for long-term preservation, while fresh subsamples for microbial analyses will be frozen or processed immediately. Pollinator specimens will be preserved following entomological standards (e.g., pinned or stored in ethanol) and deposited in institutional collections or museums where possible. Movement of biological samples across borders within Europe will comply with relevant national and EU regulations, including phytosanitary and biodiversity protection laws, and necessary permits will be obtained in advance to avoid delays. Where export/import restrictions apply, samples will either remain in-country for analysis or be processed into non-hazardous derivatives (e.g., DNA extracts) before shipment. Metadata for all physical outputs will be recorded in the project’s internal database and referenced in publications to ensure traceability and potential reuse by other researchers.
+
+
+
+
+Beneficiaries should consider which of the questions pertaining to FAIR data above, can apply to the management of other research outputs, and should strive to provide sufficient detail on how their research outputs will be managed and shared, or made available for re-use, in line with the FAIR principles.[ax]
+
+
+In line with FAIR principles, ProPollSoil will ensure that all research outputs beyond data such as software, workflows, experimental protocols, models, and physical samples are findable, accessible, interoperable, and reusable. Digital outputs (e.g., code, models) will be version-controlled on GitHub/Zenodo[ay][az], assigned persistent identifiers (DOIs), and documented with clear metadata and usage instructions. Physical outputs (soil samples, pollinator specimens) will be catalogued with unique identifiers and linked to metadata describing sampling location, date, and conditions. Where cross-border transfer is required, compliance with EU and national regulations will be ensured, and processed derivatives (e.g., DNA extracts) will be used when necessary to avoid restrictions. 
+
+
+
+
+
+
+Allocation of resources
+
+
+What will the costs be for making data or other research outputs FAIR in your project (e.g. direct and indirect costs related to storage, archiving, re-use, security, etc.) ?
+
+
+The costs for making data and research outputs FAIR in ProPollSoil will primarily involve personnel time for data curation, metadata creation, and quality assurance, as well as infrastructure for storage and long-term preservation. Direct costs include maintaining secure institutional servers and backups, and minor hardware upgrades. Indirect costs include staff time for preparing interoperable datasets, assigning DOIs, and uploading to trusted repositories (approximately 3-4 person months distributed across work packages). No significant costs are expected for repository use, as Zenodo, GBIF, and EuroAPPA provide free deposition. Costs for managing physical outputs (soil and pollinator samples) will be covered by institutional facilities, with minor expenses for cataloguing and compliance with cross-border regulations (permits and shipping). Overall, FAIR implementation costs are integrated into the project budget under data management and dissemination activities.
+
+
+
+
+How will these be covered? Note that costs related to research data/output management are eligible as part of the Horizon Europe grant (if compliant with the Grant Agreement conditions)[ba]
+
+
+
+
+
+
+Who will be responsible for data management in your project?
+
+
+The Chair of Plant-Insects Interactions, Technical University of Munich, with Astrid Neumann, Carmen Neubauer and Sara Leonhardt as the project managers and principal investigators. The data managers are supported by a Data Management Board consisting on: ///[bb]
+
+
+
+
+How will long term preservation be ensured? Discuss the necessary resources to accomplish this (costs and potential value, who decides and how, what data will be kept and for how long)?
+
+
+Long-term preservation of data has been discussed in previous sections. Selection of data for long-term preservation will follow best practices from the DCC guide and DataONE, prioritizing datasets with high scientific value (e.g., soil-pollinator interaction data, genomic data, monitoring protocols). Decisions will be made by the Data Management Board in consultation with WP leaders to ensure transparency and alignment with project goals.
+
+
+
+
+
+
+Data security
+
+
+What provisions are or will be in place for data security (including data recovery as well as secure storage/archiving and transfer of sensitive data)?
+
+
+All digital data will be stored on secure university servers with password-protected access and regular automated backups to prevent data loss. Sensitive socio-economic data will be anonymized before sharing and kept in restricted folders accessible only to authorized team members. Data transfers between partners will use secure institutional platforms. Storage redundancy will be discussed with work package leaders.
+
+
+
+
+
+
+Ethics
+
+
+Are there, or could there be, any ethics or legal issues that can have an impact on data sharing? These can also be discussed in the context of the ethics review. If relevant, include references to ethics deliverables and ethics chapter in the Description of the Action (DoA).
+
+
+Compliance with GDPR and national data protection laws will be ensured, and consent forms will explicitly include permission for long-term preservation and reuse of anonymized data. Cross-border transfer of biological samples (soil and pollinator specimens) will follow EU and national regulations, requiring permits for protected species or phytosanitary compliance. These constraints may limit open sharing of raw data but aggregated or derived datasets will be made openly available.
+
+
+
+
+Will informed consent for data sharing and long term preservation be included in questionnaires dealing with personal data?
+
+
+Yes, such informed consent will inform participants of: purpose, why data is collected, and how it will be used.; Preservation: that anonymized data will be stored for at least 5/10 years[bc].; reuse: that data may be shared in aggregated form for scientific purposes; rights of participants to withdraw consent for identifiable data at any time.
+
+
+
+
+
+
+Other issues
+
+
+Do you, or will you, make use of other national/funder/sectorial/departmental procedures for data management? If yes, which ones (please list and briefly describe them)?[bd]
+
+
+Each partner will apply their university’s data management procedures, which typically include secure storage on institutional servers, European General Data Protection Regulation compliance for personal data, and long-term archiving protocols. 
+
+
+________________
+
+
+Use Cases[be]
+
+
+[a]Why document this? If documenting the origin of this template, please follow your own best practices: include the version of the DMPonline tool, when it was used and which specific version of the template was used.
+[b]Suggest to include ORCID for people, as to follow our own guidelines to link data for reuse. Name of contributors are these kind of data that should, in my mind, be linked.
+[c]Astrid: Was this the former person responsible from EURICE side? This would be Renita now.
+[d]please include the DOI of the grant proposal as to follow our own proposed data management practices.
+[e]Please use ISO-8601 for date formats - again, please follow applicable international standards in the writing of this text. This document is a product of ProPollSoil (and data) too!
+[f]Ale: I have not yet included the new insights from Pierre. I will delete this comment when I do :) Ale
+[g]Check with Cala & Jorrit but I think it's DoPI that will hold the data, EuroAPPA is just a wrapper that will also encompass other things that just data.
+@jhpoelen@jhpoelen.nl @M.C.Castellanos@sussex.ac.uk
+[h]Thanks for checking. In my mind DoPI is a contributor to EuroAPPA, just like many other datasets. The difference for DoPI compared to other datasets is that Butterfly is actively developing it. Also, many datasets are already in good shape (e.g., CropPol) so, I'd say it'd be a waste of time to add those to DoPI, and instead have them automatically indexed through GloBI.
+[i]Given the methods used (manual transcription), I consider DoPI to be the fallback option for datasets that are not yet machine readable. But perhaps this is something to discuss. Again, thanks for bringing this up.
+[j]Ale: 
+Any data format missing?
+Any format there that will not be used?
+[k]Astrid: This is probably information that we should collect from the WPs? It might have changed since the proposal.
+[l]Ale: Does this answer reflect your vision and main purpose?
+[m]Astrid: I would say yes, but better someone who was part of proposal writing answers this ;)
+[n]We are not calling them Living Labs, right?
+[o]Ale: 75–100 TB of data is a bit random: how much do you forsee to need?
+[p]Astrid: Is there a specific person we could ask about this? Might also be something we need to collect from every WP separately.
+[q]Astrid: I am not sure I understand what an expert survey is in this context. For me this sounds like a survey sent to be answered by experts - but isn't this newly generated data?
+[r]Ale: Any stakeholder missing here?
+[s]Astrid: We also should add stakeholders after getting the complete stakeholder board nominations, which is due until 18.1.
+[t]Ale: 
+The community in Zenodo is created: https://zenodo.org/communities/propollsoil/settingsOpens in a new window
+Astrid and Carmen should be added as owners and moderators. Anyone can upload after that just by tagging the community name. 
+ 
+Do you want to add here the persistent identified from the book binding - Jorrit?
+[u]Astrid: We might also want to have a look at the European Open Science Cloud (EOSC) --> this was forwarded to us by Alexandra Klein
+
+
+This is the info we received from Pierre on repositories used by Mission Soil: "There is no single fixed repository or platform for Mission Soil. Mission Soil uses Soil Wise (https://soilwise-he.containers.wur.nl/cat/), an online catalogue that provides metadata on soil-related data and knowledge. Soil Wise relies on OpenAire (Open Access Infrastructure for Research in Europe), which includes thousands of repositories registered in OpenDOAR (https://opendoar.ac.uk/), but also includes additional soil-specific or EU repositories (INSPIRE geoportal, CORDIS, ESDAC, Bonares, EJP Soil, PrepSoil, Impact4Soil, FAO Soils portal,EEA Datahub, ISRIC - World Soil Information)." - I wonder if we can just link to Soil Wise at this position or if we need to specify the exact repositories already?
+
+
+Sara also mentioned safe-hub several times before: https://safeguard-pollinators.eu /
+[v]@jhpoelen@jhpoelen.nl  - and hash identifiers?
+_Assigned to jhpoelen_
+[w]Can you please provide examples of how DOIs are "linked to rich metadata"?
+[x]Astrid: I think it would be helpful to provide links or citations here so that everyone from the project can look up the same resources.
+[y]Ale: Detailed enough? Are the standards missing? Do you want to write that you will make prototype of metadata for all work packages to share?
+[z]Astrid: Assumptions of what? Not sure I understand what is meant here.
+[aa]Astrid: We might want to specify the file types for readme files here.
+[ab]Astrid: Is it possible to include all this info mentioned in the first sentence in the file header or only a subset? If it is only a subset, we should specify which info is going where.
+
+
+When saying "file header" - which files are we talking about? I suppose only data files, e.g. csv files?
+[ac]Ale: The controlled vocabulary would need to be controlled by Astrid and Carmen, as they curate the community. I am not sure outside Zenodo how they could control this. Perhaps making a glossary of terms: I did this for the unit research where i did my phd and that worked quite good to bring interdisciplinary people to the same page on terminology. You need to discuss whether it makes sense for you to spend time on this. 
+[ad]Ale: From here on it gets very repetitive
+[ae]Again, what about the hash codes @jhpoelen@jhpoelen.nl  has suggested?
+_Assigned to jhpoelen_
+[af]Ale: Maybe discuss where it would be appropriate to use other repositories, which should be listed more specifically here. 
+[ag]I'd like to get @jhpoelen@jhpoelen.nl 's view on whether this is sufficient, given his comments at the KOM about depositing data in as many places as possible. The issue with disciplinary repositories (and correct me if I'm wrong) is that the links between different types of data (e.g. observation v genetic pollinator data) will be lost.
+
+
+UPDATE: I see that institutional servers are mentioned below - should they also appear here?
+_Assigned to jhpoelen_
+[ah]Ale: 
+Flaws from Zenodo discussed by Jorrit could be addressed here. 
+Internal guidelines would be for example the template or prototype data and metadata to be drafted and shared
+[ai]Again, what about hash identifiers? @jhpoelen@jhpoelen.nl
+_Assigned to jhpoelen_
+[aj]Ale: We dont need to be super specific here, given the diversity of datasets and situations with institutions that this project has. But the answer should be comprehensive of all those possible cases, so as not to promise things we can achieve. 
+[ak]Ditto hash identifiers @jhpoelen@jhpoelen.nl  There's a few mentions below of DOIs so I won't make the same comment, but they need to be looked at too.
+_Assigned to jhpoelen_
+[al]To be completed.
+[am]Does Zenodo guarantee this? Please include a citation to their terms and conditions.
+[an]This probably ought to be mentioned above where I commented.
+[ao]For standardisation, these abbreviations also ought to appear above.
+[ap]???
+[aq]Standardise "README" v "readme" in the text.
+[ar]Ale: How will it remain beyond the project? Can we actually promise this? 
+[as]That's not quite what it says above - need to mention other repositories here.
+[at]???
+[au]Ale: Does every team or at least the WP leaders know what these standards are and how to attain to them? Otherwise we need to teach that first. 
+[av]Ale: Github is quite advance for some members of the team. Yet it may be the best option for at least PhD students that code. What is the direction people want to go with this? Teach Github, choose another one, not be so specific yet?
+[aw]See comment above - I thought that we weren't calling them this?
+[ax]Ale: check if possible to have a unique identifier for collections of samples, and for tracing them. 
+[ay]Zenodo is not a version control system.
+[az]Zenodo allows for metadata to be altered after publication.
+[ba]Ale: I believe they are in the budget
+[bb]???
+[bc]???
+[bd]Ale: We need to dig into the institutional requirements of all partners in order to be accurate here
+[be]@Jorrit: Could you add all use cases you collected so far here?
