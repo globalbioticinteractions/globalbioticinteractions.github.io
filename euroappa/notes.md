@@ -2,13 +2,241 @@
 
 # EuroAPPA Meeting Notes
 
-## Jan 6, 2026 \- 
+## Jan 13, 2026 
+
+## Attendees \- Cala, Nilgun, Claus, Jeff, Jorrit, Finn
+
+Agenda \- Make plan for the workshop in the AGM (happening Jan 28-30)
+
+For the EuroAPPA Use Case workshop \- Claus, Nilgun, Finn, Joe will be onsite. Cala, Jorrit will join remotely, as Jeff will be there for day 1 and possibly part of day 2\. 
+
+Cala \- has been sending use case requests to individuals relevant to the project. Suggest main goal for workshop- get many use cases. We need to have an introduction to introduce this main goal to the audience (5-10 minutes estimated), then request use cases. Perhaps use menti or some kind of web form to submit use cases. Jorrit: Pick a few or review them as a group. 
+
+Finn: Let’s use paper within the workshop and collect at the end.  
+Jeff: At the end ask how these Use Cases relate to the aims of Butterfly, especially the idea of “stewardship” of pollinators.
+
+**Plan (see final version below):** 
+
+Part 1: Introduction with slides: 10 min   
+What is EuroAPPA  
+What it will do (and won’t)  
+Quickly show what a good use case and how to prepare a use case  
+Show a good example, maybe also a bad one (fake)
+
+Part 2: Invite everyone to prepare use case(s) 10-15 min  \- have the option of doing this on paper format (or online for those online, in nextcloud, use a QR code to access) (make the document open access in case not everyone has sorted access)
+
+Part 3: Review a new use case from a volunteer, live, whole group,  15 min
+
+Part 4: discussion \- what next? ask how these Use Cases relate to the aims of Butterfly, especially the idea of “stewardship” of pollinators.
+
+(save 3 min to show current GloBI map and DoPI 
+
+map to ask for data from underrepresented countries)- maybe in the WP1 session instead?  
+Jeff: Alternative suggestion to send everyone a link to all of the Use Cases and then discuss how they relate to the aims of Butterfly.
+
+Claus: Will people actually do the work in advance?
+
+**New plan:**   
+In the session for WP1 in day 1:  hand out all use cases that we have and ask people to have a look in preparation for EuroAPPA workshop in day 2  
+
+Finn can run the workshop in the room
+
+Workshop Part 1: Introduction with slides: 10 min   (Cala prepares first version and shares)   
+What is EuroAPPA  
+What it will do (and won’t)  
+Show what a use case and how to prepare a use case  
+Show a good example, maybe also a bad one (fake)
+
+Part 2: Invite everyone to prepare use case(s) to fill the gaps \- 10-15 min  \- have the option of doing this on paper format (or online for those online, in nextcloud, use a QR code to access) (make the document open access in case not everyone has sorted access)
+
+Part 3: discussion 15- min.  what next? ask how these Use Cases relate to the aims of Butterfly, especially the idea of “stewardship” of pollinators.  
+
+(save 3 min to show current GloBI map and DoPI map to ask for data from underrepresented countries)- maybe in the WP1 session instead? Nilgun: Not sure if there will be time for it in WP1 workshop.
+
+Presented at the 17-19 Nov 2025 kick-off meeting in Freising, Germany of the EU Horizon’s [ProPollSoil](https://propollsoil.eu/) project “Understanding and managing soil health impacts to protect soil-dependent pollinators”  
+Poelen, J. H. (2025, November 17). Fairy Tales and Digital Research Data hash://md5/74cabb19c6dcf3e2eea27a38acf4fb76. Zenodo. https://doi.org/10.5281/zenodo.17625448
+
+## Jan 8, 2026 
+
+## Attendees \- Cala, Nick, Jeff, Jorrit
+
+Agenda   
+Method of Review DoPI  
+Review Jorrit’s notes on DoPI  
+Discuss Next Steps
+
+Notes
+
+Current method of review \- Nick sent a sample of the DoPI dataset by email to Jorrit and asked feedback on the terms used. Some time later, Nick also shared a larger dataset that included EU part of the DoPI data. Both datasets where shard in XLSX (or csv?) format.
+
+Jorrit, Nick, Jeff and Cala reviewed the DOPI column definitions. Jorrit shared an annotated version of the column definitions. See notes below.
+
+— email exchange Jan 8th 2026 on DoPI terminology: 
+
+Nick had written: “Cala and I thought that it may be a good idea to run our updated terms for DoPI past you before we finalise them \- if you have the time of course\! Please find attached a snippet of the DoPI dataset and sheet with the terms/definitions/examples etc. Any input at this stage would be very much appreciated.”
+
+Jorrit’s reply:  
+I see the act standardization of datasets like DoPI as a translation of their native format (e.g., xlsx) into some other format (e.g., DwC) with a specific goal in mind (e.g., increase visibility, access, facilitate reuse).
+
+ And, I know that most native datasets are perfectly able to express exactly what is needed for the project, whatever works, works. However, some think that the native format and some standardized view on them should be perfectly aligned. And this is often where analysis paralysis sets in (at least for me\!). So, my preferred approach would be something like:
+
+ 1\. describe, version, and *publish* the data in the way that \*you\* and your colleagues use it currently, submit for internal review
+
+2\. when appropriate, choose which platforms you'd like to register with (e.g., GBIF, GloBI, GitHub, CodeBerg, Zenodo). 
+
+3\. once you've chosen the platform you'd like to share your datasets with, implement a method to translate your native data into a format that works for the target platform
+
+Sometimes, I see folks getting stuck on 2\. and 3\. for so long that they are unable to publish the data in their native form, let alone some standardized format of it. Also, some manage to put a ton of time into conforming to some kind of standard, only to delay use of the data by peers. A silly extreme example of this would be that, after tons of effort, you help create a first (internal) release of a perfectly standardize DoPI dataset in Nov 2029, leaving Joe and colleagues unable to use it for modeling before the end of the Butterfly project.
+
+ In other words, I am a fan of reviewing versioned copies of datasets early and often. In my mind, a dataset is only as good as the ability for your peers to reuse and review it.
+
+Nick/Cala clarified that what we want is confirmation that the terms we are using for the columns in DoPI (based on Darwin Core terminology, Jorrit calls this “inspired by” which is probably more accurate) make sense and will be good for being translated into different formats by GloBI.
+
+We went through the current table and discussed specific topics including, but not limited to, specifying the role of the subj/obj of the interaction in the column name (e.g., taxonID \-\> sourceTaxonId). Also we discussed the difference between a term-type (e.g., dwc:scientificName) and a column value of a certain type (e.g., value Apis mellifera in sourceTaxonName column is of type dwc:scientificName) . Jeff also brought up some ideas on describing the evidence pollination “success”  (flower visitation, carried pollen, etc) visitand their relation to the “quality” of the data record. the 
+
+Jorrit sent annotated xslx including the notes on the column definitions by email.   
+Next steps are for Nick/Cala to review these ideas and share how their are planning to inrcorporate this into the DoPI column specifications share their to for Nick file s notes.
+
+— email exchange Dec 2025 \- Jan 2026 about EU DoPI notes \- between Nick / Jorrit  
+ 0\. Thanks again for sharing your (massive\!) new dataset with . . . wow you guys have been busy growing from 100k to over 300k records\!   
+    I sent over only the European dataset. So, it did not include the original UK data, so we now have \>450k records (or rows) in total now \- and still growing. Please do not make this data or any reviews publicly accessible, until we upload the new data in early 2026\.
+
+## 1\. The name ''EuroDoPI\_Export 08.12.25.csv' seems to suggest that the dataset is derived from something else. What is the origin of this data? Some XLSX?
+
+##     Yes, this is an export from an .xlsx file, the data is curated and managed in this format.
+
+## 2\. The date stamp in 'EuroDoPI\_Export 08.12.25.csv' suggests that versioning is done by filename. What is your versioning and release strategy strategy currently?
+
+##     Yes, the versioning is done by filename, as generally it is for my use only.  The data currently on the website and that associated with the Ecology (2022) paper are version 1.0 and as we will likely upload (to the DoPI website and Zenodo) a few subsequent versions throughout the course Butterfly. Before we release the version 2.0 we need to change a few things on the website and finalise our terms.
+
+## 3\. the name in 'EuroDoPI\_Export 08.12.25.csv' seems to suggest that there's now two datasets \- DoPI and EuroDoPI. What is the relationship between the DoPI and EuroDoPI datasets ? 
+
+##     Yes, I have kept the UK-only data (DoPI) and the pan-European dataset (EuroDoPI) separate for just now, and only merge them for analysis and will do so again when I upload the new dataset to the website.
+
+## 4\. Who contributed to the compilation dataset? Who should I contact in case I have issues?
+
+##     It's a mixture of contributed datasets and data taken straight from the literature (or publicly-accessible associated datasets). If I were to share the contact details of data contributors I would want to seek their permission to do so first. Is this necessary?
+
+## 5\. Where can I find a description of the methods used to compile (Euro)DoPI? 
+
+##     This will be completed when we prepare a paper announcing the new dataset later in 2026\.
+
+## 6\. Where can I find a description of the headers? (I do realize that this was available in the XLSX snippet you shared some time ago).
+
+##     Again, the shared file was not designed for public consumption or for sharing, but are only used to curate and manage the data. As such the headers do not exactly match the format of the .csv files that are downloadable via the database website. Please see my previous comment about finalising headers before any reviewing. 
+
+## 7\. Currently, the website at https://www.sussex.ac.uk/lifesci/ebe/dopi/ offers an interactive search to create subsets of the DoPI database/dataset, and the Balfour et al. 2022 paper is set to contain the whole dataset in a data appendix. Does this mean that the website has not been updated since 2022? How can I verify whether the dataset associated with the website is actually the one hosted by the journal "Ecology" ?
+
+##     Yes, at the moment it is not possible to download the entire dataset from the website. We may change that. I will discuss with Cala. The website code has been updated several times since 2022, but not the dataset. You can verify that the data on the website and Ecology are the same, but you would have to download the data from the website in a couple of chunks I guess.
+
+## 8\. You expressed a desire to align your data/schema with biodiversity data standards such as the Ecological Metadata Language (EML) and DarwinCore Archive (DwC-A). If you'd like, I can show you how to provide an eml file and meta.xml to help wrap your data in such that infrastructures like GBIF, DataOne, GloBI can read/interpret (part of) your data. 
+
+##     That would be great, thanks Jorrit. However, what are your thoughts on just providing a JSON-LD, do you think this would be sufficient?
+
+## 9.In the data, columns "Paper.ID" and "DOI" appear to refer to the literature/dataset that makes the transcribed claim. Do you have a secondary table that include the bibliographic information about the paper. Also, for consistency, I'd suggest to rename "DOI" to "Paper.DOI" following the naming convention used in "Paper.ID" .
+
+##     Again, this is just the format the data are curated and managed in, and these column headers do not match those that appear in the .csv files that are publicly accessible from the website. I am very happy to follow the recommendations set out below, but strongly feel we need to finalise the headers before doing so.
+
+## Recommendations
+
+## From these questions / notes, I'd suggest to do the following:
+
+## At the minimum, when sharing a dataset for review, suggest to: 
+
+## R1. include a README with a text-based description of the data origin / structure / methods. 
+
+## R2. include original xslx (if available) 
+
+## R3. include provide csv exports for relevant sheets in the xlsx and describe how you converted these files. 
+
+## R4. include a history in the README, noting the date / version of the data and short description of the changes
+
+## R5. if you do choose to continue to embed dates/version in a filename, suggest to also include copies with a stable name, using ISO8601 dates (e.g., 2025-10-08 instead of 8.12.2025 or similar). 
+
+## e.g., 
+
+## README-2025-10-08.txt
+
+## dopi-2025-10-08.xlsx
+
+## dopi-data-2025-10-08.csv
+
+## dopi-refs-2025-10-08.csv
+
+## along with 
+
+## README.txt
+
+## dopi.xlsx 
+
+## dopi-data.csv
+
+## dopi-refs.csv
+
+## where the xlsx and csv files have different names but same content. Having a stable filename makes it easier for scripts or other automated workflows to reuse your data. 
+
+## R6. After data release, offer a full data download from the website, perhaps linking to the data hosted on Zenodo or whatever platform/publisher you choose to disseminate the data. 
+
+## extra credit R7. Add a eml.xml and meta.xml along with your data files to align your data with EML/DwC-A standards and facilitate indexing by GBIF, GloBI etc
+
+	 	 	 	 	 	
+
+## Jan 6, 2026 
+
+## Attendees \- Cala, Nilgun, Claus, Nick, Jeff, Finn, Jorrit, Joe
 
 Agenda to discuss \- 
 
-(please add ideas) 
+(please add agenda ideas)   
+Cala \- approve draft here: [https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/\&editing=false\&openfile=true\#h-invitation-to-provide-a-use-case-for-euroappa](https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/&editing=false&openfile=true#h-invitation-to-provide-a-use-case-for-euroappa)  
+And Ok that Cala manages this request to stakeholders
 
-## 
+Jorrit \- suggest to pick one yet-to-be reviewed EuroAPPA use case for review see [https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/\&editing=false\&openfile=true](https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/&editing=false&openfile=true) (with previous)
+
+Jorrit \- go over readily available data review to go over from [https://www.globalbioticinteractions.org/euroappa/\#Dataset-Review](https://www.globalbioticinteractions.org/euroappa/#Dataset-Review) with an emphasis on the packaging and structure of datasets like \- EU Pollinator Hub, DoPI, BeeFunc, and EuPPollNet . 
+
+Jorrit \- pick a spatial extent to delineate geo-locations in EuroAPPA scope and out of EuroAPPA scope. (are the administrative regions associated with UK and Republic of Ireland in or out of scope of EuroAPPA?)
+
+Butterfly AGM EuroAPPA presentation
+
+Notes
+
+Cala \- about the draft email on requesting use cases. We agreed that she could send out the draft email and, in some cases, ask us to approach individuals.
+
+Nilgun asks \- Can we talk about Butterfly AGM (January 2026 Aarhus)  EuroAPPA presentation, please?   
+Cala \- we have 45 (16:00 \- 16:45 CET) minutes on 29 January 2026 for a use case workshop. Cala and Jorrit will run the session, including data request for DoPI \- using map Nick put together showing the spatial extent of DoPI 
+
+Jorrit \- I’d love to very much to repeat Nick’s work on the datasets currently indexed by GloBI (plant visitation / pollination in some to be determined geographic extend)
+
+Nick \- shares the map of geographic points of species interactions reported in DoPI (both UK and European) 
+
+Jorrit \- suggests to do a data review of DoPI to help establish a way to put DoPI into context of other 
+
+Cala / Jeff \- note gaps in the Polish and Spanish areas (not that data don’t exist, but a matter of getting it).
+
+Claus \- asks how are points on the map are calculated. Nick replies that some studies report centroids of the countries, whereas others are more specific. 
+
+Jeff \- Polish studies are single plant level studies. But Marcin Zych may be able to provide unpublished data. Cala will also contact Jakub Štenc (currently at Lund U) who has also been involved in community studies. Also, here's an urban network from Poland: https://link.springer.com/article/10.1007/s11829-013-9274-z
+
+## Joe \- Surprised we also don't have more records for Norway: The Sogndal record is probably from Stein Joar and I guess the Hardanger record is from the APPLECORe project. We definitely have access to a lot more records though: I can pressgang my PhDs and Master's students to share it on DoPI and that alone should close some of the gaps
+
+Jorrit discusses review of DoPI here:  
+Elton, Nomer, & Preston. (2025). Versioned Archive and Review of Biotic Interactions and Taxon Names Found within globalbioticinteractions/dopi hash://md5/5092adc224b66f397c752f6f2071ed53. Zenodo. [https://doi.org/10.5281/zenodo.16416445](https://doi.org/10.5281/zenodo.16416445)  
+Generate PDF to see all details of the review: there are lists of top pollinators and plants but maps are missing. Location data is available but is not used. Jorrit plans to add this to reviews (see [https://github.com/globalbioticinteractions/globalbioticinteractions/issues/1134](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/1134))
+
+Cala: Is it possible to include the quality of interaction in the review? This is 
+
+Jorrit: I can try creating those maps and we can compare. It would be interesting to see differences between data sets, how they measure the quality of interaction.
+
+Jeff: Is a pollination data quality review included?
+
+Discussion referring to: **Ollerton, J., Taliga, C., Salim, J.A., Poelen, J.H., & Drucker, D.P. (2025) Incorporating measures of data quality into plant-pollinator databases. *Journal of Pollination Ecology* 38: 151-160 (**recommended reading**)**
+
+GBIF \- Global Biodiversity Information Facility
+
+@Nick B \- here's an urban network from Poland: [https://link.springer.com/article/10.1007/s11829-013-9274-z](https://link.springer.com/article/10.1007/s11829-013-9274-z) (see [https://github.com/globalbioticinteractions/globalbioticinteractions/issues/1133](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/1133) for documentation showing that associated studiy Jędrzejewska-Szmek, K., Zych, M. Flower-visitor and pollen transport networks in a large city: structure and properties. Arthropod-Plant Interactions 7, 503–516 (2013). [https://doi.org/10.1007/s11829-013-9274-z](https://doi.org/10.1007/s11829-013-9274-z) published their data embedded in images of tables see \- in other words, they took a screenshot of a table and published this as an image; To reuse the data, they have to be manually transcribed by a human.n. / machine even through the data was digitalized already) a more reusable way to publishing data would be to published the table in form of a text-based tabular data format like csv text file) 
+
+Meeting to plan the AGM workshop: 2026.01.13. At 13:00 GMT
 
 ## Dec 2, 2025 \- 
 
@@ -26,6 +254,46 @@ Agenda To discuss:
 * Jorrit \- suggest to discuss a systematic effort to review EuroAPPA related datasets (e.g., DoPI [https://github.com/globalbioticinteractions/globalbioticinteractions/issues/780](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/780), [European Pollinator Hub](https://app.pollinatorhub.eu) [https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/991)) . I'd be curious to hear thoughts on setting up a review schedule that does not interfere too much with our monthly EuroAPPA meetings.(10 min)  
     
 * Requirement in Butterfly of informing the consortium about intention to go to conferences and submitting publications, 45 days in advance? We were told this is the case in ProPolSoil and in many grant agreements. (Jorrit: if I remember correctly, during the ProPollSoil kick-off meeting in Freising 17-19 Nov 2025, Olaf Schmidt of University College Dublin https://people.ucd.ie/olaf.schmidt https://orcid.org/0000-0003-0098-7960 claimed that ProPollSoil agreement included a 15 day notification period for materials of type to be agreed upon by the consortium. Can you please point to the text of the agreement in which this statement is made in context of Butterfly?) (ask Nilgun?)  
+  * *Nilgun’s answer (probably a bit too detailed because it is taken verbatim from the “Consortium Agreement”, which is a standard agreement signed by all consortium members after the project is granted by the EU.). Please read Section 8 Results. I copied the whole section below.*  
+    **8 Results**  
+    **8.1 Ownership of Results**  
+    Results are owned by the Party that generates them.  
+    **8.2 Joint ownership**  
+    Joint ownership is governed by Grant Agreement Article 16.4 and its Annex 5, Section Ownership of results, with the following additions:  
+    Unless otherwise agreed:  
+    − each of the joint owners shall be entitled to use their jointly owned Results for non-commercial research and teaching activities on a royalty-free basis, and without requiring the prior consent of the other joint owner(s).  
+    − each of the joint owners shall be entitled to otherwise Exploit the jointly owned Results and to grant non-exclusive licenses to third parties (without any right to sub-license), if the other joint owners are given: (a) at least 45 calendar days advance notice; and (b) fair and reasonable compensation.  
+    The joint owners shall agree on all protection measures and the division of related cost in advance.  
+    **8.3 Transfer of Results**  
+    Each Party may transfer ownership of its own Results, including its share in jointly owned Results, following the procedures of the Grant Agreement Article 16.4 and its Annex 5, Section Transfer and licensing of results, sub-section “Transfer of ownership”.   
+    Each Party may identify specific third parties it intends to transfer the ownership of its Results to in Attachment (3) of this Consortium Agreement. The other Parties hereby waive their right to prior notice and their right to object to such a transfer to listed third parties according to the Grant Agreement Article 16.4 and its Annex 5, Section Transfer of licensing of results, sub-section “Transfer of ownership”, 3rd paragraph.  
+    The transferring Party shall, however, at the time of the transfer, inform the other Parties of such transfer and shall ensure that the rights of the other Parties under the Consortium Agreement and the Grant Agreement will not be affected by such transfer. Any addition to Attachment (3) after signature of this Consortium Agreement requires a decision of the General Assembly.  
+    The Parties recognise that in the framework of a merger or an acquisition of an important part of its assets, it may be impossible under applicable EU and national laws on mergers and acquisitions for a Party to give at least 45 calendar days prior notice for the transfer as foreseen in the Grant Agreement.  
+    The obligations above apply only for as long as other Parties still have \- or still may request \- Access Rights to the Results.  
+    **8.4 Dissemination**  
+    For the avoidance of doubt, the confidentiality obligations set out in Section 10 apply to all dissemination activities described in this Section 8.4 as far as Confidential Information is involved.  
+    Dissemination of own (including jointly owned) Results  
+    During the Project and for a period of 1 year after the end of the Project, the dissemination of own Results by one or several Parties including but not restricted to publications and presentations, shall be governed by the procedure of Article 17.4 of the Grant Agreement and its Annex 5, Section Dissemination, subject to the following provisions.  
+    Prior notice of any planned publication shall be given to the other Parties at least 45 calendar days before the publication. Any objection to the planned publication shall be made in accordance with the Grant Agreement by written notice to the Coordinator and to the Party or Parties proposing the dissemination within 30 calendar days after receipt of the notice. If no objection is made within the time limit stated above, the publication is permitted.  
+    By exception to the 45 calendar days’ notice, the prior notice period shall be reduced to 21 calendar days only for the following dissemination activities: poster presentations, slides and abstracts for oral presentations at scientific meetings. In this case, any objection to the planned dissemination shall be made in writing to the Coordinator and to the Party or Parties proposing the dissemination within 10 calendar days after receipt of the notice. If no objection is made within the time limit stated above, the dissemination is permitted.  
+    An objection is justified if  
+    a) the protection of the objecting Party's Results or Background would be adversely affected, or  
+    b) the objecting Party's legitimate interests in relation to its Results or Background would be significantly harmed, or  
+    c) the proposed publication includes Confidential Information of the objecting Party.  
+    The objection has to include a precise request for necessary modifications.  
+    If an objection has been raised the involved Parties shall discuss how to overcome the justified grounds for the objection on a timely basis (for example by amendment to the planned publication and/or by protecting information before publication) and the objecting Party shall not unreasonably continue the opposition if appropriate measures are taken following the discussion.  
+    The objecting Party can request a publication delay of not more than 60 calendar days from the time it raises such an objection. After 60 calendar days the publication is permitted, provided that the objections of the objecting Party have been addressed.  
+    **Dissemination of another Party’s unpublished Results or Background**  
+    A Party shall not include in any dissemination activity another Party's Results or Background without obtaining the owning Party's prior written approval, unless they are already published.  
+    **Cooperation obligations**  
+    The Parties undertake to cooperate to allow the timely submission, examination, publication and defense of any dissertation or thesis for a degree that includes their Results or Background subject to the confidentiality and publication provisions agreed in this Consortium Agreement.  
+    **Use of names, logos or trademarks**  
+    Nothing in this Consortium Agreement shall be construed as conferring rights to use in advertising, publicity or otherwise the name of the Parties or any of their logos or trademarks without their prior written approval.  
+      
+  * Section 10 on Confidential Information:   
+    **10 Non-disclosure of information**  
+    All information in whatever form or mode of communication, which is disclosed by a Party (the “Disclosing Party”) to any other Party (the “Recipient”) in connection with the Project during its implementation and which has been explicitly marked as “confidential” or “sensitive” at the time of disclosure, or when disclosed orally has been identified as confidential at the time of disclosure and has been confirmed and designated in writing within 15 calendar days from oral disclosure at the latest as confidential information by the Disclosing Party, is “Confidential Information”.
+
     
 * Schedule a second meeting in January
 
@@ -46,7 +314,7 @@ D2) tool for farmers and gardeners (select area, ask for goal (conservation or c
 ![][image1]![][image2]  
 ![][image3]
 
-Joe \- new pollinator monitoring regulations \- published 26 Nov 2025 \- New EU pollinator monitoring regulations: [https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L\_202502188](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202502188) : Ideally our tools should ideally be able to provide predictions at the scale relevant to this new legislation. \- Would it be an idea to design the tool to help member states align with this regulations.  Picking a suitable spatial resolution and taxonomic resolution would help align with these regulations. 
+Joe \- new pollinator monitoring regulations \- published 26 Nov 2025 \- New EU pollinator monitoring regulations: [https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L\_202502188](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202502188) : Ideally our tools should ideally be able to provide predictions at the scale relevant to this new legislation. \- Would it be an idea to design the tool to help member states align with these regulations.  Picking a suitable spatial resolution and taxonomic resolution would help align with these regulations. 
 
 Noa \- we shouldn't use "the data generated by the EUPoMs (link shared by Joe above)" related to the pollinator monitoring schemes run by the member states because they won't be available any time soon. 
 
@@ -55,7 +323,7 @@ From Jeff: JPE has published an exchange of opinions about the EU Pollinator Mon
 
 Cala \- do you imagine EuroAPPA to host the tools you are developing? Andrea \- not sure. Also this website to [https://pollinatorhub.eu/](https://pollinatorhub.eu/) 
 
-Cala \- Highlights the existance of BeeFall database on missing data on wild bee data \- [https://github.com/lmar116/BeeFall](https://github.com/lmar116/BeeFall) interactive link:  [lmar116.shinyapps.io/BeeFall/](http://lmar116.shinyapps.io/BeeFall/) 
+Cala \- Highlights the existence of BeeFall database on missing data on wild bee data \- [https://github.com/lmar116/BeeFall](https://github.com/lmar116/BeeFall) interactive link:  [lmar116.shinyapps.io/BeeFall/](http://lmar116.shinyapps.io/BeeFall/) (jorrit: after meeting I created [https://github.com/lmar116/BeeFall/issues/1](https://github.com/lmar116/BeeFall/issues/1))
 
 Cala \- switching to EuroAPPA use cases [https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/\&editing=false\&openfile=true](https://cloud.butterfly-europe.eu/index.php/s/gdtwJsfTddCXd85?dir=/&editing=false&openfile=true)
 
@@ -82,7 +350,8 @@ Nilgun \- There is also an option to exchange EuroAPPA spot with Ethics workshop
 
 Jeroen \- (in Dutch) [https://clm-onderzoek-en-advies.email-provider.eu/web/kiienyakpk/dql5jw2ltb?lp-t=1762870726](https://clm-onderzoek-en-advies.email-provider.eu/web/kiienyakpk/dql5jw2ltb?lp-t=1762870726)
 
-Nilgun \- when is the next meeting?   
+Nilgun \- when is the next meeting? 2026-01-06 or 6 Jan 2026\.
+
 Nov 4, 2025   
 Attendees: Claus, Laura, Jeff, Jorrit
 

@@ -2,6 +2,126 @@
 
 **Action items are highlighted**
 
+**Date:** 2026-01-16 (Friday)
+
+**Start Time:** 13:00 CEST / 06:00 (MDT)
+
+**Attendees:** Jorrit, Nilgun, Laura, Cala, Finn, Jeroen, Noa
+
+ Agenda 
+
+  \* plan for dmp presentation at general meeting in Aarhus
+
+ 
+
+ Notes \- 
+
+ 
+
+ Nilgun \- general meeting \- great opportunity to show the main aspect of the data management plan \- key points \- assume that no one read the DMP, or need a refresher. 
+
+ 
+
+ Laura \- 20 minutes for DMP dedicated \- there's overlap with EuroAPPA workshop. What are the links to the DMP with the EuroAPPA workshop
+
+ 
+
+ WP 9 \- DMP \- how we deal with the interview data 
+
+ 
+
+ Wednesday / Thursday / Friday
+
+ 
+
+ Thursday (2nd 
+
+ 
+
+ 14:30 \- 15:00 Data Management Plan 
+
+ 
+
+ 15:00 \- 15:30  Ethics and Participation
+
+ 
+
+ 15:30 \- 16:00 Break 
+
+ 
+
+ 16:00 \- 16:45 EuroAPPA 
+
+ 
+
+ Nilgun can start, followed by Laura (5-10 minutes, presentation of the data management plan) and Jorrit (Data review plan 2 minutes, talking about the DMP figure on data review) last. Time for Discussions
+
+  Introduction of data and review already in DMP, easier for EuroAPPA introduction
+
+  Nilgun and Lara prepare their own slides, Jorrit sends in the text (suggest to reuse the DMP review figure, and emphasize that data review and reuse is a skills that needs to be developed) 
+
+
+  Noa: We have be short and give the information the listeners need as they will be reviewers
+
+  Laura shares the DMP \[1\]
+
+  Laura proposes to talk about the table 1 on the data from the different WP
+
+  The section 7 of the report Ethics will be presented in the specific section on Ethics
+
+
+  Cala: What is the aim of the workshop. Is there a specific question?
+
+  Nilgun will publish the DMP on Zenodo
+
+
+  Jeroen: The DMP is a living document. Do we need to plan activities to update the plan? Are there problems with applying the plan. There might be a review and refinery, if necessary.
+
+  This question is planned to be asked at the AGM, to get to know if there is are challenges or potential improvements.
+
+
+  Jorrit: Suggests to invite interested people in the meeting to discuss feedback instead of doing this at the AGM
+
+Jeroen: Important to get expectations clear so that users can apply the DMP, there are time constraints for the meeting.
+
+Figure out the substancial challenges of the DMP for the different WP for review. One focus ares: Data requests and sharing with other projects
+
+Noa: suggests to upload all the datasets at Zenodo as private and then they can be published collectively at the end of the project. Except if they are in the process of publication. This can reduce lose of data. 
+
+Jorrit: We should start the data review soon with referencing the unpublished datasets
+
+Noa: It is an internal data review, which should be discussed if this internal data review report should be published. After finishing up the internal review, data should be published on Zenodo (as private or public, depending on the data etc.) and data published at the end of the project to the public (if data is not used for a scientific publication).
+
+Nilgun: We have to submit the second version in month 24 (1 year from now). We can invite interested and need to have a core group (not-optional, for people working with data) so that we can work on the second version.
+
+Discussion on Life-cycle Figure 2 in \[1\]
+
+Cala: We have to discuss a final place where all data in phase 5 can be found.
+
+Jorrit: Difference between where data is stored and what the data is. We keep track of the datasets (Index) and we can put the datasets, potentially including the review, at a different location such as Zenodo
+
+Nilgun: We can collect these suggestion at the AGM and work it in the second version of the DMP.
+
+Noa: This is very technical and it might be easier to start working on a second version and send it out.
+
+Laura: Maybe we should already have it public, so that it is a living document.
+
+Jorrit: It is not only the comments but it is important to have the discussion between the people. This can be done in a structured conversation in a meeting.
+
+Laura: Have the working document open and then invite the people writing comments.
+
+Laura: Will prepare the information for the 5-10 minutes next week. 
+
+Laura prepares the 20 minutes and everyone can add/give comments next week. It will be on the nextcloud. It includes one slide with Figure 1 from DMP.
+
+
+  
+
+  References 
+
+
+  \[1\] Drivdal, L. , Poelen, J.H., Balaine, L., Miettinen, M., Diniz, U.      M., Balfour, N. J., Castellanos, M. C., Ollerton, J., Gallai, N.,      Delso, N. S., van der Sluijs., J. (2025). D9.1 – Data Management      Plan – Version 1\. Available at: https://butterfly-europe.eu/deliverable-9-1-data-management-plan-dmp-first-version/ hash://sha256/9de545a7b62157af2ad2dd255700c2d22b8ec8c6a72a38bbe11db37a4734935f
+
 **Date:** Aug 5, 2025 (Tuesday)
 
 **Start Time:** 14:00 CEST / 06:00 (MDT)
