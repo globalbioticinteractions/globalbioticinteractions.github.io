@@ -96,8 +96,8 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 [![badge]({{ globi-badge }})]({{ globi-url }}) <a href="#{{ c.dataset }}">{{ c.dataset }}</a> {{ " / " }}
 {%- endfor %}
 
-|status|<ins>M</ins>etadata\|<ins>D</ins>ata\|<ins>R</ins>eview|dataset|contact|
-|---|---|---|---
+|status|<ins>M</ins>etadata\|<ins>D</ins>ata\|<ins>R</ins>eview|dataset|contact|download|
+|---|---|---|---|---|
 {% assign cols = site.data.euroappa | sort: "dataset" -%}
 {% for c in cols -%}
 {%- assign globi-badge = c.globi_id | url_encode | prepend: "https://api.globalbioticinteractions.org/interaction.svg?accordingTo=" -%} 
@@ -124,7 +124,7 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {%- assign zenodo-review-badge = "assets/zenodo_none.svg" -%}
 {%- assign zenodo-review-url = "https://globalbioticinteractions.org/contribute" -%}
 {%- endif -%}
-[![zenodo-review-badge]({{ zenodo-review-badge }})]({{ zenodo-review-url }}) [![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span class="{{ c.metadata_access }}" title="At this time, metadata of dataset {{ c.dataset }} is {{ c.metadata_access }} access.">M</span> \| <span class="{{ c.data_access }}" title="At this time, data of dataset {{ c.dataset }} is {{ c.data_access }} access.">D</span> \| <span class="{{ c.review_report_access }}" title="At this time, the review report of dataset {{ c.dataset }} is {{ c.review_report_access }} access.">R</span> | <span id="{{ c.dataset }}">{{ c.dataset }}</span> | {{ c.contact }} | 
+[![zenodo-review-badge]({{ zenodo-review-badge }})]({{ zenodo-review-url }}) [![review-badge]({{ review-badge }})]({{ review-url }}) [![badge]({{ globi-badge }})]({{ globi-url }}) [![badge]({{ config-badge }})]({{ config-url }}) [![badge]({{ issues-badge }})]({{ issues-url }}) | <span class="{{ c.metadata_access }}" title="At this time, metadata of dataset {{ c.dataset }} is {{ c.metadata_access }} access.">M</span> \| <span class="{{ c.data_access }}" title="At this time, data of dataset {{ c.dataset }} is {{ c.data_access }} access.">D</span> \| <span class="{{ c.review_report_access }}" title="At this time, the review report of dataset {{ c.dataset }} is {{ c.review_report_access }} access.">R</span> | <span id="{{ c.dataset }}">{{ c.dataset }}</span> | {{ c.contact }} | [.csv]({{ c.review_id | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/indexed-interactions.csv" }}) \| [.tsv]({{ c.review_id | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/indexed-interactions.tsv" }}) \| [.parquet]({{ c.review_id | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/indexed-interactions.parquet" }}) \| [.gpkg]({{ c.review_id | prepend: "https://depot.globalbioticinteractions.org/reviews/" | append: "/indexed-interactions.gpkg" }}) |
 {% endfor %}
 
 # Related Initiatives
