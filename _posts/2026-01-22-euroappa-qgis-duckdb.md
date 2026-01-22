@@ -1,9 +1,9 @@
 ---
 layout: post
-title: A Way To Compile A European Plant-Pollinator Atlas Using A GloBI Corpus of Review Datasets, Eurostat/GISCO Geographical data, Open Street Maps, DuckDB, And QGIS
+title: A Way To Compile An European Atlas of Plant-Pollinator Associations
 author: Jorrit H. Poelen
 date: 2026-01-22
-excerpt: "Demonstration on how to build an European Plant-Pollinator Atlas by combining version of the GloBI corpus of Review Datasets with Eurostat/GISCO Geographical country data in a GeoPackage file. This GeoPackage file and associated summaries are then plotted on a world map provided by Open Street Maps using QGIS, an openly available mapping tool."
+excerpt: "Demonstration on how to build an European Atlas Plant-Pollinator Associations by combining version of the GloBI corpus of Review Datasets with Eurostat/GISCO Geographical country data in a GeoPackage file. This GeoPackage file and associated summaries are then plotted on a world map provided by Open Street Maps using QGIS, an openly available mapping tool."
 status: draft
 ---
 
