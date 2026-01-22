@@ -66,14 +66,9 @@ latest pdf\
 latest md\
  > dmp-notes.md
 
-https://cloud.butterfly-europe.eu/public.php/dav/files/gdtwJsfTddCXd85/
-
 preston track\
  --message "Snapshot of EuroAPPA use cases"\
  "https://cloud.butterfly-europe.eu/public.php/dav/files/gdtwJsfTddCXd85/"
 
-preston head \
- | preston cat \
- | grep hasVersion \
- | preston cat \
+latest md\
  > use-cases.md
