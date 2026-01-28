@@ -129,6 +129,8 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 
 # Related Initiatives
 
+[Agri4Pol](https://restpoll.eu/project-agri4pol-is-promoting-sustainable-agriculture-for-pollinators-in-collaboration-with-restpoll/) - "[...] A key goal of AGRI4POL is to explore the interactions between pollinators, crops* (varieties, rotations, systems) and landscapes. [...]" 
+
 [INC-STEP – Creating a National Reference Collection for Spain’s Threatened Pollinators](https://tettris.eu/2024/10/25/inc-step-creating-a-national-reference-collection-for-spains-threatened-pollinators/) funded through https://tettris.eu . https://tettris.eu/awarded-projects/ . 
 
 [Running List of Related Initiatives](https://docs.google.com/document/d/1MDfcQESQh9abAxIhAs4gCRi88SnTP0s39bscvsREgto/edit?tab=t.bcaxfrmawmxl). For a versioned snapshot of this list, see [related-projects.pdf](related-projects.pdf).
