@@ -669,3 +669,27 @@ t:
         ja: "epiphite of"
         es: "epiphite of"
         fr: "epiphite of"
+    hasArbuscularMycorrhizalHost:
+        en: "has arbuscular mycorrhizal host"
+        pt: "has arbuscular mycorrhizal host"
+        ja: "has arbuscular mycorrhizal host"
+        es: "has arbuscular mycorrhizal host"
+        fr: "has arbuscular mycorrhizal host"
+    arbuscularMycorrhizalHostOf:
+        en: "arbuscular mycorrhizal host of"
+        pt: "arbuscular mycorrhizal host of"
+        ja: "arbuscular mycorrhizal host of"
+        es: "arbuscular mycorrhizal host of"
+        fr: "arbuscular mycorrhizal host of"
+    hasEctomycorrhizalHost:
+        en: "has ectomycorrhizal host"
+        pt: "has ectomycorrhizal host"
+        ja: "has ectomycorrhizal host"
+        es: "has ectomycorrhizal host"
+        fr: "has ectomycorrhizal host"
+    ectomycorrhizalHostOf:
+        en: "ectomycorrhizal host of"
+        pt: "ectomycorrhizal host of"
+        ja: "ectomycorrhizal host of"
+        es: "ectomycorrhizal host of"
+        fr: "ectomycorrhizal host of"
