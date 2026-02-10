@@ -7,7 +7,7 @@ test('create it', function (t) {
     t.plan(1);
     var context = searchContext({ sourceTaxa: ['bar']});
     t.deepEqual({
-        interactionType: 'interactsWith',
+        interactionType: 'ecologicallyRelatedTo',
         sourceTaxa: ['bar'],
         resultType: 'json'
     }, context.searchParameters, 'initialize search parameters');
@@ -15,7 +15,7 @@ test('create it', function (t) {
 
 ['interactionType', 'bbox'].forEach(function (searchParameterName) {
     var initialSearchParameters = {
-        interactionType: 'interactsWith',
+        interactionType: 'ecologicallyRelatedTo',
         resultType: 'json'
     };
     initialSearchParameters[searchParameterName] = 'foo';
@@ -32,7 +32,7 @@ test('create it', function (t) {
 
 ['sourceTaxa'].forEach(function (searchParameterName) {
     var initialSearchParameters = {
-        interactionType: 'interactsWith',
+        interactionType: 'ecologicallyRelatedTo',
         resultType: 'json',
         sourceTaxa: ['foo']
     };
@@ -50,7 +50,7 @@ test('create it', function (t) {
 
 ['targetTaxon'].forEach(function (searchParameterName) {
     var initialSearchParameters = {
-        interactionType: 'interactsWith',
+        interactionType: 'ecologicallyRelatedTo',
         resultType: 'json',
         targetTaxon: ['foo']
     };
