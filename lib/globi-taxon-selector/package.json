@@ -1,0 +1,31 @@
+{
+  "name": "globi-taxon-select",
+  "version": "0.0.1",
+  "description": "autosuggest taxonomic names",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "unittest": "tape test/*.js",
+    "test": "browserify test/*.js | tape-run -b chrome"
+  },
+  "dependencies": {
+    "extend": "^3.0.0",
+    "foreach": "^2.0.5",
+    "globi": "0.1.4",
+    "inherits": "^2.0.1",
+    "jquery": "^2.1.4"
+  },
+  "testling": {
+    "files": "test/*.js"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.1",
+    "tape": "^5.9.0"
+  },
+  "author": {
+    "name": "Jorrit Poelen"
+  },
+  "license": "BSD"
+}
