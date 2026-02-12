@@ -2,11 +2,12 @@
 <div class="ui-widget search">
     <div class="examples search-example">{{ site.t.example-query[page.lang] }}: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">{{ site.t.what-do-sea-otters-eat[page.lang] }}</a> {{ site.t.or[page.lang] }} <a href="?sourceTaxon=Apis&interactionType=pollinates">{{ site.t.what-do-honey-bees-pollinate[page.lang] }}</a></div>
     <br/>
-    <div class="question search-query">{{ site.t.what-kind-of[page.lang] }} <input id="targetTaxonInputField" class="suggest" autocomplete="off" placeholder="{{ site.t.organisms[page.lang] }}"/>
-        {{ site.t.do[page.lang] }}
-        <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="{{ site.t.organisms[page.lang] }}"/>
+    <div id="search-filter"><table id="search-row"><tr><td><div class="question search-query">{{ site.t.what-kind-of[page.lang] }} </td></tr><tr><td id="target-taxon-selector-cell"></td></tr><tr><td>{{ site.t.do[page.lang] }}</td></tr><tr><td id="source-taxon-selector-cell"></td></tr><tr><td>
         {% include interactionTypeSelector.html %}
-        </select> {{ site.t.according-to[page.lang] }} <input id="studySearchField" autocomplete="off" placeholder="{{ site.t.any-study-or-source[page.lang] }}"/>?
+        </select></td></tr><tr><td> {{ site.t.according-to[page.lang] }}</td></tr><tr><td> <input id="studySearchField" autocomplete="off" placeholder="{{ site.t.any-study-or-source[page.lang] }}" style="width: 100%"/>?</td>
+    </tr>
+    </table>
+    </div>
     </div>
     <br/>
 

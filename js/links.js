@@ -24,7 +24,7 @@ let decorateArchivedReviewLink = function(aElem, namespace) {
   aElem.setAttribute('href', reviewUrl);
   aElem.setAttribute('title', 'show published reviews on Zenodo');
   var img = aElem.appendChild(document.createElement('img'));
-  img.setAttribute('src', 'assets/archived-review.svg');
+  img.setAttribute('src', '/assets/archived-review.svg');
 }
 
 
@@ -171,8 +171,10 @@ function appendCitationTo(interactionRecord, citationElem, baseUrl) {
 }
 
 function collectSearchParams($) {
-    var sourceTaxonName = $('#taxonInputField').val();
-    var targetTaxonName = $('#targetTaxonInputField').val();
+    var sourceTaxonName = $('#source-selector-wrapper p').text();
+    //var sourceTaxonName = $('#taxonInputField').val();
+    var targetTaxonName = $('#target-selector-wrapper p').text();
+    //var targetTaxonName = $('#targetTaxonInputField').val();
     var interactionType = $('#interactionType').find(":selected").val();
     var studyQuery = $('#studySearchField').val();
     var searchHash = {};
@@ -210,11 +212,9 @@ function initInputFields() {
     var params = queryString.parse(document.location.search || document.location.hash);
     $('#interactionType option[value="' + params.interactionType + '"]').prop('selected', 'selected');
     $('#studySearchField').val(params.accordingTo);
-    $('#taxonInputField').val(params.sourceTaxon);
-    $('#targetTaxonInputField').val(params.targetTaxon);
 
     if (params.sourceTaxon || params.targetTaxon || params.accordingTo) {
-        $('#taxonInputField').change();
+        $('#interactionType').change();
     }
 }
 
@@ -239,35 +239,60 @@ function addPopState(func) {
 }
 
 function addInputEvents($, globiData, searchForInteractions) {
-    $(".suggest").autocomplete({
-        minLength: 3,
-        source: function (request, response) {
-            globiData.findCloseTaxonMatches(request.term, function (closeMatches) {
-                var suggestions = [];
-                closeMatches.forEach(function (closeMatch, index) {
-                    suggestions[index] = {
-                        label: labelForTaxon(closeMatch),
-                        value: closeMatch.scientificName
-                    };
-                });
-                response(suggestions);
-            });
-        },
-        select: function (event, ui) {
-            searchForInteractions();
+   
+    var loadSearchParams = function () {
+        var searchParameters = {};
+        var hash = document.location.search || document.location.hash;
+        if (hash && hash.length > 1) {
+            var queryOnly = hash.substring(1);
+            searchParameters = globiWeb.queryString.parse(queryOnly);
         }
+        return searchParameters;
+    };
+
+    var searchParameters = loadSearchParams();
+    var searchContext = globiWeb.searchContext(searchParameters);
+   
+    var updateAndSearch = function(e) {
+      if (e && e.emitter && e.emitter.length > 1) {
+        const paramName = e.emitter + 'Taxon';
+        searchContext.updateSearchParameter(paramName, e.data);
+      }
+      searchForInteractions(); 
+    }
+ 
+    searchContext.on('taxonselector:selected', updateAndSearch);
+     
+    let getTaxa = function(param) {
+      var taxa = param || [];
+      if (!Array.isArray(taxa)) {
+        taxa = [taxa];
+      }
+      return taxa;
+    }
+
+    const targetTaxonSelector = new globiWeb.TaxonSelector({
+      idPrefix: 'target',
+      type: 'target',
+      searchContext: searchContext,
+      preSelectedTaxa: getTaxa(searchParameters.targetTaxon)
     });
+    $("#target-taxon-selector-cell").append(targetTaxonSelector.el);
+  
+    
+    const sourceTaxonSelector = new globiWeb.TaxonSelector({
+      idPrefix: 'source',
+      type: 'source',
+      searchContext: searchContext,
+      preSelectedTaxa: getTaxa(searchParameters.sourceTaxon)
+    });
+    $("#source-taxon-selector-cell").append(sourceTaxonSelector.el);
 
     var onEnter = function (e, ui) {
         if (e.keyCode == 13) {
             searchForInteractions();
         }
     };
-    $("#taxonInputField").change(function () {
-        searchForInteractions();
-    });
-    $("#taxonInputField").keyup(onEnter);
-
     $("#interactionType").change(function () {
         searchForInteractions();
     });
