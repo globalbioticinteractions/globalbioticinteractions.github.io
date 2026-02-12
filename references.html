@@ -33,6 +33,7 @@ status: listed
         <tr>
           <td id="target-taxon-selector-cell"></td>
         <tr>
+          <td>?</td>
         </tr>
     </table>
     </div>
@@ -54,64 +55,61 @@ status: listed
 
 <script src="js/links.js"></script>
 <script>
-    $(function () {
-
-        var searchForInteractions = function (offset) {
-            $('thead, #moreButton').remove();
-            if (!offset) {
-                $('.interaction').remove();
+    var searchForInteractions = function (offset) {
+        $('thead, #moreButton').remove();
+        if (!offset) {
+            $('.interaction').remove();
+        }
+        var searchParams = collectSearchParams($);
+        var search = searchParams.search;
+        search.limit = limitDefault;
+        search.offset = offset || offsetDefault;
+        search.includeObservations = true;
+        saveSearch(searchParams);
+        var callback = function (interactions) {
+            var resultFragment = document.createDocumentFragment();
+            var distinctCitations = {};
+            var nInteractions = 0;
+            var nDistinctCitations = 0;
+            if (interactions.length == 0) {
+                var row = resultFragment.appendChild(document.createElement('tr'));
+                row.setAttribute('class', 'interaction');
+                row.innerHTML = 'No references found. Bummer! Please change your search criteria or <a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F" target="_blank">contribute data</a>.'
             }
-            var searchParams = collectSearchParams($);
-            var search = searchParams.search;
-            search.limit = limitDefault;
-            search.offset = offset || offsetDefault;
-            search.includeObservations = true;
-            saveSearch(searchParams);
-            var callback = function (interactions) {
-                var resultFragment = document.createDocumentFragment();
-                var distinctCitations = {};
-                var nInteractions = 0;
-                var nDistinctCitations = 0;
-                if (interactions.length == 0) {
+
+            interactions.forEach(function (interaction) {
+                var citationKey = encodeURIComponent(interaction.study_citation + interaction.study_source_citation);
+                nInteractions += 1;
+                if (document.getElementById(citationKey) === null && distinctCitations[citationKey] === undefined) {
                     var row = resultFragment.appendChild(document.createElement('tr'));
                     row.setAttribute('class', 'interaction');
-                    row.innerHTML = 'No references found. Bummer! Please change your search criteria or <a href="https://github.com/globalbioticinteractions/globalbioticinteractions/wiki/How-to-Contribute-Data-to-Global-Biotic-Interactions%3F" target="_blank">contribute data</a>.'
+                    row.setAttribute('id', citationKey);
+                    appendCitationTo(interaction, row, '/index.html');
+                    distinctCitations[citationKey] = interaction;
+                    nDistinctCitations += 1;
                 }
+            });
 
-                interactions.forEach(function (interaction) {
-                    var citationKey = encodeURIComponent(interaction.study_citation + interaction.study_source_citation);
-                    nInteractions += 1;
-                    if (document.getElementById(citationKey) === null && distinctCitations[citationKey] === undefined) {
-                        var row = resultFragment.appendChild(document.createElement('tr'));
-                        row.setAttribute('class', 'interaction');
-                        row.setAttribute('id', citationKey);
-                        appendCitationTo(interaction, row, '/index.html');
-                        distinctCitations[citationKey] = interaction;
-                        nDistinctCitations += 1;
-                    }
-                });
-
-                if (nInteractions == limitDefault) {
-                    var button = document.querySelector('#moreButton');
-                    if (!button) {
-                        button = document.createElement('button');
-                        button.setAttribute('id', 'moreButton');
-                        button.addEventListener('click', function (event) {
-                            searchForInteractions(search.offset + limitDefault);
-                        });
-                        button.textContent = 'more...';
-                    }
-                    resultFragment.appendChild(button);
+            if (nInteractions == limitDefault) {
+                var button = document.querySelector('#moreButton');
+                if (!button) {
+                    button = document.createElement('button');
+                    button.setAttribute('id', 'moreButton');
+                    button.addEventListener('click', function (event) {
+                        searchForInteractions(search.offset + limitDefault);
+                    });
+                    button.textContent = 'more...';
                 }
+                resultFragment.appendChild(button);
+            }
 
-                var result = document.getElementById('result');
-                result.appendChild(resultFragment);
-            };
-            globiData.findSpeciesInteractions(search, callback);
+            var result = document.getElementById('result');
+            result.appendChild(resultFragment);
         };
+        globiData.findSpeciesInteractions(search, callback);
+    };
 
-        addInputEvents($, globiData, searchForInteractions);
-    });
+    addInputEvents($, globiData, searchForInteractions);
 
     var loadStats = function () {
         globiData.findStats({}, function (stats) {
@@ -131,9 +129,9 @@ status: listed
         loadStats();
     };
 
-window.addEventListener('load', function (e) {
-    init();
-    addPopState(init);
-});
+    window.addEventListener('load', function (e) {
+        init();
+        addPopState(init);
+    });
 
 </script>
