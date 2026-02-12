@@ -1,7 +1,5 @@
 var globi = require('globi');
 
-require('jquery-ui');
-
 module.exports = {
     bundle: require('globi-bundle'),
     panels: require('globi-panels'),
@@ -9,6 +7,7 @@ module.exports = {
     hairball: require('globi-hairball'),
     wheel: require('globi-wheel'),
     spatialSelector: require('globi-spatial-selector'),
+    TaxonSelector: require('globi-taxon-selector'),
     globi: globi,
     search: require('globi-search'),
     searchResult: require('globi-search').Result,
