@@ -13,11 +13,31 @@ status: listed
     </div>
 
     <p>Below, you can search for references that contain species interaction records. Example queries: <a href="?sourceTaxon=Enhydra%20lutris&interactionType=eats">Which references document sea otters (<em>Enhydra lutris</em>) prey?</a> or <a href="?sourceTaxon=Apis&interactionType=pollinates">Who documented what honey bees (Apis) pollinate?</a></p>
-    <p class="question">Which references containing <input id="studySearchField" autocomplete="off" placeholder="terms / doi"/> claim that
-        <input id="taxonInputField" class="suggest" autocomplete="off" placeholder="some organism"/>
-        {% include interactionTypeSelector.html %}
-        <input id="targetTaxonInputField" class="suggest" autocomplete="off" placeholder="some other organism"/>?
-    </p>
+    <div id="search-filter">
+      <table id="search-row">
+        <tr>
+          <td><div class="question search-query">Which references containing</td>
+        </tr>
+        <tr>
+          <td> <input id="studySearchField" autocomplete="off" placeholder="{{ site.t.any-study-or-source[page.lang] }}" style="width: 100%"/></td>
+        </tr>
+        <tr>
+          <td>claim that</td>
+        </tr>
+        <tr>
+          <td id="source-taxon-selector-cell"></td>
+        </tr>
+        <tr>
+          <td> {% include interactionTypeSelector.html %} </td>
+        </tr>
+        <tr>
+          <td id="target-taxon-selector-cell"></td>
+        <tr>
+        </tr>
+    </table>
+    </div>
+    </div>
+
     <div id="info" class="summary"></div>
     <table id="result" class="answers"></table>
 </div>
