@@ -35,6 +35,8 @@ WP2 meets every 3rd Thursday of the month at 2pm Central European Time [meeting 
 
 **20 Nov 2025** -  ProPollSoil Data Workshop. See GitHub organization at https://github.com/ProPollSoil and note that some repositories are set to private as resources like the data management plan are developed.  
 
+**30 Jan 2026** - Dr. Wilhemine Bach announces the launch of the *full* ProPollSoil website through https://propollsoil.eu/ . The "propollsoil.eu" domain name is owned, and managed by, EURICE (https://eurice.eu). The website is subject to German copyright laws (see https://propollsoil.eu/imprint accessed on 2026-02-17) and is explicitly *not* licensed for reuse. 
+
 # Data Management Plan 
 
 See https://github.com/ProPollSoil/data-management-plan for details in the data management plan. 
