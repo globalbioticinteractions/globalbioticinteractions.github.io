@@ -423,12 +423,36 @@ t:
         ja: "hosts"
         es: "hosts"
         fr: "hosts"
+    ectomycorrhizal-host-of:
+        en: "host ectomycorrhizally"
+        pt: "host ectomycorrhizally"
+        ja: "host ectomycorrhizally"
+        es: "host ectomycorrhizally"
+        fr: "host ectomycorrhizally"
+    arbuscular-mycorrhizal-host-of:
+        en: "host arbuscular mycorrhizally"
+        pt: "host arbuscular mycorrhizally"
+        ja: "host arbuscular mycorrhizally"
+        es: "host arbuscular mycorrhizally"
+        fr: "host arbuscular mycorrhizally"
     get-hosted-by:
         en: "get hosted by"
         pt: "é hospedado por"
         ja: "get hosted by"
         es: "get hosted by"
         fr: "get hosted by"
+    has-ectomycorrhizal-host:
+        en: "get ectomycorrhizallyhosted by"
+        pt: "get ectomycorrhizally hosted by"
+        ja: "get ectomycorrhizally hosted by"
+        es: "get ectomycorrhizally hosted by"
+        fr: "get ectomycorrhizally hosted by"
+    has-arbuscular-mycorrhizal-host:
+        en: "get arbuscular mycorrhizally hosted by"
+        pt: "get arbuscular mycorrhizally hosted by"
+        ja: "get arbuscular mycorrhizally hosted by"
+        es: "get arbuscular mycorrhizally hosted by"
+        fr: "get arbuscular mycorrhizally hosted by"
     hasEndoparasite:
         en: "has endoparasite"
         pt: "possui endoparasita"
