@@ -83,10 +83,20 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {% endfor %}
 
 
-# Related Initiatives
+# Other Datasets / Related Initiatives
 
 Species interactions in tree-fungus systems - [https://mariashumskaya.com/connect-at-the-2026-meeting-on-tree-fungus-species-interactions/](https://mariashumskaya.com/connect-at-the-2026-meeting-on-tree-fungus-species-interactions/) - A four‑day meeting centered on wood ecology, with a particular focus on species interactions within tree–fungus systems. This mini‑symposium brings together leading experts to synthesize the current state of the field, highlight emerging research frontiers, and establish new opportunities for networking and collaboration.  
 
 Dead Wood Course 2026 led by Dmitry Schigel [https://adlignum.com/dead-wood-course-2026-forma-iberica](https://adlignum.com/dead-wood-course-2026-forma-iberica)
 
-...
+Romero-Olivares, A.L., Morrison, E.W., Pringle, A. et al. Correction to: Linking Genes to Traits in Fungi. Microb Ecol 82, 156 (2021). https://doi.org/10.1007/s00248-021-01776-x
+
+van Galen, L.G., Smith, G.R., Margenot, A.J. et al. A global database of soil microbial phospholipid fatty acids and enzyme activities. Sci Data 12, 1568 (2025). https://doi.org/10.1038/s41597-025-05759-2
+
+Szánthó, L.L., Merényi, Z., Donoghue, P. et al. A timetree of Fungi dated with fossils and horizontal gene transfers. Nat Ecol Evol 9, 1989–2001 (2025). https://doi.org/10.1038/s41559-025-02851-z
+
+Goicolea, T., Morales-Barbero, J., García-Viñas, J.I. et al. A unified plant ecology database for Spain. Sci Data (2026). https://doi.org/10.1038/s41597-026-06757-8
+
+Díaz, S., Kattge, J., Cornelissen, J.H.C. et al. The global spectrum of plant form and function: enhanced species-level trait dataset. Sci Data 9, 755 (2022). https://doi.org/10.1038/s41597-022-01774-9
+
+
