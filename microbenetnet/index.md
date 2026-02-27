@@ -32,6 +32,8 @@ MicrobeNet^Net
 
  **2025-06-11** - Follow-up meeting exploring research questions related AMF (Arbuscular Mycorrhizal Fungi) and fine root traits of their host plants using FRED and MaarjAM data. Rolling meeting notes at: [https://docs.google.com/document/d/1NIx1X24DW-z5e-MzNbNOccld1OTqO-ojYfwnDfw6lQA/edit?tab=t.0#heading=h.w7heqg8icqx8](https://docs.google.com/document/d/1NIx1X24DW-z5e-MzNbNOccld1OTqO-ojYfwnDfw6lQA/edit?tab=t.0#heading=h.w7heqg8icqx8) . 
 
+ **2026-02-26** - Published an experimental MicrobeNetNet data review corpus following the MicrobeNetNet General Meeting showing how heterogeneous datasets can be versioned and integrated as a unified data corpus for review and data exploration. The initial focus in on dataset describing species interactions. Poelen, J. H. (2026). MicrobeNetNet Dataset Review Corpus and Associated Data Products hash://md5/5981a37a16c25204dc18d9188f185b19 hash://sha256/7448991edd5f79db02519a5b3d4691c50a60c02f45d40f087402a7a492da3a3e [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.18794828](https://doi.org/10.5281/zenodo.18794828).
+
 # Dataset Review
 
 To help better understand existing fungal-plant interaction datasets, MicroNet^Net aims to better connect and use these existing datasets. The list below contains the list of dataset selected for review.
