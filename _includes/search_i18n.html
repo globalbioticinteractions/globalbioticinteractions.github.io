@@ -345,9 +345,9 @@ var suggestNameLinkGitHub = function (taxonName, globiRef, githubRepo) {
 
 
 var followTaxon = function (elem) {
-    var inputField = $('#taxonInputField');
-    inputField.val(elem.dataset.taxonName);
-    inputField.change();
+    var inputField = document.querySelector('#source-selector-wrapper p');
+    inputField.textContent = elem.dataset.taxonName;
+    init();
 };
 
 var showTaxonLinks = function (elem) {
