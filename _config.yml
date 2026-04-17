@@ -537,6 +537,30 @@ t:
         ja: "によって訪花される"
         es: "flores visitadas por"
         fr: "flowers visited by"
+    visits:
+        en: "visits"
+        pt: "vista"
+        ja: "を訪花する"
+        es: "visita"
+        fr: "visits"
+    visits:
+        en: "visits"
+        pt: "visita"
+        ja: "visits"
+        es: "visita"
+        fr: "visits"
+    visitedBy:
+        en: "visited by"
+        pt: "visitadas por"
+        ja: "visited by"
+        es: "visitadas por"
+        fr: "flowers visited by"
+    visited-by:
+        en: "visited by"
+        pt: "visitadas por"
+        ja: "visited by"
+        es: "visitadas por"
+        fr: "visited by"
     pollinates:
         en: "pollinates"
         pt: "poliniza"
