@@ -37,9 +37,11 @@ WP2 meets every 3rd Thursday of the month at 2pm Central European Time [meeting 
 
 **30 Jan 2026** - Dr. Wilhemine Bach announces the launch of the *full* ProPollSoil website through [https://propollsoil.eu/](https://propollsoil.eu) . The "propollsoil.eu" domain name is owned, and managed by, EURICE ([https://eurice.eu](https://eurice.eu)). The website is subject to German copyright laws (see [https://propollsoil.eu/imprint](https://propollsoil.eu/imprint) accessed on 2026-02-17) and is explicitly *not* licensed for reuse. 
 
+**2 April 2026** - Jeff Ollerton solicits help on uncovering the hidden lives of Europe's ground nesting bees in https://jeffollerton.co.uk/2026/04/02/help-us-uncover-the-hidden-lives-of-europes-ground-nesting-bees/
+
 # Data Management Plan 
 
-See https://github.com/ProPollSoil/data-management-plan for details in the data management plan. 
+See the (private) https://github.com/ProPollSoil/data-management-plan for details in the data management plan. 
 
 ## Data Reviews
 
