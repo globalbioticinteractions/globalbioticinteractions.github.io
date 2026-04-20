@@ -1,6 +1,7 @@
 
 let githubRegEx = /^(https:\/\/github.com\/)(.*)(\/archive\/)([a-f0-9]+)([.]zip)$/;
 let zenodoRegEx = /^(https:\/\/zenodo.org\/record\/)([0-9]+)(.*)$/;
+let checklistbankRegEx = /^(https:\/\/api.checklistbank.org\/dataset\/)([0-9]+)(.*)$/;
 
 let getRepoNameOrDefault = function(archiveURI) {
   if (githubRegEx.test(archiveURI)) {
@@ -11,10 +12,12 @@ let getRepoNameOrDefault = function(archiveURI) {
 };
 
 let prefixAndPath = function(match, prefix, path) { return prefix + path; };
+let checklistbankPath = function(match, prefix, datasetId) { return 'https://checklistbank.org/dataset/' + datasetId; };
 
 let getArchiveURIBase = function(archiveURI) {
   return archiveURI
   .replace(githubRegEx, prefixAndPath)
+  .replace(checklistbankRegEx, checklistbankPath)
   .replace(zenodoRegEx, prefixAndPath);
 }
 

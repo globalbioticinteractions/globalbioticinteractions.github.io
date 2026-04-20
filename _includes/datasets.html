@@ -40,6 +40,29 @@
         return a;
     };
 
+    let linkFor = function(source, urlBase) {
+      var a = document.createElement('a');
+      a.setAttribute('href', urlBase);
+      a.setAttribute('target', '_blank');
+      a.setAttribute('title', 'configuration for ' + source.study_source_citation);
+      return a;
+    }
+
+    let githubLinkFor = function(source) {
+      return linkFor(source, 'https://github.com/' + source.name);
+    };
+  
+    let checklistbankLinkFor = function(source) {
+      let checklistbankMatch = source.name.match(/(urn:lsid:checklistbank.org:dataset:)([0-9]+)/);
+      return linkFor(source, ('https://checklistbank.org/dataset/' + checklistbankMatch[2]));
+    }
+
+    let projectLinkFor = function(source) {
+      return source.name.startsWith('urn:lsid:')  
+        ? checklistbankLinkFor(source)
+        : githubLinkFor(source);
+    };
+
     var keyFromSource = function (source) {
         if (source.doi !== undefined) {
             return source.doi;
@@ -110,7 +133,7 @@
         };
 
         var appendImgForSource = function (source, elem) {
-            if (source.url === undefined) {
+            if (source.url === undefined && !source.name.startsWith('urn:lsid:')) {
                 var sizePx = 18;
                 var gitHubName = source.name.split('/')[0];
                 var urlBase = 'https://github.com/' + gitHubName;
@@ -127,14 +150,7 @@
             }
         };
 
-        var githubLinkFor = function(source) {
-          var urlBase = 'https://github.com/' + source.name;
-          var a = document.createElement('a');
-          a.setAttribute('href', urlBase);
-          a.setAttribute('target', '_blank');
-          a.setAttribute('title', 'configuration for ' + source.study_source_citation);
-          return a;
-        };
+
 
 	var nanopubLinkFor = function(source) {
 	  var a = document.createElement('a');
@@ -161,13 +177,18 @@
 
         var appendImgForRepo = function (source, elem) {
             if (source.url === undefined) {
+                var a = projectLinkFor(source); 
                 var sizePx = 18;
-                var gitHubName = source.name;
-                var urlBase = 'https://github.com/' + gitHubName;
-                var url = '/assets/GitHub-Mark-32px.png';
-                var a = githubLinkFor(source); 
+                var namespace = source.name;
+                
+                var urlBase = 'https://github.com/' + namespace;
+                var imageUrl = '/assets/GitHub-Mark-32px.png';
+
+                if (namespace.startsWith('urn:lsid:')) {
+                  imageUrl = '/assets/checklistbank.png';
+                }
                 var img = a.appendChild(document.createElement('img'));
-                img.setAttribute('src', url);
+                img.setAttribute('src', imageUrl);
                 img.setAttribute('style', 'width:' + sizePx + 'px; padding-left:' + sizePx / 2 + 'px');
                 elem.parentNode.insertBefore(a, elem);
                 return a;
@@ -190,12 +211,13 @@
         a.setAttribute('target', '_blank');
         a.textContent = ' ' + source.study_source_citation;
 
-        var githubReference = githubLinkFor(source);
-        githubReference.textContent = ' @' + source.name;
-        a.parentElement.insertBefore(githubReference, a);
 
-	githubReference.after(nanopubLinkFor(source))
-	githubReference.after(zenodoLinkFor(source))
+        var projectReference = projectLinkFor(source);
+        projectReference.textContent = ' @' + source.name;
+        a.parentElement.insertBefore(projectReference, a);
+
+	projectReference.after(nanopubLinkFor(source))
+	projectReference.after(zenodoLinkFor(source))
 
         a.parentElement.insertBefore(document.createElement('br'), a);
 
@@ -227,13 +249,16 @@
         decorateArchivedReviewLink(a, source.name);
 
         var a = appendLinkDiv(badgesElem);
-        var issuesUrl = 'https://github.com/' + source.name + '/issues/';
-        a.setAttribute('href', issuesUrl);
-        a.setAttribute('target', '_blank');
-        a.setAttribute('title', 'reported issues');
+
+        if (!source.name.startsWith('urn:lsid:')) {
+          var issuesUrl = 'https://github.com/' + source.name + '/issues/';
+          a.setAttribute('href', issuesUrl);
+          a.setAttribute('target', '_blank');
+          a.setAttribute('title', 'reported issues');
         
-        var img = a.appendChild(document.createElement('img'));
-        img.setAttribute('src', 'https://img.shields.io/github/issues/' + source.name + '.svg?color=#4c1');
+          var img = a.appendChild(document.createElement('img'));
+          img.setAttribute('src', 'https://img.shields.io/github/issues/' + source.name + '.svg?color=#4c1');
+        }
 
         var a = appendLinkDiv(badgesElem);
         a.setAttribute('href', datasetDisplayUrl);
