@@ -18,8 +18,12 @@ let getArchiveURIBase = function(archiveURI) {
   .replace(zenodoRegEx, prefixAndPath);
 }
 
+let lsidPrefixForNamespace = function(namespace) {
+  return namespace.startsWith('urn:lsid:') ? '' : 'urn:lsid:globalbioticinteractions:dataset:';
+}
+
 let decorateArchivedReviewLink = function(aElem, namespace) {
-  var reviewUrlPrefix = 'https://zenodo.org/communities/globi-review/?q=%22urn:lsid:globalbioticinteractions.org:dataset:' +  namespace + "%22";
+  var reviewUrlPrefix = 'https://zenodo.org/communities/globi-review/?q=%22' +lsidPrefixForNamespace(namespace) + namespace + "%22";
   var reviewUrl = reviewUrlPrefix;
   aElem.setAttribute('href', reviewUrl);
   aElem.setAttribute('title', 'show published reviews on Zenodo');

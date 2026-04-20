@@ -150,7 +150,7 @@
 
 	var zenodoLinkFor = function(source) {
 	  var a = document.createElement('a');
-          a.setAttribute('href', 'https://zenodo.org/communities/globi-review/?q=%22urn:lsid:globalbioticinteractions.org:dataset:' + source.name + '%22');
+          a.setAttribute('href', 'https://zenodo.org/communities/globi-review/?q=%22' + lsidPrefixForNamespace(source.name) + source.name + '%22');
           a.setAttribute('target', '_blank');
           a.setAttribute('title', 'show published reviews on Zenodo');
           var img = a.appendChild(document.createElement('img'));
