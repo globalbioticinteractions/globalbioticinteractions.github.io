@@ -155,7 +155,7 @@ where the DataBOM fingerprint ```hash://md5/a9aaa7113716ab2f87ede6f6b70297c8``` 
 
 <div id="figure2" class="figure figure-globi right">
   <a href="/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo"><img src="/assets/afromoths-2026-04-20.png" alt=""/></a>
-    <div class="figcaption"><em>Figure 2.</em> A search result on <a href="/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo">Global Biotic Interactions</a> associated with dataset "Afromoths" discovered by GloBI bots via ChecklistBank <a href="#2">[2]</a> as seen on 2026-04-20.</div>
+    <div class="figcaption"><em>Figure 2.</em> A search result on <a href="/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo">Global Biotic Interactions</a> associated with dataset "Afromoths" discovered through ChecklistBank <a href="#2">[2]</a> as seen on 2026-04-20.</div>
 </div>
 
 Additional reviews associated with the ChecklistBank datasets can be found via [GloBI's Zenodo Community](https://zenodo.org/communities/globi-review/?q=%22urn:lsid:checklistbank.org:dataset:%22) or by clicking on the ["archived review"](https://zenodo.org/communities/globi-review/?q=%22urn:lsid:checklistbank.org:dataset:2017%22) badges on [https://globalbioticinteractions.org/datasets](https://globalbioticinteractions.org/datasets) or [search results](https://www.globalbioticinteractions.org/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo) (see [Figure 2.](#figure2)). 
