@@ -139,8 +139,15 @@ The results in the ```data/``` folder now contains all resources needed to repro
 As part of the GloBI review process, such a DataBOM fingerprint (i.e., ```hash://md5/a9aaa7113716ab2f87ede6f6b70297c8```) for the Afromoths dataset was published in [```[3]```](#3) along with their referenced versioned resource. With this, you can re-generated the interpreted interaction records by running:
 
 ```
-preston ls --algo md5 --remote https://zenodo.org --anchor hash://md5/a9aaa7113716ab2f87ede6f6b70297c8 \
-  | elton stream --algo md5 --data-dir data --prov-dir data --anchor hash://md5/a9aaa7113716ab2f87ede6f6b70297c8 \
+preston ls \
+ --algo md5 \
+ --remote https://zenodo.org \
+ --anchor hash://md5/a9aaa7113716ab2f87ede6f6b70297c8 \
+  | elton stream \
+   --algo md5 \
+   --data-dir data \
+   --prov-dir data \
+   --anchor hash://md5/a9aaa7113716ab2f87ede6f6b70297c8 \
   | head -n2
 ```
 
