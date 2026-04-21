@@ -19,7 +19,7 @@ On Wed 22 October 2025, [Rod Page](https://orcid.org/0000-0002-7101-9767) gave a
 
 Facilitated by the Belgian Biodiversity Platform, Belspo, the Afromoth data is currently available through [ChecklistBank](https://www.checklistbank.org/dataset/2017/) in the [Catalogue of Life Data Package (ColDP)](https://github.com/CatalogueOfLife/coldp) format ([```[4]```](#4), [https://github.com/CatalogueOfLife/coldp](https://github.com/CatalogueOfLife/coldp)). The ColDP format, developed by [Markus Döring](https://orcid.org/0000-0001-7757-1889), [Geoff Ower](https://orcid.org/0000-0002-9770-2345) and colleagues, includes explicit support for [species interactions](https://catalogueoflife.github.io/coldp/#speciesinteraction), similar to how Darwin Core supports species interactions via their [Resource Relationship Extension](https://dwc.tdwg.org/terms/#resourcerelationship). 
 
-An example of the first record in a 2026 copy of their ColDP archive with sha256 and md5 fingerprints [```[5]```](#5) ```hash://sha256/dd778e9038f87067815f9c7afdec1286db2e4cc08a298cbab27fe23dba2e1b44``` and ```hash://md5/7e21ac93fb0e5e786f1254d6bd0a2341``` respectively, was generated using:
+An example of the first record in a 2026 copy of their ColDP archive with sha256 and md5 fingerprints [```[5]```](#5) ```hash://sha256/dd778e9038f87067815f9c7afdec1286db2e4cc08a298cbab27fe23dba2e1b44``` and ```hash://md5/7e21ac93fb0e5e786f1254d6bd0a2341``` respectively, was generated using the following [bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) script:
 
 ```
 preston cat \
