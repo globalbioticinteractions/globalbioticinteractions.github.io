@@ -51,7 +51,7 @@ preston cat \
  hash://md5/0c2373f08dc68ec2a44d18edb45d7139 \
 | gunzip \
 | mlr --itsvlite --oxtab \
- filter '$sourceTaxonId == "S100010010" && $referenceId == "6968"'
+ filter '$sourceTaxonId == "S100010010" && $targetTaxonName == "Mesocomys pulchriceps Cameron"'
  ```
 
 or, by replaying the associated archived review process [```[2]```](#2) and generating interpreted interaction records from the archived ChecklistBank dataset using [Elton v0.16.10](https://doi.org/10.5281/zenodo.19382993) via  
@@ -68,7 +68,7 @@ preston ls \
  --anchor hash://md5/a9aaa7113716ab2f87ede6f6b70297c8 \
  --remote https://zenodo.org \
  | mlr --itsvlite --oxtab \
- filter '$sourceTaxonId == "S100010010" && $referenceId == "6968"'
+ filter '$sourceTaxonId == "S100010010" && $targetTaxonName == "Mesocomys pulchriceps Cameron"'
 ```
 
 both of which are expected to produce a result including:
