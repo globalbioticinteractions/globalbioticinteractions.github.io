@@ -43,7 +43,7 @@ remarks
 
 This record claims some reference with id ```6968``` that a taxon with id ```S100010010``` has a parasite with a scientific name _Mesocomys pulchriceps_ Cameron . 
 
-After extending [Elton](https://globalbioticinteractions.org/elton)'s support to include [Catalogue of Life Data Package](https://www.checklistbank.org/about/formats#catalogue-of-life-data-package-coldp), you can now access the record without having to join this records with their taxonomic and reference tables via an interpreted interaction record obtained via a published GloBI data review resource [```indexed-interactions.tsv.gz```(https://zenodo.org/records/19389793/files/indexed-interactions.tsv.gz) [```[3]```](#3):
+After extending [Elton](https://globalbioticinteractions.org/elton)'s support to include [Catalogue of Life Data Package](https://www.checklistbank.org/about/formats#catalogue-of-life-data-package-coldp), you can now access the record without having to join this records with their taxonomic and reference tables via an interpreted interaction record obtained via a published GloBI data review resource [```indexed-interactions.tsv.gz```](https://zenodo.org/records/19389793/files/indexed-interactions.tsv.gz) [```[3]```](#3):
 
 ```
 preston cat --remote https://zenodo.org hash://md5/0c2373f08dc68ec2a44d18edb45d7139 \
@@ -146,12 +146,13 @@ preston ls --algo md5 --remote https://zenodo.org --anchor hash://md5/a9aaa71137
 
 where the DataBOM fingerprint ```hash://md5/a9aaa7113716ab2f87ede6f6b70297c8``` is used to define (or anchor) the resources needed to produced the interpreted interaction data records. With this, we established a way to reproduce the process to generate interaction records without having the assume that ChecklistBank data sevices remain available and produce expected results. Instead, we rely on an archived copy (e.g., [```[3]```](#3)) of the process and the versioned resources used. And, because digital fingerprints [```[5]```](#5) are location independent and storage media agnostic, this archived copy can be stored in whatever digital storage media may be available. In this case, we used Zenodo to store a copy of the Afromoths archive.  
 
-Additional reviews associated with the ChecklistBank datasets can be found via [GloBI's Zenodo Community](https://zenodo.org/communities/globi-review/?q=%22urn:lsid:checklistbank.org:dataset:%22) or by clicking on the ["archived review"](https://zenodo.org/communities/globi-review/?q=%22urn:lsid:checklistbank.org:dataset:2017%22) badges on [https://globalbioticinteractions.org/datasets](https://globalbioticinteractions.org/datasets) or [search results](https://www.globalbioticinteractions.org/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo). 
-
-<div id="figure2" class="figure figure-globi left">
+<div id="figure2" class="figure figure-globi right">
   <a href="/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo"><img src="/assets/afromoths-2026-04-20.png" alt=""/></a>
-    <div class="figcaption"><em>Figure 2.</em> A search result on <a href="/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo">Global Biotic Interactions</a> associated with Afromoth dataset <a href="#2">[2]</a> as seen 2026-04-20.</div>
+    <div class="figcaption"><em>Figure 2.</em> A search result on <a href="/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo">Global Biotic Interactions</a> associated with dataset "Afromoths" discovered by GloBI bots via ChecklistBank <a href="#2">[2]</a> as seen on 2026-04-20.</div>
 </div>
+
+Additional reviews associated with the ChecklistBank datasets can be found via [GloBI's Zenodo Community](https://zenodo.org/communities/globi-review/?q=%22urn:lsid:checklistbank.org:dataset:%22) or by clicking on the ["archived review"](https://zenodo.org/communities/globi-review/?q=%22urn:lsid:checklistbank.org:dataset:2017%22) badges on [https://globalbioticinteractions.org/datasets](https://globalbioticinteractions.org/datasets) or [search results](https://www.globalbioticinteractions.org/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo) (see [Figure 2.](#figure2)). 
+
 
 
 
