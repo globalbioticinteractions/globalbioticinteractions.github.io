@@ -143,12 +143,12 @@ preston ls \
  --algo md5 \
  --remote https://zenodo.org \
  --anchor hash://md5/a9aaa7113716ab2f87ede6f6b70297c8 \
-  | elton stream \
-   --algo md5 \
-   --data-dir data \
-   --prov-dir data \
-   --anchor hash://md5/a9aaa7113716ab2f87ede6f6b70297c8 \
-  | head -n2
+| elton stream \
+ --algo md5 \
+ --data-dir data \
+ --prov-dir data \
+ --anchor hash://md5/a9aaa7113716ab2f87ede6f6b70297c8 \
+| head -n2
 ```
 
 where the DataBOM fingerprint ```hash://md5/a9aaa7113716ab2f87ede6f6b70297c8``` is used to define (or anchor) the resources needed to produced the interpreted interaction data records. With this, we established a way to reproduce the process to generate interaction records without having the assume that ChecklistBank data sevices remain available and produce expected results. Instead, we rely on an archived copy (e.g., [```[3]```](#3)) of the process and the versioned resources used. And, because digital fingerprints [```[5]```](#5) are location independent and storage media agnostic, this archived copy can be stored in whatever digital storage media may be available. In this case, we used Zenodo to store a copy of the Afromoths archive.  
