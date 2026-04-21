@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Review of Species Interactions Available Through ChecklistBank Datasets
+title: Review of Species Interactions Available Through ChecklistBank
 author: Jorrit H. Poelen
 date: 2026-04-20
 excerpt: "ChecklistBank offers a way to capture species interaction claims via their Catalogue of Life Data Package format. GloBI now supports indexing Catalogue of Life datasets containing descriptions on how taxa interact with each other. An example of a moth parasite association from the Afromoths project is shown."
@@ -159,7 +159,7 @@ Additional reviews associated with the ChecklistBank datasets can be found via [
 
 Biodiversity data platforms such as ChecklistBank offer the ability to describe species interaction claims through registered datasets (e.g., [```[2]```](#2), [```[6]```](#6), [```[7]```](#7)) using the Catalogue of Life Data Package (CoLDP) format. And, as of early 2026, GloBI helps discover these datasets via their search indexes, reviews and data products. This is yet another example how existing datasets in data infrastructures can be reused and integrated via review and data services associated with Global Biotic Interactions. With this, hopefully, these datasets can be more easily found just like their existing data cousins in the many other available data formats (e.g., [DwC Associated Taxa](https://dwc.tdwg.org/list/#dwc_associatedTaxa), [DwC Assocated Occurrences](https://dwc.tdwg.org/list/#dwc_associatedOccurrences), [DwC Resource Relations](https://www.globalbioticinteractions.org/2023/11/03/dwca-resource-relations/), or whatever other [models happen to be in fashion](https://www.globalbioticinteractions.org/2018/08/16/models-in-fashion/)).
 
-### A Note on ColDP Schema Discovery and Dialects
+### A Note on CoLDP Schema Discovery and Dialects
 
 [On implementing GloBI's support for extracting species interaction claims from ColDP formatted datasets](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/753), three distinct dialect were found. Because ColDP does not explicitly state the schema of the associated resources nor their location/name, elton implements ths following stategy to help interpret the available datasets:
 
