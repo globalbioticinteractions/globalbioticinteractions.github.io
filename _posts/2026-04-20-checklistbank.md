@@ -46,9 +46,12 @@ This record claims some reference with id ```6968``` that a taxon with id ```S10
 After extending [Elton](https://globalbioticinteractions.org/elton)'s support to include [Catalogue of Life Data Package](https://www.checklistbank.org/about/formats#catalogue-of-life-data-package-coldp), you can now access the record without having to join this records with their taxonomic and reference tables via an interpreted interaction record obtained via a published GloBI data review resource [```indexed-interactions.tsv.gz```](https://zenodo.org/records/19389793/files/indexed-interactions.tsv.gz) [```[3]```](#3):
 
 ```
-preston cat --remote https://zenodo.org hash://md5/0c2373f08dc68ec2a44d18edb45d7139 \
- | gunzip \
- | mlr --itsvlite --oxtab filter '$sourceTaxonId == "S100010010" && $referenceId == "6968"'
+preston cat \
+ --remote https://zenodo.org \
+ hash://md5/0c2373f08dc68ec2a44d18edb45d7139 \
+| gunzip \
+| mlr --itsvlite --oxtab \
+ filter '$sourceTaxonId == "S100010010" && $referenceId == "6968"'
  ```
 
 or, by replaying the associated archived review process [```[2]```](#2) and generating interpreted interaction records from the archived ChecklistBank dataset using [Elton v0.16.10](https://doi.org/10.5281/zenodo.19382993) via  
@@ -58,8 +61,14 @@ preston ls \
  --algo md5 \
  --anchor hash://md5/a9aaa7113716ab2f87ede6f6b70297c8 \
  --remote https://zenodo.org \
- | elton stream --algo md5 --data-dir data --prov-dir data \
- | mlr --itsvlite --oxtab filter '$sourceTaxonId == "S100010010" && $referenceId == "6968"'
+ | elton stream \
+ --algo md5 \
+ --data-dir data \
+ --prov-dir data \
+ --anchor hash://md5/a9aaa7113716ab2f87ede6f6b70297c8 \
+ --remote https://zenodo.org \
+ | mlr --itsvlite --oxtab \
+ filter '$sourceTaxonId == "S100010010" && $referenceId == "6968"'
 ```
 
 both of which are expected to produce a result including:
@@ -125,10 +134,12 @@ assuming that ChecklistBank Web API is reachable, the tool ```elton``` is availa
 To have a more resilient approach to capturing the tracked dataset and the interpretation process, the associated resource can be captured in a so-called "Bill of Material" which includes the digital fingerprints (or signatures) of the resources needed for ```Elton``` to interpret the dataset. This approach is used in the GloBI review process, and can be summarized as follows:
 
 ```
-elton track --algo md5 --prov-mode 'urn:lsid:checklistbank.org:dataset:2017' \
+elton track --algo md5 \
+ --prov-mode \
+ 'urn:lsid:checklistbank.org:dataset:2017' \
  | elton tee --algo md5 \
  | preston append --algo md5 \
- | elton stream --algo md5 --data-dir data --prov-dir data \
+ |  elton stream --algo md5 --data-dir data --prov-dir data \
  | head -n2
 ```
 
