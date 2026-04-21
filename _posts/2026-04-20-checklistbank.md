@@ -112,7 +112,7 @@ urn:lsid:checklistbank.org:dataset:265709
 This suggests that a little over 10 datasets in ChecklistBank currently describe at least one species interaction claim. As expected, the Afromoth dataset (i.e., [```[2]```](#2), [```urn:lsid:checklistbank.org:dataset:2017```](https://checklistbank.org/dataset/2017)) is included in this list. Other examples include the Universal Chalcidoidea Database (i.e., [```[6]```](#6), [```urn:lsid:checklistbank.org:dataset:124661```](https://checklistbank.org/dataset/124661)) and the Catalogue of the Pterophoroidea of the World (i.e., [```[7]```](#7), [```urn:lsid:checklistbank.org:dataset:1199```](https://checklistbank.org/dataset/1199)). 
 
 
-This list of dataset identifiers can then be used to track associated datasets, and, if desired, generate interpreted species interaction records. For instance, for the Afromoths dataset with id ```urn:lsid:checklistbank.org:dataset:2017```, the interpreted interaction data of a current dataset version in ChecklistBank can be generated via:
+This list of dataset identifiers can then be used to track associated datasets, and, if desired, generate interpreted species interaction records. For instance, for the Afromoths dataset with id ```urn:lsid:checklistbank.org:dataset:2017```, a tab-seperated values table of their interpreted interaction data can be generated via:
 
 ```
 elton track 'urn:lsid:checklistbank.org:dataset:2017'
@@ -120,7 +120,7 @@ elton interactions 'urn:lsid:checklistbank.org:dataset:2017' \
  > interactions.tsv
 ```
 
-which is assuming that ChecklistBank is still online, the tool ```elton``` is still available, and the Afromoths dataset is still available is the expected ColDP format. These assumptions are expected to no longer hold in the near future because websites come and go, software tool versions may no longer be available, and dataset formats change or become obsolete. 
+assuming that ChecklistBank Web API is reachable, the tool ```elton``` is available, and the Afromoths dataset has the CoLDP format. These assumptions are expected to no longer hold in the near future because websites come and go, software tool versions may no longer be available, and dataset formats change or become obsolete. 
 
 To have a more resilient approach to capturing the tracked dataset and the interpretation process, the associated resource can be captured in a so-called "Bill of Material" which includes the digital fingerprints (or signatures) of the resources needed for ```Elton``` to interpret the dataset. This approach is used in the GloBI review process, and can be summarized as follows:
 
