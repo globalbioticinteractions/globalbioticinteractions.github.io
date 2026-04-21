@@ -7,13 +7,17 @@ excerpt: "ChecklistBank offers a way to capture species interaction claims via t
 status: unlisted
 ---
 
-⚠️ draft ⚠️ work in progress ⚠️
-
 [![CC0](/assets/cc-zero.svg)](https://creativecommons.org/public-domain/cc0/)
 
-On Wed 22 October 2025, [Rod Page](https://orcid.org/0000-0002-7101-9767) gave a talk [```[1]```](#1) mentioning the "Afromoths" project by De Prins & De Prins [```[2]```](#2) as an example. Afromoths is said to cover "all relevant information on every Afrotropical moth species" of Sub-Saharan Africa and includes descriptions of associated (plant) hosts and  parasites [```[3]```](#3). 
+<div id="figure1" class="figure figure-globi right">
+  <a href="https://www.afromoths.net/"><img src="/assets/afromoths-net-2026-04-20.png" alt=""/></a>
+    <div class="figcaption"><em>Figure 1.</em> Screenshot of <a href="https://www.afromoths.net">Afromoths.net</a> as accessed on 2026-04-20. Afromoths "[...] provides an online database of the Afrotropical moth species (Lepidoptera), updated with the latest information obtained from 10,000+ published sources and our studies.[...]" <a href="#1">[1]</a> .</div>
+</div>
 
-Facilitated by the Belgian Biodiversity Platform, Belspo, the Afromoth data is currently available through ChecklistBank [https://www.checklistbank.org/dataset/2017/](https://www.checklistbank.org/dataset/2017/) in the [Catalogue of Life Data Package](https://github.com/CatalogueOfLife/coldp) format ([```[4]```]](#4), [https://github.com/CatalogueOfLife/coldp](https://github.com/CatalogueOfLife/coldp)). This format, developed by [Markus Döring](https://orcid.org/0000-0001-7757-1889) and colleagues, includes explicit support for species interactions, similar to how Darwin Core supports species interactions via their Resource Relationships Extension. 
+
+On Wed 22 October 2025, [Rod Page](https://orcid.org/0000-0002-7101-9767) gave a talk [```[1]```](#1) mentioning the ["Afromoths"](https://www.afromoths.net/) project by De Prins & De Prins [```[2]```](#2) as an example. Afromoths is said to cover "all relevant information on every Afrotropical moth species" of Sub-Saharan Africa and includes descriptions of associated (plant) hosts and  parasites [```[3]```](#3). 
+
+Facilitated by the Belgian Biodiversity Platform, Belspo, the Afromoth data is currently available through [ChecklistBank](https://www.checklistbank.org/dataset/2017/) in the [Catalogue of Life Data Package (ColDP)](https://github.com/CatalogueOfLife/coldp) format ([```[4]```](#4), [https://github.com/CatalogueOfLife/coldp](https://github.com/CatalogueOfLife/coldp)). The ColDP format, developed by [Markus Döring](https://orcid.org/0000-0001-7757-1889) and colleagues, includes explicit support for [species interactions](https://catalogueoflife.github.io/coldp/#speciesinteraction), similar to how Darwin Core supports species interactions via their Resource Relationships Extension. 
 
 Here's an example of the first record in a 2026 copy of their ColDP archive with sha256 and md5 fingerprints [```[5]```](#5) ```hash://sha256/dd778e9038f87067815f9c7afdec1286db2e4cc08a298cbab27fe23dba2e1b44``` and ```hash://md5/7e21ac93fb0e5e786f1254d6bd0a2341`` respectively: 
 
@@ -39,7 +43,7 @@ remarks
 
 This record claims some reference with id ```6968``` that a taxon with id ```S100010010``` has a parasite with a scientific name _Mesocomys pulchriceps_ Cameron . 
 
-After extending Elton's support to include Catalogue of Life Data Package, you can now access the record without having to join this records with their taxonomic and reference tables via an interpreted interaction record obtained via a published GloBI data review resource [```indexed-interactions.tsv.gz```(https://zenodo.org/records/19389793/files/indexed-interactions.tsv.gz) [```[3]```](#3):
+After extending [Elton](https://globalbioticinteractions.org/elton)'s support to include [Catalogue of Life Data Package](https://www.checklistbank.org/about/formats#catalogue-of-life-data-package-coldp), you can now access the record without having to join this records with their taxonomic and reference tables via an interpreted interaction record obtained via a published GloBI data review resource [```indexed-interactions.tsv.gz```(https://zenodo.org/records/19389793/files/indexed-interactions.tsv.gz) [```[3]```](#3):
 
 ```
 preston cat --remote https://zenodo.org hash://md5/0c2373f08dc68ec2a44d18edb45d7139 \
@@ -94,7 +98,15 @@ urn:lsid:checklistbank.org:dataset:124661
 urn:lsid:checklistbank.org:dataset:265709
 ```
 
-This suggests that a little over 10 datasets in ChecklistBank currently describe at least one species interaction claim. As expected, the Afromoth dataset (i.e., [```urn:lsid:checklistbank.org:dataset:2017```](https://checklistbank.org/dataset/2017)) is included in this list. Other examples include the Universal Chalcidoidea Database (i.e., [```urn:lsid:checklistbank.org:dataset:124661```](https://checklistbank.org/dataset/124661)) and the Catalogue of the Pterophoroidea of the World (i.e., [```urn:lsid:checklistbank.org:dataset:1199```](https://checklistbank.org/dataset/1199)). 
+This suggests that a little over 10 datasets in ChecklistBank currently describe at least one species interaction claim. As expected, the Afromoth dataset (i.e., [```[2]```](#2), [```urn:lsid:checklistbank.org:dataset:2017```](https://checklistbank.org/dataset/2017)) is included in this list. Other examples include the Universal Chalcidoidea Database (i.e., [```[6]```](#6), [```urn:lsid:checklistbank.org:dataset:124661```](https://checklistbank.org/dataset/124661)) and the Catalogue of the Pterophoroidea of the World (i.e., [```[7]```](#7), [```urn:lsid:checklistbank.org:dataset:1199```](https://checklistbank.org/dataset/1199)). 
+
+Note that reviews associated with the ChecklistBank datasets can be found via [GloBI's Zenodo Community](https://zenodo.org/communities/globi-review/?q=%22urn:lsid:checklistbank.org:dataset:%22) or by clicking on the ["archived review"](https://zenodo.org/communities/globi-review/?q=%22urn:lsid:checklistbank.org:dataset:2017%22) badges on [https://globalbioticinteractions.org/datasets](https://globalbioticinteractions.org/datasets) or [search results](https://www.globalbioticinteractions.org/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo). 
+
+<div id="figure2" class="figure figure-globi right">
+  <a href="/?accordingTo=globi%3Aurn%3Alsid%3Achecklistbank.org%3Adataset%3A2017&interactionType=ecologicallyRelatedTo"><img src="/assets/afromoths-2026-04-20.png" alt=""/></a>
+    <div class="figcaption"><em>Figure 2.</em> Search results associated with Afromoth dataset <a href="#2">[2]</a>.</div>
+</div>
+
 
 
 ## Discussion
@@ -107,8 +119,12 @@ Biodiversity data platforms such as ChecklistBank offer the ability to describe 
 
 <a name="2"></a>[2] De Prins J., & De Prins W. (2006, October). Afromoths, online database of Afrotropical moth species (Lepidoptera). [https://checklistbank.org/dataset/2017](https://checklistbank.org/dataset/2017) [https://doi.org/10.48580/d4fl.v124](https://doi.org/10.48580/d4fl.v124) [https://www.afromoths.net/](https://www.afromoths.net). Formerly published as a DwC archive through GBIF [https://ipt.biodiversity.be/archive.do?r=afromoths](https://ipt.biodiversity.be/archive.do?r=afromoths) [https://www.gbif.org/dataset/65c9103f-2fbf-414b-9b0b-e47ca96c5df2](https://www.gbif.org/dataset/65c9103f-2fbf-414b-9b0b-e47ca96c5df2) and [https://doi.org/10.15468/s1kwuw](https://doi.org/10.15468/s1kwuw) .
 
-<a name="3"></a>[3] Elton, Nomer, & Preston. (2026). Versioned Archive and Review of Biotic Interactions and Taxon Names Found within urn:lsid:checklistbank.org:dataset:2017 hash://md5/a9aaa7113716ab2f87ede6f6b70297c8. Zenodo. [https://doi.org/10.5281/zenodo.19389793](https://doi.org/10.5281/zenodo.19389793).
+<a name="3"></a>[3] Elton, Nomer, & Preston. (2026). Versioned Archive and Review of Biotic Interactions and Taxon Names Found within urn:lsid:checklistbank.org:dataset:2017 hash://md5/a9aaa7113716ab2f87ede6f6b70297c8. *Zenodo*. [https://doi.org/10.5281/zenodo.19389793](https://doi.org/10.5281/zenodo.19389793).
 
-<a name="4"></a>[4] Döring, M., & Ower, G. (2019). The Catalogue of Life Data Package - A new format for exchanging nomenclatural and taxonomic information. Biodiversity Information Science and Standards, 3, e38771. [https://doi.org/10.3897/biss.3.38771](https://doi.org/10.3897/biss.3.38771).
+<a name="4"></a>[4] Döring, M., & Ower, G. (2019). The Catalogue of Life Data Package - A new format for exchanging nomenclatural and taxonomic information. *Biodiversity Information Science and Standards*, 3, e38771. [https://doi.org/10.3897/biss.3.38771](https://doi.org/10.3897/biss.3.38771).
 
-<a name="5"></a>[5] Elliott M.J., Poelen, J.H. & Fortes, J.A.B. (2023) Signing data citations enables data verification and citation persistence. *Sci Data*. https://doi.org/10.1038/s41597-023-02230-y [hash://sha256/f849c870565f608899f183ca261365dce9c9f1c5441b1c779e0db49df9c2a19d](https://linker.bio/hash://sha256/f849c870565f608899f183ca261365dce9c9f1c5441b1c779e0db49df9c2a19d) 
+<a name="5"></a>[5] Elliott M.J., Poelen, J.H. & Fortes, J.A.B. (2023) Signing data citations enables data verification and citation persistence. *Sci Data*. [https://doi.org/10.1038/s41597-023-02230-y](https://doi.org/10.1038/s41597-023-02230-y) [hash://sha256/f849c870565f608899f183ca261365dce9c9f1c5441b1c779e0db49df9c2a19d](https://linker.bio/hash://sha256/f849c870565f608899f183ca261365dce9c9f1c5441b1c779e0db49df9c2a19d) 
+
+<a name="6"></a>[6] UCD Community. (2025). Universal Chalcidoidea Database curated in TaxonWorks (Apr 2025). [https://doi.org/10.48580/d758p](https://doi.org/10.48580/d758p)
+
+<a name="7"></a>[7] Hobern, D., & Gielis, C. (2025). Catalogue of the Pterophoroidea of the World (D. Hobern, Ed.; 1.1.25.304). Catalogue of Life, Amsterdam, Netherlands. [https://doi.org/10.48580/d3gd](https://doi.org/10.48580/d3gd).
