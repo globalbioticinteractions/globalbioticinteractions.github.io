@@ -85,7 +85,7 @@ eltonVersion                           0.16.10
 
 ## Discovery and Independent Review of ChecklistBank Associated Interaction Data
 
-To help facilitate automated discovery of species interaction claims embedded in ChecklistBank Datasets, the Elton, a GloBI commandline tool, is now able to list them using:
+To help facilitate automated discovery of species interaction claims embedded in ChecklistBank Datasets, Elton, a GloBI commandline tool, is now able to list datasets with interaction claims using:
 
 ```
 elton ls --online --registry checklistbank 
