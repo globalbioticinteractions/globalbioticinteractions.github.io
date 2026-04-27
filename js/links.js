@@ -22,7 +22,7 @@ let getArchiveURIBase = function(archiveURI) {
 }
 
 let lsidPrefixForNamespace = function(namespace) {
-  return namespace.startsWith('urn:lsid:') ? '' : 'urn:lsid:globalbioticinteractions:dataset:';
+  return namespace.startsWith('urn:lsid:') ? '' : 'urn:lsid:globalbioticinteractions.org:dataset:';
 }
 
 let decorateArchivedReviewLink = function(aElem, namespace) {
