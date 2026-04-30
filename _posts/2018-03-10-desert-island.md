@@ -17,7 +17,7 @@ published: true
 
 
 <div class="figure figure-globi left"><a href="https://www.wikidata.org/wiki/Q1065592" target="_blank"><img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Desertisland.jpg/800px-Desertisland.jpg" alt="Desert Island"/></a>
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Desertisland.jpg/500px-Desertisland.jpg" alt="Desert Island"/></a>
 
     <div class="figcaption">
         <p>Dr. James P. McVey. 1971. <a href="https://www.wikidata.org/wiki/Q165594" target="_blank">Helen's Reef</a> - a classic <a href="https://www.wikidata.org/wiki/Q1065592" target="_blank">desert island</a> - elevation above sea level about 8 feet. NOAA Sea Grant Program. 
