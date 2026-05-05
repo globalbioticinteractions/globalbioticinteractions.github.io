@@ -34,11 +34,6 @@ Drivdal, L. , Poelen, J.H., Balaine, L., Miettinen, M., Diniz, U. M., Balfour, N
 
 Associated meeting notes at ~~Google Docs (live copy)~~ with versioned copies at [dmp-notes.pdf](./dmp-notes.pdf) and [dmp-notes](./dmp-notes).
 
-# Dataset Review
-
-
-
-
 # Use Cases
 
 A versioned snapshot of EuroAPPA associated use cases (under development!) are available at [use-cases](./use-cases). 
