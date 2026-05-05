@@ -34,6 +34,11 @@ Drivdal, L. , Poelen, J.H., Balaine, L., Miettinen, M., Diniz, U. M., Balfour, N
 
 Associated meeting notes at ~~Google Docs (live copy)~~ with versioned copies at [dmp-notes.pdf](./dmp-notes.pdf) and [dmp-notes](./dmp-notes).
 
+# Dataset Review
+
+
+
+
 # Use Cases
 
 A versioned snapshot of EuroAPPA associated use cases (under development!) are available at [use-cases](./use-cases). 
@@ -84,6 +89,8 @@ EuroAPPA aims to work with the 24 BUTTERFLY partners to help (1) mobilizing exis
 # Dataset Review
 
 To help better understand existing datasets, EuroAPPA aims to review datasets. The list below contains the list of dataset selected for review.
+
+Some candidate datasets for inclusion with EuroAPPA can be found at [https://github.com/globalbioticinteractions/globalbioticinteractions/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22EuroAPPA%20candidate%22](https://github.com/globalbioticinteractions/globalbioticinteractions/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22EuroAPPA%20candidate%22) . 
 
 Click on badges to browse/download indexed records or inspect automated reviews.
 
