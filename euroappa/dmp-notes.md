@@ -84,7 +84,7 @@
 
 Jeroen: Important to get expectations clear so that users can apply the DMP, there are time constraints for the meeting.
 
-Figure out the substancial challenges of the DMP for the different WP for review. One focus ares: Data requests and sharing with other projects
+Figure out the substantial challenges of the DMP for the different WP for review. One focus area: Data requests and sharing with other projects
 
 Noa: suggests to upload all the datasets at Zenodo as private and then they can be published collectively at the end of the project. Except if they are in the process of publication. This can reduce lose of data. 
 

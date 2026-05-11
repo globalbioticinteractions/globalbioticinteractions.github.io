@@ -1,0 +1,849 @@
+# **Use Cases For EuroAPPA**
+
+(to see an outline of this document on the left of the screen, press Headings above and chose “Show outline”) 
+
+(if you are not part of the EuroAPPA team and are not sure about what EuroAPPA is, see a short description at the bottom of this document [here](https://cloud.butterfly-europe.eu/index.php/apps/files/files/11403?dir=/Butterfly/WORK_PACKAGES/WP1_WORKSPACE&editing=false&openfile=true#h-invitation-to-provide-a-use-case-for-euroappaemail-to-invite-a-variety-of-stakeholders))
+
+###### Reminder: In EuroAPPA, we will focus on updating and reusing two existing systems:  multiple tools within GloBI, and DoPI, plus adding results from modelling and mapping exercises in WP1 (i.e. we don’t aim to build new infrastructures, except what we need for the modelling results).
+
+## **Definition of Use Case**
+
+A **use case** is a short story about specific actors performing specific tasks with (in this case) EuroAPPA. We are compiling example Use Cases accross other stakeholders. This will help us address all potential user needs in EuroAPPA's interface.
+
+## Use Case 1 - A Honours/Master's student who wants data for their thesis (Jeff)
+
+**Goal:** Address the following two questions: (1) How complete is the pollen host-plant coverage of bee species that are included in the most recent IUCN Red List: <https://iucn.org/press-release/202510/mounting-risks-threaten-survival-wild-european-pollinators-iucn-red-list> ? (2) Are certain pollen host types over- or under-represented in the list? __Prediction__: More specialised bees (i.e. monolectic species) will be over-represented.
+
+**Actors:** The Honour/Master's student and their thesis advisor(s); (if applicable) editor of the journal; (if applicable) peer reviewers
+
+**Resources:** Internet; EuroAPPA; IUCN Red List; literature on bee plant hosts; R for data analysis; word processing software for the thesis write-up
+
+Steps: (1) Download IUCN data on bees; (2) Download data from EuroAPPA on bees and their host plants; (3) Assess coverage of the downloaded data in relation to the IUCN data; (4) Assess the -lecty (i.e., pollen specificity - mono-/poly-lectic) of the bees in the IUCN List versus the -lecty for European bee species generally; (5) Statistical analysis; (6) Discussion of results with thesis advisor(s); (7) Write up of the thesis; (8) Write up of a research paper if appropriate.
+
+Out of scope (for this use case) - communication with EuroAPPA folks and partner; detailing
+
+Question -
+
+- Which use case describes the EuroAPPA team's collaborations with their users?
+- Which use case describes the EuroAPPA team's internal communication and collaboration?
+- What kind of alternate use cases using different resources and taxa (e.g., caterpillars) could be imagined?
+
+## Use Case 2 - European Food Safety Authority (EFSA) researching the pollinators of Green Beans (a food crop) (Cala)
+
+**Goal:** An EFSA researcher is investigating the dependence of food crops (e.g., green beans) on pollinators. They address the following questions: (1) What is the current scientific knowledge of the floral visitors of the crop plant (Green beans)? (2) Is there variation in the visitors of the Green Beans crop across different geographical areas of Europe? 3) Are there knowledge gaps in the visitors of plant species x in some areas where it is cultivated? 4) is there evidence of changes in the pollinators of crop x over time?
+
+**Actors:** EFSA researchers
+
+**Resources:** EuroAPPA; [CropPol database](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecy.3614); primary literature on crop pollination
+
+**Steps**: (1) Check CropPol; (2) Download EuroAPPA data on target species; (3) compare coverage (4) map records 5) run statistical analysis for temporal differences in pollinators
+
+**Note** - GloBI reviewed a version of CropPol (see Elton, Nomer, & Preston. (2025). A Review of Biotic Interactions and Taxon Names Found in ibartomeus/OBservData hash://md5/35b1210f8b22088babe73b2b9012c15e. Zenodo. <https://doi.org/10.5281/zenodo.15256406> )
+
+## Use Case 3.1 - Scientist wishing to know about the types of plants used across the distribution of a pollinator (Jeff)
+
+**Goal**
+
+Conservation assessment of a specific pollinator
+
+Specific questions:  How does their data compare to data available elsewhere? Can the scientist enrich their own datasets with other openly available datasets, thereby extending the taxonomic, geospatial, and temporal aspects of the dataset?
+
+Assumptions
+
+Scientists have funding and time to reach their goals. Funding is out of scope for this use case.
+
+**Actors**
+
+1. A pollination ecologist studying the ecology of a rare pollinator
+2. EuroAPPA team
+
+**Resources (existing methods/ data/ infrastructure)**
+
+ 1. EuroAPPA
+ 2. Internet
+ 3. Personal Data
+ 4. DOPI
+ 5. GBIF
+ 6. EU Pollinator Hub
+ 7. Zenodo (publications)
+
+    **Steps**
+ 8. Plan the survey (where, when, what)
+    1. Determine the taxa of interest (pollinator and its plants)
+    2. Determine the geospatial-temporal domain
+ 9. Carry out the survey
+    1. Record data on the plants that are visited by the pollinators
+    2. Format the data spreadsheet according to DwC
+10. Compare newly acquired survey data with already available data in EuroAPPA
+11. Analyse data
+12. Write the manuscript and cite EuroAPPA and sources within
+13. add new data to EuroAPPA-linked repository (during peer-review and definitely after publication)
+
+## Use Case 3.2 - Scientist wishing to know about the spatial diversity of pollinators of a plant (or a community or a region)
+
+**Goal**
+
+Habitat restoration or reviewing existing information on a set of pollinator taxa
+
+Specific questions:  How does their data compare to data available elsewhere? Can the scientist enrich their own datasets with other openly available datasets, extending the taxonomic, geospatial, and temporal aspects of the dataset?
+
+Assumptions
+
+Scientists have funding and time to reach their goals. Funding is out of scope for these use cases.
+
+**Actors**
+
+1. A pollination ecologist studying the reproductive ecology of a rare plant
+2. EuroAPPA team
+
+**Resources (existing methods/ data/ infrastructure)**
+
+ 1. EuroAPPA
+ 2. Internet
+ 3. Personal Data
+ 4. DOPI
+ 5. GBIF
+ 6. EU Pollinator Hub
+ 7. Zenodo (publications)
+
+    **Steps**
+ 8. Plan the survey (where, when, what)
+    1. Determine the taxa of interest (plants and pollinators)
+    2. Determine the geospatial-temporal domain
+ 9. Carry out the survey
+    1. Record data on the pollinators of the plant
+    2. Format the data spreadsheet according to DwC
+10. Compare newly acquired survey data with already available data in EuroAPPA
+11. Analyse data
+12. Write the manuscript and cite EuroAPPA and sources within
+13. add new data to EuroAPPA-linked repository (during peer-review and definitely after publication)
+
+## Use Case 4 - Citizen or Gardener (Claus)
+
+- **Question:** What native plants should I grow to help local pollinators?
+- **EuroAPPA use:** Search for local pollinator–plant interactions and distribution maps filtered by region, returning lists of species observed in a specific Location and their host plants.
+
+**Goal**
+
+Homeowners or renters (not specifically gardeners) want to know which bee plants are best for their gardens in Aarhus, Denmark.
+
+**Actors**
+
+1. Someone living in Aarhus, Denmark, with an interest in bee health.
+2. expert organisations (e.g., wild garden NGOs or individuals, Claus R.)
+3. plant sellers - nurseries
+
+**Resources**
+
+the internet; a garden in Aarhus; webpage on the publication of a physical, nice-looking poster on bees by Claus.
+
+**Steps**
+
+1. homeowner goes out and looks at the garden in Aarhus 
+2. homeowner notices there's a lot of grass and concrete in their yard
+3.  homeowner identifies where to change the grass/concrete to get something else 
+4. homeowner searches the internet for "bee-friendly garden" (in Danish, "bi-venlig have") 
+5. home owner finds Claus' name related to the published poster on bees. 
+6. homeowner asks Claus to list plants that are bee-friendly. 
+7. 
+   1. 7.a) Claus suggests going to the nursery and observing which plants are visited by bees at the nursery (go and have a look). 
+   2. 7.b) for skilled gardeners, Claus provides a detailed list of plants instead 8) homeowner go to the nursery and buy the plants.
+
+**Question** 
+
+What to do if the flowers aren't flowering? How to buy plants out of season (e.g., maybe look at the label).
+
+Wouldn't it be a nice idea to have Claus publish his plant list through EuroAPPA? How do we make EuroAPPA so that homeowners can easily query for bee-friendly plants in Aarhus, Denmark?
+
+How does EuroAPPA facilitate the provision of the plant list to the homeowner?
+
+How does Claus make his knowledge available within constraints (money, time), while also being attributed for this work?
+
+How do existing resources (e.g., the EU Butterfly Hub) facilitate the provision of the plant list to the homeowner?
+
+## Use Case 5 - Citizen or Gardener - using Task 5.2 and 5.3 landscape mitigation tool (Andrea)
+
+- **Question:** Which plants should I grow in a garden to help local pollinators? Which habitat should I create? 
+- **EuroAPPA use:** Accessing to landscape mitigation tool integrated in EuroAPPA. The tool feeds on species distribution modelling (SDM) and interaction data, regularly updated by EuroAPPA. The webpage of the tool will receive inputs on location, land characteristics and need of the user. Then, it will compute the estimated local pollinator species pool estimated by the SDMs. Finally the tool will connect the species pool to their plant interaction and traits to provide habitat suggestions for the target species. Target species can include local threatened species and/or crop pollinators depending on the user goals.
+
+**Goal**
+
+Homeowners or renters (not specifically gardeners) want to know which bee plants are best for their gardens in Merate, Italy.
+
+**Potential users**
+
+1. Someone living in Merate, Lombardy, Italy with a garden and interest in bee health.
+2. A gardener employed by an homeowner of Merate who was asked to design a pollinator-friendly garden.
+3. Community garden in Merate.
+
+**Resources**
+
+A garden; the willingness to change the garden’s management; an internet connection, the ability to interact with the tool and understand its outputs; money and willingness to: get the right plants, create the habitat and maintain it.
+
+\-SDMs kept up to date and integrated in EuroAPPA.
+
+\-Plant-pollinator interactions kept up to date and integrated in EuroAPPA.
+
+\-R script with the package Shiny to run the application and feed on the updated data when available. Human resources to mantain if needed.  
+  
+-Script to integrate the app in to EuroAPPA
+
+**Actors**
+
+1. Homeowner/gardeners
+2. EuroAppa team
+3. Butterfly WP5 team (Ivan and Andrea)
+
+  
+**Steps**
+
+1. Homeowner goes out and looks at the garden in Merate. They notices there's a lot of grass and concrete in their yard.
+2. Homeowner identifies where to change the grass/concrete to get something else
+3. The user finds out about the EuroAPPA tool to designing a pollinator-friendly landscape via involvement in a Butterfly LL, (possibly) the EU poll hub, mediatic campaign by an NGO, insitutional information by a local administration that was involved in the project, word-of-mouth, …
+4. The user opens the web application. They draw a polygon that includes their garden on a map, they select “conservation” as their goal of the tool. 
+5. The tool retrieves a list of plants suited to support the threatened pollinator species that might be present in their area. The user can further filter the plant species by soil conditions, sun exposure, water requirements, life cycle, and maximum height. If they want to go deeper, fun facts and main characteristics of suggested plants and potential pollinators to be attracted are shown in a nutshell.
+6. Additional information on nesting habitats or plants for larvae of target pollinators are showed. A small description and tutorial on how to create those is available.
+7. The User gets a seed mix or buys plants suggested by the tool. The tool might also serve as a first suggestion to further adjust the plant mix to other restraints.
+8. The User re-designs the garden.
+
+## Use Case 6 - Integration of EuroAPPA with the EU Pollinator Hub (Noa/Andrés)
+
+**Goal**
+
+Integrate the data into the EU Pollinator Hub, making it FAIR, quality-checked, and standardised for easier reuse (in line with the Hub's recognised standards).
+
+Automate the process of data retrieval from the EuroAPPA.
+
+**Actors**
+
+EuroAPPA Team
+
+EU Pollinator Hub Team
+
+**Resources**
+
+Data and Metadata from the EuroAPPA.
+
+EuroAPPA API Documentation.
+
+Developers’ working time.
+
+Data manager/scientist working time.
+
+**Steps**
+
+EuroAPPA Team - Standardise their datasets according to available standards. Apply these to all the data and metadata of the EuroAPPA.
+
+EuroAPPA Team - Implement the API to make it operational, so that data and metadata are accessible. Agree on a transferring scheme and prepare API user documentation.
+
+EUPH Team - Retrieve the data and metadata from EuroAPPA to include in EUPH.
+
+EUPH Team - Perform additional quality assessment and standardisation, as needed.
+
+EUPH Team - Generates dataset reports and makes them available alongside standardised datasets.
+
+## Use Case 7 - Reuse/Integration of EuroAPPA with GloBI and other EuroAPPA partners (Jorrit)
+
+**Goal**
+
+EuroAPPA is a project that interfaces with experts and the general public. EuroAPPA uses GloBI and other existing resources to build a one-stop shop for plant-pollinator research in Europe.
+
+GloBI wishes to receive feedback from EuroAPPA team members, EuroAPPA expert users, and EuroAPPA community scientists (general interested public).
+
+**Actors**
+
+GloBI curators and developers
+
+EuroAPPA team
+
+EuroAPPA (expert) users
+
+DoPI curators and developers
+
+Additional EuroAPPA (data) partners
+
+**Resources**
+
+GloBI data reviews and other data products
+
+EuroAPPA feedback comments
+
+EuroAPPA request for information
+
+**Steps**
+
+1. An expert, "Jane Doe", on pollinators reviews EuroAPPA data products
+2. The expert finds that a notable pollinator of Norway is missing
+3. the expert contacts the EuroAPPA team to suggest improvements
+4. The EuroAPPA team discusses the improvement suggestion with GloBI, DoPI and other EuroAPPA partners
+5. EuroAPPA partners implement improvement suggestions
+6. An updated EuroAPPA is reviewed by the submitting expert, Jane Doe
+
+## Use Case 8 - Land manager, Garden designer, Local institution or organisation- using T5.2 and 5.3 tool (Andrea)
+
+- **Question:** Which plant mix is most suitable to promote the conservation of pollinators in the province of Lecco (Italy)?  (or anywhere in the EU)
+- **EuroAPPA use:** Access to the landscape mitigation tool integrated in EuroAppa. The tool draws on species distribution modelling (SDM) and interaction data, which are regularly updated by EuroAPPA. The tool's webpage will receive inputs on location, land characteristics, and the user's needs. Then, it will compute the estimated local pollinator species pool estimated by the SDMs. Finally, the tool will connect the species pool to their plant interaction and traits to provide habitat suggestions for the target species. Target species can include local threatened species and/or crop pollinators, depending on the user's goals.
+
+**Goal:** Defining a seed mix effective in supporting the threatened pollinators of a region. The mix could be promoted to a broader audience or planted in various locations across the region.
+
+**Potential users**
+
+1. Organisations (e.g., Legambiente Lecco (NGO), Park manager of Montevecchia regional park (LC), Italy).
+2. Plant sellers - Nurseries of Cernusco Lombardone (LC), Italy.
+3. A Garden designer commissioned by a company to plan a private green space in Osnago(LC), Italy.
+4. A landscape manager employed by the local administration of the province of Lecco, italy.
+5. Policymakers willing to define a list of requirements for farmers to receive funding from CAP or similar environmental/biodiversity stewardship schemes.
+
+**Resources**
+
+Mediatic, economic and/or institutional power; an internet connection, the ability to interact with the tool and understand its outpus; money and willingness to promote pollinator stewardship.
+
+\-SDMs kept up to date and integrated in EUROAppa.
+
+\-Plant-pollinator interactions kept up to date and integrated in EUROAppa.
+
+\-R script with the package Shiny to run the application and feed on the updated data when available. Human resources to mantain if needed.  
+  
+-Script to integrate the app in to EuroAppa
+
+**Actors**
+
+1. Users
+2. EuroAppa team
+3. Butterfly WP5 team (Ivan and Andrea)
+
+  
+**Steps**
+
+1. A company/park/local institution/plant seller/garden designer is motivated to support declining pollinator species in their region. Alternatively, they are required to comply to a legally binding norm aimed at supporting biodiversity. A plant seller might be motived by marketing their plant or seed mix as pollinator friendly.
+2. The user finds out about the EuroAppa tool to desing a pollinator-friendly landscape via involvement in a Butterfly LL, the EU poll hub, mediatic campaign by an NGO, institutional information, advocacy by a lobby, word-of-mouth, …
+3. The user opens the web application. They draw a large polygon that includes the region they want to take action in, they  select “conservation” as their goal of the tool. If they want to present the seed mix to farmers, they might also select farming and the crops of interests. The tool can also accept the request to deliver suggestion compatible to both farming and conservation goals.
+4. The tool retrieves a list of plants suited to support the target pollinator species that might be present in their area. The user can further filter the plant species by soil conditions, sun exposure, water requirements, life cycle, and maximum height. If they want to go deeper, fun facts and main characteristics of suggested plants and potential pollinators to be attracted are shown in a nutshell.
+5. Additional information on nesting habitats or plants for larvae of target pollinators are showed. A small description and tutorial on how to create those is available.
+6. The User promotes the use of seed mix and plants to people and entities (the case for users such as: NGOs, plant sellers, landscape managers, garden designers). Or they plant directly on the ground (the case for users such as: park managers, local institutions). The tool might also serve as a first suggestion to further adjust the plant mix to other restraints.
+
+## Use Case 9 - Farmer - using T5.2 and 5.3 tool (Andrea)
+
+- **Question:** Which plant mix is most suitable to support the pollination services in my sweet cherry orchard in Novate Milanese, Italy? (or any other crop and anywhere else in the EU)
+- **EuroAPPA use:** Accessing to landscape mitigation tool integrated in EuroAppa. The tool feeds on species distribution modelling (SDM) and interaction data, regularly updated by EuroAPPA. The webpage of the tool will receive inputs on location, land characteristics and need of the user. Then, it will compute the estimated local pollinator species pool estimated by the SDMs. Finally the tool will connect the species pool to their plant interaction and traits to provide habitat suggestions for the target species. Target species can include local threathed species and/or crop pollinators depending on the user goals.
+
+**Goal:** Designing a portion of the land to support wild pollinators that might benefit the yield of the surrounding crops. The goal could also include the support of pollinators in general to comply to an EU environmental scheme.
+
+**Potential users**
+
+1. Farmers
+2. Landscape managers that design farmlands
+
+**Resources**
+
+Willingness to coexist with wild pollinators on your farm; an internet connection, the ability to interact with the tool and understand its outpus; money, time and willingness to create the habitat and mantain it.
+
+\-SDMs kept up to date and integrated in EUROAppa.
+
+\-Crop-pollinator interactions kept up to date and integrated in EUROAppa.
+
+\-R script with the package Shiny to run the application and feed on the updated data when available. Human resources to mantain if needed.  
+  
+-Script to integrate the app in to EuroAppa
+
+**Actors**
+
+1. Users
+2. EuroAppa team
+3. Butterfly WP5 team (Ivan and Andrea)
+
+  
+**Steps**
+
+1. A farmer is motivated to attract wild pollinators on their farm that might pollinate its crops.
+2. The user finds out about the EuroAppa tool to desing a pollinator-friendly landscape via involvement in a Butterfly LL, the EU poll hub, mediatic campaign by an NGO, institutional information, advocacy by a lobby, word-of-mouth, …
+3. The user identifies an area of its farmland to create a pollinator friendly habitat.
+4. The user opens the web application. They draw a large polygon that includes their farm, they  select “crop pollination” as their goal. They specify the crop: cherry. The tool can also accept the request to deliver suggestion compatible to both farming and conservation goals.
+5. The tool retrieves a list of plants suited to support the target pollinator species that might be present in their area and pollinate the crop. The tool will suggest wild plants that flower in a different time of the year of the crop, to prevent distraction from the crop. The user can further filter the plant species by soil conditions, sun exposure, water requirements, life cycle, and maximum height. If they want to go deeper, fun facts and main characteristics of suggested plants and potential pollinators to be attracted are shown in a nutshell.
+6. Additional information on nesting habitats or plants for larvae of target pollinators are showed. A small description and tutorial on how to create those is available. The user will also be informed of the best size orientation of the flower strips to support pollination service on the farm. General and introductory info on sowing, fertilizers, mowing regimes to mantain the flower strip will also be provided.
+7. The User re-designs the farmland. The tool might also serve as a first suggestion to further adjust the plant mix and habitat to other restraints.
+
+## Use Case 10 - Scientist, NGO’s/lobbies, Policymakers - using Task 5.1 Pollination alert map (Andrea)
+
+- **Question:** Which crops and in which region of the EU are lacking pollination services by wild pollinators?
+- **EuroAPPA use:** Accessing the pollination alert map. This interactive web-map draws on EuroAPPA’s spatial distribution maps (SDMs) for pollinator distribution across the EU (from Butterfly WP1), the Harmonised IACS inventory for crop distribution, and crop-interaction data made available on EuroAPPA. The Map will visualise the regions estimated to provide sufficient pollination service (computed mainly from interactive poll richness for their crops) for a specified crop category.
+
+**Goal**
+
+Be informed about the status of pollination service provided by wild pollinators to the main crops in Europe and its spatial variation.
+
+**Potential users**
+
+1. A scientist looking for a citation on the dependency of cherry to wild pollinators in Northern Italy. \[add example on what citation means\]
+2. An NGO in Brussels lobbying to change the EU Common Agriculture Policy.
+3. A local organisation in Lecco is interacting with farmers to promote wild pollinator stewardship.
+
+**Resources**
+
+an internet connection, the ability to interact with the map and understand its outputs.  
+  
+-Eurocropmap kept up to date and integrated in EuroAPPA.
+
+\-SDMs (spatial distribution maps) kept up to date and integrated in EuroAPPA.
+
+\-Crop-pollinator interactions kept up to date and integrated in EuroAPPA.
+
+\-R script with the package Shiny to run the application and feed on the updated data when available. Human resources to maintain if needed.  
+  
+-Script to integrate the app into EuroAPPA
+
+**Actors**
+
+1. Users
+2. EuroAPPA team
+3. Butterfly WP5 team (Ivan and Andrea)
+4. EuroCropmap research group (JRC in Ispra) Best map available in 2025: <https://doi.org/10.1038/s41597-024-03884-y>
+
+  
+**Steps**
+
+1. User is motivated to find info on pollination supply to sweet cherry in northern Italy
+
+   \[Jorrit asks: Which NUTS is this?\]
+2. The user finds out about the EuroAPPA pollination alert map through involvement in a Butterfly LL, the EU poll hub, a media campaign by an NGO, institutional information from a local administration that was involved in the project, word-of-mouth, …
+3. User opens the interactive pollination alert map on EuroAPPA. Select sweet cherry (or orchards in general if species-specific filter is not available; . A map is shown highlighting areas with pollination mismatches or supply/demand imbalances across the UE.
+
+   \[Jorrit asks: When you say sweet cherry, which taxonomic groups are you considering? Is this made explicit in the data?\]
+4. The user selects the Lombardy region in Italy. The map zooms into the region. A list of cherry/fruit crop pollinators can be downloaded (possibly specific to the region of interest, depending on model accuracy).
+5. The user gets a score on the pollination mismatch in the Lombardy region for sweet cherries compared to other areas in Europe.
+
+   [WP1-EuroAPPA-use-cases.md](https://cloud.butterfly-europe.eu/index.php/f/11403)
+
+   \[Add crop list\]
+
+    Crop layer: Jänicke, C., Petersen, K. A., Schmidts, P., Müller, D., & Jepsen, M. R. (2026). Harmonised IACS inventory \[Data set\]. In Field and farm-level data on agricultural land use for the European Union (1.3, Vol. 12, Number 1, p. 1050). Zenodo. <https://doi.org/10.5281/zenodo.18670815>
+
+   \[Pollinator list will come from WP1 models\]
+
+## Use Case 11- Green area manager (Paolo)
+
+**Goal:** Green area managers and farmers want to know which plants to grow in the areas they manage. 
+
+**Actors:** 
+
+1) managers of public green areas such as urban green areas or peri-urban protected areas in the region of Milano, Italy. 
+
+2) experts 
+
+3) plant sellers 
+
+4) farmers and associations in allotments
+
+**Resources:** 
+
+\-          Digital database in a user friendly platform 
+
+\-          Internet
+
+\-          Geographic and environmental data (area size, soil type, climate)
+
+\-          Supporting literature
+
+ 
+
+**Steps:** 
+
+\-          The user defines the area of interest (e.g., a urban green area, a natural park, or an agricultural area).
+
+\-          The user accesses the plant–pollinator interaction database, filtering the data by geographic area and relevant time period.
+
+\-          The user extracts the interactions between plant species and pollinators to identify the plant species with the highest number of interactions, plant species visited by rare or specialized pollinators.
+
+\-          The user looks for buying and sowing the set of key plant species for pollinator conservation or consults an expert for alternative species available at the market.
+
+\-          Once sown, a user consults with an expert for monitoring in the field.
+
+\-          Future adjustments in case of problems, expert based. 
+
+## Use Case 12 **-** Supporting small-scale orchard pollinators during non-bloom periods (Zuzanna)
+
+ **Goal:** Small-scale orchard owners aim to support semi-commercial solitary bee pollinators (e.g. *Osmia bicornis, Osmia cornuta, Chelostoma florisomne,* and *Heriades truncorum*) by ensuring access to appropriate floral resources during periods when orchard blooming is delayed, shortened, or absent due to weather conditions or phenological mismatches. Note 1: *Osmia bicornis* and *Osmia cornuta* can be easily obtained from different sources (commercial and non-commercial); *Chelostoma florisomne* and *Heriades truncorum* are available from one producer in Poland. Note 2: Small-scale orchard: ca. 2-15 fruit trees.
+
+ **Question:** What alternative plants or floral resources can be provided locally to sustain orchard pollinators during non-bloom periods?
+
+ **Actors:**
+
+- Small orchard owners      producing fruit for personal use and actively seeking practical solutions      to sustain semi-managed bees for next season
+- Members of Facebook      groups focused on pollinators, orchards, or gardening, sharing      experiential knowledge
+- Researchers, NGO      experts, or other citizens familiar with EuroAPPA and evidence-based      pollinator-plant interactions and also active on Facebook groups
+- Seed producers and plant      sellers offering regionally available plant species
+
+ **Resources:** Internet (mainly Facebook groups); peer observations and advice; EuroAPPA; short communication note on EuroAPPA in Polish (eg. video-based or short manual); local seed producers and plant sellers.
+
+ **Steps:**
+
+1. Orchard owner observes delayed or shortened blooming in the orchard.
+2. Solitary bees are present, but floral resources are limited.
+3. Orchard owner seeks advice in relevant Facebook groups.
+4. Responses range from non-intervention to artificial feeding (e.g., artificial feeders with sucrose solution), creating uncertainty.
+5. An expert or informed user introduces EuroAPPA as a support tool.
+6. Orchard owner uses EuroAPPA to identify locally observed pollinator–plant interactions and suitable alternative forage plants.
+7. Orchard owner selects plant species complementary with local conditions.
+8. Orchard owner purchases and plant supplementary plants near or in the orchard.
+
+ 
+
+## Use Case 13 - Attracting visually appealing pollinators to home gardens (Zuzanna)
+
+ **Goal:** Citizens (garden owners) aim to attract and regularly observe visually appealing and “beautiful” pollinator species (e.g. *Xylocopa violacea, Macroglossum stellatarum, Aglais io*) by planting species that provide appropriate food resources.
+
+ **Question:** Which plant species should be planted locally to attract specific visually appealing pollinator species and increase their visitation in home gardens?
+
+ **Actors:**
+
+- Home garden owners      interested in pollinators and nature observation
+- Members of Facebook      groups dedicated to insects, pollinators, or gardening
+- Researchers, NGO experts      or other citizens familiar with EuroAPPA and evidence-based      pollinator-plant interactions and also active on Facebook groups
+- Garden centres and      plant/seed sellers supplying ornamental and native plants
+
+ **Resources:** Internet (mainly Facebook groups); peer observations and advice; EuroAPPA; short communication note on EuroAPPA in Polish (eg. video-based or short manual); garden centres and seed producers / plant sellers
+
+ **Steps:**
+
+1. Garden owner observes or learns about visually attractive pollinator species.
+2. Garden owner expresses interest in attracting specific species to their garden.
+3. Garden owner asks in Facebook groups which plants attract the target species.
+4. Answers are anecdotal and sometimes inconsistent.
+5. An expert recommends EuroAPPA as a reliable source of species-plant associations.
+6. Garden owner searches EuroAPPA for target species.
+7. EuroAPPA provides a list of associated nectar or host plants.
+8. Garden owner selects, purchases, and plants suitable species to increase pollinator presence.
+
+## 
+
+## Use Case 14 - Making a balcony/garden/outdoor area more pollinator-friendly (Aye)
+
+**Goal:** Someone who participated in an online questionnaire/study was intrigued by the information provided in the study and wanted to know whether they could make their own balcony/garden/outdoor area more pollinator-friendly.
+
+**Actors:** 1) someone from Germany, 2) the researcher of the study, 3) plant stores, 4) friends and family
+
+**Resources:** information provided by researchers, the internet, garden center websites (shopping), EuroAPPA, shops/nurseries
+
+**Steps:** 
+
+1) A participant finished a questionnaire about pollinator-friendly practices
+
+2) They realized that their balcony is still empty 
+
+3) They ponder whether it is possible to make a pollinator-friendly refuge using the limited space (would it even help), while also getting some benefits (e.g., spices, veggies) 
+
+4:
+
+a) Look up on the internet about pollinator-friendly balconies 
+
+b) Contacts the researcher to ask for more specific suggestions 
+
+5:
+
+a) The researcher sends a list of plants that could work for the intended purpose of the participant (also information about the planting season, etc.) 
+
+b) The researcher uses EuroAPPA to search for native plant-pollinator interactions filtered by the country
+
+c) The researcher also suggests that the participant can use EuroAPPA to explore more information about the native plant species of the participant’s local region (to narrow down the list) and soil requirements for growing these plants 
+
+6) The participant determines plant species that they like to try planting on their balcony based on the list from the researcher and the information from EuroAPPA
+
+7) They check on garden center websites for availability/prices 
+
+8) Buy the plants from nurseries 
+
+9) They find this platform to be interesting and share it with family and friends to try out
+
+## Use Case 15 - A School Teacher planning a local biodiversity education activity (George Vlontzos)
+
+**Goal:**  
+ A school teacher wants to help students understand pollinators in their local environment by using real examples from the Nestos Delta region.
+
+**Actors:**
+
+A school teacher working in the Kavala / Nestos Delta area, Local environmental expert (maybe agronomist or NGO member), UTH researchers
+
+**Resources:**  
+ EuroAPPA; classroom computer or tablet; local maps; teaching materials; a school garden or nearby green space.
+
+**Steps:**
+
+- The teacher plans a lesson about pollinators and      local biodiversity.
+- The teacher searches EuroAPPA for pollinator–plant interactions recorded in Northern Greece.- EuroAPPA  shows which insects visit which plants and during which seasons.
+- Environmental experts and researchers suggest simple pollinator-friendly plants or      activities for students and could possibly visit the classroom or school      garden for a short talk with the students.
+- The teacher uses simple EuroAPPA maps and visuals in the classroom.
+- Students discuss which plants might support   pollinators near their school or homes.
+- The class identifies small actions (e.g. planting flowers, observing insects).
+- Students connect local actions with wider European      pollinator conservation efforts.
+
+## Use case 16 - A Beekeeper operating near the Nestos Delta region (George Vlontzos)
+
+**Goal:**  
+ A beekeeper wants to decide where and when to place beehives near the Nestos Delta in order to maximise forage availability for bees while avoiding periods and areas with high pesticide pressure.
+
+**Actors:**
+
+Beekeepers managing hives near the Nestos Delta, Kavala, Greece, local farmers, beekeeping cooperative, agricultural advisor
+
+**Resources:**  
+ EuroAPPA; local maps of the Nestos Delta; beekeeper’s seasonal calendar; communication with farmers; field observations.
+
+**Steps:**
+
+- The beekeeper plans the seasonal movement and      placement of hives in the wider Nestos Delta area.
+- The beekeeper uses EuroAPPA to search for      plant–pollinator interactions in Northern Greece and similar Mediterranean      agricultural landscapes.
+- EuroAPPA returns information on flowering plants      visited by bees, including location and time of year.
+- The beekeeper uses EuroAPPA maps to identify periods      with high floral resource availability.- Local farmers inform the      beekeeper when and where spraying will occur
+- Beekeeping      association helps interpret EuroAPPA outputs and shares      experiences from other beekeepers using similar landscapes
+- Agronomists      facilitate communication between farmers and beekeepers.
+- Τhe beekeeper chooses hive locations and timing that      maximise forage and reduce exposure to agrochemicals.
+- The beekeeper adjusts future decisions based on      observed bee health and productivity.
+
+ 
+
+## Use Case 17 – PhD student working on almond pollination (Pilar)
+
+  
+ **Goal:** Address the question about the pollinator species he can expect to sample in an almond orchard located in an area with Mediterranean climate   
+ **Actors:** The PhD student and the advisors; members of the thesis jury (experts on pollinators); (if applicable) editor of the journal; (if applicable) peer reviewers  
+ **Resources:** EuroAPPA, literature on bee species in almonds; R for data analysis; word processing software for the thesis write-up; IA.  
+ **Steps:** (1) Download Mediterranean list of bee species; (2) Download data from EuroAPPA on bees and their host plant (almonds); (3) Perform his own sampling on almonds orchards (4) Assess coverage of the expected diversity and that found by him (5) Statistical analysis; (6) Discussion of results with thesis advisors; (7) Write up of the thesis; (8) Write up of a research paper (if appropriate).
+
+## Use Case 18 – A business wants to improve its corporate sustainability (Tom Breeze, VALOR project)
+
+  
+ **Goal**: The business wants to know which of its supplying growers is most at risk from pollinator decline and what the most effective solutions that they can support the grower to undertake are.
+
+**Resources**: Models to evaluating local plant-pollinator network diversity and resilience over time.
+
+**Actors**: The business’ sustainability team, growers and intermediaries (e.g. co-operatives)
+
+**Steps**: 
+
+1. The business identifies the location of farms in it’s supply chains on maps
+2. Using the Butterfly 5.2 and 5.3 tools, they draw polygons around the farms and select “crop pollination” targeting the key crops to get recommendations.
+3. They use a network analysis model (maybe something that can be built into the tools) to explore the network diversity of each farm, flagging those which have very low expected diversity.
+4. They use the recommendations from step 2 to target investment in pollinator conservation
+5. They repeat the process each year, exploring how their investments have improved the diversity of networks, with intermittent monitoring to confirm their projections.
+6. They can then report this as part of their corporate sustainability requirements
+
+## Use Case 19 - Pollinators in Ile-de-France gardens (Laura Maxime)
+
+  
+ **Goal:** A gardener/ local land manager  in Ile-de-France wants to know the best bee plants in their (private or public) garden. 
+
+Questions**:** What native plants should I grow to help local pollinators? 
+
+Which are the characteristics of those plants ? (space needed when the plant becomes adult, annual or perennial, flowering period, species of pollinators visiting that plant)
+
+  
+ **Actors:** 1) gardeners in Ile-de-France 2) garden NGOs 3) landscape managers in Ile-de-France (managing public spaces for local authorities) 4) plant sellers - nurseries
+
+  
+ **Resources:** Internet, in particular the Ile-de-France Living Lab website where access to EuroAPPA is provided
+
+  
+ **Steps:** 1) gardener identifies places in their garden where they could plant bee-friendly species 2) gardener goes on the Ile-de-France Living Lab web page to find the list of plants adapted to their place 3) gardener sends a message on the forum of the Ile-de-France Living Lab to find out whether someone else in the LL has seeds of those plants or can offer some adult plants 4) Also, gardener searches on the “boncoin” (a popular website in France allowing selling of second-hand products or of services) 5) Finally, gardener goes to the nursery buy plants they could not find elsewhere
+
+## Use Case 20 - Scientists wanting to know how we can assess completeness and FAIRness of European pollination datasets
+
+- **EuroAPPA use:** Use integrated data reviews and rarefaction analysis to evaluate data coverage across taxa, geography, and literature sources.
+
+  Goal
+
+  Actors
+
+  Resources
+
+  Steps
+
+## Use Case 21– Linking EuroAPPA Pollination Evidence to CGE-Based Resilience Scenarios (Elnaz)
+
+**Goal:**  
+ Translate EuroAPPA evidence on regional pollination decline into CGE-consistent productivity shocks for pollination-dependent crop sectors, and assess impacts on output, prices, and household welfare.
+
+**Actors:**  
+ CGE modelling team and project partners; ecologists providing pollinator decline scenarios; policy stakeholders.
+
+**Resources:**  
+ EuroAPPA interaction data and distribution maps; crop-specific pollination dependence coefficients; crop-to-sector concordance tables; Social Accounting Matrix (SAM) and CGE model.
+
+**Steps:**
+
+1. Use EuroAPPA to identify key crop–pollinator interactions by region.
+2. Retrieve crop-specific pollination dependence coefficients to quantify how pollination loss translates into yield or productivity effects.
+3. Derive vulnerability indicators and define pollination decline scenarios (e.g., 10% and 30% reductions).
+4. Translate ecological evidence into sector-level productivity shocks consistent with the CGE sectoral structure.
+5. Run baseline and decline scenarios and compare impacts on production, prices, and household welfare.
+6. Summarise results for stakeholders and report priority data gaps back to EuroAPPA.
+
+## 
+
+# Potential Use Case ideas that still need work: 
+
+## 
+
+## Use Case - Reporting on protected species where it might be sensitive to display spatial records
+
+**Goal**
+
+- **Question:** 
+- **EuroAPPA use:** 
+
+Actors
+
+Resources
+
+Steps
+
+## Use Case - a policymaker wants to encourage management that targets species in the EUPoMS’ Rare and Threatened Species list
+
+**Goal**
+
+- **Question:** 
+- **EuroAPPA use:** 
+
+Actors
+
+Resources
+
+Steps
+
+## Use Case - IPBES Global Assessment 
+
+Goal
+
+- **Question:** What European evidence exists on the decline of pollination interactions for the next global assessment?
+- **EuroAPPA use:** Export machine-readable datasets and summaries linking temporal interaction data with land-use change and climate models.
+
+Actors
+
+Resources
+
+Steps
+
+## 
+
+## Use Case - Documentary film maker wanting information about a particular plant or pollinator that they wish to feature
+
+Goal
+
+Actors
+
+Resources
+
+Steps
+
+## Use Case - Energy & Agriculture Policy Researcher (Butterfly WP4) (Jeroen/ Dehui)
+
+- **Question:** Which pollinators service rapeseed crops in Poland vs Germany vs France, and what are the vulnerabilities for bioenergy supply chains?
+- **EuroAPPA use:** Compare regional interaction datasets to identify key pollinators for Brassica napus and link them to land-use and pesticide datasets for risk assessment.
+
+**Goal**
+
+**Actors**
+
+**Resources**
+
+**Steps**
+
+## Use Case - Environmental Agency (e.g. European Environment Agency, EEA)
+
+- **Question:** How have plant–pollinator communities changed over time in Natura 2000 sites?
+- **EuroAPPA use:** Retrieve historical and contemporary interaction records to generate trend maps and indicators for inclusion in EU biodiversity and pollinator reports.
+
+Goal
+
+Actors
+
+Resources
+
+Steps
+
+![fungi-IMG_3380.jpg](.attachments.11403/fungi-IMG_3380.jpg)
+
+# **Invitation to provide a use case for EuroAPPA**  
+(email to invite a variety of stakeholders)
+
+**Subject line: Butterfly project action: Invitation to provide a use case for EuroAPPA**
+
+Dear …, 
+
+EuroAPPA will be a platform providing access to EU-wide pollination data and resources, developed as part of the project Butterfly. EuroAPPA is not a database per se, but will instead provide access and data reviews of multiple resources, including databases, from a single location. EuroAPPA will not be limited to the outputs of Butterfly, but provide access to previously existing resources as well. 
+
+We expect the capabilities of EuroAPPA to be:    
+
+- search and download pairwise interactions of plants and pollinators, including location and time (as in [GloBI](https://www.globalbioticinteractions.org))
+- search for evidence of effective pollination by different pollinators to wild and crop plants
+- produce interactive maps of pollination interactions in Europe
+- generate data reviews across databases with pollination information (including things like how many interactions have been recorded, where, when, the species involved, the source publications,…)
+
+**We are asking for your input in the form of example(s) on how you would use EuroAPPA in your work** (=a use case)**.** Preparing a use case should not take more than 10 minutes. 
+
+These use cases from diverse stakeholders will help us develop the best way to provide access to resources in EuroAPPA and what the interface should look like. Use cases can come from any potential user, from the general public to expert pollination scientists. Please use this simple format to prepare your use case(s):
+
+**Use Case title**  
+**Goal:**  
+**Actors:**  
+**Resources:**  
+**Steps:** 
+
+We provide two examples below. Please add as much detail as you like, and send it back to us by the start or the general meeting in Aarhus (Jan 28) OR bring it to the workshop we are running at the meeting on day one if you are attending (Jan 29m 4pm). 
+
+Also feel free to share this request with any members of your team who might be able to provide a use case. 
+
+We are happy to answer any questions. Many thanks! 
+
+The EuroAPPA team
+
+**Example Use Case - Citizen or Gardener**  
+
+**Goal:** Homeowners or renters (not specifically a gardener) want to know the best bee plants in their garden in Aarhus, Denmark. Question**:** What native plants should I grow to help local pollinators?
+
+**Actors:** 1) someone living in Aarhus, Denmark, with an interest in bee health. 2) expert organisations (e.g., wild garden NGOs or individuals, Claus R.) 3) plant sellers - nurseries
+
+**Resources:** the internet; a garden in Aarhus; webpage on the publication of a physical, nice-looking poster on bees by Claus, EuroAPPA.
+
+**Steps:** 1) home owner goes out and look at the garden in Aarhus 2) homeowner notice there's a lot of grass and concrete in their yard 3) homeowner identifies where to change the grass/concrete to get something else 4) homeowner searches the internet for "bee friendly garden" (in Danish, "bi-venlig have") 5) home owner finds Claus' name related to the published poster on bees 6) homeowner asks Claus to list plants that are bee friendly 7a) Claus suggests to go to the nursery, and observe which plants are visited by bees at the nursery (go and have a look). 7b) for skilled gardeners, Claus provides a detailed list of plants instead 7c) Claus suggests using EuroAPPA to search for local pollinator–plant interactions and distribution maps filtered by region, returning lists of species observed in the location and their host plants. 8) homeowners go to the nursery and buy the plants.
+
+**Example Use Case - A Honours/Master's student who wants data for their thesis**
+
+**Goal:** Address the following two questions: (1) How complete is the pollen host-plant coverage of bee species that are included in the most recent IUCN Red List: <https://iucn.org/press-release/202510/mounting-risks-threaten-survival-wild-european-pollinators-iucn-red-list> ? (2) Are certain pollen host types over- or under-represented in the list? __Prediction__: More specialised bees (i.e. monolectic species) will be over-represented.
+
+**Actors:** The Honour/Master's student and their thesis advisor(s); (if applicable) editor of the journal; (if applicable) peer reviewers
+
+**Resources:** Internet; EuroAPPA; IUCN Red List; literature on bee plant hosts; R for data analysis; word processing software for the thesis write-up
+
+**Steps**: (1) Download IUCN data on bees; (2) Download data from EuroAPPA on bees and their host plants; (3) Assess coverage of the downloaded data in relation to the IUCN data; (4) Assess the -lecty (i.e., pollen specificity - mono-/poly-lectic) of the bees in the IUCN List versus the -lecty for European bee species generally; (5) Statistical analysis; (6) Discussion of results with thesis advisor(s); (7) Write up of the thesis; (8) Write up of a research paper if appropriate.
+
+#### stakeholders invited to provide a use case, in preparation for January 2026 AGM
+
+ 1. May-Brith      Nielsen    [may-brith.o.nielsen@uia.no](mailto:may-brith.o.nielsen@uia.no)    
+ 2. Harry     Lawford    [harry.lawford@uib.no](mailto:harry.lawford@uib.no)    
+ 3. Scott    Bremer    [Scott.Bremer@uib.no](mailto:Scott.Bremer@uib.no)>    
+ 4. Anne    Jorunn Frøyen    [Anne.Jorunn.Froyen@jaermuseet.no](mailto:Anne.Jorunn.Froyen@jaermuseet.no)    
+ 5. Pilar    De la Rua    [pdelarua@um.es](mailto:pdelarua@um.es)    
+ 6. Vicente    Martinez    [vicente.ml289@gmail.com](mailto:vicente.ml289@gmail.com) 
+ 7. Annemarie    Dekker    [adekker@clm.nl](mailto:adekker@clm.nl)    
+ 8. Martin    Hvarregaard Thorsøe    [martinh.thorsoe@agro.au.dk](mailto:martinh.thorsoe@agro.au.dk)    
+ 9. Fabrice    Requier    [fabrice.requier@universite-paris-saclay.fr](mailto:fabrice.requier@universite-paris-saclay.fr)    
+10. Laura    Maxim    [laura.maxim@cnrs.fr](mailto:laura.maxim@cnrs.fr)    
+11. Paolo    Biella    [paolo.biella@unimib.it](mailto:paolo.biella@unimib.it)    
+12. Markus    Sydenham    [markus.sydenham@nina.no](mailto:markus.sydenham@nina.no)    
+13. Sara    Leonhardt    [sara.leonhardt@tum.de](mailto:sara.leonhardt@tum.de)    
+14. Ugo    Mendes Diniz    [ugo.diniz@tum.de](mailto:ugo.diniz@tum.de)   
+15. Aye    Myint    [aa.myint@tum.de](mailto:aa.myint@tum.de)  
+16. Kiril    Arsovski    [kiril.arsovski@outlook.com](mailto:kiril.arsovski@outlook.com)    
+17. Paco    Orozco    [Orozco.Melendez@uib.no](mailto:Orozco.Melendez@uib.no)    
+18. Laura    Drivdal    [Laura.Drivdal@uib.no](mailto:Laura.Drivdal@uib.no)  
+19. Mirella    Meittinen    [mirella.miettinen@uef.fi](mailto:mirella.miettinen@uef.fi)    
+20. Nicola    Gallai    [nicola.gallai@ensfea.fr](mailto:nicola.gallai@ensfea.fr)    
+21. Georgios    kleftodimos    [kleftodimos@iamm.fr](mailto:kleftodimos@iamm.fr)    
+22. Oliver    Schweiger    [oliver.schweiger@ufz.de](mailto:oliver.schweiger@ufz.de)    
+23. Ali    Hosseini    [Seyed_Ali.Hosseini_Yekani@zalf.de](mailto:Seyed_Ali.Hosseini_Yekani@zalf.de)    
+24. George    Vlontzos    [gvlontzos@uth.gr](mailto:gvlontzos@uth.gr)    
+25. Michal    Filipiak    [michal0filipiak@gmail.com](mailto:michal0filipiak@gmail.com)    
+26. Zuzanna    Filipiak    [zuzanna.filipiak@uj.edu.pl](mailto:zuzanna.filipiak@uj.edu.pl)    
+27. Ivan    Meeus    [Ivan.Meeus@UGent.be](mailto:Ivan.Meeus@UGent.be)    
+28. Robin    Weijers    <[info@robin-artwork.com](mailto:info@robin-artwork.com)>    
+29. Lorenzo    Benini    [Lorenzo.Benini@eea.europa.eu](mailto:Lorenzo.Benini@eea.europa.eu)    

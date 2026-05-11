@@ -1,0 +1,20 @@
+<https://preston.guoda.bio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#SoftwareAgent> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<https://preston.guoda.bio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Agent> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<https://preston.guoda.bio> <http://purl.org/dc/terms/description> "Preston is a software program that finds, archives and provides access to biodiversity datasets."@en <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Activity> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> <http://purl.org/dc/terms/description> "Drivdal et al. (2025). D9.1 Data Management Plan – Version 1"@en <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> <http://www.w3.org/ns/prov#startedAtTime> "2026-05-11T12:27:24.273Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> <http://www.w3.org/ns/prov#wasStartedBy> <https://preston.guoda.bio> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<https://doi.org/10.5281/zenodo.1410543> <http://www.w3.org/ns/prov#usedBy> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<https://doi.org/10.5281/zenodo.1410543> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/dcmitype/Software> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<https://doi.org/10.5281/zenodo.1410543> <http://purl.org/dc/terms/bibliographicCitation> "Jorrit Poelen, Icaro Alzuru, & Michael Elliott. 2018-2026. Preston: a biodiversity dataset tracker (Version 0.11.6@46d0c123db0240a2f88a5c0084b10a1527affc30) [Software]. Zenodo. https://doi.org/10.5281/zenodo.1410543"@en <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<urn:uuid:0659a54f-b713-4f86-a917-5be166a14110> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<urn:uuid:0659a54f-b713-4f86-a917-5be166a14110> <http://purl.org/dc/terms/description> "A biodiversity dataset graph archive."@en <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<hash://sha256/5f6063f3612e1efe174777c641ca8398926fc697eebe7762f397aaca62f15799> <http://www.w3.org/ns/prov#usedBy> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> .
+<hash://sha256/9de545a7b62157af2ad2dd255700c2d22b8ec8c6a72a38bbe11db37a4734935f> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> <urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> .
+<hash://sha256/9de545a7b62157af2ad2dd255700c2d22b8ec8c6a72a38bbe11db37a4734935f> <http://www.w3.org/ns/prov#qualifiedGeneration> <urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> <urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> .
+<urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> <http://www.w3.org/ns/prov#generatedAtTime> "2026-05-11T12:27:28.087Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> <urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> .
+<urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Generation> <urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> .
+<urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> <http://www.w3.org/ns/prov#wasInformedBy> <urn:uuid:c5670ef9-b197-4d38-86b8-445a566d551f> <urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> .
+<urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> <http://www.w3.org/ns/prov#used> <https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf> <urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> .
+<https://butterfly-europe.eu/en/wp-content/uploads/2025/09/Butterfly_D9pnt1_DMP_final.pdf> <http://purl.org/pav/hasVersion> <hash://sha256/9de545a7b62157af2ad2dd255700c2d22b8ec8c6a72a38bbe11db37a4734935f> <urn:uuid:6031e813-b2fb-44d5-a9e9-8582278ebfe6> .

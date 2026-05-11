@@ -1,0 +1,20 @@
+<https://preston.guoda.bio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#SoftwareAgent> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<https://preston.guoda.bio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Agent> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<https://preston.guoda.bio> <http://purl.org/dc/terms/description> "Preston is a software program that finds, archives and provides access to biodiversity datasets."@en <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Activity> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> <http://purl.org/dc/terms/description> "Snapshot of EuroAPPA use cases"@en <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> <http://www.w3.org/ns/prov#startedAtTime> "2026-05-11T12:27:39.132Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> <http://www.w3.org/ns/prov#wasStartedBy> <https://preston.guoda.bio> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<https://doi.org/10.5281/zenodo.1410543> <http://www.w3.org/ns/prov#usedBy> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<https://doi.org/10.5281/zenodo.1410543> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/dcmitype/Software> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<https://doi.org/10.5281/zenodo.1410543> <http://purl.org/dc/terms/bibliographicCitation> "Jorrit Poelen, Icaro Alzuru, & Michael Elliott. 2018-2026. Preston: a biodiversity dataset tracker (Version 0.11.6@46d0c123db0240a2f88a5c0084b10a1527affc30) [Software]. Zenodo. https://doi.org/10.5281/zenodo.1410543"@en <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<urn:uuid:0659a54f-b713-4f86-a917-5be166a14110> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<urn:uuid:0659a54f-b713-4f86-a917-5be166a14110> <http://purl.org/dc/terms/description> "A biodiversity dataset graph archive."@en <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<hash://sha256/dea1492db858d613f1fdc1583aef30afcaa254291186fe3ac1163653e7db9715> <http://www.w3.org/ns/prov#usedBy> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> .
+<hash://sha256/5e68cedd641c6aec64f58ca68042c6081ffea05f1e22e567f886a2ec50e326ff> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> <urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> .
+<hash://sha256/5e68cedd641c6aec64f58ca68042c6081ffea05f1e22e567f886a2ec50e326ff> <http://www.w3.org/ns/prov#qualifiedGeneration> <urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> <urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> .
+<urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> <http://www.w3.org/ns/prov#generatedAtTime> "2026-05-11T12:27:40.682Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> <urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> .
+<urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Generation> <urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> .
+<urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> <http://www.w3.org/ns/prov#wasInformedBy> <urn:uuid:b77aea55-7c4f-419d-8181-041bb1948dad> <urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> .
+<urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> <http://www.w3.org/ns/prov#used> <https://cloud.butterfly-europe.eu/public.php/dav/files/gdtwJsfTddCXd85/> <urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> .
+<https://cloud.butterfly-europe.eu/public.php/dav/files/gdtwJsfTddCXd85/> <http://purl.org/pav/hasVersion> <hash://sha256/5e68cedd641c6aec64f58ca68042c6081ffea05f1e22e567f886a2ec50e326ff> <urn:uuid:7bdb22ab-d65b-4b3b-982c-ff34633906d2> .
