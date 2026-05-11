@@ -40,7 +40,7 @@ Sara Reverté Saiz, Denis Michez, Jordan Benrezkallah. (2024) WildPosh D8.3 Init
 
 Rubinigg M (2026) PollinERA Deliverable - D7.1 Data Management Plan. ARPHA Preprints. [https://doi.org/10.3897/arphapreprints.e194245](https://doi.org/10.3897/arphapreprints.e194245)
 
- 
+Dimitry Wintermantel, Amibeth Thompson, Felix Fornoff, Sara Leonhardt, Paula Prucker, Zehra Basaran, Georgios Kleftodimos, Georg Andersson, Maj Rundlöf, Oliver Schweiger, Nicola Gallai, Martin Thorsøe, Annie Ouin, Remco Ploeg, Lynn Dicks, Tom Breeze (2024) Restpoll DMP Deliverable D7.2 Restpoll DMP [https://restpoll.eu/project_publications/data-management-plan-1-2/](https://restpoll.eu/project_publications/data-management-plan-1-2/). 
 
 # Use Cases
 
