@@ -155,7 +155,7 @@ from 2026-05-11 slides by Tom Breeze on Cross-project coordination.
  
 [VALOR](https://cordis.europa.eu/project/id/101181169) - see [synergy meeting notes](https://docs.google.com/document/d/1kMT17tVcH-hU1dBYdEbIoYHyELvNHpwPH9WoLwefqNI/edit?usp=sharing)
 
-[Epic Bee](https://epic-pollinators.com/epic-bee/) European Pollinator Identification Courses  
+[Epic Bee](https://epic-pollinators.com/epic-bee/) European Pollinator Identification Courses . "[...] The European Pollinator Identification Courses (EPIC) is a two-year project funded by the Directorate-General for Environment of the European Commission. Its primary objective is to enhance knowledge of pollinator identification and sampling across the 27 EU Member States. [...]" 
 
 [Big Bee](https://big-bee.net) see also [GloBI's Big Bee Page](https://globalbioticinteractions.org/bigbee). 
 
