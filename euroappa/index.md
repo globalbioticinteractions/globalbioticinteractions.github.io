@@ -34,6 +34,14 @@ Drivdal, L. , Poelen, J.H., Balaine, L., Miettinen, M., Diniz, U. M., Balfour, N
 
 Associated meeting notes at ~~Google Docs (live copy)~~ with versioned copies at [dmp-notes.pdf](./dmp-notes.pdf) and [dmp-notes](./dmp-notes).
 
+## Related DMPs
+
+Sara Reverté Saiz, Denis Michez, Jordan Benrezkallah. (2024) WildPosh D8.3 Initial Data Management Plan [https://wildposh.eu/storage/app/uploads/public/695/f9d/54b/695f9d54b6964080341628.pdf#file_name=D8.3.pdf](https://wildposh.eu/storage/app/uploads/public/695/f9d/54b/695f9d54b6964080341628.pdf#file_name=D8.3.pdf)  
+
+Rubinigg M (2026) PollinERA Deliverable - D7.1 Data Management Plan. ARPHA Preprints. [https://doi.org/10.3897/arphapreprints.e194245](https://doi.org/10.3897/arphapreprints.e194245)
+
+ 
+
 # Use Cases
 
 A versioned snapshot of EuroAPPA associated use cases (under development!) are available at [use-cases](./use-cases). 
@@ -130,6 +138,10 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 {% endfor %}
 
 # Related Initiatives
+
+from 2026-05-11 slides by Tom Breeze on Cross-project coordination.
+
+![horizon cross-project 2026-05-11](assets/pollinator-cross-project-tom-breeze-2026-05-11.png)
 
 [Agri4Pol](https://restpoll.eu/project-agri4pol-is-promoting-sustainable-agriculture-for-pollinators-in-collaboration-with-restpoll/) - "[...] A key goal of AGRI4POL is to explore the interactions between pollinators, crops* (varieties, rotations, systems) and landscapes. [...]" 
 
