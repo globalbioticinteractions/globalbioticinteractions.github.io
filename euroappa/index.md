@@ -155,6 +155,8 @@ from 2026-05-11 slides by Tom Breeze on Cross-project coordination.
  
 [VALOR](https://cordis.europa.eu/project/id/101181169) - see [synergy meeting notes](https://docs.google.com/document/d/1kMT17tVcH-hU1dBYdEbIoYHyELvNHpwPH9WoLwefqNI/edit?usp=sharing)
 
+[Epic Bee](https://epic-pollinators.com/epic-bee/) European Pollinator Identification Courses  
+
 [Big Bee](https://big-bee.net) see also [GloBI's Big Bee Page](https://globalbioticinteractions.org/bigbee). 
 
 [WorldFAIR WP10 on Agricultural Biodiversity](https://globalbioticinteractions.org/worldfair) - The WorldFAIR Case Study on Agricultural Biodiversity (WP10) addresses the challenges of advancing interoperability and mobilising plant-pollinator interactions data for reuse.  
