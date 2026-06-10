@@ -89,6 +89,8 @@ Click on badges to browse/download indexed records or inspect automated reviews.
 
 # Related
 
+SPUN - [https://www.spun.earth/](https://www.spun.earth) - Fungi support much of life on Earth. SPUN is a scientific research organization founded to map mycorrhizal fungal communities and advocate for their protection.
+
 Species interactions in tree-fungus systems - [https://mariashumskaya.com/connect-at-the-2026-meeting-on-tree-fungus-species-interactions/](https://mariashumskaya.com/connect-at-the-2026-meeting-on-tree-fungus-species-interactions/) - A four‑day meeting centered on wood ecology, with a particular focus on species interactions within tree–fungus systems. This mini‑symposium brings together leading experts to synthesize the current state of the field, highlight emerging research frontiers, and establish new opportunities for networking and collaboration.  
 
 Dead Wood Course 2026 led by Dmitry Schigel [https://adlignum.com/dead-wood-course-2026-forma-iberica](https://adlignum.com/dead-wood-course-2026-forma-iberica)
