@@ -36,7 +36,7 @@ MicrobeNet^Net
 
  **2026-02-26** - Published an experimental MicrobeNetNet data review corpus following the MicrobeNetNet General Meeting showing how heterogeneous datasets can be versioned and integrated as a unified data corpus for review and data exploration. The initial focus in on dataset describing species interactions. Poelen, J. H. (2026). MicrobeNetNet Dataset Review Corpus and Associated Data Products hash://md5/5981a37a16c25204dc18d9188f185b19 hash://sha256/7448991edd5f79db02519a5b3d4691c50a60c02f45d40f087402a7a492da3a3e [Data set]. Zenodo. [https://doi.org/10.5281/zenodo.18794828](https://doi.org/10.5281/zenodo.18794828).
 
- **2026-02-26** - Ben Sikes created [MicrobeNetNet #tracking-databases](https://app.slack.com/client/T068C6GQ1MW/C0AH89QFH9T) channel to facilitate the sharing 
+ **2026-02-26** - Ben Sikes created [MicrobeNetNet #tracking-databases](https://app.slack.com/client/T068C6GQ1MW/C0AH89QFH9T) channel to facilitate discussion around databases and datasets relevant to MicrobetNetNet goals.
 
 # Dataset Review
 
