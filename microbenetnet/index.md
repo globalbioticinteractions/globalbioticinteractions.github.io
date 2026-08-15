@@ -38,6 +38,8 @@ MicrobeNet^Net
 
  **2026-02-26** - Ben Sikes created [MicrobeNetNet #tracking-databases](https://app.slack.com/client/T068C6GQ1MW/C0AH89QFH9T) channel to facilitate discussion around databases and datasets relevant to MicrobetNetNet goals.
 
+ **2026-08-14** - Publish a new version of MicrobeNetNet data review corpus as part of NSF report message input - Poelen, J. H. (2026). MicrobeNetNet Dataset Review Corpus and Associated Data Products hash://md5/5981a37a16c25204dc18d9188f185b19 hash://sha256/7448991edd5f79db02519a5b3d4691c50a60c02f45d40f087402a7a492da3a3e [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.21940611 .
+
 # Dataset Review
 
 To help better understand existing fungal-plant interaction datasets, MicroNet^Net aims to better connect and use these existing datasets. The list below contains the list of dataset selected for review.
