@@ -116,7 +116,7 @@ var csvDownloadLink = function(search) {
     	includeObservations: true, 
     	fields: fields
     });
-    return globiData.urlForTaxonInteractionQuery(downloadSearch);
+    return globiData.urlForTaxonInteractionQuery(downloadSearch).replace('interaction.csv','interaction');
 }
 
 
