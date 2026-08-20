@@ -265,7 +265,7 @@
         a.setAttribute('target', '_blank');
         a.setAttribute('title', 'indexed interaction records');
         var img = a.appendChild(document.createElement('img'));
-        img.setAttribute('src', 'https://api.globalbioticinteractions.org/interaction.svg' + defaultQuery);
+        img.setAttribute('src', globiWeb.globi.globiData.urlForTaxonInteractionQuery('').split('?')[0] + defaultQuery + "&type=svg");
 
     };
 
