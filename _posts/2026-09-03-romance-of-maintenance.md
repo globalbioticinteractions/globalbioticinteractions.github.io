@@ -36,7 +36,7 @@ In August 2026, after many years of using trusty, stable versions of core softwa
 
 After making the decision to move forward on GloBI's tech renovation, many frustrating hours were spent on upgrading existing code to align with these newer third party software versions, all while keeping the existing functionality in place. Figure 2. provided a little peek into the days and days spent updating code, running test, updating code, running test, and start again all while listening to ["Upgrade U"](https://en.wikipedia.org/wiki/Upgrade_U) by Beyoncé on repeat.
 
-And, GloBI and other projects can re-use this incredible work at no cost thanks to their open source licenses and open accessiblity. This is no small feat, especially considering that the open source movement was started not so long ago in the late 1990s and is now widely adopted across industry, academia and independents.
+And, GloBI and other projects can re-use these invaluable newer third party software versions at no cost thanks to their open source licenses and open accessiblity. This is no small feat, especially considering that the open source movement was started not so long ago in the late 1990s and is now widely adopted across industry, academia and independents.
 
 This summer's renovation seems to support the claim that GloBI's design, underlying technologies and associated vibrant open source software communities continue to facilitate discovery of species interaction data at a relatively mundane cost even in a rapidly changing technology landscape. 
 
