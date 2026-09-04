@@ -19,9 +19,9 @@ In Stewart Brand's 1994 book "How Buildings Learn: What Happens to Buildings Aft
  
 > "A building is like a living thing \[...\] and it needs maintaining. If it is done a little bit and often, it'll be great, but if it is left for thirty years and then someone panics \[...\] it may be cheaper to knock it down and rebuild it." 
 
-Much like houses, software needs constant maintenance to sustain their continued use. And, in this blog post, I'll discuss some aspects of the "Romance of Software Maintenance" in that ... there is none. 
+Much like buildings, software needs constant maintenance to sustain their continued use. And, in this blog post, I'll discuss some aspects of the "Romance of Software Maintenance" in that ... there is none. 
 
-From its inception in 2013, the aim of Global Biotic Interactions (GloBI) was to discover and explore existing species interaction data while keeping the operating costs down and facilitate maintenance and improvement. Some guiding principles are: (1) Reduce costs by reusing, and building on, open source software that runs on commodity hardware. (2) Increase maintainability by automating tests that check functionality of GloBI software tools. And, (3) enable reproducibility by versioning datasets and automating workflows using versioned software.
+From its inception in 2013, the aim of Global Biotic Interactions (GloBI, <a href="#3">[3]</a>) was to discover and explore existing species interaction data while keeping the operating costs down and facilitate maintenance and improvement. Some guiding principles are: (1) Reduce costs by reusing, and building on, open source software that runs on commodity hardware. (2) Increase maintainability by automating tests that check functionality of GloBI software tools. And, (3) enable reproducibility by versioning datasets and automating workflows using versioned software.
 
 Most times, maintenance and improvements are relatively small and incremental: perhaps similar to a new splash of paint, cleaning a window or patching a hole in a wall. Sometimes, more elaborate work is needed to ensure continued functioning: a new roof, adding a bedroom or fixing the foundation.
 
@@ -51,3 +51,5 @@ Big thanks to [Deb Paul](https://orcid.org/0000-0003-2639-7520) for referencing 
 <a name="1"></a>[1] Brand, Stuart (1994) How Buildings Learn: What Happens After They're Built. Viking Press. ISBN 978-0-670-83515-7.
 
 <a name="2"></a>[2] Brand, Stuart (1997) How Buildings Learn. TV Series. British Broadcasting Coorporation (BBC). Accessed on 2026-09-03 at [https://youtu.be/j_dozoqw4To](https://youtu.be/j_dozoqw4To).
+
+<a name="3"></a>[3] Jorrit H. Poelen, James D. Simons and Chris J. Mungall. (2014). Global Biotic Interactions: An open infrastructure to share and analyze species-interaction datasets. Ecological Informatics. [https://doi.org/10.1016/j.ecoinf.2014.08.005](https://doi.org/10.1016/j.ecoinf.2014.08.005). 
