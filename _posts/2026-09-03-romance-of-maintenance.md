@@ -44,12 +44,12 @@ The question now is: who's going to pay for GloBI's recent tech renovation that 
 
 ## Acknowledgments
 
-Big thanks to [Deb Paul](https://orcid.org/0000-0003-2639-7520) for referencing "How Buildings Learn" by Stuart Brand some years ago.  
+Big thanks to [Deb Paul](https://orcid.org/0000-0003-2639-7520) for referencing "How Buildings Learn" by Stewart Brand some years ago.  
 
 ## References 
 
-<a name="1"></a>[1] Brand, Stuart (1994) How Buildings Learn: What Happens After They're Built. Viking Press. ISBN 978-0-670-83515-7.
+<a name="1"></a>[1] Brand, Stewart (1994) How Buildings Learn: What Happens After They're Built. Viking Press. ISBN 978-0-670-83515-7.
 
-<a name="2"></a>[2] Brand, Stuart (1997) How Buildings Learn. TV Series. British Broadcasting Coorporation (BBC). Accessed on 2026-09-03 at [https://youtu.be/j_dozoqw4To](https://youtu.be/j_dozoqw4To).
+<a name="2"></a>[2] Brand, Stewart (1997) How Buildings Learn. TV Series. British Broadcasting Coorporation (BBC). Accessed on 2026-09-03 at [https://youtu.be/j_dozoqw4To](https://youtu.be/j_dozoqw4To).
 
 <a name="3"></a>[3] Jorrit H. Poelen, James D. Simons and Chris J. Mungall. (2014). Global Biotic Interactions: An open infrastructure to share and analyze species-interaction datasets. Ecological Informatics. [https://doi.org/10.1016/j.ecoinf.2014.08.005](https://doi.org/10.1016/j.ecoinf.2014.08.005). 
