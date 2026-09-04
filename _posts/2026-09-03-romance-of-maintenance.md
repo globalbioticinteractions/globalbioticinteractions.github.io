@@ -40,12 +40,14 @@ And, GloBI and other projects can re-use these invaluable newer third party soft
 
 This summer's renovation seems to support the claim that GloBI's design, underlying technologies and associated vibrant open source software communities continue to facilitate discovery of species interaction data at a relatively mundane cost even in a rapidly changing technology landscape. 
 
-The question now is: who's going to pay for GloBI's recent tech renovation that no one asked for? I'd like to believe that the renovation will pay for itself in its continued use. Only time will tell...  
+The question now is: who's going to pay for GloBI's recent tech renovation that no one asked for? I'd like to believe that the renovation will pay for itself in its continued use. Only time will tell... 
+
+## Acknowledgments
+
+Big thanks to [Deb Paul](https://orcid.org/0000-0003-2639-7520) for referencing "How Buildings Learn" by Stuart Brand some years ago.  
 
 ## References 
 
 <a name="1"></a>[1] Brand, Stuart (1994) How Buildings Learn: What Happens After They're Built. Viking Press. ISBN 978-0-670-83515-7.
 
 <a name="2"></a>[2] Brand, Stuart (1997) How Buildings Learn. TV Series. British Broadcasting Coorporation (BBC). Accessed on 2026-09-03 at [https://youtu.be/j_dozoqw4To](https://youtu.be/j_dozoqw4To).
-
-
