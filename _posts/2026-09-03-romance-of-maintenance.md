@@ -10,14 +10,14 @@ status: unlisted
 [![CC0](/assets/cc-zero.svg)](https://creativecommons.org/public-domain/cc0/)
 
 
-In Stewart Brand's 1994 book "How Buildings Learn: What Happens to Buildings After They're Built" <a href="#1">[1]</a>, he discusses how building design as well as maintenance ethos impacts the ability for buildings to survive. Episode five of six, "The Romance of Maintenance" of the associated 1997 BBC TV Series, emphasizes the unglamorous, yet important, role of building maintenance.
+In Stewart Brand's 1994 book "How Buildings Learn: What Happens to Buildings After They're Built" <a href="#1">[1]</a>, he discusses how building design, as well as maintenance ethos, impacts the ability for buildings to survive. Episode five of six, "The Romance of Maintenance" of the associated 1997 BBC TV Series, emphasizes the unglamorous, yet important, role of building maintenance.
 
 <div id="figure1" class="figure figure-globi right">
   <a href="https://youtu.be/j_dozoqw4To?t=417"><img src="/assets/how-buildings-learn-maintenance-person-still.png" alt=""/></a>
     <div class="figcaption"><em>Figure 1.</em> Still From "How Buildings Learn - Stewart Brand - 5 of 6 - “The Romance of Maintenance”" around 6m57s while interviewing a maintenance engineer. Accessed on 2026-09-03. <a href="#2">[2]</a> .</div>
 </div>
  
-> "A building is like a living thing \[...\] and it needs maintaining. If it is done a little bit and often it'll be great, but if it is left for thirty years and then someone panics \[...\] it may be cheaper to knock it down and rebuild it."
+> "A building is like a living thing \[...\] and it needs maintaining. If it is done a little bit and often, it'll be great, but if it is left for thirty years and then someone panics \[...\] it may be cheaper to knock it down and rebuild it."
 
 Much like houses, software needs constant maintenance to sustain their continued use. And, in this blog post, I'll discuss some aspects of the "Romance of Software Maintenance" in that ... there is none. 
 
