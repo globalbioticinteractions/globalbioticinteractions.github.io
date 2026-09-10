@@ -8,7 +8,7 @@ status: unlisted
 
 [![](assets/microbenetnet-logo.png)](https://microbenetwork.net)
 
-<a href="https://scholia.toolforge.org/event/Q134609359"><img src="../assets/favicon_cache/scholia.png" style="height:1.3em"></a>
+<a href="https://qlever.scholia.wiki/event/Q134609359"><img src="../assets/favicon_cache/scholia.png" style="height:1.3em"></a>
 <a href="https://www.wikidata.org/wiki/Q134609359"><img src="../assets/favicon_cache/wikidata.ico" style="height:1.3em"></a>
 
 [edit](https://github.com/globalbioticinteractions/globalbioticinteractions.github.io/edit/main/microbenetnet/index.md) / [contact via GitHub](https://github.com/globalbioticinteractions/globalbioticinteractions/issues/new?title=about%20MicrobeNetNet%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2FMicrobeNet^Net%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D) / [contact via email](mailto:microbenetnet@globalbioticinteractions.org?subject=about%20MicrobeNetNet%20.%20.%20.%20&body=HI%21%0A%0AI%20noticed%20your%20page%20at%20https%3A%2F%2Fglobalbioticinteractions.org%2Fmicrobenetnet%20and%20I%27d%20like%20to%20...%0A%0AThanks%2C%0A%5Byour%20name%5D)
@@ -28,7 +28,7 @@ MicrobeNet^Net
 
  **2025-05-29** - Holly Andres documents 2025 MicrobeNet^Net Colloquium by publishing: Sikes, B., Classen, A., Kivlin, S., Zanne, A., & Holly Andres. (2025). 2025 MicrobeNet^Net Colloquium. 2025 MicrobeNet^Net Colloquium, Knoxville, TN. Zenodo. [https://doi.org/10.5281/zenodo.15547951](https://doi.org/10.5281/zenodo.15547951)
 
- **2025-05-30** - Daniel Mietchen publishes "2025 MicrobeNet^Net Colloquium" [https://scholia.toolforge.org/event/Q134609359](https://scholia.toolforge.org/event/Q134609359) and [https://www.wikidata.org/wiki/Q134609359](https://www.wikidata.org/wiki/Q134609359) including references to colloquium participants based on Sikes et al. 2025. [doi:10.5281/zenodo.15547951](https://doi.org/10.5281/zenodo.15547951).
+ **2025-05-30** - Daniel Mietchen publishes "2025 MicrobeNet^Net Colloquium" [https://qlever.scholia.wiki/event/Q134609359](https://scholia.toolforge.org/event/Q134609359) and [https://www.wikidata.org/wiki/Q134609359](https://www.wikidata.org/wiki/Q134609359) including references to colloquium participants based on Sikes et al. 2025. [doi:10.5281/zenodo.15547951](https://doi.org/10.5281/zenodo.15547951).
 
  **2025-06-11** - Follow-up meeting exploring research questions related AMF (Arbuscular Mycorrhizal Fungi) and fine root traits of their host plants using FRED and MaarjAM data. Rolling meeting notes at: [https://docs.google.com/document/d/1NIx1X24DW-z5e-MzNbNOccld1OTqO-ojYfwnDfw6lQA/edit?tab=t.0#heading=h.w7heqg8icqx8](https://docs.google.com/document/d/1NIx1X24DW-z5e-MzNbNOccld1OTqO-ojYfwnDfw6lQA/edit?tab=t.0#heading=h.w7heqg8icqx8) . 
 
