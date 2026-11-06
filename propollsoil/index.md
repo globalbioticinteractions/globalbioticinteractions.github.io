@@ -39,6 +39,8 @@ WP2 meets every 3rd Thursday of the month at 2pm Central European Time [meeting 
 
 **2 April 2026** - Jeff Ollerton solicits help on uncovering the hidden lives of Europe's ground nesting bees in https://jeffollerton.co.uk/2026/04/02/help-us-uncover-the-hidden-lives-of-europes-ground-nesting-bees/
 
+**2-3 Nov 2026** - Virtual Data Literacy Workshop sessions on data concepts, tools, versioning and tables. See [https://codeberg.org/jhpoelen/data-literacy-workbench](https://codeberg.org/jhpoelen/data-literacy-workbench) for CC0 licensed workshop material.  
+
 # Data Management Plan 
 
 See the (private) https://github.com/ProPollSoil/data-management-plan for details in the data management plan. 
